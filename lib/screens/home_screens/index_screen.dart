@@ -16,11 +16,6 @@ class IndexScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),).tr(),
-            const Text("Services_title", style: TextStyle(
-              fontFamily: 'Cerebri Sans Regular',
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),).tr(),
           ],
         ),
       )
