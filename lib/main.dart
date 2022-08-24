@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:mister_jobby/screens/home_screens/worranties_screen/helpline_screen.dart';
 
 
 import './helpers/routes.dart';
@@ -134,6 +135,7 @@ class MyApp extends StatelessWidget {
       routes: {
         MyRoutes.HOMETABROUTE: (ctx) => const MyHomeBottomTabScreen(),
         MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
+        MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
       },
     );
   }

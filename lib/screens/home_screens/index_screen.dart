@@ -125,7 +125,9 @@ class IndexScreen extends StatelessWidget {
                     height: 15,
                   ),
                   WarrantiesListTiles(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigator.pushNamed(MyRoutes.HELPLINEROUTE);
+                    },
                     title: "Helpline",
                     leadingIcon: Icons.phone_outlined,
                     subTitle: "Helpline_Subtitle",
