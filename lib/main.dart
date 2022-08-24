@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/helpers/routes.dart';
-import 'package:mister_jobby/screens/home_screens/search_screen.dart';
 
-import './screens/home_tabs_screen.dart';
+
+import './helpers/routes.dart';
+import './screens/home_screens/search_screen.dart';
+import './screens/home_screens/home_tabs_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -127,7 +128,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: MyRoutes.HOMETABROUTE,
       routes: {
-        MyRoutes.HOMETABROUTE: (ctx) => const MyHomeScreen(),
+        MyRoutes.HOMETABROUTE: (ctx) => const MyHomeBottomTabScreen(),
         MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
       },
     );
