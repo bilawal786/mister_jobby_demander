@@ -8,7 +8,12 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Search_Hint_Text", style: Theme.of(context).textTheme.titleMedium,).tr(),),
+      body: Center(
+        child: Text(
+          "Search_Hint_Text",
+          style: Theme.of(context).textTheme.titleMedium,
+        ).tr(),
+      ),
     );
   }
 }
