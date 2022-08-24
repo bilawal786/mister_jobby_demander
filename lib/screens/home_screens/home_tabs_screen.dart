@@ -16,60 +16,127 @@ class MyHomeBottomTabScreen extends StatefulWidget {
 
 class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
   int pageIndex = 0;
-  List<Widget> _tabsOptions = const [
-    IndexScreen(),
-    JobsScreen(),
-    MessagesScreen(),
-    AccountsScreen(),
-  ];
+
+  final PageStorageBucket bucket = PageStorageBucket();
+  Widget currentScreen = const IndexScreen();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          body: _tabsOptions.elementAt(pageIndex),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (newIndex) => setState(() {
-            pageIndex = newIndex;
-          }),
-          currentIndex: pageIndex,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.black,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: const Icon(
+      body: PageStorage(
+        bucket: bucket,
+        child: currentScreen,
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 25,
+        child: SizedBox(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              bottomTabBarItem(
+                () {
+                  setState(() {
+                    currentScreen =
+                        const IndexScreen(); // if user taps on this dashboard tab will be active
+                    pageIndex = 0;
+                  });
+                },
                 Icons.home_filled,
+                "Index_Page_Label".tr(),
+                0,
               ),
-              label: "Index_Page_Label".tr(),
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(
+              bottomTabBarItem(
+                () {
+                  setState(() {
+                    currentScreen =
+                        const JobsScreen(); // if user taps on this dashboard tab will be active
+                    pageIndex = 1;
+                  });
+                },
                 Icons.work_history_outlined,
+                "Jobs_Page_Label".tr(),
+                1,
               ),
-              label: "Jobs_Page_Label".tr(),
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(
+              SizedBox(
+                height: 50,
+                width: 50,
+                child: FloatingActionButton(
+                  elevation: 0,
+                  onPressed: () {},
+                  child: const Icon(
+                    Icons.add,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              bottomTabBarItem(
+                () {
+                  setState(() {
+                    currentScreen =
+                        const MessagesScreen(); // if user taps on this dashboard tab will be active
+                    pageIndex = 2;
+                  });
+                },
                 Icons.message_outlined,
+                "Message_Page_Label".tr(),
+                2,
               ),
-              label: "Message_Page_Label".tr(),
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(
+              bottomTabBarItem(
+                () {
+                  setState(() {
+                    currentScreen =
+                        const AccountsScreen(); // if user taps on this dashboard tab will be active
+                    pageIndex = 3;
+                  });
+                },
                 Icons.person_outline,
+                "Account_Page_Label".tr(),
+                3,
               ),
-              label: "Account_Page_Label".tr(),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
+    );
+  }
+
+  Widget bottomTabBarItem(
+      Function onTap, IconData iconData, String title, int index) {
+    return Expanded(
+      child: MaterialButton(
+        minWidth: 40,
+        onPressed: () {
+          onTap();
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              iconData,
+              size: 25,
+              color: pageIndex == index
+                  ? Colors.black
+                  : Theme.of(context).iconTheme.color,
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.w900,
+                color: pageIndex == index
+                    ? Colors.black
+                    : Theme.of(context).iconTheme.color,
+              ),
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(
-            Icons.add,
-            size: 30,
-            color: Colors.white,
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      ),
     );
   }
 }
