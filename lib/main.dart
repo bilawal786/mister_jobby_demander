@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
 import './providers/categories_provider/main_categories_provider.dart';
+import './screens/splash_screen/splash_screen.dart';
 import './screens/home_screens/search_screen.dart';
 import './screens/home_screens/home_tabs_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
@@ -138,8 +139,9 @@ class MyApp extends StatelessWidget {
             textTheme: ButtonTextTheme.normal,
           ),
         ),
-        initialRoute: MyRoutes.HOMETABROUTE,
+        initialRoute: MyRoutes.SPLASHROUTE,
         routes: {
+          MyRoutes.SPLASHROUTE: (ctx) => const SplashScreen(),
           MyRoutes.HOMETABROUTE: (ctx) => const MyHomeBottomTabScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),

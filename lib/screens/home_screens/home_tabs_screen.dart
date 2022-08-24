@@ -123,19 +123,17 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                   ? Colors.black
                   : Theme.of(context).iconTheme.color,
             ),
-            FittedBox(
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w900,
-                  fontFamily: 'Cerebri Sans Regular',
-                  color: pageIndex == index
-                      ? Colors.black
-                      : Theme.of(context).iconTheme.color,
-                ),
-              ).tr(),
-            ),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w900,
+                fontFamily: 'Cerebri Sans Regular',
+                color: pageIndex == index
+                    ? Colors.black
+                    : Theme.of(context).iconTheme.color,
+              ),
+            ).tr(),
           ],
         ),
       ),

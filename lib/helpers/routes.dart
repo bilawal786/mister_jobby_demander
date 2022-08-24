@@ -1,5 +1,6 @@
 class MyRoutes{
-  static String HOMETABROUTE = '/';
+  static String SPLASHROUTE = '/';
+  static String HOMETABROUTE = '/Home-Screen';
   static String SEARCHROUTE = '/Search-Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
 
