@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/widgets/home_screen_widgets/warranties_list_tiles.dart';
 
 import '../../helpers/routes.dart';
 import '../../widgets/home_screen_widgets/services_grid.dart';
@@ -37,7 +38,9 @@ class IndexScreen extends StatelessWidget {
                 tabs: [
                   Tab(
                     child: GestureDetector(
-                      onTap: () => navigator.pushNamed(MyRoutes.SEARCHROUTE,),
+                      onTap: () => navigator.pushNamed(
+                        MyRoutes.SEARCHROUTE,
+                      ),
                       child: Container(
                         padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
@@ -86,6 +89,48 @@ class IndexScreen extends StatelessWidget {
                     "Warranties",
                     style: Theme.of(context).textTheme.bodyLarge,
                   ).tr(),
+                  WarrantiesListTiles(
+                    onPressed: () {},
+                    title: "Helpline",
+                    leadingIcon: Icons.phone_outlined,
+                    subTitle: "Helpline_Subtitle",
+                    trailingIcon: Icons.arrow_forward_ios_outlined,
+                  ),
+                  WarrantiesListTiles(
+                    onPressed: () {},
+                    title: "Verify_Profiles",
+                    leadingIcon: Icons.safety_check,
+                    subTitle: "Verify_Profiles_Subtitle",
+                    trailingIcon: Icons.arrow_forward_ios_outlined,
+                  ),
+                  WarrantiesListTiles(
+                    onPressed: () {},
+                    title: "Fair_Compensation",
+                    leadingIcon: Icons.thumb_up_alt,
+                    subTitle: "Fair_Compensation_Subtitle",
+                    trailingIcon: Icons.arrow_forward_ios_outlined,
+                  ),
+                  WarrantiesListTiles(
+                    onPressed: () {},
+                    title: "Insured_Services",
+                    leadingIcon: Icons.work,
+                    subTitle: "Insured_Services_Subtitle",
+                    trailingIcon: Icons.arrow_forward_ios_outlined,
+                  ),
+                  WarrantiesListTiles(
+                    onPressed: () {},
+                    title: "Cancellation_Protection",
+                    leadingIcon: Icons.phone_outlined,
+                    subTitle: "Cancellation_Protection_Subtitle",
+                    trailingIcon: Icons.arrow_forward_ios_outlined,
+                  ),
+                  WarrantiesListTiles(
+                    onPressed: () {},
+                    title: "Secure_Payments",
+                    leadingIcon: Icons.security_outlined,
+                    subTitle: "Secure_Payments_Subtitle",
+                    trailingIcon: Icons.arrow_forward_ios_outlined,
+                  ),
                 ],
               ),
             ),

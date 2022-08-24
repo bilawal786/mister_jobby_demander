@@ -125,6 +125,10 @@ class MyApp extends StatelessWidget {
           color: Colors.black38,
           size: 30,
         ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Theme.of(context).primaryColor,
+          textTheme: ButtonTextTheme.normal,
+        ),
       ),
       initialRoute: MyRoutes.HOMETABROUTE,
       routes: {

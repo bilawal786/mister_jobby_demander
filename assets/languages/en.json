@@ -8,5 +8,17 @@
   "Account_Page_Label" : "Account",
   "Services_title" : "Our universe of services",
   "Popular_Services" : "Popular right now",
-  "Warranties" : "All mister jobby warranties"
+  "Warranties" : "All mister jobby warranties",
+  "Helpline": "Helpline",
+  "Helpline_Subtitle": "6 days a week from 9 a.m. to 7 p.m.",
+  "Verify_Profiles": "All profiles verified",
+  "Verify_Profiles_Subtitle" : "We control who comes to you",
+  "Fair_Compensation": "Fair compensation",
+  "Fair_Compensation_Subtitle": "We promote the best rates",
+  "Insured_Services" : "Insured services",
+  "Insured_Services_Subtitle": "Full insurance without deductible",
+  "Cancellation_Protection" : "Cancellation_Protection",
+  "Cancellation_Protection_Subtitle" : "Support in the event of an unforeseen event",
+  "Secure_Payments" : "Secure payments",
+  "Secure_Payments_Subtitle" : "100% online protected transactions"
 }
