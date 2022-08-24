@@ -61,8 +61,8 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                 1,
               ),
               SizedBox(
-                height: 50,
-                width: 50,
+                height: 45,
+                width: 45,
                 child: FloatingActionButton(
                   elevation: 0,
                   onPressed: () {},
