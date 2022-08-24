@@ -20,6 +20,7 @@ class IndexScreen extends StatelessWidget {
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
             SliverAppBar(
+              elevation: 0,
               expandedHeight: 110,
               pinned: true,
               floating: true,
@@ -32,9 +33,10 @@ class IndexScreen extends StatelessWidget {
                     "Home_AppBar_Title",
                     style: Theme.of(context).textTheme.titleLarge,
                   ).tr()),
+              centerTitle: false,
               backgroundColor: Colors.white,
               bottom: TabBar(
-                // padding: const EdgeInsets.all(5.0),
+                // padding: const EdgeInsets.symmetric(vertical: 10.0),
                 indicatorColor: Colors.white,
                 tabs: [
                   Tab(
@@ -78,12 +80,12 @@ class IndexScreen extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Services_title",
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ).tr(),
                   const ServicesGrid(),
                   Text(
                     "Popular_Services",
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ).tr(),
                   const PopularServicesListView(),
                   CarouselSlider.builder(

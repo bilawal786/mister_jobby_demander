@@ -44,7 +44,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     pageIndex = 0;
                   });
                 },
-                Icons.home_filled,
+                Icons.home_rounded,
                 "Index_Page_Label",
                 0,
               ),
@@ -107,14 +107,13 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
   }
 
   Widget bottomTabBarItem(
-      Function onTap, IconData iconData, String title, int index) {
+      VoidCallback onTap, IconData iconData, String title, int index) {
     return Expanded(
       child: MaterialButton(
         minWidth: 40,
-        onPressed: () {
-          onTap();
-        },
+        onPressed: onTap,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Icon(
@@ -124,17 +123,19 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                   ? Colors.black
                   : Theme.of(context).iconTheme.color,
             ),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w900,
-                fontFamily: 'Cerebri Sans Regular',
-                color: pageIndex == index
-                    ? Colors.black
-                    : Theme.of(context).iconTheme.color,
-              ),
-            ).tr(),
+            FittedBox(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w900,
+                  fontFamily: 'Cerebri Sans Regular',
+                  color: pageIndex == index
+                      ? Colors.black
+                      : Theme.of(context).iconTheme.color,
+                ),
+              ).tr(),
+            ),
           ],
         ),
       ),

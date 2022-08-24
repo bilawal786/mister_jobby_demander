@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -7,11 +5,7 @@ import '../../helpers/routes.dart';
 import '../../models/categories_models/main_categories_model.dart';
 
 class MainCategoriesProvider with ChangeNotifier {
-  List<MainCategoriesModel> _mainCategories = [];
-
-  List<MainCategoriesModel> get mainCategories {
-    return [..._mainCategories];
-  }
+  List<MainCategoriesModel>? mainCategories;
 
   Future<void> getMainCategories() async {
     var response = await http.get(
@@ -23,8 +17,8 @@ class MainCategoriesProvider with ChangeNotifier {
     );
     if(response.statusCode == 200) {
       print('Main Categories Api is working perfectly.');
-      final extractMainCategories = json.decode(response.body);
-      _mainCategories = mainCategoriesModelFromJson(extractMainCategories);
+      // final extractMainCategories = json.decode();
+      mainCategories = mainCategoriesModelFromJson(response.body);
       notifyListeners();
     }else{
       print('Main Categories Api is not working correctly');
