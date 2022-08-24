@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:mister_jobby/widgets/home_screen_widgets/warranties_list_tiles.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../helpers/routes.dart';
 import '../../widgets/home_screen_widgets/services_grid.dart';
@@ -85,10 +86,44 @@ class IndexScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyLarge,
                   ).tr(),
                   const PopularServicesListView(),
+                  CarouselSlider.builder(
+                    options: CarouselOptions(
+                      height: MediaQuery.of(context).size.width / 2,
+                      aspectRatio: 16 / 9,
+                      viewportFraction: 1,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: const Duration(seconds: 5),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                    itemCount: 2,
+                    itemBuilder: (context, index, realIndex) => ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: const FadeInImage(
+                        placeholder: AssetImage("assets/images/loading.gif"),
+                        image: NetworkImage(
+                          "https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2020/07/31142105/700StopMotion.jpg",
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   Text(
                     "Warranties",
                     style: Theme.of(context).textTheme.bodyLarge,
                   ).tr(),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   WarrantiesListTiles(
                     onPressed: () {},
                     title: "Helpline",
