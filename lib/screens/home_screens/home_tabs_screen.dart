@@ -45,7 +45,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                   });
                 },
                 Icons.home_filled,
-                "Index_Page_Label".tr(),
+                "Index_Page_Label",
                 0,
               ),
               bottomTabBarItem(
@@ -57,7 +57,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                   });
                 },
                 Icons.work_history_outlined,
-                "Jobs_Page_Label".tr(),
+                "Jobs_Page_Label",
                 1,
               ),
               SizedBox(
@@ -81,8 +81,8 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     pageIndex = 2;
                   });
                 },
-                Icons.message_outlined,
-                "Message_Page_Label".tr(),
+                Icons.mark_as_unread_outlined,
+                "Message_Page_Label",
                 2,
               ),
               bottomTabBarItem(
@@ -94,7 +94,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                   });
                 },
                 Icons.person_outline,
-                "Account_Page_Label".tr(),
+                "Account_Page_Label",
                 3,
               ),
             ],
@@ -129,11 +129,12 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
               style: TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.w900,
+                fontFamily: 'Cerebri Sans Regular',
                 color: pageIndex == index
                     ? Colors.black
                     : Theme.of(context).iconTheme.color,
               ),
-            ),
+            ).tr(),
           ],
         ),
       ),
