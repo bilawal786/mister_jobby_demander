@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/providers/categories_provider/main_categories_provider.dart';
+import 'package:provider/provider.dart';
 
-class ServicesGrid extends StatelessWidget {
+class ServicesGrid extends StatefulWidget {
   const ServicesGrid({Key? key}) : super(key: key);
+
+  @override
+  State<ServicesGrid> createState() => _ServicesGridState();
+}
+
+class _ServicesGridState extends State<ServicesGrid> {
+
+  var _isInit = true;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if(_isInit){
+      Provider.of<MainCategoriesProvider>(context).getMainCategories();
+    }
+    _isInit = false;
+  }
 
   @override
   Widget build(BuildContext context) {
