@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class ServicesGrid extends StatelessWidget {
   const ServicesGrid({Key? key}) : super(key: key);
 
@@ -32,7 +31,10 @@ class ServicesGrid extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text("Bricolage", style: Theme.of(context).textTheme.bodySmall,),
+                child: Text(
+                  "Bricolage",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ),
             ],
           ),
