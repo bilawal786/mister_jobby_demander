@@ -20,31 +20,43 @@ class ServicesGrid extends StatelessWidget {
       shrinkWrap: true,
       children: <Widget>[
         for (int i = 0; i < extractCategories.length ; i++)
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            // mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 3.8,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Image.network(
-                    '${MyRoutes.IMAGEURL}/${extractCategories[i].image}',
-                    fit: BoxFit.cover,
+          InkWell(
+            onTap: (){
+              Navigator.of(context).pushNamed(MyRoutes.SUBCATEGORYROUTE,
+                  arguments: {
+                'id' : extractCategories[i].id,
+              },
+              );
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 3.8,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Image.network(
+                      '${MyRoutes.IMAGEURL}/${extractCategories[i].image}',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: FittedBox(
-                  fit: BoxFit.fitWidth,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     extractCategories[i].title,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Cerebri Sans Bold',
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
       ],
     );
