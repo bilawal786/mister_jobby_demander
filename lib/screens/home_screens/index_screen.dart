@@ -136,35 +136,45 @@ class IndexScreen extends StatelessWidget {
                     trailingIcon: Icons.arrow_forward_ios_outlined,
                   ),
                   WarrantiesListTiles(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigator.pushNamed(MyRoutes.ALLPROFILEVERIFIEDROUTE);
+                    },
                     title: "Verify_Profiles",
                     leadingIcon: Icons.safety_check,
                     subTitle: "Verify_Profiles_Subtitle",
                     trailingIcon: Icons.arrow_forward_ios_outlined,
                   ),
                   WarrantiesListTiles(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigator.pushNamed(MyRoutes.FAIRCOMPENSATIONROUTE);
+                    },
                     title: "Fair_Compensation",
                     leadingIcon: Icons.thumb_up_alt,
                     subTitle: "Fair_Compensation_Subtitle",
                     trailingIcon: Icons.arrow_forward_ios_outlined,
                   ),
                   WarrantiesListTiles(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigator.pushNamed(MyRoutes.INSUREDSERVICESROUTE);
+                    },
                     title: "Insured_Services",
                     leadingIcon: Icons.work,
                     subTitle: "Insured_Services_Subtitle",
                     trailingIcon: Icons.arrow_forward_ios_outlined,
                   ),
                   WarrantiesListTiles(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigator.pushNamed(MyRoutes.CANCELLATIONPROTECTIONROUTE);
+                    },
                     title: "Cancellation_Protection",
                     leadingIcon: Icons.phone_outlined,
                     subTitle: "Cancellation_Protection_Subtitle",
                     trailingIcon: Icons.arrow_forward_ios_outlined,
                   ),
                   WarrantiesListTiles(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigator.pushNamed(MyRoutes.SECUREPAYMENTSROUTE);
+                    },
                     title: "Secure_Payments",
                     leadingIcon: Icons.security_outlined,
                     subTitle: "Secure_Payments_Subtitle",

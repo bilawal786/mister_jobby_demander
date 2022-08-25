@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/sub_categories_screen.dart';
 import 'package:provider/provider.dart';
 
 
@@ -11,6 +10,11 @@ import './screens/splash_screen/splash_screen.dart';
 import './screens/home_screens/search_screen.dart';
 import './screens/home_screens/home_tabs_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
+import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
+import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
+import './screens/home_screens/warranties_screens/fair_compensation_screen.dart';
+import './screens/home_screens/warranties_screens/insured_services_screen.dart';
+import './screens/home_screens/warranties_screens/secure_payments_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -147,7 +151,11 @@ class MyApp extends StatelessWidget {
           MyRoutes.HOMETABROUTE: (ctx) => const MyHomeBottomTabScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
-          MyRoutes.SUBCATEGORYROUTE: (ctx) => const SubCategoriesScreen(),
+          MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
+          MyRoutes.FAIRCOMPENSATIONROUTE: (ctx) => const FairCompensationScreen(),
+          MyRoutes.INSUREDSERVICESROUTE: (ctx) => const InsuredServicesScreen(),
+          MyRoutes.CANCELLATIONPROTECTIONROUTE: (ctx) => const CancellationProtectionScreen(),
+          MyRoutes.SECUREPAYMENTSROUTE: (ctx) => const SecurePaymentsScreen(),
         },
       ),
     );

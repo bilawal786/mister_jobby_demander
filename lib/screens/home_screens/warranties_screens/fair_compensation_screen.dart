@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class HelpLineScreen extends StatelessWidget {
-  const HelpLineScreen({Key? key}) : super(key: key);
+class FairCompensationScreen extends StatelessWidget {
+  const FairCompensationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +19,19 @@ class HelpLineScreen extends StatelessWidget {
                 },
                 icon: const Icon(Icons.arrow_back),
               ),
-             const SizedBox(height: 5,),
+              const SizedBox(height: 5,),
               Text(
-                "Helpline_Screen_Title",
+                "Fair_Compensation_Title",
                 style: Theme.of(context).textTheme.titleMedium,
               ).tr(),
               const SizedBox(height: 15,),
               Text(
-                "Helpline_Screen_SubTitle",
+                "Fair_Compensation_SubTitle",
                 style: Theme.of(context).textTheme.titleSmall,
               ).tr(),
               const SizedBox(height: 15,),
               Text(
-                "Helpline_Screen_Paragraph",
+                "Fair_Compensation_Paragraph",
                 style: Theme.of(context).textTheme.displayLarge,
               ).tr(),
             ],
