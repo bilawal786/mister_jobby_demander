@@ -127,7 +127,8 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
               title,
               style: TextStyle(
                 fontSize: 14,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w700,
+                overflow: TextOverflow.ellipsis,
                 fontFamily: 'Cerebri Sans Regular',
                 color: pageIndex == index
                     ? Colors.black
