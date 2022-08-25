@@ -23,7 +23,7 @@ class MainCategoriesProvider with ChangeNotifier {
     }else{
       print('Main Categories Api is not working correctly');
     }
-    print(response.body);
+    // print(response.body);
   }
 
 }
