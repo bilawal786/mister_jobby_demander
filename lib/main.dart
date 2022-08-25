@@ -9,6 +9,7 @@ import './providers/categories_provider/main_categories_provider.dart';
 import './screens/splash_screen/splash_screen.dart';
 import './screens/home_screens/search_screen.dart';
 import './screens/home_screens/home_tabs_screen.dart';
+import './screens/home_screens/services_sub_categories/sub_categories_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
 import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
 import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
@@ -149,6 +150,7 @@ class MyApp extends StatelessWidget {
         routes: {
           MyRoutes.SPLASHROUTE: (ctx) => const SplashScreen(),
           MyRoutes.HOMETABROUTE: (ctx) => const MyHomeBottomTabScreen(),
+          MyRoutes.SUBCATEGORYROUTE: (ctx) => const SubCategoriesScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
