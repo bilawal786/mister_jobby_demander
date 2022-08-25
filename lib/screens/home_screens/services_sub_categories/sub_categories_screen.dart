@@ -49,7 +49,7 @@ class SubCategoriesScreen extends StatelessWidget {
                       height: 60,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.green,
+                        // color: Colors.green,
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
