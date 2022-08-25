@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/widgets/const_widgets/search_input_feild.dart';
 import 'package:mister_jobby/widgets/home_screen_widgets/warranties_list_tiles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -44,28 +45,7 @@ class IndexScreen extends StatelessWidget {
                       onTap: () => navigator.pushNamed(
                         MyRoutes.SEARCHROUTE,
                       ),
-                      child: Container(
-                        padding: const EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                          color: Colors.black12,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.search,
-                              color: Theme.of(context).iconTheme.color,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Search_Hint_Text",
-                              style: Theme.of(context).textTheme.labelLarge,
-                            ).tr(),
-                          ],
-                        ),
-                      ),
+                      child: const SearchInputField(),
                     ),
                   ),
                 ],
