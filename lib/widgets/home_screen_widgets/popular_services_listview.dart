@@ -8,7 +8,7 @@ class PopularServicesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.width / 2.5,
+      height: MediaQuery.of(context).size.width / 2.3,
       child: ListView.builder(
         itemCount: 8,
         scrollDirection: Axis.horizontal,
