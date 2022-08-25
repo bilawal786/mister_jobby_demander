@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/widgets/const_widgets/search_input_feild.dart';
-import 'package:mister_jobby/widgets/home_screen_widgets/warranties_list_tiles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../helpers/routes.dart';
 import '../../widgets/home_screen_widgets/services_grid.dart';
 import '../../widgets/home_screen_widgets/popular_services_listview.dart';
+import '../../widgets/const_widgets/search_input_field.dart';
+import '../../widgets/home_screen_widgets/warranties_list_tiles.dart';
 
 class IndexScreen extends StatelessWidget {
   const IndexScreen({Key? key}) : super(key: key);

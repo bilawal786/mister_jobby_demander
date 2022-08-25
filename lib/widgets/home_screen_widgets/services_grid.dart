@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/helpers/routes.dart';
-import 'package:mister_jobby/providers/categories_provider/main_categories_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../../helpers/routes.dart';
+import '../../providers/categories_provider/main_categories_provider.dart';
 
 class ServicesGrid extends StatelessWidget {
   const ServicesGrid({Key? key}) : super(key: key);
@@ -11,9 +12,7 @@ class ServicesGrid extends StatelessWidget {
     final categoriesData =
         Provider.of<MainCategoriesProvider>(context, listen: false);
     final extractCategories = categoriesData.mainCategories;
-    return extractCategories == null
-        ? CircularProgressIndicator()
-        : GridView.count(
+    return GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
@@ -22,13 +21,13 @@ class ServicesGrid extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: <Widget>[
-              for (int i = 0; i < extractCategories.length; i++)
+              for (int i = 0; i < extractCategories!.length; i++)
                 InkWell(
                   onTap: () {
                     Navigator.of(context).pushNamed(
                       MyRoutes.SUBCATEGORYROUTE,
                       arguments: {
-                        'id': extractCategories[i].id,
+                        'id': i,
                       },
                     );
                   },

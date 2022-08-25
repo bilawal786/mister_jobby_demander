@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/helpers/routes.dart';
-import 'package:mister_jobby/widgets/const_widgets/search_input_feild.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/categories_provider/main_categories_provider.dart';
+import '../../../widgets/const_widgets/search_input_field.dart';
+import '../../../widgets/home_screen_widgets/service_sub_categories/sub_categories_items.dart';
 
 class SubCategoriesScreen extends StatelessWidget {
   const SubCategoriesScreen({Key? key}) : super(key: key);
@@ -41,29 +41,16 @@ class SubCategoriesScreen extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount:
-                  extractedCategory[mainCategoryId].subCategories.length,
-                  itemBuilder: (ctx, index) => ListTile(
-                    contentPadding: const EdgeInsets.only(left: 0.0,bottom: 10.0, top: 10.0, right: 0.0),
-                    leading: Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        // color: Colors.green,
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: Image.network(
-                          '${MyRoutes.IMAGEURL}/${extractedCategory[mainCategoryId].subCategories[index].image}',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                      extractedCategory[mainCategoryId].subCategories.length,
+                  itemBuilder: (ctx, index) => SubCategoriesItems(
+                    subCategory:
+                        extractedCategory[mainCategoryId].subCategories[index],
                   ),
                 ),
               ],
             ),
           ),
-        ));
+        ),
+    );
   }
 }

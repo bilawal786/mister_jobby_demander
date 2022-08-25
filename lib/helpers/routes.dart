@@ -2,6 +2,7 @@ class MyRoutes{
   static String SPLASHROUTE = '/';
   static String HOMETABROUTE = '/Home-Screen';
   static String SUBCATEGORYROUTE = '/Sub-Category-Screen';
+  static String CHILDCATEGORYROUTE = '/Child-Category-Screen';
   static String SEARCHROUTE = '/Search-Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
