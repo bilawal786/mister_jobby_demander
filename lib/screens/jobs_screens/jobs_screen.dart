@@ -45,7 +45,7 @@ class JobsScreen extends StatelessWidget {
                       height: double.infinity,
                       decoration: BoxDecoration(
                           color: Colors.grey.shade100,
-                          borderRadius: BorderRadius.circular(15)),
+                          borderRadius: BorderRadius.circular(15),),
                       child: Center(
                         child: const Text(
                           "Jobs_TapBar_Title1",
