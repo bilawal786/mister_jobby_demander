@@ -19,7 +19,7 @@ class WarrantiesListTiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: onPressed ,
+      onTap: onPressed,
       dense: true,
       contentPadding: const EdgeInsets.all(0.0),
       leading: Container(

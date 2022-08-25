@@ -104,14 +104,14 @@ class MyApp extends StatelessWidget {
             ),
             labelLarge: TextStyle(
               fontSize: 16,
-              color: Colors.black38,
+              color: Colors.black54,
               fontWeight: FontWeight.w700,
               fontFamily: 'Cerebri Sans Regular',
             ),
             labelMedium: TextStyle(
               fontSize: 14,
               color: Colors.black38,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w700,
               fontFamily: 'Cerebri Sans Regular',
             ),
             labelSmall: TextStyle(
