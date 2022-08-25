@@ -11,10 +11,11 @@ class ChildCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    final mainCategoryId = routeArgs['id'];
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryId = routeArgs['mainCategoryId'];
+    final subCategoryId = routeArgs['subCategoryId'];
     final mainCategoryData =
-    Provider.of<MainCategoriesProvider>(context, listen: false);
+        Provider.of<MainCategoriesProvider>(context, listen: false);
     final extractedCategory = mainCategoryData.mainCategories;
     return Scaffold(
       appBar: AppBar(
@@ -25,7 +26,7 @@ class ChildCategoriesScreen extends StatelessWidget {
           color: Colors.black38,
         ),
         title: Text(
-          extractedCategory![mainCategoryId].subCategories[mainCategoryId].title,
+          extractedCategory![mainCategoryId].subCategories[subCategoryId].title,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
@@ -40,11 +41,14 @@ class ChildCategoriesScreen extends StatelessWidget {
                     left: 0.0, top: 10.0, right: 0.0, bottom: 10.0),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount:
-                extractedCategory[mainCategoryId].subCategories[mainCategoryId].childCategories.length,
+                itemCount: extractedCategory[mainCategoryId]
+                    .subCategories[subCategoryId]
+                    .childCategories
+                    .length,
                 itemBuilder: (ctx, index) => ChildCategoriesItems(
-                  childCategory:
-                  extractedCategory[mainCategoryId].subCategories[mainCategoryId].childCategories[index],
+                  childCategory: extractedCategory[mainCategoryId]
+                      .subCategories[subCategoryId]
+                      .childCategories[index],
                 ),
               ),
             ],

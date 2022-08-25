@@ -10,13 +10,7 @@ class SubCategoriesItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var index = subCategory.id - 1;
     return ListTile(
-      onTap: (){
-        Navigator.of(context).pushNamed(MyRoutes.CHILDCATEGORYROUTE, arguments: {
-          'id': index,
-        },);
-      },
       contentPadding: const EdgeInsets.only(
           left: 0.0, bottom: 10.0, top: 10.0, right: 0.0),
       leading: Container(
