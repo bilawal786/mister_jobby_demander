@@ -1,6 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+import '../../widgets/const_widgets/custom_button.dart';
 
 class JobsScreen extends StatelessWidget {
   const JobsScreen({Key? key}) : super(key: key);
@@ -85,21 +86,31 @@ class JobsScreen extends StatelessWidget {
                       const SizedBox(
                         height: 100,
                       ),
-                      Icon(Icons.find_in_page_rounded,
-                          size: 150, color: Theme.of(context).primaryColor,
+                      Icon(
+                        Icons.find_in_page_rounded,
+                        size: 150,
+                        color: Theme.of(context).primaryColor,
                       ),
                       Text(
                         "Jobs_TapBar_Page1_Title",
                         style: Theme.of(context).textTheme.titleSmall,
                       ).tr(),
-                      SizedBox(height: MediaQuery.of(context).size.height / 40,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 40,
+                      ),
                       Text(
                         "Jobs_TabBar_Page1_Description",
                         style: Theme.of(context).textTheme.labelLarge,
                         textAlign: TextAlign.center,
                       ).tr(),
-                      SizedBox(height: MediaQuery.of(context).size.height / 40,),
-                      CustomButton(onPress: (){}, buttonName: "I need a favor", elevation: 8,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 40,
+                      ),
+                      CustomButton(
+                        onPress: () {},
+                        buttonName: "I need a favor",
+                        elevation: 8,
+                      ),
                     ],
                   ),
                 ),
@@ -113,21 +124,31 @@ class JobsScreen extends StatelessWidget {
                       const SizedBox(
                         height: 100,
                       ),
-                      Icon(Icons.find_in_page_rounded,
-                        size: 150, color: Theme.of(context).primaryColor,
+                      Icon(
+                        Icons.find_in_page_rounded,
+                        size: 150,
+                        color: Theme.of(context).primaryColor,
                       ),
                       Text(
                         "Jobs_TapBar_Page1_Title",
                         style: Theme.of(context).textTheme.titleSmall,
                       ).tr(),
-                      SizedBox(height: MediaQuery.of(context).size.height / 40,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 40,
+                      ),
                       Text(
                         "Jobs_TabBar_Page1_Description",
                         style: Theme.of(context).textTheme.labelLarge,
                         textAlign: TextAlign.center,
                       ).tr(),
-                      SizedBox(height: MediaQuery.of(context).size.height / 40,),
-                      CustomButton(onPress: (){}, buttonName: "I need a favor", elevation: 8,),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 40,
+                      ),
+                      CustomButton(
+                        onPress: () {},
+                        buttonName: "I need a favor",
+                        elevation: 8,
+                      ),
                     ],
                   ),
                 ),
