@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/screens/test_screen.dart';
 
 import '../jobs_screens/jobs_screen.dart';
 import '../messages_screens/message_screen.dart';
@@ -65,7 +66,13 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                 width: 45,
                 child: FloatingActionButton(
                   elevation: 0,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const TestScreen(),
+                      ),
+                    );
+                  },
                   child: const Icon(
                     Icons.add,
                     size: 30,
