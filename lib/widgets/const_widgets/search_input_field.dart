@@ -1,36 +1,27 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class SearchInputField extends StatefulWidget {
+class SearchInputField extends StatelessWidget {
   const SearchInputField({Key? key}) : super(key: key);
 
   @override
-  State<SearchInputField> createState() => _SearchInputFieldState();
-}
-
-class _SearchInputFieldState extends State<SearchInputField> {
-  @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10.0),
+      margin: const EdgeInsets.only(left: 15, right: 15),
       decoration: BoxDecoration(
-        color: Colors.black12,
-        borderRadius: BorderRadius.circular(5.0),
-      ),
-      child: Row(
-        children: <Widget>[
-          Icon(
-            Icons.search,
-            color: Theme.of(context).iconTheme.color,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(
-            "Search_Hint_Text",
-            style: Theme.of(context).textTheme.labelLarge,
-          ).tr(),
-        ],
+          color: Colors.grey.shade200, borderRadius: BorderRadius.circular(10)),
+      child: TextFormField(
+        style: Theme.of(context).textTheme.labelMedium,
+        decoration: InputDecoration(
+          iconColor: Colors.grey,
+          focusColor: Colors.grey,
+          prefixIcon: const Icon(Icons.search),
+          prefixIconColor: Colors.grey,
+          border: InputBorder.none,
+          hintText: "Search_Hint_Text".tr(),
+          hintStyle: Theme.of(context).textTheme.labelLarge,
+          contentPadding: const EdgeInsets.fromLTRB(15, 13, 15, 10),
+        ),
       ),
     );
   }

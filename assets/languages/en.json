@@ -1,6 +1,7 @@
 {
   "test_text": "Welcome Screen test",
   "Home_AppBar_Title": "Welcome,",
+  "Search_Screen_AppBar_Title": "Ask for a service",
   "Search_Hint_Text" : "Search Services",
   "Index_Page_Label" : "Home",
   "Jobs_Page_Label" : "Jobs",

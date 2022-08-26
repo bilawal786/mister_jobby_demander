@@ -5,7 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../helpers/routes.dart';
 import '../../widgets/home_screen_widgets/services_grid.dart';
 import '../../widgets/home_screen_widgets/popular_services_listview.dart';
-import '../../widgets/const_widgets/search_input_field.dart';
+import '../../widgets/const_widgets/search_button.dart';
 import '../../widgets/home_screen_widgets/warranties_list_tiles.dart';
 
 class IndexScreen extends StatelessWidget {
@@ -45,7 +45,7 @@ class IndexScreen extends StatelessWidget {
                       onTap: () => navigator.pushNamed(
                         MyRoutes.SEARCHROUTE,
                       ),
-                      child: const SearchInputField(),
+                      child: const SearchButton(),
                     ),
                   ),
                 ],
