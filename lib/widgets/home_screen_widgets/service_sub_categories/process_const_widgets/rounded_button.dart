@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class RoundedButtonClass extends StatelessWidget {
+class RoundedButton extends StatelessWidget {
   final double height;
   final IconData? icon;
   final Function onTap;
   final Color? color;
-  const RoundedButtonClass({
+  const RoundedButton({
     Key? key,
     required this.onTap,
     this.height = 40,

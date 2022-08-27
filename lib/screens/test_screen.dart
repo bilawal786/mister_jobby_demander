@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mister_jobby/widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 import 'package:mister_jobby/widgets/home_screen_widgets/service_sub_categories/process_const_widgets/radio_button_class.dart';
 import 'package:mister_jobby/widgets/home_screen_widgets/service_sub_categories/process_const_widgets/range_slider_class.dart';
-import 'package:mister_jobby/widgets/home_screen_widgets/service_sub_categories/process_const_widgets/rounded_button_class.dart';
+import 'package:mister_jobby/widgets/home_screen_widgets/service_sub_categories/process_const_widgets/rounded_button.dart';
 
 class TestScreen extends StatefulWidget {
   const TestScreen({Key? key}) : super(key: key);
@@ -35,7 +35,7 @@ class _TestScreenState extends State<TestScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                RoundedButtonClass(
+                RoundedButton(
                   height: 70,
                   onTap: () {
                     setState(() {
@@ -47,7 +47,7 @@ class _TestScreenState extends State<TestScreen> {
                   "$values",
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
-                RoundedButtonClass(
+                RoundedButton(
                   icon: Icons.remove,
                   onTap: () {
                     setState(() {

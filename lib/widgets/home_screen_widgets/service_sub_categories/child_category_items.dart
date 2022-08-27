@@ -10,6 +10,7 @@ class ChildCategoriesItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: ()=> Navigator.of(context).pushNamed(MyRoutes.PROCESSROUTE),
       contentPadding: const EdgeInsets.only(
           left: 0.0, bottom: 10.0, top: 10.0, right: 0.0),
       leading: Container(
