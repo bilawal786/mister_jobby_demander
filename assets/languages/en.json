@@ -79,11 +79,14 @@
   "Very_Big_Size_Tile_SubTitle": "Dressing room, storage of more than 8 drawers",
   "Do_You_Want_Service_Provider_Clear_Boxes": "Do you want the service provider to clear the boxes?",
   "Information_about_Need_Step2_SubTitle": "Information about the need",
-  "Service_Date": "Service date",
+  "Service_Date": "Service Date",
   "Yes": "Yes",
   "No": "No",
   "Disassemble_Furniture_Step_Title": "Disassemble Furniture",
   "Curtain_Installation_Step_Title": "Curtain rod installation",
   "Curtain_Installation_Pre_SubTitle": "How many rods should be installed?",
-  "Fixing_Shelves_Step_Title": "Fixing Shelves"
+  "Fixing_Shelves_Step_Title": "Fixing Shelves",
+  "Service_Time_Start": "Start Time",
+  "Service_Duration_Hour": "Duration (h)",
+  "Service_Hourly_Rate": "Hourly rate (€)"
 }
