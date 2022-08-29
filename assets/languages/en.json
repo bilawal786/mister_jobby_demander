@@ -87,7 +87,14 @@
   "Curtain_Installation_Pre_SubTitle": "How many rods should be installed?",
   "Fixing_Shelves_Step_Title": "Fixing Shelves",
   "Fixing_Shelves_Step_SubTitle": "How many shelves should be fixed?",
+  "Hang_TV_Step_Title": "Hang a TV on the wall",
+  "Hang_TV_Step_SubTitle": "How many TVs do you need to hang?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
-  "Service_Hourly_Rate": "Hourly rate (€)"
+  "Service_Hourly_Rate": "Hourly rate (€)",
+  "One": "1",
+  "Two": "2",
+  "Three": "3",
+  "Four": "4",
+  "Five": "5"
 }

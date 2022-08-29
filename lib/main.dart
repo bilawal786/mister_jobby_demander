@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+
 import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
@@ -13,6 +14,7 @@ import './screens/home_screens/services_sub_categories/child_categories_screen.d
 import './screens/home_screens/services_sub_categories/disassemble_furniture_screen.dart';
 import './screens/home_screens/services_sub_categories/curtain_rod_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/fixing_shelves_screen.dart';
+import './screens/home_screens/services_sub_categories/hang_tv_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
 import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
 import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
@@ -163,6 +165,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.DISASSEMBLEFURNITURESROUTE: (ctx) => const DisassembleFurnitureScreen(),
           MyRoutes.CURTAININSTALLATIONROUTE: (ctx) => const CurtainInstallationScreen(),
           MyRoutes.FIXINGSHELVESROUTE: (ctx) => const FixingShelvesScreen(),
+          MyRoutes.HANGTVROUTE: (ctx) => const HangTVScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),

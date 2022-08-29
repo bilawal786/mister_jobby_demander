@@ -35,6 +35,11 @@ class ChildCategoriesItems extends StatelessWidget {
             print("$check");
           }
           break;
+          case 5: {
+            Navigator.of(context).pushNamed(MyRoutes.HANGTVROUTE);
+            print("$check");
+          }
+          break;
         }
       },
       contentPadding:
