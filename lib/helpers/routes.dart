@@ -9,6 +9,7 @@ class MyRoutes{
   static String FIXINGSHELVESROUTE = '/Fixing-Shelves-Screen';
   static String HANGTVROUTE = '/Hang-TV-Screen';
   static String SHOWERINSTALLATIONROUTE = '/Shower-Installation-Screen';
+  static String HANGPICTREROUTE = '/Hang-Picture-Screen';
   static String SEARCHROUTE = '/Search-Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
