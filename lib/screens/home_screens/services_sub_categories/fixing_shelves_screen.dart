@@ -4,8 +4,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/const_provider/const_provider.dart';
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/fixing_shelves_step.dart';
 
-import '../../../../screens/home_screens/services_sub_categories/process_steps_screens/curtain_installation_step.dart';
+
 
 
 class FixingShelvesScreen extends StatefulWidget {
@@ -27,7 +28,7 @@ class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
           color: Colors.black38,
         ),
         title: Text(
-          "Fixing_Shelves_Step_Title",
+          "Fixing Shelves",
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
@@ -111,7 +112,7 @@ class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const CurtainInstallationStep(),
+      content: const FixingShelvesStep(),
     ),
     Step(
       isActive: currentStep >= 1,
