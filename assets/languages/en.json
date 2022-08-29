@@ -82,5 +82,7 @@
   "Service_Date": "Service date",
   "Yes": "Yes",
   "No": "No",
-  "Disassemble_Furniture_Step_Title": "Disassemble Furniture"
+  "Disassemble_Furniture_Step_Title": "Disassemble Furniture",
+  "Curtain_Installation_Step_Title": "Curtain rod installation",
+  "Curtain_Installation_Pre_SubTitle": "How many rods should be installed?"
 }

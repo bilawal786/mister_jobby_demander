@@ -5,6 +5,7 @@ class MyRoutes{
   static String CHILDCATEGORYROUTE = '/Child-Category-Screen';
   static String ASSEMBLEFURNITUREROUTE = '/Process-Screen';
   static String DISASSEMBLEFURNITURESROUTE = '/Disassemble-Furniture-Screen';
+  static String CURTAININSTALLATIONROUTE = '/Curtain-Installation-Screen';
   static String SEARCHROUTE = '/Search-Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';

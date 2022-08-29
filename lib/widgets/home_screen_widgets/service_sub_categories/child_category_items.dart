@@ -25,6 +25,11 @@ class ChildCategoriesItems extends StatelessWidget {
             print("$check");
           }
             break;
+          case 3: {
+            Navigator.of(context).pushNamed(MyRoutes.CURTAININSTALLATIONROUTE);
+            print("$check");
+          }
+          break;
         }
       },
       contentPadding:
