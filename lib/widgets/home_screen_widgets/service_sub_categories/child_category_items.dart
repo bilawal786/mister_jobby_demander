@@ -17,12 +17,12 @@ class ChildCategoriesItems extends StatelessWidget {
         switch (check) {
           case 1:
             {
-              Navigator.of(context).pushNamed(MyRoutes.PROCESSROUTE);
+              Navigator.of(context).pushNamed(MyRoutes.ASSEMBLEFURNITUREROUTE);
               print("$check");
             }
             break;
           case 2: {
-            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> TestScreen()));
+            Navigator.of(context).pushNamed(MyRoutes.DISASSEMBLEFURNITURESROUTE);
             print("$check");
           }
             break;
