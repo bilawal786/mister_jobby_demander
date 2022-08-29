@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/step_tiles.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 
@@ -112,6 +113,33 @@ class FurnitureAssembleStep extends StatelessWidget {
           Text(
             "Do_You_Want_Service_Provider_Clear_Boxes".tr(),
             style: Theme.of(context).textTheme.labelMedium,
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Consumer<ConstProvider>(
+            builder: (_,cleanBoxValue,child)=> Row(
+              children: [
+                Expanded(
+                  child: OutlineSelectedButton(
+                    onTap: (){
+                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                    },
+                    textTitle: "Yes",
+                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
+                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                  ),
+                ),
+                Expanded(
+                  child: OutlineSelectedButton(
+                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    textTitle: "No",
+                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
+                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

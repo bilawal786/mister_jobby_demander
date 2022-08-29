@@ -1,9 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class OutlineSelectedButton extends StatelessWidget {
   final double height;
   final double? width;
-  final String? text;
+  final String textTitle;
   final Function onTap;
   final bool border;
   final Color? color;
@@ -13,7 +14,7 @@ class OutlineSelectedButton extends StatelessWidget {
     this.height = 45,
     this.width,
     this.color = Colors.white,
-    this.text,
+    required this.textTitle,
     Key? key,
   }) : super(key: key);
 
@@ -33,18 +34,18 @@ class OutlineSelectedButton extends StatelessWidget {
           color: color,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 3,
-              blurRadius: 4,
-              offset: const Offset(2, 5), // changes position of shadow
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 2,
+              offset: const Offset(1, 2), // changes position of shadow
             ),
           ],
         ),
         child: Center(
           child: Text(
-            "Hello World",
+            textTitle,
             style: Theme.of(context).textTheme.displayLarge,
-          ),
+          ).tr(),
         ),
       ),
     );

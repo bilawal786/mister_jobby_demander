@@ -5,6 +5,19 @@ class ConstProvider with ChangeNotifier {
   int mediumSizedFurnitureAmount = 0;
   int largeSizedFurnitureAmount = 0;
   int veryLargeSizedFurnitureAmount = 0;
+  bool cleanBoxFurnitureYes = false;
+  bool cleanBoxFurnitureNo = false;
+
+  void cleanBoxFurnitureYesFunction(){
+    cleanBoxFurnitureYes = true;
+    cleanBoxFurnitureNo = false;
+    notifyListeners();
+  }
+  void cleanBoxFurnitureNoFunction(){
+    cleanBoxFurnitureYes = false;
+    cleanBoxFurnitureNo = true;
+    notifyListeners();
+  }
 
   void smallFurnitureAmountIncrement(){
     smallSizedFurnitureAmount +=1;
