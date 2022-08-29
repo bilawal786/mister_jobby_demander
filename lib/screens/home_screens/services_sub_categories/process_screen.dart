@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import '../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/rounded_button.dart';
-
+import './process_steps_screens/what_you_need_step.dart';
 
 class ProcessScreen extends StatefulWidget {
   const ProcessScreen({Key? key}) : super(key: key);
@@ -104,143 +103,7 @@ class _ProcessScreenState extends State<ProcessScreen> {
           isActive: currentStep >= 0,
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text("Furniture assembly", style: Theme.of(context).textTheme.bodyMedium,),
-                SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                Text("What do you need?", style: Theme.of(context).textTheme.titleMedium,),
-                SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                Text("Select the number of pieces of furniture to assemble", style: Theme.of(context).textTheme.labelMedium,),
-                SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("Furniture assembly", style: Theme.of(context).textTheme.bodyMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          Text("Select the number of pieces of furniture to assemble", style: Theme.of(context).textTheme.labelMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          RoundedButton(onTap: (){}, icon: Icons.remove,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          Text("1", style: Theme.of(context).textTheme.titleMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          RoundedButton(onTap: (){}, icon: Icons.add,),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                const Divider(),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("Furniture assembly", style: Theme.of(context).textTheme.bodyMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          Text("Select the number of pieces of furniture to assemble", style: Theme.of(context).textTheme.labelMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          RoundedButton(onTap: (){}, icon: Icons.remove,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          Text("1", style: Theme.of(context).textTheme.titleMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          RoundedButton(onTap: (){}, icon: Icons.add,),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                const Divider(),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("Furniture assembly", style: Theme.of(context).textTheme.bodyMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          Text("Select the number of pieces of furniture to assemble", style: Theme.of(context).textTheme.labelMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          RoundedButton(onTap: (){}, icon: Icons.remove,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          Text("1", style: Theme.of(context).textTheme.titleMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          RoundedButton(onTap: (){}, icon: Icons.add,),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                const Divider(),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("Furniture assembly", style: Theme.of(context).textTheme.bodyMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          Text("Select the number of pieces of furniture to assemble", style: Theme.of(context).textTheme.labelMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.4,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          RoundedButton(onTap: (){}, icon: Icons.remove,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          Text("1", style: Theme.of(context).textTheme.titleMedium,),
-                          SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                          RoundedButton(onTap: (){}, icon: Icons.add,),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                const Divider(),
-              ],
-            ),
-          ),
+          content: const WhatYouNeed(),
         ),
         Step(
           isActive: currentStep >= 1,
