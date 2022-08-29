@@ -68,5 +68,16 @@
   "Secure_payments_Paragraph": "All prices are defined in advance, all services are prepaid and managed on your Mister Jobby account. all payments are secure and all remunerations are triggered after your agreement. the jobbers undertake to respect the prices accepted during the validation of the service.",
    "Furniture_Assembly_Step_Title": "Furniture assembly",
    "What_You_Need_Title": "What do you need?",
-   "Select_The_Number_": "select the number of furniture to assemble"
+   "Select_Number_Furniture_Assemble_Step_SubTitle": "select the number of furniture to assemble",
+   "Small_Size_Tile_Title": "Small size",
+   "Small_Size_Tile_SubTitle": "Chair, stool, bench, Light, Armchair",
+   "Medium_Size_Tile_Title": "Medium size",
+   "Medium_Size_Tile_SubTitle": "Table, bedside table, shelf, storage up to 4 drawers",
+   "Big_Size_Tile_Title": "Big size",
+   "Big_Size_Tile_SubTitle": "Wardrobe, bed, sofa, storage 5 to 8 drawers",
+  "Very_Big_Size_Tile_Title": "Big size",
+  "Very_Big_Size_Tile_SubTitle": "Dressing room, storage of more than 8 drawers",
+  "Do_You_Want_Service_Provider_Clear_Boxes": "Do you want the service provider to clear the boxes?",
+  "Yes": "Yes",
+  "No": "No"
 }
