@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 class ConstProvider with ChangeNotifier {
   int smallSizedFurnitureAmount = 0;
 
-  // int get smallSizedFurnitureCount => smallSizedFurnitureAmount;
-
-  void increment(){
+  void smallFurnitureAmountIncrement(){
     smallSizedFurnitureAmount +=1;
     notifyListeners();
-    print(smallSizedFurnitureAmount);
   }
 
-   void decrement(){
+   void smallFurnitureAmountDecrement(){
     if(smallSizedFurnitureAmount >= 1) {
       smallSizedFurnitureAmount -= 1;
     }

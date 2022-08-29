@@ -44,12 +44,12 @@ class FurnitureAssembleStep extends StatelessWidget {
               tileSubTitle: ""
                   "Small_Size_Tile_SubTitle",
               inputValue: furnitureSize.smallSizedFurnitureAmount,
-              onPressAdd: ()=> constProviderData.increment(),
+              onPressAdd: ()=> constProviderData.smallFurnitureAmountIncrement(),
               buttonColorSubTract:
                   constProviderData.smallSizedFurnitureAmount == 0
                       ? Colors.blueGrey
                       : Theme.of(context).primaryColor,
-              onPressSubTract: ()=> furnitureSize.decrement(),
+              onPressSubTract: ()=> furnitureSize.smallFurnitureAmountDecrement(),
             ),
           ),
           const Divider(),
