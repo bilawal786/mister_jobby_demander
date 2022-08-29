@@ -11,7 +11,7 @@ class FurnitureAssembleStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final constProviderData =
-        Provider.of<ConstProvider>(context, listen: false);
+        Provider.of<ConstProvider>(context,listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,17 +38,19 @@ class FurnitureAssembleStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(),
-          StepTile(
-            tileTitle: "Small_Size_Tile_Title",
-            tileSubTitle: ""
-                "Small_Size_Tile_SubTitle",
-            inputValue: constProviderData.smallSizedFurnitureCount,
-            onPressAdd: ()=> constProviderData.increment(),
-            buttonColorSubTract:
-                constProviderData.smallSizedFurnitureAmount == 0
-                    ? Colors.blueGrey
-                    : Theme.of(context).primaryColor,
-            onPressSubTract: () {},
+          Consumer<ConstProvider>(
+            builder: (_,furnitureSize, child) => StepTile(
+              tileTitle: "Small_Size_Tile_Title",
+              tileSubTitle: ""
+                  "Small_Size_Tile_SubTitle",
+              inputValue: furnitureSize.smallSizedFurnitureAmount,
+              onPressAdd: ()=> constProviderData.increment(),
+              buttonColorSubTract:
+                  constProviderData.smallSizedFurnitureAmount == 0
+                      ? Colors.blueGrey
+                      : Theme.of(context).primaryColor,
+              onPressSubTract: ()=> furnitureSize.decrement(),
+            ),
           ),
           const Divider(),
         ],
