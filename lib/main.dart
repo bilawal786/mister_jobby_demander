@@ -3,7 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-
 import './helpers/routes.dart';
 import './providers/categories_provider/main_categories_provider.dart';
 import './screens/splash_screen/splash_screen.dart';
@@ -17,7 +16,7 @@ import './screens/home_screens/warranties_screens/cancellation_protection_screen
 import './screens/home_screens/warranties_screens/fair_compensation_screen.dart';
 import './screens/home_screens/warranties_screens/insured_services_screen.dart';
 import './screens/home_screens/warranties_screens/secure_payments_screen.dart';
-import './screens/home_screens/services_sub_categories/process_screen.dart';
+import './screens/home_screens/services_sub_categories/furniture_assemble_screen.dart';
 import './providers/const_provider/const_provider.dart';
 
 
@@ -157,7 +156,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.HOMETABROUTE: (ctx) => const MyHomeBottomTabScreen(),
           MyRoutes.SUBCATEGORYROUTE: (ctx) => const SubCategoriesScreen(),
           MyRoutes.CHILDCATEGORYROUTE: (ctx) => const ChildCategoriesScreen(),
-          MyRoutes.PROCESSROUTE: (ctx) => const ProcessScreen(),
+          MyRoutes.PROCESSROUTE: (ctx) => const FurnitureAssembleScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),

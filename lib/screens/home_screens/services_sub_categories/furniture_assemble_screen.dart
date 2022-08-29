@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/providers/const_provider/const_provider.dart';
 import 'package:provider/provider.dart';
 
 import './process_steps_screens/furniture_assemble_step.dart';
 
+import '../../../providers/const_provider/const_provider.dart';
 
-class ProcessScreen extends StatefulWidget {
-  const ProcessScreen({Key? key}) : super(key: key);
+
+class FurnitureAssembleScreen extends StatefulWidget {
+  const FurnitureAssembleScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProcessScreen> createState() => _ProcessScreenState();
+  State<FurnitureAssembleScreen> createState() => _FurnitureAssembleScreenState();
 }
 
-class _ProcessScreenState extends State<ProcessScreen> {
+class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
