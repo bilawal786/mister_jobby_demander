@@ -18,6 +18,7 @@ import './screens/home_screens/warranties_screens/fair_compensation_screen.dart'
 import './screens/home_screens/warranties_screens/insured_services_screen.dart';
 import './screens/home_screens/warranties_screens/secure_payments_screen.dart';
 import './screens/home_screens/services_sub_categories/process_screen.dart';
+import './providers/const_provider/const_provider.dart';
 
 
 void main() async {
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => MainCategoriesProvider()),
+        ChangeNotifierProvider(create: (ctx) => ConstProvider()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
