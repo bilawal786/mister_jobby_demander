@@ -11,7 +11,7 @@ class FurnitureAssembleStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final constProviderData =
-        Provider.of<ConstProvider>(context,listen: false);
+        Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,7 @@ class FurnitureAssembleStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Select the number of pieces of furniture to assemble",
+            "Select_Number_Furniture_Assemble_Step_SubTitle".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
@@ -39,20 +39,80 @@ class FurnitureAssembleStep extends StatelessWidget {
           ),
           const Divider(),
           Consumer<ConstProvider>(
-            builder: (_,furnitureSize, child) => StepTile(
+            builder: (_, smallFurnitureSize, child) => StepTile(
               tileTitle: "Small_Size_Tile_Title",
               tileSubTitle: ""
                   "Small_Size_Tile_SubTitle",
-              inputValue: furnitureSize.smallSizedFurnitureAmount,
-              onPressAdd: ()=> constProviderData.smallFurnitureAmountIncrement(),
+              inputValue: smallFurnitureSize.smallSizedFurnitureAmount,
+              onPressAdd: () =>
+                  constProviderData.smallFurnitureAmountIncrement(),
               buttonColorSubTract:
                   constProviderData.smallSizedFurnitureAmount == 0
                       ? Colors.blueGrey
                       : Theme.of(context).primaryColor,
-              onPressSubTract: ()=> furnitureSize.smallFurnitureAmountDecrement(),
+              onPressSubTract: () =>
+                  smallFurnitureSize.smallFurnitureAmountDecrement(),
             ),
           ),
           const Divider(),
+          Consumer<ConstProvider>(
+            builder: (_, mediumFurnitureSize, child) => StepTile(
+              tileTitle: "Medium_Size_Tile_Title",
+              tileSubTitle: ""
+                  "Medium_Size_Tile_SubTitle",
+              inputValue: mediumFurnitureSize.mediumSizedFurnitureAmount,
+              onPressAdd: () =>
+                  constProviderData.mediumFurnitureAmountIncrement(),
+              buttonColorSubTract:
+                  constProviderData.mediumSizedFurnitureAmount == 0
+                      ? Colors.blueGrey
+                      : Theme.of(context).primaryColor,
+              onPressSubTract: () =>
+                  mediumFurnitureSize.mediumFurnitureAmountDecrement(),
+            ),
+          ),
+          const Divider(),
+          Consumer<ConstProvider>(
+            builder: (_, largeFurnitureSize, child) => StepTile(
+              tileTitle: "Big_Size_Tile_Title",
+              tileSubTitle: ""
+                  "Big_Size_Tile_SubTitle",
+              inputValue: largeFurnitureSize.largeSizedFurnitureAmount,
+              onPressAdd: () =>
+                  constProviderData.largeFurnitureAmountIncrement(),
+              buttonColorSubTract:
+                  constProviderData.largeSizedFurnitureAmount == 0
+                      ? Colors.blueGrey
+                      : Theme.of(context).primaryColor,
+              onPressSubTract: () =>
+                  largeFurnitureSize.largeFurnitureAmountDecrement(),
+            ),
+          ),
+          const Divider(),
+          Consumer<ConstProvider>(
+            builder: (_, veryLargeFurnitureSize, child) => StepTile(
+              tileTitle: "Very_Big_Size_Tile_Title",
+              tileSubTitle: ""
+                  "Very_Big_Size_Tile_SubTitle",
+              inputValue: veryLargeFurnitureSize.veryLargeSizedFurnitureAmount,
+              onPressAdd: () =>
+                  constProviderData.veryLargeFurnitureAmountIncrement(),
+              buttonColorSubTract:
+                  constProviderData.veryLargeSizedFurnitureAmount == 0
+                      ? Colors.blueGrey
+                      : Theme.of(context).primaryColor,
+              onPressSubTract: () =>
+                  veryLargeFurnitureSize.veryLargeFurnitureAmountDecrement(),
+            ),
+          ),
+          const Divider(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Text(
+            "Do_You_Want_Service_Provider_Clear_Boxes".tr(),
+            style: Theme.of(context).textTheme.labelMedium,
+          ),
         ],
       ),
     );
