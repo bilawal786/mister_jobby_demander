@@ -67,4 +67,33 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  DateTime selectedDate = DateTime.now();
+  Future selectDateProvider(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime.now(),
+        lastDate: DateTime(2111));
+    if (picked != null) {
+        selectedDate = picked;
+        notifyListeners();
+    }
+  }
+
+  TimeOfDay pickedTime = TimeOfDay.now();
+  Future selectTimeProvider(BuildContext context) async {
+    final TimeOfDay? response = await showTimePicker(
+      context: context,
+      initialTime: pickedTime,
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+        child: Container(child: child),
+      ),
+    );
+    if (response != null && response != pickedTime) {
+        pickedTime = response;
+        notifyListeners();
+    }
+  }
+
 }
