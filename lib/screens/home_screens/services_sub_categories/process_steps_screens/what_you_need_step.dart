@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/rounded_button.dart';
@@ -11,9 +12,9 @@ class WhatYouNeed extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Furniture assembly", style: Theme.of(context).textTheme.bodyMedium,),
+          Text("Furniture_Assembly_Step_Title", style: Theme.of(context).textTheme.bodyMedium,).tr(),
           SizedBox(height: MediaQuery.of(context).size.width / 40,),
-          Text("What do you need?", style: Theme.of(context).textTheme.titleMedium,),
+          Text("What_You_Need_Step_SubTitle", style: Theme.of(context).textTheme.titleMedium,).tr(),
           SizedBox(height: MediaQuery.of(context).size.width / 40,),
           Text("Select the number of pieces of furniture to assemble", style: Theme.of(context).textTheme.labelMedium,),
           SizedBox(height: MediaQuery.of(context).size.width / 40,),
