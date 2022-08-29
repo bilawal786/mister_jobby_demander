@@ -24,11 +24,11 @@ class OutlineSelectedButton extends StatelessWidget {
         onTap();
       },
       child: Container(
-        margin: EdgeInsets.only(left: 10,right: 10,),
+        margin:const EdgeInsets.only(left: 10,right: 10,),
         height: height,
         width: width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
           border:Border.all(color: border == false? Colors.transparent:Colors.blue),
           color: color,
           boxShadow: [

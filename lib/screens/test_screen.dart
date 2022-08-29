@@ -62,14 +62,10 @@ class _TestScreenState extends State<TestScreen> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 250,
-              child: ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (BuildContext context, int index) {
-                    return RadioButtonClass(value: index, selectedValue: 0);
-                  }),
-            ),
+            RadioButtonClass(value: 0, selectedValue: 1),
+            RadioButtonClass(value: 0, selectedValue: 1),
+            RadioButtonClass(value: 0, selectedValue: 1),
+            RadioButtonClass(value: 0, selectedValue: 1),
             RangeSliderCLass(
                 rangeValues: _currentRangeValues, minRange: 0, maxRange: 100),
             OutlinedButton(onPressed: () {}, child:const Text("data")),
