@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import './process_steps_screens/what_you_need_step.dart';
+import './process_steps_screens/furniture_assemble_step.dart';
+
 
 class ProcessScreen extends StatefulWidget {
   const ProcessScreen({Key? key}) : super(key: key);
@@ -103,7 +104,7 @@ class _ProcessScreenState extends State<ProcessScreen> {
           isActive: currentStep >= 0,
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: const WhatYouNeed(),
+          content: const FurnitureAssembleStep(),
         ),
         Step(
           isActive: currentStep >= 1,
