@@ -34,31 +34,31 @@ class HangTVStep extends StatelessWidget {
           Row(
             children: <Widget>[
               Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "One"),
+                child: OutlineSelectedButton(onTap: () {}, textTitle: "One", color: Colors.grey.shade300,),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 40,
               ),
               Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "Two"),
+                child: OutlineSelectedButton(onTap: () {}, textTitle: "Two", color: Colors.grey.shade300,),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 40,
               ),
               Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "Three"),
+                child: OutlineSelectedButton(onTap: () {}, textTitle: "Three", color: Colors.grey.shade300,),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 40,
               ),
               Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "Four"),
+                child: OutlineSelectedButton(onTap: () {}, textTitle: "Four", color: Colors.grey.shade300,),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 40,
               ),
               Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "Five"),
+                child: OutlineSelectedButton(onTap: () {}, textTitle: "Five", color: Colors.grey.shade300,),
               ),
             ],
           ),

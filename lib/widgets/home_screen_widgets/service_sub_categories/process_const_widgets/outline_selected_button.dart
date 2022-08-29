@@ -44,7 +44,7 @@ class OutlineSelectedButton extends StatelessWidget {
         child: Center(
           child: Text(
             textTitle,
-            style: Theme.of(context).textTheme.displayLarge,
+            style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
         ),
       ),

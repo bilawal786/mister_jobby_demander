@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../../providers/const_provider/const_provider.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/fixing_shelves_step.dart';
-
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
 
 
 
@@ -118,7 +118,7 @@ class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: Container(),
+      content: const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,
