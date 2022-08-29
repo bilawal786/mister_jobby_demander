@@ -96,4 +96,37 @@ class ConstProvider with ChangeNotifier {
     }
   }
 
+  double duration = 0.0;
+
+  void durationIncrement(){
+    duration +=0.5;
+    notifyListeners();
+  }
+
+  void durationDecrement(){
+    if(duration >= 0.5) {
+      duration -= 0.5;
+    }
+    notifyListeners();
+  }
+
+  int hourlyRate = 0;
+
+  void hourlyRateIncrement(){
+    hourlyRate +=1;
+    notifyListeners();
+  }
+
+  void hourlyRateDecrement(){
+    if(hourlyRate >= 1) {
+      hourlyRate -= 1;
+    }
+    notifyListeners();
+  }
+
+  bool checkUrgentJob =false;
+  void checkUrgentJobFunction(){
+    checkUrgentJob =! checkUrgentJob;
+    notifyListeners();
+  }
 }
