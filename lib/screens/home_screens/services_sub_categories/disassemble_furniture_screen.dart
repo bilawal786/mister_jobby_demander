@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_steps_screens/disassemble_furniture_step.dart';
 import 'package:provider/provider.dart';
 
-import './process_steps_screens/furniture_assemble_step.dart';
-
 import '../../../providers/const_provider/const_provider.dart';
-
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/disassemble_furniture_step.dart';
 
 class DisassembleFurnitureScreen extends StatefulWidget {
   const DisassembleFurnitureScreen({Key? key}) : super(key: key);
@@ -27,7 +24,7 @@ class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen>
           color: Colors.black38,
         ),
         title: Text(
-          "Process Screen",
+          "Disassemble Furniture",
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),

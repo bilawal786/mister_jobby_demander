@@ -18,7 +18,7 @@ class DisassembleFurnitureStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Furniture_Assembly_Step_Title",
+            "Disassemble_Furniture_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
