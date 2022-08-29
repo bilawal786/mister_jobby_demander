@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/providers/const_provider/const_provider.dart';
+import 'package:provider/provider.dart';
 
 import './process_steps_screens/furniture_assemble_step.dart';
 
@@ -48,50 +50,53 @@ class _ProcessScreenState extends State<ProcessScreen> {
         controlsBuilder: (context, ControlsDetails details) {
           return Container(
             margin: const EdgeInsets.only(top: 50),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: details.onStepContinue,
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50.0),
-                      primary: Theme.of(context).primaryColor,
-                      elevation: 0,
-                    ),
-                    child: Text(
-                      currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
-                      style: const TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Cerebri Sans Regular',
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                          letterSpacing: 1
+            child: Consumer<ConstProvider>(
+              builder: (_,size,child) => Row(
+                children: <Widget>[
+                  if(size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0 || size.veryLargeSizedFurnitureAmount > 0 )
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: details.onStepContinue,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Theme.of(context).primaryColor,
+                        elevation: 5,
                       ),
-                    ).tr(),
-                  )
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width / 40,),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: details.onStepCancel,
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50.0),
-                      primary: Colors.black12,
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      "Process_Screen_Cancel_Button",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Cerebri Sans Regular',
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                          letterSpacing: 1
+                      child: Text(
+                        currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.white,
+                            letterSpacing: 1
+                        ),
+                      ).tr(),
+                    )
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 40,),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: details.onStepCancel,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Colors.black12,
+                        elevation: 0,
                       ),
-                    ).tr(),
-                  )
-                ),
-              ],
+                      child: const Text(
+                        "Process_Screen_Cancel_Button",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            letterSpacing: 1
+                        ),
+                      ).tr(),
+                    )
+                  ),
+                ],
+              ),
             ),
           );
         },
