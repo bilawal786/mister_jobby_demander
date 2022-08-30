@@ -115,6 +115,8 @@
   "Bulb_Installation_Step_SubTitle": "How many bulbs do you need to change?",
   "Lamp_Installation_Step_Title": "Installation of lamps and light fixtures",
   "Lamp_Installation_Step_SubTitle": "How many lamps should be installed?",
+  "Automation_Step_Title": "Automation",
+  "Automation_Step_SubTitle": "What do you need?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",
