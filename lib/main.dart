@@ -6,6 +6,8 @@ import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart
 
 
 
+
+
 // import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
 
 import 'package:provider/provider.dart';
@@ -32,6 +34,8 @@ import './screens/home_screens/services_sub_categories/electrical_installation_s
 import './screens/home_screens/services_sub_categories/bulb_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/lamp_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/automation_screen.dart';
+import './screens/home_screens/services_sub_categories/ac_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/painting_installation_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
 import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
 import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
@@ -196,6 +200,8 @@ class MyApp extends StatelessWidget {
           MyRoutes.BULBINSTALLATIONROUTE: (ctx) => const BulbInstallationScreen(),
           MyRoutes.LAMPINSTALLATIONROUTE: (ctx) => const LampInstallationScreen(),
           MyRoutes.AUTOMATIONROUTE: (ctx) => const AutomationScreen(),
+          MyRoutes.ACINSTALLATIONROUTE: (ctx) => const ACInstallationScreen(),
+          MyRoutes.PAINTINGINSTALLATIOROUTE: (ctx) => PaintingInstallationScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
