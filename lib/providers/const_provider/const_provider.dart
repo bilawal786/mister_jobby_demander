@@ -243,4 +243,12 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  String explainWork = '';
+
+  void getExplainWork(value){
+    explainWork = value;
+    notifyListeners();
+    print(explainWork);
+  }
+
 }

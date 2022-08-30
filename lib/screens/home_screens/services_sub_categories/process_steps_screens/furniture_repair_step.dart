@@ -9,8 +9,7 @@ class FurnitureRepairStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final constProviderData =
-    Provider.of<ConstProvider>(context, listen: false);
+    final constProviderData = Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,24 +28,23 @@ class FurnitureRepairStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),
-
-        TextFormField(
-          initialValue: 'Furniture_Repair_Step_Title'.tr(),
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Titre de la demande',
-            isDense: true,
-          ),
-          style: Theme.of(context).textTheme.bodySmall,
-          enabled: false,
+          TextFormField(
+            initialValue: 'Furniture_Repair_Step_Title'.tr(),
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Titre de la demande',
+              isDense: true,
+            ),
+            style: Theme.of(context).textTheme.bodySmall,
+            enabled: false,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),
-
           TextFormField(
+            onChanged: (value) => constProviderData.getExplainWork(value),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
               labelText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
               hintText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
               isDense: true,
@@ -54,13 +52,6 @@ class FurnitureRepairStep extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
             maxLines: 5,
           ),
-
-
-
-
-
-
-
         ],
       ),
     );

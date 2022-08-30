@@ -19,6 +19,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
+    final constProviderData = Provider.of<ConstProvider>(context,);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -40,6 +41,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
           final isLastStep = currentStep == getSteps().length - 1;
           if (isLastStep) {
             print("Step completed");
+            print(constProviderData.explainWork);
           } else {
             setState(() => currentStep += 1);
           }
@@ -53,9 +55,8 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
           return Container(
             margin: const EdgeInsets.only(top: 50),
             child: Consumer<ConstProvider>(
-              builder: (_,size,child) => Row(
+              builder: (_,workExplain,child) => Row(
                 children: <Widget>[
-                  if(size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0 || size.veryLargeSizedFurnitureAmount > 0 )
                     Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,
