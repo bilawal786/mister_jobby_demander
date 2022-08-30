@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 class ConstProvider with ChangeNotifier {
   int smallSizedFurnitureAmount = 0;
@@ -249,6 +253,148 @@ class ConstProvider with ChangeNotifier {
     explainWork = value;
     notifyListeners();
     print(explainWork);
+  }
+
+  final picker = ImagePicker();
+  String? imageFile0;
+  String? imageFile1;
+  String? imageFile2;
+  CroppedFile? getImage;
+  int providersAmount = 1;
+
+  void providerAmountIncrement(){
+    providersAmount +=1;
+    notifyListeners();
+  }
+
+  void providerAmountDecrement(){
+    if(providersAmount >= 2) {
+      providersAmount -= 1;
+    }
+    notifyListeners();
+  }
+
+  imgFromCamera(int index) async {
+    XFile? pickedFile =
+    await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
+    getImage =
+    await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
+    if (index == 0) {
+      imageFile0 = getImage!.path;
+    } else {
+      if (index == 1) {
+        imageFile1 = getImage!.path;
+      } else {
+        imageFile2 = getImage!.path;
+      }
+    }
+    notifyListeners();
+  }
+
+  imgFromGallery(int index) async {
+    XFile? pickedFile =
+    await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
+    getImage =
+    await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
+    if (index == 0) {
+      imageFile0 = getImage!.path;
+    } else {
+      if (index == 1) {
+        imageFile1 = getImage!.path;
+      } else {
+        imageFile2 = getImage!.path;
+      }
+    }
+    notifyListeners();
+  }
+
+  void removeImage(index) {
+    if (index == 0) {
+      imageFile0 = null;
+    } else {
+      if (index == 1) {
+        imageFile1 = null;
+      } else {
+        imageFile2 = null;
+      }
+    }
+    notifyListeners();
+  }
+
+  void showPicker(context, int index) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return SafeArea(
+          child: Container(
+            height: MediaQuery.of(context).size.height / 5,
+            margin: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Pick_Image_Title",
+                  style: Theme.of(context).textTheme.titleSmall,
+                ).tr(),
+                const Divider(),
+                InkWell(
+                  onTap: () {
+                    imgFromCamera(index);
+                    Navigator.of(context).pop();
+                  },
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      const Icon(
+                        Icons.camera_alt,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Text(
+                        "Pick_Image_From_Camera_Title",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ).tr(),
+                    ],
+                  ),
+                ),
+                const Divider(),
+                InkWell(
+                  onTap: () {
+                    imgFromGallery(index);
+                    Navigator.of(context).pop();
+                  },
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      const Icon(
+                        Icons.file_copy,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Text(
+                        "Pick_Image_From_Gallery_Title",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ).tr(),
+                    ],
+                  ),
+                ),
+                const Divider(),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
 }

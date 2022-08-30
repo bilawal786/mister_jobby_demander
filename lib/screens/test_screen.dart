@@ -1,11 +1,8 @@
 import 'dart:io';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
+import 'package:mister_jobby/providers/const_provider/const_provider.dart';
 import 'package:provider/provider.dart';
-
-import '../providers/const_provider/const_provider.dart';
 
 class TestScreen extends StatefulWidget {
   const TestScreen({Key? key}) : super(key: key);
@@ -15,13 +12,10 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
-  // final RangeValues _currentRangeValues = const RangeValues(0, 100);
   double values = 0;
 
   @override
   Widget build(BuildContext context) {
-    final constProviderData =
-        Provider.of<ConstProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -54,60 +48,227 @@ class _TestScreenState extends State<TestScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              mainLogo(),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Consumer<ConstProvider>(
+                      builder: (index, imageFileData, child) => SizedBox(
+                        child: imageFileData.imageFile0 != null
+                            ? Stack(
+                                children: [
+                                  Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey.shade300,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.file(
+                                        File(
+                                          imageFileData.imageFile0 ?? "",
+                                        ).absolute,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    right: 6,
+                                    top: 8,
+                                    child: InkWell(
+                                      onTap: () {
+                                        imageFileData.removeImage(0);
+                                      },
+                                      child: Container(
+                                        height: 30,
+                                        width: 30,
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.shade400,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: const Icon(
+                                          Icons.clear,
+                                          size: 20,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : InkWell(
+                                onTap: () {
+                                  imageFileData.showPicker(context, 0);
+                                },
+                                child: Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade300,
+                                    borderRadius: BorderRadius.circular(7),
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                      width: 1,
+                                    ),
+                                  ),
+                                  child: const Icon(Icons.camera_alt),
+                                ),
+                              ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Consumer<ConstProvider>(
+                      builder: (index, imageFileData, child) => SizedBox(
+                        child: imageFileData.imageFile1 != null
+                            ? Stack(
+                                children: [
+                                  Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey.shade300,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.file(
+                                        File(
+                                          imageFileData.imageFile1 ?? "",
+                                        ).absolute,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    right: 6,
+                                    top: 8,
+                                    child: InkWell(
+                                      onTap: () {
+                                        imageFileData.removeImage(1);
+                                      },
+                                      child: Container(
+                                        height: 30,
+                                        width: 30,
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.shade400,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: const Icon(
+                                          Icons.clear,
+                                          size: 20,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : InkWell(
+                                onTap: () {
+                                  imageFileData.showPicker(context, 1);
+                                },
+                                child: Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade300,
+                                    borderRadius: BorderRadius.circular(7),
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                      width: 1,
+                                    ),
+                                  ),
+                                  child: const Icon(Icons.camera_alt),
+                                ),
+                              ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Consumer<ConstProvider>(
+                      builder: (index, imageFileData, child) => SizedBox(
+                        child: imageFileData.imageFile2 != null
+                            ? Stack(
+                                children: [
+                                  Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey.shade300,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.file(
+                                        File(
+                                          imageFileData.imageFile2 ?? "",
+                                        ).absolute,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    right: 6,
+                                    top: 8,
+                                    child: InkWell(
+                                      onTap: () {
+                                        imageFileData.removeImage(2);
+                                      },
+                                      child: Container(
+                                        height: 30,
+                                        width: 30,
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.shade400,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: const Icon(
+                                          Icons.clear,
+                                          size: 20,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : InkWell(
+                                onTap: () {
+                                  imageFileData.showPicker(context, 2);
+                                },
+                                child: Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade300,
+                                    borderRadius: BorderRadius.circular(7),
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                      width: 1,
+                                    ),
+                                  ),
+                                  child: const Icon(Icons.camera_alt),
+                                ),
+                              ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                  ],
+                ),
+              ),
+
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget mainLogo() {
-    return Consumer<MujeebConstProvider>(
-      builder: (index, imageFileData, child) => SizedBox(
-        child: imageFileData.imageFile != null
-            ? Stack(
-              children: [
-                Container(
-                    height: 130,
-                    width: 130,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.file(
-                        File(
-                          imageFileData.imageFile ?? "",
-                        ).absolute,
-                        fit: BoxFit.cover,
-
-                      ),
-                    ),
-                  ),
-                IconButton(onPressed: (){}, icon: Icon(Icons.clear),),
-              ],
-            )
-            : InkWell(
-                onTap: () {
-                  imageFileData.showPicker(context);
-                },
-                child: Container(
-                  height: 130,
-                  width: 130,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(7),
-                    border: Border.all(
-                      color: Colors.grey,
-                      width: 1,
-
-                    ),
-                  ),
-                  child: const Icon(Icons.camera_alt),
-                ),
-              ),
       ),
     );
   }

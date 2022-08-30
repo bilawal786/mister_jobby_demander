@@ -238,6 +238,52 @@ class GeneralStep2Screen extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Text(
+            "Service_How_Many_Provider_Do_You_Need",
+            style: Theme.of(context).textTheme.titleSmall,
+          ).tr(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Consumer<ConstProvider>(
+            builder: (_,providerCountData,child)=>
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 2.8,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      RoundedButton(
+                        onTap: providerCountData.providerAmountDecrement,
+                        icon: Icons.remove,
+                        color: providerCountData.providersAmount == 1
+                            ? Colors.blueGrey
+                            : Theme.of(context).primaryColor,
+                        // color: buttonColorSubTract,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width / 40,
+                      ),
+                      Text(
+                        "${providerCountData.providersAmount}",
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width / 40,
+                      ),
+                      RoundedButton(
+                        onTap:providerCountData.providerAmountIncrement,
+                      ),
+                    ],
+                  ),
+                ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          const Divider(),
         ],
       ),
     );

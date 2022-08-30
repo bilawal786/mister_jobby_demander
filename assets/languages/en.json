@@ -126,6 +126,10 @@
   "Four": "4",
   "Five": "5",
   "Service_do_you_need_urgent_job": "Do you need the jobber urgently?",
-  "Service_Do_You_Want_To_Add_Photos": "Do you want to add photos? (Optional)"
+  "Service_Do_You_Want_To_Add_Photos": "Do you want to add photos? (Optional)",
+  "Service_How_Many_Provider_Do_You_Need": "How many providers do you need?",
+  "Pick_Image_Title": "Select Preferred Option",
+  "Pick_Image_From_Camera_Title": "Open Camera",
+  "Pick_Image_From_Gallery_Title": "Select From Library"
 
 }
