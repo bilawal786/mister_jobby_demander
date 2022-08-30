@@ -109,6 +109,8 @@
   "Hood_Installation_Step_DescriptionTitle": "Additional details(optional)",
   "Landscaping_Job_Step_Title": "Other landscaping job",
   "Landscaping_Job_Step_SubTitle": "What is your need?",
+  "Electrical_Installation_Step_Title": "Installation of electrical outlets",
+  "Electrical_Installation_Step_SubTitle": "How many outlets should I install?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",
