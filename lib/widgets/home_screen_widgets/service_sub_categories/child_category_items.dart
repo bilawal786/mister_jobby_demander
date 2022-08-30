@@ -50,6 +50,11 @@ class ChildCategoriesItems extends StatelessWidget {
             print("$check");
           }
           break;
+          case 8: {
+            Navigator.of(context).pushNamed(MyRoutes.MIRRORINSTALLATIONROUTE);
+            print("$check");
+          }
+          break;
         }
       },
       contentPadding:
