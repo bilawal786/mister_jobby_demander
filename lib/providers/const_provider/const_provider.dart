@@ -67,6 +67,16 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void clearData(){
+     smallSizedFurnitureAmount = 0;
+     mediumSizedFurnitureAmount = 0;
+     largeSizedFurnitureAmount = 0;
+     veryLargeSizedFurnitureAmount = 0;
+     cleanBoxFurnitureYes = false;
+     cleanBoxFurnitureNo = false;
+    notifyListeners();
+  }
+
   DateTime selectedDate = DateTime.now();
   Future selectDateProvider(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
