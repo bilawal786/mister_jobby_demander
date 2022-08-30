@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mister_jobby">
    <application
+        android:requestLegacyExternalStorage="true"
         android:label="mister_jobby"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
