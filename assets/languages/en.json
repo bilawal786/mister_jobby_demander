@@ -113,6 +113,8 @@
   "Electrical_Installation_Step_SubTitle": "How many outlets should I install?",
   "Bulb_Installation_Step_Title": "Change a bulb",
   "Bulb_Installation_Step_SubTitle": "How many bulbs do you need to change?",
+  "Lamp_Installation_Step_Title": "Installation of lamps and light fixtures",
+  "Lamp_Installation_Step_SubTitle": "How many lamps should be installed?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",
