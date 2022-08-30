@@ -90,6 +90,11 @@ class ChildCategoriesItems extends StatelessWidget {
             print("$check");
           }
           break;
+          case 16: {
+            Navigator.of(context).pushNamed(MyRoutes.LAMPINSTALLATIONROUTE);
+            print("$check");
+          }
+          break;
         }
       },
       contentPadding:

@@ -18,6 +18,7 @@ class MyRoutes{
   static String LANDSCAPINGHOODROUTE = '/Landscaping-Job-Screen';
   static String ELECTRICALINSTALLATIONROUTE = '/Electrical-Installation-Screen';
   static String BULBINSTALLATIONROUTE = '/Bulb-Installation-Screen';
+  static String LAMPINSTALLATIONROUTE = '/Lamp-Installation-Screen';
   static String SEARCHROUTE = '/Search-Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
