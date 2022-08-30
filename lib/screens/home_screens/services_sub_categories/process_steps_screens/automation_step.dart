@@ -3,7 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
-
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
 class AutomationStep extends StatelessWidget {
@@ -72,14 +71,14 @@ class AutomationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, tv, child) => Row(
+            builder: (_, automationStep, child) => Row(
               children: <Widget>[
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang1,
+                    onTap: automationStep.equipments1,
                     textTitle: "One",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo1 == 1 ? true : false,
+                    border: automationStep.equipmentsNo1 == 1 ? true : false,
                   ),
                 ),
                 SizedBox(
@@ -87,10 +86,10 @@ class AutomationStep extends StatelessWidget {
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang2,
+                    onTap: automationStep.equipments2,
                     textTitle: "Two",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo2 == 2 ? true : false,
+                    border: automationStep.equipmentsNo2 == 2 ? true : false,
                   ),
                 ),
                 SizedBox(
@@ -98,10 +97,10 @@ class AutomationStep extends StatelessWidget {
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang3,
+                    onTap: automationStep.equipments3,
                     textTitle: "Three",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo3 == 3 ? true : false,
+                    border: automationStep.equipmentsNo3 == 3 ? true : false,
                   ),
                 ),
                 SizedBox(
@@ -109,10 +108,10 @@ class AutomationStep extends StatelessWidget {
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang4,
+                    onTap: automationStep.equipments4,
                     textTitle: "Four",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo4 == 4 ? true : false,
+                    border: automationStep.equipmentsNo4 == 4 ? true : false,
                   ),
                 ),
                 SizedBox(
@@ -120,10 +119,10 @@ class AutomationStep extends StatelessWidget {
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang5,
+                    onTap: automationStep.equipments5,
                     textTitle: "Five",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo5 == 5 ? true : false,
+                    border: automationStep.equipmentsNo5 == 5 ? true : false,
                   ),
                 ),
               ],
@@ -142,14 +141,14 @@ class AutomationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, tv, child) => Row(
+            builder: (_, automationCamera, child) => Row(
               children: <Widget>[
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang1,
+                    onTap: automationCamera.automationCamera1,
                     textTitle: "One",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo1 == 1 ? true : false,
+                    border: automationCamera.automationCameraNo1 == 1 ? true : false,
                   ),
                 ),
                 SizedBox(
@@ -157,10 +156,10 @@ class AutomationStep extends StatelessWidget {
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang2,
+                    onTap: automationCamera.automationCamera2,
                     textTitle: "Two",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo2 == 2 ? true : false,
+                    border: automationCamera.automationCameraNo2 == 2 ? true : false,
                   ),
                 ),
                 SizedBox(
@@ -168,10 +167,10 @@ class AutomationStep extends StatelessWidget {
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang3,
+                    onTap: automationCamera.automationCamera3,
                     textTitle: "Three",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo3 == 3 ? true : false,
+                    border: automationCamera.automationCameraNo3 == 3 ? true : false,
                   ),
                 ),
                 SizedBox(
@@ -179,10 +178,10 @@ class AutomationStep extends StatelessWidget {
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang4,
+                    onTap: automationCamera.automationCamera4,
                     textTitle: "Four",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo4 == 4 ? true : false,
+                    border: automationCamera.automationCameraNo4 == 4 ? true : false,
                   ),
                 ),
                 SizedBox(
@@ -190,10 +189,10 @@ class AutomationStep extends StatelessWidget {
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: tv.tvHang5,
+                    onTap: automationCamera.automationCamera5,
                     textTitle: "Five",
                     color: Colors.grey.shade300,
-                    border: tv.tvHangNo5 == 5 ? true : false,
+                    border: automationCamera.automationCameraNo5 == 5 ? true : false,
                   ),
                 ),
               ],

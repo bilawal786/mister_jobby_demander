@@ -29,25 +29,25 @@ class LampInstallationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,shower,child) =>
+            builder: (_,lampInstallation,child) =>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     RoundedButton(
-                      onTap: shower.showerAmountDecrement,
+                      onTap: lampInstallation.lampInstallationDecrement,
                       height: 50,
                       icon: Icons.remove,
-                      color: shower.showerAmount < 1 ? Colors.blueGrey.shade300 : Theme.of(context).primaryColor,
+                      color: lampInstallation.lampInstallationAmount < 1 ? Colors.blueGrey.shade300 : Theme.of(context).primaryColor,
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 10,
                     ),
-                    Text('${shower.showerAmount}', style: Theme.of(context).textTheme.titleMedium,),
+                    Text('${lampInstallation.lampInstallationAmount}', style: Theme.of(context).textTheme.titleMedium,),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 10,
                     ),
                     RoundedButton(
-                      onTap: shower.showerAmountIncrement,
+                      onTap: lampInstallation.lampInstallationAmountIncrement,
                       height: 50,
                       icon: Icons.add,
                       color: Theme.of(context).primaryColor,

@@ -23,6 +23,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+
   void smallFurnitureAmountIncrement(){
     smallSizedFurnitureAmount +=1;
     notifyListeners();
@@ -202,6 +203,142 @@ class ConstProvider with ChangeNotifier {
     tvHangNo3 = 0;
     tvHangNo4 = 0;
     tvHangNo5 = 5;
+    notifyListeners();
+  }
+
+  int equipmentsNo1 = 0;
+  int equipmentsNo2 = 0;
+  int equipmentsNo3 = 0;
+  int equipmentsNo4 = 0;
+  int equipmentsNo5 = 0;
+
+  void equipments1() {
+    equipmentsNo1 = 1;
+    equipmentsNo2 = 0;
+    equipmentsNo3 = 0;
+    equipmentsNo4 = 0;
+    equipmentsNo5 = 0;
+    notifyListeners();
+  }
+  void equipments2() {
+    equipmentsNo1 = 0;
+    equipmentsNo2 = 2;
+    equipmentsNo3 = 0;
+    equipmentsNo4 = 0;
+    equipmentsNo5 = 0;
+    notifyListeners();
+  }
+  void equipments3() {
+    equipmentsNo1 = 0;
+    equipmentsNo2 = 0;
+    equipmentsNo3 = 3;
+    equipmentsNo4 = 0;
+    equipmentsNo5 = 0;
+    notifyListeners();
+  }
+  void equipments4() {
+    equipmentsNo1 = 0;
+    equipmentsNo2 = 0;
+    equipmentsNo3 = 0;
+    equipmentsNo4 = 4;
+    equipmentsNo5 = 0;
+    notifyListeners();
+  }
+  void equipments5() {
+    equipmentsNo1 = 0;
+    equipmentsNo2 = 0;
+    equipmentsNo3 = 0;
+    equipmentsNo4 = 0;
+    equipmentsNo5 = 5;
+    notifyListeners();
+  }
+
+  int automationCameraNo1 = 0;
+  int automationCameraNo2 = 0;
+  int automationCameraNo3 = 0;
+  int automationCameraNo4 = 0;
+  int automationCameraNo5 = 0;
+
+  void automationCamera1() {
+    automationCameraNo1 = 1;
+    automationCameraNo2 = 0;
+    automationCameraNo3 = 0;
+    automationCameraNo4 = 0;
+    automationCameraNo5 = 0;
+    notifyListeners();
+  }
+  void automationCamera2() {
+    automationCameraNo1 = 0;
+    automationCameraNo2 = 2;
+    automationCameraNo3 = 0;
+    automationCameraNo4 = 0;
+    automationCameraNo5 = 0;
+    notifyListeners();
+  }
+  void automationCamera3() {
+    automationCameraNo1 = 0;
+    automationCameraNo2 = 0;
+    automationCameraNo3 = 3;
+    automationCameraNo4 = 0;
+    automationCameraNo5 = 0;
+    notifyListeners();
+  }
+  void automationCamera4() {
+    automationCameraNo1 = 0;
+    automationCameraNo2 = 0;
+    automationCameraNo3 = 0;
+    automationCameraNo4 = 4;
+    automationCameraNo5 = 0;
+    notifyListeners();
+  }
+  void automationCamera5() {
+    automationCameraNo1 = 0;
+    automationCameraNo2 = 0;
+    automationCameraNo3 = 0;
+    automationCameraNo4 = 0;
+    automationCameraNo5 = 5;
+    notifyListeners();
+  }
+
+  int electricalOutletsAmount = 0;
+
+  void electricalOutletsAmountIncrement(){
+    electricalOutletsAmount +=1;
+    notifyListeners();
+  }
+
+  void electricalOutletsDecrement(){
+    if(electricalOutletsAmount >= 1) {
+      electricalOutletsAmount -= 1;
+    }
+    notifyListeners();
+  }
+
+  int bulbInstallationAmount = 0;
+
+  void bulbInstallationAmountIncrement(){
+    bulbInstallationAmount +=1;
+    notifyListeners();
+  }
+
+  void bulbInstallationDecrement(){
+    if(bulbInstallationAmount >= 1) {
+      bulbInstallationAmount -= 1;
+    }
+    notifyListeners();
+  }
+
+  int lampInstallationAmount = 0;
+
+  void lampInstallationAmountIncrement(){
+    lampInstallationAmount +=1;
+    notifyListeners();
+  }
+
+  void lampInstallationDecrement(){
+    if(lampInstallationAmount >= 1) {
+      lampInstallationAmount -= 1;
+    }
     notifyListeners();
   }
 

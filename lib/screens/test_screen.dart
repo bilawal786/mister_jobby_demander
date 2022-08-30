@@ -265,7 +265,43 @@ class _TestScreenState extends State<TestScreen> {
                   ],
                 ),
               ),
-
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Text(
+                "Do_You_Have_Details_Title",
+                style: Theme.of(context).textTheme.titleSmall,
+              ).tr(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 20,
+              ),
+              TextFormField(
+                initialValue: 'Furniture_Repair_Step_Title'.tr(),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Titre de la demande',
+                  isDense: true,
+                ),
+                style: Theme.of(context).textTheme.bodySmall,
+                enabled: false,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 20,
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  labelText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
+                  hintText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
+                  isDense: true,
+                ),
+                style: Theme.of(context).textTheme.bodySmall,
+                maxLines: 5,
+              ),
             ],
           ),
         ),
