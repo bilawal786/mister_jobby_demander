@@ -111,6 +111,8 @@
   "Landscaping_Job_Step_SubTitle": "What is your need?",
   "Electrical_Installation_Step_Title": "Installation of electrical outlets",
   "Electrical_Installation_Step_SubTitle": "How many outlets should I install?",
+  "Bulb_Installation_Step_Title": "Change a bulb",
+  "Bulb_Installation_Step_SubTitle": "How many bulbs do you need to change?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",

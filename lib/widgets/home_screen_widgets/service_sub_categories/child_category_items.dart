@@ -85,6 +85,11 @@ class ChildCategoriesItems extends StatelessWidget {
             print("$check");
           }
           break;
+          case 15: {
+            Navigator.of(context).pushNamed(MyRoutes.BULBINSTALLATIONROUTE);
+            print("$check");
+          }
+          break;
         }
       },
       contentPadding:
