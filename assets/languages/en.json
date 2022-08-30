@@ -132,6 +132,7 @@
   "Service_How_Many_Provider_Do_You_Need": "How many providers do you need?",
   "Pick_Image_Title": "Select Preferred Option",
   "Pick_Image_From_Camera_Title": "Open Camera",
-  "Pick_Image_From_Gallery_Title": "Select From Library"
+  "Pick_Image_From_Gallery_Title": "Select From Library",
+  "Do_You_Have_Details_Title": "Do you have any details to add?"
 
 }
