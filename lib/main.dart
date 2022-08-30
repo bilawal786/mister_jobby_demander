@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
 // import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
 
 
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (ctx) => MainCategoriesProvider()),
         ChangeNotifierProvider(create: (ctx) => ConstProvider()),
-        // ChangeNotifierProvider(create: (ctx) => MujeebConstProvider()),
+        ChangeNotifierProvider(create: (ctx) => MujeebConstProvider()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
