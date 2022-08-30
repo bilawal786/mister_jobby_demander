@@ -112,5 +112,7 @@
   "Three": "3",
   "Four": "4",
   "Five": "5",
-  "Service_do_you_need_urgent_job": "Do you need the jobber urgently?"
+  "Service_do_you_need_urgent_job": "Do you need the jobber urgently?",
+  "Service_Do_You_Want_To_Add_Photos": "Do you want to add photos? (Optional)"
+
 }
