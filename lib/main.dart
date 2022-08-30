@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
+
+
 // import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
 
 
@@ -24,6 +26,8 @@ import './screens/home_screens/services_sub_categories/hang_picture_screen.dart'
 import './screens/home_screens/services_sub_categories/mirror_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/furniture_repair_screen.dart';
 import './screens/home_screens/services_sub_categories/small_repair_screen.dart';
+import './screens/home_screens/services_sub_categories/fence_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/hood_installation_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
 import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
 import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
@@ -181,6 +185,8 @@ class MyApp extends StatelessWidget {
           MyRoutes.MIRRORINSTALLATIONROUTE: (ctx) => const MirrorInstallationScreen(),
           MyRoutes.FURNITUREREPAIRROUTE: (ctx) => const FurnitureRepairScreen(),
           MyRoutes.SMALLREPAIRROUTE: (ctx) => const SmallRepairScreen(),
+          MyRoutes.FENCEINSTALLATIONROUTE: (ctx) => const FenceInstallationScreen(),
+          MyRoutes.HOODINSTALLATIONROUTE: (ctx) => const HoodInstallationScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
