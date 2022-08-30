@@ -117,6 +117,8 @@
   "Lamp_Installation_Step_SubTitle": "How many lamps should be installed?",
   "Automation_Step_Title": "Automation",
   "Automation_Step_SubTitle": "What do you need?",
+  "Automation_Step_Equipment_Title": "Equipment(s)",
+  "Automation_Step_Camera_Title": "Camera",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",
