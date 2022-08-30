@@ -1,27 +1,29 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
-class MujeebConstProvider with ChangeNotifier{
+class MujeebConstProvider with ChangeNotifier {
   final picker = ImagePicker();
-  File? imageFile;
+  String? imageFile ;
+  CroppedFile? getImage;
 
   imgFromCamera() async {
     XFile? pickedFile =
-    await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
-      imageFile = File(
-        pickedFile!.path,
-      );
-      notifyListeners();
+        await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
+    getImage = await ImageCropper().cropImage(sourcePath:pickedFile?.path??"");
+    imageFile = getImage!.path;
+    notifyListeners();
   }
 
   imgFromGallery() async {
     XFile? pickedFile =
-    await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
-      imageFile = File(
-        pickedFile!.path,
-      );
+        await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
+        getImage = await ImageCropper().cropImage(sourcePath:pickedFile?.path??"");
+    imageFile = getImage!.path;
+    notifyListeners();
+  }
+  void removeImage(){
+    getImage = null;
     notifyListeners();
   }
 
@@ -47,7 +49,7 @@ class MujeebConstProvider with ChangeNotifier{
                     children: [
                       GestureDetector(
                         onTap: () {
-                          imgFromCamera();
+                          // imgFromCamera();
                           Navigator.of(context).pop();
                         },
                         child: Text(
@@ -68,7 +70,7 @@ class MujeebConstProvider with ChangeNotifier{
                       GestureDetector(
                         onTap: () {
                           imgFromGallery();
-                         Navigator.of(context).pop();
+                          Navigator.of(context).pop();
                         },
                         child: Text(
                           "Select From Library",
@@ -88,4 +90,6 @@ class MujeebConstProvider with ChangeNotifier{
           );
         });
   }
+
+
 }
