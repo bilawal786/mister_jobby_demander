@@ -55,7 +55,7 @@ class _LandscapingJobScreenState extends State<LandscapingJobScreen> {
             child: Consumer<ConstProvider>(
               builder: (_,size,child) => Row(
                 children: <Widget>[
-                  if(size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0 || size.veryLargeSizedFurnitureAmount > 0 )
+                  if(size.cleanBoxFurnitureNo == true || size.cleanBoxFurnitureYes == true )
                     Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

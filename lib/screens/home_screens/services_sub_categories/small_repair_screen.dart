@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import 'package:provider/provider.dart';
-
-import '../../../providers/const_provider/const_provider.dart';
+// import 'package:provider/provider.dart';
+//
+// import '../../../providers/const_provider/const_provider.dart';
 
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_steps_screens/small_repair_step.dart';
@@ -52,10 +52,8 @@ class _SmallRepairScreenState extends State<SmallRepairScreen> {
         controlsBuilder: (context, ControlsDetails details) {
           return Container(
             margin: const EdgeInsets.only(top: 50),
-            child: Consumer<ConstProvider>(
-              builder: (_,size,child) => Row(
+            child: Row(
                 children: <Widget>[
-                  if(size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0 || size.veryLargeSizedFurnitureAmount > 0 )
                     Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,
@@ -99,7 +97,6 @@ class _SmallRepairScreenState extends State<SmallRepairScreen> {
                   ),
                 ],
               ),
-            ),
           );
         },
       ),

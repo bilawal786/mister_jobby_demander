@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-
-import 'package:provider/provider.dart';
-
-import '../../../providers/const_provider/const_provider.dart';
+// import 'package:provider/provider.dart';
+//
+// import '../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_steps_screens/hood_installation_step.dart';
 
 class HoodInstallationScreen extends StatefulWidget {
@@ -51,10 +50,8 @@ class _HoodInstallationScreenState extends State<HoodInstallationScreen> {
         controlsBuilder: (context, ControlsDetails details) {
           return Container(
             margin: const EdgeInsets.only(top: 50),
-            child: Consumer<ConstProvider>(
-              builder: (_,size,child) => Row(
+            child: Row(
                 children: <Widget>[
-                  if(size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0 || size.veryLargeSizedFurnitureAmount > 0 )
                     Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,
@@ -98,7 +95,6 @@ class _HoodInstallationScreenState extends State<HoodInstallationScreen> {
                   ),
                 ],
               ),
-            ),
           );
         },
       ),

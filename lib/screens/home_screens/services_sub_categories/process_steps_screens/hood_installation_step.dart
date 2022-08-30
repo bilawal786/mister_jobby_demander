@@ -32,7 +32,7 @@ class HoodInstallationStep extends StatelessWidget {
 
           TextFormField(
             initialValue: 'Hood_Installation_Step_Title'.tr(),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Titre de la demande',
               isDense: true,
@@ -45,8 +45,9 @@ class HoodInstallationStep extends StatelessWidget {
           ),
 
           TextFormField(
+            onChanged: (value) => constProviderData.getExplainWork(value),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
               labelText: 'Hood_Installation_Step_DescriptionTitle'.tr(),
               hintText: 'Hood_Installation_Step_DescriptionTitle'.tr(),
               isDense: true,

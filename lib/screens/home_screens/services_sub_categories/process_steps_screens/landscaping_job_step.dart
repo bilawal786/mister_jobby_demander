@@ -33,7 +33,7 @@ class LandscapingJobStep extends StatelessWidget {
 
           TextFormField(
             initialValue: 'Landscaping_Job_Step_Title'.tr(),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Titre de la demande',
               isDense: true,
@@ -81,8 +81,9 @@ class LandscapingJobStep extends StatelessWidget {
           ),
 
           TextFormField(
+            onChanged: (value)  => constProviderData.getExplainWork(value),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
               labelText: 'Hood_Installation_Step_DescriptionTitle'.tr(),
               hintText: 'Hood_Installation_Step_DescriptionTitle'.tr(),
               isDense: true,

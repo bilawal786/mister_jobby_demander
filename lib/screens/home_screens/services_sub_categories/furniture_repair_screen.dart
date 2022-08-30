@@ -54,8 +54,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
         controlsBuilder: (context, ControlsDetails details) {
           return Container(
             margin: const EdgeInsets.only(top: 50),
-            child: Consumer<ConstProvider>(
-              builder: (_,workExplain,child) => Row(
+            child: Row(
                 children: <Widget>[
                     Expanded(
                         child: ElevatedButton(
@@ -100,7 +99,6 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
                   ),
                 ],
               ),
-            ),
           );
         },
       ),

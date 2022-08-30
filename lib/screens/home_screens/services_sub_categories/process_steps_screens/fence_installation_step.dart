@@ -32,7 +32,7 @@ class FenceInstallationStep extends StatelessWidget {
 
           TextFormField(
             initialValue: 'Fence_Installation_Step_Title'.tr(),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Titre de la demande',
               isDense: true,
@@ -45,8 +45,9 @@ class FenceInstallationStep extends StatelessWidget {
           ),
 
           TextFormField(
+            onChanged: (value) => constProviderData.getExplainWork(value),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
               labelText: 'Small_Repair_Step_DescriptionTitle'.tr(),
               hintText: 'Small_Repair_Step_DescriptionTitle'.tr(),
               isDense: true,
