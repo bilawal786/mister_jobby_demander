@@ -79,7 +79,7 @@
   "Very_Big_Size_Tile_SubTitle": "Dressing room, storage of more than 8 drawers",
   "Do_You_Want_Service_Provider_Clear_Boxes": "Do you want the service provider to clear the boxes?",
   "Information_about_Need_Step2_SubTitle": "Information about the need",
-  "Service_Date": "Service Date*",
+  "Service_Date": "Service Date",
   "Yes": "Yes",
   "No": "No",
   "Disassemble_Furniture_Step_Title": "Disassemble Furniture",
@@ -97,7 +97,11 @@
   "Mirror_Installation_Step_SubTitle": "How many mirrors should I put up?",
   "Furniture_Repair_Step_Title": "Furniture repair",
   "Furniture_Repair_Step_SubTitle": "What is your need?",
-  "Service_Time_Start": "Start Time*",
+  "Furniture_Repair_Step_DescriptionTitle": "Additional details(optional)",
+  "Small_Repair_Step_Title": "Small repair",
+  "Small_Repair_Step_SubTitle": "What is your need?",
+  "Small_Repair_Step_DescriptionTitle": "What is your need?",
+  "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",
   "One": "1",
@@ -105,6 +109,5 @@
   "Three": "3",
   "Four": "4",
   "Five": "5",
-  "Service_Do_You_Need_Urgent_Job": "Do you need the jobber urgently?",
-  "Service_Do_You_Want_To_Add_Photos": "Do you want to add photos? (Optional)"
+  "Service_do_you_need_urgent_job": "Do you need the jobber urgently?"
 }

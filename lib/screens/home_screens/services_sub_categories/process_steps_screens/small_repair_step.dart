@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
 
-class FurnitureRepairStep extends StatelessWidget {
-  const FurnitureRepairStep({Key? key}) : super(key: key);
+class SmallRepairStep extends StatelessWidget {
+  const SmallRepairStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,29 +16,29 @@ class FurnitureRepairStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Furniture_Repair_Step_Title",
+            "Small_Repair_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Furniture_Repair_Step_SubTitle",
+            "Small_Repair_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),
 
-        TextFormField(
-          initialValue: 'Furniture_Repair_Step_Title'.tr(),
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Titre de la demande',
-            isDense: true,
-          ),
-          style: Theme.of(context).textTheme.bodySmall,
-          enabled: false,
+          TextFormField(
+            initialValue: 'Small_Repair_Step_Title'.tr(),
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Titre de la demande',
+              isDense: true,
+            ),
+            style: Theme.of(context).textTheme.bodySmall,
+            enabled: false,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
@@ -47,8 +47,8 @@ class FurnitureRepairStep extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              labelText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
-              hintText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
+              labelText: 'Small_Repair_Step_DescriptionTitle'.tr(),
+              hintText: 'Small_Repair_Step_DescriptionTitle'.tr(),
               isDense: true,
             ),
             style: Theme.of(context).textTheme.bodySmall,
