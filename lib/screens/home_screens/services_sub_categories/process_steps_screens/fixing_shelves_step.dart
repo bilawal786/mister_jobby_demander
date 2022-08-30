@@ -11,8 +11,6 @@ class FixingShelvesStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final constProviderData =
-    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,28 +29,32 @@ class FixingShelvesStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              RoundedButton(onTap: (){},
-                height: 50,
-                icon: Icons.remove,
-                color: Theme.of(context).primaryColor,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 40,
-              ),
-              Text('0', style: Theme.of(context).textTheme.titleMedium,),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 40,
-              ),
-              RoundedButton(onTap: (){},
-                height: 50,
-                icon: Icons.add,
-                color: Theme.of(context).primaryColor,
-              ),
-
-            ],
+          Consumer<ConstProvider>(
+            builder: (_,fixes,child) =>
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RoundedButton(
+                  onTap: fixes.fixesAmountDecrement,
+                  height: 50,
+                  icon: Icons.remove,
+                  color: fixes.fixesAmount < 1 ? Colors.blueGrey.shade300 : Theme.of(context).primaryColor,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 10,
+                ),
+                Text('${fixes.fixesAmount}', style: Theme.of(context).textTheme.titleMedium,),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 10,
+                ),
+                RoundedButton(
+                  onTap: fixes.fixesAmountIncrement,
+                  height: 50,
+                  icon: Icons.add,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ],
+            ),
           ),
         ],
       ),

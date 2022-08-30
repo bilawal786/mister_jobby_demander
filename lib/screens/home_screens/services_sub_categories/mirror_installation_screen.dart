@@ -54,9 +54,9 @@ class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
           return Container(
             margin: const EdgeInsets.only(top: 50),
             child: Consumer<ConstProvider>(
-              builder: (_,size,child) => Row(
+              builder: (_,mirror,child) => Row(
                 children: <Widget>[
-                  if(size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0 || size.veryLargeSizedFurnitureAmount > 0 )
+                  if(mirror.mirrorAmount > 0)
                     Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

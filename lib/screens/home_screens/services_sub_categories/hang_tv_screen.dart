@@ -55,9 +55,9 @@ class _HangTVScreenState extends State<HangTVScreen> {
           return Container(
             margin: const EdgeInsets.only(top: 50),
             child: Consumer<ConstProvider>(
-              builder: (_,size,child) => Row(
+              builder: (_,tv,child) => Row(
                 children: <Widget>[
-                  if(size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0 || size.veryLargeSizedFurnitureAmount > 0 )
+                  if(tv.tvHangNo1 == 1 || tv.tvHangNo2 == 2 || tv.tvHangNo3 == 3 || tv.tvHangNo4 == 4 || tv.tvHangNo5 == 5)
                     Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

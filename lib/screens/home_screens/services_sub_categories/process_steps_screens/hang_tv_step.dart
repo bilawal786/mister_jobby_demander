@@ -11,8 +11,6 @@ class HangTVStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final constProviderData =
-        Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,36 +29,63 @@ class HangTVStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "One", color: Colors.grey.shade300,),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 40,
-              ),
-              Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "Two", color: Colors.grey.shade300,),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 40,
-              ),
-              Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "Three", color: Colors.grey.shade300,),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 40,
-              ),
-              Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "Four", color: Colors.grey.shade300,),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 40,
-              ),
-              Expanded(
-                child: OutlineSelectedButton(onTap: () {}, textTitle: "Five", color: Colors.grey.shade300,),
-              ),
-            ],
+          Consumer<ConstProvider>(
+            builder: (_, tv, child) => Row(
+              children: <Widget>[
+                Expanded(
+                  child: OutlineSelectedButton(
+                    onTap: tv.tvHang1,
+                    textTitle: "One",
+                    color: Colors.grey.shade300,
+                    border: tv.tvHangNo1 == 1 ? true : false,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 40,
+                ),
+                Expanded(
+                  child: OutlineSelectedButton(
+                    onTap: tv.tvHang2,
+                    textTitle: "Two",
+                    color: Colors.grey.shade300,
+                    border: tv.tvHangNo2 == 2 ? true : false,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 40,
+                ),
+                Expanded(
+                  child: OutlineSelectedButton(
+                    onTap: tv.tvHang3,
+                    textTitle: "Three",
+                    color: Colors.grey.shade300,
+                    border: tv.tvHangNo3 == 3 ? true : false,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 40,
+                ),
+                Expanded(
+                  child: OutlineSelectedButton(
+                    onTap: tv.tvHang4,
+                    textTitle: "Four",
+                    color: Colors.grey.shade300,
+                    border: tv.tvHangNo4 == 4 ? true : false,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 40,
+                ),
+                Expanded(
+                  child: OutlineSelectedButton(
+                    onTap: tv.tvHang5,
+                    textTitle: "Five",
+                    color: Colors.grey.shade300,
+                    border: tv.tvHangNo5 == 5 ? true : false,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

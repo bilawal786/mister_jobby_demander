@@ -139,4 +139,108 @@ class ConstProvider with ChangeNotifier {
     checkUrgentJob =! checkUrgentJob;
     notifyListeners();
   }
+
+  int fixesAmount = 0;
+
+  void fixesAmountIncrement(){
+    fixesAmount +=1;
+    notifyListeners();
+  }
+
+  void fixesAmountDecrement(){
+    if(fixesAmount >= 1) {
+      fixesAmount -= 1;
+    }
+    notifyListeners();
+  }
+
+  int tvHangNo1 = 0;
+  int tvHangNo2 = 0;
+  int tvHangNo3 = 0;
+  int tvHangNo4 = 0;
+  int tvHangNo5 = 0;
+
+  void tvHang1() {
+     tvHangNo1 = 1;
+     tvHangNo2 = 0;
+     tvHangNo3 = 0;
+     tvHangNo4 = 0;
+     tvHangNo5 = 0;
+    notifyListeners();
+  }
+  void tvHang2() {
+    tvHangNo1 = 0;
+    tvHangNo2 = 2;
+    tvHangNo3 = 0;
+    tvHangNo4 = 0;
+    tvHangNo5 = 0;
+    notifyListeners();
+  }
+  void tvHang3() {
+    tvHangNo1 = 0;
+    tvHangNo2 = 0;
+    tvHangNo3 = 3;
+    tvHangNo4 = 0;
+    tvHangNo5 = 0;
+    notifyListeners();
+  }
+  void tvHang4() {
+    tvHangNo1 = 0;
+    tvHangNo2 = 0;
+    tvHangNo3 = 0;
+    tvHangNo4 = 4;
+    tvHangNo5 = 0;
+    notifyListeners();
+  }
+  void tvHang5() {
+    tvHangNo1 = 0;
+    tvHangNo2 = 0;
+    tvHangNo3 = 0;
+    tvHangNo4 = 0;
+    tvHangNo5 = 5;
+    notifyListeners();
+  }
+
+  int showerAmount = 0;
+
+  void showerAmountIncrement(){
+    showerAmount +=1;
+    notifyListeners();
+  }
+
+  void showerAmountDecrement(){
+    if(showerAmount >= 1) {
+      showerAmount -= 1;
+    }
+    notifyListeners();
+  }
+
+  int pictureAmount = 0;
+
+  void pictureAmountIncrement(){
+    pictureAmount +=1;
+    notifyListeners();
+  }
+
+  void pictureAmountDecrement(){
+    if(pictureAmount >= 1) {
+      pictureAmount -= 1;
+    }
+    notifyListeners();
+  }
+
+  int mirrorAmount = 0;
+
+  void mirrorAmountIncrement(){
+    mirrorAmount +=1;
+    notifyListeners();
+  }
+
+  void mirrorAmountDecrement(){
+    if(mirrorAmount >= 1) {
+      mirrorAmount -= 1;
+    }
+    notifyListeners();
+  }
+
 }
