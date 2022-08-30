@@ -55,12 +55,6 @@ class HoodInstallationStep extends StatelessWidget {
             maxLines: 5,
           ),
 
-
-
-
-
-
-
         ],
       ),
     );
