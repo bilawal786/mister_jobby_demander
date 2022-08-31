@@ -8,6 +8,7 @@ import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart
 
 
 
+
 // import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
 
 import 'package:provider/provider.dart';
@@ -49,6 +50,7 @@ import './screens/home_screens/services_sub_categories/washing_machine_screen.da
 import './screens/home_screens/services_sub_categories/toilet_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/sink_drain_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/mow_lawn_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/hedge_trimming_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
 import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
 import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
@@ -228,6 +230,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.TOILETINSTALLATIONROUTE: (ctx) => ToiletInstallationScreen(),
           MyRoutes.SINKDRAINROUTE: (ctx) => SinkDrainScreen(),
           MyRoutes.MOWLAWNROUTE: (ctx) => MowLawnScreen(),
+          MyRoutes.HEDGETRIMMINGROUTE: (ctx) => HedgeTrimmingScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
