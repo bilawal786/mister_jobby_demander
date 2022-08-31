@@ -52,7 +52,7 @@ class _TestScreenState extends State<TestScreen> {
                   minRange: 3,
                   maxRange: 60,
                   division: 19,
-                  onChanged: ()=> rangeSliderData.rangeSliderFunction,
+                  onChanged:(value)=>rangeSliderData.rangeSliderFunction(value),
                 ),
               ),
             ],

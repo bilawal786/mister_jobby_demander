@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class RangeSliderCLass extends StatefulWidget {
   double rangeValue;
   int division;
-  Function onChanged;
+ void Function(double) onChanged;
   final double minRange;
   final double maxRange;
    RangeSliderCLass({
@@ -35,7 +35,7 @@ class _RangeSliderCLassState extends State<RangeSliderCLass> {
         label: "${widget.rangeValue.round()}",
         value: widget.rangeValue,
         divisions: widget.division,
-        onChanged:(value)=> widget.onChanged,
+        onChanged:widget.onChanged,
         min: widget.minRange,
         max: widget.maxRange,
       ),
