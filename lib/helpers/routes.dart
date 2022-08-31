@@ -26,6 +26,7 @@ class MyRoutes{
   static String TILESINSTALLATIOROUTE = '/Tiles-Installation-Screen';
   static String CARPETINSTALLATIOROUTE = '/Carpet-Installation-Screen';
   static String COATWALLROUTE = '/Coat-Wall-Screen';
+  static String LININGINSTALLATIONROUTE = '/Lining-Installation-Screen';
   static String WATERINSTALLATIONROUTE = '/Water-Installation-Screen';
   static String FLUSHINSTALLATIONROUTE = '/Flush-Installation-Screen';
   static String FAUCETINSTALLATIONROUTE = '/Faucet-Installation-Screen';
