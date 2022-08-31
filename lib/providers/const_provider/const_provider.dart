@@ -3,7 +3,6 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-
 class ConstProvider with ChangeNotifier {
   int smallSizedFurnitureAmount = 0;
   int mediumSizedFurnitureAmount = 0;
@@ -12,73 +11,126 @@ class ConstProvider with ChangeNotifier {
   bool cleanBoxFurnitureYes = false;
   bool cleanBoxFurnitureNo = false;
 
-  void cleanBoxFurnitureYesFunction(){
+  void cleanBoxFurnitureYesFunction() {
     cleanBoxFurnitureYes = true;
     cleanBoxFurnitureNo = false;
     notifyListeners();
   }
-  void cleanBoxFurnitureNoFunction(){
+
+  void cleanBoxFurnitureNoFunction() {
     cleanBoxFurnitureYes = false;
     cleanBoxFurnitureNo = true;
     notifyListeners();
   }
 
+  bool baseBoardInstallYes = false;
+  bool baseBoardInstallNo = false;
 
-  void smallFurnitureAmountIncrement(){
-    smallSizedFurnitureAmount +=1;
+  void baseBoardInstallYesFunction() {
+    baseBoardInstallYes = true;
+    baseBoardInstallNo = false;
     notifyListeners();
   }
 
-   void smallFurnitureAmountDecrement(){
-    if(smallSizedFurnitureAmount >= 1) {
+  void baseBoardInstallNoFunction() {
+    baseBoardInstallYes = false;
+    baseBoardInstallNo = true;
+    notifyListeners();
+  }
+
+  bool cuttingMaterialYes = false;
+  bool cuttingMaterialNo = false;
+
+  void cuttingMaterialYesFunction() {
+    cuttingMaterialYes = true;
+    cuttingMaterialNo = false;
+    notifyListeners();
+  }
+
+  void cuttingMaterialNoFunction() {
+    cuttingMaterialYes = false;
+    cuttingMaterialNo = true;
+    notifyListeners();
+  }
+
+  void smallFurnitureAmountIncrement() {
+    smallSizedFurnitureAmount += 1;
+    notifyListeners();
+  }
+
+  void smallFurnitureAmountDecrement() {
+    if (smallSizedFurnitureAmount >= 1) {
       smallSizedFurnitureAmount -= 1;
     }
     notifyListeners();
-   }
+  }
 
-  void mediumFurnitureAmountIncrement(){
-    mediumSizedFurnitureAmount +=1;
+  void mediumFurnitureAmountIncrement() {
+    mediumSizedFurnitureAmount += 1;
     notifyListeners();
   }
 
-  void mediumFurnitureAmountDecrement(){
-    if(mediumSizedFurnitureAmount >= 1) {
+  void mediumFurnitureAmountDecrement() {
+    if (mediumSizedFurnitureAmount >= 1) {
       mediumSizedFurnitureAmount -= 1;
     }
     notifyListeners();
   }
 
-  void largeFurnitureAmountIncrement(){
-    largeSizedFurnitureAmount +=1;
+  void largeFurnitureAmountIncrement() {
+    largeSizedFurnitureAmount += 1;
     notifyListeners();
   }
 
-  void largeFurnitureAmountDecrement(){
-    if(largeSizedFurnitureAmount >= 1) {
+  void largeFurnitureAmountDecrement() {
+    if (largeSizedFurnitureAmount >= 1) {
       largeSizedFurnitureAmount -= 1;
     }
     notifyListeners();
   }
 
-  void veryLargeFurnitureAmountIncrement(){
-    veryLargeSizedFurnitureAmount +=1;
+  void veryLargeFurnitureAmountIncrement() {
+    veryLargeSizedFurnitureAmount += 1;
     notifyListeners();
   }
 
-  void veryLargeFurnitureAmountDecrement(){
-    if(veryLargeSizedFurnitureAmount >= 1) {
+  void veryLargeFurnitureAmountDecrement() {
+    if (veryLargeSizedFurnitureAmount >= 1) {
       veryLargeSizedFurnitureAmount -= 1;
     }
     notifyListeners();
   }
 
-  void clearData(){
-     smallSizedFurnitureAmount = 0;
-     mediumSizedFurnitureAmount = 0;
-     largeSizedFurnitureAmount = 0;
-     veryLargeSizedFurnitureAmount = 0;
-     cleanBoxFurnitureYes = false;
-     cleanBoxFurnitureNo = false;
+  void clearData() {
+    smallSizedFurnitureAmount = 0;
+    mediumSizedFurnitureAmount = 0;
+    largeSizedFurnitureAmount = 0;
+    veryLargeSizedFurnitureAmount = 0;
+    cleanBoxFurnitureYes = false;
+    cleanBoxFurnitureNo = false;
+    duration = 0.0;
+    hourlyRate = 0;
+    checkUrgentJob = false;
+    fixesAmount = 0;
+    tvHangNo = 0;
+    automationEquipmentsNo = 0;
+    automationCameraNo = 0;
+    electricalOutletsAmount = 0;
+    bulbInstallationAmount = 0;
+    lampInstallationAmount = 0;
+    showerAmount = 0;
+    acAmount = 0;
+    pictureAmount = 0;
+    mirrorAmount = 0;
+    explainWork = '';
+    imageFile0 = null;
+    imageFile1 = null;
+    imageFile2 = null;
+    providersAmount = 1;
+    baseBoardInstallYes = false;
+    baseBoardInstallNo = false;
+    cuttingMaterialYes = false;
+    cuttingMaterialNo = false;
     notifyListeners();
   }
 
@@ -90,8 +142,8 @@ class ConstProvider with ChangeNotifier {
         firstDate: DateTime.now(),
         lastDate: DateTime(2111));
     if (picked != null) {
-        selectedDate = picked;
-        notifyListeners();
+      selectedDate = picked;
+      notifyListeners();
     }
   }
 
@@ -106,20 +158,20 @@ class ConstProvider with ChangeNotifier {
       ),
     );
     if (response != null && response != pickedTime) {
-        pickedTime = response;
-        notifyListeners();
+      pickedTime = response;
+      notifyListeners();
     }
   }
 
   double duration = 0.0;
 
-  void durationIncrement(){
-    duration +=0.5;
+  void durationIncrement() {
+    duration += 0.5;
     notifyListeners();
   }
 
-  void durationDecrement(){
-    if(duration >= 0.5) {
+  void durationDecrement() {
+    if (duration >= 0.5) {
       duration -= 0.5;
     }
     notifyListeners();
@@ -127,33 +179,33 @@ class ConstProvider with ChangeNotifier {
 
   int hourlyRate = 0;
 
-  void hourlyRateIncrement(){
-    hourlyRate +=1;
+  void hourlyRateIncrement() {
+    hourlyRate += 1;
     notifyListeners();
   }
 
-  void hourlyRateDecrement(){
-    if(hourlyRate >= 1) {
+  void hourlyRateDecrement() {
+    if (hourlyRate >= 1) {
       hourlyRate -= 1;
     }
     notifyListeners();
   }
 
-  bool checkUrgentJob =false;
-  void checkUrgentJobFunction(){
-    checkUrgentJob =! checkUrgentJob;
+  bool checkUrgentJob = false;
+  void checkUrgentJobFunction() {
+    checkUrgentJob = !checkUrgentJob;
     notifyListeners();
   }
 
   int fixesAmount = 0;
 
-  void fixesAmountIncrement(){
-    fixesAmount +=1;
+  void fixesAmountIncrement() {
+    fixesAmount += 1;
     notifyListeners();
   }
 
-  void fixesAmountDecrement(){
-    if(fixesAmount >= 1) {
+  void fixesAmountDecrement() {
+    if (fixesAmount >= 1) {
       fixesAmount -= 1;
     }
     notifyListeners();
@@ -161,36 +213,34 @@ class ConstProvider with ChangeNotifier {
 
   int tvHangNo = 0;
 
-  void tvHangFunction(int index){
-    tvHangNo = index+1;
+  void tvHangFunction(int index) {
+    tvHangNo = index + 1;
     notifyListeners();
   }
 
   int automationEquipmentsNo = 0;
 
   void automationEquipmentsFunction(int index) {
-    automationEquipmentsNo = index+1;
+    automationEquipmentsNo = index + 1;
     notifyListeners();
   }
 
-
   int automationCameraNo = 0;
 
-
   void automationCameraFunction(int index) {
-    automationCameraNo =index+1;
+    automationCameraNo = index + 1;
     notifyListeners();
   }
 
   int electricalOutletsAmount = 0;
 
-  void electricalOutletsAmountIncrement(){
-    electricalOutletsAmount +=1;
+  void electricalOutletsAmountIncrement() {
+    electricalOutletsAmount += 1;
     notifyListeners();
   }
 
-  void electricalOutletsDecrement(){
-    if(electricalOutletsAmount >= 1) {
+  void electricalOutletsDecrement() {
+    if (electricalOutletsAmount >= 1) {
       electricalOutletsAmount -= 1;
     }
     notifyListeners();
@@ -198,13 +248,13 @@ class ConstProvider with ChangeNotifier {
 
   int bulbInstallationAmount = 0;
 
-  void bulbInstallationAmountIncrement(){
-    bulbInstallationAmount +=1;
+  void bulbInstallationAmountIncrement() {
+    bulbInstallationAmount += 1;
     notifyListeners();
   }
 
-  void bulbInstallationDecrement(){
-    if(bulbInstallationAmount >= 1) {
+  void bulbInstallationDecrement() {
+    if (bulbInstallationAmount >= 1) {
       bulbInstallationAmount -= 1;
     }
     notifyListeners();
@@ -212,13 +262,13 @@ class ConstProvider with ChangeNotifier {
 
   int lampInstallationAmount = 0;
 
-  void lampInstallationAmountIncrement(){
-    lampInstallationAmount +=1;
+  void lampInstallationAmountIncrement() {
+    lampInstallationAmount += 1;
     notifyListeners();
   }
 
-  void lampInstallationDecrement(){
-    if(lampInstallationAmount >= 1) {
+  void lampInstallationDecrement() {
+    if (lampInstallationAmount >= 1) {
       lampInstallationAmount -= 1;
     }
     notifyListeners();
@@ -226,27 +276,41 @@ class ConstProvider with ChangeNotifier {
 
   int showerAmount = 0;
 
-  void showerAmountIncrement(){
-    showerAmount +=1;
+  void showerAmountIncrement() {
+    showerAmount += 1;
     notifyListeners();
   }
 
-  void showerAmountDecrement(){
-    if(showerAmount >= 1) {
+  void showerAmountDecrement() {
+    if (showerAmount >= 1) {
       showerAmount -= 1;
+    }
+    notifyListeners();
+  }
+
+  int acAmount = 0;
+
+  void acAmountIncrement() {
+    acAmount += 1;
+    notifyListeners();
+  }
+
+  void acAmountDecrement() {
+    if (acAmount >= 1) {
+      acAmount -= 1;
     }
     notifyListeners();
   }
 
   int pictureAmount = 0;
 
-  void pictureAmountIncrement(){
-    pictureAmount +=1;
+  void pictureAmountIncrement() {
+    pictureAmount += 1;
     notifyListeners();
   }
 
-  void pictureAmountDecrement(){
-    if(pictureAmount >= 1) {
+  void pictureAmountDecrement() {
+    if (pictureAmount >= 1) {
       pictureAmount -= 1;
     }
     notifyListeners();
@@ -254,13 +318,13 @@ class ConstProvider with ChangeNotifier {
 
   int mirrorAmount = 0;
 
-  void mirrorAmountIncrement(){
-    mirrorAmount +=1;
+  void mirrorAmountIncrement() {
+    mirrorAmount += 1;
     notifyListeners();
   }
 
-  void mirrorAmountDecrement(){
-    if(mirrorAmount >= 1) {
+  void mirrorAmountDecrement() {
+    if (mirrorAmount >= 1) {
       mirrorAmount -= 1;
     }
     notifyListeners();
@@ -268,7 +332,7 @@ class ConstProvider with ChangeNotifier {
 
   String explainWork = '';
 
-  void getExplainWork(value){
+  void getExplainWork(value) {
     explainWork = value;
     notifyListeners();
     print(explainWork);
@@ -281,13 +345,13 @@ class ConstProvider with ChangeNotifier {
   CroppedFile? getImage;
   int providersAmount = 1;
 
-  void providerAmountIncrement(){
-    providersAmount +=1;
+  void providerAmountIncrement() {
+    providersAmount += 1;
     notifyListeners();
   }
 
-  void providerAmountDecrement(){
-    if(providersAmount >= 2) {
+  void providerAmountDecrement() {
+    if (providersAmount >= 2) {
       providersAmount -= 1;
     }
     notifyListeners();
@@ -295,9 +359,9 @@ class ConstProvider with ChangeNotifier {
 
   imgFromCamera(int index) async {
     XFile? pickedFile =
-    await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
+        await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
     getImage =
-    await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
+        await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
     if (index == 0) {
       imageFile0 = getImage!.path;
     } else {
@@ -312,9 +376,9 @@ class ConstProvider with ChangeNotifier {
 
   imgFromGallery(int index) async {
     XFile? pickedFile =
-    await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
+        await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
     getImage =
-    await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
+        await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
     if (index == 0) {
       imageFile0 = getImage!.path;
     } else {
@@ -418,11 +482,8 @@ class ConstProvider with ChangeNotifier {
 
   double rangeSliderValue = 3;
 
-  set rangeSliderVal(double value){
-    rangeSliderValue = value;
+  rangeSliderFunction(double newValue) {
+    rangeSliderValue = newValue;
     notifyListeners();
   }
-   rangeSliderFunction(double newValue){
-   }
-
 }

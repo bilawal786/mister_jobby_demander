@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/providers/const_provider/const_provider.dart';
+import 'package:provider/provider.dart';
 
 
 // import 'package:provider/provider.dart';
@@ -21,86 +23,97 @@ class _WaterInstallationScreenState extends State<WaterInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(
-          color: Colors.black38,
+    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
+    return WillPopScope(
+      onWillPop:  ()async{
+        constProviderData.clearData();
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: const IconThemeData(
+            color: Colors.black38,
+          ),
+          title: Text(
+            "Water Installation",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
         ),
-        title: Text(
-          "Water Installation",
-          style: Theme.of(context).textTheme.bodyLarge,
+        body: Stepper(
+          elevation: 0,
+          type: StepperType.horizontal,
+          steps: getSteps(),
+          currentStep: currentStep,
+          onStepContinue: () {
+            final isLastStep = currentStep == getSteps().length - 1;
+            if (isLastStep) {
+              print("Step completed");
+            } else {
+              setState(() => currentStep += 1);
+            }
+          },
+          onStepCancel: () {
+            currentStep == 0
+                ? Navigator.of(context).pop()
+                : setState(() => currentStep -= 1);
+          },
+          controlsBuilder: (context, ControlsDetails details) {
+            return Consumer<ConstProvider>(
+              builder: (_,waterLeakValue,child)=>
+               Container(
+                margin: const EdgeInsets.only(top: 50),
+                child: Row(
+                  children: <Widget>[
+                    if(waterLeakValue.fixesAmount>0)
+                    Expanded(
+                        child: ElevatedButton(
+                          onPressed: details.onStepContinue,
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50.0),
+                            primary: Theme.of(context).primaryColor,
+                            elevation: 5,
+                          ),
+                          child: Text(
+                            currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Cerebri Sans Regular',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                letterSpacing: 1
+                            ),
+                          ).tr(),
+                        )
+                    ),
+                    SizedBox(width: MediaQuery.of(context).size.width / 40,),
+                    Expanded(
+                        child: ElevatedButton(
+                          onPressed: details.onStepCancel,
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50.0),
+                            primary: Colors.black12,
+                            elevation: 0,
+                          ),
+                          child: const Text(
+                            "Process_Screen_Cancel_Button",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Cerebri Sans Regular',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                                letterSpacing: 1
+                            ),
+                          ).tr(),
+                        )
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
-      ),
-      body: Stepper(
-        elevation: 0,
-        type: StepperType.horizontal,
-        steps: getSteps(),
-        currentStep: currentStep,
-        onStepContinue: () {
-          final isLastStep = currentStep == getSteps().length - 1;
-          if (isLastStep) {
-            print("Step completed");
-          } else {
-            setState(() => currentStep += 1);
-          }
-        },
-        onStepCancel: () {
-          currentStep == 0
-              ? Navigator.of(context).pop()
-              : setState(() => currentStep -= 1);
-        },
-        controlsBuilder: (context, ControlsDetails details) {
-          return Container(
-            margin: const EdgeInsets.only(top: 50),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                    child: ElevatedButton(
-                      onPressed: details.onStepContinue,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Theme.of(context).primaryColor,
-                        elevation: 5,
-                      ),
-                      child: Text(
-                        currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Cerebri Sans Regular',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.white,
-                            letterSpacing: 1
-                        ),
-                      ).tr(),
-                    )
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width / 40,),
-                Expanded(
-                    child: ElevatedButton(
-                      onPressed: details.onStepCancel,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
-                        elevation: 0,
-                      ),
-                      child: const Text(
-                        "Process_Screen_Cancel_Button",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Cerebri Sans Regular',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black,
-                            letterSpacing: 1
-                        ),
-                      ).tr(),
-                    )
-                ),
-              ],
-            ),
-          );
-        },
       ),
     );
   }

@@ -29,25 +29,25 @@ class FaucetInstallationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,shower,child) =>
+            builder: (_,fixes,child) =>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     RoundedButton(
-                      onTap: shower.showerAmountDecrement,
+                      onTap: fixes.fixesAmountDecrement,
                       height: 50,
                       icon: Icons.remove,
-                      color: shower.showerAmount < 1 ? Colors.blueGrey.shade300 : Theme.of(context).primaryColor,
+                      color: fixes.fixesAmount < 1 ? Colors.blueGrey.shade300 : Theme.of(context).primaryColor,
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 10,
                     ),
-                    Text('${shower.showerAmount}', style: Theme.of(context).textTheme.titleMedium,),
+                    Text('${fixes.fixesAmount}', style: Theme.of(context).textTheme.titleMedium,),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 10,
                     ),
                     RoundedButton(
-                      onTap: shower.showerAmountIncrement,
+                      onTap: fixes.fixesAmountIncrement,
                       height: 50,
                       icon: Icons.add,
                       color: Theme.of(context).primaryColor,

@@ -39,24 +39,24 @@ class ParquetInstallationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
+            builder: (_,baseBoardInstallValue,child)=> Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: (){
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      baseBoardInstallValue.baseBoardInstallYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: baseBoardInstallValue.baseBoardInstallYes == false ? false : true,
+                    color:baseBoardInstallValue.baseBoardInstallYes == false ?Colors.grey.shade300:Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: baseBoardInstallValue.baseBoardInstallNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: baseBoardInstallValue.baseBoardInstallNo == false ? false : true,
+                    color:baseBoardInstallValue.baseBoardInstallNo == false ?Colors.grey.shade300:Colors.blue.shade50,
                   ),
                 ),
               ],
@@ -73,24 +73,24 @@ class ParquetInstallationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
+            builder: (_,cuttingMaterialValue,child)=> Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: (){
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      cuttingMaterialValue.cuttingMaterialYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: cuttingMaterialValue.cuttingMaterialYes == false ? false : true,
+                    color:cuttingMaterialValue.cuttingMaterialYes == false ?Colors.grey.shade300:Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: cuttingMaterialValue.cuttingMaterialNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: cuttingMaterialValue.cuttingMaterialNo == false ? false : true,
+                    color:cuttingMaterialValue.cuttingMaterialNo == false ?Colors.grey.shade300:Colors.blue.shade50,
                   ),
                 ),
               ],
