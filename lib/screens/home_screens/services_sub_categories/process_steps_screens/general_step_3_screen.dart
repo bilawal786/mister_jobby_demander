@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/places_selected_input_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -43,66 +44,65 @@ class GeneralStep3Screen extends StatelessWidget {
                   builder: (index, imageFileData, child) => SizedBox(
                     child: imageFileData.imageFile0 != null
                         ? Stack(
-                      children: [
-                        Container(
-                          height: 130,
-                          width: 130,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade300,
-                              borderRadius:
-                              BorderRadius.circular(10)),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.file(
-                              File(
-                                imageFileData.imageFile0 ?? "",
-                              ).absolute,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 6,
-                          top: 8,
-                          child: InkWell(
+                            children: [
+                              Container(
+                                height: 130,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.shade300,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.file(
+                                    File(
+                                      imageFileData.imageFile0 ?? "",
+                                    ).absolute,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                right: 6,
+                                top: 8,
+                                child: InkWell(
+                                  onTap: () {
+                                    imageFileData.removeImage(0);
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade400,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: const Icon(
+                                      Icons.clear,
+                                      size: 20,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : InkWell(
                             onTap: () {
-                              imageFileData.removeImage(0);
+                              imageFileData.showPicker(context, 0);
                             },
                             child: Container(
-                              height: 30,
-                              width: 30,
+                              height: 130,
+                              width: 130,
                               decoration: BoxDecoration(
-                                color: Colors.grey.shade400,
-                                shape: BoxShape.circle,
+                                color: Colors.grey.shade300,
+                                borderRadius: BorderRadius.circular(7),
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 1,
+                                ),
                               ),
-                              child: const Icon(
-                                Icons.clear,
-                                size: 20,
-                                color: Colors.white,
-                              ),
+                              child: const Icon(Icons.camera_alt),
                             ),
                           ),
-                        ),
-                      ],
-                    )
-                        : InkWell(
-                      onTap: () {
-                        imageFileData.showPicker(context, 0);
-                      },
-                      child: Container(
-                        height: 130,
-                        width: 130,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(7),
-                          border: Border.all(
-                            color: Colors.grey,
-                            width: 1,
-                          ),
-                        ),
-                        child: const Icon(Icons.camera_alt),
-                      ),
-                    ),
                   ),
                 ),
                 const SizedBox(
@@ -112,66 +112,65 @@ class GeneralStep3Screen extends StatelessWidget {
                   builder: (index, imageFileData, child) => SizedBox(
                     child: imageFileData.imageFile1 != null
                         ? Stack(
-                      children: [
-                        Container(
-                          height: 130,
-                          width: 130,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade300,
-                              borderRadius:
-                              BorderRadius.circular(10)),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.file(
-                              File(
-                                imageFileData.imageFile1 ?? "",
-                              ).absolute,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 6,
-                          top: 8,
-                          child: InkWell(
+                            children: [
+                              Container(
+                                height: 130,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.shade300,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.file(
+                                    File(
+                                      imageFileData.imageFile1 ?? "",
+                                    ).absolute,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                right: 6,
+                                top: 8,
+                                child: InkWell(
+                                  onTap: () {
+                                    imageFileData.removeImage(1);
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade400,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: const Icon(
+                                      Icons.clear,
+                                      size: 20,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : InkWell(
                             onTap: () {
-                              imageFileData.removeImage(1);
+                              imageFileData.showPicker(context, 1);
                             },
                             child: Container(
-                              height: 30,
-                              width: 30,
+                              height: 130,
+                              width: 130,
                               decoration: BoxDecoration(
-                                color: Colors.grey.shade400,
-                                shape: BoxShape.circle,
+                                color: Colors.grey.shade300,
+                                borderRadius: BorderRadius.circular(7),
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 1,
+                                ),
                               ),
-                              child: const Icon(
-                                Icons.clear,
-                                size: 20,
-                                color: Colors.white,
-                              ),
+                              child: const Icon(Icons.camera_alt),
                             ),
                           ),
-                        ),
-                      ],
-                    )
-                        : InkWell(
-                      onTap: () {
-                        imageFileData.showPicker(context, 1);
-                      },
-                      child: Container(
-                        height: 130,
-                        width: 130,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(7),
-                          border: Border.all(
-                            color: Colors.grey,
-                            width: 1,
-                          ),
-                        ),
-                        child: const Icon(Icons.camera_alt),
-                      ),
-                    ),
                   ),
                 ),
                 const SizedBox(
@@ -181,66 +180,65 @@ class GeneralStep3Screen extends StatelessWidget {
                   builder: (index, imageFileData, child) => SizedBox(
                     child: imageFileData.imageFile2 != null
                         ? Stack(
-                      children: [
-                        Container(
-                          height: 130,
-                          width: 130,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade300,
-                              borderRadius:
-                              BorderRadius.circular(10)),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.file(
-                              File(
-                                imageFileData.imageFile2 ?? "",
-                              ).absolute,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 6,
-                          top: 8,
-                          child: InkWell(
+                            children: [
+                              Container(
+                                height: 130,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.shade300,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.file(
+                                    File(
+                                      imageFileData.imageFile2 ?? "",
+                                    ).absolute,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                right: 6,
+                                top: 8,
+                                child: InkWell(
+                                  onTap: () {
+                                    imageFileData.removeImage(2);
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade400,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: const Icon(
+                                      Icons.clear,
+                                      size: 20,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : InkWell(
                             onTap: () {
-                              imageFileData.removeImage(2);
+                              imageFileData.showPicker(context, 2);
                             },
                             child: Container(
-                              height: 30,
-                              width: 30,
+                              height: 130,
+                              width: 130,
                               decoration: BoxDecoration(
-                                color: Colors.grey.shade400,
-                                shape: BoxShape.circle,
+                                color: Colors.grey.shade300,
+                                borderRadius: BorderRadius.circular(7),
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 1,
+                                ),
                               ),
-                              child: const Icon(
-                                Icons.clear,
-                                size: 20,
-                                color: Colors.white,
-                              ),
+                              child: const Icon(Icons.camera_alt),
                             ),
                           ),
-                        ),
-                      ],
-                    )
-                        : InkWell(
-                      onTap: () {
-                        imageFileData.showPicker(context, 2);
-                      },
-                      child: Container(
-                        height: 130,
-                        width: 130,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(7),
-                          border: Border.all(
-                            color: Colors.grey,
-                            width: 1,
-                          ),
-                        ),
-                        child: const Icon(Icons.camera_alt),
-                      ),
-                    ),
                   ),
                 ),
                 const SizedBox(
@@ -249,6 +247,21 @@ class GeneralStep3Screen extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          const Divider(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Text(
+            "Address",
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          const GooglePlacesApi(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
