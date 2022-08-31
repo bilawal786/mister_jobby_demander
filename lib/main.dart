@@ -6,6 +6,7 @@ import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart
 
 
 
+
 // import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
 
 import 'package:provider/provider.dart';
@@ -39,6 +40,7 @@ import './screens/home_screens/services_sub_categories/water_installation_screen
 import './screens/home_screens/services_sub_categories/flush_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/faucet_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/sink_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/washing_machine_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
 import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
 import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
@@ -210,6 +212,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.WATERINSTALLATIONROUTE: (ctx) => WaterInstallationScreen(),
           MyRoutes.FLUSHINSTALLATIONROUTE: (ctx) => FlushInstallationScreen(),
           MyRoutes.FAUCETINSTALLATIONROUTE: (ctx) =>FaucetInstallationScreen(),
+          MyRoutes.WASHINGMACHINEROUTE: (ctx) =>WashingMachineScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
