@@ -51,6 +51,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/cut_tree_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/clearing_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/weeding_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/maintenance_green_spaces_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
 import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
 import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
@@ -234,6 +235,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.CUTTREEROUTE: (ctx) => CutTreeScreen(),
           MyRoutes.CLEARINGROUTE: (ctx) => ClearingScreen(),
           MyRoutes.WEEDINGROUTE: (ctx) => WeedingScreen(),
+          MyRoutes.MAINTENANCEGREENSPACEROUTE: (ctx) => MaintenanceGreenSpacesScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
