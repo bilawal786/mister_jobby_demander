@@ -71,64 +71,21 @@ class AutomationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, automationStep, child) => Row(
-              children: <Widget>[
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationStep.equipments1,
-                    textTitle: "One",
-                    color: Colors.grey.shade300,
-                    border: automationStep.equipmentsNo1 == 1 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationStep.equipments2,
-                    textTitle: "Two",
-                    color: Colors.grey.shade300,
-                    border: automationStep.equipmentsNo2 == 2 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationStep.equipments3,
-                    textTitle: "Three",
-                    color: Colors.grey.shade300,
-                    border: automationStep.equipmentsNo3 == 3 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationStep.equipments4,
-                    textTitle: "Four",
-                    color: Colors.grey.shade300,
-                    border: automationStep.equipmentsNo4 == 4 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationStep.equipments5,
-                    textTitle: "Five",
-                    color: Colors.grey.shade300,
-                    border: automationStep.equipmentsNo5 == 5 ? true : false,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, automationData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 5,
+              padding:const EdgeInsets.only(left: 15,right: 15),
+              itemExtent:65,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>automationData.automationEquipmentsFunction(index),
+                textTitle: index == 0?"One":index==1?"Two":index==2?"Three":index==3?"Four":"Five",
+                color: Colors.grey.shade300,
+                // height: 40,
+                // width: 45,
+                border: automationData.automationEquipmentsNo-1 == index ? true : false,
+              ),
+            ),),
           ),
-
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
@@ -141,62 +98,20 @@ class AutomationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, automationCamera, child) => Row(
-              children: <Widget>[
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationCamera.automationCamera1,
-                    textTitle: "One",
-                    color: Colors.grey.shade300,
-                    border: automationCamera.automationCameraNo1 == 1 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationCamera.automationCamera2,
-                    textTitle: "Two",
-                    color: Colors.grey.shade300,
-                    border: automationCamera.automationCameraNo2 == 2 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationCamera.automationCamera3,
-                    textTitle: "Three",
-                    color: Colors.grey.shade300,
-                    border: automationCamera.automationCameraNo3 == 3 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationCamera.automationCamera4,
-                    textTitle: "Four",
-                    color: Colors.grey.shade300,
-                    border: automationCamera.automationCameraNo4 == 4 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: automationCamera.automationCamera5,
-                    textTitle: "Five",
-                    color: Colors.grey.shade300,
-                    border: automationCamera.automationCameraNo5 == 5 ? true : false,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, automationData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 5,
+              padding:const EdgeInsets.only(left: 15,right: 15),
+              itemExtent:65,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>automationData.automationCameraFunction(index),
+                textTitle: index == 0?"One":index==1?"Two":index==2?"Three":index==3?"Four":"Five",
+                color: Colors.grey.shade300,
+                // height: 40,
+                // width: 45,
+                border: automationData.automationCameraNo-1 == index ? true : false,
+              ),
+            ),),
           ),
         ],
       ),

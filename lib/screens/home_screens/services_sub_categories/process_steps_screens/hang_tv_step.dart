@@ -30,62 +30,20 @@ class HangTVStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, tv, child) => Row(
-              children: <Widget>[
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: tv.tvHang1,
-                    textTitle: "One",
-                    color: Colors.grey.shade300,
-                    border: tv.tvHangNo1 == 1 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: tv.tvHang2,
-                    textTitle: "Two",
-                    color: Colors.grey.shade300,
-                    border: tv.tvHangNo2 == 2 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: tv.tvHang3,
-                    textTitle: "Three",
-                    color: Colors.grey.shade300,
-                    border: tv.tvHangNo3 == 3 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: tv.tvHang4,
-                    textTitle: "Four",
-                    color: Colors.grey.shade300,
-                    border: tv.tvHangNo4 == 4 ? true : false,
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: tv.tvHang5,
-                    textTitle: "Five",
-                    color: Colors.grey.shade300,
-                    border: tv.tvHangNo5 == 5 ? true : false,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, tvData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 5,
+              padding:const EdgeInsets.only(left: 15,right: 15),
+              itemExtent:65,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                  onTap: ()=>tvData.tvHangFunction(index),
+                  textTitle: index == 0?"One":index==1?"Two":index==2?"Three":index==3?"Four":"Five",
+                  color: Colors.grey.shade300,
+                  // height: 40,
+                  // width: 45,
+                  border: tvData.tvHangNo-1 == index ? true : false,
+              ),
+            ),),
           ),
         ],
       ),

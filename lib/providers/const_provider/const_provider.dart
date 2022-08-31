@@ -159,144 +159,26 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int tvHangNo1 = 0;
-  int tvHangNo2 = 0;
-  int tvHangNo3 = 0;
-  int tvHangNo4 = 0;
-  int tvHangNo5 = 0;
+  int tvHangNo = 0;
 
-  void tvHang1() {
-     tvHangNo1 = 1;
-     tvHangNo2 = 0;
-     tvHangNo3 = 0;
-     tvHangNo4 = 0;
-     tvHangNo5 = 0;
-    notifyListeners();
-  }
-  void tvHang2() {
-    tvHangNo1 = 0;
-    tvHangNo2 = 2;
-    tvHangNo3 = 0;
-    tvHangNo4 = 0;
-    tvHangNo5 = 0;
-    notifyListeners();
-  }
-  void tvHang3() {
-    tvHangNo1 = 0;
-    tvHangNo2 = 0;
-    tvHangNo3 = 3;
-    tvHangNo4 = 0;
-    tvHangNo5 = 0;
-    notifyListeners();
-  }
-  void tvHang4() {
-    tvHangNo1 = 0;
-    tvHangNo2 = 0;
-    tvHangNo3 = 0;
-    tvHangNo4 = 4;
-    tvHangNo5 = 0;
-    notifyListeners();
-  }
-  void tvHang5() {
-    tvHangNo1 = 0;
-    tvHangNo2 = 0;
-    tvHangNo3 = 0;
-    tvHangNo4 = 0;
-    tvHangNo5 = 5;
+  void tvHangFunction(int index){
+    tvHangNo = index+1;
     notifyListeners();
   }
 
-  int equipmentsNo1 = 0;
-  int equipmentsNo2 = 0;
-  int equipmentsNo3 = 0;
-  int equipmentsNo4 = 0;
-  int equipmentsNo5 = 0;
+  int automationEquipmentsNo = 0;
 
-  void equipments1() {
-    equipmentsNo1 = 1;
-    equipmentsNo2 = 0;
-    equipmentsNo3 = 0;
-    equipmentsNo4 = 0;
-    equipmentsNo5 = 0;
-    notifyListeners();
-  }
-  void equipments2() {
-    equipmentsNo1 = 0;
-    equipmentsNo2 = 2;
-    equipmentsNo3 = 0;
-    equipmentsNo4 = 0;
-    equipmentsNo5 = 0;
-    notifyListeners();
-  }
-  void equipments3() {
-    equipmentsNo1 = 0;
-    equipmentsNo2 = 0;
-    equipmentsNo3 = 3;
-    equipmentsNo4 = 0;
-    equipmentsNo5 = 0;
-    notifyListeners();
-  }
-  void equipments4() {
-    equipmentsNo1 = 0;
-    equipmentsNo2 = 0;
-    equipmentsNo3 = 0;
-    equipmentsNo4 = 4;
-    equipmentsNo5 = 0;
-    notifyListeners();
-  }
-  void equipments5() {
-    equipmentsNo1 = 0;
-    equipmentsNo2 = 0;
-    equipmentsNo3 = 0;
-    equipmentsNo4 = 0;
-    equipmentsNo5 = 5;
+  void automationEquipmentsFunction(int index) {
+    automationEquipmentsNo = index+1;
     notifyListeners();
   }
 
-  int automationCameraNo1 = 0;
-  int automationCameraNo2 = 0;
-  int automationCameraNo3 = 0;
-  int automationCameraNo4 = 0;
-  int automationCameraNo5 = 0;
 
-  void automationCamera1() {
-    automationCameraNo1 = 1;
-    automationCameraNo2 = 0;
-    automationCameraNo3 = 0;
-    automationCameraNo4 = 0;
-    automationCameraNo5 = 0;
-    notifyListeners();
-  }
-  void automationCamera2() {
-    automationCameraNo1 = 0;
-    automationCameraNo2 = 2;
-    automationCameraNo3 = 0;
-    automationCameraNo4 = 0;
-    automationCameraNo5 = 0;
-    notifyListeners();
-  }
-  void automationCamera3() {
-    automationCameraNo1 = 0;
-    automationCameraNo2 = 0;
-    automationCameraNo3 = 3;
-    automationCameraNo4 = 0;
-    automationCameraNo5 = 0;
-    notifyListeners();
-  }
-  void automationCamera4() {
-    automationCameraNo1 = 0;
-    automationCameraNo2 = 0;
-    automationCameraNo3 = 0;
-    automationCameraNo4 = 4;
-    automationCameraNo5 = 0;
-    notifyListeners();
-  }
-  void automationCamera5() {
-    automationCameraNo1 = 0;
-    automationCameraNo2 = 0;
-    automationCameraNo3 = 0;
-    automationCameraNo4 = 0;
-    automationCameraNo5 = 5;
+  int automationCameraNo = 0;
+
+
+  void automationCameraFunction(int index) {
+    automationCameraNo =index+1;
     notifyListeners();
   }
 
@@ -541,7 +423,6 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
    rangeSliderFunction(double newValue){
-
    }
 
 }
