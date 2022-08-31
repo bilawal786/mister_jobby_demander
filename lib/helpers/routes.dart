@@ -23,6 +23,7 @@ class MyRoutes{
   static String ACINSTALLATIONROUTE = '/AC-Installation-Screen';
   static String PAINTINGINSTALLATIOROUTE = '/Painting-Installation-Screen';
   static String COATWALLROUTE = '/Coat-Wall-Screen';
+  static String WATERINSTALLATIONROUTE = '/Water-Installation-Screen';
   static String SEARCHROUTE = '/Search-Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
