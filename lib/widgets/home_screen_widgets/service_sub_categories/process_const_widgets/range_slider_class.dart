@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
 class RangeSliderCLass extends StatefulWidget {
-   RangeValues rangeValues;
- final double minRange;
- final double maxRange;
-   RangeSliderCLass({Key? key,required this.rangeValues,required this.minRange,required this.maxRange,}) : super(key: key);
+  double rangeValue;
+  int division;
+  Function onChanged;
+  final double minRange;
+  final double maxRange;
+   RangeSliderCLass({
+    Key? key,
+     required this.onChanged,
+     this.rangeValue = 100,
+     this.division = 100,
+    required this.minRange,
+    required this.maxRange,
+  }) : super(key: key);
 
   @override
   State<RangeSliderCLass> createState() => _RangeSliderCLassState();
@@ -13,15 +22,23 @@ class RangeSliderCLass extends StatefulWidget {
 class _RangeSliderCLassState extends State<RangeSliderCLass> {
   @override
   Widget build(BuildContext context) {
-    return  RangeSlider(
-      values: widget.rangeValues,
-      min: widget.minRange,
-      max: widget.maxRange,
-      onChanged: (value) {
-        setState(() {
-          widget.rangeValues = value;
-        });
-      },
+    return SliderTheme(
+      data: SliderTheme.of(context).copyWith(
+        activeTrackColor: Theme.of(context).primaryColor,
+        inactiveTrackColor: Colors.grey.shade200,
+        thumbColor: Colors.blue.shade700,
+        inactiveTickMarkColor: Colors.grey.shade200,
+        activeTickMarkColor: Theme.of(context).primaryColor,
+        thumbShape:const RoundSliderThumbShape(enabledThumbRadius: 7,),
+      ),
+      child: Slider(
+        label: "${widget.rangeValue.round()}",
+        value: widget.rangeValue,
+        divisions: widget.division,
+        onChanged:(value)=> widget.onChanged,
+        min: widget.minRange,
+        max: widget.maxRange,
+      ),
     );
   }
 }
