@@ -41,6 +41,7 @@ class MyRoutes{
   static String WEEDINGROUTE = '/Weeding-Screen';
   static String SEARCHROUTE = '/Search-Screen';
   static String MAINTENANCEGREENSPACEROUTE = '/Maintenance-Green_Space_Screen';
+  static String LAWNCAREROUTE = '/Lawn-Care_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
