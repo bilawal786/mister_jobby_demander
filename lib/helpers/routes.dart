@@ -34,6 +34,7 @@ class MyRoutes{
   static String WASHINGMACHINEROUTE = '/Washing-Machine-Screen';
   static String TOILETINSTALLATIONROUTE = '/Toilet-Installation-Screen';
   static String SINKDRAINROUTE = '/Sink-Drain-Screen';
+  static String MOWLAWNROUTE = '/Mow-Lawn-Screen';
   static String SEARCHROUTE = '/Search-Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';

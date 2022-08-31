@@ -43,21 +43,9 @@ class SubCategoriesScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount:
                     extractedCategory[mainCategoryId].subCategories.length,
-                itemBuilder: (ctx, index) => InkWell(
-                  onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(MyRoutes.CHILDCATEGORYROUTE, arguments: {
-                      'subCategoryId': extractedCategory[mainCategoryId]
-                              .subCategories[index]
-                              .id -
-                          1,
-                      'mainCategoryId': mainCategoryId,
-                    });
-                  },
-                  child: SubCategoriesItems(
-                    subCategory:
-                        extractedCategory[mainCategoryId].subCategories[index],
-                  ),
+                itemBuilder: (ctx, index) => SubCategoriesItems(
+                  subCategory:
+                      extractedCategory[mainCategoryId].subCategories[index],
                 ),
               ),
             ],

@@ -10,7 +10,28 @@ class SubCategoriesItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs =
+    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryId = routeArgs['id'];
     return ListTile(
+      onTap: (){
+        if(subCategory.id < 5) {
+          Navigator.of(context)
+              .pushNamed(MyRoutes.CHILDCATEGORYROUTE, arguments: {
+            'subCategoryId': subCategory.id - 1,
+            'mainCategoryId': mainCategoryId,
+          });
+        } else {
+          var checkId = subCategory.id;
+          switch(checkId) {
+            case 5:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.MOWLAWNROUTE);
+              }
+              break;
+          }
+        }
+      },
       contentPadding: const EdgeInsets.only(
           left: 0.0, bottom: 10.0, top: 10.0, right: 0.0),
       leading: Container(
