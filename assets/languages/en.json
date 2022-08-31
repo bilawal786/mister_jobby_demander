@@ -132,6 +132,8 @@
   "Water_Installation_Step_SubTitle": "How many leaks need to be repaired?",
   "Flush_Installation_Step_Title": "Change a flush",
   "Flush_Installation_Step_SubTitle": "How many flushes do you need to change?",
+  "Faucet_Installation_Step_Title": "Change a faucet",
+  "Faucet_Installation_Step_SubTitle": "How many taps do you need to change?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",
