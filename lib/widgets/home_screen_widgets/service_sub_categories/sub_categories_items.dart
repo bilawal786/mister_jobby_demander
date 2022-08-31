@@ -34,6 +34,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.HEDGETRIMMINGROUTE);
               }
               break;
+            case 7:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.CUTTREEROUTE);
+              }
+              break;
           }
         }
       },
