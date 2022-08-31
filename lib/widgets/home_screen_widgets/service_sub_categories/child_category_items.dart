@@ -110,6 +110,12 @@ class ChildCategoriesItems extends StatelessWidget {
             print("$check");
           }
           break;
+          break;
+          case 20: {
+            Navigator.of(context).pushNamed(MyRoutes.PARQUETINSTALLATIOROUTE);
+            print("$check");
+          }
+          break;
           case 23: {
             Navigator.of(context).pushNamed(MyRoutes.COATWALLROUTE);
             print("$check");
