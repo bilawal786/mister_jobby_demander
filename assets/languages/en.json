@@ -134,6 +134,8 @@
   "Flush_Installation_Step_SubTitle": "How many flushes do you need to change?",
   "Faucet_Installation_Step_Title": "Change a faucet",
   "Faucet_Installation_Step_SubTitle": "How many taps do you need to change?",
+  "Sink_Installation_Step_Title": "Unclog a sink",
+  "Sink_Installation_Step_SubTitle": "How many sinks do you need to unclog?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",

@@ -5,6 +5,7 @@ import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart
 
 
 
+
 // import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
 
 import 'package:provider/provider.dart';
@@ -37,6 +38,7 @@ import './screens/home_screens/services_sub_categories/coat_wall_screen.dart';
 import './screens/home_screens/services_sub_categories/water_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/flush_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/faucet_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/sink_installation_screen.dart';
 import './screens/home_screens/warranties_screens/helpline_screen.dart';
 import './screens/home_screens/warranties_screens/all_profile_verified_screen.dart';
 import './screens/home_screens/warranties_screens/cancellation_protection_screen.dart';
@@ -195,6 +197,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.FURNITUREREPAIRROUTE: (ctx) => const FurnitureRepairScreen(),
           MyRoutes.SMALLREPAIRROUTE: (ctx) => const SmallRepairScreen(),
           MyRoutes.FENCEINSTALLATIONROUTE: (ctx) => const FenceInstallationScreen(),
+          MyRoutes.SINKINSTALLATIONROUTE: (ctx) => const SinkInstallationScreen(),
           MyRoutes.HOODINSTALLATIONROUTE: (ctx) => const HoodInstallationScreen(),
           MyRoutes.LANDSCAPINGHOODROUTE: (ctx) => const LandscapingJobScreen(),
           MyRoutes.ELECTRICALINSTALLATIONROUTE: (ctx) => const ElectricalInstallationScreen(),
