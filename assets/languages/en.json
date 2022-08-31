@@ -140,6 +140,8 @@
   "Washing_Machine_Step_SubTitle": "How many washing machines should be connected?",
   "Toilet_Installation_Step_Title": "Repair a toilet",
   "Toilet_Installation_Step_SubTitle": "How many toilets do you need to fix?",
+  "Sink_Drain_Step_Title": "Change a sink drain",
+  "Sink_Drain_Step_SubTitle": "How many plugs do you need to change?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",

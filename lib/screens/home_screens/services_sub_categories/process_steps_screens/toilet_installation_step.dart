@@ -15,14 +15,14 @@ class ToiletInstallationStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Water_Installation_Step_Title",
+            "Toilet_Installation_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Water_Installation_Step_SubTitle",
+            "Toilet_Installation_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(

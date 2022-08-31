@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/rounded_button.dart';
 
-class WashingMachineStep extends StatelessWidget {
-  const WashingMachineStep({Key? key}) : super(key: key);
+class SinkDrainStep extends StatelessWidget {
+  const SinkDrainStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +15,14 @@ class WashingMachineStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Washing_Machine_Step_Title",
+            "Sink_Drain_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Washing_Machine_Step_SubTitle",
+            "Sink_Drain_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
