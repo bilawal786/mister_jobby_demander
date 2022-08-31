@@ -130,6 +130,8 @@
   "Coat_Wall_Step_Post_SubTitle": "Number of rooms to coat a wall",
   "Water_Installation_Step_Title": "Repair of water leaks",
   "Water_Installation_Step_SubTitle": "How many leaks need to be repaired?",
+  "Flush_Installation_Step_Title": "Change a flush",
+  "Flush_Installation_Step_SubTitle": "How many flushes do you need to change?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",

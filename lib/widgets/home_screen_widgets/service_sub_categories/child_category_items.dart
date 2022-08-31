@@ -120,6 +120,11 @@ class ChildCategoriesItems extends StatelessWidget {
             print("$check");
           }
           break;
+          case 26: {
+            Navigator.of(context).pushNamed(MyRoutes.FLUSHINSTALLATIONROUTE);
+            print("$check");
+          }
+          break;
         }
       },
       contentPadding:
