@@ -10,6 +10,7 @@ import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart
 
 
 
+
 // import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
 
 import 'package:provider/provider.dart';
@@ -39,6 +40,7 @@ import './screens/home_screens/services_sub_categories/automation_screen.dart';
 import './screens/home_screens/services_sub_categories/ac_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/painting_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/parquet_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/tiles_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/coat_wall_screen.dart';
 import './screens/home_screens/services_sub_categories/water_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/flush_installation_screen.dart';
@@ -215,6 +217,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.ACINSTALLATIONROUTE: (ctx) => const ACInstallationScreen(),
           MyRoutes.PAINTINGINSTALLATIOROUTE: (ctx) => PaintingInstallationScreen(),
           MyRoutes.PARQUETINSTALLATIOROUTE: (ctx) => ParquetInstallationScreen(),
+          MyRoutes.TILESINSTALLATIOROUTE: (ctx) => TilesInstallationScreen(),
           MyRoutes.COATWALLROUTE: (ctx) => CoatWallScreen(),
           MyRoutes.WATERINSTALLATIONROUTE: (ctx) => WaterInstallationScreen(),
           MyRoutes.FLUSHINSTALLATIONROUTE: (ctx) => FlushInstallationScreen(),
