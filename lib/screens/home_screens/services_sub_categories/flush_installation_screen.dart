@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import '../../../providers/const_provider/const_provider.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/flush_installation_step.dart';
-
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 
 class FlushInstallationScreen extends StatefulWidget {
   const FlushInstallationScreen({Key? key}) : super(key: key);
@@ -123,7 +123,7 @@ class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: Container(),
+      content:const GeneralStep3Screen(),
     ),
   ];
 }

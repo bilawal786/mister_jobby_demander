@@ -7,6 +7,7 @@ import 'package:easy_localization/easy_localization.dart';
 
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_steps_screens/small_repair_step.dart';
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 
 class SmallRepairScreen extends StatefulWidget {
   const SmallRepairScreen({Key? key}) : super(key: key);
@@ -119,7 +120,7 @@ class _SmallRepairScreenState extends State<SmallRepairScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: Container(),
+      content:const GeneralStep3Screen(),
     ),
   ];
 }

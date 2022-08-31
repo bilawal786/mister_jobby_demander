@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../../providers/const_provider/const_provider.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/lamp_installation_step.dart';
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 
 
 
@@ -123,7 +124,7 @@ class _LampInstallationScreenState extends State<LampInstallationScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: Container(),
+      content: const GeneralStep3Screen(),
     ),
   ];
 }

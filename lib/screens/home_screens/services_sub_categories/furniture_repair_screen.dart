@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../../providers/const_provider/const_provider.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/furniture_repair_step.dart';
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 
 class FurnitureRepairScreen extends StatefulWidget {
   const FurnitureRepairScreen({Key? key}) : super(key: key);
@@ -121,7 +122,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: Container(),
+      content: const GeneralStep3Screen(),
     ),
   ];
 }

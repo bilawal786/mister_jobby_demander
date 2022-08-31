@@ -534,4 +534,14 @@ class ConstProvider with ChangeNotifier {
     );
   }
 
+  double rangeSliderValue = 3;
+
+  set rangeSliderVal(double value){
+    rangeSliderValue = value;
+    notifyListeners();
+  }
+   rangeSliderFunction(double newValue){
+
+   }
+
 }

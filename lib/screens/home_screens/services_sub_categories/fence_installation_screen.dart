@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 // import 'package:provider/provider.dart';
 // import '../../../providers/const_provider/const_provider.dart';
 
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_steps_screens/fence_installation_step.dart';
 class FenceInstallationScreen extends StatefulWidget {
@@ -117,7 +118,7 @@ class _FenceInstallationScreenState extends State<FenceInstallationScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: Container(),
+      content:const GeneralStep3Screen(),
     ),
   ];
 }

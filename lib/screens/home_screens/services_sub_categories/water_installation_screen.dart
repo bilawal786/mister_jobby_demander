@@ -8,6 +8,7 @@ import 'package:easy_localization/easy_localization.dart';
 
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/water_installation_step.dart';
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 
 class WaterInstallationScreen extends StatefulWidget {
   const WaterInstallationScreen({Key? key}) : super(key: key);
@@ -120,7 +121,7 @@ class _WaterInstallationScreenState extends State<WaterInstallationScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: Container(),
+      content:const GeneralStep3Screen(),
     ),
   ];
 }

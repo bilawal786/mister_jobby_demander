@@ -5,6 +5,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/const_provider/const_provider.dart';
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 import '../../home_screens/services_sub_categories/process_steps_screens/mirror_installation_step.dart';
 
 
@@ -123,7 +124,7 @@ class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: Container(),
+      content:const GeneralStep3Screen(),
     ),
   ];
 }

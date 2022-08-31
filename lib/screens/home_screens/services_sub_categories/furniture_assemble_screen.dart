@@ -6,6 +6,7 @@ import './process_steps_screens/furniture_assemble_step.dart';
 
 import '../../../providers/const_provider/const_provider.dart';
 import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
+import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 
 class FurnitureAssembleScreen extends StatefulWidget {
   const FurnitureAssembleScreen({Key? key}) : super(key: key);
@@ -121,7 +122,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
         Step(
           isActive: currentStep >= 2,
           title: const Text(""),
-          content: Container(),
+          content:const GeneralStep3Screen(),
         ),
       ];
 }
