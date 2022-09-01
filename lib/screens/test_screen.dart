@@ -1,8 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/providers/const_provider/const_provider.dart';
-import 'package:mister_jobby/widgets/home_screen_widgets/service_sub_categories/process_const_widgets/range_slider_class.dart';
-import 'package:provider/provider.dart';
+
 
 import '../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/places_selected_input_widget.dart';
 
@@ -48,15 +46,15 @@ class _TestScreenState extends State<TestScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              Consumer<ConstProvider>(
-                builder: (_, rangeSliderData, child) => RangeSliderCLass(
-                  rangeValue: rangeSliderData.rangeSliderValue,
-                  minRange: 3,
-                  maxRange: 60,
-                  division: 19,
-                  onChanged:(value)=>rangeSliderData.rangeSliderFunction(value),
-                ),
-              ),
+              // Consumer<ConstProvider>(
+              //   builder: (_, rangeSliderData, child) => RangeSliderCLass(
+              //     rangeValue: rangeSliderData.rangeSliderValue,
+              //     minRange: 3,
+              //     maxRange: 60,
+              //     division: 19,
+              //     onChanged:(value)=>rangeSliderData.rangeSliderFunction(value),
+              //   ),
+              // ),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
