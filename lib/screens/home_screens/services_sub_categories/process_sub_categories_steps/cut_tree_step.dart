@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
+import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/range_slider_class.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/step_tiles.dart';
 
 class CutTreeStep extends StatelessWidget {
@@ -12,7 +13,7 @@ class CutTreeStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final constProviderData =
-    Provider.of<ConstProvider>(context, listen: false);
+        Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,12 +32,54 @@ class CutTreeStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          Text(
-            "Cut_Tree_Step_Item1_Title".tr(),
-            style: Theme.of(context).textTheme.labelMedium,
+          Consumer<ConstProvider>(
+            builder: (_, rangeSliderData, child) => Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Cut_Tree_Step_Item1_Title".tr(),
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
+                    Text(
+                      '${rangeSliderData.numberOfTreesSliderValue}',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.cast_outlined,
+                      color: Theme.of(context).primaryColor,
+                      size: 25,
+                    ),
+                    Expanded(
+                      child: RangeSliderCLass(
+                        rangeValue:
+                            rangeSliderData.numberOfTreesSliderValue,
+                        minRange: 1,
+                        maxRange: 30,
+                        division: 29,
+                        onChanged: (value) => rangeSliderData
+                            .numberOfTreesSliderFunction(value),
+                      ),
+                    ),
+                    Icon(
+                      Icons.cast_connected,
+                      color: Theme.of(context).primaryColor,
+                      size: 25,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
             builder: (_, smallFurnitureSize, child) => StepTile(
@@ -47,9 +90,9 @@ class CutTreeStep extends StatelessWidget {
               onPressAdd: () =>
                   constProviderData.smallFurnitureAmountIncrement(),
               buttonColorSubTract:
-              constProviderData.smallSizedFurnitureAmount == 0
-                  ? Colors.blueGrey
-                  : Theme.of(context).primaryColor,
+                  constProviderData.smallSizedFurnitureAmount == 0
+                      ? Colors.blueGrey
+                      : Theme.of(context).primaryColor,
               onPressSubTract: () =>
                   smallFurnitureSize.smallFurnitureAmountDecrement(),
             ),
@@ -64,9 +107,9 @@ class CutTreeStep extends StatelessWidget {
               onPressAdd: () =>
                   constProviderData.mediumFurnitureAmountIncrement(),
               buttonColorSubTract:
-              constProviderData.mediumSizedFurnitureAmount == 0
-                  ? Colors.blueGrey
-                  : Theme.of(context).primaryColor,
+                  constProviderData.mediumSizedFurnitureAmount == 0
+                      ? Colors.blueGrey
+                      : Theme.of(context).primaryColor,
               onPressSubTract: () =>
                   mediumFurnitureSize.mediumFurnitureAmountDecrement(),
             ),
@@ -81,14 +124,13 @@ class CutTreeStep extends StatelessWidget {
               onPressAdd: () =>
                   constProviderData.largeFurnitureAmountIncrement(),
               buttonColorSubTract:
-              constProviderData.largeSizedFurnitureAmount == 0
-                  ? Colors.blueGrey
-                  : Theme.of(context).primaryColor,
+                  constProviderData.largeSizedFurnitureAmount == 0
+                      ? Colors.blueGrey
+                      : Theme.of(context).primaryColor,
               onPressSubTract: () =>
                   largeFurnitureSize.largeFurnitureAmountDecrement(),
             ),
           ),
-
           const Divider(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
@@ -100,33 +142,40 @@ class CutTreeStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: (){
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                    onTap: () {
+                      jobberData.jobberBringMaterialYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: jobberData.jobberBringMaterialYes == false
+                        ? false
+                        : true,
+                    color: jobberData.jobberBringMaterialYes == false
+                        ? Colors.grey.shade300
+                        : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberBringMaterialNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: jobberData.jobberBringMaterialNo == false
+                        ? false
+                        : true,
+                    color: jobberData.jobberBringMaterialNo == false
+                        ? Colors.grey.shade300
+                        : Colors.blue.shade50,
                   ),
                 ),
               ],
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Cut_Tree_Step_Item3_Title".tr(),
@@ -136,33 +185,35 @@ class CutTreeStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: (){
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                    onTap: () {
+                      jobberData.jobberRemoveWasteYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border:
+                        jobberData.jobberRemoveWasteYes == false ? false : true,
+                    color: jobberData.jobberRemoveWasteYes == false
+                        ? Colors.grey.shade300
+                        : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberRemoveWasteNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border:
+                        jobberData.jobberRemoveWasteNo == false ? false : true,
+                    color: jobberData.jobberRemoveWasteNo == false
+                        ? Colors.grey.shade300
+                        : Colors.blue.shade50,
                   ),
                 ),
               ],
             ),
           ),
-
-
-
-
         ],
       ),
     );

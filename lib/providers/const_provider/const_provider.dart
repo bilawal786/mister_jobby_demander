@@ -533,8 +533,31 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  bool jobberBringMaterialYes = false;
+  bool jobberBringMaterialNo = false;
+
+  void jobberBringMaterialYesFunction() {
+    jobberBringMaterialYes = true;
+    jobberBringMaterialNo = false;
+    notifyListeners();
+  }
+
+  void jobberBringMaterialNoFunction() {
+    jobberBringMaterialYes = false;
+    jobberBringMaterialNo = true;
+    notifyListeners();
+  }
+
+  double numberOfTreesSliderValue = 1;
+
+  numberOfTreesSliderFunction(double newValue) {
+    numberOfTreesSliderValue = newValue;
+    notifyListeners();
+  }
 
   void clearData() {
+    jobberBringMaterialYes = false;
+    jobberBringMaterialNo = false;
     jobberHedgeTimerYes = false;
     jobberHedgeTimerNo = false;
     requestFrequencyTrueValue = 0;
