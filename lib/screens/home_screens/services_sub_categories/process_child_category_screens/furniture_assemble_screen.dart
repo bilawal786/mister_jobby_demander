@@ -35,7 +35,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "furniture_Assembly_Title",
+            "Furniture_Assembly_Title",
             style: Theme.of(context).textTheme.bodyLarge,
           ).tr(),
         ),
