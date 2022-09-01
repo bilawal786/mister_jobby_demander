@@ -487,4 +487,10 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  double liningInstallationSliderValue = 3;
+
+  liningInstallationSliderFunction(double newValue) {
+    liningInstallationSliderValue = newValue;
+    notifyListeners();
+  }
 }
