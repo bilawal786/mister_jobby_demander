@@ -507,7 +507,24 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  bool jobberHedgeTimerYes = false;
+  bool jobberHedgeTimerNo = false;
+
+  void jobberHedgeTimerYesFunction() {
+    jobberHedgeTimerYes = true;
+    jobberHedgeTimerNo = false;
+    notifyListeners();
+  }
+
+  void jobberHedgeTimerNoFunction() {
+    jobberHedgeTimerYes = false;
+    jobberHedgeTimerNo = true;
+    notifyListeners();
+  }
+
   void clearData() {
+    jobberHedgeTimerYes = false;
+    jobberHedgeTimerNo = false;
     requestFrequencyTrueValue = 0;
     jobberRemoveWasteYes = false;
     jobberRemoveWasteNo = false;
