@@ -5,33 +5,33 @@ import 'package:provider/provider.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
-class MovingFurnitureStep extends StatelessWidget {
-  const MovingFurnitureStep({Key? key}) : super(key: key);
+class MovingAppliancesStep extends StatelessWidget {
+  const MovingAppliancesStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final constProviderData =
-        Provider.of<ConstProvider>(context, listen: false);
+    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Moving_Furniture_Step_Title",
+            "Moving_Appliances_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Moving_Furniture_Step_SubTitle",
+            "Moving_Appliances_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Moving_Furniture_Step_Item1_Title".tr(),
+            "Moving_Appliances_Step_Item1_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
@@ -47,31 +47,31 @@ class MovingFurnitureStep extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) =>
                     OutlineSelectedButton(
-                  onTap: () => tvData.tvHangFunction(index),
-                  textTitle: index == 0
-                      ? "One"
-                      : index == 1
+                      onTap: () => tvData.tvHangFunction(index),
+                      textTitle: index == 0
+                          ? "One"
+                          : index == 1
                           ? "Two"
                           : index == 2
-                              ? "Three"
-                              : index == 3
-                                  ? "Four"
-                                  : index == 4
-                                      ? "Five"
-                                      : index == 5
-                                          ? "Six"
-                                          : index == 6
-                                              ? "Seven"
-                                              : index == 7
-                                                  ? "Eight"
-                                                  : index == 8
-                                                      ? "Nine"
-                                                      : "Ten",
-                  color: Colors.grey.shade300,
-                  // height: 40,
-                  // width: 45,
-                  border: tvData.tvHangNo - 1 == index ? true : false,
-                ),
+                          ? "Three"
+                          : index == 3
+                          ? "Four"
+                          : index == 4
+                          ? "Five"
+                          : index == 5
+                          ? "Six"
+                          : index == 6
+                          ? "Seven"
+                          : index == 7
+                          ? "Eight"
+                          : index == 8
+                          ? "Nine"
+                          : "Ten",
+                      color: Colors.grey.shade300,
+                      // height: 40,
+                      // width: 45,
+                      border: tvData.tvHangNo - 1 == index ? true : false,
+                    ),
               ),
             ),
           ),
@@ -79,7 +79,7 @@ class MovingFurnitureStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Moving_Furniture_Step_Item2_Title".tr(),
+            "Moving_Appliances_Step_Item2_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(

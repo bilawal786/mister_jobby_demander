@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 
 
+
 import 'package:provider/provider.dart';
 
 
@@ -62,6 +63,7 @@ import './screens/home_screens/services_sub_categories/process_child_category_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/gardening_job_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/moving_assistance_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/moving_furniture_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/moving_appliances_screen.dart';
 
 
 void main() async {
@@ -242,6 +244,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.GARDENINGJOBROUTE: (ctx) =>const GardeningJobScreen(),
           MyRoutes.MOVINGASSISTANCEROUTE: (ctx) =>const MovingAssistanceScreen(),
           MyRoutes.MOVINGFURNITUREROUTE: (ctx) =>const MovingFurnitureScreen(),
+          MyRoutes.MOVINGAPPLIANCESROUTE: (ctx) =>const MovingAppliancesScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
