@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
+import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_sub_categories_screens/gardening_job_screen.dart';
 
 
 
@@ -242,6 +243,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.MAINTENANCEGREENSPACEROUTE: (ctx) => MaintenanceGreenSpacesScreen(),
           MyRoutes.LAWNCAREROUTE: (ctx) => LawnCareScreen(),
           MyRoutes.TERRACECLEANINGROUTE: (ctx) => TerraceCleaningScreen(),
+          MyRoutes.GARDENINGJOBROUTE: (ctx) => GardeningJobScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),

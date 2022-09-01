@@ -7,16 +7,16 @@ import '../process_steps_screens/general_step_2_screen.dart';
 import '../process_steps_screens/general_step_3_screen.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
-import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/lawn_care_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/gardening_job_step.dart';
 
-class LawnCareScreen extends StatefulWidget {
-  const LawnCareScreen({Key? key}) : super(key: key);
+class GardeningJobScreen extends StatefulWidget {
+  const GardeningJobScreen({Key? key}) : super(key: key);
 
   @override
-  State<LawnCareScreen> createState() => _LawnCareScreenState();
+  State<GardeningJobScreen> createState() => _GardeningJobScreenState();
 }
 
-class _LawnCareScreenState extends State<LawnCareScreen> {
+class _GardeningJobScreenState extends State<GardeningJobScreen> {
   int currentStep = 0;
 
   @override
@@ -29,7 +29,7 @@ class _LawnCareScreenState extends State<LawnCareScreen> {
           color: Colors.black38,
         ),
         title: Text(
-          "Lawn Care",
+          "Gardening Job",
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
@@ -116,7 +116,7 @@ class _LawnCareScreenState extends State<LawnCareScreen> {
           isActive: currentStep >= 0,
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: const LawnCareStep(),
+          content: const GardeningJobStep(),
         ),
         Step(
           isActive: currentStep >= 1,
