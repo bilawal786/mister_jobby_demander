@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+
+
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/general_step_2_screen.dart';
 import '../process_child_screen_steps/general_step_3_screen.dart';
-import '../process_sub_categories_steps/clearing_step.dart';
-
 
 import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/car_wash_step.dart';
 
-class ClearingScreen extends StatefulWidget {
-  const ClearingScreen({Key? key}) : super(key: key);
+
+class CarWashScreen extends StatefulWidget {
+  const CarWashScreen({Key? key}) : super(key: key);
 
   @override
-  State<ClearingScreen> createState() => _ClearingScreenState();
+  State<CarWashScreen> createState() => _CarWashScreenState();
 }
 
-class _ClearingScreenState extends State<ClearingScreen> {
+class _CarWashScreenState extends State<CarWashScreen> {
   int currentStep = 0;
 
   @override
@@ -29,7 +31,7 @@ class _ClearingScreenState extends State<ClearingScreen> {
           color: Colors.black38,
         ),
         title: Text(
-          "Clearing",
+          "Car Wash",
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
@@ -116,7 +118,7 @@ class _ClearingScreenState extends State<ClearingScreen> {
           isActive: currentStep >= 0,
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: const ClearingStep(),
+          content: const CarWashStep(),
         ),
         Step(
           isActive: currentStep >= 1,
