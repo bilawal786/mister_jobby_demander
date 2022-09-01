@@ -6,33 +6,33 @@ import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/rounded_button.dart';
 
-class FurnitureDeliveryStep extends StatelessWidget {
-  const FurnitureDeliveryStep({Key? key}) : super(key: key);
+class ApplianceDeliveryStep extends StatelessWidget {
+  const ApplianceDeliveryStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final constProviderData =
-        Provider.of<ConstProvider>(context, listen: false);
+    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Furniture_Delivery_Step_Title",
+            "Appliance_Delivery_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Furniture_Delivery_Step_SubTitle",
+            "Appliance_Delivery_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 10,
           ),
           Text(
-            "Furniture_Delivery_Step_Item1_Title".tr(),
+            "Appliance_Delivery_Step_Item1_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
@@ -74,7 +74,7 @@ class FurnitureDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 10,
           ),
           Text(
-            "Furniture_Delivery_Step_Item2_Title".tr(),
+            "Appliance_Delivery_Step_Item2_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(

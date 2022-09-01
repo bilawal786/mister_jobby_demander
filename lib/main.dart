@@ -4,9 +4,6 @@ import 'package:flutter/services.dart';
 
 
 
-
-
-
 import 'package:provider/provider.dart';
 
 
@@ -70,6 +67,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/rid_clutter_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/job_removal_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/furniture_delivery_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/appliance_delivery_screen.dart';
 
 
 void main() async {
@@ -254,6 +252,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.RIDCLUTTERROUTE: (ctx) =>const RidClutterScreen(),
           MyRoutes.JOBREMOVALROUTE: (ctx) =>const JobRemovalScreen(),
           MyRoutes.FURNITUREDELIVERYROUTE: (ctx) =>const FurnitureDeliveryScreen(),
+          MyRoutes.APPLIANCEDELIVERYROUTE: (ctx) =>const ApplianceDeliveryScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),

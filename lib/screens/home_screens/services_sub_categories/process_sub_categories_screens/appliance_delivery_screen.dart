@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/general_step_2_screen.dart';
 import '../process_child_screen_steps/general_step_3_screen.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
-import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/furniture_delivery_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/appliance_delivery_step.dart';
 
-class FurnitureDeliveryScreen extends StatefulWidget {
-  const FurnitureDeliveryScreen({Key? key}) : super(key: key);
+
+class ApplianceDeliveryScreen extends StatefulWidget {
+  const ApplianceDeliveryScreen({Key? key}) : super(key: key);
 
   @override
-  State<FurnitureDeliveryScreen> createState() =>
-      _FurnitureDeliveryScreenState();
+  State<ApplianceDeliveryScreen> createState() =>
+      _ApplianceDeliveryScreenState();
 }
 
-class _FurnitureDeliveryScreenState extends State<FurnitureDeliveryScreen> {
+class _ApplianceDeliveryScreenState extends State<ApplianceDeliveryScreen> {
   int currentStep = 0;
 
   @override
@@ -30,7 +32,7 @@ class _FurnitureDeliveryScreenState extends State<FurnitureDeliveryScreen> {
           color: Colors.black38,
         ),
         title: Text(
-          "Furniture Delivery",
+          "Appliance Delivery",
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
@@ -117,7 +119,7 @@ class _FurnitureDeliveryScreenState extends State<FurnitureDeliveryScreen> {
           isActive: currentStep >= 0,
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: const FurnitureDeliveryStep(),
+          content: const ApplianceDeliveryStep(),
         ),
         Step(
           isActive: currentStep >= 1,
