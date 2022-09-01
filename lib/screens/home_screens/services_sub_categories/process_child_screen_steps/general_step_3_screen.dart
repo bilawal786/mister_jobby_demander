@@ -7,9 +7,14 @@ import 'package:easy_localization/easy_localization.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/places_selected_input_widget.dart';
 
-class GeneralStep3Screen extends StatelessWidget {
+class GeneralStep3Screen extends StatefulWidget {
   const GeneralStep3Screen({Key? key}) : super(key: key);
 
+  @override
+  State<GeneralStep3Screen> createState() => _GeneralStep3ScreenState();
+}
+
+class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

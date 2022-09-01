@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/helpers/routes.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/categories_provider/main_categories_provider.dart';
@@ -13,7 +12,8 @@ class SubCategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final routeArgs =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    final mainCategoryId = routeArgs['id'];
+    final mainCategoryIndex = routeArgs['index'];
+    final mainCategoryId = routeArgs['mainId'];
     final mainCategoryData =
         Provider.of<MainCategoriesProvider>(context, listen: false);
     final extractedCategory = mainCategoryData.mainCategories;
@@ -26,7 +26,7 @@ class SubCategoriesScreen extends StatelessWidget {
           color: Colors.black38,
         ),
         title: Text(
-          extractedCategory![mainCategoryId].title,
+          extractedCategory![mainCategoryIndex].title,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
@@ -42,10 +42,10 @@ class SubCategoriesScreen extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount:
-                    extractedCategory[mainCategoryId].subCategories.length,
+                    extractedCategory[mainCategoryIndex].subCategories.length,
                 itemBuilder: (ctx, index) => SubCategoriesItems(
                   subCategory:
-                      extractedCategory[mainCategoryId].subCategories[index],
+                      extractedCategory[mainCategoryIndex].subCategories[index],
                 ),
               ),
             ],

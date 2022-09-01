@@ -27,7 +27,8 @@ class ServicesGrid extends StatelessWidget {
                     Navigator.of(context).pushNamed(
                       MyRoutes.SUBCATEGORYROUTE,
                       arguments: {
-                        'id': i,
+                        'index': i,
+                        'mainId': extractCategories[i].id,
                       },
                     );
                   },

@@ -4,19 +4,25 @@ import '../../../helpers/routes.dart';
 import '../../../models/categories_models/main_categories_model.dart';
 
 class ChildCategoriesItems extends StatelessWidget {
+  final int mainCategoryId;
+  final int subCategoryId;
   final ChildCategory childCategory;
-  const ChildCategoriesItems({Key? key, required this.childCategory})
+  const ChildCategoriesItems({Key? key, required this.childCategory, required this.mainCategoryId, required this.subCategoryId})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
+      return ListTile(
       onTap: () {
         var check = childCategory.id;
         switch (check) {
           case 1:
             {
-              Navigator.of(context).pushNamed(MyRoutes.ASSEMBLEFURNITUREROUTE);
+              Navigator.of(context).pushNamed(MyRoutes.ASSEMBLEFURNITUREROUTE, arguments: {
+                'mainCategoryId' : mainCategoryId,
+                'subCategoryId'  : subCategoryId,
+                'childCategoryId' : childCategory.id,
+              } );
               print("$check");
             }
             break;

@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/providers/const_provider/const_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
@@ -38,7 +40,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
 
   void getSuggestion(String input) async {
     String kPLACES_API_KEY =
-        "place api key here";
+        "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
     String gBASEURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     String requestUrl =
@@ -56,6 +58,9 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
     // print(response.body.toString());
   }
 
+  double longitude = 0.0;
+  double latitude = 0.0;
+  String address = "";
   @override
   Widget build(BuildContext context) {
     return SearchField(
@@ -83,7 +88,13 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
       }
       ).toList(),
       onSuggestionTap: (p0) async {
+        Provider.of<ConstProvider>(context, listen: false).getAddress(address, longitude, latitude);
         List<Location> location = await locationFromAddress(p0.item.toString());
+        setState((){
+          address = searchController.text;
+          latitude = location.last.latitude;
+          longitude = location.last.longitude;
+        });
         print("\n \n \n \n " );
         print("latitude: ${location.last.latitude}");
         print("longitude: ${location.last.longitude}");

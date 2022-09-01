@@ -522,6 +522,17 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  String completeAddress = "";
+  double longitude = 0;
+  double latitude = 0 ;
+
+  getAddress(address, long,lat){
+    completeAddress = address;
+    longitude = long;
+    latitude = lat;
+    notifyListeners();
+  }
+
 
   void clearData() {
     jobberHedgeTimerYes = false;

@@ -12,14 +12,17 @@ class SubCategoriesItems extends StatelessWidget {
   Widget build(BuildContext context) {
     final routeArgs =
     ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    final mainCategoryId = routeArgs['id'];
+    final mainCategoryIndex = routeArgs['index'];
+    final mainCategoryId= routeArgs['mainId'];
     return ListTile(
       onTap: (){
         if(subCategory.id < 5) {
           Navigator.of(context)
               .pushNamed(MyRoutes.CHILDCATEGORYROUTE, arguments: {
-            'subCategoryId': subCategory.id - 1,
+            'subCategoryIndex': subCategory.id - 1,
+            'mainCategoryIndex': mainCategoryIndex,
             'mainCategoryId': mainCategoryId,
+            'subCategoryId': subCategory.id,
           });
         } else {
           var checkId = subCategory.id;

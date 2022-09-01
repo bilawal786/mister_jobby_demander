@@ -12,8 +12,10 @@ class ChildCategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final routeArgs =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryIndex = routeArgs['mainCategoryIndex'];
     final mainCategoryId = routeArgs['mainCategoryId'];
     final subCategoryId = routeArgs['subCategoryId'];
+    final subCategoryIndex = routeArgs['subCategoryIndex'];
     final mainCategoryData =
         Provider.of<MainCategoriesProvider>(context, listen: false);
     final extractedCategory = mainCategoryData.mainCategories;
@@ -26,7 +28,7 @@ class ChildCategoriesScreen extends StatelessWidget {
           color: Colors.black38,
         ),
         title: Text(
-          extractedCategory![mainCategoryId].subCategories[subCategoryId].title,
+          extractedCategory![mainCategoryIndex].subCategories[subCategoryIndex].title + " $mainCategoryId  $subCategoryId",
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
@@ -41,13 +43,15 @@ class ChildCategoriesScreen extends StatelessWidget {
                     left: 0.0, top: 10.0, right: 0.0, bottom: 10.0),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: extractedCategory[mainCategoryId]
-                    .subCategories[subCategoryId]
+                itemCount: extractedCategory[mainCategoryIndex]
+                    .subCategories[subCategoryIndex]
                     .childCategories
                     .length,
                 itemBuilder: (ctx, index) => ChildCategoriesItems(
-                  childCategory: extractedCategory[mainCategoryId]
-                      .subCategories[subCategoryId]
+                  mainCategoryId: mainCategoryId,
+                  subCategoryId: subCategoryId,
+                  childCategory: extractedCategory[mainCategoryIndex]
+                      .subCategories[subCategoryIndex]
                       .childCategories[index],
                 ),
               ),
