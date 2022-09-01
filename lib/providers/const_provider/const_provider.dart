@@ -486,4 +486,6 @@ class ConstProvider with ChangeNotifier {
     rangeSliderValue = newValue;
     notifyListeners();
   }
+
+
 }

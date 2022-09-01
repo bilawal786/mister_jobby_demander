@@ -261,7 +261,7 @@ class GeneralStep3Screen extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          const GooglePlacesApi(),
+          // const GooglePlacesApi(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),

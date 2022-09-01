@@ -4,6 +4,8 @@ import 'package:mister_jobby/providers/const_provider/const_provider.dart';
 import 'package:mister_jobby/widgets/home_screen_widgets/service_sub_categories/process_const_widgets/range_slider_class.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/places_selected_input_widget.dart';
+
 class TestScreen extends StatefulWidget {
   const TestScreen({Key? key}) : super(key: key);
 
@@ -55,6 +57,10 @@ class _TestScreenState extends State<TestScreen> {
                   onChanged:(value)=>rangeSliderData.rangeSliderFunction(value),
                 ),
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              const GooglePlacesApi(),
             ],
           ),
         ),

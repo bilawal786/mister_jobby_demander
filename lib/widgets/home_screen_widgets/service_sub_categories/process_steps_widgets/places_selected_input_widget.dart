@@ -20,7 +20,6 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   @override
   void initState() {
     super.initState();
-
     searchController.addListener(() {
       onChange();
     });
