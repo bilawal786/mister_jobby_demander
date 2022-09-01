@@ -18,21 +18,21 @@ class RaceDeliveryStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Appliance_Delivery_Step_Title",
+            "Race_Delivery_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Appliance_Delivery_Step_SubTitle",
+            "Race_Delivery_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 10,
           ),
           Text(
-            "Appliance_Delivery_Step_Item1_Title".tr(),
+            "Race_Delivery_Step_Item1_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
@@ -74,7 +74,7 @@ class RaceDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 10,
           ),
           Text(
-            "Appliance_Delivery_Step_Item2_Title".tr(),
+            "Race_Delivery_Step_Item2_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
