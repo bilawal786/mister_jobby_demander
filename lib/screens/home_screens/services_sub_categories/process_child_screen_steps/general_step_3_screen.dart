@@ -261,7 +261,7 @@ class GeneralStep3Screen extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          // const GooglePlacesApi(),
+          const GooglePlacesApi(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
@@ -270,7 +270,7 @@ class GeneralStep3Screen extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Country_Title",
+            "Postel Code",
             style: Theme.of(context).textTheme.titleSmall,
           ).tr(),
           SizedBox(
@@ -279,7 +279,7 @@ class GeneralStep3Screen extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              labelText: "Country_Title".tr(),
+              labelText: "Postel_Code".tr(),
               isDense: true,
             ),
             style: Theme.of(context).textTheme.bodySmall,
@@ -308,6 +308,10 @@ class GeneralStep3Screen extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
             enabled: true,
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          const Divider(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
