@@ -42,7 +42,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
     String gBASEURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     String requestUrl =
-        '$gBASEURL?input=$input&key=$kPLACES_API_KEY&sessiontoken=$_sessionToken';
+        '$gBASEURL?input=$input&key=$kPLACES_API_KEY&sessiontoken=$_sessionToken&components=country:fr|country:pk';
 
     var response = await http.get(Uri.parse(requestUrl));
 
