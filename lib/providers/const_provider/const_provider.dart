@@ -101,38 +101,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void clearData() {
-    smallSizedFurnitureAmount = 0;
-    mediumSizedFurnitureAmount = 0;
-    largeSizedFurnitureAmount = 0;
-    veryLargeSizedFurnitureAmount = 0;
-    cleanBoxFurnitureYes = false;
-    cleanBoxFurnitureNo = false;
-    duration = 0.0;
-    hourlyRate = 0;
-    checkUrgentJob = false;
-    fixesAmount = 0;
-    tvHangNo = 0;
-    automationEquipmentsNo = 0;
-    automationCameraNo = 0;
-    electricalOutletsAmount = 0;
-    bulbInstallationAmount = 0;
-    lampInstallationAmount = 0;
-    showerAmount = 0;
-    acAmount = 0;
-    pictureAmount = 0;
-    mirrorAmount = 0;
-    explainWork = '';
-    imageFile0 = null;
-    imageFile1 = null;
-    imageFile2 = null;
-    providersAmount = 1;
-    baseBoardInstallYes = false;
-    baseBoardInstallNo = false;
-    cuttingMaterialYes = false;
-    cuttingMaterialNo = false;
-    notifyListeners();
-  }
+
 
   DateTime selectedDate = DateTime.now();
   Future selectDateProvider(BuildContext context) async {
@@ -491,6 +460,91 @@ class ConstProvider with ChangeNotifier {
 
   liningInstallationSliderFunction(double newValue) {
     liningInstallationSliderValue = newValue;
+    notifyListeners();
+  }
+
+  double areaToMowSliderValue = 250;
+
+  areaToMowSliderFunction(double newValue) {
+    areaToMowSliderValue = newValue;
+    notifyListeners();
+  }
+
+  bool jobberOwnMoverYes = false;
+  bool jobberOwnMoverNo = false;
+
+  void jobberOwnMoverYesFunction() {
+    jobberOwnMoverYes = true;
+    jobberOwnMoverNo = false;
+    notifyListeners();
+  }
+
+  void jobberOwnMoverNoFunction() {
+    jobberOwnMoverYes = false;
+    jobberOwnMoverNo = true;
+    notifyListeners();
+  }
+
+  bool jobberRemoveWasteYes = false;
+  bool jobberRemoveWasteNo = false;
+
+  void jobberRemoveWasteYesFunction() {
+    jobberRemoveWasteYes = true;
+    jobberRemoveWasteNo = false;
+    notifyListeners();
+  }
+
+  void jobberRemoveWasteNoFunction() {
+    jobberRemoveWasteYes = false;
+    jobberRemoveWasteNo = true;
+    notifyListeners();
+  }
+
+  int requestFrequencyTrueValue = 0;
+
+  void requestFrequencyFunction(int index) {
+    requestFrequencyTrueValue = index + 1;
+    notifyListeners();
+  }
+
+  void clearData() {
+    requestFrequencyTrueValue = 0;
+    jobberRemoveWasteYes = false;
+    jobberRemoveWasteNo = false;
+    jobberOwnMoverYes = false;
+    jobberOwnMoverNo = false;
+    surfaceInstallationSliderValue = 10;
+    liningInstallationSliderValue = 3;
+    areaToMowSliderValue = 250;
+    smallSizedFurnitureAmount = 0;
+    mediumSizedFurnitureAmount = 0;
+    largeSizedFurnitureAmount = 0;
+    veryLargeSizedFurnitureAmount = 0;
+    cleanBoxFurnitureYes = false;
+    cleanBoxFurnitureNo = false;
+    duration = 0.0;
+    hourlyRate = 0;
+    checkUrgentJob = false;
+    fixesAmount = 0;
+    tvHangNo = 0;
+    automationEquipmentsNo = 0;
+    automationCameraNo = 0;
+    electricalOutletsAmount = 0;
+    bulbInstallationAmount = 0;
+    lampInstallationAmount = 0;
+    showerAmount = 0;
+    acAmount = 0;
+    pictureAmount = 0;
+    mirrorAmount = 0;
+    explainWork = '';
+    imageFile0 = null;
+    imageFile1 = null;
+    imageFile2 = null;
+    providersAmount = 1;
+    baseBoardInstallYes = false;
+    baseBoardInstallNo = false;
+    cuttingMaterialYes = false;
+    cuttingMaterialNo = false;
     notifyListeners();
   }
 }
