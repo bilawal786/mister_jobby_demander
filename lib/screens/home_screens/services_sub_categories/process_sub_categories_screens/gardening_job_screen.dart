@@ -8,7 +8,6 @@ import '../process_child_screen_steps/general_step_3_screen.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/gardening_job_step.dart';
 
-
 class GardeningJobScreen extends StatefulWidget {
   const GardeningJobScreen({Key? key}) : super(key: key);
 
@@ -62,46 +61,48 @@ class _GardeningJobScreenState extends State<GardeningJobScreen> {
                       size.largeSizedFurnitureAmount > 0 ||
                       size.veryLargeSizedFurnitureAmount > 0)
                     Expanded(
-                        child: ElevatedButton(
-                      onPressed: details.onStepContinue,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Theme.of(context).primaryColor,
-                        elevation: 5,
+                      child: ElevatedButton(
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 1
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
                       ),
-                      child: Text(
-                        currentStep > 1
-                            ? "Process_Screen_Confirm_Button"
-                            : "Process_Screen_Continue_Button",
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Cerebri Sans Regular',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.white,
-                            letterSpacing: 1),
-                      ).tr(),
-                    )),
+                    ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 40,
                   ),
                   Expanded(
-                      child: ElevatedButton(
-                    onPressed: details.onStepCancel,
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50.0),
-                      primary: Colors.black12,
-                      elevation: 0,
+                    child: ElevatedButton(
+                      onPressed: details.onStepCancel,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Colors.black12,
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        "Process_Screen_Cancel_Button",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            letterSpacing: 1),
+                      ).tr(),
                     ),
-                    child: const Text(
-                      "Process_Screen_Cancel_Button",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Cerebri Sans Regular',
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                          letterSpacing: 1),
-                    ).tr(),
-                  )),
+                  ),
                 ],
               ),
             ),

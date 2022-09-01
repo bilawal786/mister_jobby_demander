@@ -82,6 +82,7 @@ class GardeningJobStep extends StatelessWidget {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
+                      itemExtent: MediaQuery.of(context).size.width / 2.2,
                       itemBuilder: (context, index) =>
                           OutlineSelectedButton(
                               onTap: (){},

@@ -43,7 +43,7 @@ class MovingFurnitureStep extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 10,
                 padding: const EdgeInsets.only(left: 15, right: 15),
-                itemExtent: 65,
+                itemExtent: MediaQuery.of(context).size.width / 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) =>
                     OutlineSelectedButton(
