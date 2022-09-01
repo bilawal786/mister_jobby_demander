@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/fixing_shelves_step.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/hood_installation_step.dart';
 
-class FixingShelvesScreen extends StatefulWidget {
-  const FixingShelvesScreen({Key? key}) : super(key: key);
+import '../../../../providers/const_provider/const_provider.dart';
+
+class HoodInstallationScreen extends StatefulWidget {
+  const HoodInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<FixingShelvesScreen> createState() => _FixingShelvesScreenState();
+  State<HoodInstallationScreen> createState() => _HoodInstallationScreenState();
 }
 
-class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
+class _HoodInstallationScreenState extends State<HoodInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Fixing Shelves",
+            "Hood Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -59,10 +59,8 @@ class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
           controlsBuilder: (context, ControlsDetails details) {
             return Container(
               margin: const EdgeInsets.only(top: 50),
-              child: Consumer<ConstProvider>(
-                builder: (_,fixes,child) => Row(
+              child: Row(
                   children: <Widget>[
-                    if(fixes.fixesAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -106,7 +104,6 @@ class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
                     ),
                   ],
                 ),
-              ),
             );
           },
         ),
@@ -119,13 +116,13 @@ class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const FixingShelvesStep(),
+      content: const HoodInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const GeneralStep2Screen(),
+      content:const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,

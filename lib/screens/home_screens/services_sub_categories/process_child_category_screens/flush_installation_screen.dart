@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../home_screens/services_sub_categories/process_steps_screens/mirror_installation_step.dart';
 
+import '../process_child_screen_steps/flush_installation_step.dart';
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
 
+import '../../../../providers/const_provider/const_provider.dart';
 
-class MirrorInstallationScreen extends StatefulWidget {
-  const MirrorInstallationScreen({Key? key}) : super(key: key);
+class FlushInstallationScreen extends StatefulWidget {
+  const FlushInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<MirrorInstallationScreen> createState() => _MirrorInstallationScreenState();
+  State<FlushInstallationScreen> createState() => _FlushInstallationScreenState();
 }
 
-class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
+class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -36,7 +34,7 @@ class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Mirror Installation",
+            "Flush Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -62,9 +60,9 @@ class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,mirror,child) => Row(
+                builder: (_,fixes,child) => Row(
                   children: <Widget>[
-                    if(mirror.mirrorAmount > 0)
+                    if(fixes.fixesAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -121,13 +119,13 @@ class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const MirrorInstallationStep(),
+      content: const FlushInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content:const GeneralStep2Screen(),
+      content: const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,

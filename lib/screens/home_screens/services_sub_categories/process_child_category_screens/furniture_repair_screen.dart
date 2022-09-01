@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/ac_installation_step.dart';
+import '../process_child_screen_steps/furniture_repair_step.dart';
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
 
-class ACInstallationScreen extends StatefulWidget {
-  const ACInstallationScreen({Key? key}) : super(key: key);
+import '../../../../providers/const_provider/const_provider.dart';
+
+
+class FurnitureRepairScreen extends StatefulWidget {
+  const FurnitureRepairScreen({Key? key}) : super(key: key);
 
   @override
-  State<ACInstallationScreen> createState() => _ACInstallationScreenState();
+  State<FurnitureRepairScreen> createState() => _FurnitureRepairScreenState();
 }
 
-class _ACInstallationScreenState extends State<ACInstallationScreen> {
+class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
-    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
+    final constProviderData = Provider.of<ConstProvider>(context,);
     return WillPopScope(
       onWillPop:  ()async{
         constProviderData.clearData();
@@ -32,7 +34,7 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Air-Condition Installation",
+            "Furniture Repair",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -45,6 +47,7 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
+              print(constProviderData.explainWork);
             } else {
               setState(() => currentStep += 1);
             }
@@ -57,10 +60,8 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
           controlsBuilder: (context, ControlsDetails details) {
             return Container(
               margin: const EdgeInsets.only(top: 50),
-              child: Consumer<ConstProvider>(
-                builder: (_,ac,child) => Row(
+              child: Row(
                   children: <Widget>[
-                    if(ac.acAmount>0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -104,7 +105,6 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
                     ),
                   ],
                 ),
-              ),
             );
           },
         ),
@@ -117,7 +117,7 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const ACInstallationStep(),
+      content: const FurnitureRepairStep(),
     ),
     Step(
       isActive: currentStep >= 1,
@@ -128,7 +128,7 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content:const GeneralStep3Screen(),
+      content: const GeneralStep3Screen(),
     ),
   ];
 }

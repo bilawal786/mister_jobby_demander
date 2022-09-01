@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/ac_installation_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
 
-// import 'package:provider/provider.dart';
-//
-// import '../../../providers/const_provider/const_provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/washing_machine_step.dart';
-
-class WashingMachineScreen extends StatefulWidget {
-  const WashingMachineScreen({Key? key}) : super(key: key);
+class ACInstallationScreen extends StatefulWidget {
+  const ACInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<WashingMachineScreen> createState() => _WashingMachineScreenState();
+  State<ACInstallationScreen> createState() => _ACInstallationScreenState();
 }
 
-class _WashingMachineScreenState extends State<WashingMachineScreen> {
+class _ACInstallationScreenState extends State<ACInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -37,7 +33,7 @@ class _WashingMachineScreenState extends State<WashingMachineScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Washing Machine",
+            "Air-Condition Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -60,33 +56,32 @@ class _WashingMachineScreenState extends State<WashingMachineScreen> {
                 : setState(() => currentStep -= 1);
           },
           controlsBuilder: (context, ControlsDetails details) {
-            return Consumer<ConstProvider>(
-              builder: (_,fixes,child)=>
-              Container(
-                margin: const EdgeInsets.only(top: 50),
-                child: Row(
+            return Container(
+              margin: const EdgeInsets.only(top: 50),
+              child: Consumer<ConstProvider>(
+                builder: (_,ac,child) => Row(
                   children: <Widget>[
-                    if(fixes.fixesAmount>0)
-                    Expanded(
-                        child: ElevatedButton(
-                          onPressed: details.onStepContinue,
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(50.0),
-                            primary: Theme.of(context).primaryColor,
-                            elevation: 5,
-                          ),
-                          child: Text(
-                            currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Cerebri Sans Regular',
-                                fontWeight: FontWeight.normal,
-                                color: Colors.white,
-                                letterSpacing: 1
+                    if(ac.acAmount>0)
+                      Expanded(
+                          child: ElevatedButton(
+                            onPressed: details.onStepContinue,
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size.fromHeight(50.0),
+                              primary: Theme.of(context).primaryColor,
+                              elevation: 5,
                             ),
-                          ).tr(),
-                        )
-                    ),
+                            child: Text(
+                              currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: 'Cerebri Sans Regular',
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white,
+                                  letterSpacing: 1
+                              ),
+                            ).tr(),
+                          )
+                      ),
                     SizedBox(width: MediaQuery.of(context).size.width / 40,),
                     Expanded(
                         child: ElevatedButton(
@@ -123,7 +118,7 @@ class _WashingMachineScreenState extends State<WashingMachineScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const WashingMachineStep(),
+      content: const ACInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,

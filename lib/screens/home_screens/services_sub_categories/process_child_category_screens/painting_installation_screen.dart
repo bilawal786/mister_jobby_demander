@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/lamp_installation_step.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/painting_installation_step.dart';
+
+import '../../../../providers/const_provider/const_provider.dart';
 
 
 
-class LampInstallationScreen extends StatefulWidget {
-  const LampInstallationScreen({Key? key}) : super(key: key);
+class PaintingInstallationScreen extends StatefulWidget {
+  const PaintingInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<LampInstallationScreen> createState() => _LampInstallationScreenState();
+  State<PaintingInstallationScreen> createState() => _PaintingInstallationScreenState();
 }
 
-class _LampInstallationScreenState extends State<LampInstallationScreen> {
+class _PaintingInstallationScreenState extends State<PaintingInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class _LampInstallationScreenState extends State<LampInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Lamp Installation",
+            "Painting Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -61,9 +62,9 @@ class _LampInstallationScreenState extends State<LampInstallationScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,size,child) => Row(
+                builder: (_,painting,child) => Row(
                   children: <Widget>[
-                    if(size.lampInstallationAmount > 0 )
+                    if((painting.smallSizedFurnitureAmount > 0 || painting.mediumSizedFurnitureAmount > 0 || painting.largeSizedFurnitureAmount > 0 || painting.veryLargeSizedFurnitureAmount > 0) && (painting.cleanBoxFurnitureNo == true || painting.cleanBoxFurnitureYes == true))
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -120,18 +121,18 @@ class _LampInstallationScreenState extends State<LampInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const LampInstallationStep(),
+      content: const PaintingInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: Container(),
+      content:const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: const GeneralStep3Screen(),
+      content:const GeneralStep3Screen(),
     ),
   ];
 }

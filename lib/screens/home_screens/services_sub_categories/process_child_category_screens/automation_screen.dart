@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-
-
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/painting_installation_step.dart';
+import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/automation_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
 
 
 
-class PaintingInstallationScreen extends StatefulWidget {
-  const PaintingInstallationScreen({Key? key}) : super(key: key);
+class AutomationScreen extends StatefulWidget {
+  const AutomationScreen({Key? key}) : super(key: key);
 
   @override
-  State<PaintingInstallationScreen> createState() => _PaintingInstallationScreenState();
+  State<AutomationScreen> createState() => _AutomationScreenState();
 }
 
-class _PaintingInstallationScreenState extends State<PaintingInstallationScreen> {
+class _AutomationScreenState extends State<AutomationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,7 @@ class _PaintingInstallationScreenState extends State<PaintingInstallationScreen>
             color: Colors.black38,
           ),
           title: Text(
-            "Painting Installation",
+            "Automation Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -63,9 +60,9 @@ class _PaintingInstallationScreenState extends State<PaintingInstallationScreen>
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,painting,child) => Row(
+                builder: (_,size,child) => Row(
                   children: <Widget>[
-                    if((painting.smallSizedFurnitureAmount > 0 || painting.mediumSizedFurnitureAmount > 0 || painting.largeSizedFurnitureAmount > 0 || painting.veryLargeSizedFurnitureAmount > 0) && (painting.cleanBoxFurnitureNo == true || painting.cleanBoxFurnitureYes == true))
+                    if((size.cleanBoxFurnitureYes == true || size.cleanBoxFurnitureNo == true) && size.automationEquipmentsNo > 0 && size.automationCameraNo > 0 )
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -122,13 +119,13 @@ class _PaintingInstallationScreenState extends State<PaintingInstallationScreen>
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const PaintingInstallationStep(),
+      content: const AutomationStep(),
     ),
     Step(
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content:const GeneralStep2Screen(),
+      content: const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,

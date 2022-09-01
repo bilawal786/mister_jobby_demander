@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/electrical_installation_step.dart';
-class ElectricalInstallationScreen extends StatefulWidget {
-  const ElectricalInstallationScreen({Key? key}) : super(key: key);
+import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/faucet_installation_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
+
+
+
+class FaucetInstallationScreen extends StatefulWidget {
+  const FaucetInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<ElectricalInstallationScreen> createState() => _ElectricalInstallationScreenState();
+  State<FaucetInstallationScreen> createState() => _FaucetInstallationScreenState();
 }
 
-class _ElectricalInstallationScreenState extends State<ElectricalInstallationScreen> {
+class _FaucetInstallationScreenState extends State<FaucetInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class _ElectricalInstallationScreenState extends State<ElectricalInstallationScr
             color: Colors.black38,
           ),
           title: Text(
-            "Electrical Installation",
+            "Faucet Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -55,32 +57,34 @@ class _ElectricalInstallationScreenState extends State<ElectricalInstallationScr
                 : setState(() => currentStep -= 1);
           },
           controlsBuilder: (context, ControlsDetails details) {
-            return Container(
-              margin: const EdgeInsets.only(top: 50),
-              child: Consumer<ConstProvider>(
-                builder: (_,size,child) => Row(
+            return Consumer<ConstProvider>(
+              builder: (_,fixes,child)=>
+               Container(
+                margin: const EdgeInsets.only(top: 50),
+                child:
+                Row(
                   children: <Widget>[
-                    if(size.electricalOutletsAmount > 0 )
-                      Expanded(
-                          child: ElevatedButton(
-                            onPressed: details.onStepContinue,
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.fromHeight(50.0),
-                              primary: Theme.of(context).primaryColor,
-                              elevation: 5,
+                    if(fixes.fixesAmount>0)
+                    Expanded(
+                        child: ElevatedButton(
+                          onPressed: details.onStepContinue,
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50.0),
+                            primary: Theme.of(context).primaryColor,
+                            elevation: 5,
+                          ),
+                          child: Text(
+                            currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Cerebri Sans Regular',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                letterSpacing: 1
                             ),
-                            child: Text(
-                              currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
-                              style: const TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'Cerebri Sans Regular',
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.white,
-                                  letterSpacing: 1
-                              ),
-                            ).tr(),
-                          )
-                      ),
+                          ).tr(),
+                        )
+                    ),
                     SizedBox(width: MediaQuery.of(context).size.width / 40,),
                     Expanded(
                         child: ElevatedButton(
@@ -117,7 +121,7 @@ class _ElectricalInstallationScreenState extends State<ElectricalInstallationScr
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const ElectricalInstallationStep(),
+      content: const FaucetInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,

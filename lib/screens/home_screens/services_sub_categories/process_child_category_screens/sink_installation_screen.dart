@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-
-
-
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/parquet_installation_step.dart';
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/sink_installation_step.dart';
+
+import '../../../../providers/const_provider/const_provider.dart';
 
 
-
-class ParquetInstallationScreen extends StatefulWidget {
-  const ParquetInstallationScreen({Key? key}) : super(key: key);
+class SinkInstallationScreen extends StatefulWidget {
+  const SinkInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<ParquetInstallationScreen> createState() => _ParquetInstallationScreenState();
+  State<SinkInstallationScreen> createState() => _SinkInstallationScreenState();
 }
 
-class _ParquetInstallationScreenState extends State<ParquetInstallationScreen> {
+class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -38,7 +34,7 @@ class _ParquetInstallationScreenState extends State<ParquetInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Parquet Installation",
+            "Sink Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -64,9 +60,9 @@ class _ParquetInstallationScreenState extends State<ParquetInstallationScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,parquetInstallation,child) => Row(
+                builder: (_,fixes,child) => Row(
                   children: <Widget>[
-                    if((parquetInstallation.baseBoardInstallYes == true || parquetInstallation.baseBoardInstallNo == true) && (parquetInstallation.cuttingMaterialYes == true || parquetInstallation.cuttingMaterialNo == true))
+                    if(fixes.fixesAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -123,13 +119,13 @@ class _ParquetInstallationScreenState extends State<ParquetInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const ParquetInstallationStep(),
+      content: const SinkInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content:const GeneralStep2Screen(),
+      content: const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,

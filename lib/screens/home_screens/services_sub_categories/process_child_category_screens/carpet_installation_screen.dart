@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/curtain_installation_step.dart';
+import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/carpet_installation_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
 
 
-class CurtainInstallationScreen extends StatefulWidget {
-  const CurtainInstallationScreen({Key? key}) : super(key: key);
+
+class CarpetInstallationScreen extends StatefulWidget {
+  const CarpetInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<CurtainInstallationScreen> createState() => _CurtainInstallationScreenState();
+  State<CarpetInstallationScreen> createState() => _CarpetInstallationScreenState();
 }
 
-class _CurtainInstallationScreenState extends State<CurtainInstallationScreen> {
+class _CarpetInstallationScreenState extends State<CarpetInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _CurtainInstallationScreenState extends State<CurtainInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Curtain Installation",
+            "Carpet Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -119,7 +119,7 @@ class _CurtainInstallationScreenState extends State<CurtainInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const CurtainInstallationStep(),
+      content: const CarpetInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,

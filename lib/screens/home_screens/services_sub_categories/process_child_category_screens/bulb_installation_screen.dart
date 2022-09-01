@@ -2,18 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../../screens/home_screens/services_sub_categories/process_steps_screens/automation_step.dart';
-class AutomationScreen extends StatefulWidget {
-  const AutomationScreen({Key? key}) : super(key: key);
+import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/bulb_installation_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
+
+
+
+
+class BulbInstallationScreen extends StatefulWidget {
+  const BulbInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<AutomationScreen> createState() => _AutomationScreenState();
+  State<BulbInstallationScreen> createState() => _BulbInstallationScreenState();
 }
 
-class _AutomationScreenState extends State<AutomationScreen> {
+class _BulbInstallationScreenState extends State<BulbInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Automation Installation",
+            "Bulb Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -59,7 +63,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,size,child) => Row(
                   children: <Widget>[
-                    if((size.cleanBoxFurnitureYes == true || size.cleanBoxFurnitureNo == true) && size.automationEquipmentsNo > 0 && size.automationCameraNo > 0 )
+                    if(size.bulbInstallationAmount >  0 )
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -116,7 +120,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const AutomationStep(),
+      content: const BulbInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,

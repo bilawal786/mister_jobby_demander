@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/hang_picture_step.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/lamp_installation_step.dart';
+
+import '../../../../providers/const_provider/const_provider.dart';
 
 
-class HangPictureScreen extends StatefulWidget {
-  const HangPictureScreen({Key? key}) : super(key: key);
+
+
+
+class LampInstallationScreen extends StatefulWidget {
+  const LampInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<HangPictureScreen> createState() => _HangPictureScreenState();
+  State<LampInstallationScreen> createState() => _LampInstallationScreenState();
 }
 
-class _HangPictureScreenState extends State<HangPictureScreen> {
+class _LampInstallationScreenState extends State<LampInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class _HangPictureScreenState extends State<HangPictureScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Hang Picture",
+            "Lamp Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -60,9 +63,9 @@ class _HangPictureScreenState extends State<HangPictureScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,picture,child) => Row(
+                builder: (_,size,child) => Row(
                   children: <Widget>[
-                    if(picture.pictureAmount > 0)
+                    if(size.lampInstallationAmount > 0 )
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -119,7 +122,7 @@ class _HangPictureScreenState extends State<HangPictureScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const HangPictureStep(),
+      content: const LampInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,
@@ -130,7 +133,7 @@ class _HangPictureScreenState extends State<HangPictureScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content:const GeneralStep3Screen(),
+      content: const GeneralStep3Screen(),
     ),
   ];
 }

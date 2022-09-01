@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/sink_installation_step.dart';
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/mirror_installation_step.dart';
 
-class SinkInstallationScreen extends StatefulWidget {
-  const SinkInstallationScreen({Key? key}) : super(key: key);
+import '../../../../providers/const_provider/const_provider.dart';
+
+
+class MirrorInstallationScreen extends StatefulWidget {
+  const MirrorInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<SinkInstallationScreen> createState() => _SinkInstallationScreenState();
+  State<MirrorInstallationScreen> createState() => _MirrorInstallationScreenState();
 }
 
-class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
+class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Sink Installation",
+            "Mirror Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -59,9 +60,9 @@ class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,fixes,child) => Row(
+                builder: (_,mirror,child) => Row(
                   children: <Widget>[
-                    if(fixes.fixesAmount > 0)
+                    if(mirror.mirrorAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -118,18 +119,18 @@ class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const SinkInstallationStep(),
+      content: const MirrorInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const GeneralStep2Screen(),
+      content:const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: Container(),
+      content:const GeneralStep3Screen(),
     ),
   ];
 }

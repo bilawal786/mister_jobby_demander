@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
 import '../process_sub_categories_steps/clearing_step.dart';
-import '../process_steps_screens/general_step_2_screen.dart';
-import '../process_steps_screens/general_step_3_screen.dart';
+
 
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';

@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../../screens/home_screens/services_sub_categories/process_steps_screens/bulb_installation_step.dart';
-class BulbInstallationScreen extends StatefulWidget {
-  const BulbInstallationScreen({Key? key}) : super(key: key);
+import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/electrical_installation_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
+
+
+class ElectricalInstallationScreen extends StatefulWidget {
+  const ElectricalInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<BulbInstallationScreen> createState() => _BulbInstallationScreenState();
+  State<ElectricalInstallationScreen> createState() => _ElectricalInstallationScreenState();
 }
 
-class _BulbInstallationScreenState extends State<BulbInstallationScreen> {
+class _ElectricalInstallationScreenState extends State<ElectricalInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class _BulbInstallationScreenState extends State<BulbInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Bulb Installation",
+            "Electrical Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -59,7 +61,7 @@ class _BulbInstallationScreenState extends State<BulbInstallationScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,size,child) => Row(
                   children: <Widget>[
-                    if(size.bulbInstallationAmount >  0 )
+                    if(size.electricalOutletsAmount > 0 )
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -116,7 +118,7 @@ class _BulbInstallationScreenState extends State<BulbInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const BulbInstallationStep(),
+      content: const ElectricalInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,

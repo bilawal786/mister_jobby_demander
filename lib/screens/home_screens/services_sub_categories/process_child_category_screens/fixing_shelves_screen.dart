@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
-import '../../../../../screens/home_screens/services_sub_categories/process_steps_screens/landscaping_job_step.dart';
+import '../process_child_screen_steps/fixing_shelves_step.dart';
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
+
+import '../../../../providers/const_provider/const_provider.dart';
 
 
-class LandscapingJobScreen extends StatefulWidget {
-  const LandscapingJobScreen({Key? key}) : super(key: key);
+class FixingShelvesScreen extends StatefulWidget {
+  const FixingShelvesScreen({Key? key}) : super(key: key);
 
   @override
-  State<LandscapingJobScreen> createState() => _LandscapingJobScreenState();
+  State<FixingShelvesScreen> createState() => _FixingShelvesScreenState();
 }
 
-class _LandscapingJobScreenState extends State<LandscapingJobScreen> {
+class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _LandscapingJobScreenState extends State<LandscapingJobScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Landscaping Job",
+            "Fixing Shelves",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -59,9 +60,9 @@ class _LandscapingJobScreenState extends State<LandscapingJobScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,size,child) => Row(
+                builder: (_,fixes,child) => Row(
                   children: <Widget>[
-                    if(size.cleanBoxFurnitureNo == true || size.cleanBoxFurnitureYes == true )
+                    if(fixes.fixesAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -118,13 +119,13 @@ class _LandscapingJobScreenState extends State<LandscapingJobScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const LandscapingJobStep(),
+      content: const FixingShelvesStep(),
     ),
     Step(
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: Container(),
+      content: const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,

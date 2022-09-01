@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
+import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/disassemble_furniture_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/furniture_repair_step.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
 
-class FurnitureRepairScreen extends StatefulWidget {
-  const FurnitureRepairScreen({Key? key}) : super(key: key);
+
+class DisassembleFurnitureScreen extends StatefulWidget {
+  const DisassembleFurnitureScreen({Key? key}) : super(key: key);
 
   @override
-  State<FurnitureRepairScreen> createState() => _FurnitureRepairScreenState();
+  State<DisassembleFurnitureScreen> createState() => _DisassembleFurnitureScreenState();
 }
 
-class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
+class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
-    final constProviderData = Provider.of<ConstProvider>(context,);
+    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
         constProviderData.clearData();
@@ -34,7 +34,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Furniture Repair",
+            "Disassemble Furniture",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -47,7 +47,6 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
-              print(constProviderData.explainWork);
             } else {
               setState(() => currentStep += 1);
             }
@@ -60,8 +59,10 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
           controlsBuilder: (context, ControlsDetails details) {
             return Container(
               margin: const EdgeInsets.only(top: 50),
-              child: Row(
+              child: Consumer<ConstProvider>(
+                builder: (_,disassembleFurniture,child) => Row(
                   children: <Widget>[
+                    if((disassembleFurniture.smallSizedFurnitureAmount > 0 || disassembleFurniture.mediumSizedFurnitureAmount > 0 || disassembleFurniture.largeSizedFurnitureAmount > 0 || disassembleFurniture.veryLargeSizedFurnitureAmount > 0) && (disassembleFurniture.cleanBoxFurnitureNo == true || disassembleFurniture.cleanBoxFurnitureYes == true))
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -105,6 +106,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
                     ),
                   ],
                 ),
+              ),
             );
           },
         ),
@@ -117,7 +119,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const FurnitureRepairStep(),
+      content: const DisassembleFurnitureStep(),
     ),
     Step(
       isActive: currentStep >= 1,
@@ -128,7 +130,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
     Step(
       isActive: currentStep >= 2,
       title: const Text(""),
-      content: const GeneralStep3Screen(),
+      content:const GeneralStep3Screen(),
     ),
   ];
 }

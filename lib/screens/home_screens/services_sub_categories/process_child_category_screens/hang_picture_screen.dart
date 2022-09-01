@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/hang_picture_step.dart';
 
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/shower_installation_step.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
+import '../../../../providers/const_provider/const_provider.dart';
 
-class ShowerInstallationScreen extends StatefulWidget {
-  const ShowerInstallationScreen({Key? key}) : super(key: key);
+
+class HangPictureScreen extends StatefulWidget {
+  const HangPictureScreen({Key? key}) : super(key: key);
 
   @override
-  State<ShowerInstallationScreen> createState() => _ShowerInstallationScreenState();
+  State<HangPictureScreen> createState() => _HangPictureScreenState();
 }
 
-class _ShowerInstallationScreenState extends State<ShowerInstallationScreen> {
+class _HangPictureScreenState extends State<HangPictureScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _ShowerInstallationScreenState extends State<ShowerInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Shower Installation",
+            "Hang Picture",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -61,9 +61,9 @@ class _ShowerInstallationScreenState extends State<ShowerInstallationScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,shower,child) => Row(
+                builder: (_,picture,child) => Row(
                   children: <Widget>[
-                    if(shower.showerAmount > 0)
+                    if(picture.pictureAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -120,13 +120,13 @@ class _ShowerInstallationScreenState extends State<ShowerInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const ShowerInstallationStep(),
+      content: const HangPictureStep(),
     ),
     Step(
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const GeneralStep2Screen(),
+      content:const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,

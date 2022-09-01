@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_sub_categories_screens/gardening_job_screen.dart';
-
-
-
-
-
-
-// import 'package:mister_jobby/providers/const_provider/mujeeb_const_provider.dart';
-
 import 'package:provider/provider.dart';
+
+
 import './helpers/routes.dart';
 import './providers/categories_provider/main_categories_provider.dart';
 import './screens/splash_screen/splash_screen.dart';
@@ -19,36 +11,17 @@ import './screens/home_screens/search_screen.dart';
 import './screens/home_screens/home_tabs_screen.dart';
 import './screens/home_screens/services_sub_categories/sub_categories_screen.dart';
 import './screens/home_screens/services_sub_categories/child_categories_screen.dart';
-import './screens/home_screens/services_sub_categories/disassemble_furniture_screen.dart';
-import './screens/home_screens/services_sub_categories/curtain_rod_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/fixing_shelves_screen.dart';
-import './screens/home_screens/services_sub_categories/hang_tv_screen.dart';
-import './screens/home_screens/services_sub_categories/shower_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/hang_picture_screen.dart';
-import './screens/home_screens/services_sub_categories/mirror_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/furniture_repair_screen.dart';
-import './screens/home_screens/services_sub_categories/small_repair_screen.dart';
-import './screens/home_screens/services_sub_categories/fence_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/hood_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/landscaping_job_screen.dart';
-import './screens/home_screens/services_sub_categories/electrical_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/bulb_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/lamp_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/automation_screen.dart';
-import './screens/home_screens/services_sub_categories/ac_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/painting_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/parquet_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/tiles_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/carpet_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/coat_wall_screen.dart';
-import './screens/home_screens/services_sub_categories/lining_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/water_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/flush_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/faucet_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/sink_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/washing_machine_screen.dart';
-import './screens/home_screens/services_sub_categories/toilet_installation_screen.dart';
-import './screens/home_screens/services_sub_categories/sink_drain_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/disassemble_furniture_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/fixing_shelves_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/furniture_repair_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/small_repair_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/hood_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/electrical_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/bulb_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/lamp_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/ac_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/faucet_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/sink_installation_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/mow_lawn_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/hedge_trimming_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/cut_tree_screen.dart';
@@ -63,8 +36,28 @@ import './screens/home_screens/warranties_screens/cancellation_protection_screen
 import './screens/home_screens/warranties_screens/fair_compensation_screen.dart';
 import './screens/home_screens/warranties_screens/insured_services_screen.dart';
 import './screens/home_screens/warranties_screens/secure_payments_screen.dart';
-import './screens/home_screens/services_sub_categories/furniture_assemble_screen.dart';
 import './providers/const_provider/const_provider.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/automation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/carpet_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/coat_wall_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/curtain_rod_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/fence_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/flush_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/furniture_assemble_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/hang_picture_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/hang_tv_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/landscaping_job_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/lining_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/mirror_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/painting_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/parquet_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/shower_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/sink_drain_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/tiles_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/toilet_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/washing_machine_screen.dart';
+import './screens/home_screens/services_sub_categories/process_child_category_screens/water_installation_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/gardening_job_screen.dart';
 
 
 void main() async {
@@ -91,7 +84,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (ctx) => MainCategoriesProvider()),
         ChangeNotifierProvider(create: (ctx) => ConstProvider()),
-        ChangeNotifierProvider(create: (ctx) => MujeebConstProvider()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
@@ -223,27 +215,27 @@ class MyApp extends StatelessWidget {
           MyRoutes.LAMPINSTALLATIONROUTE: (ctx) => const LampInstallationScreen(),
           MyRoutes.AUTOMATIONROUTE: (ctx) => const AutomationScreen(),
           MyRoutes.ACINSTALLATIONROUTE: (ctx) => const ACInstallationScreen(),
-          MyRoutes.PAINTINGINSTALLATIOROUTE: (ctx) => PaintingInstallationScreen(),
-          MyRoutes.PARQUETINSTALLATIOROUTE: (ctx) => ParquetInstallationScreen(),
-          MyRoutes.TILESINSTALLATIOROUTE: (ctx) => TilesInstallationScreen(),
-          MyRoutes.CARPETINSTALLATIOROUTE: (ctx) => CarpetInstallationScreen(),
-          MyRoutes.COATWALLROUTE: (ctx) => CoatWallScreen(),
-          MyRoutes.LININGINSTALLATIONROUTE: (ctx) => LiningInstallationScreen(),
-          MyRoutes.WATERINSTALLATIONROUTE: (ctx) => WaterInstallationScreen(),
-          MyRoutes.FLUSHINSTALLATIONROUTE: (ctx) => FlushInstallationScreen(),
-          MyRoutes.FAUCETINSTALLATIONROUTE: (ctx) =>FaucetInstallationScreen(),
-          MyRoutes.WASHINGMACHINEROUTE: (ctx) =>WashingMachineScreen(),
-          MyRoutes.TOILETINSTALLATIONROUTE: (ctx) => ToiletInstallationScreen(),
-          MyRoutes.SINKDRAINROUTE: (ctx) => SinkDrainScreen(),
-          MyRoutes.MOWLAWNROUTE: (ctx) => MowLawnScreen(),
-          MyRoutes.HEDGETRIMMINGROUTE: (ctx) => HedgeTrimmingScreen(),
-          MyRoutes.CUTTREEROUTE: (ctx) => CutTreeScreen(),
-          MyRoutes.CLEARINGROUTE: (ctx) => ClearingScreen(),
-          MyRoutes.WEEDINGROUTE: (ctx) => WeedingScreen(),
-          MyRoutes.MAINTENANCEGREENSPACEROUTE: (ctx) => MaintenanceGreenSpacesScreen(),
-          MyRoutes.LAWNCAREROUTE: (ctx) => LawnCareScreen(),
-          MyRoutes.TERRACECLEANINGROUTE: (ctx) => TerraceCleaningScreen(),
-          MyRoutes.GARDENINGJOBROUTE: (ctx) => GardeningJobScreen(),
+          MyRoutes.PAINTINGINSTALLATIOROUTE: (ctx) =>const PaintingInstallationScreen(),
+          MyRoutes.PARQUETINSTALLATIOROUTE: (ctx) =>const ParquetInstallationScreen(),
+          MyRoutes.TILESINSTALLATIOROUTE: (ctx) =>const TilesInstallationScreen(),
+          MyRoutes.CARPETINSTALLATIOROUTE: (ctx) =>const CarpetInstallationScreen(),
+          MyRoutes.COATWALLROUTE: (ctx) =>const CoatWallScreen(),
+          MyRoutes.LININGINSTALLATIONROUTE: (ctx) =>const LiningInstallationScreen(),
+          MyRoutes.WATERINSTALLATIONROUTE: (ctx) =>const WaterInstallationScreen(),
+          MyRoutes.FLUSHINSTALLATIONROUTE: (ctx) =>const FlushInstallationScreen(),
+          MyRoutes.FAUCETINSTALLATIONROUTE: (ctx) => const FaucetInstallationScreen(),
+          MyRoutes.WASHINGMACHINEROUTE: (ctx) =>const WashingMachineScreen(),
+          MyRoutes.TOILETINSTALLATIONROUTE: (ctx) =>const ToiletInstallationScreen(),
+          MyRoutes.SINKDRAINROUTE: (ctx) =>const SinkDrainScreen(),
+          MyRoutes.MOWLAWNROUTE: (ctx) =>const MowLawnScreen(),
+          MyRoutes.HEDGETRIMMINGROUTE: (ctx) => const HedgeTrimmingScreen(),
+          MyRoutes.CUTTREEROUTE: (ctx) =>const CutTreeScreen(),
+          MyRoutes.CLEARINGROUTE: (ctx) =>const ClearingScreen(),
+          MyRoutes.WEEDINGROUTE: (ctx) =>const WeedingScreen(),
+          MyRoutes.MAINTENANCEGREENSPACEROUTE: (ctx) =>const MaintenanceGreenSpacesScreen(),
+          MyRoutes.LAWNCAREROUTE: (ctx) =>const LawnCareScreen(),
+          MyRoutes.TERRACECLEANINGROUTE: (ctx) =>const TerraceCleaningScreen(),
+          MyRoutes.GARDENINGJOBROUTE: (ctx) =>const GardeningJobScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),

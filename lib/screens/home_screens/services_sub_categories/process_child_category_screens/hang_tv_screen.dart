@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
-
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/flush_installation_step.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
+import '../process_child_screen_steps/general_step_2_screen.dart';
+import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/hang_tv_step.dart';
 
-class FlushInstallationScreen extends StatefulWidget {
-  const FlushInstallationScreen({Key? key}) : super(key: key);
+import '../../../../providers/const_provider/const_provider.dart';
+
+
+
+
+class HangTVScreen extends StatefulWidget {
+  const HangTVScreen({Key? key}) : super(key: key);
 
   @override
-  State<FlushInstallationScreen> createState() => _FlushInstallationScreenState();
+  State<HangTVScreen> createState() => _HangTVScreenState();
 }
 
-class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
+class _HangTVScreenState extends State<HangTVScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Flush Installation",
+            "Hang a TV",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -60,9 +62,9 @@ class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,fixes,child) => Row(
+                builder: (_,tv,child) => Row(
                   children: <Widget>[
-                    if(fixes.fixesAmount > 0)
+                    if(tv.tvHangNo != 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -119,7 +121,7 @@ class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const FlushInstallationStep(),
+      content: const HangTVStep(),
     ),
     Step(
       isActive: currentStep >= 1,

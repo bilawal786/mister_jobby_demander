@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/const_provider/const_provider.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/disassemble_furniture_step.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_2_screen.dart';
-import '../../../screens/home_screens/services_sub_categories/process_steps_screens/general_step_3_screen.dart';
+import '../../../../providers/const_provider/const_provider.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/fence_installation_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
 
-class DisassembleFurnitureScreen extends StatefulWidget {
-  const DisassembleFurnitureScreen({Key? key}) : super(key: key);
+
+class FenceInstallationScreen extends StatefulWidget {
+  const FenceInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<DisassembleFurnitureScreen> createState() => _DisassembleFurnitureScreenState();
+  State<FenceInstallationScreen> createState() => _FenceInstallationScreenState();
 }
 
-class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen> {
+class _FenceInstallationScreenState extends State<FenceInstallationScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen>
             color: Colors.black38,
           ),
           title: Text(
-            "Disassemble Furniture",
+            "Fence Installation",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -57,10 +58,9 @@ class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen>
           controlsBuilder: (context, ControlsDetails details) {
             return Container(
               margin: const EdgeInsets.only(top: 50),
-              child: Consumer<ConstProvider>(
-                builder: (_,disassembleFurniture,child) => Row(
+              child:
+                Row(
                   children: <Widget>[
-                    if((disassembleFurniture.smallSizedFurnitureAmount > 0 || disassembleFurniture.mediumSizedFurnitureAmount > 0 || disassembleFurniture.largeSizedFurnitureAmount > 0 || disassembleFurniture.veryLargeSizedFurnitureAmount > 0) && (disassembleFurniture.cleanBoxFurnitureNo == true || disassembleFurniture.cleanBoxFurnitureYes == true))
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -104,7 +104,6 @@ class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen>
                     ),
                   ],
                 ),
-              ),
             );
           },
         ),
@@ -117,7 +116,7 @@ class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen>
       isActive: currentStep >= 0,
       state: currentStep > 0 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const DisassembleFurnitureStep(),
+      content: const FenceInstallationStep(),
     ),
     Step(
       isActive: currentStep >= 1,
