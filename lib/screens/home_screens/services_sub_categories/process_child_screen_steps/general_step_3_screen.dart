@@ -255,9 +255,9 @@ class GeneralStep3Screen extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Address",
+            "Address_Title",
             style: Theme.of(context).textTheme.titleSmall,
-          ),
+          ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
@@ -266,6 +266,25 @@ class GeneralStep3Screen extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Text(
+            "Country_Title",
+            style: Theme.of(context).textTheme.titleSmall,
+          ).tr(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          TextFormField(
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              labelText: "Country_Title".tr(),
+              isDense: true,
+            ),
+            style: Theme.of(context).textTheme.bodySmall,
+            enabled: true,
+          ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
