@@ -507,7 +507,7 @@ class ConstProvider with ChangeNotifier {
 
   void getPlacesSuggestion(String input) async {
     String kPLACES_API_KEY =
-        "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
+        "api key ";
     String gBASEURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     String requestUrl =
