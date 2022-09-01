@@ -522,6 +522,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+
   void clearData() {
     jobberHedgeTimerYes = false;
     jobberHedgeTimerNo = false;
