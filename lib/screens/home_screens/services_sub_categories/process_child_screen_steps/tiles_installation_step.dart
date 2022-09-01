@@ -41,7 +41,7 @@ class TilesInstallationStep extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(
-                      '${rangeSliderData.tileInstallationSliderValue}m²',
+                      '${rangeSliderData.surfaceInstallationSliderValue}m²',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                       ),
@@ -57,12 +57,12 @@ class TilesInstallationStep extends StatelessWidget {
                     ),
                     Expanded(
                       child: RangeSliderCLass(
-                        rangeValue: rangeSliderData.tileInstallationSliderValue,
+                        rangeValue: rangeSliderData.surfaceInstallationSliderValue,
                         minRange: 10,
-                        maxRange: 100,
-                        division: 9,
+                        maxRange: 80,
+                        division: 7,
                         onChanged: (value) => rangeSliderData
-                            .tileInstallationSliderFunction(value),
+                            .surfaceInstallationSliderFunction(value),
                       ),
                     ),
                     Icon(

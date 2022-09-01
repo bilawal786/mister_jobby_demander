@@ -62,7 +62,6 @@ class _CarpetInstallationScreenState extends State<CarpetInstallationScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,fixes,child) => Row(
                   children: <Widget>[
-                    if(fixes.fixesAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

@@ -480,10 +480,10 @@ class ConstProvider with ChangeNotifier {
     );
   }
 
-  double tileInstallationSliderValue = 10;
+  double surfaceInstallationSliderValue = 10;
 
-  tileInstallationSliderFunction(double newValue) {
-    tileInstallationSliderValue = newValue;
+  surfaceInstallationSliderFunction(double newValue) {
+    surfaceInstallationSliderValue = newValue;
     notifyListeners();
   }
 
