@@ -1,11 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:uuid/uuid.dart';
-import 'package:http/http.dart' as http;
 
 class ConstProvider with ChangeNotifier {
   int smallSizedFurnitureAmount = 0;
@@ -489,40 +485,6 @@ class ConstProvider with ChangeNotifier {
   rangeSliderFunction(double newValue) {
     rangeSliderValue = newValue;
     notifyListeners();
-  }
-
-  TextEditingController searchPlaceController = TextEditingController();
-  var uuid = const Uuid();
-  String sessionTokenPlace = '123456';
-  List<dynamic> placesList = [];
-
-  void onChangePlace() {
-    if (sessionTokenPlace == "") {
-       sessionTokenPlace = uuid.v4();
-       notifyListeners();
-    }
-    getPlacesSuggestion(searchPlaceController.text);
-    notifyListeners();
-  }
-
-  void getPlacesSuggestion(String input) async {
-    String kPLACES_API_KEY =
-        "api key ";
-    String gBASEURL =
-        'https://maps.googleapis.com/maps/api/place/autocomplete/json';
-    String requestUrl =
-        '$gBASEURL?input=$input&key=$kPLACES_API_KEY&sessiontoken=$sessionTokenPlace&components=country:fr|country:pk';
-
-    var response = await http.get(Uri.parse(requestUrl));
-    notifyListeners();
-    if (response.statusCode == 200) {
-        placesList = jsonDecode(response.body.toString())['predictions'];
-        notifyListeners();
-    } else {
-      throw Exception('failed to load data google api data');
-    }
-    notifyListeners();
-    // print(response.body.toString());
   }
 
 }

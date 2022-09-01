@@ -15,17 +15,6 @@ class TestScreen extends StatefulWidget {
 
 class _TestScreenState extends State<TestScreen> {
 
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    final search = Provider.of<ConstProvider>(context,listen: true).searchPlaceController;
-    search.addListener(() {
-      Provider.of<ConstProvider>(context,listen: true).onChangePlace();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,10 +60,7 @@ class _TestScreenState extends State<TestScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              Consumer<ConstProvider>(
-                builder: (_,gApi,child) =>
-                  GooglePlacesApi(suggestion: gApi.placesList , controller: gApi.searchPlaceController,),
-              ),
+              const GooglePlacesApi(),
             ],
           ),
         ),

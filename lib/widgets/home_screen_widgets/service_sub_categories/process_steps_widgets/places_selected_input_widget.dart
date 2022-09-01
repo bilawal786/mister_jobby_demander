@@ -1,29 +1,65 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:searchfield/searchfield.dart';
+import 'package:uuid/uuid.dart';
+import 'package:http/http.dart' as http;
 import 'package:geocoding/geocoding.dart';
 
-import '../../../../providers/const_provider/const_provider.dart';
-
 class GooglePlacesApi extends StatefulWidget {
-  final TextEditingController controller;
-  final List suggestion;
-
-  const GooglePlacesApi({Key? key, required this.controller, required this.suggestion}) : super(key: key);
+  const GooglePlacesApi({Key? key}) : super(key: key);
 
   @override
   State<GooglePlacesApi> createState() => _GooglePlacesApiState();
 }
 
 class _GooglePlacesApiState extends State<GooglePlacesApi> {
+  TextEditingController searchController = TextEditingController();
+  var uuid = Uuid();
+  String _sessionToken = '123456';
+  List<dynamic> _placesList = [];
+  @override
+  void initState() {
+    super.initState();
 
+    searchController.addListener(() {
+      onChange();
+    });
+  }
 
+  void onChange() {
+    if (_sessionToken == null) {
+      setState(() {
+        _sessionToken = uuid.v4();
+      });
+    }
 
+    getSuggestion(searchController.text);
+  }
+
+  void getSuggestion(String input) async {
+    String kPLACES_API_KEY =
+        "place api key here";
+    String gBASEURL =
+        'https://maps.googleapis.com/maps/api/place/autocomplete/json';
+    String requestUrl =
+        '$gBASEURL?input=$input&key=$kPLACES_API_KEY&sessiontoken=$_sessionToken';
+
+    var response = await http.get(Uri.parse(requestUrl));
+
+    if (response.statusCode == 200) {
+      setState(() {
+        _placesList = jsonDecode(response.body.toString())['predictions'];
+      });
+    } else {
+      throw Exception('failed to load data google api data');
+    }
+    // print(response.body.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
     return SearchField(
-      controller: widget.controller,
+      controller: searchController,
       hint: 'Find Address',
       searchStyle: Theme.of(context).textTheme.bodySmall,
       searchInputDecoration: InputDecoration(
@@ -37,9 +73,9 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
         ),
       ),
       itemHeight: MediaQuery.of(context).size.width / 10 ,
-      maxSuggestionsInViewPort: widget.suggestion.length,
+      maxSuggestionsInViewPort: _placesList.length,
       suggestionStyle: Theme.of(context).textTheme.bodySmall,
-      suggestions: widget.suggestion.map((e){
+      suggestions: _placesList.map((e){
         return SearchFieldListItem(
           e['description'],
           item: e,
