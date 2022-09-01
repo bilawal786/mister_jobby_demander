@@ -84,6 +84,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.MOVINGAPPLIANCESROUTE);
               }
               break;
+            case 17:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.RIDCLUTTERROUTE);
+              }
+              break;
 
           }
         }
