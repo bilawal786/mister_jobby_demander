@@ -499,6 +499,7 @@ class ConstProvider with ChangeNotifier {
   void onChangePlace() {
     if (sessionTokenPlace == "") {
        sessionTokenPlace = uuid.v4();
+       notifyListeners();
     }
     getPlacesSuggestion(searchPlaceController.text);
     notifyListeners();
@@ -506,16 +507,17 @@ class ConstProvider with ChangeNotifier {
 
   void getPlacesSuggestion(String input) async {
     String kPLACES_API_KEY =
-        "place api key here";
+        "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
     String gBASEURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     String requestUrl =
         '$gBASEURL?input=$input&key=$kPLACES_API_KEY&sessiontoken=$sessionTokenPlace&components=country:fr|country:pk';
 
     var response = await http.get(Uri.parse(requestUrl));
-
+    notifyListeners();
     if (response.statusCode == 200) {
         placesList = jsonDecode(response.body.toString())['predictions'];
+        notifyListeners();
     } else {
       throw Exception('failed to load data google api data');
     }

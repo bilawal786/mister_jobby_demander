@@ -6,7 +6,10 @@ import 'package:geocoding/geocoding.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 
 class GooglePlacesApi extends StatefulWidget {
-  const GooglePlacesApi({Key? key}) : super(key: key);
+  final TextEditingController controller;
+  final List suggestion;
+
+  const GooglePlacesApi({Key? key, required this.controller, required this.suggestion}) : super(key: key);
 
   @override
   State<GooglePlacesApi> createState() => _GooglePlacesApiState();
@@ -14,35 +17,13 @@ class GooglePlacesApi extends StatefulWidget {
 
 class _GooglePlacesApiState extends State<GooglePlacesApi> {
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    final search = Provider.of<ConstProvider>(context).searchPlaceController;
-    search.addListener(() {
-      Provider.of<ConstProvider>(context).onChangePlace();
-    });
-  }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   final search = Provider.of<ConstProvider>(context).searchPlaceController;
-  //   search.addListener(() {
-  //     Provider.of<ConstProvider>(context).onChangePlace();
-  //   });
-  //   // searchController.addListener(() {
-  //   //   onChange();
-  //   // });
-  // }
 
 
 
   @override
   Widget build(BuildContext context) {
-    final searchPlacesFieldData = Provider.of<ConstProvider>(context);
     return SearchField(
-      controller: searchPlacesFieldData.searchPlaceController,
+      controller: widget.controller,
       hint: 'Find Address',
       searchStyle: Theme.of(context).textTheme.bodySmall,
       searchInputDecoration: InputDecoration(
@@ -56,9 +37,9 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
         ),
       ),
       itemHeight: MediaQuery.of(context).size.width / 10 ,
-      maxSuggestionsInViewPort: searchPlacesFieldData.placesList.length,
+      maxSuggestionsInViewPort: widget.suggestion.length,
       suggestionStyle: Theme.of(context).textTheme.bodySmall,
-      suggestions: searchPlacesFieldData.placesList.map((e){
+      suggestions: widget.suggestion.map((e){
         return SearchFieldListItem(
           e['description'],
           item: e,
