@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_sub_categories_screens/accompaniment_medical_appointment_screen.dart';
 
 
 import 'package:provider/provider.dart';
@@ -293,6 +294,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.DELIVERGROCERIESROUTE: (ctx) =>const DeliverGroceriesScreen(),
           MyRoutes.HOMEDELIVERYROUTE: (ctx) =>const HomeDeliveryScreen(),
           MyRoutes.ACCOMPANIMENTRACEROUTE: (ctx) =>const AccompanimentRaceScreen(),
+          MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE: (ctx) =>const AccompanimentMedicalAppoinmentScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
