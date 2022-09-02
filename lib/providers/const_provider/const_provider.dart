@@ -299,13 +299,8 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  String explainWork = '';
+  String needWork = '';
 
-  void getExplainWork(value) {
-    explainWork = value;
-    notifyListeners();
-    print(explainWork);
-  }
 
   final picker = ImagePicker();
   String? imageFile0;
@@ -562,10 +557,21 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  double areaOfMoveSliderValue = 25;
+
+  areaOfMoveSliderFunction(double newValue) {
+    areaOfMoveSliderValue = newValue;
+    notifyListeners();
+  }
+
   String workDetails = "";
   String postalCode = "";
 
   void clearData() {
+    areaOfMoveSliderValue = 25;
+    areaToClearSliderValue = 350;
+    workDetails = "";
+    postalCode = "";
     numberOfTreesSliderValue = 1;
     jobberBringMaterialYes = false;
     jobberBringMaterialNo = false;
@@ -599,7 +605,7 @@ class ConstProvider with ChangeNotifier {
     acAmount = 0;
     pictureAmount = 0;
     mirrorAmount = 0;
-    explainWork = '';
+    needWork = '';
     imageFile0 = null;
     imageFile1 = null;
     imageFile2 = null;
