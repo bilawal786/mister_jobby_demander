@@ -12,8 +12,6 @@ class CutTreeStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final constProviderData =
-        Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,9 +86,9 @@ class CutTreeStep extends StatelessWidget {
                   "",
               inputValue: smallFurnitureSize.smallSizedFurnitureAmount,
               onPressAdd: () =>
-                  constProviderData.smallFurnitureAmountIncrement(),
+                  smallFurnitureSize.smallFurnitureAmountIncrement(),
               buttonColorSubTract:
-                  constProviderData.smallSizedFurnitureAmount == 0
+              smallFurnitureSize.smallSizedFurnitureAmount == 0
                       ? Colors.blueGrey
                       : Theme.of(context).primaryColor,
               onPressSubTract: () =>
@@ -105,9 +103,9 @@ class CutTreeStep extends StatelessWidget {
                   "",
               inputValue: mediumFurnitureSize.mediumSizedFurnitureAmount,
               onPressAdd: () =>
-                  constProviderData.mediumFurnitureAmountIncrement(),
+                  mediumFurnitureSize.mediumFurnitureAmountIncrement(),
               buttonColorSubTract:
-                  constProviderData.mediumSizedFurnitureAmount == 0
+              mediumFurnitureSize.mediumSizedFurnitureAmount == 0
                       ? Colors.blueGrey
                       : Theme.of(context).primaryColor,
               onPressSubTract: () =>
@@ -122,9 +120,9 @@ class CutTreeStep extends StatelessWidget {
                   "",
               inputValue: largeFurnitureSize.largeSizedFurnitureAmount,
               onPressAdd: () =>
-                  constProviderData.largeFurnitureAmountIncrement(),
+                  largeFurnitureSize.largeFurnitureAmountIncrement(),
               buttonColorSubTract:
-                  constProviderData.largeSizedFurnitureAmount == 0
+              largeFurnitureSize.largeSizedFurnitureAmount == 0
                       ? Colors.blueGrey
                       : Theme.of(context).primaryColor,
               onPressSubTract: () =>
