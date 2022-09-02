@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 
 
 
-
-
 import 'package:provider/provider.dart';
 
 
@@ -98,6 +96,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/english_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/spanish_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/creole_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/mathematical_screen.dart';
 
 
 void main() async {
@@ -311,6 +310,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.ENGLISHROUTE: (ctx) =>const EnglishScreen(),
           MyRoutes.SPANISHROUTE: (ctx) =>const SpanishScreen(),
           MyRoutes.CREOLEROUTE: (ctx) =>const CreoleScreen(),
+          MyRoutes.MATHEMATICALROUTE: (ctx) =>const MathematicalScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
