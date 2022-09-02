@@ -33,7 +33,7 @@ class SmallRepairStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 20,
           ),
           TextFormField(
-            onChanged: (value) {},
+            onChanged: (value) => constProviderData.needWork = value,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Small_Repair_Step_DescriptionTitle'.tr(),
