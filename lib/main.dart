@@ -83,6 +83,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/keep_cat_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/keep_animals_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/clean_computer_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/computer_courses_screen.dart';
 
 
 void main() async {
@@ -280,6 +281,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.KEEPCATROUTE: (ctx) =>const KeepCatScreen(),
           MyRoutes.KEEPANIMALSROUTE: (ctx) =>const KeepAnimalsScreen(),
           MyRoutes.CLEANCOMPUTERROUTE: (ctx) =>const CleanComputerScreen(),
+          MyRoutes.COMPUTERCOURSESROUTE: (ctx) =>const ComputerCoursesScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
