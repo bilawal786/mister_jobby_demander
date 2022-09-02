@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 
 
+
 import 'package:provider/provider.dart';
 
 
@@ -73,6 +74,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_cleaning_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/ironing_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/car_wash_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/pool_washing_screen.dart';
 
 
 void main() async {
@@ -263,6 +265,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.HOMECLEANINGROUTE: (ctx) =>const HomeCleaningScreen(),
           MyRoutes.IRONINGROUTE: (ctx) =>const IroningScreen(),
           MyRoutes.CARWASHROUTE: (ctx) =>const CarWashScreen(),
+          MyRoutes.POOLWASHINGROUTE: (ctx) =>const PoolWashingScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
