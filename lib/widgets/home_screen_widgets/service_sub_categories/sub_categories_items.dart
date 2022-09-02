@@ -252,6 +252,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.MATHEMATICALROUTE);
               }
               break;
+            case 51:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.STORYROUTE);
+              }
+              break;
 
 
           }

@@ -80,6 +80,7 @@ class MyRoutes{
   static String SPANISHROUTE = '/Spanish_Screen';
   static String CREOLEROUTE = '/Creole_Screen';
   static String MATHEMATICALROUTE = '/Mathematical_Screen';
+  static String STORYROUTE = '/Story_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
