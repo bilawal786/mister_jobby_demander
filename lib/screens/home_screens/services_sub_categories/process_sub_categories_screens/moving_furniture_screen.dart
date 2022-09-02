@@ -66,7 +66,7 @@ class _MovingFurnitureScreenState extends State<MovingFurnitureScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,size,child) => Row(
                   children: <Widget>[
-                    if(size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0 || size.veryLargeSizedFurnitureAmount > 0 )
+                    if(size.tvHangNo > 0 && (size.jobberBringMaterialNo == true || size.jobberBringMaterialYes == true) )
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

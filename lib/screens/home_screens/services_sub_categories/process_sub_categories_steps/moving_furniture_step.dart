@@ -38,7 +38,7 @@ class MovingFurnitureStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, funitureData, child) => SizedBox(
+            builder: (_, furnitureData, child) => SizedBox(
               height: 45,
               child: ListView.builder(
                 itemCount: 10,
@@ -47,7 +47,7 @@ class MovingFurnitureStep extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) =>
                     OutlineSelectedButton(
-                  onTap: () => funitureData.tvHangFunction(index),
+                  onTap: () => furnitureData.tvHangFunction(index),
                   textTitle: index == 0
                       ? "One"
                       : index == 1
@@ -67,10 +67,11 @@ class MovingFurnitureStep extends StatelessWidget {
                                                   : index == 8
                                                       ? "Nine"
                                                       : "Ten",
-                  color: Colors.grey.shade300,
+
                   // height: 40,
                   // width: 45,
-                  border: funitureData.tvHangNo - 1 == index ? true : false,
+                  border: furnitureData.tvHangNo - 1 == index ? true : false,
+                      color: furnitureData.tvHangNo - 1 == index ? Colors.blue.shade50 :Colors.grey.shade300,
                 ),
               ),
             ),
@@ -86,30 +87,30 @@ class MovingFurnitureStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cuttingMaterialValue, child) => Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cuttingMaterialValue.cuttingMaterialYesFunction();
+                      jobberData.jobberBringMaterialYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cuttingMaterialValue.cuttingMaterialYes == false
+                    border: jobberData.jobberBringMaterialYes == false
                         ? false
                         : true,
-                    color: cuttingMaterialValue.cuttingMaterialYes == false
+                    color: jobberData.jobberBringMaterialYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cuttingMaterialValue.cuttingMaterialNoFunction,
+                    onTap: jobberData.jobberBringMaterialNoFunction,
                     textTitle: "No",
-                    border: cuttingMaterialValue.cuttingMaterialNo == false
+                    border: jobberData.jobberBringMaterialNo == false
                         ? false
                         : true,
-                    color: cuttingMaterialValue.cuttingMaterialNo == false
+                    color: jobberData.jobberBringMaterialNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
