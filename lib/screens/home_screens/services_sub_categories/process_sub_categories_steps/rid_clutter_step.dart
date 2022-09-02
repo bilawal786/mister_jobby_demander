@@ -11,7 +11,7 @@ class RidClutterStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final constProviderData =
-    Provider.of<ConstProvider>(context, listen: false);
+        Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +50,6 @@ class RidClutterStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-
           TextFormField(
             onChanged: (value) {},
             decoration: InputDecoration(
@@ -62,8 +61,6 @@ class RidClutterStep extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
             maxLines: 5,
           ),
-
-
           SizedBox(
             height: MediaQuery.of(context).size.width / 10,
           ),
@@ -75,32 +72,37 @@ class RidClutterStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
+            builder: (_, cleanBoxValue, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: (){
+                    onTap: () {
                       cleanBoxValue.cleanBoxFurnitureYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: cleanBoxValue.cleanBoxFurnitureYes == false
+                        ? false
+                        : true,
+                    color: cleanBoxValue.cleanBoxFurnitureYes == false
+                        ? Colors.grey.shade300
+                        : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: cleanBoxValue.cleanBoxFurnitureNo == false
+                        ? false
+                        : true,
+                    color: cleanBoxValue.cleanBoxFurnitureNo == false
+                        ? Colors.grey.shade300
+                        : Colors.blue.shade50,
                   ),
                 ),
               ],
             ),
           ),
-
-
-
         ],
       ),
     );
