@@ -73,6 +73,7 @@ class MyRoutes{
   static String ACCOMPANIMENTRACEROUTE = '/Accompaniment_Race_Screen';
   static String ACCOMPANIMENTMEDICALAPPOINTMENTROUTE = '/Accompaniment_Medical_Appointment_Screen';
   static String PREPAREMEALROUTE = '/Prepare_Meal_Screen';
+  static String WAITERWAITRESSROUTE = '/Waiter_Waitress_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
