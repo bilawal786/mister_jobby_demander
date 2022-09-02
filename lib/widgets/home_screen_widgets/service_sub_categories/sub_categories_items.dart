@@ -177,6 +177,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.INSTALLPRINTERROUTE);
               }
               break;
+            case 36:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.COMPUTERJOBROUTE);
+              }
+              break;
 
           }
         }
