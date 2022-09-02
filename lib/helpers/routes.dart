@@ -60,6 +60,7 @@ class MyRoutes{
   static String WINDOWCLEANINGROUTE = '/Window_Cleaning_Screen';
   static String CLEANINGJOBROUTE = '/Cleaning_Job_Screen';
   static String DOGSITTERROUTE = '/Dog_Sitter_Screen';
+  static String KEEPCATROUTE = '/Keep_Cat_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';

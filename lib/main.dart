@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 
 
+
 import 'package:provider/provider.dart';
 
 
@@ -75,7 +76,8 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/pool_washing_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/window_cleaning_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/cleaning_job_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/gog_sitter_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/dog_sitter_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/keep_cat_screen.dart';
 
 
 void main() async {
@@ -270,6 +272,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.WINDOWCLEANINGROUTE: (ctx) =>const WindowCleaningScreen(),
           MyRoutes.CLEANINGJOBROUTE: (ctx) =>const CleaningJobScreen(),
           MyRoutes.DOGSITTERROUTE: (ctx) =>const DogSitterScreen(),
+          MyRoutes.KEEPCATROUTE: (ctx) =>const KeepCatScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),

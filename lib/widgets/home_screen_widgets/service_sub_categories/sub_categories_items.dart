@@ -152,7 +152,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.DOGSITTERROUTE);
               }
               break;
-
+            case 31:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.KEEPCATROUTE);
+              }
+              break;
 
           }
         }
