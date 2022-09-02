@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
-class MedicineDeliveryStep extends StatelessWidget {
-  const MedicineDeliveryStep({Key? key}) : super(key: key);
+class DeliverGroceriesStep extends StatelessWidget {
+  const DeliverGroceriesStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class MedicineDeliveryStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Medicine_Delivery_Step_Title",
+            "Deliver_Groceries_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
