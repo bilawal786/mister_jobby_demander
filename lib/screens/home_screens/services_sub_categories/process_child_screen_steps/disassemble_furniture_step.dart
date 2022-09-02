@@ -11,8 +11,8 @@ class DisassembleFurnitureStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final constProviderData =
-    Provider.of<ConstProvider>(context, listen: false);
+    // final constProviderData =
+    // Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,9 +46,9 @@ class DisassembleFurnitureStep extends StatelessWidget {
                   "Small_Size_Tile_SubTitle",
               inputValue: smallFurnitureSize.smallSizedFurnitureAmount,
               onPressAdd: () =>
-                  constProviderData.smallFurnitureAmountIncrement(),
+                  smallFurnitureSize.smallFurnitureAmountIncrement(),
               buttonColorSubTract:
-              constProviderData.smallSizedFurnitureAmount == 0
+              smallFurnitureSize.smallSizedFurnitureAmount == 0
                   ? Colors.blueGrey
                   : Theme.of(context).primaryColor,
               onPressSubTract: () =>
@@ -63,9 +63,9 @@ class DisassembleFurnitureStep extends StatelessWidget {
                   "Medium_Size_Tile_SubTitle",
               inputValue: mediumFurnitureSize.mediumSizedFurnitureAmount,
               onPressAdd: () =>
-                  constProviderData.mediumFurnitureAmountIncrement(),
+                  mediumFurnitureSize.mediumFurnitureAmountIncrement(),
               buttonColorSubTract:
-              constProviderData.mediumSizedFurnitureAmount == 0
+              mediumFurnitureSize.mediumSizedFurnitureAmount == 0
                   ? Colors.blueGrey
                   : Theme.of(context).primaryColor,
               onPressSubTract: () =>
@@ -80,9 +80,9 @@ class DisassembleFurnitureStep extends StatelessWidget {
                   "Big_Size_Tile_SubTitle",
               inputValue: largeFurnitureSize.largeSizedFurnitureAmount,
               onPressAdd: () =>
-                  constProviderData.largeFurnitureAmountIncrement(),
+                  largeFurnitureSize.largeFurnitureAmountIncrement(),
               buttonColorSubTract:
-              constProviderData.largeSizedFurnitureAmount == 0
+              largeFurnitureSize.largeSizedFurnitureAmount == 0
                   ? Colors.blueGrey
                   : Theme.of(context).primaryColor,
               onPressSubTract: () =>
@@ -97,9 +97,9 @@ class DisassembleFurnitureStep extends StatelessWidget {
                   "Very_Big_Size_Tile_SubTitle",
               inputValue: veryLargeFurnitureSize.veryLargeSizedFurnitureAmount,
               onPressAdd: () =>
-                  constProviderData.veryLargeFurnitureAmountIncrement(),
+                  veryLargeFurnitureSize.veryLargeFurnitureAmountIncrement(),
               buttonColorSubTract:
-              constProviderData.veryLargeSizedFurnitureAmount == 0
+              veryLargeFurnitureSize.veryLargeSizedFurnitureAmount == 0
                   ? Colors.blueGrey
                   : Theme.of(context).primaryColor,
               onPressSubTract: () =>

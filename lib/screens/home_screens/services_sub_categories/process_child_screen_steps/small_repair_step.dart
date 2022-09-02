@@ -29,10 +29,11 @@ class SmallRepairStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 20,
+          ),
           TextFormField(
-            onChanged: (value) {
-              constProviderData.needWork = value;
-            },
+            onChanged: (value) {},
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Small_Repair_Step_DescriptionTitle'.tr(),
