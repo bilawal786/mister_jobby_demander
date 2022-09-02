@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/providers/const_provider/const_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
 import 'package:geocoding/geocoding.dart';
+
+import '../../../../providers/const_provider/const_provider.dart';
 
 class GooglePlacesApi extends StatefulWidget {
   const GooglePlacesApi({Key? key}) : super(key: key);
