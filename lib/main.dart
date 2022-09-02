@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 
 
+
 import 'package:provider/provider.dart';
 
 
@@ -82,6 +83,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/computer_courses_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/install_printer_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/other_computer_job_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_care_screen.dart';
 
 
 
@@ -283,6 +285,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.COMPUTERCOURSESROUTE: (ctx) =>const ComputerCoursesScreen(),
           MyRoutes.INSTALLPRINTERROUTE: (ctx) =>const InstallPrinterScreen(),
           MyRoutes.COMPUTERJOBROUTE: (ctx) =>const ComputerJobScreen(),
+          MyRoutes.HOMECAREROUTE: (ctx) =>const HomeCareScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),

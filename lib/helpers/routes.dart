@@ -66,6 +66,7 @@ class MyRoutes{
   static String COMPUTERCOURSESROUTE = '/Computer_Courses_Screen';
   static String INSTALLPRINTERROUTE = '/Install_Printer_Screen';
   static String COMPUTERJOBROUTE = '/Computer_Job_Screen';
+  static String HOMECAREROUTE = '/Home_Care_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
