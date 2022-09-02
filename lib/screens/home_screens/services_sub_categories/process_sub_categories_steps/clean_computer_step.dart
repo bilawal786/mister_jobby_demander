@@ -3,10 +3,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
-import '../../../../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/step_tiles.dart';
 
-class HomeCleaningStep extends StatelessWidget {
-  const HomeCleaningStep({Key? key}) : super(key: key);
+class CleanComputerStep extends StatelessWidget {
+  const CleanComputerStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,47 +16,29 @@ class HomeCleaningStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Home_Cleaning_Step_Title",
+            "Clean_Computer_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Home_Cleaning_Step_SubTitle",
+            "Clean_Computer_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Hedge_Trimming_Step_Item2_Title".tr(),
+            "Clean_Computer_Step_Item1_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
+            height: MediaQuery.of(context).size.width / 5,
           ),
-          Consumer<ConstProvider>(
-            builder: (_, smallFurnitureSize, child) => StepTile(
-              tileTitle: "Small_Size_Tile_Title",
-              tileSubTitle: ""
-                  "Hedge_Trimming_Step_Item3_Title",
-              inputValue: smallFurnitureSize.smallSizedFurnitureAmount,
-              onPressAdd: () =>
-                  smallFurnitureSize.smallFurnitureAmountIncrement(),
-              buttonColorSubTract:
-              smallFurnitureSize.smallSizedFurnitureAmount == 0
-                  ? Colors.blueGrey
-                  : Theme.of(context).primaryColor,
-              onPressSubTract: () =>
-                  smallFurnitureSize.smallFurnitureAmountDecrement(),
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
-          ),
+
           Text(
-            "Home_Cleaning_Step_Item2_Title".tr(),
+            "Clean_Computer_Step_Item2_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
@@ -67,7 +48,7 @@ class HomeCleaningStep extends StatelessWidget {
             builder: (_, checkBoxData, child) => Row(
               children: [
                 Text(
-                  "Home_Cleaning_Step_Check1_Title",
+                  "Clean_Computer_Step_Item3_Title",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ).tr(),
                 const Spacer(),
@@ -105,7 +86,7 @@ class HomeCleaningStep extends StatelessWidget {
             builder: (_, checkBoxData, child) => Row(
               children: [
                 Text(
-                  "Home_Cleaning_Step_Check2_Title",
+                  "Clean_Computer_Step_Item4_Title",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ).tr(),
                 const Spacer(),

@@ -6,7 +6,8 @@ import '../process_child_screen_steps/general_step_2.dart';
 import '../process_child_screen_steps/general_step_3.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
-import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/cut_tree_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/clean_computer_step.dart';
+
 
 class CleanComputerScreen extends StatefulWidget {
   const CleanComputerScreen({Key? key}) : super(key: key);
@@ -126,7 +127,7 @@ class _CleanComputerScreenState extends State<CleanComputerScreen> {
           isActive: currentStep >= 0,
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: const CutTreeStep(),
+          content: const CleanComputerStep(),
         ),
         Step(
           isActive: currentStep >= 1,
