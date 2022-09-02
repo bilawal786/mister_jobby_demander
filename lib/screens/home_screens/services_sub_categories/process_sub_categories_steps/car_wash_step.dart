@@ -10,7 +10,6 @@ class CarWashStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +26,7 @@ class CarWashStep extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Car_Wash_Step_Item1_Title".tr(),
@@ -37,7 +36,7 @@ class CarWashStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, requestFrequencyData, child) => SizedBox(
+            builder: (_, carWashData, child) => SizedBox(
               height: 50,
               child: ListView.builder(
                 shrinkWrap: true,
@@ -45,21 +44,16 @@ class CarWashStep extends StatelessWidget {
                 itemCount: 3,
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
-                  onTap: () =>
-                      requestFrequencyData.requestFrequencyFunction(index),
+                  onTap: () => carWashData.vehicleTypeFunction(index),
                   textTitle: index == 0
                       ? "Car_Wash_Step_Button1_Title"
                       : index == 1
                           ? "Car_Wash_Step_Button2_Title"
-                          :
-                   "Car_Wash_Step_Button3_Title"
-                              ,
-                  color: requestFrequencyData.requestFrequencyTrueValue - 1 ==
-                          index
+                          : "Car_Wash_Step_Button3_Title",
+                  color: carWashData.vehicleTypeTrueValue - 1 == index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: requestFrequencyData.requestFrequencyTrueValue - 1 ==
-                          index
+                  border: carWashData.vehicleTypeTrueValue - 1 == index
                       ? true
                       : false,
                 ),
@@ -67,7 +61,7 @@ class CarWashStep extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Car_Wash_Step_Item2_Title".tr(),

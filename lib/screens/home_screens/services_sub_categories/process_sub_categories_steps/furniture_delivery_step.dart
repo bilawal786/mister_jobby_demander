@@ -27,7 +27,7 @@ class FurnitureDeliveryStep extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Furniture_Delivery_Step_Item1_Title".tr(),
@@ -37,30 +37,30 @@ class FurnitureDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cuttingMaterialValue, child) => Row(
+            builder: (_, furnitureDeliveryData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cuttingMaterialValue.cuttingMaterialYesFunction();
+                      furnitureDeliveryData.cleanBoxFurnitureYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cuttingMaterialValue.cuttingMaterialYes == false
+                    border: furnitureDeliveryData.cleanBoxFurnitureYes == false
                         ? false
                         : true,
-                    color: cuttingMaterialValue.cuttingMaterialYes == false
+                    color: furnitureDeliveryData.cleanBoxFurnitureYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cuttingMaterialValue.cuttingMaterialNoFunction,
+                    onTap: furnitureDeliveryData.cleanBoxFurnitureNoFunction,
                     textTitle: "No",
-                    border: cuttingMaterialValue.cuttingMaterialNo == false
+                    border: furnitureDeliveryData.cleanBoxFurnitureNo == false
                         ? false
                         : true,
-                    color: cuttingMaterialValue.cuttingMaterialNo == false
+                    color: furnitureDeliveryData.cleanBoxFurnitureNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
@@ -69,7 +69,7 @@ class FurnitureDeliveryStep extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Furniture_Delivery_Step_Item2_Title".tr(),
@@ -79,14 +79,14 @@ class FurnitureDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, fixes, child) => Row(
+            builder: (_, floorsArrivalData, child) => Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 RoundedButton(
-                  onTap: fixes.fixesAmountDecrement,
+                  onTap: floorsArrivalData.fixesAmountDecrement,
                   height: 50,
                   icon: Icons.remove,
-                  color: fixes.fixesAmount < 1
+                  color: floorsArrivalData.fixesAmount < 1
                       ? Colors.blueGrey.shade300
                       : Theme.of(context).primaryColor,
                 ),
@@ -94,14 +94,14 @@ class FurnitureDeliveryStep extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 Text(
-                  '${fixes.fixesAmount}',
+                  '${floorsArrivalData.fixesAmount}',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 RoundedButton(
-                  onTap: fixes.fixesAmountIncrement,
+                  onTap: floorsArrivalData.fixesAmountIncrement,
                   height: 50,
                   icon: Icons.add,
                   color: Theme.of(context).primaryColor,

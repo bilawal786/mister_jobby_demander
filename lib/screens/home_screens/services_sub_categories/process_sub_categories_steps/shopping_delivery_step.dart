@@ -6,8 +6,8 @@ import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/rounded_button.dart';
 
-class RaceDeliveryStep extends StatelessWidget {
-  const RaceDeliveryStep({Key? key}) : super(key: key);
+class ShoppingDeliveryStep extends StatelessWidget {
+  const ShoppingDeliveryStep({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class RaceDeliveryStep extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Race_Delivery_Step_Item1_Title".tr(),
@@ -39,30 +39,30 @@ class RaceDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cuttingMaterialValue, child) => Row(
+            builder: (_, shoppingDeliveryData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cuttingMaterialValue.cuttingMaterialYesFunction();
+                      shoppingDeliveryData.baseBoardInstallYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cuttingMaterialValue.cuttingMaterialYes == false
+                    border: shoppingDeliveryData.baseBoardInstallYes == false
                         ? false
                         : true,
-                    color: cuttingMaterialValue.cuttingMaterialYes == false
+                    color: shoppingDeliveryData.baseBoardInstallYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cuttingMaterialValue.cuttingMaterialNoFunction,
+                    onTap: shoppingDeliveryData.baseBoardInstallNoFunction,
                     textTitle: "No",
-                    border: cuttingMaterialValue.cuttingMaterialNo == false
+                    border: shoppingDeliveryData.baseBoardInstallNo == false
                         ? false
                         : true,
-                    color: cuttingMaterialValue.cuttingMaterialNo == false
+                    color: shoppingDeliveryData.baseBoardInstallNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
@@ -71,7 +71,7 @@ class RaceDeliveryStep extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Race_Delivery_Step_Item2_Title".tr(),
@@ -81,14 +81,14 @@ class RaceDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, fixes, child) => Row(
+            builder: (_, floorsArrivalData, child) => Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 RoundedButton(
-                  onTap: fixes.fixesAmountDecrement,
+                  onTap: floorsArrivalData.fixesAmountDecrement,
                   height: 50,
                   icon: Icons.remove,
-                  color: fixes.fixesAmount < 1
+                  color: floorsArrivalData.fixesAmount < 1
                       ? Colors.blueGrey.shade300
                       : Theme.of(context).primaryColor,
                 ),
@@ -96,14 +96,14 @@ class RaceDeliveryStep extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 Text(
-                  '${fixes.fixesAmount}',
+                  '${floorsArrivalData.fixesAmount}',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 RoundedButton(
-                  onTap: fixes.fixesAmountIncrement,
+                  onTap: floorsArrivalData.fixesAmountIncrement,
                   height: 50,
                   icon: Icons.add,
                   color: Theme.of(context).primaryColor,

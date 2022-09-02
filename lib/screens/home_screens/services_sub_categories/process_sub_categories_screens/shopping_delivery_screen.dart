@@ -8,18 +8,18 @@ import '../process_child_screen_steps/general_step_2.dart';
 import '../process_child_screen_steps/general_step_3.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
-import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/appliance_delivery_step.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/shopping_delivery_step.dart';
 
 
-class ApplianceDeliveryScreen extends StatefulWidget {
-  const ApplianceDeliveryScreen({Key? key}) : super(key: key);
+class ShoppingDeliveryScreen extends StatefulWidget {
+  const ShoppingDeliveryScreen({Key? key}) : super(key: key);
 
   @override
-  State<ApplianceDeliveryScreen> createState() =>
-      _ApplianceDeliveryScreenState();
+  State<ShoppingDeliveryScreen> createState() =>
+      _ShoppingDeliveryScreenState();
 }
 
-class _ApplianceDeliveryScreenState extends State<ApplianceDeliveryScreen> {
+class _ShoppingDeliveryScreenState extends State<ShoppingDeliveryScreen> {
   int currentStep = 0;
 
   @override
@@ -38,7 +38,7 @@ class _ApplianceDeliveryScreenState extends State<ApplianceDeliveryScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Appliance Delivery",
+            "Shopping Delivery",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -66,7 +66,7 @@ class _ApplianceDeliveryScreenState extends State<ApplianceDeliveryScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.baseBoardInstallYes == true || size.baseBoardInstallNo == true) && size.fixesAmount > 0)
+                    if ((size.baseBoardInstallYes == true || size.baseBoardInstallNo) && size.fixesAmount > 0 )
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,
@@ -123,7 +123,7 @@ class _ApplianceDeliveryScreenState extends State<ApplianceDeliveryScreen> {
           isActive: currentStep >= 0,
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: const ApplianceDeliveryStep(),
+          content: const ShoppingDeliveryStep(),
         ),
         Step(
           isActive: currentStep >= 1,

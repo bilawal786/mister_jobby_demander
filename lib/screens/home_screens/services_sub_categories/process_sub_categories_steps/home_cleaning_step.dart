@@ -42,7 +42,11 @@ class HomeCleaningStep extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(
-                      '${rangeSliderData.areaToMowSliderValue}m²',
+                      rangeSliderData.surfaceCleanSliderValue == 35
+                          ? '<${rangeSliderData.surfaceCleanSliderValue}m²'
+                          : rangeSliderData.surfaceCleanSliderValue == 205
+                              ? '>${rangeSliderData.surfaceCleanSliderValue}m²'
+                              : '${rangeSliderData.surfaceCleanSliderValue}m²',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                       ),
@@ -58,12 +62,12 @@ class HomeCleaningStep extends StatelessWidget {
                     ),
                     Expanded(
                       child: RangeSliderCLass(
-                        rangeValue: rangeSliderData.areaToMowSliderValue,
-                        minRange: 250,
-                        maxRange: 5000,
-                        division: 19,
+                        rangeValue: rangeSliderData.surfaceCleanSliderValue,
+                        minRange: 35,
+                        maxRange: 205,
+                        division: 17,
                         onChanged: (value) =>
-                            rangeSliderData.areaToMowSliderFunction(value),
+                            rangeSliderData.surfaceCleanSliderFunction(value),
                       ),
                     ),
                     Icon(
@@ -87,115 +91,119 @@ class HomeCleaningStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,checkBoxData,child)=>
-                Row(
-                  children: [
-                    Text(
-                      "Home_Cleaning_Step_Check1_Title",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ).tr(),
-                    const Spacer(),
-                    InkWell(
-                      onTap: checkBoxData.checkUrgentJobFunction,
-                      child: Container(
-                        margin: const EdgeInsets.all(2),
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          color: checkBoxData.checkUrgentJob ? Theme.of(context).primaryColor : Colors.white,
-                          border: Border.all(width: 2, color: Theme.of(context).primaryColor ),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: checkBoxData.checkUrgentJob
-                            ? const Icon(
-                          Icons.check,
-                          size: 17,
-                          color: Colors.white,
-                        )
-                            : const SizedBox(),
-                      ),
+            builder: (_, checkBoxData, child) => Row(
+              children: [
+                Text(
+                  "Home_Cleaning_Step_Check1_Title",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ).tr(),
+                const Spacer(),
+                InkWell(
+                  onTap: checkBoxData.checkApplianceCleaningFunction,
+                  child: Container(
+                    margin: const EdgeInsets.all(2),
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                      color: checkBoxData.checkApplianceCleaning
+                          ? Theme.of(context).primaryColor
+                          : Colors.white,
+                      border: Border.all(
+                          width: 2, color: Theme.of(context).primaryColor),
+                      borderRadius: BorderRadius.circular(4),
                     ),
-                  ],
+                    child: checkBoxData.checkApplianceCleaning
+                        ? const Icon(
+                            Icons.check,
+                            size: 17,
+                            color: Colors.white,
+                          )
+                        : const SizedBox(),
+                  ),
                 ),
+              ],
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(),
           Consumer<ConstProvider>(
-            builder: (_,checkBoxData,child)=>
-                Row(
-                  children: [
-                    Text(
-                      "Home_Cleaning_Step_Check2_Title",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ).tr(),
-                    const Spacer(),
-                    InkWell(
-                      onTap: checkBoxData.checkUrgentJobFunction,
-                      child: Container(
-                        margin: const EdgeInsets.all(2),
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          color: checkBoxData.checkUrgentJob ? Theme.of(context).primaryColor : Colors.white,
-                          border: Border.all(width: 2, color: Theme.of(context).primaryColor ),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: checkBoxData.checkUrgentJob
-                            ? const Icon(
-                          Icons.check,
-                          size: 17,
-                          color: Colors.white,
-                        )
-                            : const SizedBox(),
-                      ),
+            builder: (_, checkBoxData, child) => Row(
+              children: [
+                Text(
+                  "Home_Cleaning_Step_Check2_Title",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ).tr(),
+                const Spacer(),
+                InkWell(
+                  onTap: checkBoxData.checkWindowCleaningFunction,
+                  child: Container(
+                    margin: const EdgeInsets.all(2),
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                      color: checkBoxData.checkWindowCleaning
+                          ? Theme.of(context).primaryColor
+                          : Colors.white,
+                      border: Border.all(
+                          width: 2, color: Theme.of(context).primaryColor),
+                      borderRadius: BorderRadius.circular(4),
                     ),
-                  ],
+                    child: checkBoxData.checkWindowCleaning
+                        ? const Icon(
+                            Icons.check,
+                            size: 17,
+                            color: Colors.white,
+                          )
+                        : const SizedBox(),
+                  ),
                 ),
+              ],
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(),
           Consumer<ConstProvider>(
-            builder: (_,checkBoxData,child)=>
-                Row(
-                  children: [
-                    Text(
-                      "Home_Cleaning_Step_Check3_Title",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ).tr(),
-                    const Spacer(),
-                    InkWell(
-                      onTap: checkBoxData.checkUrgentJobFunction,
-                      child: Container(
-                        margin: const EdgeInsets.all(2),
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          color: checkBoxData.checkUrgentJob ? Theme.of(context).primaryColor : Colors.white,
-                          border: Border.all(width: 2, color: Theme.of(context).primaryColor ),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: checkBoxData.checkUrgentJob
-                            ? const Icon(
-                          Icons.check,
-                          size: 17,
-                          color: Colors.white,
-                        )
-                            : const SizedBox(),
-                      ),
+            builder: (_, checkBoxData, child) => Row(
+              children: [
+                Text(
+                  "Home_Cleaning_Step_Check3_Title",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ).tr(),
+                const Spacer(),
+                InkWell(
+                  onTap: checkBoxData.checkIroningFunction,
+                  child: Container(
+                    margin: const EdgeInsets.all(2),
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                      color: checkBoxData.checkIroning
+                          ? Theme.of(context).primaryColor
+                          : Colors.white,
+                      border: Border.all(
+                          width: 2, color: Theme.of(context).primaryColor),
+                      borderRadius: BorderRadius.circular(4),
                     ),
-                  ],
+                    child: checkBoxData.checkIroning
+                        ? const Icon(
+                            Icons.check,
+                            size: 17,
+                            color: Colors.white,
+                          )
+                        : const SizedBox(),
+                  ),
                 ),
+              ],
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(),
-
-
           Text(
             "Home_Cleaning_Step_Item3_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,

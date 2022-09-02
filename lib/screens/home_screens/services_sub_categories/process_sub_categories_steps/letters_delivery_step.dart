@@ -29,7 +29,7 @@ class LettersDeliveryStep extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Letters_Delivery_Step_Item1_Title".tr(),
@@ -39,30 +39,30 @@ class LettersDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cuttingMaterialValue, child) => Row(
+            builder: (_, lettersDeliveryData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cuttingMaterialValue.cuttingMaterialYesFunction();
+                      lettersDeliveryData.baseBoardInstallYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cuttingMaterialValue.cuttingMaterialYes == false
+                    border: lettersDeliveryData.baseBoardInstallYes == false
                         ? false
                         : true,
-                    color: cuttingMaterialValue.cuttingMaterialYes == false
+                    color: lettersDeliveryData.baseBoardInstallYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cuttingMaterialValue.cuttingMaterialNoFunction,
+                    onTap: lettersDeliveryData.baseBoardInstallNoFunction,
                     textTitle: "No",
-                    border: cuttingMaterialValue.cuttingMaterialNo == false
+                    border: lettersDeliveryData.baseBoardInstallNo == false
                         ? false
                         : true,
-                    color: cuttingMaterialValue.cuttingMaterialNo == false
+                    color: lettersDeliveryData.baseBoardInstallNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
@@ -81,14 +81,14 @@ class LettersDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, fixes, child) => Row(
+            builder: (_, floorsArrivalData, child) => Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 RoundedButton(
-                  onTap: fixes.fixesAmountDecrement,
+                  onTap: floorsArrivalData.fixesAmountDecrement,
                   height: 50,
                   icon: Icons.remove,
-                  color: fixes.fixesAmount < 1
+                  color: floorsArrivalData.fixesAmount < 1
                       ? Colors.blueGrey.shade300
                       : Theme.of(context).primaryColor,
                 ),
@@ -96,14 +96,14 @@ class LettersDeliveryStep extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 Text(
-                  '${fixes.fixesAmount}',
+                  '${floorsArrivalData.fixesAmount}',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 RoundedButton(
-                  onTap: fixes.fixesAmountIncrement,
+                  onTap: floorsArrivalData.fixesAmountIncrement,
                   height: 50,
                   icon: Icons.add,
                   color: Theme.of(context).primaryColor,

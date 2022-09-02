@@ -38,7 +38,7 @@ class KeepAnimalsStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, requestFrequencyData, child) => SizedBox(
+            builder: (_, animalSitterData, child) => SizedBox(
               height: 50,
               child: ListView.builder(
                 shrinkWrap: true,
@@ -46,21 +46,19 @@ class KeepAnimalsStep extends StatelessWidget {
                 itemCount: 3,
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
-                  onTap: () =>
-                      requestFrequencyData.requestFrequencyFunction(index),
+                  onTap: () => animalSitterData.requestFrequencyFunction(index),
                   textTitle: index == 0
                       ? "Dog_Sitting_Step_Item1_Button1_Title"
                       : index == 1
                           ? "Dog_Sitting_Step_Item1_Button2_Title"
                           : "Dog_Sitting_Step_Item1_Button3_Title",
-                  color: requestFrequencyData.requestFrequencyTrueValue - 1 ==
-                          index
+                  color: animalSitterData.requestFrequencyTrueValue - 1 == index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: requestFrequencyData.requestFrequencyTrueValue - 1 ==
-                          index
-                      ? true
-                      : false,
+                  border:
+                      animalSitterData.requestFrequencyTrueValue - 1 == index
+                          ? true
+                          : false,
                 ),
               ),
             ),

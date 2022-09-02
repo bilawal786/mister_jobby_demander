@@ -66,11 +66,7 @@ class _PoolWashingScreenState extends State<PoolWashingScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, lawnData, child) => Row(
                   children: <Widget>[
-                    if ((lawnData.jobberOwnMoverYes == true ||
-                            lawnData.jobberOwnMoverNo == true) &&
-                        (lawnData.jobberRemoveWasteYes == true ||
-                            lawnData.jobberRemoveWasteNo == true) &&
-                        (lawnData.requestFrequencyTrueValue > 0))
+                    if (lawnData.requestFrequencyTrueValue > 0)
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

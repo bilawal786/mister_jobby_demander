@@ -29,14 +29,7 @@ class PoolWashingStep extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
-          ),
-          Text(
-            "Pool_Washing_Step_Item1_Title".tr(),
-            style: Theme.of(context).textTheme.labelMedium,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
             builder: (_, rangeSliderData, child) => Column(
@@ -45,7 +38,11 @@ class PoolWashingStep extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '${rangeSliderData.areaToMowSliderValue}m²',
+                      "Pool_Washing_Step_Item1_Title".tr(),
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
+                    Text(
+                      '${rangeSliderData.surfaceInstallationSliderValue}m²',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                       ),
@@ -61,12 +58,12 @@ class PoolWashingStep extends StatelessWidget {
                     ),
                     Expanded(
                       child: RangeSliderCLass(
-                        rangeValue: rangeSliderData.areaToMowSliderValue,
-                        minRange: 250,
-                        maxRange: 5000,
-                        division: 19,
+                        rangeValue: rangeSliderData.surfaceInstallationSliderValue,
+                        minRange: 10,
+                        maxRange: 50,
+                        division: 40,
                         onChanged: (value) =>
-                            rangeSliderData.areaToMowSliderFunction(value),
+                            rangeSliderData.surfaceInstallationSliderFunction(value),
                       ),
                     ),
                     Icon(
@@ -80,7 +77,7 @@ class PoolWashingStep extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Pool_Washing_Step_Item2_Title".tr(),

@@ -69,7 +69,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/furniture_delivery_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/appliance_delivery_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/letters_delivery_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/race_delivery_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/shopping_delivery_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_cleaning_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/ironing_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/car_wash_screen.dart';
@@ -280,7 +280,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.FURNITUREDELIVERYROUTE: (ctx) =>const FurnitureDeliveryScreen(),
           MyRoutes.APPLIANCEDELIVERYROUTE: (ctx) =>const ApplianceDeliveryScreen(),
           MyRoutes.LETTERSDELIVERYROUTE: (ctx) =>const LettersDeliveryScreen(),
-          MyRoutes.RACEDELIVERYROUTE: (ctx) =>const RaceDeliveryScreen(),
+          MyRoutes.RACEDELIVERYROUTE: (ctx) =>const ShoppingDeliveryScreen(),
           MyRoutes.HOMECLEANINGROUTE: (ctx) =>const HomeCleaningScreen(),
           MyRoutes.IRONINGROUTE: (ctx) =>const IroningScreen(),
           MyRoutes.CARWASHROUTE: (ctx) =>const CarWashScreen(),

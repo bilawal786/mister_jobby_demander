@@ -557,6 +557,13 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  double surfaceCleanSliderValue = 35;
+
+  surfaceCleanSliderFunction(double newValue) {
+    surfaceCleanSliderValue = newValue;
+    notifyListeners();
+  }
+
   double areaOfMoveSliderValue = 25;
 
   areaOfMoveSliderFunction(double newValue) {
@@ -564,10 +571,49 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  bool checkApplianceCleaning = false;
+  void checkApplianceCleaningFunction() {
+    checkApplianceCleaning = !checkApplianceCleaning;
+    notifyListeners();
+  }
+
+  bool checkWindowCleaning = false;
+  void checkWindowCleaningFunction() {
+    checkWindowCleaning = !checkWindowCleaning;
+    notifyListeners();
+  }
+
+  bool checkIroning = false;
+  void checkIroningFunction() {
+    checkIroning = !checkIroning;
+    notifyListeners();
+  }
+
+  int numberOfClotheTrueValue = 0;
+
+  void numberOfClotheFunction(int index) {
+    numberOfClotheTrueValue = index + 1;
+    notifyListeners();
+  }
+
+  int vehicleTypeTrueValue = 0;
+
+  void vehicleTypeFunction(int index) {
+    vehicleTypeTrueValue = index + 1;
+    notifyListeners();
+  }
+
+
   String workDetails = "";
   String postalCode = "";
 
   void clearData() {
+    vehicleTypeTrueValue = 0;
+    numberOfClotheTrueValue = 0;
+    checkIroning = false;
+    checkWindowCleaning = false;
+    checkApplianceCleaning = false;
+    surfaceCleanSliderValue = 35;
     areaOfMoveSliderValue = 25;
     areaToClearSliderValue = 350;
     workDetails = "";

@@ -10,8 +10,8 @@ class JobRemovalStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final constProviderData =
-    // Provider.of<ConstProvider>(context, listen: false);
+    final constProviderData =
+    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,20 +28,7 @@ class JobRemovalStep extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
-          ),
-          TextFormField(
-            initialValue: 'Job_Removal_Step_Item1_Title'.tr(),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Titre de la demande',
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: false,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Job_Removal_Step_Item2_Title".tr(),
@@ -52,7 +39,9 @@ class JobRemovalStep extends StatelessWidget {
           ),
 
           TextFormField(
-            onChanged: (value) {},
+            onChanged: (value) {
+              constProviderData.needWork = value;
+            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Job_Removal_Step_Item2_Title'.tr(),
@@ -75,32 +64,37 @@ class JobRemovalStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: (){
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                    onTap: () {
+                      jobberData.jobberBringMaterialYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: jobberData.jobberBringMaterialYes == false
+                        ? false
+                        : true,
+                    color: jobberData.jobberBringMaterialYes == false
+                        ? Colors.grey.shade300
+                        : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberBringMaterialNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: jobberData.jobberBringMaterialNo == false
+                        ? false
+                        : true,
+                    color: jobberData.jobberBringMaterialNo == false
+                        ? Colors.grey.shade300
+                        : Colors.blue.shade50,
                   ),
                 ),
               ],
             ),
           ),
-
-
-
         ],
       ),
     );
