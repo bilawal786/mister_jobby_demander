@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-import '../process_child_screen_steps/general_step_2_screen.dart';
-import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/general_step_2.dart';
+import '../process_child_screen_steps/general_step_3.dart';
 import '../process_child_screen_steps/mirror_installation_step.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';

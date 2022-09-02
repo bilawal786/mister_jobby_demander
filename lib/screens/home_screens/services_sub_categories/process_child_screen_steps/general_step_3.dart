@@ -15,6 +15,16 @@ class GeneralStep3Screen extends StatefulWidget {
 }
 
 class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
+  TextEditingController postelCodeController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+
+  @override
+  void dispose() {
+    postelCodeController.dispose();
+    descriptionController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -275,13 +285,14 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Postel Code",
+            "Postel_Code",
             style: Theme.of(context).textTheme.titleSmall,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           TextFormField(
+            controller: postelCodeController,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: "Postel_Code".tr(),
@@ -341,6 +352,7 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
             height: MediaQuery.of(context).size.width / 20,
           ),
           TextFormField(
+            controller: descriptionController,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),

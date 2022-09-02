@@ -4,8 +4,8 @@ import 'package:easy_localization/easy_localization.dart';
 
 import 'package:provider/provider.dart';
 
-import '../process_child_screen_steps/general_step_2_screen.dart';
-import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/general_step_2.dart';
+import '../process_child_screen_steps/general_step_3.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/hedge_trimming_step.dart';

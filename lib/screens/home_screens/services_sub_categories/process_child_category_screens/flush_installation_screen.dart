@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 
 
 import '../process_child_screen_steps/flush_installation_step.dart';
-import '../process_child_screen_steps/general_step_2_screen.dart';
-import '../process_child_screen_steps/general_step_3_screen.dart';
+import '../process_child_screen_steps/general_step_2.dart';
+import '../process_child_screen_steps/general_step_3.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
 

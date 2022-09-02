@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/bulb_installation_step.dart';
-import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2_screen.dart';
-import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3_screen.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2.dart';
+import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3.dart';
 
 
 

@@ -59,6 +59,13 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
     // print(response.body.toString());
   }
 
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
+
   double longitude = 0.0;
   double latitude = 0.0;
   String address = "";
