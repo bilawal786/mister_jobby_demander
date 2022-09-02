@@ -22,157 +22,308 @@ class ChildCategoriesItems extends StatelessWidget {
                 'mainCategoryId' : mainCategoryId,
                 'subCategoryId'  : subCategoryId,
                 'childCategoryId' : childCategory.id,
-              } );
+                'childCategoryTitle': childCategory.title,
+              });
               print("$check");
             }
             break;
           case 2: {
-            Navigator.of(context).pushNamed(MyRoutes.DISASSEMBLEFURNITURESROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.DISASSEMBLEFURNITURESROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
             break;
           case 3: {
-            Navigator.of(context).pushNamed(MyRoutes.CURTAININSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.CURTAININSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 4: {
-            Navigator.of(context).pushNamed(MyRoutes.FIXINGSHELVESROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.FIXINGSHELVESROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 5: {
-            Navigator.of(context).pushNamed(MyRoutes.HANGTVROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.HANGTVROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 6: {
-            Navigator.of(context).pushNamed(MyRoutes.SHOWERINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.SHOWERINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 7: {
-            Navigator.of(context).pushNamed(MyRoutes.HANGPICTREROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.HANGPICTREROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 8: {
-            Navigator.of(context).pushNamed(MyRoutes.MIRRORINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.MIRRORINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 9: {
-            Navigator.of(context).pushNamed(MyRoutes.FURNITUREREPAIRROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.FURNITUREREPAIRROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 10: {
-            Navigator.of(context).pushNamed(MyRoutes.SMALLREPAIRROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.SMALLREPAIRROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 11: {
-            Navigator.of(context).pushNamed(MyRoutes.FENCEINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.FENCEINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 12: {
-            Navigator.of(context).pushNamed(MyRoutes.HOODINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.HOODINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 13: {
-            Navigator.of(context).pushNamed(MyRoutes.LANDSCAPINGHOODROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.LANDSCAPINGHOODROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 14: {
-            Navigator.of(context).pushNamed(MyRoutes.ELECTRICALINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.ELECTRICALINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 15: {
-            Navigator.of(context).pushNamed(MyRoutes.BULBINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.BULBINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 16: {
-            Navigator.of(context).pushNamed(MyRoutes.LAMPINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.LAMPINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 17: {
-            Navigator.of(context).pushNamed(MyRoutes.AUTOMATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.AUTOMATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 18: {
-            Navigator.of(context).pushNamed(MyRoutes.ACINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.ACINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 19: {
-            Navigator.of(context).pushNamed(MyRoutes.PAINTINGINSTALLATIOROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.PAINTINGINSTALLATIOROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 20: {
-            Navigator.of(context).pushNamed(MyRoutes.PARQUETINSTALLATIOROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.PARQUETINSTALLATIOROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 21: {
-            Navigator.of(context).pushNamed(MyRoutes.TILESINSTALLATIOROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.TILESINSTALLATIOROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 22: {
-            Navigator.of(context).pushNamed(MyRoutes.CARPETINSTALLATIOROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.CARPETINSTALLATIOROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 23: {
-            Navigator.of(context).pushNamed(MyRoutes.COATWALLROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.COATWALLROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 24: {
-            Navigator.of(context).pushNamed(MyRoutes.LININGINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.LININGINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 25: {
-            Navigator.of(context).pushNamed(MyRoutes.WATERINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.WATERINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 26: {
-            Navigator.of(context).pushNamed(MyRoutes.FLUSHINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.FLUSHINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 27: {
-            Navigator.of(context).pushNamed(MyRoutes.FAUCETINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.FAUCETINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 28: {
-            Navigator.of(context).pushNamed(MyRoutes.SINKINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.SINKINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 29: {
-            Navigator.of(context).pushNamed(MyRoutes.WASHINGMACHINEROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.WASHINGMACHINEROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 30: {
-            Navigator.of(context).pushNamed(MyRoutes.TOILETINSTALLATIONROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.TOILETINSTALLATIONROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;
           case 31: {
-            Navigator.of(context).pushNamed(MyRoutes.SINKDRAINROUTE);
+            Navigator.of(context).pushNamed(MyRoutes.SINKDRAINROUTE, arguments: {
+              'mainCategoryId' : mainCategoryId,
+              'subCategoryId'  : subCategoryId,
+              'childCategoryId' : childCategory.id,
+              'childCategoryTitle': childCategory.title,
+            });
             print("$check");
           }
           break;

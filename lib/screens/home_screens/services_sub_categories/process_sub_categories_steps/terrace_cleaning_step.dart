@@ -52,7 +52,7 @@ class TerraceCleaningStep extends StatelessWidget {
           ),
 
           TextFormField(
-            onChanged: (value)  => constProviderData.getExplainWork(value),
+            onChanged: (value){},
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Terrace_Cleaning_Step_Item2_Title'.tr(),

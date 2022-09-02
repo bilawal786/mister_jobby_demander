@@ -10,7 +10,7 @@ class FenceInstallationStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final constProviderData =
-    Provider.of<ConstProvider>(context, listen: false);
+        Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +29,6 @@ class FenceInstallationStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),
-
           TextFormField(
             initialValue: 'Fence_Installation_Step_Title'.tr(),
             decoration: const InputDecoration(
@@ -43,9 +42,8 @@ class FenceInstallationStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),
-
           TextFormField(
-            onChanged: (value) => constProviderData.getExplainWork(value),
+            onChanged: (value) {},
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Small_Repair_Step_DescriptionTitle'.tr(),
@@ -55,13 +53,6 @@ class FenceInstallationStep extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
             maxLines: 5,
           ),
-
-
-
-
-
-
-
         ],
       ),
     );

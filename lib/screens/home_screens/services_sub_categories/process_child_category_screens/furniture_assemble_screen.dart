@@ -26,6 +26,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
     final mainCategoryId = routeArgs['mainCategoryId'];
     final subCategoryId = routeArgs['subCategoryId'];
     final childCategoryId = routeArgs['childCategoryId'];
+    final childCategoryTitle = routeArgs['childCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -40,9 +41,9 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Furniture_Assembly_Title",
+            childCategoryTitle,
             style: Theme.of(context).textTheme.bodyLarge,
-          ).tr(),
+          ),
         ),
         body: Stepper(
           elevation: 0,
@@ -56,6 +57,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("childCategoryId: $childCategoryId");
+              print("childCategoryTitle: $childCategoryTitle");
               print("small: ${constProviderData.smallSizedFurnitureAmount}");
               print("medium: ${constProviderData.mediumSizedFurnitureAmount}");
               print("large: ${constProviderData.largeSizedFurnitureAmount}");
@@ -74,6 +76,8 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               print("address : ${constProviderData.completeAddress}");
               print("longitude : ${constProviderData.longitude}");
               print("latitude : ${constProviderData.latitude}");
+              print("Postal Code : ${constProviderData.postalCode}");
+              print("work Description : ${constProviderData.workDetails}");
 
             } else {
               setState(() => currentStep += 1);

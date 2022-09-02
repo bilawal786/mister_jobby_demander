@@ -4,9 +4,15 @@ import 'package:provider/provider.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
 
-class FurnitureRepairStep extends StatelessWidget {
+class FurnitureRepairStep extends StatefulWidget {
   const FurnitureRepairStep({Key? key}) : super(key: key);
 
+  @override
+  State<FurnitureRepairStep> createState() => _FurnitureRepairStepState();
+}
+
+class _FurnitureRepairStepState extends State<FurnitureRepairStep> {
+  TextEditingController needWorkController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final constProviderData = Provider.of<ConstProvider>(context, listen: false);
@@ -29,20 +35,11 @@ class FurnitureRepairStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 20,
           ),
           TextFormField(
-            initialValue: 'Furniture_Repair_Step_Title'.tr(),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Titre de la demande',
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: false,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 20,
-          ),
-          TextFormField(
-            onChanged: (value) => constProviderData.getExplainWork(value),
+            controller: needWorkController,
+            onChanged: (value) {
+              needWorkController.text = value;
+              constProviderData.needWork = needWorkController.text;
+            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),

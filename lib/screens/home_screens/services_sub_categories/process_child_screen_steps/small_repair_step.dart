@@ -10,7 +10,7 @@ class SmallRepairStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final constProviderData =
-    Provider.of<ConstProvider>(context, listen: false);
+        Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,23 +29,11 @@ class SmallRepairStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),
-
-          TextFormField(
-            initialValue: 'Small_Repair_Step_Title'.tr(),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Titre de la demande',
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: false,
-          ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),
-
           TextFormField(
-            onChanged: (value) => constProviderData.getExplainWork(value),
+            onChanged: (value) {},
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Small_Repair_Step_DescriptionTitle'.tr(),
@@ -55,13 +43,6 @@ class SmallRepairStep extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
             maxLines: 5,
           ),
-
-
-
-
-
-
-
         ],
       ),
     );

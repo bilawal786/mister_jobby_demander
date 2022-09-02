@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:searchfield/searchfield.dart';
@@ -73,7 +74,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   Widget build(BuildContext context) {
     return SearchField(
       controller: searchController,
-      hint: 'Find Address',
+      hint: 'Find_Address'.tr(),
       searchStyle: Theme.of(context).textTheme.bodySmall,
       searchInputDecoration: InputDecoration(
         enabledBorder: OutlineInputBorder(

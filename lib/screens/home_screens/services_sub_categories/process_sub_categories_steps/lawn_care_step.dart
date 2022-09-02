@@ -52,7 +52,7 @@ class LawnCareStep extends StatelessWidget {
           ),
 
           TextFormField(
-            onChanged: (value)  => constProviderData.getExplainWork(value),
+            onChanged: (value){},
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Lawn_Care_Step_Item2_Title'.tr(),

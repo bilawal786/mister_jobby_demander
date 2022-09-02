@@ -28,7 +28,7 @@ class ChildCategoriesScreen extends StatelessWidget {
           color: Colors.black38,
         ),
         title: Text(
-          extractedCategory![mainCategoryIndex].subCategories[subCategoryIndex].title + " $mainCategoryId  $subCategoryId",
+          extractedCategory![mainCategoryIndex].subCategories[subCategoryIndex].title,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),

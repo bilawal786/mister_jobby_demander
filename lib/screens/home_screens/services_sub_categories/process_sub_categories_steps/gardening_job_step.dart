@@ -52,7 +52,7 @@ class GardeningJobStep extends StatelessWidget {
           ),
 
           TextFormField(
-            onChanged: (value)  => constProviderData.getExplainWork(value),
+            onChanged: (value) {},
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Gardening_Job_Step_Item2_Title'.tr(),

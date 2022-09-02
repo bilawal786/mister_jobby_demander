@@ -15,18 +15,20 @@ class GeneralStep3Screen extends StatefulWidget {
 }
 
 class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
-  TextEditingController postelCodeController = TextEditingController();
+  TextEditingController postalCodeController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
   @override
   void dispose() {
-    postelCodeController.dispose();
+    postalCodeController.dispose();
     descriptionController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final constProviderData = Provider.of<ConstProvider>(context);
+    constProviderData.workDetails = descriptionController.text;
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -292,7 +294,7 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
             height: MediaQuery.of(context).size.width / 40,
           ),
           TextFormField(
-            controller: postelCodeController,
+            controller: postalCodeController,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: "Postel_Code".tr(),
@@ -300,6 +302,10 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
             ),
             style: Theme.of(context).textTheme.bodySmall,
             enabled: true,
+            onChanged: (pValue) {
+              postalCodeController.text = pValue;
+              constProviderData.postalCode = postalCodeController.text;
+            },
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
@@ -339,26 +345,17 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
             height: MediaQuery.of(context).size.width / 20,
           ),
           TextFormField(
-            initialValue: 'Furniture_Repair_Step_Title'.tr(),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Titre de la demande',
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: false,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 20,
-          ),
-          TextFormField(
             controller: descriptionController,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
-              hintText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
+              hintText: 'Work_Details'.tr(),
               isDense: true,
             ),
+            onChanged: (value) {
+              descriptionController.text = value;
+              constProviderData.workDetails = descriptionController.text;
+            },
             style: Theme.of(context).textTheme.bodySmall,
             maxLines: 5,
           ),
