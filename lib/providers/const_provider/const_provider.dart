@@ -555,7 +555,18 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  double areaToClearSliderValue = 350;
+
+  areaToClearSliderFunction(double newValue) {
+    areaToClearSliderValue = newValue;
+    notifyListeners();
+  }
+
+  String workDetails = "";
+  String postalCode = "";
+
   void clearData() {
+    numberOfTreesSliderValue = 1;
     jobberBringMaterialYes = false;
     jobberBringMaterialNo = false;
     jobberHedgeTimerYes = false;
