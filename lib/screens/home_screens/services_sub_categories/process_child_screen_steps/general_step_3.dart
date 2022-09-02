@@ -353,8 +353,7 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
               isDense: true,
             ),
             onChanged: (value) {
-              descriptionController.text = value;
-              constProviderData.workDetails = descriptionController.text;
+              constProviderData.workDetails = value;
             },
             style: Theme.of(context).textTheme.bodySmall,
             maxLines: 5,

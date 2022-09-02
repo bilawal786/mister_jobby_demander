@@ -26,7 +26,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
     final subCategoryId = routeArgs['subCategoryId'];
     final childCategoryId = routeArgs['childCategoryId'];
     final childCategoryTitle = routeArgs['childCategoryTitle'];
-    final constProviderData = Provider.of<ConstProvider>(context,);
+    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
         constProviderData.clearData();
@@ -57,7 +57,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
               print("subCategoryId: $subCategoryId");
               print("childCategoryId: $childCategoryId");
               print("childCategoryTitle: $childCategoryTitle");
-              print(constProviderData.needWork);
+              print('Need Work: ${constProviderData.needWork}');
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");

@@ -24,33 +24,11 @@ class LandscapingJobStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Landscaping_Job_Step_SubTitle",
-            style: Theme.of(context).textTheme.titleMedium,
-          ).tr(),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 20,
-          ),
-
-          TextFormField(
-            initialValue: 'Landscaping_Job_Step_Title'.tr(),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Titre de la demande',
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: false,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 20,
-          ),
-
-          Text(
             "Do_You_Want_Service_Provider_Clear_Boxes".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 50,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
             builder: (_,cleanBoxValue,child)=> Row(
@@ -77,11 +55,21 @@ class LandscapingJobStep extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Text(
+            "Landscaping_Job_Step_SubTitle",
+            style: Theme.of(context).textTheme.titleMedium,
+          ).tr(),
+
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
           ),
 
           TextFormField(
-            onChanged: (value) {},
+            onChanged: (value) {
+              constProviderData.needWork = value;
+            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Hood_Installation_Step_DescriptionTitle'.tr(),

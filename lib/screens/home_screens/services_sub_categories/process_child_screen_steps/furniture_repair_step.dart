@@ -36,10 +36,6 @@ class _FurnitureRepairStepState extends State<FurnitureRepairStep> {
           ),
           TextFormField(
             controller: needWorkController,
-            onChanged: (value) {
-              needWorkController.text = value;
-              constProviderData.needWork = needWorkController.text;
-            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Furniture_Repair_Step_DescriptionTitle'.tr(),
@@ -48,6 +44,9 @@ class _FurnitureRepairStepState extends State<FurnitureRepairStep> {
             ),
             style: Theme.of(context).textTheme.bodySmall,
             maxLines: 5,
+            onChanged: (value) {
+              constProviderData.needWork = value;
+            },
           ),
         ],
       ),
