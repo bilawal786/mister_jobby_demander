@@ -295,6 +295,8 @@
   "Window_Cleaning_Step_Buuton8_Title": "Twice a month",
   "Window_Cleaning_Step_Buuton9_Title": "Once a week",
   "Window_Cleaning_Step_Buuton10_Title": "Several times a week",
+  "Cleaning_Job_Step_Title": "Other cleaning job",
+  "Cleaning_Job_Step_SubTitle": "What do you need?",
   "Service_Time_Start": "Start Time",
   "Service_Duration_Hour": "Duration (h)",
   "Service_Hourly_Rate": "Hourly rate (€)",

@@ -142,6 +142,12 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.WINDOWCLEANINGROUTE);
               }
               break;
+            case 28:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.CLEANINGJOBROUTE);
+              }
+              break;
+
 
           }
         }

@@ -58,6 +58,7 @@ class MyRoutes{
   static String CARWASHROUTE = '/Car_Wash_Screen';
   static String POOLWASHINGROUTE = '/Pool_Washing_Screen';
   static String WINDOWCLEANINGROUTE = '/Window_Cleaning_Screen';
+  static String CLEANINGJOBROUTE = '/Cleaning_Job_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
