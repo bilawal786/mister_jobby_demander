@@ -38,7 +38,7 @@ class MovingFurnitureStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, tvData, child) => SizedBox(
+            builder: (_, funitureData, child) => SizedBox(
               height: 45,
               child: ListView.builder(
                 itemCount: 10,
@@ -47,7 +47,7 @@ class MovingFurnitureStep extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) =>
                     OutlineSelectedButton(
-                  onTap: () => tvData.tvHangFunction(index),
+                  onTap: () => funitureData.tvHangFunction(index),
                   textTitle: index == 0
                       ? "One"
                       : index == 1
@@ -70,7 +70,7 @@ class MovingFurnitureStep extends StatelessWidget {
                   color: Colors.grey.shade300,
                   // height: 40,
                   // width: 45,
-                  border: tvData.tvHangNo - 1 == index ? true : false,
+                  border: funitureData.tvHangNo - 1 == index ? true : false,
                 ),
               ),
             ),
