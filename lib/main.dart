@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/screens/home_screens/services_sub_categories/process_sub_categories_screens/accompaniment_medical_appointment_screen.dart';
+
+
 
 
 import 'package:provider/provider.dart';
@@ -88,6 +89,8 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/deliver_groceries_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_delivery_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/accompaniment_race_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/accompaniment_medical_appointment_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/prepare_meal_screen.dart';
 
 
 
@@ -295,6 +298,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.HOMEDELIVERYROUTE: (ctx) =>const HomeDeliveryScreen(),
           MyRoutes.ACCOMPANIMENTRACEROUTE: (ctx) =>const AccompanimentRaceScreen(),
           MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE: (ctx) =>const AccompanimentMedicalAppoinmentScreen(),
+          MyRoutes.PREPAREMEALROUTE: (ctx) =>const PrepareMealScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
