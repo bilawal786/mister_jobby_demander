@@ -242,6 +242,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.SPANISHROUTE);
               }
               break;
+            case 49:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.CREOLEROUTE);
+              }
+              break;
 
 
           }
