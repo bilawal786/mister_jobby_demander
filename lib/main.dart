@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 
-
-
-
-
 import 'package:provider/provider.dart';
 
 
@@ -93,6 +89,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/accompaniment_medical_appointment_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/prepare_meal_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/waiter_waitress_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/sewing_alteration_screen.dart';
 
 
 
@@ -302,6 +299,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE: (ctx) =>const AccompanimentMedicalAppoinmentScreen(),
           MyRoutes.PREPAREMEALROUTE: (ctx) =>const PrepareMealScreen(),
           MyRoutes.WAITERWAITRESSROUTE: (ctx) =>const WaiterWaitressScreen(),
+          MyRoutes.SEWINGALTERATIONROUTE: (ctx) =>const SewingAlterationScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
