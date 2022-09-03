@@ -603,9 +603,15 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-
   String workDetails = "";
   String postalCode = "";
+  int groupValue = 1;
+
+  void checkGroupValue(int? value) {
+    groupValue = value!;
+    print(groupValue);
+    notifyListeners();
+  }
 
   void clearData() {
     vehicleTypeTrueValue = 0;
@@ -660,6 +666,7 @@ class ConstProvider with ChangeNotifier {
     baseBoardInstallNo = false;
     cuttingMaterialYes = false;
     cuttingMaterialNo = false;
+    groupValue = 1;
     notifyListeners();
   }
 }

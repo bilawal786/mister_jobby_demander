@@ -1,8 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/group_radio_tile.dart';
 
-import '../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/places_selected_input_widget.dart';
 
 class TestScreen extends StatefulWidget {
   const TestScreen({Key? key}) : super(key: key);
@@ -12,7 +11,7 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
-
+  int _gValue = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,36 +28,43 @@ class _TestScreenState extends State<TestScreen> {
           padding: const EdgeInsets.all(15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Divider(),
-              Text(
-                "Next Screen",
-                style: Theme.of(context).textTheme.titleSmall,
+            children: <Widget>[
+              GroupRadioTile(
+                title: 'title here',
+                subTitle: 'sub title',
+                groupValue: _gValue,
+                value: 1,
+                onClick: (p) {
+                  setState(() {
+                    _gValue = p!;
+                  });
+                  print(_gValue);
+                },
               ),
-              const Divider(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
+              GroupRadioTile(
+                title: 'title here',
+                subTitle: 'sub title',
+                groupValue: _gValue,
+                value: 2,
+                onClick: (p) {
+                  setState(() {
+                    _gValue = p!;
+                  });
+                  print(_gValue);
+                },
               ),
-              Text(
-                "Parquet_Laying_Title",
-                style: Theme.of(context).textTheme.titleSmall,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
+              GroupRadioTile(
+                title: 'title here',
+                subTitle: 'sub title',
+                groupValue: _gValue,
+                value: 3,
+                onClick: (p) {
+                  setState(() {
+                    _gValue = p!;
+                  });
+                  print(_gValue);
+                },
               ),
-              // Consumer<ConstProvider>(
-              //   builder: (_, rangeSliderData, child) => RangeSliderCLass(
-              //     rangeValue: rangeSliderData.rangeSliderValue,
-              //     minRange: 3,
-              //     maxRange: 60,
-              //     division: 19,
-              //     onChanged:(value)=>rangeSliderData.rangeSliderFunction(value),
-              //   ),
-              // ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              const GooglePlacesApi(),
             ],
           ),
         ),

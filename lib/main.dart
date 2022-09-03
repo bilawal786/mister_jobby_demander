@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 
 
 
+
+
 import 'package:provider/provider.dart';
 
 
@@ -70,7 +72,6 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/furniture_delivery_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/appliance_delivery_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/letters_delivery_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/shopping_delivery_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_cleaning_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/ironing_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/car_wash_screen.dart';
@@ -81,24 +82,6 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/keep_cat_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/keep_animals_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/clean_computer_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/computer_courses_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/install_printer_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/other_computer_job_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_care_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/medicine_delivery_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/deliver_groceries_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_delivery_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/accompaniment_race_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/accompaniment_medical_appointment_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/prepare_meal_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/waiter_waitress_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/sewing_alteration_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/french_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/english_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/spanish_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/creole_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/mathematical_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/story_screen.dart';
 
 
 void main() async {
@@ -285,7 +268,6 @@ class MyApp extends StatelessWidget {
           MyRoutes.FURNITUREDELIVERYROUTE: (ctx) =>const FurnitureDeliveryScreen(),
           MyRoutes.APPLIANCEDELIVERYROUTE: (ctx) =>const ApplianceDeliveryScreen(),
           MyRoutes.LETTERSDELIVERYROUTE: (ctx) =>const LettersDeliveryScreen(),
-          MyRoutes.RACEDELIVERYROUTE: (ctx) =>const ShoppingDeliveryScreen(),
           MyRoutes.HOMECLEANINGROUTE: (ctx) =>const HomeCleaningScreen(),
           MyRoutes.IRONINGROUTE: (ctx) =>const IroningScreen(),
           MyRoutes.CARWASHROUTE: (ctx) =>const CarWashScreen(),
@@ -296,24 +278,6 @@ class MyApp extends StatelessWidget {
           MyRoutes.KEEPCATROUTE: (ctx) =>const KeepCatScreen(),
           MyRoutes.KEEPANIMALSROUTE: (ctx) =>const KeepAnimalsScreen(),
           MyRoutes.CLEANCOMPUTERROUTE: (ctx) =>const CleanComputerScreen(),
-          MyRoutes.COMPUTERCOURSESROUTE: (ctx) =>const ComputerCoursesScreen(),
-          MyRoutes.INSTALLPRINTERROUTE: (ctx) =>const InstallPrinterScreen(),
-          MyRoutes.COMPUTERJOBROUTE: (ctx) =>const ComputerJobScreen(),
-          MyRoutes.HOMECAREROUTE: (ctx) =>const HomeCareScreen(),
-          MyRoutes.MEDICINEDELIVERYROUTE: (ctx) =>const MedicineDeliveryScreen(),
-          MyRoutes.DELIVERGROCERIESROUTE: (ctx) =>const DeliverGroceriesScreen(),
-          MyRoutes.HOMEDELIVERYROUTE: (ctx) =>const HomeDeliveryScreen(),
-          MyRoutes.ACCOMPANIMENTRACEROUTE: (ctx) =>const AccompanimentRaceScreen(),
-          MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE: (ctx) =>const AccompanimentMedicalAppoinmentScreen(),
-          MyRoutes.PREPAREMEALROUTE: (ctx) =>const PrepareMealScreen(),
-          MyRoutes.WAITERWAITRESSROUTE: (ctx) =>const WaiterWaitressScreen(),
-          MyRoutes.SEWINGALTERATIONROUTE: (ctx) =>const SewingAlterationScreen(),
-          MyRoutes.FRENCHROUTE: (ctx) =>const FrenchScreen(),
-          MyRoutes.ENGLISHROUTE: (ctx) =>const EnglishScreen(),
-          MyRoutes.SPANISHROUTE: (ctx) =>const SpanishScreen(),
-          MyRoutes.CREOLEROUTE: (ctx) =>const CreoleScreen(),
-          MyRoutes.MATHEMATICALROUTE: (ctx) =>const MathematicalScreen(),
-          MyRoutes.STORYROUTE: (ctx) =>const StoryScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
