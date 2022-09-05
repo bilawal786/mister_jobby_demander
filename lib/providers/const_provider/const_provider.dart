@@ -613,7 +613,42 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int childCareValue = 0;
+  String genderDropDownValue = "";
+
+  genderDropDownFunction(value){
+    genderDropDownValue = value!;
+    notifyListeners();
+  }
+
+ void childCareIncrement(){
+    childCareValue += 1;
+    notifyListeners();
+  }
+
+  DateTime selectedDateOfBirth = DateTime.now();
+  Future selectDateDateOfBirthProvider(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDateOfBirth,
+        firstDate: DateTime(1990),
+        lastDate: DateTime.now());
+    if (picked != null) {
+      selectedDateOfBirth = picked;
+      notifyListeners();
+    }
+  }
+
+ void childCareDecrement(){
+    childCareValue -= 1;
+    notifyListeners();
+  }
+
   void clearData() {
+    selectedDateOfBirth = DateTime.now();
+    childCareValue = 0;
+    genderDropDownValue = "";
+    selectedDateOfBirth = DateTime.now();
     vehicleTypeTrueValue = 0;
     numberOfClotheTrueValue = 0;
     checkIroning = false;
@@ -624,6 +659,7 @@ class ConstProvider with ChangeNotifier {
     areaToClearSliderValue = 350;
     workDetails = "";
     postalCode = "";
+    groupValue = 1;
     numberOfTreesSliderValue = 1;
     jobberBringMaterialYes = false;
     jobberBringMaterialNo = false;

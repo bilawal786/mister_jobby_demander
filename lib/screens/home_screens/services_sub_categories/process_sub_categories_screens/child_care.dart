@@ -35,7 +35,7 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Home Cleaning",
+            "Child Care",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -63,7 +63,7 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if ((need.requestFrequencyTrueValue > 0))
+                    if ((need.childCareValue > 0))
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

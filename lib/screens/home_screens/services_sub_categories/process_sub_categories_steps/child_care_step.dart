@@ -12,18 +12,16 @@ class ChildCareStep extends StatefulWidget {
 }
 
 class _ChildCareStepState extends State<ChildCareStep> {
-  int childValue = 0;
-  String _dropDownValue = "";
   @override
   Widget build(BuildContext context) {
-    // final constProviderData =
-    // Provider.of<ConstProvider>(context, listen: false);
+    final constProviderData =
+    Provider.of<ConstProvider>(context,listen: true);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          if (childValue > 0)
-            for (int i = 0; i < childValue; ++i)
+          if (constProviderData.childCareValue > 0)
+            for (int i = 0; i < constProviderData.childCareValue; ++i)
               Container(
                 margin: const EdgeInsets.all(10.0),
                 child: Column(
@@ -38,9 +36,7 @@ class _ChildCareStepState extends State<ChildCareStep> {
                         const Spacer(),
                         IconButton(
                           onPressed: () {
-                            setState(() {
-                              childValue -= 1;
-                            });
+                            constProviderData.childCareDecrement();
                           },
                           icon: const Icon(
                             Icons.delete,
@@ -49,46 +45,48 @@ class _ChildCareStepState extends State<ChildCareStep> {
                         ),
                       ],
                     ),
-                    Container(
-                      height: 40.0,
-                      margin: const EdgeInsets.all(5.0),
-                      //   height: 40,
-                      padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.black, width: 1),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: DropdownButtonFormField<String>(
-                        decoration: InputDecoration(
-                          hintText: "Select Gender",
-                          hintStyle: Theme.of(context).textTheme.bodyMedium,
-                          isCollapsed: true,
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
+                    Consumer<ConstProvider>(
+                      builder: (_,dropDownData,child)=>
+                      Container(
+                        height: 40.0,
+                        margin: const EdgeInsets.all(5.0),
+                        //   height: 40,
+                        padding: const EdgeInsets.fromLTRB(20, 7, 0, 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(color: Colors.black, width: 1),
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
-                        isExpanded: true,
-                        iconSize: 30.0,
-                        items: [
-                          'Boy',
-                          'Girl',
-                        ].map(
-                              (val) {
-                            return DropdownMenuItem<String>(
-                              value: val,
-                              child: Text(
-                                val,
-                                style:
-                                Theme.of(context).textTheme.bodySmall,
-                              ),
-                            );
+                        child: DropdownButtonFormField<String>(
+                          decoration: InputDecoration(
+                            hintText: "Select Gender",
+                            hintStyle: Theme.of(context).textTheme.bodyMedium,
+                            isCollapsed: true,
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                          ),
+                          isExpanded: true,
+                          iconSize: 30.0,
+                          items: [
+                            'Boy',
+                            'Girl',
+                          ].map(
+                                (val) {
+                              return DropdownMenuItem<String>(
+                                value: val,
+                                child: Text(
+                                  val,
+                                  style:
+                                  Theme.of(context).textTheme.bodySmall,
+                                ),
+                              );
+                            },
+                          ).toList(),
+                          onChanged: (val) {
+                           dropDownData.genderDropDownFunction(val);
+                           print("drop down value ${dropDownData.genderDropDownValue}");
                           },
-                        ).toList(),
-                        onChanged: (val) {
-                          setState(() {
-                            _dropDownValue = val!;
-                          });
-                        },
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -104,7 +102,7 @@ class _ChildCareStepState extends State<ChildCareStep> {
                     Consumer<ConstProvider>(
                       builder: (_, selectDate, child) => GestureDetector(
                         onTap: () {
-                          selectDate.selectDateProvider(context);
+                          selectDate.selectDateDateOfBirthProvider(context);
                         },
                         child: Container(
                           padding: const EdgeInsets.only(left: 30, right: 10),
@@ -127,7 +125,7 @@ class _ChildCareStepState extends State<ChildCareStep> {
                             borderRadius: BorderRadius.circular(7),
                           ),
                           child: Text(
-                            "${selectDate.selectedDate.day < 10 ? "0${selectDate.selectedDate.day}" : "${selectDate.selectedDate.day}"}-${selectDate.selectedDate.month < 10 ? "0${selectDate.selectedDate.month}" : "${selectDate.selectedDate.month}"}-${selectDate.selectedDate.year}",
+                            "${selectDate.selectedDateOfBirth.day < 10 ? "0${selectDate.selectedDateOfBirth.day}" : "${selectDate.selectedDateOfBirth.day}"}-${selectDate.selectedDateOfBirth.month < 10 ? "0${selectDate.selectedDateOfBirth.month}" : "${selectDate.selectedDateOfBirth.month}"}-${selectDate.selectedDateOfBirth.year}",
                             style: Theme.of(context).textTheme.labelLarge,
                           ),
                         ),
@@ -138,9 +136,7 @@ class _ChildCareStepState extends State<ChildCareStep> {
               ),
           CustomButton(
             onPress: () {
-              setState(() {
-                childValue += 1;
-              });
+              constProviderData.childCareIncrement();
             },
             buttonName: "Add a child",
           ),
