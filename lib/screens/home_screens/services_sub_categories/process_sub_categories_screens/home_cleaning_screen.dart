@@ -20,6 +20,11 @@ class _HomeCleaningScreenState extends State<HomeCleaningScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryId = routeArgs['mainCategoryId'];
+    final subCategoryId = routeArgs['subCategoryId'];
+    final subCategoryTitle = routeArgs['subCategoryTitle'];
     final constProviderData =
         Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
@@ -35,7 +40,7 @@ class _HomeCleaningScreenState extends State<HomeCleaningScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Home Cleaning",
+            subCategoryTitle,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -48,6 +53,28 @@ class _HomeCleaningScreenState extends State<HomeCleaningScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
+              print('mainCategoryId: $mainCategoryId');
+              print("subCategoryId: $subCategoryId");
+              print("subCategoryTitle: $subCategoryTitle");
+              print("own material: ${constProviderData.surfaceCleanSliderValue}");
+              print("own material: ${constProviderData.checkApplianceCleaning}");
+              print("own material: ${constProviderData.checkWindowCleaning}");
+              print("own material: ${constProviderData.checkIroning}");
+              print("own material: ${constProviderData.requestFrequencyTrueValue}");
+              print("selected date: ${constProviderData.selectedDate}");
+              print("selected time: ${constProviderData.pickedTime}");
+              print("selected duration: ${constProviderData.duration}");
+              print("selected rate: ${constProviderData.hourlyRate}");
+              print("isUrgent : ${constProviderData.checkUrgentJob}");
+              print("provider required : ${constProviderData.providersAmount}");
+              print("image1 : ${constProviderData.imageFile0}");
+              print("image2 : ${constProviderData.imageFile1}");
+              print("image3 : ${constProviderData.imageFile2}");
+              print("address : ${constProviderData.completeAddress}");
+              print("longitude : ${constProviderData.longitude}");
+              print("latitude : ${constProviderData.latitude}");
+              print("Postal Code : ${constProviderData.postalCode}");
+              print("work Description : ${constProviderData.workDetails}");
             } else {
               setState(() => currentStep += 1);
             }
@@ -65,46 +92,48 @@ class _HomeCleaningScreenState extends State<HomeCleaningScreen> {
                   children: <Widget>[
                     if ((need.requestFrequencyTrueValue > 0))
                       Expanded(
-                          child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
+                        child: ElevatedButton(
+                          onPressed: details.onStepContinue,
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50.0),
+                            primary: Theme.of(context).primaryColor,
+                            elevation: 5,
+                          ),
+                          child: Text(
+                            currentStep > 1
+                                ? "Process_Screen_Confirm_Button"
+                                : "Process_Screen_Continue_Button",
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Cerebri Sans Regular',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                letterSpacing: 1),
+                          ).tr(),
                         ),
-                        child: Text(
-                          currentStep > 1
-                              ? "Process_Screen_Confirm_Button"
-                              : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1),
-                        ).tr(),
-                      )),
+                      ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     Expanded(
-                        child: ElevatedButton(
-                      onPressed: details.onStepCancel,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
-                        elevation: 0,
+                      child: ElevatedButton(
+                        onPressed: details.onStepCancel,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Colors.black12,
+                          elevation: 0,
+                        ),
+                        child: const Text(
+                          "Process_Screen_Cancel_Button",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black,
+                              letterSpacing: 1),
+                        ).tr(),
                       ),
-                      child: const Text(
-                        "Process_Screen_Cancel_Button",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Cerebri Sans Regular',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black,
-                            letterSpacing: 1),
-                      ).tr(),
-                    )),
+                    ),
                   ],
                 ),
               ),
