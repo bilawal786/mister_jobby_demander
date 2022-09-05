@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../providers/const_provider/const_provider.dart';
 
 
 class ComputerJobStep extends StatelessWidget {
@@ -7,6 +10,8 @@ class ComputerJobStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final constProviderData =
+    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +38,9 @@ class ComputerJobStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           TextFormField(
-            onChanged: (value) {},
+            onChanged: (value) {
+              constProviderData.needWork = value;
+            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Rid_Clutter_Step_Item2_Title'.tr(),

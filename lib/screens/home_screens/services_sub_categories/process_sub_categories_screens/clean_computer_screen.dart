@@ -64,13 +64,6 @@ class _CleanComputerScreenState extends State<CleanComputerScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.smallSizedFurnitureAmount > 0 ||
-                            size.mediumSizedFurnitureAmount > 0 ||
-                            size.largeSizedFurnitureAmount > 0) &&
-                        (size.jobberBringMaterialYes == true ||
-                            size.jobberBringMaterialNo == true) &&
-                        (size.jobberRemoveWasteYes == true ||
-                            size.jobberRemoveWasteNo == true))
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

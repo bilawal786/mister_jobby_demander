@@ -101,8 +101,6 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-
-
   DateTime selectedDate = DateTime.now();
   Future selectDateProvider(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -300,7 +298,6 @@ class ConstProvider with ChangeNotifier {
   }
 
   String needWork = '';
-
 
   final picker = ImagePicker();
   String? imageFile0;
@@ -519,9 +516,9 @@ class ConstProvider with ChangeNotifier {
 
   String completeAddress = "";
   double longitude = 0;
-  double latitude = 0 ;
+  double latitude = 0;
 
-  getAddress(address, long,lat){
+  getAddress(address, long, lat) {
     completeAddress = address;
     longitude = long;
     latitude = lat;
@@ -616,12 +613,12 @@ class ConstProvider with ChangeNotifier {
   int childCareValue = 0;
   String genderDropDownValue = "";
 
-  genderDropDownFunction(value){
+  genderDropDownFunction(value) {
     genderDropDownValue = value!;
     notifyListeners();
   }
 
- void childCareIncrement(){
+  void childCareIncrement() {
     childCareValue += 1;
     notifyListeners();
   }
@@ -639,12 +636,26 @@ class ConstProvider with ChangeNotifier {
     }
   }
 
- void childCareDecrement(){
+  void childCareDecrement() {
     childCareValue -= 1;
     notifyListeners();
   }
 
+  bool checkInstallingValue = false;
+  void checkInstallingValueFunction() {
+    checkInstallingValue = !checkInstallingValue;
+    notifyListeners();
+  }
+
+  bool checkDataBackUpValue = false;
+  void checkDataBackUpValueFunction() {
+    checkDataBackUpValue = !checkDataBackUpValue;
+    notifyListeners();
+  }
+
   void clearData() {
+    checkDataBackUpValue = false;
+    checkInstallingValue = false;
     selectedDateOfBirth = DateTime.now();
     childCareValue = 0;
     genderDropDownValue = "";

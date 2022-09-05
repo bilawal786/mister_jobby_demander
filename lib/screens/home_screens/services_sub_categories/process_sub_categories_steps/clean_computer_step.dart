@@ -83,20 +83,20 @@ class CleanComputerStep extends StatelessWidget {
                 ).tr(),
                 const Spacer(),
                 InkWell(
-                  onTap: checkBoxData.checkUrgentJobFunction,
+                  onTap: checkBoxData.checkInstallingValueFunction,
                   child: Container(
                     margin: const EdgeInsets.all(2),
                     height: 20,
                     width: 20,
                     decoration: BoxDecoration(
-                      color: checkBoxData.checkUrgentJob
+                      color: checkBoxData.checkInstallingValue
                           ? Theme.of(context).primaryColor
                           : Colors.white,
                       border: Border.all(
                           width: 2, color: Theme.of(context).primaryColor),
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    child: checkBoxData.checkUrgentJob
+                    child: checkBoxData.checkInstallingValue
                         ? const Icon(
                             Icons.check,
                             size: 17,
@@ -121,20 +121,20 @@ class CleanComputerStep extends StatelessWidget {
                 ).tr(),
                 const Spacer(),
                 InkWell(
-                  onTap: checkBoxData.checkUrgentJobFunction,
+                  onTap: checkBoxData.checkDataBackUpValueFunction,
                   child: Container(
                     margin: const EdgeInsets.all(2),
                     height: 20,
                     width: 20,
                     decoration: BoxDecoration(
-                      color: checkBoxData.checkUrgentJob
+                      color: checkBoxData.checkDataBackUpValue
                           ? Theme.of(context).primaryColor
                           : Colors.white,
                       border: Border.all(
                           width: 2, color: Theme.of(context).primaryColor),
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    child: checkBoxData.checkUrgentJob
+                    child: checkBoxData.checkDataBackUpValue
                         ? const Icon(
                             Icons.check,
                             size: 17,

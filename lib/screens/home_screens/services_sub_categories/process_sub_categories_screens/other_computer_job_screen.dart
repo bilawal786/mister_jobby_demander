@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
-
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/general_step_2.dart';
@@ -66,11 +64,6 @@ class _ComputerJobScreenState extends State<ComputerJobScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, lawnData, child) => Row(
                   children: <Widget>[
-                    if ((lawnData.jobberOwnMoverYes == true ||
-                            lawnData.jobberOwnMoverNo == true) &&
-                        (lawnData.jobberRemoveWasteYes == true ||
-                            lawnData.jobberRemoveWasteNo == true) &&
-                        (lawnData.requestFrequencyTrueValue > 0))
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

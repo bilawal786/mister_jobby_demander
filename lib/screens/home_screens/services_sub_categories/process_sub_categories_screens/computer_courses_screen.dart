@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/general_step_2.dart';
@@ -65,13 +64,7 @@ class _ComputerCoursesScreenState extends State<ComputerCoursesScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.smallSizedFurnitureAmount > 0 ||
-                            size.mediumSizedFurnitureAmount > 0 ||
-                            size.largeSizedFurnitureAmount > 0) &&
-                        (size.jobberBringMaterialYes == true ||
-                            size.jobberBringMaterialNo == true) &&
-                        (size.jobberRemoveWasteYes == true ||
-                            size.jobberRemoveWasteNo == true))
+                    if (size.requestFrequencyTrueValue > 0 )
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,
