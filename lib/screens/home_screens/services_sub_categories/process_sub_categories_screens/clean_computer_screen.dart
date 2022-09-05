@@ -8,7 +8,6 @@ import '../process_child_screen_steps/general_step_3.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/clean_computer_step.dart';
 
-
 class CleanComputerScreen extends StatefulWidget {
   const CleanComputerScreen({Key? key}) : super(key: key);
 
@@ -22,7 +21,7 @@ class _CleanComputerScreenState extends State<CleanComputerScreen> {
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final mainCategoryId = routeArgs['mainCategoryId'];
     final subCategoryId = routeArgs['subCategoryId'];
     final subCategoryTitle = routeArgs['subCategoryTitle'];
@@ -41,7 +40,7 @@ class _CleanComputerScreenState extends State<CleanComputerScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Clean Computer",
+            subCategoryTitle,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -57,7 +56,9 @@ class _CleanComputerScreenState extends State<CleanComputerScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
-              print("need work: ${constProviderData.requestFrequencyTrueValue}");
+              print("need work: ${constProviderData.groupValue}");
+              print("selected date: ${constProviderData.checkInstallingValue}");
+              print("selected date: ${constProviderData.checkDataBackUpValue}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -87,26 +88,26 @@ class _CleanComputerScreenState extends State<CleanComputerScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                      Expanded(
-                          child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
-                        ),
-                        child: Text(
-                          currentStep > 1
-                              ? "Process_Screen_Confirm_Button"
-                              : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1),
-                        ).tr(),
-                      )),
+                    Expanded(
+                        child: ElevatedButton(
+                      onPressed: details.onStepContinue,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Theme.of(context).primaryColor,
+                        elevation: 5,
+                      ),
+                      child: Text(
+                        currentStep > 1
+                            ? "Process_Screen_Confirm_Button"
+                            : "Process_Screen_Continue_Button",
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.white,
+                            letterSpacing: 1),
+                      ).tr(),
+                    )),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
