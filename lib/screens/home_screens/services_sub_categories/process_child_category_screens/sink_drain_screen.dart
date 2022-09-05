@@ -19,6 +19,12 @@ class _SinkDrainScreenState extends State<SinkDrainScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
+    final routeArgs =
+    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryId = routeArgs['mainCategoryId'];
+    final subCategoryId = routeArgs['subCategoryId'];
+    final childCategoryId = routeArgs['childCategoryId'];
+    final childCategoryTitle = routeArgs['childCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -33,7 +39,7 @@ class _SinkDrainScreenState extends State<SinkDrainScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Sink Drain",
+            childCategoryTitle,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -46,6 +52,25 @@ class _SinkDrainScreenState extends State<SinkDrainScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
+              print('mainCategoryId: $mainCategoryId');
+              print("subCategoryId: $subCategoryId");
+              print("childCategoryId: $childCategoryId");
+              print("childCategoryTitle: $childCategoryTitle");
+              print("Flush Fixes Amount: ${constProviderData.fixesAmount}");
+              print("selected date: ${constProviderData.selectedDate}");
+              print("selected time: ${constProviderData.pickedTime}");
+              print("selected duration: ${constProviderData.duration}");
+              print("selected rate: ${constProviderData.hourlyRate}");
+              print("isUrgent : ${constProviderData.checkUrgentJob}");
+              print("provider required : ${constProviderData.providersAmount}");
+              print("image1 : ${constProviderData.imageFile0}");
+              print("image2 : ${constProviderData.imageFile1}");
+              print("image3 : ${constProviderData.imageFile2}");
+              print("address : ${constProviderData.completeAddress}");
+              print("longitude : ${constProviderData.longitude}");
+              print("latitude : ${constProviderData.latitude}");
+              print("Postal Code : ${constProviderData.postalCode}");
+              print("work Description : ${constProviderData.workDetails}");
             } else {
               setState(() => currentStep += 1);
             }

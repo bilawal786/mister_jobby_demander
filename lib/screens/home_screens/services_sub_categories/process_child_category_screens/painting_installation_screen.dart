@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/general_step_2.dart';
@@ -8,8 +7,6 @@ import '../process_child_screen_steps/general_step_3.dart';
 import '../process_child_screen_steps/painting_installation_step.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
-
-
 
 class PaintingInstallationScreen extends StatefulWidget {
   const PaintingInstallationScreen({Key? key}) : super(key: key);
@@ -22,6 +19,12 @@ class _PaintingInstallationScreenState extends State<PaintingInstallationScreen>
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
+    final routeArgs =
+    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryId = routeArgs['mainCategoryId'];
+    final subCategoryId = routeArgs['subCategoryId'];
+    final childCategoryId = routeArgs['childCategoryId'];
+    final childCategoryTitle = routeArgs['childCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -36,7 +39,7 @@ class _PaintingInstallationScreenState extends State<PaintingInstallationScreen>
             color: Colors.black38,
           ),
           title: Text(
-            "Painting Installation",
+            childCategoryTitle,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -49,6 +52,30 @@ class _PaintingInstallationScreenState extends State<PaintingInstallationScreen>
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
+              print('mainCategoryId: $mainCategoryId');
+              print("subCategoryId: $subCategoryId");
+              print("childCategoryId: $childCategoryId");
+              print("childCategoryTitle: $childCategoryTitle");
+              print("small: ${constProviderData.smallSizedFurnitureAmount}");
+              print("medium: ${constProviderData.mediumSizedFurnitureAmount}");
+              print("large: ${constProviderData.largeSizedFurnitureAmount}");
+              print("extra Large: ${constProviderData.veryLargeSizedFurnitureAmount}");
+              print("question 1: ${constProviderData.cleanBoxFurnitureYes}");
+              print("question 1: ${constProviderData.cleanBoxFurnitureNo}");
+              print("selected date: ${constProviderData.selectedDate}");
+              print("selected time: ${constProviderData.pickedTime}");
+              print("selected duration: ${constProviderData.duration}");
+              print("selected rate: ${constProviderData.hourlyRate}");
+              print("isUrgent : ${constProviderData.checkUrgentJob}");
+              print("provider required : ${constProviderData.providersAmount}");
+              print("image1 : ${constProviderData.imageFile0}");
+              print("image2 : ${constProviderData.imageFile1}");
+              print("image3 : ${constProviderData.imageFile2}");
+              print("address : ${constProviderData.completeAddress}");
+              print("longitude : ${constProviderData.longitude}");
+              print("latitude : ${constProviderData.latitude}");
+              print("Postal Code : ${constProviderData.postalCode}");
+              print("work Description : ${constProviderData.workDetails}");
             } else {
               setState(() => currentStep += 1);
             }
