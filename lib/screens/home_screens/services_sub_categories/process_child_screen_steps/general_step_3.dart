@@ -303,8 +303,7 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
             style: Theme.of(context).textTheme.bodySmall,
             enabled: true,
             onChanged: (pValue) {
-              postalCodeController.text = pValue;
-              constProviderData.postalCode = postalCodeController.text;
+              constProviderData.postalCode = pValue;
             },
           ),
           SizedBox(
