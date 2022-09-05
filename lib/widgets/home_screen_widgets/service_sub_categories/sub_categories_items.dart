@@ -461,9 +461,15 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.ANIMATORROUTE);
               }
               break;
-
-
-
+            case 67:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.FLYERSDISTRIBUTIONROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
+              }
+              break;
           }
         }
       },
