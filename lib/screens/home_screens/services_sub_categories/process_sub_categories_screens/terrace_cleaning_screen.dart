@@ -8,8 +8,6 @@ import '../process_child_screen_steps/general_step_3.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/terrace_cleaning_step.dart';
 
-
-
 class TerraceCleaningScreen extends StatefulWidget {
   const TerraceCleaningScreen({Key? key}) : super(key: key);
 
