@@ -99,6 +99,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/flyers_distribution_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/host_hotess_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/administrative_tasks_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/vehicle_maintenance_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -317,6 +318,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.FLYERSDISTRIBUTIONROUTE: (ctx) =>const FlyersDistributionScreen(),
           MyRoutes.HOSTHOTESSROUTE: (ctx) =>const HostHotessScreen(),
           MyRoutes.ADMINISTRAVTIVETASKROUTE: (ctx) =>const AdministrativeTaskScreen(),
+          MyRoutes.VEHICLEMAINTENANCEROUTE: (ctx) =>const VehicleMaintenanceScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
