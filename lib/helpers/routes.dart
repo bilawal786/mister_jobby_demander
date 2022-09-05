@@ -90,6 +90,7 @@ class MyRoutes{
   static String SESROUTE = '/Ses_Screen';
   static String VISUALARTROUTE = '/Visual_Art_Screen';
   static String MUSICALEDUCATIONROUTE = '/Musical_Education_Screen';
+  static String PHOTOGRAPHYROUTE = '/Photography_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
