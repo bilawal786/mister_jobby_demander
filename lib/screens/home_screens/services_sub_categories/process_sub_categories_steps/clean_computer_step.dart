@@ -41,22 +41,22 @@ class CleanComputerStep extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 GroupRadioTile(
-                  title: "Title 1",
-                  subTitle: "subTitle1",
+                  title: "Clean_Computer_Step_TEXT1_Title",
+                  subTitle: "Clean_Computer_Step_TEXT2_Title",
                   value: 1,
                   groupValue: cleanComputer.groupValue,
                   onClick: cleanComputer.checkGroupValue,
                 ),
                 GroupRadioTile(
-                  title: "Title 2",
-                  subTitle: "subTitle2",
+                  title: "Clean_Computer_Step_TEXT3_Title",
+                  subTitle: "Clean_Computer_Step_TEXT4_Title",
                   value: 2,
                   groupValue: cleanComputer.groupValue,
                   onClick: cleanComputer.checkGroupValue,
                 ),
                 GroupRadioTile(
-                  title: "Title 3",
-                  subTitle: "subTitle 3",
+                  title: "Clean_Computer_Step_TEXT5_Title",
+                  subTitle: "Clean_Computer_Step_TEXT6_Title",
                   value: 3,
                   groupValue: cleanComputer.groupValue,
                   onClick: cleanComputer.checkGroupValue,

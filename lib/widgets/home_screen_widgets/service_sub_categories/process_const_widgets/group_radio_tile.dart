@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class GroupRadioTile extends StatelessWidget {
@@ -22,11 +23,11 @@ class GroupRadioTile extends StatelessWidget {
       title: Text(
         title,
         style: Theme.of(context).textTheme.bodyMedium,
-      ),
+      ).tr(),
       subtitle: Text(
         subTitle,
         style: Theme.of(context).textTheme.labelSmall,
-      ),
+      ).tr(),
       trailing: Radio(
         value: value,
         groupValue: groupValue,
