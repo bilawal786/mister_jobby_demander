@@ -98,6 +98,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/child_care.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/philosophy_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/engineering_science_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/svt_screen.dart';
 
 
 void main() async {
@@ -316,6 +317,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.GEOGRAPHYROUTE: (ctx) =>const GeographyScreen(),
           MyRoutes.PHILOSOPHYROUTE: (ctx) =>const PhilosophyScreen(),
           MyRoutes.ENGINEERINGSCIENCEROUTE: (ctx) =>const EngineeringScienceScreen(),
+          MyRoutes.SVTROUTE: (ctx) =>const SVTScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
