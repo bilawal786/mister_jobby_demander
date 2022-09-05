@@ -86,6 +86,7 @@ class MyRoutes{
   static String HOSTHOTESSROUTE = '/Host_Hotess_Screen';
   static String ADMINISTRAVTIVETASKROUTE = '/Administrative_Task_Screen';
   static String VEHICLEMAINTENANCEROUTE = '/Vehicle_Maintenance_Screen';
+  static String VEHICLEREPAIRROUTE = '/Vehicle_Repair_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
