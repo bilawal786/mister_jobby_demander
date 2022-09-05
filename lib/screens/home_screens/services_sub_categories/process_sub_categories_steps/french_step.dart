@@ -15,13 +15,6 @@ class FrenchStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "French_Step_Title",
-            style: Theme.of(context).textTheme.bodyMedium,
-          ).tr(),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
-          ),
-          Text(
             "French_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),

@@ -89,20 +89,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/waiter_waitress_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/sewing_alteration_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/french_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/spanish_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/creole_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/mathematical_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/story_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/geography_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/child_care.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/philosophy_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/engineering_science_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/svt_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/physical_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/chemistry_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/ses_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/visual_art_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/musical_education_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/photography_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_chef_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/bartender_screen.dart';
@@ -318,19 +305,6 @@ class MyApp extends StatelessWidget {
           MyRoutes.WAITERWAITRESSROUTE: (ctx) =>const WaiterWaitressScreen(),
           MyRoutes.SEWINGALTERATIONROUTE: (ctx) =>const SewingAlterationScreen(),
           MyRoutes.FRENCHROUTE: (ctx) =>const FrenchScreen(),
-          MyRoutes.SPANISHROUTE: (ctx) =>const SpanishScreen(),
-          MyRoutes.CREOLEROUTE: (ctx) =>const CreoleScreen(),
-          MyRoutes.MATHEMATICALROUTE: (ctx) =>const MathematicalScreen(),
-          MyRoutes.STORYROUTE: (ctx) =>const StoryScreen(),
-          MyRoutes.GEOGRAPHYROUTE: (ctx) =>const GeographyScreen(),
-          MyRoutes.PHILOSOPHYROUTE: (ctx) =>const PhilosophyScreen(),
-          MyRoutes.ENGINEERINGSCIENCEROUTE: (ctx) =>const EngineeringScienceScreen(),
-          MyRoutes.SVTROUTE: (ctx) =>const SVTScreen(),
-          MyRoutes.PHYSICALROUTE: (ctx) =>const PhysicalScreen(),
-          MyRoutes.CHEMISTRYROUTE: (ctx) =>const ChemistryScreen(),
-          MyRoutes.SESROUTE: (ctx) =>const SESScreen(),
-          MyRoutes.VISUALARTROUTE: (ctx) =>const VisualArtScreen(),
-          MyRoutes.MUSICALEDUCATIONROUTE: (ctx) =>const MusicalEducationScreen(),
           MyRoutes.PHOTOGRAPHYROUTE: (ctx) =>const PhotographyScreen(),
           MyRoutes.HOMECHEFROUTE: (ctx) =>const HomeChefScreen(),
           MyRoutes.BARTENDERROUTE: (ctx) =>const BartenderScreen(),

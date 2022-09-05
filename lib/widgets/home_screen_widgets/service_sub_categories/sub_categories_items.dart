@@ -316,67 +316,119 @@ class SubCategoriesItems extends StatelessWidget {
               break;
             case 48:
               {
-                Navigator.of(context).pushNamed(MyRoutes.SPANISHROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 49:
               {
-                Navigator.of(context).pushNamed(MyRoutes.CREOLEROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 50:
               {
-                Navigator.of(context).pushNamed(MyRoutes.MATHEMATICALROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 51:
               {
-                Navigator.of(context).pushNamed(MyRoutes.STORYROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 52:
               {
-                Navigator.of(context).pushNamed(MyRoutes.GEOGRAPHYROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 53:
               {
-                Navigator.of(context).pushNamed(MyRoutes.PHILOSOPHYROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 54:
               {
-                Navigator.of(context).pushNamed(MyRoutes.ENGINEERINGSCIENCEROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 55:
               {
-                Navigator.of(context).pushNamed(MyRoutes.SVTROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 56:
               {
-                Navigator.of(context).pushNamed(MyRoutes.PHYSICALROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 57:
               {
-                Navigator.of(context).pushNamed(MyRoutes.CHEMISTRYROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 58:
               {
-                Navigator.of(context).pushNamed(MyRoutes.SESROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 59:
               {
-                Navigator.of(context).pushNamed(MyRoutes.VISUALARTROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 60:
               {
-                Navigator.of(context).pushNamed(MyRoutes.MUSICALEDUCATIONROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 61:
