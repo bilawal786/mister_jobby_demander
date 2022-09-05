@@ -386,6 +386,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.BARTENDERROUTE);
               }
               break;
+            case 64:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.WAITERROUTE);
+              }
+              break;
 
 
           }
