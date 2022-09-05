@@ -263,77 +263,137 @@ class SubCategoriesItems extends StatelessWidget {
               break;
             case 31:
               {
-                Navigator.of(context).pushNamed(MyRoutes.KEEPCATROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.KEEPCATROUTE, arguments: {
+                'mainCategoryId': mainCategoryId,
+                'subCategoryId': subCategory.id,
+                'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 32:
               {
-                Navigator.of(context).pushNamed(MyRoutes.KEEPANIMALSROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.KEEPANIMALSROUTE , arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 33:
               {
-                Navigator.of(context).pushNamed(MyRoutes.CLEANCOMPUTERROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.CLEANCOMPUTERROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 34:
               {
-                Navigator.of(context).pushNamed(MyRoutes.COMPUTERCOURSESROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.COMPUTERCOURSESROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 35:
               {
-                Navigator.of(context).pushNamed(MyRoutes.INSTALLPRINTERROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.INSTALLPRINTERROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 36:
               {
-                Navigator.of(context).pushNamed(MyRoutes.COMPUTERJOBROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.COMPUTERJOBROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 37:
               {
-                Navigator.of(context).pushNamed(MyRoutes.HOMECAREROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.HOMECAREROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 38:
               {
-                Navigator.of(context).pushNamed(MyRoutes.MEDICINEDELIVERYROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.MEDICINEDELIVERYROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 39:
               {
-                Navigator.of(context).pushNamed(MyRoutes.DELIVERGROCERIESROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.DELIVERGROCERIESROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 40:
               {
-                Navigator.of(context).pushNamed(MyRoutes.HOMEDELIVERYROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.HOMEDELIVERYROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 41:
               {
-                Navigator.of(context).pushNamed(MyRoutes.ACCOMPANIMENTRACEROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.ACCOMPANIMENTRACEROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 42:
               {
-                Navigator.of(context).pushNamed(MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 43:
               {
-                Navigator.of(context).pushNamed(MyRoutes.PREPAREMEALROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.PREPAREMEALROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 44:
               {
-                Navigator.of(context).pushNamed(MyRoutes.WAITERWAITRESSROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.WAITERWAITRESSROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 45:
               {
-                Navigator.of(context).pushNamed(MyRoutes.SEWINGALTERATIONROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.SEWINGALTERATIONROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 46:
