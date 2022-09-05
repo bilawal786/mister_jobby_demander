@@ -107,6 +107,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/photography_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/home_chef_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/bartender_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/waiter_screen.dart';
 
 
 void main() async {
@@ -334,6 +335,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.PHOTOGRAPHYROUTE: (ctx) =>const PhotographyScreen(),
           MyRoutes.HOMECHEFROUTE: (ctx) =>const HomeChefScreen(),
           MyRoutes.BARTENDERROUTE: (ctx) =>const BartenderScreen(),
+          MyRoutes.WAITERROUTE: (ctx) =>const WaiterScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
