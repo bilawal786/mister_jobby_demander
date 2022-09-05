@@ -113,13 +113,12 @@ class GeneralStep2Screen extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
+            height: MediaQuery.of(context).size.width / 30,
           ),
           Consumer<ConstProvider>(
             builder: (_, duration, child) => SizedBox(
-              width: MediaQuery.of(context).size.width / 2.8,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   RoundedButton(
                     onTap: duration.durationDecrement,
@@ -130,14 +129,14 @@ class GeneralStep2Screen extends StatelessWidget {
                     // color: buttonColorSubTract,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 30,
+                    width: MediaQuery.of(context).size.width / 20,
                   ),
                   Text(
                     "${duration.duration}",
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    width: MediaQuery.of(context).size.width / 20,
                   ),
                   RoundedButton(
                     onTap: duration.durationIncrement,
@@ -160,13 +159,12 @@ class GeneralStep2Screen extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
+            height: MediaQuery.of(context).size.width / 30,
           ),
           Consumer<ConstProvider>(
             builder: (_, hourlyRateData, child) => SizedBox(
-              width: MediaQuery.of(context).size.width / 2.8,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   RoundedButton(
                     onTap: hourlyRateData.hourlyRateDecrement,
@@ -177,14 +175,14 @@ class GeneralStep2Screen extends StatelessWidget {
                     // color: buttonColorSubTract,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    width: MediaQuery.of(context).size.width / 13.5,
                   ),
                   Text(
                     "${hourlyRateData.hourlyRate}",
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    width: MediaQuery.of(context).size.width / 13.5,
                   ),
                   RoundedButton(
                     onTap: hourlyRateData.hourlyRateIncrement,
@@ -246,14 +244,12 @@ class GeneralStep2Screen extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
+            height: MediaQuery.of(context).size.width / 30,
           ),
           Consumer<ConstProvider>(
             builder: (_,providerCountData,child)=>
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 2.8,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       RoundedButton(
                         onTap: providerCountData.providerAmountDecrement,
@@ -264,14 +260,14 @@ class GeneralStep2Screen extends StatelessWidget {
                         // color: buttonColorSubTract,
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.width / 40,
+                        width: MediaQuery.of(context).size.width / 13.5,
                       ),
                       Text(
                         "${providerCountData.providersAmount}",
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.width / 40,
+                        width: MediaQuery.of(context).size.width / 13.5,
                       ),
                       RoundedButton(
                         onTap:providerCountData.providerAmountIncrement,
@@ -279,7 +275,6 @@ class GeneralStep2Screen extends StatelessWidget {
                     ],
                   ),
                 ),
-          ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
