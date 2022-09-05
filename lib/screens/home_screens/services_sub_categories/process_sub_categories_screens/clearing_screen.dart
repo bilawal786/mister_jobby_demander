@@ -6,7 +6,6 @@ import '../process_child_screen_steps/general_step_2.dart';
 import '../process_child_screen_steps/general_step_3.dart';
 import '../process_sub_categories_steps/clearing_step.dart';
 
-
 import '../../../../providers/const_provider/const_provider.dart';
 
 class ClearingScreen extends StatefulWidget {
@@ -21,6 +20,10 @@ class _ClearingScreenState extends State<ClearingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryId = routeArgs['mainCategoryId'];
+    final subCategoryId = routeArgs['subCategoryId'];
+    final subCategoryTitle = routeArgs['subCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -35,7 +38,7 @@ class _ClearingScreenState extends State<ClearingScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Clearing",
+            subCategoryTitle,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -48,6 +51,29 @@ class _ClearingScreenState extends State<ClearingScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
+              print('mainCategoryId: $mainCategoryId');
+              print("subCategoryId: $subCategoryId");
+              print("subCategoryTitle: $subCategoryTitle");
+              print("Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
+              print("Own Equipment yes: ${constProviderData.jobberBringMaterialYes}");
+              print("Own Equipment No: ${constProviderData.jobberBringMaterialNo}");
+              print("waste Remove yes: ${constProviderData.jobberRemoveWasteYes}");
+              print("waste Remove No: ${constProviderData.jobberRemoveWasteNo}");
+              print("waste Remove No: ${constProviderData.requestFrequencyTrueValue}");
+              print("selected date: ${constProviderData.selectedDate}");
+              print("selected time: ${constProviderData.pickedTime}");
+              print("selected duration: ${constProviderData.duration}");
+              print("selected rate: ${constProviderData.hourlyRate}");
+              print("isUrgent : ${constProviderData.checkUrgentJob}");
+              print("provider required : ${constProviderData.providersAmount}");
+              print("image1 : ${constProviderData.imageFile0}");
+              print("image2 : ${constProviderData.imageFile1}");
+              print("image3 : ${constProviderData.imageFile2}");
+              print("address : ${constProviderData.completeAddress}");
+              print("longitude : ${constProviderData.longitude}");
+              print("latitude : ${constProviderData.latitude}");
+              print("Postal Code : ${constProviderData.postalCode}");
+              print("work Description : ${constProviderData.workDetails}");
             } else {
               setState(() => currentStep += 1);
             }

@@ -20,6 +20,10 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
+    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryId = routeArgs['mainCategoryId'];
+    final subCategoryId = routeArgs['subCategoryId'];
+    final subCategoryTitle = routeArgs['subCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -34,7 +38,7 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Mow the Lawn",
+            "$subCategoryTitle",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -47,6 +51,29 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
+              print('mainCategoryId: $mainCategoryId');
+              print("subCategoryId: $subCategoryId");
+              print("subCategoryTitle: $subCategoryTitle");
+              print("Area to mow: ${constProviderData.areaToMowSliderValue}");
+              print("Own Equipment yes: ${constProviderData.jobberOwnMoverYes}");
+              print("Own Equipment No: ${constProviderData.jobberOwnMoverNo}");
+              print("Remove waste Yes: ${constProviderData.jobberRemoveWasteYes}");
+              print("Remove Waste No: ${constProviderData.jobberRemoveWasteNo}");
+              print("Frequency Value: ${constProviderData.requestFrequencyTrueValue}");
+              print("selected date: ${constProviderData.selectedDate}");
+              print("selected time: ${constProviderData.pickedTime}");
+              print("selected duration: ${constProviderData.duration}");
+              print("selected rate: ${constProviderData.hourlyRate}");
+              print("isUrgent : ${constProviderData.checkUrgentJob}");
+              print("provider required : ${constProviderData.providersAmount}");
+              print("image1 : ${constProviderData.imageFile0}");
+              print("image2 : ${constProviderData.imageFile1}");
+              print("image3 : ${constProviderData.imageFile2}");
+              print("address : ${constProviderData.completeAddress}");
+              print("longitude : ${constProviderData.longitude}");
+              print("latitude : ${constProviderData.latitude}");
+              print("Postal Code : ${constProviderData.postalCode}");
+              print("work Description : ${constProviderData.workDetails}");
             } else {
               setState(() => currentStep += 1);
             }

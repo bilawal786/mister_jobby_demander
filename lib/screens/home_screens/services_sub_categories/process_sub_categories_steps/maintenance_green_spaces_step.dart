@@ -10,8 +10,8 @@ class MaintenanceGreenSpaceStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final constProviderData =
-    // Provider.of<ConstProvider>(context, listen: false);
+    final constProviderData =
+    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,20 +28,7 @@ class MaintenanceGreenSpaceStep extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
-          ),
-          TextFormField(
-            initialValue: 'Maintenance_Green_Space_Step_Item1_Title'.tr(),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Titre de la demande',
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: false,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Maintenance_Green_Space_Step_Item2_Title".tr(),
@@ -52,7 +39,9 @@ class MaintenanceGreenSpaceStep extends StatelessWidget {
           ),
 
           TextFormField(
-            onChanged: (value){},
+            onChanged: (value){
+              constProviderData.needWork = value;
+            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Maintenance_Green_Space_Step_Item2_Title'.tr(),
@@ -62,10 +51,8 @@ class MaintenanceGreenSpaceStep extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
             maxLines: 5,
           ),
-
-
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 30,
           ),
           Text(
             "Weeding_Step_Item3_Title".tr(),

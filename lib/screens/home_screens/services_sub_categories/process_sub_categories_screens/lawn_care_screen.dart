@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/general_step_2.dart';
@@ -21,6 +20,10 @@ class _LawnCareScreenState extends State<LawnCareScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final mainCategoryId = routeArgs['mainCategoryId'];
+    final subCategoryId = routeArgs['subCategoryId'];
+    final subCategoryTitle = routeArgs['subCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -35,7 +38,7 @@ class _LawnCareScreenState extends State<LawnCareScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Lawn Care",
+            subCategoryTitle,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -48,6 +51,25 @@ class _LawnCareScreenState extends State<LawnCareScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
+              print('mainCategoryId: $mainCategoryId');
+              print("subCategoryId: $subCategoryId");
+              print("subCategoryTitle: $subCategoryTitle");
+              print("need Work: ${constProviderData.needWork}");
+              print("waste Remove No: ${constProviderData.requestFrequencyTrueValue}");
+              print("selected date: ${constProviderData.selectedDate}");
+              print("selected time: ${constProviderData.pickedTime}");
+              print("selected duration: ${constProviderData.duration}");
+              print("selected rate: ${constProviderData.hourlyRate}");
+              print("isUrgent : ${constProviderData.checkUrgentJob}");
+              print("provider required : ${constProviderData.providersAmount}");
+              print("image1 : ${constProviderData.imageFile0}");
+              print("image2 : ${constProviderData.imageFile1}");
+              print("image3 : ${constProviderData.imageFile2}");
+              print("address : ${constProviderData.completeAddress}");
+              print("longitude : ${constProviderData.longitude}");
+              print("latitude : ${constProviderData.latitude}");
+              print("Postal Code : ${constProviderData.postalCode}");
+              print("work Description : ${constProviderData.workDetails}");
             } else {
               setState(() => currentStep += 1);
             }
