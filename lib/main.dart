@@ -94,6 +94,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/creole_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/mathematical_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/story_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/geography_screen.dart';
 
 
 void main() async {
@@ -309,6 +310,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.CREOLEROUTE: (ctx) =>const CreoleScreen(),
           MyRoutes.MATHEMATICALROUTE: (ctx) =>const MathematicalScreen(),
           MyRoutes.STORYROUTE: (ctx) =>const StoryScreen(),
+          MyRoutes.GEOGRAPHYROUTE: (ctx) =>const GeographyScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
