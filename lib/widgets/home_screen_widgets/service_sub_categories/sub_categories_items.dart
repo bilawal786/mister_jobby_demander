@@ -475,6 +475,11 @@ class SubCategoriesItems extends StatelessWidget {
               Navigator.of(context).pushNamed(MyRoutes.HOSTHOTESSROUTE);
             }
             break;
+            case 69:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.ADMINISTRAVTIVETASKROUTE);
+              }
+              break;
           }
         }
       },

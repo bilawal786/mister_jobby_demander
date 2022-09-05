@@ -84,6 +84,7 @@ class MyRoutes{
   static String ANIMATORROUTE = '/Animator_Screen';
   static String FLYERSDISTRIBUTIONROUTE = '/Flyers_Distribution_Screen';
   static String HOSTHOTESSROUTE = '/Host_Hotess_Screen';
+  static String ADMINISTRAVTIVETASKROUTE = '/Administrative_Task_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
