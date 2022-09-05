@@ -287,7 +287,7 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Postel_Code",
+            "Postal_Code",
             style: Theme.of(context).textTheme.titleSmall,
           ).tr(),
           SizedBox(
@@ -297,7 +297,7 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
             controller: postalCodeController,
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              labelText: "Postel_Code".tr(),
+              labelText: "Postal_Code".tr(),
               isDense: true,
             ),
             style: Theme.of(context).textTheme.bodySmall,
