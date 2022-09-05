@@ -95,6 +95,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/mathematical_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/story_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/geography_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/child_care.dart';
 
 
 void main() async {
@@ -318,6 +319,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.INSUREDSERVICESROUTE: (ctx) => const InsuredServicesScreen(),
           MyRoutes.CANCELLATIONPROTECTIONROUTE: (ctx) => const CancellationProtectionScreen(),
           MyRoutes.SECUREPAYMENTSROUTE: (ctx) => const SecurePaymentsScreen(),
+          MyRoutes.CHILDCAREROUTE: (ctx) => const ChildCareScreen(),
         },
       ),
     );

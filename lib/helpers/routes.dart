@@ -88,6 +88,7 @@ class MyRoutes{
   static String INSUREDSERVICESROUTE = '/Insured-Services-Screen';
   static String CANCELLATIONPROTECTIONROUTE = '/Cancellation-Screen';
   static String SECUREPAYMENTSROUTE = '/Secure-payment-Screen';
+  static String CHILDCAREROUTE = '/Child-Care-Screen';
 
 
   static String BASEURL = 'https://misterjobby.ikaedigital.com/api';
