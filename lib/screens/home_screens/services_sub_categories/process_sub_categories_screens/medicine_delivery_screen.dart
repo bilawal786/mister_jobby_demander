@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
-
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/general_step_2.dart';
@@ -64,11 +62,9 @@ class _MedicineDeliveryScreenState extends State<MedicineDeliveryScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_, size, child) => Row(
+                builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if (size.tvHangNo > 0 &&
-                        (size.jobberBringMaterialYes == true ||
-                            size.jobberBringMaterialNo == true))
+                    if (need.requestFrequencyTrueValue > 0)
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

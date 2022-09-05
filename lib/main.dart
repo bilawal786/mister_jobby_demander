@@ -311,7 +311,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.DELIVERGROCERIESROUTE: (ctx) =>const DeliverGroceriesScreen(),
           MyRoutes.HOMEDELIVERYROUTE: (ctx) =>const HomeDeliveryScreen(),
           MyRoutes.ACCOMPANIMENTRACEROUTE: (ctx) =>const AccompanimentRaceScreen(),
-          MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE: (ctx) =>const AccompanimentMedicalAppoinmentScreen(),
+          MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE: (ctx) =>const AccompanimentMedicalAppointmentScreen(),
           MyRoutes.PREPAREMEALROUTE: (ctx) =>const PrepareMealScreen(),
           MyRoutes.WAITERWAITRESSROUTE: (ctx) =>const WaiterWaitressScreen(),
           MyRoutes.SEWINGALTERATIONROUTE: (ctx) =>const SewingAlterationScreen(),

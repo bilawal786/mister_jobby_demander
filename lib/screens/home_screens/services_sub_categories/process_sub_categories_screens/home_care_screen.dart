@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-
-
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/general_step_2.dart';
@@ -64,16 +62,9 @@ class _HomeCareScreenState extends State<HomeCareScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_, size, child) => Row(
+                builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if ((size.smallSizedFurnitureAmount > 0 ||
-                            size.mediumSizedFurnitureAmount > 0 ||
-                            size.largeSizedFurnitureAmount > 0 ||
-                            size.veryLargeSizedFurnitureAmount > 0) &&
-                        (size.jobberHedgeTimerNo == true ||
-                            size.jobberHedgeTimerYes == true) &&
-                        (size.jobberRemoveWasteYes == true ||
-                            size.jobberRemoveWasteNo == true))
+                    if (need.requestFrequencyTrueValue >0)
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,
