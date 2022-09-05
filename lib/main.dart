@@ -101,6 +101,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/svt_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/physical_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/chemistry_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/ses_screen.dart';
 
 
 void main() async {
@@ -322,6 +323,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.SVTROUTE: (ctx) =>const SVTScreen(),
           MyRoutes.PHYSICALROUTE: (ctx) =>const PhysicalScreen(),
           MyRoutes.CHEMISTRYROUTE: (ctx) =>const ChemistryScreen(),
+          MyRoutes.SESROUTE: (ctx) =>const SESScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),

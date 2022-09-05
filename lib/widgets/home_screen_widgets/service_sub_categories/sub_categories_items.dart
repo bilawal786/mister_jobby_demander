@@ -292,6 +292,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.CHEMISTRYROUTE);
               }
               break;
+            case 58:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.SESROUTE);
+              }
+              break;
 
 
           }

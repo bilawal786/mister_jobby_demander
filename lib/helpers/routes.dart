@@ -87,6 +87,7 @@ class MyRoutes{
   static String SVTROUTE = '/Svt_Screen';
   static String PHYSICALROUTE = '/Physical_Screen';
   static String CHEMISTRYROUTE = '/Chemistry_Screen';
+  static String SESROUTE = '/Ses_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
