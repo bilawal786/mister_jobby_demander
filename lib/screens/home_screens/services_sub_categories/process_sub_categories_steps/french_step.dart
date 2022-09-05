@@ -46,7 +46,7 @@ class FrenchStep extends StatelessWidget {
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
                   onTap: () =>
-                      requestFrequencyData.requestFrequencyFunction(index),
+                      requestFrequencyData.educationLevelFunction(index),
                   textTitle: index == 0
                       ? "French_Step_Button1_Title"
                       : index == 1
@@ -54,11 +54,11 @@ class FrenchStep extends StatelessWidget {
                       : index == 2
                       ? "French_Step_Button3_Title"
                       : "French_Step_Button4_Title",
-                  color: requestFrequencyData.requestFrequencyTrueValue - 1 ==
+                  color: requestFrequencyData.educationLevelTrueValue - 1 ==
                       index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: requestFrequencyData.requestFrequencyTrueValue - 1 ==
+                  border: requestFrequencyData.educationLevelTrueValue - 1 ==
                       index
                       ? true
                       : false,
@@ -77,7 +77,7 @@ class FrenchStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, requestFrequencyData, child) => SizedBox(
+            builder: (_, courseFormatData, child) => SizedBox(
               height: 50,
               child: ListView.builder(
                 shrinkWrap: true,
@@ -85,16 +85,16 @@ class FrenchStep extends StatelessWidget {
                 itemCount: 2,
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
-                  onTap: () =>
-                      requestFrequencyData.requestFrequencyFunction(index),
+                  onTap: () {
+                      courseFormatData.courseFormatFunction(index);},
                   textTitle: index == 0
                       ? "French_Step_Button5_Title"
                       : "French_Step_Button6_Title",
-                  color: requestFrequencyData.requestFrequencyTrueValue - 1 ==
+                  color: courseFormatData.courseFormatTrueValue - 1 ==
                       index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: requestFrequencyData.requestFrequencyTrueValue - 1 ==
+                  border: courseFormatData.courseFormatTrueValue - 1 ==
                       index
                       ? true
                       : false,

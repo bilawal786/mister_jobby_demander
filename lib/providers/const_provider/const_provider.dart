@@ -653,7 +653,23 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int educationLevelTrueValue = 0;
+
+  void educationLevelFunction(int index) {
+    educationLevelTrueValue = index + 1;
+    notifyListeners();
+  }
+
+  int courseFormatTrueValue = 0;
+
+  void courseFormatFunction(int index) {
+    courseFormatTrueValue = index + 1;
+    notifyListeners();
+  }
+
   void clearData() {
+    courseFormatTrueValue = 0;
+    educationLevelTrueValue = 0;
     checkDataBackUpValue = false;
     checkInstallingValue = false;
     selectedDateOfBirth = DateTime.now();
