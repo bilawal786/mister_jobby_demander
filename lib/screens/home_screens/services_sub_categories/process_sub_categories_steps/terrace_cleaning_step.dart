@@ -30,19 +30,6 @@ class TerraceCleaningStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          TextFormField(
-            initialValue: 'Terrace_Cleaning_Step_Item1_Title'.tr(),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Titre de la demande',
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: false,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
-          ),
           Text(
             "Terrace_Cleaning_Step_Item2_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,

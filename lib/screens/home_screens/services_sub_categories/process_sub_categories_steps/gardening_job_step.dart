@@ -26,20 +26,7 @@ class GardeningJobStep extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
-          ),
-          TextFormField(
-            initialValue: 'Gardening_Job_Step_Item1_Title'.tr(),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Titre de la demande',
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: false,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Gardening_Job_Step_Item2_Title".tr(),
@@ -60,7 +47,7 @@ class GardeningJobStep extends StatelessWidget {
             maxLines: 5,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width / 10,
+            height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
             "Weeding_Step_Item3_Title".tr(),

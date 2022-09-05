@@ -110,8 +110,6 @@ class MovingAssistanceStep extends StatelessWidget {
               ],
             ),
           ),
-
-
         ],
       ),
     );

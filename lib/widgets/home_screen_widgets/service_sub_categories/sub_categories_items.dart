@@ -298,12 +298,20 @@ class SubCategoriesItems extends StatelessWidget {
               break;
             case 46:
               {
-                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 47:
               {
-                Navigator.of(context).pushNamed(MyRoutes.ENGLISHROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 48:

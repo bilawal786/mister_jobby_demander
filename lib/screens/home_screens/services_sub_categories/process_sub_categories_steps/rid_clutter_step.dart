@@ -30,16 +30,6 @@ class RidClutterStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          // TextFormField(
-          //   initialValue: 'Rid_Clutter_Step_Item1_Title'.tr(),
-          //   decoration: const InputDecoration(
-          //     border: OutlineInputBorder(),
-          //     labelText: 'Titre de la demande',
-          //     isDense: true,
-          //   ),
-          //   style: Theme.of(context).textTheme.bodySmall,
-          //   enabled: false,
-          // ),
           Text(
             "Rid_Clutter_Step_Item2_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,

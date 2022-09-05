@@ -89,7 +89,6 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/waiter_waitress_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/sewing_alteration_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/french_screen.dart';
-import './screens/home_screens/services_sub_categories/process_sub_categories_screens/english_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/spanish_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/creole_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/mathematical_screen.dart';
@@ -318,7 +317,6 @@ class MyApp extends StatelessWidget {
           MyRoutes.WAITERWAITRESSROUTE: (ctx) =>const WaiterWaitressScreen(),
           MyRoutes.SEWINGALTERATIONROUTE: (ctx) =>const SewingAlterationScreen(),
           MyRoutes.FRENCHROUTE: (ctx) =>const FrenchScreen(),
-          MyRoutes.ENGLISHROUTE: (ctx) =>const EnglishScreen(),
           MyRoutes.SPANISHROUTE: (ctx) =>const SpanishScreen(),
           MyRoutes.CREOLEROUTE: (ctx) =>const CreoleScreen(),
           MyRoutes.MATHEMATICALROUTE: (ctx) =>const MathematicalScreen(),
