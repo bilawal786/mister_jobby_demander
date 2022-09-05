@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/models/country_model/country_model.dart';
+import 'package:mister_jobby/providers/country_provider/country_list_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -24,10 +26,21 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
     descriptionController.dispose();
     super.dispose();
   }
+   var isInit = true;
+  @override
+  void didChangeDependencies() {
+    if(isInit){
+      Provider.of<CountryProvider>(context).getCountries();
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     final constProviderData = Provider.of<ConstProvider>(context);
+    final countryData = Provider.of<CountryProvider>(context, listen: false);
+    final extractCountry = countryData.countryList;
     constProviderData.workDetails = descriptionController.text;
     return SingleChildScrollView(
       child: Column(
@@ -320,15 +333,46 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(),
-              labelText: "Country_Title".tr(),
-              isDense: true,
-            ),
-            style: Theme.of(context).textTheme.bodySmall,
-            enabled: true,
-          ),
+                Consumer<ConstProvider>(
+                  builder: (_,dropDownData,child)=>
+                   Container(
+                    height: 50.0,
+                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey, width: 1),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        hintText: "Select Country",
+                        hintStyle: Theme.of(context).textTheme.bodyMedium,
+                        isCollapsed: true,
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                      isExpanded: true,
+                      iconSize: 30.0,
+                      items:extractCountry?.map(
+                            (val) {
+                          return DropdownMenuItem<String>(
+                            value: val.id.toString(),
+                            child: Text(
+                              val.name,
+                              style:
+                              Theme.of(context).textTheme.bodySmall,
+                            ),
+                          );
+                        },
+                      ).toList(),
+                      onChanged: (val) {
+                        dropDownData.countryDropDownFunction(val);
+                        print("drop down value ${dropDownData.countryDropDownValue}");
+                      },
+                    ),
+                  ),
+                ),
+
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),

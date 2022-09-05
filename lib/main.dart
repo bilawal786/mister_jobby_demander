@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:mister_jobby/providers/country_provider/country_list_provider.dart';
 import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
@@ -125,6 +126,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => MainCategoriesProvider()),
+        ChangeNotifierProvider(create: (ctx) => CountryProvider()),
         ChangeNotifierProvider(create: (ctx) => ConstProvider()),
       ],
       child: MaterialApp(

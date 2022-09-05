@@ -618,6 +618,13 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  String countryDropDownValue = "";
+
+  countryDropDownFunction(value) {
+    genderDropDownValue = value!;
+    notifyListeners();
+  }
+
   void childCareIncrement() {
     childCareValue += 1;
     notifyListeners();
