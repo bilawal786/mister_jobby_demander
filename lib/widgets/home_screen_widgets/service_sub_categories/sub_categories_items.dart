@@ -302,6 +302,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.VISUALARTROUTE);
               }
               break;
+            case 60:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.MUSICALEDUCATIONROUTE);
+              }
+              break;
 
 
           }
