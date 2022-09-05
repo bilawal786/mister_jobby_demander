@@ -158,7 +158,7 @@ class BartenderStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 30,
           ),
           Text(
-            "Home_Chef_Step_Button3_Title".tr(),
+            "Bartender_Step_Button3_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
