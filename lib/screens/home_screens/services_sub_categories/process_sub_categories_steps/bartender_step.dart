@@ -18,21 +18,21 @@ class BartenderStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Home_Chef_Step_Title",
+            "Bartender_Step_Title",
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Home_Chef_Step_SubTitle",
+            "Bartender_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Home_Chef_Step_Text1_Title".tr(),
+            "Bartender_Step_Text1_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
@@ -74,7 +74,7 @@ class BartenderStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Home_Chef_Step_Button1_Title".tr(),
+            "Bartender_Step_Button1_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
@@ -116,7 +116,7 @@ class BartenderStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 30,
           ),
           Text(
-            "Home_Chef_Step_Button2_Title".tr(),
+            "Bartender_Step_Button2_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
