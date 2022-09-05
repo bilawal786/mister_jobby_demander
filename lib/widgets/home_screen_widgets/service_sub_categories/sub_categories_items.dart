@@ -456,6 +456,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.DJROUTE);
               }
               break;
+            case 66:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.ANIMATORROUTE);
+              }
+              break;
 
 
 

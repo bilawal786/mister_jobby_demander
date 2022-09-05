@@ -81,6 +81,7 @@ class MyRoutes{
   static String BARTENDERROUTE = '/Bartender_Screen';
   static String WAITERROUTE = '/Waiter_Screen';
   static String DJROUTE = '/Dj_Screen';
+  static String ANIMATORROUTE = '/Animator_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
