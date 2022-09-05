@@ -83,6 +83,7 @@ class MyRoutes{
   static String STORYROUTE = '/Story_Screen';
   static String GEOGRAPHYROUTE = '/Geography_Screen';
   static String PHILOSOPHYROUTE = '/Philosophy_Screen';
+  static String ENGINEERINGSCIENCEROUTE = '/Engineering_Science_Screen';
   static String HELPLINEROUTE = '/Helpline-Screen';
   static String ALLPROFILEVERIFIEDROUTE = '/All-Profile-Verified-Screen';
   static String FAIRCOMPENSATIONROUTE = '/Fair-Compensation-Screen';
