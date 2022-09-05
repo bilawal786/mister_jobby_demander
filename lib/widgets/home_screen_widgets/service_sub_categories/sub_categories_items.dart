@@ -470,6 +470,11 @@ class SubCategoriesItems extends StatelessWidget {
                 });
               }
               break;
+            case 68:
+            {
+              Navigator.of(context).pushNamed(MyRoutes.HOSTHOTESSROUTE);
+            }
+            break;
           }
         }
       },

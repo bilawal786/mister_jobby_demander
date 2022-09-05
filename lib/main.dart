@@ -97,6 +97,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/dj_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/animator_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/flyers_distribution_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/host_hotess_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -313,6 +314,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.DJROUTE: (ctx) =>const DJScreen(),
           MyRoutes.ANIMATORROUTE: (ctx) =>const AnimatorScreen(),
           MyRoutes.FLYERSDISTRIBUTIONROUTE: (ctx) =>const FlyersDistributionScreen(),
+          MyRoutes.HOSTHOTESSROUTE: (ctx) =>const HostHotessScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
