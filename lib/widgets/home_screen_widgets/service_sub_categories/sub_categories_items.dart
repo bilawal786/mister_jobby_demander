@@ -376,6 +376,11 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.PHOTOGRAPHYROUTE);
               }
               break;
+            case 62:
+              {
+                Navigator.of(context).pushNamed(MyRoutes.HOMECHEFROUTE);
+              }
+              break;
 
 
           }
