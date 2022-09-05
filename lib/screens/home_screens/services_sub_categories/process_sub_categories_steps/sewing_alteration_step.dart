@@ -10,6 +10,8 @@ class SewingAlterationStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final constProviderData =
+    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +38,9 @@ class SewingAlterationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           TextFormField(
-            onChanged: (value) {},
+            onChanged: (value) {
+              constProviderData.needWork = value;
+            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Rid_Clutter_Step_Item2_Title'.tr(),
