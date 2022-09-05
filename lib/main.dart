@@ -102,6 +102,7 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/administrative_tasks_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/vehicle_maintenance_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/vehicle_repair_screen.dart';
+import './screens/home_screens/services_sub_categories/process_sub_categories_screens/troubleshooting_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -323,6 +324,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.ADMINISTRAVTIVETASKROUTE: (ctx) =>const AdministrativeTaskScreen(),
           MyRoutes.VEHICLEMAINTENANCEROUTE: (ctx) =>const VehicleMaintenanceScreen(),
           MyRoutes.VEHICLEREPAIRROUTE: (ctx) =>const VehicleRepairScreen(),
+          MyRoutes.TROUBLESHOOTINGROUTE: (ctx) =>const TroubleShootingScreen(),
           MyRoutes.SEARCHROUTE: (ctx) => const SearchScreen(),
           MyRoutes.HELPLINEROUTE: (ctx) => const HelpLineScreen(),
           MyRoutes.ALLPROFILEVERIFIEDROUTE: (ctx) => const AllProfileVerifiedScreen(),
