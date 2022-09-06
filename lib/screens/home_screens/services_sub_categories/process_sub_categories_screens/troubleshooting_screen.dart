@@ -12,8 +12,7 @@ class TroubleShootingScreen extends StatefulWidget {
   const TroubleShootingScreen({Key? key}) : super(key: key);
 
   @override
-  State<TroubleShootingScreen> createState() =>
-      _TroubleShootingScreenState();
+  State<TroubleShootingScreen> createState() => _TroubleShootingScreenState();
 }
 
 class _TroubleShootingScreenState extends State<TroubleShootingScreen> {
@@ -64,11 +63,8 @@ class _TroubleShootingScreenState extends State<TroubleShootingScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.baseBoardInstallYes == true ||
-                            size.baseBoardInstallNo == true) &&
-                        size.fixesAmount > 0)
-                      Expanded(
-                          child: ElevatedButton(
+                    Expanded(
+                      child: ElevatedButton(
                         onPressed: details.onStepContinue,
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50.0),
@@ -86,28 +82,30 @@ class _TroubleShootingScreenState extends State<TroubleShootingScreen> {
                               color: Colors.white,
                               letterSpacing: 1),
                         ).tr(),
-                      )),
+                      ),
+                    ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     Expanded(
-                        child: ElevatedButton(
-                      onPressed: details.onStepCancel,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
-                        elevation: 0,
+                      child: ElevatedButton(
+                        onPressed: details.onStepCancel,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Colors.black12,
+                          elevation: 0,
+                        ),
+                        child: const Text(
+                          "Process_Screen_Cancel_Button",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black,
+                              letterSpacing: 1),
+                        ).tr(),
                       ),
-                      child: const Text(
-                        "Process_Screen_Cancel_Button",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Cerebri Sans Regular',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black,
-                            letterSpacing: 1),
-                      ).tr(),
-                    )),
+                    ),
                   ],
                 ),
               ),

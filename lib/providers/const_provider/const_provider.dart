@@ -711,6 +711,15 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+
+  int repairGroupValue = 1;
+
+  void checkRepairGroupValue(int? value) {
+    repairGroupValue = value!;
+    print(repairGroupValue);
+    notifyListeners();
+  }
+
   void clearData() {
     numberOfFlyersSliderValue = 100;
     discountYes = false;
@@ -778,7 +787,6 @@ class ConstProvider with ChangeNotifier {
     baseBoardInstallNo = false;
     cuttingMaterialYes = false;
     cuttingMaterialNo = false;
-    groupValue = 1;
     notifyListeners();
   }
 }

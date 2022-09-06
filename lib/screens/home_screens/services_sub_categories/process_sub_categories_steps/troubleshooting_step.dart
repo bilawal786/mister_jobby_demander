@@ -38,20 +38,20 @@ class TroubleShootingStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanComputer, child) => Column(
+            builder: (_, typeData, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 GroupRadioTile(
                   title: "TroubleShooting_Step_Radio1_Title",
                   value: 1,
-                  groupValue: cleanComputer.groupValue,
-                  onClick: cleanComputer.checkGroupValue,
+                  groupValue: typeData.groupValue,
+                  onClick: typeData.checkGroupValue,
                 ),
                 GroupRadioTile(
                   title: "TroubleShooting_Step_Radio2_Title",
                   value: 2,
-                  groupValue: cleanComputer.groupValue,
-                  onClick: cleanComputer.checkGroupValue,
+                  groupValue: typeData.groupValue,
+                  onClick: typeData.checkGroupValue,
                 ),
               ],
             ),
@@ -67,20 +67,20 @@ class TroubleShootingStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanComputer, child) => Column(
+            builder: (_, repairData, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 GroupRadioTile(
                   title: "TroubleShooting_Step_Radio3_Title",
                   value: 1,
-                  groupValue: cleanComputer.groupValue,
-                  onClick: cleanComputer.checkGroupValue,
+                  groupValue: repairData.repairGroupValue,
+                  onClick: repairData.checkRepairGroupValue,
                 ),
                 GroupRadioTile(
                   title: "TroubleShooting_Step_Radio4_Title",
                   value: 2,
-                  groupValue: cleanComputer.groupValue,
-                  onClick: cleanComputer.checkGroupValue,
+                  groupValue: repairData.repairGroupValue,
+                  onClick: repairData.checkRepairGroupValue,
                 ),
               ],
             ),

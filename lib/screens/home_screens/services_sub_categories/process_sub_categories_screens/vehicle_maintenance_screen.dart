@@ -8,7 +8,6 @@ import '../process_child_screen_steps/general_step_3.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/vehicle_maintenance_step.dart';
 
-
 class VehicleMaintenanceScreen extends StatefulWidget {
   const VehicleMaintenanceScreen({Key? key}) : super(key: key);
 
@@ -65,11 +64,8 @@ class _VehicleMaintenanceScreenState extends State<VehicleMaintenanceScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.baseBoardInstallYes == true ||
-                            size.baseBoardInstallNo == true) &&
-                        size.fixesAmount > 0)
-                      Expanded(
-                          child: ElevatedButton(
+                    Expanded(
+                      child: ElevatedButton(
                         onPressed: details.onStepContinue,
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50.0),
@@ -87,28 +83,30 @@ class _VehicleMaintenanceScreenState extends State<VehicleMaintenanceScreen> {
                               color: Colors.white,
                               letterSpacing: 1),
                         ).tr(),
-                      )),
+                      ),
+                    ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     Expanded(
-                        child: ElevatedButton(
-                      onPressed: details.onStepCancel,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
-                        elevation: 0,
+                      child: ElevatedButton(
+                        onPressed: details.onStepCancel,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Colors.black12,
+                          elevation: 0,
+                        ),
+                        child: const Text(
+                          "Process_Screen_Cancel_Button",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black,
+                              letterSpacing: 1),
+                        ).tr(),
                       ),
-                      child: const Text(
-                        "Process_Screen_Cancel_Button",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Cerebri Sans Regular',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black,
-                            letterSpacing: 1),
-                      ).tr(),
-                    )),
+                    ),
                   ],
                 ),
               ),

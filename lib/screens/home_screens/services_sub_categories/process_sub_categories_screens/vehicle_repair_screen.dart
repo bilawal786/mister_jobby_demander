@@ -65,9 +65,6 @@ class _VehicleRepairScreenState extends State<VehicleRepairScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.baseBoardInstallYes == true ||
-                        size.baseBoardInstallNo == true) &&
-                        size.fixesAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
