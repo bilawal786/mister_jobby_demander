@@ -62,28 +62,18 @@ class PhotographyStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,discountValue,child)=> Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: (){
-                      discountValue.discountYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: discountValue.discountYes == false ? false : true,
-                    color:discountValue.discountYes == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: discountValue.discountNoFunction,
-                    textTitle: "No",
-                    border: discountValue.discountNo == false ? false : true,
-                    color:discountValue.discountNo == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, discountData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>discountData.discountFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:discountData.discountValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: discountData.discountValue-1 == index ? true : false,
+              ),
+            ),),
           ),
         ],
       ),

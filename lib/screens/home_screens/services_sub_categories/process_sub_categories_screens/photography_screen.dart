@@ -20,7 +20,8 @@ class _PhotographyScreenState extends State<PhotographyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final routeArgs =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final mainCategoryId = routeArgs['mainCategoryId'];
     final subCategoryId = routeArgs['subCategoryId'];
     final subCategoryTitle = routeArgs['subCategoryTitle'];
@@ -85,7 +86,10 @@ class _PhotographyScreenState extends State<PhotographyScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, photoData, child) => Row(
                   children: <Widget>[
-                    if ((photoData.photoEditingTitle == "Yes" || photoData.photoEditingTitle == "No") && (photoData.discountYes == true || photoData.discountNo == true))
+                    if ((photoData.photoEditingTitle == "Yes" ||
+                            photoData.photoEditingTitle == "No") &&
+                        (photoData.discountTitle == "Yes" ||
+                            photoData.discountTitle == "No"))
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

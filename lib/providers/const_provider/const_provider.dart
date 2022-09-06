@@ -114,7 +114,18 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int  discountValue = 0;
+  String  discountTitle = "";
 
+  void  discountFunction(int index) {
+    discountValue = index + 1;
+    if (discountValue == 1) {
+      discountTitle = "Yes";
+    } else {
+      discountTitle = "No";
+    }
+    notifyListeners();
+  }
 
 
   void smallFurnitureAmountIncrement() {
@@ -686,20 +697,6 @@ class ConstProvider with ChangeNotifier {
 
 
 
-  bool discountYes = false;
-  bool discountNo = false;
-
-  void discountYesFunction() {
-    discountYes = true;
-    discountNo = false;
-    notifyListeners();
-  }
-
-  void discountNoFunction() {
-    discountYes = false;
-    discountNo = true;
-    notifyListeners();
-  }
 
   double numberOfFlyersSliderValue = 100;
 
@@ -720,8 +717,8 @@ class ConstProvider with ChangeNotifier {
     cleanBoxTitle = "";
     cleanBoxFurniture = 0;
     numberOfFlyersSliderValue = 100;
-    discountYes = false;
-    discountNo = false;
+    discountValue = 0;
+    discountTitle = "";
     photoEditingValue = 0;
     photoEditingTitle = "";
     courseFormatTrueValue = 0;
