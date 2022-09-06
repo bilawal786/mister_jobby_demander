@@ -89,7 +89,7 @@ class _JobRemovalScreenState extends State<JobRemovalScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,need,child) => Row(
                   children: <Widget>[
-                    if(need.jobberBringMaterialTitle == "yes" || need.jobberBringMaterialTitle == "No")
+                    if(need.jobberBringMaterialTitle == "Yes" || need.jobberBringMaterialTitle == "No")
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

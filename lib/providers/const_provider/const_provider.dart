@@ -52,11 +52,11 @@ class ConstProvider with ChangeNotifier {
   String jobberOwnMoverTitle = "";
 
   void jobberOwnMoverFunction(int index) {
-    jobberRemoveWasteValue = index + 1;
-    if ( jobberRemoveWasteValue == 1) {
-      jobberRemoveWasteTitle = "Yes";
+    jobberOwnMoverValue = index + 1;
+    if ( jobberOwnMoverValue == 1) {
+      jobberOwnMoverTitle = "Yes";
     } else {
-      jobberRemoveWasteTitle = "No";
+      jobberOwnMoverTitle = "No";
     }
     notifyListeners();
   }
@@ -65,11 +65,11 @@ class ConstProvider with ChangeNotifier {
   String  jobberRemoveWasteTitle = "";
 
   void  jobberRemoveWasteFunction(int index) {
-    jobberOwnMoverValue = index + 1;
-    if (jobberOwnMoverValue == 1) {
-      jobberOwnMoverTitle = "Yes";
+    jobberRemoveWasteValue = index + 1;
+    if (jobberRemoveWasteValue == 1) {
+      jobberRemoveWasteTitle = "Yes";
     } else {
-      jobberOwnMoverTitle = "No";
+      jobberRemoveWasteTitle = "No";
     }
     notifyListeners();
   }

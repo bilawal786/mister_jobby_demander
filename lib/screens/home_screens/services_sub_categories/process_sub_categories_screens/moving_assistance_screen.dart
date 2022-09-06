@@ -87,7 +87,7 @@ class _MovingAssistanceScreenState extends State<MovingAssistanceScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if (size.jobberBringMaterialTitle == "yes" || size.jobberBringMaterialTitle == "No")
+                    if (size.jobberBringMaterialTitle == "Yes" || size.jobberBringMaterialTitle == "No")
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
