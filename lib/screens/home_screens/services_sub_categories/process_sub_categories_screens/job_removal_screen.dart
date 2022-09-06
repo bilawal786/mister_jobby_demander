@@ -59,7 +59,7 @@ class _JobRemovalScreenState extends State<JobRemovalScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("own material: ${constProviderData.needWork}");
-              print("own material: ${constProviderData.jobberBringMaterialYes}");
+              print("own material: ${constProviderData.jobberBringMaterialTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -89,7 +89,7 @@ class _JobRemovalScreenState extends State<JobRemovalScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,need,child) => Row(
                   children: <Widget>[
-                    if(need.jobberBringMaterialYes == true || need.jobberBringMaterialNo == true)
+                    if(need.jobberBringMaterialTitle == "yes" || need.jobberBringMaterialTitle == "No")
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

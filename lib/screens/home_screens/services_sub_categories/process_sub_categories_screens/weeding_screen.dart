@@ -56,8 +56,6 @@ class _WeedingScreenState extends State<WeedingScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
-              print("Own Equipment yes: ${constProviderData.jobberBringMaterialYes}");
-              print("Own Equipment No: ${constProviderData.jobberBringMaterialNo}");
               print("waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
               print("waste Remove No: ${constProviderData.requestFrequencyTrueValue}");
               print("selected date: ${constProviderData.selectedDate}");

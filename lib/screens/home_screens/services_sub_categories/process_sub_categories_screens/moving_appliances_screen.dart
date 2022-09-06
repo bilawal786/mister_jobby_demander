@@ -56,7 +56,7 @@ class _MovingAppliancesScreenState extends State<MovingAppliancesScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("no of furniture: ${constProviderData.tvHangNo}");
-              print("own material: ${constProviderData.jobberBringMaterialYes}");
+              print("own material: ${constProviderData.jobberBringMaterialTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -86,7 +86,7 @@ class _MovingAppliancesScreenState extends State<MovingAppliancesScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if (size.tvHangNo > 0 && (size.jobberBringMaterialYes  == true || size.jobberBringMaterialNo == true))
+                    if (size.tvHangNo > 0 && (size.jobberBringMaterialTitle  == "Yes" || size.jobberBringMaterialTitle == "No"))
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

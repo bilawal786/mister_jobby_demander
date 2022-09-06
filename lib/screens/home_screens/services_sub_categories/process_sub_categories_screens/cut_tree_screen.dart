@@ -60,7 +60,7 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
               print("Own Equipment No: ${constProviderData.mediumSizedFurnitureAmount}");
               print("Remove waste Yes: ${constProviderData.largeSizedFurnitureAmount}");
               print("waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
-              print("waste Remove yes: ${constProviderData.jobberBringMaterialYes}");
+              print("waste Remove yes: ${constProviderData.jobberBringMaterialTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -93,8 +93,8 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
                     if ((size.smallSizedFurnitureAmount > 0 ||
                             size.mediumSizedFurnitureAmount > 0 ||
                             size.largeSizedFurnitureAmount > 0) &&
-                        (size.jobberBringMaterialYes == true ||
-                            size.jobberBringMaterialNo == true) &&
+                        (size.jobberBringMaterialTitle == "Yes" ||
+                            size.jobberBringMaterialTitle == "No") &&
                         (size.jobberRemoveWasteTitle == "Yes" ||
                             size.jobberRemoveWasteTitle == "No"))
                       Expanded(

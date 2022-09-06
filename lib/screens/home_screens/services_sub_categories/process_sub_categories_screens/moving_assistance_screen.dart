@@ -57,8 +57,7 @@ class _MovingAssistanceScreenState extends State<MovingAssistanceScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("area: ${constProviderData.areaOfMoveSliderValue}");
-              print("own material yes: ${constProviderData.jobberBringMaterialYes}");
-              print("own material: ${constProviderData.jobberBringMaterialNo}");
+              print("own material yes: ${constProviderData.jobberBringMaterialTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -88,7 +87,7 @@ class _MovingAssistanceScreenState extends State<MovingAssistanceScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if (size.jobberBringMaterialYes == true || size.jobberBringMaterialNo == true)
+                    if (size.jobberBringMaterialTitle == "yes" || size.jobberBringMaterialTitle == "No")
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

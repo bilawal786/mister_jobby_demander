@@ -55,8 +55,7 @@ class _ClearingScreenState extends State<ClearingScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
-              print("Own Equipment yes: ${constProviderData.jobberBringMaterialYes}");
-              print("Own Equipment No: ${constProviderData.jobberBringMaterialNo}");
+              print("Own Equipment yes: ${constProviderData.jobberBringMaterialTitle}");
               print("waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
               print("waste Remove No: ${constProviderData.requestFrequencyTrueValue}");
               print("selected date: ${constProviderData.selectedDate}");
@@ -88,7 +87,7 @@ class _ClearingScreenState extends State<ClearingScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.jobberBringMaterialYes == true || size.jobberBringMaterialNo == true) && (size.jobberRemoveWasteTitle == "Yes" || size.jobberRemoveWasteTitle == "No") && (size.requestFrequencyTrueValue > 0))
+                    if ((size.jobberBringMaterialTitle == "Yes" || size.jobberBringMaterialTitle == "No") && (size.jobberRemoveWasteTitle == "Yes" || size.jobberRemoveWasteTitle == "No") && (size.requestFrequencyTrueValue > 0))
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

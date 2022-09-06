@@ -88,6 +88,20 @@ class ConstProvider with ChangeNotifier {
   }
 
 
+  int  jobberBringMaterialValue = 0;
+  String  jobberBringMaterialTitle = "";
+
+  void  jobberBringMaterialFunction(int index) {
+    jobberBringMaterialValue = index + 1;
+    if (jobberBringMaterialValue == 1) {
+      jobberBringMaterialTitle = "Yes";
+    } else {
+      jobberBringMaterialTitle = "No";
+    }
+    notifyListeners();
+  }
+
+
 
   void smallFurnitureAmountIncrement() {
     smallSizedFurnitureAmount += 1;
@@ -520,20 +534,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  bool jobberBringMaterialYes = false;
-  bool jobberBringMaterialNo = false;
 
-  void jobberBringMaterialYesFunction() {
-    jobberBringMaterialYes = true;
-    jobberBringMaterialNo = false;
-    notifyListeners();
-  }
-
-  void jobberBringMaterialNoFunction() {
-    jobberBringMaterialYes = false;
-    jobberBringMaterialNo = true;
-    notifyListeners();
-  }
 
   double numberOfTreesSliderValue = 1;
 
@@ -742,8 +743,8 @@ class ConstProvider with ChangeNotifier {
     postalCode = "";
     groupValue = 1;
     numberOfTreesSliderValue = 1;
-    jobberBringMaterialYes = false;
-    jobberBringMaterialNo = false;
+    jobberBringMaterialTitle = "";
+    jobberBringMaterialValue = 0;
     jobberHedgeTimerTitle = "";
     jobberHedgeTimerValue = 0;
     requestFrequencyTrueValue = 0;

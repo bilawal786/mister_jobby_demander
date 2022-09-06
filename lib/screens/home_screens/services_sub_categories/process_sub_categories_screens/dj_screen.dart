@@ -63,8 +63,8 @@ class _DJScreenState extends State<DJScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if ((need.jobberBringMaterialYes == true ||
-                            need.jobberBringMaterialNo == true) &&
+                    if ((need.jobberBringMaterialTitle == "Yes" ||
+                            need.jobberBringMaterialTitle == "No") &&
                         (need.jobberOwnMoverTitle == "Yes" ||
                             need.jobberOwnMoverTitle == "No"))
                       Expanded(

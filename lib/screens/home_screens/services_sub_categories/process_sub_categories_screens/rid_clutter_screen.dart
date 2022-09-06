@@ -57,7 +57,7 @@ class _RidClutterScreenState extends State<RidClutterScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("own material: ${constProviderData.needWork}");
-              print("own material: ${constProviderData.jobberBringMaterialYes}");
+              print("own material: ${constProviderData.jobberBringMaterialTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -87,7 +87,7 @@ class _RidClutterScreenState extends State<RidClutterScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,need,child) => Row(
                   children: <Widget>[
-                    if(need.jobberBringMaterialNo == true || need.jobberBringMaterialYes == true)
+                    if(need.jobberBringMaterialTitle == "Yes" || need.jobberBringMaterialTitle == "No")
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

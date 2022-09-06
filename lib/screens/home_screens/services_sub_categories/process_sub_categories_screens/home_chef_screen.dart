@@ -65,8 +65,8 @@ class _HomeChefScreenState extends State<HomeChefScreen> {
                 builder: (_, size, child) => Row(
                   children: <Widget>[
                     if ((size.fixesAmount > 0) &&
-                        (size.jobberBringMaterialYes == true ||
-                            size.jobberBringMaterialNo == true) &&
+                        (size.jobberBringMaterialTitle == "Yes" ||
+                            size.jobberBringMaterialTitle == "No") &&
                         (size.jobberHedgeTimerTitle == "Yes" ||
                             size.jobberHedgeTimerTitle == "No") &&
                         (size.jobberRemoveWasteTitle == "Yes" ||
