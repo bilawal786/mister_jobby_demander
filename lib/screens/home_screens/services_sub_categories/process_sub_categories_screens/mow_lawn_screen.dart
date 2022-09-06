@@ -20,13 +20,15 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
-    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final routeArgs =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final mainCategoryId = routeArgs['mainCategoryId'];
     final subCategoryId = routeArgs['subCategoryId'];
     final subCategoryTitle = routeArgs['subCategoryTitle'];
-    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
+    final constProviderData =
+        Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
-      onWillPop:  ()async{
+      onWillPop: () async {
         constProviderData.clearData();
         return true;
       },
@@ -55,11 +57,14 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("Area to mow: ${constProviderData.areaToMowSliderValue}");
-              print("Own Equipment yes: ${constProviderData.jobberOwnMoverYes}");
-              print("Own Equipment No: ${constProviderData.jobberOwnMoverNo}");
-              print("Remove waste Yes: ${constProviderData.jobberRemoveWasteYes}");
-              print("Remove Waste No: ${constProviderData.jobberRemoveWasteNo}");
-              print("Frequency Value: ${constProviderData.requestFrequencyTrueValue}");
+              print(
+                  "Own Equipment yes: ${constProviderData.jobberOwnMoverTitle}");
+              print(
+                  "Remove waste Yes: ${constProviderData.jobberRemoveWasteYes}");
+              print(
+                  "Remove Waste No: ${constProviderData.jobberRemoveWasteNo}");
+              print(
+                  "Frequency Value: ${constProviderData.requestFrequencyTrueValue}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -87,50 +92,54 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,lawnData,child) => Row(
+                builder: (_, lawnData, child) => Row(
                   children: <Widget>[
-                    if((lawnData.jobberOwnMoverYes == true || lawnData.jobberOwnMoverNo == true)&&(lawnData.jobberRemoveWasteYes == true || lawnData.jobberRemoveWasteNo == true)&&(lawnData.requestFrequencyTrueValue > 0))
+                    if ((lawnData.jobberOwnMoverTitle == "Yes" ||
+                            lawnData.jobberOwnMoverTitle == "No") &&
+                        (lawnData.jobberRemoveWasteYes == true ||
+                            lawnData.jobberRemoveWasteNo == true) &&
+                        (lawnData.requestFrequencyTrueValue > 0))
                       Expanded(
                           child: ElevatedButton(
-                            onPressed: details.onStepContinue,
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.fromHeight(50.0),
-                              primary: Theme.of(context).primaryColor,
-                              elevation: 5,
-                            ),
-                            child: Text(
-                              currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
-                              style: const TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'Cerebri Sans Regular',
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.white,
-                                  letterSpacing: 1
-                              ),
-                            ).tr(),
-                          )
-                      ),
-                    SizedBox(width: MediaQuery.of(context).size.width / 40,),
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 1
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
+                      )),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 40,
+                    ),
                     Expanded(
                         child: ElevatedButton(
-                          onPressed: details.onStepCancel,
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(50.0),
-                            primary: Colors.black12,
-                            elevation: 0,
-                          ),
-                          child: const Text(
-                            "Process_Screen_Cancel_Button",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Cerebri Sans Regular',
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                                letterSpacing: 1
-                            ),
-                          ).tr(),
-                        )
-                    ),
+                      onPressed: details.onStepCancel,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Colors.black12,
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        "Process_Screen_Cancel_Button",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            letterSpacing: 1),
+                      ).tr(),
+                    )),
                   ],
                 ),
               ),
@@ -142,22 +151,22 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
   }
 
   List<Step> getSteps() => [
-    Step(
-      isActive: currentStep >= 0,
-      state: currentStep > 0 ? StepState.complete : StepState.indexed,
-      title: const Text(""),
-      content: const MowLawnStep(),
-    ),
-    Step(
-      isActive: currentStep >= 1,
-      state: currentStep > 1 ? StepState.complete : StepState.indexed,
-      title: const Text(""),
-      content: const GeneralStep2Screen(),
-    ),
-    Step(
-      isActive: currentStep >= 2,
-      title: const Text(""),
-      content:const GeneralStep3Screen(),
-    ),
-  ];
+        Step(
+          isActive: currentStep >= 0,
+          state: currentStep > 0 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: const MowLawnStep(),
+        ),
+        Step(
+          isActive: currentStep >= 1,
+          state: currentStep > 1 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: const GeneralStep2Screen(),
+        ),
+        Step(
+          isActive: currentStep >= 2,
+          title: const Text(""),
+          content: const GeneralStep3Screen(),
+        ),
+      ];
 }

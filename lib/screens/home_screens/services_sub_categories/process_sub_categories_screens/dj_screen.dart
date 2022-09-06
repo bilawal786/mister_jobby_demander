@@ -63,7 +63,10 @@ class _DJScreenState extends State<DJScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if ((need.jobberBringMaterialYes == true  || need.jobberBringMaterialNo == true) && (need.jobberOwnMoverYes == true  || need.jobberOwnMoverNo == true))
+                    if ((need.jobberBringMaterialYes == true ||
+                            need.jobberBringMaterialNo == true) &&
+                        (need.jobberOwnMoverTitle == "Yes" ||
+                            need.jobberOwnMoverTitle == "No"))
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

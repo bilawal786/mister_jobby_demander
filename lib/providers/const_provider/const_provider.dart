@@ -48,6 +48,19 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int jobberOwnMoverValue = 0;
+  String jobberOwnMoverTitle = "";
+
+  void jobberOwnMoverFunction(int index) {
+    jobberOwnMoverValue = index + 1;
+    if (jobberOwnMoverValue == 1) {
+      jobberOwnMoverTitle = "Yes";
+    } else {
+      jobberOwnMoverTitle = "No";
+    }
+    notifyListeners();
+  }
+
   void smallFurnitureAmountIncrement() {
     smallSizedFurnitureAmount += 1;
     notifyListeners();
@@ -457,20 +470,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  bool jobberOwnMoverYes = false;
-  bool jobberOwnMoverNo = false;
 
-  void jobberOwnMoverYesFunction() {
-    jobberOwnMoverYes = true;
-    jobberOwnMoverNo = false;
-    notifyListeners();
-  }
-
-  void jobberOwnMoverNoFunction() {
-    jobberOwnMoverYes = false;
-    jobberOwnMoverNo = true;
-    notifyListeners();
-  }
 
   bool jobberRemoveWasteYes = false;
   bool jobberRemoveWasteNo = false;
@@ -749,8 +749,8 @@ class ConstProvider with ChangeNotifier {
     requestFrequencyTrueValue = 0;
     jobberRemoveWasteYes = false;
     jobberRemoveWasteNo = false;
-    jobberOwnMoverYes = false;
-    jobberOwnMoverNo = false;
+    jobberOwnMoverTitle = "";
+    jobberOwnMoverValue = 0;
     surfaceInstallationSliderValue = 10;
     liningInstallationSliderValue = 3;
     areaToMowSliderValue = 250;

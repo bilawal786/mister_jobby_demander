@@ -80,36 +80,18 @@ class DJStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, jobberData, child) => Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: () {
-                      jobberData.jobberOwnMoverYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: jobberData.jobberOwnMoverYes == false
-                        ? false
-                        : true,
-                    color: jobberData.jobberOwnMoverYes == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: jobberData.jobberOwnMoverNoFunction,
-                    textTitle: "No",
-                    border: jobberData.jobberOwnMoverNo == false
-                        ? false
-                        : true,
-                    color: jobberData.jobberOwnMoverNo == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, jobberData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>jobberData.jobberOwnMoverFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:jobberData.jobberOwnMoverValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: jobberData.jobberOwnMoverValue-1 == index ? true : false,
+              ),
+            ),),
           ),
         ],
       ),
