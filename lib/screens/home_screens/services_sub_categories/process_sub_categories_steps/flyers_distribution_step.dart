@@ -42,11 +42,7 @@ class FlyersDistributionStep extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(
-                      rangeSliderData.surfaceCleanSliderValue == 35
-                          ? '<${rangeSliderData.surfaceCleanSliderValue}m²'
-                          : rangeSliderData.surfaceCleanSliderValue == 205
-                              ? '>${rangeSliderData.surfaceCleanSliderValue}m²'
-                              : '${rangeSliderData.surfaceCleanSliderValue}m²',
+                      '${rangeSliderData.numberOfFlyersSliderValue.toStringAsFixed(0)}m²',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                       ),
@@ -62,12 +58,12 @@ class FlyersDistributionStep extends StatelessWidget {
                     ),
                     Expanded(
                       child: RangeSliderCLass(
-                        rangeValue: rangeSliderData.surfaceCleanSliderValue,
-                        minRange: 35,
-                        maxRange: 205,
-                        division: 17,
+                        rangeValue: rangeSliderData.numberOfFlyersSliderValue,
+                        minRange: 100,
+                        maxRange: 5000,
+                        division:4900,
                         onChanged: (value) =>
-                            rangeSliderData.surfaceCleanSliderFunction(value),
+                            rangeSliderData.numberOfFlyersSliderFunction(value),
                       ),
                     ),
                     Icon(
@@ -109,7 +105,7 @@ class FlyersDistributionStep extends StatelessWidget {
                     ),
                     GroupRadioTile(
                       title: "Flyers_Distribution_Step_Radio3_Title",
-                      value: 2,
+                      value: 3,
                       groupValue: cleanComputer.groupValue,
                       onClick: cleanComputer.checkGroupValue,
                     ),

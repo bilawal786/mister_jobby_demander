@@ -40,14 +40,14 @@ class HomeChefStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, floorsArrivalData, child) => Row(
+            builder: (_, restorationData, child) => Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 RoundedButton(
-                  onTap: floorsArrivalData.fixesAmountDecrement,
+                  onTap: restorationData.fixesAmountDecrement,
                   height: 50,
                   icon: Icons.remove,
-                  color: floorsArrivalData.fixesAmount < 1
+                  color: restorationData.fixesAmount < 1
                       ? Colors.blueGrey.shade300
                       : Theme.of(context).primaryColor,
                 ),
@@ -55,14 +55,14 @@ class HomeChefStep extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 Text(
-                  '${floorsArrivalData.fixesAmount}',
+                  '${restorationData.fixesAmount}',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 RoundedButton(
-                  onTap: floorsArrivalData.fixesAmountIncrement,
+                  onTap: restorationData.fixesAmountIncrement,
                   height: 50,
                   icon: Icons.add,
                   color: Theme.of(context).primaryColor,
@@ -81,27 +81,27 @@ class HomeChefStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanComputer, child) =>
+            builder: (_,restoreModeData, child) =>
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     GroupRadioTile(
                       title: "Home_Chef_Step_Radio1_Title",
                       value: 1,
-                      groupValue: cleanComputer.groupValue,
-                      onClick: cleanComputer.checkGroupValue,
+                      groupValue: restoreModeData.groupValue,
+                      onClick: restoreModeData.checkGroupValue,
                     ),
                     GroupRadioTile(
                       title: "Home_Chef_Step_Radio2_Title",
                       value: 2,
-                      groupValue: cleanComputer.groupValue,
-                      onClick: cleanComputer.checkGroupValue,
+                      groupValue: restoreModeData.groupValue,
+                      onClick: restoreModeData.checkGroupValue,
                     ),
                     GroupRadioTile(
                       title: "Home_Chef_Step_Radio3_Title",
-                      value: 2,
-                      groupValue: cleanComputer.groupValue,
-                      onClick: cleanComputer.checkGroupValue,
+                      value: 3,
+                      groupValue: restoreModeData.groupValue,
+                      onClick: restoreModeData.checkGroupValue,
                     ),
                   ],
                 ),
@@ -117,30 +117,30 @@ class HomeChefStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanBoxValue, child) => Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      jobberData.jobberBringMaterialYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false
+                    border: jobberData.jobberBringMaterialYes == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureYes == false
+                    color: jobberData.jobberBringMaterialYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberBringMaterialNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false
+                    border: jobberData.jobberBringMaterialNo == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureNo == false
+                    color: jobberData.jobberBringMaterialNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
@@ -159,30 +159,30 @@ class HomeChefStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanBoxValue, child) => Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      jobberData.jobberHedgeTimerYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false
+                    border: jobberData.jobberHedgeTimerYes == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureYes == false
+                    color: jobberData.jobberHedgeTimerYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberHedgeTimerNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false
+                    border: jobberData.jobberHedgeTimerNo == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureNo == false
+                    color: jobberData.jobberHedgeTimerNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
@@ -201,30 +201,30 @@ class HomeChefStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanBoxValue, child) => Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      jobberData.jobberRemoveWasteYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false
+                    border: jobberData.jobberRemoveWasteYes == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureYes == false
+                    color: jobberData.jobberRemoveWasteYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberRemoveWasteNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false
+                    border: jobberData.jobberRemoveWasteNo == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureNo == false
+                    color: jobberData.jobberRemoveWasteNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),

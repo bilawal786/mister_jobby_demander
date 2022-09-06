@@ -42,7 +42,7 @@ class _FlyersDistributionScreenState extends State<FlyersDistributionScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "Flyers Distribution",
+            subCategoryTitle,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -56,14 +56,11 @@ class _FlyersDistributionScreenState extends State<FlyersDistributionScreen> {
             if (isLastStep) {
               print("Step completed");
               print("Step completed");
-              // print('mainCategoryId: $mainCategoryId');
-              // print("subCategoryId: $subCategoryId");
-              // print("subCategoryTitle: $subCategoryTitle");
-              print(
-                  "own material: ${constProviderData.educationLevelTrueValue}");
-              print("own material: ${constProviderData.courseFormatTrueValue}");
-              print(
-                  "own material: ${constProviderData.requestFrequencyTrueValue}");
+              print('mainCategoryId: $mainCategoryId');
+              print("subCategoryId: $subCategoryId");
+              print("subCategoryTitle: $subCategoryTitle");
+              print("Number of Flyers: ${constProviderData.numberOfFlyersSliderValue}");
+              print("Distribution Type: ${constProviderData.groupValue}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -93,9 +90,6 @@ class _FlyersDistributionScreenState extends State<FlyersDistributionScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if (need.educationLevelTrueValue > 0 &&
-                        need.courseFormatTrueValue > 0 &&
-                        need.requestFrequencyTrueValue > 0)
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

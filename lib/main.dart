@@ -320,7 +320,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.DJROUTE: (ctx) =>const DJScreen(),
           MyRoutes.ANIMATORROUTE: (ctx) =>const AnimatorScreen(),
           MyRoutes.FLYERSDISTRIBUTIONROUTE: (ctx) =>const FlyersDistributionScreen(),
-          MyRoutes.HOSTHOTESSROUTE: (ctx) =>const HostHotessScreen(),
+          MyRoutes.HOSTHOTESSROUTE: (ctx) =>const HostHostessScreen(),
           MyRoutes.ADMINISTRAVTIVETASKROUTE: (ctx) =>const AdministrativeTaskScreen(),
           MyRoutes.VEHICLEMAINTENANCEROUTE: (ctx) =>const VehicleMaintenanceScreen(),
           MyRoutes.VEHICLEREPAIRROUTE: (ctx) =>const VehicleRepairScreen(),

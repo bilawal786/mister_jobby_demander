@@ -38,30 +38,30 @@ class DJStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanBoxValue, child) => Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      jobberData.jobberBringMaterialYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false
+                    border: jobberData.jobberBringMaterialYes == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureYes == false
+                    color: jobberData.jobberBringMaterialYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberBringMaterialNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false
+                    border: jobberData.jobberBringMaterialNo == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureNo == false
+                    color: jobberData.jobberBringMaterialNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
@@ -80,30 +80,30 @@ class DJStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanBoxValue, child) => Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      jobberData.jobberOwnMoverYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false
+                    border: jobberData.jobberOwnMoverYes == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureYes == false
+                    color: jobberData.jobberOwnMoverYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberOwnMoverNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false
+                    border: jobberData.jobberOwnMoverNo == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureNo == false
+                    color: jobberData.jobberOwnMoverNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),

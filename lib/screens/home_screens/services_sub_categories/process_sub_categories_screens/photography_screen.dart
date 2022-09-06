@@ -61,9 +61,9 @@ class _PhotographyScreenState extends State<PhotographyScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_, lawnData, child) => Row(
+                builder: (_, photoData, child) => Row(
                   children: <Widget>[
-                    if (lawnData.requestFrequencyTrueValue > 0)
+                    if ((photoData.photoEditingYes == true || photoData.photoEditingNo == true) && (photoData.discountYes == true || photoData.discountNo == true))
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

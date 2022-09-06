@@ -38,24 +38,24 @@ class PhotographyStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
+            builder: (_,photoEditingValue,child)=> Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: (){
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      photoEditingValue.photoEditingYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: photoEditingValue.photoEditingYes == false ? false : true,
+                    color:photoEditingValue.photoEditingYes == false ?Colors.grey.shade300:Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: photoEditingValue.photoEditingNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: photoEditingValue.photoEditingNo == false ? false : true,
+                    color:photoEditingValue.photoEditingNo == false ?Colors.grey.shade300:Colors.blue.shade50,
                   ),
                 ),
               ],
@@ -72,24 +72,24 @@ class PhotographyStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
+            builder: (_,discountValue,child)=> Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: (){
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      discountValue.discountYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: discountValue.discountYes == false ? false : true,
+                    color:discountValue.discountYes == false ?Colors.grey.shade300:Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: discountValue.discountNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
+                    border: discountValue.discountNo == false ? false : true,
+                    color:discountValue.discountNo == false ?Colors.grey.shade300:Colors.blue.shade50,
                   ),
                 ),
               ],

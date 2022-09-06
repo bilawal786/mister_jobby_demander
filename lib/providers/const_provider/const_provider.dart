@@ -674,7 +674,49 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  bool photoEditingYes = false;
+  bool photoEditingNo = false;
+
+  void photoEditingYesFunction() {
+    photoEditingYes = true;
+    photoEditingNo = false;
+    notifyListeners();
+  }
+
+  void photoEditingNoFunction() {
+    photoEditingYes = false;
+    photoEditingNo = true;
+    notifyListeners();
+  }
+
+  bool discountYes = false;
+  bool discountNo = false;
+
+  void discountYesFunction() {
+    discountYes = true;
+    discountNo = false;
+    notifyListeners();
+  }
+
+  void discountNoFunction() {
+    discountYes = false;
+    discountNo = true;
+    notifyListeners();
+  }
+
+  double numberOfFlyersSliderValue = 100;
+
+  numberOfFlyersSliderFunction(double newValue) {
+    numberOfFlyersSliderValue = newValue;
+    notifyListeners();
+  }
+
   void clearData() {
+    numberOfFlyersSliderValue = 100;
+    discountYes = false;
+    discountNo = false;
+    photoEditingYes = false;
+    photoEditingNo = false;
     courseFormatTrueValue = 0;
     educationLevelTrueValue = 0;
     checkDataBackUpValue = false;

@@ -40,14 +40,14 @@ class WaiterStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, floorsArrivalData, child) => Row(
+            builder: (_, promptsData, child) => Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 RoundedButton(
-                  onTap: floorsArrivalData.fixesAmountDecrement,
+                  onTap: promptsData.fixesAmountDecrement,
                   height: 50,
                   icon: Icons.remove,
-                  color: floorsArrivalData.fixesAmount < 1
+                  color: promptsData.fixesAmount < 1
                       ? Colors.blueGrey.shade300
                       : Theme.of(context).primaryColor,
                 ),
@@ -55,14 +55,14 @@ class WaiterStep extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 Text(
-                  '${floorsArrivalData.fixesAmount}',
+                  '${promptsData.fixesAmount}',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 10,
                 ),
                 RoundedButton(
-                  onTap: floorsArrivalData.fixesAmountIncrement,
+                  onTap: promptsData.fixesAmountIncrement,
                   height: 50,
                   icon: Icons.add,
                   color: Theme.of(context).primaryColor,
@@ -81,26 +81,26 @@ class WaiterStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanComputer, child) => Column(
+              builder: (_, restoreData, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 GroupRadioTile(
                   title: "Home_Chef_Step_Radio1_Title",
                   value: 1,
-                  groupValue: cleanComputer.groupValue,
-                  onClick: cleanComputer.checkGroupValue,
+                  groupValue: restoreData.groupValue,
+                  onClick: restoreData.checkGroupValue,
                 ),
                 GroupRadioTile(
                   title: "Home_Chef_Step_Radio2_Title",
                   value: 2,
-                  groupValue: cleanComputer.groupValue,
-                  onClick: cleanComputer.checkGroupValue,
+                  groupValue: restoreData.groupValue,
+                  onClick: restoreData.checkGroupValue,
                 ),
                 GroupRadioTile(
                   title: "Home_Chef_Step_Radio3_Title",
-                  value: 2,
-                  groupValue: cleanComputer.groupValue,
-                  onClick: cleanComputer.checkGroupValue,
+                  value: 3,
+                  groupValue: restoreData.groupValue,
+                  onClick: restoreData.checkGroupValue,
                 ),
               ],
             ),
@@ -116,30 +116,30 @@ class WaiterStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, cleanBoxValue, child) => Row(
+            builder: (_, jobberData, child) => Row(
               children: [
                 Expanded(
                   child: OutlineSelectedButton(
                     onTap: () {
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
+                      jobberData.jobberRemoveWasteYesFunction();
                     },
                     textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false
+                    border: jobberData.jobberRemoveWasteYes == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureYes == false
+                    color: jobberData.jobberRemoveWasteYes == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),
                 ),
                 Expanded(
                   child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
+                    onTap: jobberData.jobberRemoveWasteNoFunction,
                     textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false
+                    border: jobberData.jobberRemoveWasteNo == false
                         ? false
                         : true,
-                    color: cleanBoxValue.cleanBoxFurnitureNo == false
+                    color: jobberData.jobberRemoveWasteNo == false
                         ? Colors.grey.shade300
                         : Colors.blue.shade50,
                   ),

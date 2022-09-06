@@ -63,8 +63,13 @@ class _BartenderScreenState extends State<BartenderScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if (size.vehicleTypeTrueValue > 0 &&
-                        size.requestFrequencyTrueValue > 0)
+                    if ((size.fixesAmount > 0) &&
+                        (size.jobberBringMaterialYes == true ||
+                            size.jobberBringMaterialNo == true) &&
+                        (size.jobberHedgeTimerYes == true ||
+                            size.jobberHedgeTimerNo == true) &&
+                        (size.jobberRemoveWasteYes == true ||
+                            size.jobberRemoveWasteNo == true))
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,
