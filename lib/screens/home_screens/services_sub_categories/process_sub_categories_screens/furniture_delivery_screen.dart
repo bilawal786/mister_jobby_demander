@@ -56,7 +56,7 @@ class _FurnitureDeliveryScreenState extends State<FurnitureDeliveryScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
-              print("box clean: ${constProviderData.cleanBoxFurnitureYes}");
+              print("box clean: ${constProviderData.cleanBoxTitle}");
               print("number of floors: ${constProviderData.fixesAmount}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -87,7 +87,7 @@ class _FurnitureDeliveryScreenState extends State<FurnitureDeliveryScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.cleanBoxFurnitureNo == true || size.cleanBoxFurnitureYes == true)&&size.fixesAmount > 0)
+                    if ((size.cleanBoxTitle == "Yes" || size.cleanBoxTitle == "No")&&size.fixesAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

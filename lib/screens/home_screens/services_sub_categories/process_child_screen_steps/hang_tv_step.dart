@@ -15,10 +15,10 @@ class HangTVStep extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            "Curtain_Installation_Step_Title",
-            style: Theme.of(context).textTheme.bodyMedium,
-          ).tr(),
+          // Text(
+          //   "Curtain_Installation_Step_Title",
+          //   style: Theme.of(context).textTheme.bodyMedium,
+          // ).tr(),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),

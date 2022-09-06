@@ -57,8 +57,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
               print("subCategoryId: $subCategoryId");
               print("childCategoryId: $childCategoryId");
               print("childCategoryTitle: $childCategoryTitle");
-              print("Clean box yes:${constProviderData.cleanBoxFurnitureYes}");
-              print("Clean box No:${constProviderData.cleanBoxFurnitureNo}");
+              print("Clean box yes:${constProviderData.cleanBoxTitle}");
               print("Equipment No:${constProviderData.automationEquipmentsNo}");
               print("Camera No:${constProviderData.automationCameraNo}");
               print("selected date: ${constProviderData.selectedDate}");
@@ -90,7 +89,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,size,child) => Row(
                   children: <Widget>[
-                    if((size.cleanBoxFurnitureYes == true || size.cleanBoxFurnitureNo == true) && size.automationEquipmentsNo > 0 && size.automationCameraNo > 0 )
+                    if((size.cleanBoxTitle == "Yes" || size.cleanBoxTitle == "No") && size.automationEquipmentsNo > 0 && size.automationCameraNo > 0 )
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

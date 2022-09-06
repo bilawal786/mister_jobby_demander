@@ -62,8 +62,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               print("medium: ${constProviderData.mediumSizedFurnitureAmount}");
               print("large: ${constProviderData.largeSizedFurnitureAmount}");
               print("extra Large: ${constProviderData.veryLargeSizedFurnitureAmount}");
-              print("question 1: ${constProviderData.cleanBoxFurnitureYes}");
-              print("question 1: ${constProviderData.cleanBoxFurnitureNo}");
+              print("question 1: ${constProviderData.cleanBoxTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -94,7 +93,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,furnitureAssemble,child) => Row(
                   children: <Widget>[
-                    if((furnitureAssemble.smallSizedFurnitureAmount > 0 || furnitureAssemble.mediumSizedFurnitureAmount > 0 || furnitureAssemble.largeSizedFurnitureAmount > 0 || furnitureAssemble.veryLargeSizedFurnitureAmount > 0) && (furnitureAssemble.cleanBoxFurnitureNo == true || furnitureAssemble.cleanBoxFurnitureYes == true))
+                    if((furnitureAssemble.smallSizedFurnitureAmount > 0 || furnitureAssemble.mediumSizedFurnitureAmount > 0 || furnitureAssemble.largeSizedFurnitureAmount > 0 || furnitureAssemble.veryLargeSizedFurnitureAmount > 0) && (furnitureAssemble.cleanBoxTitle == "Yes" || furnitureAssemble.cleanBoxTitle == "No"))
                     Expanded(
                       child: ElevatedButton(
                         onPressed: details.onStepContinue,

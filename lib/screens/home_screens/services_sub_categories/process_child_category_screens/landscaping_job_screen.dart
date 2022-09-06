@@ -56,8 +56,7 @@ class _LandscapingJobScreenState extends State<LandscapingJobScreen> {
               print("subCategoryId: $subCategoryId");
               print("childCategoryId: $childCategoryId");
               print("childCategoryTitle: $childCategoryTitle");
-              print("Box clean: ${constProviderData.cleanBoxFurnitureNo}");
-              print("Box clean: ${constProviderData.cleanBoxFurnitureYes}");
+              print("Box clean: ${constProviderData.cleanBoxTitle}");
               print('Need Work: ${constProviderData.needWork}');
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -88,7 +87,7 @@ class _LandscapingJobScreenState extends State<LandscapingJobScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,size,child) => Row(
                   children: <Widget>[
-                    if(size.cleanBoxFurnitureNo == true || size.cleanBoxFurnitureYes == true )
+                    if(size.cleanBoxTitle == "Yes" || size.cleanBoxTitle == "No" )
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

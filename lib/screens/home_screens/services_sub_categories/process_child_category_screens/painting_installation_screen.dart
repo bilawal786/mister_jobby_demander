@@ -60,8 +60,7 @@ class _PaintingInstallationScreenState extends State<PaintingInstallationScreen>
               print("medium: ${constProviderData.mediumSizedFurnitureAmount}");
               print("large: ${constProviderData.largeSizedFurnitureAmount}");
               print("extra Large: ${constProviderData.veryLargeSizedFurnitureAmount}");
-              print("question 1: ${constProviderData.cleanBoxFurnitureYes}");
-              print("question 1: ${constProviderData.cleanBoxFurnitureNo}");
+              print("question 1: ${constProviderData.cleanBoxTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -91,7 +90,7 @@ class _PaintingInstallationScreenState extends State<PaintingInstallationScreen>
               child: Consumer<ConstProvider>(
                 builder: (_,painting,child) => Row(
                   children: <Widget>[
-                    if((painting.smallSizedFurnitureAmount > 0 || painting.mediumSizedFurnitureAmount > 0 || painting.largeSizedFurnitureAmount > 0 || painting.veryLargeSizedFurnitureAmount > 0) && (painting.cleanBoxFurnitureNo == true || painting.cleanBoxFurnitureYes == true))
+                    if((painting.smallSizedFurnitureAmount > 0 || painting.mediumSizedFurnitureAmount > 0 || painting.largeSizedFurnitureAmount > 0 || painting.veryLargeSizedFurnitureAmount > 0) && (painting.cleanBoxTitle == "Yes" || painting.cleanBoxTitle == "No"))
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

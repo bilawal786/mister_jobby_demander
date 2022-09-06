@@ -8,18 +8,20 @@ class ConstProvider with ChangeNotifier {
   int mediumSizedFurnitureAmount = 0;
   int largeSizedFurnitureAmount = 0;
   int veryLargeSizedFurnitureAmount = 0;
-  bool cleanBoxFurnitureYes = false;
-  bool cleanBoxFurnitureNo = false;
 
-  void cleanBoxFurnitureYesFunction() {
-    cleanBoxFurnitureYes = true;
-    cleanBoxFurnitureNo = false;
-    notifyListeners();
-  }
 
-  void cleanBoxFurnitureNoFunction() {
-    cleanBoxFurnitureYes = false;
-    cleanBoxFurnitureNo = true;
+  int cleanBoxFurniture = 0;
+  String cleanBoxTitle = "";
+
+  void cleanBoxFurnitureFunction(int index) {
+    cleanBoxFurniture = index + 1;
+    if(cleanBoxFurniture == 1){
+      cleanBoxTitle = "Yes";
+      print(cleanBoxTitle);
+    }else{
+      cleanBoxTitle = "No";
+      print(cleanBoxTitle);
+    }
     notifyListeners();
   }
 
@@ -721,6 +723,8 @@ class ConstProvider with ChangeNotifier {
   }
 
   void clearData() {
+    cleanBoxTitle = "";
+    cleanBoxFurniture = 0;
     numberOfFlyersSliderValue = 100;
     discountYes = false;
     discountNo = false;
@@ -762,8 +766,6 @@ class ConstProvider with ChangeNotifier {
     mediumSizedFurnitureAmount = 0;
     largeSizedFurnitureAmount = 0;
     veryLargeSizedFurnitureAmount = 0;
-    cleanBoxFurnitureYes = false;
-    cleanBoxFurnitureNo = false;
     duration = 0.0;
     hourlyRate = 0;
     checkUrgentJob = false;

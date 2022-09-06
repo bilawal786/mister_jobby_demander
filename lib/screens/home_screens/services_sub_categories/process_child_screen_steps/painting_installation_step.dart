@@ -98,28 +98,18 @@ class PaintingInstallationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cleanBoxValue,child)=> Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: (){
-                      cleanBoxValue.cleanBoxFurnitureYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: cleanBoxValue.cleanBoxFurnitureYes == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureYes == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: cleanBoxValue.cleanBoxFurnitureNoFunction,
-                    textTitle: "No",
-                    border: cleanBoxValue.cleanBoxFurnitureNo == false ? false : true,
-                    color:cleanBoxValue.cleanBoxFurnitureNo == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, cleanBoxValue, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>cleanBoxValue.cleanBoxFurnitureFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:cleanBoxValue.cleanBoxFurniture-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: cleanBoxValue.cleanBoxFurniture-1 == index ? true : false,
+              ),
+            ),),
           ),
         ],
       ),

@@ -37,36 +37,18 @@ class FurnitureDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, furnitureDeliveryData, child) => Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: () {
-                      furnitureDeliveryData.cleanBoxFurnitureYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: furnitureDeliveryData.cleanBoxFurnitureYes == false
-                        ? false
-                        : true,
-                    color: furnitureDeliveryData.cleanBoxFurnitureYes == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: furnitureDeliveryData.cleanBoxFurnitureNoFunction,
-                    textTitle: "No",
-                    border: furnitureDeliveryData.cleanBoxFurnitureNo == false
-                        ? false
-                        : true,
-                    color: furnitureDeliveryData.cleanBoxFurnitureNo == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, cleanBoxValue, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>cleanBoxValue.cleanBoxFurnitureFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:cleanBoxValue.cleanBoxFurniture-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: cleanBoxValue.cleanBoxFurniture-1 == index ? true : false,
+              ),
+            ),),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
