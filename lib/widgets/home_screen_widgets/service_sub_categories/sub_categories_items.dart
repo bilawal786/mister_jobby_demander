@@ -551,22 +551,38 @@ class SubCategoriesItems extends StatelessWidget {
               break;
             case 63:
               {
-                Navigator.of(context).pushNamed(MyRoutes.BARTENDERROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.BARTENDERROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 64:
               {
-                Navigator.of(context).pushNamed(MyRoutes.WAITERROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.WAITERROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 65:
               {
-                Navigator.of(context).pushNamed(MyRoutes.DJROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.DJROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 66:
               {
-                Navigator.of(context).pushNamed(MyRoutes.ANIMATORROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.ANIMATORROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 67:
@@ -580,27 +596,47 @@ class SubCategoriesItems extends StatelessWidget {
               break;
             case 68:
             {
-              Navigator.of(context).pushNamed(MyRoutes.HOSTHOTESSROUTE);
+              Navigator.of(context).pushNamed(MyRoutes.HOSTHOTESSROUTE, arguments: {
+                'mainCategoryId': mainCategoryId,
+                'subCategoryId': subCategory.id,
+                'subCategoryTitle': subCategory.title,
+              });
             }
             break;
             case 69:
               {
-                Navigator.of(context).pushNamed(MyRoutes.ADMINISTRAVTIVETASKROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.ADMINISTRAVTIVETASKROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 70:
               {
-                Navigator.of(context).pushNamed(MyRoutes.VEHICLEMAINTENANCEROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.VEHICLEMAINTENANCEROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 71:
               {
-                Navigator.of(context).pushNamed(MyRoutes.VEHICLEREPAIRROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.VEHICLEREPAIRROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
             case 72:
               {
-                Navigator.of(context).pushNamed(MyRoutes.TROUBLESHOOTINGROUTE);
+                Navigator.of(context).pushNamed(MyRoutes.TROUBLESHOOTINGROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
               }
               break;
           }
