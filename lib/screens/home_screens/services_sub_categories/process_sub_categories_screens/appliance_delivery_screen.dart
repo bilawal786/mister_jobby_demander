@@ -58,7 +58,7 @@ class _ApplianceDeliveryScreenState extends State<ApplianceDeliveryScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
-              print("own material: ${constProviderData.baseBoardInstallYes}");
+              print("own material: ${constProviderData.baseBoardInstallValue}");
               print("own material: ${constProviderData.fixesAmount}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -89,7 +89,7 @@ class _ApplianceDeliveryScreenState extends State<ApplianceDeliveryScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.baseBoardInstallYes == true || size.baseBoardInstallNo == true) && size.fixesAmount > 0)
+                    if ((size.baseBoardInstallTitle == "Yes" || size.baseBoardInstallTitle == "No") && size.fixesAmount > 0)
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

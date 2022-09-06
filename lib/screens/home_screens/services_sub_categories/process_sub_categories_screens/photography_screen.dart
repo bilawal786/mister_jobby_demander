@@ -55,8 +55,7 @@ class _PhotographyScreenState extends State<PhotographyScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
-              print("own material: ${constProviderData.baseBoardInstallYes}");
-              print("own material: ${constProviderData.fixesAmount}");
+
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");

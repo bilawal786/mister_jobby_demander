@@ -25,20 +25,21 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  bool baseBoardInstallYes = false;
-  bool baseBoardInstallNo = false;
+  int baseBoardInstallValue = 0;
+  String baseBoardInstallTitle = "";
 
-  void baseBoardInstallYesFunction() {
-    baseBoardInstallYes = true;
-    baseBoardInstallNo = false;
+  void baseBoardInstallFunction(int index) {
+    baseBoardInstallValue = index + 1;
+    if(baseBoardInstallValue == 1){
+      baseBoardInstallTitle = "Yes";
+      print(cleanBoxTitle);
+    }else{
+      baseBoardInstallTitle = "No";
+      print(cleanBoxTitle);
+    }
     notifyListeners();
   }
 
-  void baseBoardInstallNoFunction() {
-    baseBoardInstallYes = false;
-    baseBoardInstallNo = true;
-    notifyListeners();
-  }
 
   bool cuttingMaterialYes = false;
   bool cuttingMaterialNo = false;
@@ -785,8 +786,8 @@ class ConstProvider with ChangeNotifier {
     imageFile1 = null;
     imageFile2 = null;
     providersAmount = 1;
-    baseBoardInstallYes = false;
-    baseBoardInstallNo = false;
+    baseBoardInstallValue = 0;
+    baseBoardInstallTitle = "";
     cuttingMaterialYes = false;
     cuttingMaterialNo = false;
     notifyListeners();

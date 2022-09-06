@@ -37,36 +37,18 @@ class ApplianceDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, applianceData, child) => Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: () {
-                      applianceData.baseBoardInstallYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: applianceData.baseBoardInstallYes == false
-                        ? false
-                        : true,
-                    color: applianceData.baseBoardInstallYes == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: applianceData.baseBoardInstallNoFunction,
-                    textTitle: "No",
-                    border: applianceData.baseBoardInstallNo == false
-                        ? false
-                        : true,
-                    color: applianceData.baseBoardInstallNo == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, applianceData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>applianceData.baseBoardInstallFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:applianceData.baseBoardInstallValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: applianceData.baseBoardInstallValue-1 == index ? true : false,
+              ),
+            ),),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,

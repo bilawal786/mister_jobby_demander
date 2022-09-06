@@ -38,28 +38,18 @@ class ParquetInstallationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,baseBoardInstallValue,child)=> Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: (){
-                      baseBoardInstallValue.baseBoardInstallYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: baseBoardInstallValue.baseBoardInstallYes == false ? false : true,
-                    color:baseBoardInstallValue.baseBoardInstallYes == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: baseBoardInstallValue.baseBoardInstallNoFunction,
-                    textTitle: "No",
-                    border: baseBoardInstallValue.baseBoardInstallNo == false ? false : true,
-                    color:baseBoardInstallValue.baseBoardInstallNo == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, baseBoardData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>baseBoardData.baseBoardInstallFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:baseBoardData.baseBoardInstallValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: baseBoardData.baseBoardInstallValue-1 == index ? true : false,
+              ),
+            ),),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 10,

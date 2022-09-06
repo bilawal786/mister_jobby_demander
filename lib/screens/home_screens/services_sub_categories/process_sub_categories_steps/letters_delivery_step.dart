@@ -39,36 +39,18 @@ class LettersDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, lettersDeliveryData, child) => Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: () {
-                      lettersDeliveryData.baseBoardInstallYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: lettersDeliveryData.baseBoardInstallYes == false
-                        ? false
-                        : true,
-                    color: lettersDeliveryData.baseBoardInstallYes == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: lettersDeliveryData.baseBoardInstallNoFunction,
-                    textTitle: "No",
-                    border: lettersDeliveryData.baseBoardInstallNo == false
-                        ? false
-                        : true,
-                    color: lettersDeliveryData.baseBoardInstallNo == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, lettersDeliveryData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>lettersDeliveryData.baseBoardInstallFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:lettersDeliveryData.baseBoardInstallValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: lettersDeliveryData.baseBoardInstallValue-1 == index ? true : false,
+              ),
+            ),),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 10,

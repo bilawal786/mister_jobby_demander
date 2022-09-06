@@ -39,36 +39,18 @@ class ShoppingDeliveryStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, shoppingDeliveryData, child) => Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: () {
-                      shoppingDeliveryData.baseBoardInstallYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: shoppingDeliveryData.baseBoardInstallYes == false
-                        ? false
-                        : true,
-                    color: shoppingDeliveryData.baseBoardInstallYes == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: shoppingDeliveryData.baseBoardInstallNoFunction,
-                    textTitle: "No",
-                    border: shoppingDeliveryData.baseBoardInstallNo == false
-                        ? false
-                        : true,
-                    color: shoppingDeliveryData.baseBoardInstallNo == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, shoppingData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>shoppingData.baseBoardInstallFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:shoppingData.baseBoardInstallValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: shoppingData.baseBoardInstallValue-1 == index ? true : false,
+              ),
+            ),),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,

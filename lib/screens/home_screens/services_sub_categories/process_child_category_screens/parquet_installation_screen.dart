@@ -57,8 +57,7 @@ class _ParquetInstallationScreenState extends State<ParquetInstallationScreen> {
               print("subCategoryId: $subCategoryId");
               print("childCategoryId: $childCategoryId");
               print("childCategoryTitle: $childCategoryTitle");
-              print("BaseBoards Yes: ${constProviderData.baseBoardInstallYes}");
-              print("BaseBoards No: ${constProviderData.baseBoardInstallNo}");
+              print("BaseBoards Yes: ${constProviderData.baseBoardInstallTitle}");
               print("Cutting Material Yes: ${constProviderData.cuttingMaterialYes}");
               print("Cutting Material No: ${constProviderData.cuttingMaterialNo}");
               print("selected date: ${constProviderData.selectedDate}");
@@ -90,7 +89,7 @@ class _ParquetInstallationScreenState extends State<ParquetInstallationScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_,parquetInstallation,child) => Row(
                   children: <Widget>[
-                    if((parquetInstallation.baseBoardInstallYes == true || parquetInstallation.baseBoardInstallNo == true) && (parquetInstallation.cuttingMaterialYes == true || parquetInstallation.cuttingMaterialNo == true))
+                    if((parquetInstallation.baseBoardInstallTitle == "Yes" || parquetInstallation.baseBoardInstallTitle == "No") && (parquetInstallation.cuttingMaterialYes == true || parquetInstallation.cuttingMaterialNo == true))
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
