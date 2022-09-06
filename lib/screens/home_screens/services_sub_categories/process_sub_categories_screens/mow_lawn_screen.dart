@@ -57,14 +57,9 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("Area to mow: ${constProviderData.areaToMowSliderValue}");
-              print(
-                  "Own Equipment yes: ${constProviderData.jobberOwnMoverTitle}");
-              print(
-                  "Remove waste Yes: ${constProviderData.jobberRemoveWasteYes}");
-              print(
-                  "Remove Waste No: ${constProviderData.jobberRemoveWasteNo}");
-              print(
-                  "Frequency Value: ${constProviderData.requestFrequencyTrueValue}");
+              print("Own Equipment yes: ${constProviderData.jobberOwnMoverTitle}");
+              print("Remove Waste No: ${constProviderData.jobberRemoveWasteTitle}");
+              print("Frequency Value: ${constProviderData.requestFrequencyTrueValue}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -96,8 +91,8 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
                   children: <Widget>[
                     if ((lawnData.jobberOwnMoverTitle == "Yes" ||
                             lawnData.jobberOwnMoverTitle == "No") &&
-                        (lawnData.jobberRemoveWasteYes == true ||
-                            lawnData.jobberRemoveWasteNo == true) &&
+                        (lawnData.jobberRemoveWasteTitle == "Yes" ||
+                            lawnData.jobberRemoveWasteTitle == "No") &&
                         (lawnData.requestFrequencyTrueValue > 0))
                       Expanded(
                           child: ElevatedButton(

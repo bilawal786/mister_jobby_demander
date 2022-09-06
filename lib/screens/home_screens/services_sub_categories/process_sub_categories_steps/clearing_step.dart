@@ -119,28 +119,18 @@ class ClearingStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,jobberData,child)=> Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: (){
-                      jobberData.jobberRemoveWasteYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: jobberData.jobberRemoveWasteYes == false ? false : true,
-                    color:jobberData.jobberRemoveWasteYes == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: jobberData.jobberRemoveWasteNoFunction,
-                    textTitle: "No",
-                    border: jobberData.jobberRemoveWasteNo == false ? false : true,
-                    color:jobberData.jobberRemoveWasteNo == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, jobberData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>jobberData.jobberRemoveWasteFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:jobberData.jobberRemoveWasteValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: jobberData.jobberRemoveWasteValue-1 == index ? true : false,
+              ),
+            ),),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 10,

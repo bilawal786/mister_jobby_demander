@@ -68,8 +68,8 @@ class _BartenderScreenState extends State<BartenderScreen> {
                             size.jobberBringMaterialNo == true) &&
                         (size.jobberHedgeTimerYes == true ||
                             size.jobberHedgeTimerNo == true) &&
-                        (size.jobberRemoveWasteYes == true ||
-                            size.jobberRemoveWasteNo == true))
+                        (size.jobberRemoveWasteTitle == "Yes" ||
+                            size.jobberRemoveWasteTitle == "No"))
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

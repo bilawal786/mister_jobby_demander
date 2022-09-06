@@ -64,8 +64,8 @@ class _WaiterScreenState extends State<WaiterScreen> {
                 builder: (_, size, child) => Row(
                   children: <Widget>[
                     if ((size.fixesAmount > 0) &&
-                        (size.jobberRemoveWasteYes == true ||
-                            size.jobberRemoveWasteNo == true))
+                        (size.jobberRemoveWasteTitle == "Yes" ||
+                            size.jobberRemoveWasteTitle == "No"))
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

@@ -19,13 +19,15 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
   int currentStep = 0;
   @override
   Widget build(BuildContext context) {
-    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final routeArgs =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final mainCategoryId = routeArgs['mainCategoryId'];
     final subCategoryId = routeArgs['subCategoryId'];
     final subCategoryTitle = routeArgs['subCategoryTitle'];
-    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
+    final constProviderData =
+        Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
-      onWillPop:  ()async{
+      onWillPop: () async {
         constProviderData.clearData();
         return true;
       },
@@ -53,14 +55,20 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
-              print("Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
-              print("Own Equipment yes: ${constProviderData.smallSizedFurnitureAmount}");
-              print("Own Equipment No: ${constProviderData.mediumSizedFurnitureAmount}");
-              print("Remove waste Yes: ${constProviderData.largeSizedFurnitureAmount}");
-              print("hedge trimmer yes: ${constProviderData.jobberHedgeTimerYes}");
-              print("hedge trimmer No: ${constProviderData.jobberHedgeTimerNo}");
-              print("waste Remove yes: ${constProviderData.jobberRemoveWasteYes}");
-              print("waste Remove No: ${constProviderData.jobberRemoveWasteNo}");
+              print(
+                  "Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
+              print(
+                  "Own Equipment yes: ${constProviderData.smallSizedFurnitureAmount}");
+              print(
+                  "Own Equipment No: ${constProviderData.mediumSizedFurnitureAmount}");
+              print(
+                  "Remove waste Yes: ${constProviderData.largeSizedFurnitureAmount}");
+              print(
+                  "hedge trimmer yes: ${constProviderData.jobberHedgeTimerYes}");
+              print(
+                  "hedge trimmer No: ${constProviderData.jobberHedgeTimerNo}");
+              print(
+                  "waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -88,50 +96,56 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,size,child) => Row(
+                builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if((size.smallSizedFurnitureAmount > 0 || size.mediumSizedFurnitureAmount > 0 || size.largeSizedFurnitureAmount > 0) &&(size.jobberBringMaterialYes == true || size.jobberBringMaterialNo == true) && (size.jobberRemoveWasteYes == true || size.jobberRemoveWasteNo == true))
+                    if ((size.smallSizedFurnitureAmount > 0 ||
+                            size.mediumSizedFurnitureAmount > 0 ||
+                            size.largeSizedFurnitureAmount > 0) &&
+                        (size.jobberBringMaterialYes == true ||
+                            size.jobberBringMaterialNo == true) &&
+                        (size.jobberRemoveWasteTitle == "Yes" ||
+                            size.jobberRemoveWasteTitle == "No"))
                       Expanded(
                           child: ElevatedButton(
-                            onPressed: details.onStepContinue,
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.fromHeight(50.0),
-                              primary: Theme.of(context).primaryColor,
-                              elevation: 5,
-                            ),
-                            child: Text(
-                              currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
-                              style: const TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'Cerebri Sans Regular',
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.white,
-                                  letterSpacing: 1
-                              ),
-                            ).tr(),
-                          )
-                      ),
-                    SizedBox(width: MediaQuery.of(context).size.width / 40,),
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 1
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
+                      )),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 40,
+                    ),
                     Expanded(
                         child: ElevatedButton(
-                          onPressed: details.onStepCancel,
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(50.0),
-                            primary: Colors.black12,
-                            elevation: 0,
-                          ),
-                          child: const Text(
-                            "Process_Screen_Cancel_Button",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Cerebri Sans Regular',
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                                letterSpacing: 1
-                            ),
-                          ).tr(),
-                        )
-                    ),
+                      onPressed: details.onStepCancel,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Colors.black12,
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        "Process_Screen_Cancel_Button",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            letterSpacing: 1),
+                      ).tr(),
+                    )),
                   ],
                 ),
               ),
@@ -143,22 +157,22 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
   }
 
   List<Step> getSteps() => [
-    Step(
-      isActive: currentStep >= 0,
-      state: currentStep > 0 ? StepState.complete : StepState.indexed,
-      title: const Text(""),
-      content: const CutTreeStep(),
-    ),
-    Step(
-      isActive: currentStep >= 1,
-      state: currentStep > 1 ? StepState.complete : StepState.indexed,
-      title: const Text(""),
-      content: const GeneralStep2Screen(),
-    ),
-    Step(
-      isActive: currentStep >= 2,
-      title: const Text(""),
-      content:const GeneralStep3Screen(),
-    ),
-  ];
+        Step(
+          isActive: currentStep >= 0,
+          state: currentStep > 0 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: const CutTreeStep(),
+        ),
+        Step(
+          isActive: currentStep >= 1,
+          state: currentStep > 1 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: const GeneralStep2Screen(),
+        ),
+        Step(
+          isActive: currentStep >= 2,
+          title: const Text(""),
+          content: const GeneralStep3Screen(),
+        ),
+      ];
 }

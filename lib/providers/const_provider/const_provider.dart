@@ -52,6 +52,19 @@ class ConstProvider with ChangeNotifier {
   String jobberOwnMoverTitle = "";
 
   void jobberOwnMoverFunction(int index) {
+    jobberRemoveWasteValue = index + 1;
+    if ( jobberRemoveWasteValue == 1) {
+      jobberRemoveWasteTitle = "Yes";
+    } else {
+      jobberRemoveWasteTitle = "No";
+    }
+    notifyListeners();
+  }
+
+  int  jobberRemoveWasteValue = 0;
+  String  jobberRemoveWasteTitle = "";
+
+  void  jobberRemoveWasteFunction(int index) {
     jobberOwnMoverValue = index + 1;
     if (jobberOwnMoverValue == 1) {
       jobberOwnMoverTitle = "Yes";
@@ -60,6 +73,7 @@ class ConstProvider with ChangeNotifier {
     }
     notifyListeners();
   }
+
 
   void smallFurnitureAmountIncrement() {
     smallSizedFurnitureAmount += 1;
@@ -472,21 +486,6 @@ class ConstProvider with ChangeNotifier {
 
 
 
-  bool jobberRemoveWasteYes = false;
-  bool jobberRemoveWasteNo = false;
-
-  void jobberRemoveWasteYesFunction() {
-    jobberRemoveWasteYes = true;
-    jobberRemoveWasteNo = false;
-    notifyListeners();
-  }
-
-  void jobberRemoveWasteNoFunction() {
-    jobberRemoveWasteYes = false;
-    jobberRemoveWasteNo = true;
-    notifyListeners();
-  }
-
   int requestFrequencyTrueValue = 0;
 
   void requestFrequencyFunction(int index) {
@@ -747,8 +746,8 @@ class ConstProvider with ChangeNotifier {
     jobberHedgeTimerYes = false;
     jobberHedgeTimerNo = false;
     requestFrequencyTrueValue = 0;
-    jobberRemoveWasteYes = false;
-    jobberRemoveWasteNo = false;
+    jobberRemoveWasteValue = 0;
+    jobberRemoveWasteTitle = "";
     jobberOwnMoverTitle = "";
     jobberOwnMoverValue = 0;
     surfaceInstallationSliderValue = 10;
