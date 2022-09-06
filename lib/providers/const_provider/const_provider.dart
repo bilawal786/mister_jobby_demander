@@ -101,6 +101,20 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int  photoEditingValue = 0;
+  String  photoEditingTitle = "";
+
+  void  photoEditingFunction(int index) {
+    photoEditingValue = index + 1;
+    if (photoEditingValue == 1) {
+      photoEditingTitle = "Yes";
+    } else {
+      photoEditingTitle = "No";
+    }
+    notifyListeners();
+  }
+
+
 
 
   void smallFurnitureAmountIncrement() {
@@ -670,20 +684,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  bool photoEditingYes = false;
-  bool photoEditingNo = false;
 
-  void photoEditingYesFunction() {
-    photoEditingYes = true;
-    photoEditingNo = false;
-    notifyListeners();
-  }
-
-  void photoEditingNoFunction() {
-    photoEditingYes = false;
-    photoEditingNo = true;
-    notifyListeners();
-  }
 
   bool discountYes = false;
   bool discountNo = false;
@@ -721,8 +722,8 @@ class ConstProvider with ChangeNotifier {
     numberOfFlyersSliderValue = 100;
     discountYes = false;
     discountNo = false;
-    photoEditingYes = false;
-    photoEditingNo = false;
+    photoEditingValue = 0;
+    photoEditingTitle = "";
     courseFormatTrueValue = 0;
     educationLevelTrueValue = 0;
     checkDataBackUpValue = false;

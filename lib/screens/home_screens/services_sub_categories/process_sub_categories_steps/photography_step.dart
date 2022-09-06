@@ -38,28 +38,18 @@ class PhotographyStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,photoEditingValue,child)=> Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: (){
-                      photoEditingValue.photoEditingYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: photoEditingValue.photoEditingYes == false ? false : true,
-                    color:photoEditingValue.photoEditingYes == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: photoEditingValue.photoEditingNoFunction,
-                    textTitle: "No",
-                    border: photoEditingValue.photoEditingNo == false ? false : true,
-                    color:photoEditingValue.photoEditingNo == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, photoEditingData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>photoEditingData.photoEditingFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:photoEditingData.photoEditingValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: photoEditingData.photoEditingValue-1 == index ? true : false,
+              ),
+            ),),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,

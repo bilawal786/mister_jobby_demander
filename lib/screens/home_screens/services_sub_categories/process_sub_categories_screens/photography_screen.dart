@@ -85,7 +85,7 @@ class _PhotographyScreenState extends State<PhotographyScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, photoData, child) => Row(
                   children: <Widget>[
-                    if ((photoData.photoEditingYes == true || photoData.photoEditingNo == true) && (photoData.discountYes == true || photoData.discountNo == true))
+                    if ((photoData.photoEditingTitle == "Yes" || photoData.photoEditingTitle == "No") && (photoData.discountYes == true || photoData.discountNo == true))
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,
