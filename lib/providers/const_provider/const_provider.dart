@@ -74,6 +74,20 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int  jobberHedgeTimerValue = 0;
+  String  jobberHedgeTimerTitle = "";
+
+  void  jobberHedgeTimerFunction(int index) {
+    jobberHedgeTimerValue = index + 1;
+    if (jobberHedgeTimerValue == 1) {
+      jobberHedgeTimerTitle = "Yes";
+    } else {
+      jobberHedgeTimerTitle = "No";
+    }
+    notifyListeners();
+  }
+
+
 
   void smallFurnitureAmountIncrement() {
     smallSizedFurnitureAmount += 1;
@@ -493,20 +507,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  bool jobberHedgeTimerYes = false;
-  bool jobberHedgeTimerNo = false;
 
-  void jobberHedgeTimerYesFunction() {
-    jobberHedgeTimerYes = true;
-    jobberHedgeTimerNo = false;
-    notifyListeners();
-  }
-
-  void jobberHedgeTimerNoFunction() {
-    jobberHedgeTimerYes = false;
-    jobberHedgeTimerNo = true;
-    notifyListeners();
-  }
 
   String completeAddress = "";
   double longitude = 0;
@@ -743,8 +744,8 @@ class ConstProvider with ChangeNotifier {
     numberOfTreesSliderValue = 1;
     jobberBringMaterialYes = false;
     jobberBringMaterialNo = false;
-    jobberHedgeTimerYes = false;
-    jobberHedgeTimerNo = false;
+    jobberHedgeTimerTitle = "";
+    jobberHedgeTimerValue = 0;
     requestFrequencyTrueValue = 0;
     jobberRemoveWasteValue = 0;
     jobberRemoveWasteTitle = "";

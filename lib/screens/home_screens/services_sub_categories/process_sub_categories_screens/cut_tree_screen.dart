@@ -55,20 +55,12 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
-              print(
-                  "Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
-              print(
-                  "Own Equipment yes: ${constProviderData.smallSizedFurnitureAmount}");
-              print(
-                  "Own Equipment No: ${constProviderData.mediumSizedFurnitureAmount}");
-              print(
-                  "Remove waste Yes: ${constProviderData.largeSizedFurnitureAmount}");
-              print(
-                  "hedge trimmer yes: ${constProviderData.jobberHedgeTimerYes}");
-              print(
-                  "hedge trimmer No: ${constProviderData.jobberHedgeTimerNo}");
-              print(
-                  "waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
+              print("Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
+              print("Own Equipment yes: ${constProviderData.smallSizedFurnitureAmount}");
+              print("Own Equipment No: ${constProviderData.mediumSizedFurnitureAmount}");
+              print("Remove waste Yes: ${constProviderData.largeSizedFurnitureAmount}");
+              print("waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
+              print("waste Remove yes: ${constProviderData.jobberBringMaterialYes}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");

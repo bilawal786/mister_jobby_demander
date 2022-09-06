@@ -123,36 +123,18 @@ class BartenderStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_, jobberData, child) => Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: () {
-                      jobberData.jobberHedgeTimerYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: jobberData.jobberHedgeTimerYes == false
-                        ? false
-                        : true,
-                    color: jobberData.jobberHedgeTimerYes == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: jobberData.jobberHedgeTimerNoFunction,
-                    textTitle: "No",
-                    border: jobberData.jobberHedgeTimerNo == false
-                        ? false
-                        : true,
-                    color: jobberData.jobberHedgeTimerNo == false
-                        ? Colors.grey.shade300
-                        : Colors.blue.shade50,
-                  ),
-                ),
-              ],
-            ),
+            builder: (_, jobberData, child) => SizedBox(height:45,child: ListView.builder(
+              itemCount: 2,
+              itemExtent: MediaQuery.of(context).size.width / 2.25,
+              physics:const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                onTap: ()=>jobberData.jobberHedgeTimerFunction(index),
+                textTitle: index == 0?"Yes":"No",
+                color:jobberData.jobberHedgeTimerValue-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                border: jobberData.jobberHedgeTimerValue-1 == index ? true : false,
+              ),
+            ),),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 30,

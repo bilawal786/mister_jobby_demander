@@ -67,9 +67,7 @@ class _HedgeTrimmingScreenState extends State<HedgeTrimmingScreen> {
               print(
                   "Remove Waste No: ${constProviderData.veryLargeSizedFurnitureAmount}");
               print(
-                  "hedge trimmer yes: ${constProviderData.jobberHedgeTimerYes}");
-              print(
-                  "hedge trimmer No: ${constProviderData.jobberHedgeTimerNo}");
+                  "hedge trimmer yes: ${constProviderData.jobberHedgeTimerTitle}");
               print(
                   "waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
               print("selected date: ${constProviderData.selectedDate}");
@@ -105,8 +103,8 @@ class _HedgeTrimmingScreenState extends State<HedgeTrimmingScreen> {
                             size.mediumSizedFurnitureAmount > 0 ||
                             size.largeSizedFurnitureAmount > 0 ||
                             size.veryLargeSizedFurnitureAmount > 0) &&
-                        (size.jobberHedgeTimerNo == true ||
-                            size.jobberHedgeTimerYes == true) &&
+                        (size.jobberHedgeTimerTitle == "Yes" ||
+                            size.jobberHedgeTimerTitle == "No") &&
                         (size.jobberRemoveWasteTitle == "Yes" ||
                             size.jobberRemoveWasteTitle == "No"))
                       Expanded(

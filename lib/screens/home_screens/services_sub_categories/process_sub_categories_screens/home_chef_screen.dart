@@ -67,8 +67,8 @@ class _HomeChefScreenState extends State<HomeChefScreen> {
                     if ((size.fixesAmount > 0) &&
                         (size.jobberBringMaterialYes == true ||
                             size.jobberBringMaterialNo == true) &&
-                        (size.jobberHedgeTimerYes == true ||
-                            size.jobberHedgeTimerNo == true) &&
+                        (size.jobberHedgeTimerTitle == "Yes" ||
+                            size.jobberHedgeTimerTitle == "No") &&
                         (size.jobberRemoveWasteTitle == "Yes" ||
                             size.jobberRemoveWasteTitle == "No"))
                       Expanded(
