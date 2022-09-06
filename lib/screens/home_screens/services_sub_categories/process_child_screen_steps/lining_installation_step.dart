@@ -11,7 +11,6 @@ class LiningInstallationStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +56,8 @@ class LiningInstallationStep extends StatelessWidget {
                     ),
                     Expanded(
                       child: RangeSliderCLass(
-                        rangeValue: rangeSliderData.liningInstallationSliderValue,
+                        rangeValue:
+                            rangeSliderData.liningInstallationSliderValue,
                         minRange: 3,
                         maxRange: 30,
                         division: 9,
@@ -86,27 +86,26 @@ class LiningInstallationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,cuttingMaterialValue,child)=> Row(
-              children: [
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: (){
-                      cuttingMaterialValue.cuttingMaterialYesFunction();
-                    },
-                    textTitle: "Yes",
-                    border: cuttingMaterialValue.cuttingMaterialYes == false ? false : true,
-                    color:cuttingMaterialValue.cuttingMaterialYes == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
+            builder: (_, cuttingMaterialData, child) => SizedBox(
+              height: 45,
+              child: ListView.builder(
+                itemCount: 2,
+                itemExtent: MediaQuery.of(context).size.width / 2.25,
+                physics: const NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) =>
+                    OutlineSelectedButton(
+                  onTap: () =>
+                      cuttingMaterialData.cuttingMaterialFunction(index),
+                  textTitle: index == 0 ? "Yes" : "No",
+                  color: cuttingMaterialData.cuttingMaterialValue - 1 == index
+                      ? Colors.blue.shade50
+                      : Colors.grey.shade300,
+                  border: cuttingMaterialData.cuttingMaterialValue - 1 == index
+                      ? true
+                      : false,
                 ),
-                Expanded(
-                  child: OutlineSelectedButton(
-                    onTap: cuttingMaterialValue.cuttingMaterialNoFunction,
-                    textTitle: "No",
-                    border: cuttingMaterialValue.cuttingMaterialNo == false ? false : true,
-                    color:cuttingMaterialValue.cuttingMaterialNo == false ?Colors.grey.shade300:Colors.blue.shade50,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ],

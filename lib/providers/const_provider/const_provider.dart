@@ -9,18 +9,15 @@ class ConstProvider with ChangeNotifier {
   int largeSizedFurnitureAmount = 0;
   int veryLargeSizedFurnitureAmount = 0;
 
-
   int cleanBoxFurniture = 0;
   String cleanBoxTitle = "";
 
   void cleanBoxFurnitureFunction(int index) {
     cleanBoxFurniture = index + 1;
-    if(cleanBoxFurniture == 1){
+    if (cleanBoxFurniture == 1) {
       cleanBoxTitle = "Yes";
-      print(cleanBoxTitle);
-    }else{
+    } else {
       cleanBoxTitle = "No";
-      print(cleanBoxTitle);
     }
     notifyListeners();
   }
@@ -30,29 +27,24 @@ class ConstProvider with ChangeNotifier {
 
   void baseBoardInstallFunction(int index) {
     baseBoardInstallValue = index + 1;
-    if(baseBoardInstallValue == 1){
+    if (baseBoardInstallValue == 1) {
       baseBoardInstallTitle = "Yes";
-      print(cleanBoxTitle);
-    }else{
+    } else {
       baseBoardInstallTitle = "No";
-      print(cleanBoxTitle);
     }
     notifyListeners();
   }
 
+  int cuttingMaterialValue = 0;
+  String cuttingMaterialTitle = "";
 
-  bool cuttingMaterialYes = false;
-  bool cuttingMaterialNo = false;
-
-  void cuttingMaterialYesFunction() {
-    cuttingMaterialYes = true;
-    cuttingMaterialNo = false;
-    notifyListeners();
-  }
-
-  void cuttingMaterialNoFunction() {
-    cuttingMaterialYes = false;
-    cuttingMaterialNo = true;
+  void cuttingMaterialFunction(int index) {
+    cuttingMaterialValue = index + 1;
+    if (cuttingMaterialValue == 1) {
+      cuttingMaterialTitle = "Yes";
+    } else {
+      cuttingMaterialTitle = "No";
+    }
     notifyListeners();
   }
 
@@ -714,7 +706,6 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-
   int repairGroupValue = 1;
 
   void checkRepairGroupValue(int? value) {
@@ -788,8 +779,8 @@ class ConstProvider with ChangeNotifier {
     providersAmount = 1;
     baseBoardInstallValue = 0;
     baseBoardInstallTitle = "";
-    cuttingMaterialYes = false;
-    cuttingMaterialNo = false;
+    cuttingMaterialValue = 0;
+    cuttingMaterialTitle = "";
     notifyListeners();
   }
 }

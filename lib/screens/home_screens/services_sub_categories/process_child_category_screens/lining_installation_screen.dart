@@ -60,8 +60,7 @@ class _LiningInstallationScreenState extends State<LiningInstallationScreen> {
               print("childCategoryId: $childCategoryId");
               print("childCategoryTitle: $childCategoryTitle");
               print("Surface Installation Value: ${constProviderData.surfaceInstallationSliderValue}");
-              print("Cutting material no: ${constProviderData.cuttingMaterialNo}");
-              print("Cutting material yes: ${constProviderData.cuttingMaterialYes}");
+              print("Cutting material no: ${constProviderData.cuttingMaterialTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -91,7 +90,7 @@ class _LiningInstallationScreenState extends State<LiningInstallationScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, cuttingMaterial, child) => Row(
                   children: <Widget>[
-                    if (cuttingMaterial.cuttingMaterialNo == true||cuttingMaterial.cuttingMaterialYes == true)
+                    if (cuttingMaterial.cuttingMaterialTitle == "Yes" ||cuttingMaterial.cuttingMaterialTitle == "No")
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,
