@@ -58,7 +58,7 @@ class _CarWashScreenState extends State<CarWashScreen> {
               print("subCategoryTitle: $subCategoryTitle");
               print("own material: ${constProviderData.vehicleTypeTrueValue}");
               print(
-                  "own material: ${constProviderData.requestFrequencyTrueValue}");
+                  "own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -89,7 +89,7 @@ class _CarWashScreenState extends State<CarWashScreen> {
                 builder: (_, size, child) => Row(
                   children: <Widget>[
                     if (size.vehicleTypeTrueValue > 0 &&
-                        size.requestFrequencyTrueValue > 0)
+                        size.frequencyTrueValue > 0)
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

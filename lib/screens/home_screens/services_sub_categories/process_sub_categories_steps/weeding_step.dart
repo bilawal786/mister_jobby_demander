@@ -120,7 +120,7 @@ class WeedingStep extends StatelessWidget {
                   itemExtent: MediaQuery.of(context).size.width / 1.9,
                   itemBuilder: (context, index) => OutlineSelectedButton(
                     onTap: () => requestFrequencyData
-                        .requestFrequencyFunction(index),
+                        .frequencyFunction(index),
                     textTitle: index == 0
                         ? "Request_Frequency_Button_Title1"
                         : index == 1
@@ -128,12 +128,12 @@ class WeedingStep extends StatelessWidget {
                         : index == 2
                         ? "Request_Frequency_Button_Title3"
                         : "Request_Frequency_Button_Title4",
-                    color: requestFrequencyData.requestFrequencyTrueValue -
+                    color: requestFrequencyData.frequencyTrueValue -
                         1 ==
                         index
                         ? Colors.blue.shade50
                         : Colors.grey.shade300,
-                    border: requestFrequencyData.requestFrequencyTrueValue -
+                    border: requestFrequencyData.frequencyTrueValue -
                         1 ==
                         index
                         ? true

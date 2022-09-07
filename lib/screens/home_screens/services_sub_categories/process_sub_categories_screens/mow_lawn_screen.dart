@@ -62,7 +62,7 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
               print(
                   "Remove Waste No: ${constProviderData.jobberRemoveWasteTitle}");
               print(
-                  "Frequency Value: ${constProviderData.requestFrequencyTrueValue}");
+                  "Frequency Value: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -96,7 +96,7 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
                             lawnData.jobberOwnMoverTitle == "No") &&
                         (lawnData.jobberRemoveWasteTitle == "Yes" ||
                             lawnData.jobberRemoveWasteTitle == "No") &&
-                        (lawnData.requestFrequencyTrueValue > 0))
+                        (lawnData.frequencyTrueValue > 0))
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

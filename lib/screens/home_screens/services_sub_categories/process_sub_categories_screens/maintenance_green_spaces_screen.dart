@@ -56,7 +56,7 @@ class _MaintenanceGreenSpacesScreenState extends State<MaintenanceGreenSpacesScr
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("need Work: ${constProviderData.needWork}");
-              print("waste Remove No: ${constProviderData.requestFrequencyTrueValue}");
+              print("waste Remove No: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -86,7 +86,7 @@ class _MaintenanceGreenSpacesScreenState extends State<MaintenanceGreenSpacesScr
               child: Consumer<ConstProvider>(
                 builder: (_,need,child) => Row(
                   children: <Widget>[
-                    if(need.requestFrequencyTrueValue>0)
+                    if(need.frequencyTrueValue>0)
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,

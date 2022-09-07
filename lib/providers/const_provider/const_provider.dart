@@ -539,10 +539,61 @@ class ConstProvider with ChangeNotifier {
 
 
 
-  int requestFrequencyTrueValue = 0;
+  int frequencyTrueValue = 0;
+  String frequencyTitle = "";
 
-  void requestFrequencyFunction(int index) {
-    requestFrequencyTrueValue = index + 1;
+  void frequencyFunction(int index) {
+    frequencyTrueValue = index + 1;
+   if(frequencyTrueValue == 1){
+     frequencyTitle = "Just this once";
+   }else if(frequencyTrueValue == 2){
+     frequencyTitle = "Twice a month";
+   }else if(frequencyTrueValue == 3){
+     frequencyTitle = "Once a week";
+   }else if(frequencyTrueValue == 4){
+     frequencyTitle = "Several time a week";
+   }
+    notifyListeners();
+  }
+
+
+  int animalGuardTrueValue = 0;
+  String animalGuardTitle = "";
+
+  void animalThingsFunction(int index) {
+    animalGuardTrueValue = index + 1;
+    if(animalGuardTrueValue == 1){
+      animalGuardTitle = "At the jobber";
+    }else if(animalGuardTrueValue == 2){
+      animalGuardTitle = "At the master";
+    }else if(animalGuardTrueValue == 3){
+      animalGuardTitle = "Visits";
+    }
+    notifyListeners();
+  }
+
+  int courseHourTrueValue = 0;
+  String courseHourTitle = "";
+
+  void courseHourFunction(int index) {
+    courseHourTrueValue = index + 1;
+    if(courseHourTrueValue == 1){
+      courseHourTitle = "1 hour";
+    }else if(courseHourTrueValue == 2){
+      courseHourTitle = "2 hour";
+    }else if(courseHourTrueValue == 3){
+      courseHourTitle = "3 hour";
+    }else if(courseHourTrueValue == 4){
+      courseHourTitle = "4 hour";
+    }else if(courseHourTrueValue == 5){
+      courseHourTitle = "5 hour";
+    }else if(courseHourTrueValue == 6){
+      courseHourTitle = "6 hour";
+    }else if(courseHourTrueValue == 7){
+      courseHourTitle = "7 hour";
+    }else if(courseHourTrueValue == 8){
+      courseHourTitle = "8 hour";
+    }
     notifyListeners();
   }
 
@@ -714,6 +765,10 @@ class ConstProvider with ChangeNotifier {
   }
 
   void clearData() {
+    courseHourTrueValue = 0;
+    courseHourTitle = "";
+    animalGuardTrueValue = 0;
+    animalGuardTitle = "";
     cleanBoxTitle = "";
     cleanBoxFurniture = 0;
     numberOfFlyersSliderValue = 100;
@@ -745,7 +800,8 @@ class ConstProvider with ChangeNotifier {
     jobberBringMaterialValue = 0;
     jobberHedgeTimerTitle = "";
     jobberHedgeTimerValue = 0;
-    requestFrequencyTrueValue = 0;
+    frequencyTrueValue = 0;
+    frequencyTitle = "";
     jobberRemoveWasteValue = 0;
     jobberRemoveWasteTitle = "";
     jobberOwnMoverTitle = "";

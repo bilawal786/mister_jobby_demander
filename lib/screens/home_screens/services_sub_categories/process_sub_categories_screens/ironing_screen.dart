@@ -8,7 +8,6 @@ import '../process_child_screen_steps/general_step_3.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_sub_categories_steps/ironing_step.dart';
 
-
 class IroningScreen extends StatefulWidget {
   const IroningScreen({Key? key}) : super(key: key);
 
@@ -21,12 +20,13 @@ class _IroningScreenState extends State<IroningScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final routeArgs =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final mainCategoryId = routeArgs['mainCategoryId'];
     final subCategoryId = routeArgs['subCategoryId'];
     final subCategoryTitle = routeArgs['subCategoryTitle'];
     final constProviderData =
-    Provider.of<ConstProvider>(context, listen: false);
+        Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
       onWillPop: () async {
         constProviderData.clearData();
@@ -56,8 +56,9 @@ class _IroningScreenState extends State<IroningScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
-              print("own material: ${constProviderData.numberOfClotheTrueValue}");
-              print("own material: ${constProviderData.requestFrequencyTrueValue}");
+              print(
+                  "own material: ${constProviderData.numberOfClotheTrueValue}");
+              print("own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -87,48 +88,51 @@ class _IroningScreenState extends State<IroningScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if (size.numberOfClotheTrueValue > 0 && size.requestFrequencyTrueValue > 0 )
+                    if (size.numberOfClotheTrueValue > 0 &&
+                        size.frequencyTrueValue > 0)
                       Expanded(
-                          child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
+                        child: ElevatedButton(
+                          onPressed: details.onStepContinue,
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50.0),
+                            primary: Theme.of(context).primaryColor,
+                            elevation: 5,
+                          ),
+                          child: Text(
+                            currentStep > 1
+                                ? "Process_Screen_Confirm_Button"
+                                : "Process_Screen_Continue_Button",
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Cerebri Sans Regular',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                letterSpacing: 1),
+                          ).tr(),
                         ),
-                        child: Text(
-                          currentStep > 1
-                              ? "Process_Screen_Confirm_Button"
-                              : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1),
-                        ).tr(),
-                      ),),
+                      ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     Expanded(
-                        child: ElevatedButton(
-                      onPressed: details.onStepCancel,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
-                        elevation: 0,
+                      child: ElevatedButton(
+                        onPressed: details.onStepCancel,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Colors.black12,
+                          elevation: 0,
+                        ),
+                        child: const Text(
+                          "Process_Screen_Cancel_Button",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black,
+                              letterSpacing: 1),
+                        ).tr(),
                       ),
-                      child: const Text(
-                        "Process_Screen_Cancel_Button",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Cerebri Sans Regular',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black,
-                            letterSpacing: 1),
-                      ).tr(),
-                    ),),
+                    ),
                   ],
                 ),
               ),

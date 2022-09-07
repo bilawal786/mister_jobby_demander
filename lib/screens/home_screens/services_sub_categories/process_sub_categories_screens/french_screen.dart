@@ -59,7 +59,7 @@ class _FrenchScreenState extends State<FrenchScreen> {
               print("subCategoryTitle: $subCategoryTitle");
               print("own material: ${constProviderData.educationLevelTrueValue}");
               print("own material: ${constProviderData.courseFormatTrueValue}");
-              print("own material: ${constProviderData.requestFrequencyTrueValue}");
+              print("own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -89,7 +89,7 @@ class _FrenchScreenState extends State<FrenchScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if (need.educationLevelTrueValue > 0 && need.courseFormatTrueValue > 0 && need.requestFrequencyTrueValue > 0 )
+                    if (need.educationLevelTrueValue > 0 && need.courseFormatTrueValue > 0 && need.frequencyTrueValue > 0 )
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

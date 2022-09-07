@@ -66,7 +66,7 @@ class GardeningJobStep extends StatelessWidget {
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
                   onTap: () =>
-                      requestFrequencyData.requestFrequencyFunction(index),
+                      requestFrequencyData.frequencyFunction(index),
                   textTitle: index == 0
                       ? "Request_Frequency_Button_Title1"
                       : index == 1
@@ -74,11 +74,11 @@ class GardeningJobStep extends StatelessWidget {
                           : index == 2
                               ? "Request_Frequency_Button_Title3"
                               : "Request_Frequency_Button_Title4",
-                  color: requestFrequencyData.requestFrequencyTrueValue - 1 ==
+                  color: requestFrequencyData.frequencyTrueValue - 1 ==
                           index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: requestFrequencyData.requestFrequencyTrueValue - 1 ==
+                  border: requestFrequencyData.frequencyTrueValue - 1 ==
                           index
                       ? true
                       : false,

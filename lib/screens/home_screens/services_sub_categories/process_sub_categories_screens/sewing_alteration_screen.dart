@@ -57,7 +57,7 @@ class _SewingAlterationScreenState extends State<SewingAlterationScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print("need work: ${constProviderData.needWork}");
-              print("selected request frequency : ${constProviderData.requestFrequencyTrueValue}");
+              print("selected request frequency : ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -87,7 +87,7 @@ class _SewingAlterationScreenState extends State<SewingAlterationScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if (need.requestFrequencyTrueValue > 0)
+                    if (need.frequencyTrueValue > 0)
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

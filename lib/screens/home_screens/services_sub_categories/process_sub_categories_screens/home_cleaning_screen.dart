@@ -60,7 +60,7 @@ class _HomeCleaningScreenState extends State<HomeCleaningScreen> {
               print("own material: ${constProviderData.checkApplianceCleaning}");
               print("own material: ${constProviderData.checkWindowCleaning}");
               print("own material: ${constProviderData.checkIroning}");
-              print("own material: ${constProviderData.requestFrequencyTrueValue}");
+              print("own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -90,7 +90,7 @@ class _HomeCleaningScreenState extends State<HomeCleaningScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if ((need.requestFrequencyTrueValue > 0))
+                    if ((need.frequencyTrueValue > 0))
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

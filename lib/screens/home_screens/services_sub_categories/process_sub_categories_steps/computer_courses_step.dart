@@ -47,7 +47,7 @@ class ComputerCoursesStep extends StatelessWidget {
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
                   onTap: () =>
-                      requestFrequencyData.requestFrequencyFunction(index),
+                      requestFrequencyData.courseHourFunction(index),
                   textTitle: index == 0
                       ? "Computer_Courses_Step_Button1_Title"
                       : index == 1
@@ -63,11 +63,11 @@ class ComputerCoursesStep extends StatelessWidget {
                                           : index == 6
                                               ? "Computer_Courses_Step_Button7_Title"
                                               : "Computer_Courses_Step_Button8_Title",
-                  color: requestFrequencyData.requestFrequencyTrueValue - 1 ==
+                  color: requestFrequencyData.courseHourTrueValue - 1 ==
                           index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: requestFrequencyData.requestFrequencyTrueValue - 1 ==
+                  border: requestFrequencyData.courseHourTrueValue - 1 ==
                           index
                       ? true
                       : false,

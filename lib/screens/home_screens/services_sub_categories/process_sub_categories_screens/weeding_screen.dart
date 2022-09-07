@@ -55,9 +55,11 @@ class _WeedingScreenState extends State<WeedingScreen> {
               print('mainCategoryId: $mainCategoryId');
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
-              print("Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
-              print("waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
-              print("waste Remove No: ${constProviderData.requestFrequencyTrueValue}");
+              print(
+                  "Area to mow: ${constProviderData.surfaceInstallationSliderValue}");
+              print(
+                  "waste Remove yes: ${constProviderData.jobberRemoveWasteTitle}");
+              print("waste Remove No: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -89,48 +91,50 @@ class _WeedingScreenState extends State<WeedingScreen> {
                   children: <Widget>[
                     if ((size.jobberRemoveWasteTitle == "Yes" ||
                             size.jobberRemoveWasteTitle == "No") &&
-                        (size.requestFrequencyTrueValue > 0))
+                        (size.frequencyTrueValue > 0))
                       Expanded(
-                          child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
+                        child: ElevatedButton(
+                          onPressed: details.onStepContinue,
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50.0),
+                            primary: Theme.of(context).primaryColor,
+                            elevation: 5,
+                          ),
+                          child: Text(
+                            currentStep > 1
+                                ? "Process_Screen_Confirm_Button"
+                                : "Process_Screen_Continue_Button",
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Cerebri Sans Regular',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                letterSpacing: 1),
+                          ).tr(),
                         ),
-                        child: Text(
-                          currentStep > 1
-                              ? "Process_Screen_Confirm_Button"
-                              : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1),
-                        ).tr(),
-                      )),
+                      ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     Expanded(
-                        child: ElevatedButton(
-                      onPressed: details.onStepCancel,
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
-                        elevation: 0,
+                      child: ElevatedButton(
+                        onPressed: details.onStepCancel,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Colors.black12,
+                          elevation: 0,
+                        ),
+                        child: const Text(
+                          "Process_Screen_Cancel_Button",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black,
+                              letterSpacing: 1),
+                        ).tr(),
                       ),
-                      child: const Text(
-                        "Process_Screen_Cancel_Button",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Cerebri Sans Regular',
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black,
-                            letterSpacing: 1),
-                      ).tr(),
-                    )),
+                    ),
                   ],
                 ),
               ),

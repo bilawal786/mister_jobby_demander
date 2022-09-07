@@ -46,20 +46,17 @@ class KeepCatStep extends StatelessWidget {
                 itemCount: 3,
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
-                  onTap: () =>
-                      animalSitterData.requestFrequencyFunction(index),
+                  onTap: () => animalSitterData.animalThingsFunction(index),
                   textTitle: index == 0
                       ? "Dog_Sitting_Step_Item1_Button1_Title"
                       : index == 1
                       ? "Dog_Sitting_Step_Item1_Button2_Title"
                       : "Dog_Sitting_Step_Item1_Button3_Title",
-
-                  color: animalSitterData.requestFrequencyTrueValue - 1 ==
-                      index
+                  color: animalSitterData.animalGuardTrueValue - 1 == index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: animalSitterData.requestFrequencyTrueValue - 1 ==
-                      index
+                  border:
+                  animalSitterData.animalGuardTrueValue - 1 == index
                       ? true
                       : false,
                 ),

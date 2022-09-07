@@ -60,7 +60,7 @@ class _PoolWashingScreenState extends State<PoolWashingScreen> {
               print(
                   "own material: ${constProviderData.surfaceInstallationSliderValue}");
               print(
-                  "own material: ${constProviderData.requestFrequencyTrueValue}");
+                  "own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -90,7 +90,7 @@ class _PoolWashingScreenState extends State<PoolWashingScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, lawnData, child) => Row(
                   children: <Widget>[
-                    if (lawnData.requestFrequencyTrueValue > 0)
+                    if (lawnData.frequencyTrueValue > 0)
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

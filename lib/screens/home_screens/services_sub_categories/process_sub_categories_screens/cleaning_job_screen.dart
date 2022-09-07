@@ -58,7 +58,7 @@ class _CleaningJobScreenState extends State<CleaningJobScreen> {
               print("subCategoryId: $subCategoryId");
               print("subCategoryTitle: $subCategoryTitle");
               print(
-                  "own material: ${constProviderData.requestFrequencyTrueValue}");
+                  "own material: ${constProviderData.frequencyTitle}");
               print("need work: ${constProviderData.needWork}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -89,7 +89,7 @@ class _CleaningJobScreenState extends State<CleaningJobScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if (need.requestFrequencyTrueValue > 0)
+                    if (need.frequencyTrueValue > 0)
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,
