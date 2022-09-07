@@ -19,12 +19,17 @@ class MovingFurnitureScreen extends StatefulWidget {
 
 class _MovingFurnitureScreenState extends State<MovingFurnitureScreen> {
   int currentStep = 0;
+  int? mainCateId;
+  int? subCateId;
+  String? subCateTitle;
+
   @override
   Widget build(BuildContext context) {
-    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    final mainCategoryId = routeArgs['mainCategoryId'];
-    final subCategoryId = routeArgs['subCategoryId'];
-    final subCategoryTitle = routeArgs['subCategoryTitle'];
+    final routeArgs =
+    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    mainCateId = routeArgs['mainCategoryId'];
+    subCateId = routeArgs['subCategoryId'];
+    subCateTitle = routeArgs['childCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -39,7 +44,7 @@ class _MovingFurnitureScreenState extends State<MovingFurnitureScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            subCategoryTitle,
+            subCateTitle!,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -52,9 +57,9 @@ class _MovingFurnitureScreenState extends State<MovingFurnitureScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
-              print('mainCategoryId: $mainCategoryId');
-              print("subCategoryId: $subCategoryId");
-              print("subCategoryTitle: $subCategoryTitle");
+              print('mainCategoryId: $mainCateId');
+              print("subCategoryId: $subCateId");
+              print("subCategoryTitle: $subCateTitle");
               print("no of furniture: ${constProviderData.tvHangNo}");
               print("own material: ${constProviderData.jobberBringMaterialTitle}");
               print("selected date: ${constProviderData.selectedDate}");
@@ -149,7 +154,7 @@ class _MovingFurnitureScreenState extends State<MovingFurnitureScreen> {
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const GeneralStep2Screen(),
+      content: GeneralStep2Screen(mainCategoryId: mainCateId!, subCategoryId: subCateId!,),
     ),
     Step(
       isActive: currentStep >= 2,

@@ -18,14 +18,27 @@ class SinkInstallationScreen extends StatefulWidget {
 
 class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
   int currentStep = 0;
+  int? mId;
+  int? subId;
+  int? childId;
+  String? title;
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
     final routeArgs =
     ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final mainCategoryId = routeArgs['mainCategoryId'];
     final subCategoryId = routeArgs['subCategoryId'];
     final childCategoryId = routeArgs['childCategoryId'];
     final childCategoryTitle = routeArgs['childCategoryTitle'];
+    mId = mainCategoryId;
+    subId= subCategoryId;
+    childId = childCategoryId;
+    title = childCategoryTitle;
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -40,7 +53,7 @@ class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            childCategoryTitle,
+            title!,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -53,10 +66,10 @@ class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
-              print('mainCategoryId: $mainCategoryId');
-              print("subCategoryId: $subCategoryId");
-              print("childCategoryId: $childCategoryId");
-              print("childCategoryTitle: $childCategoryTitle");
+              print('mainCategoryId: $mId');
+              print("subCategoryId: $subId");
+              print("childCategoryId: $childId");
+              print("childCategoryTitle: $title");
               print("Flush Fixes Amount: ${constProviderData.fixesAmount}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -150,7 +163,7 @@ class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const GeneralStep2Screen(),
+      content: GeneralStep2Screen(mainCategoryId: mId!,subCategoryId: subId!,childCategoryId: childId!),
     ),
     Step(
       isActive: currentStep >= 2,

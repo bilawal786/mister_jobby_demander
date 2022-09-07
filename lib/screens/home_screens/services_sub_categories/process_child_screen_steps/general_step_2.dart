@@ -2,16 +2,26 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../providers/categories_provider/main_categories_provider.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/rounded_button.dart';
 
-
-
 class GeneralStep2Screen extends StatelessWidget {
-  const GeneralStep2Screen({Key? key}) : super(key: key);
+  final int mainCategoryId;
+  final int subCategoryId;
+  final int? childCategoryId;
+  const GeneralStep2Screen({
+    Key? key,
+    required this.mainCategoryId,
+    required this.subCategoryId,
+    this.childCategoryId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final mainCategoryData =
+        Provider.of<MainCategoriesProvider>(context, listen: false);
+    final extractedMainCategory = mainCategoryData.mainCategories;
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,8 +60,8 @@ class GeneralStep2Screen extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.2),
                       spreadRadius: 0.2,
                       blurRadius: 1,
-                      offset: const Offset(
-                          0.5, 1), // changes position of shadow
+                      offset:
+                          const Offset(0.5, 1), // changes position of shadow
                     ),
                   ],
                   border: Border.all(color: Colors.grey.shade300),
@@ -92,8 +102,8 @@ class GeneralStep2Screen extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.2),
                       spreadRadius: 0.2,
                       blurRadius: 1,
-                      offset: const Offset(
-                          0.5, 1), // changes position of shadow
+                      offset:
+                          const Offset(0.5, 1), // changes position of shadow
                     ),
                   ],
                   borderRadius: BorderRadius.circular(7),
@@ -201,36 +211,38 @@ class GeneralStep2Screen extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Consumer<ConstProvider>(
-            builder: (_,checkBoxData,child)=>
-                Row(
-                  children: [
-                    Text(
-                      "Service_do_you_need_urgent_job",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ).tr(),
-                    const Spacer(),
-                    InkWell(
-                      onTap: checkBoxData.checkUrgentJobFunction,
-                      child: Container(
-                        margin: const EdgeInsets.all(2),
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          color: checkBoxData.checkUrgentJob ? Theme.of(context).primaryColor : Colors.white,
-                          border: Border.all(width: 2, color: Theme.of(context).primaryColor ),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: checkBoxData.checkUrgentJob
-                            ? const Icon(
-                          Icons.check,
-                          size: 17,
-                          color: Colors.white,
-                        )
-                            : const SizedBox(),
-                      ),
+            builder: (_, checkBoxData, child) => Row(
+              children: [
+                Text(
+                  "Service_do_you_need_urgent_job",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ).tr(),
+                const Spacer(),
+                InkWell(
+                  onTap: checkBoxData.checkUrgentJobFunction,
+                  child: Container(
+                    margin: const EdgeInsets.all(2),
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                      color: checkBoxData.checkUrgentJob
+                          ? Theme.of(context).primaryColor
+                          : Colors.white,
+                      border: Border.all(
+                          width: 2, color: Theme.of(context).primaryColor),
+                      borderRadius: BorderRadius.circular(4),
                     ),
-                  ],
+                    child: checkBoxData.checkUrgentJob
+                        ? const Icon(
+                            Icons.check,
+                            size: 17,
+                            color: Colors.white,
+                          )
+                        : const SizedBox(),
+                  ),
                 ),
+              ],
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
@@ -247,38 +259,59 @@ class GeneralStep2Screen extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 30,
           ),
           Consumer<ConstProvider>(
-            builder: (_,providerCountData,child)=>
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      RoundedButton(
-                        onTap: providerCountData.providerAmountDecrement,
-                        icon: Icons.remove,
-                        color: providerCountData.providersAmount == 1
-                            ? Colors.blueGrey
-                            : Theme.of(context).primaryColor,
-                        // color: buttonColorSubTract,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 13.5,
-                      ),
-                      Text(
-                        "${providerCountData.providersAmount}",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 13.5,
-                      ),
-                      RoundedButton(
-                        onTap:providerCountData.providerAmountIncrement,
-                      ),
-                    ],
-                  ),
+            builder: (_, providerCountData, child) => Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                RoundedButton(
+                  onTap: providerCountData.providerAmountDecrement,
+                  icon: Icons.remove,
+                  color: providerCountData.providersAmount == 1
+                      ? Colors.blueGrey
+                      : Theme.of(context).primaryColor,
+                  // color: buttonColorSubTract,
                 ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 13.5,
+                ),
+                Text(
+                  "${providerCountData.providersAmount}",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 13.5,
+                ),
+                RoundedButton(
+                  onTap: providerCountData.providerAmountIncrement,
+                ),
+              ],
+            ),
+          ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(),
+          Row(
+            children: <Widget>[
+              Text(
+                "PRICE OF THE REQUESTED SERVICE",
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              const Spacer(),
+              if(subCategoryId < 5)
+              Text(
+                "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 1].price}€",
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              if(subCategoryId > 4)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+            ],
+          )
         ],
       ),
     );

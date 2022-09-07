@@ -18,14 +18,22 @@ class DisassembleFurnitureScreen extends StatefulWidget {
 
 class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen> {
   int currentStep = 0;
+  int? mId;
+  int? subId;
+  int? childId;
+  String? title;
+
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    final mainCategoryId = routeArgs['mainCategoryId'];
-    final subCategoryId = routeArgs['subCategoryId'];
-    final childCategoryId = routeArgs['childCategoryId'];
-    final childCategoryTitle = routeArgs['childCategoryTitle'];
+    ModalRoute
+        .of(context)!
+        .settings
+        .arguments as Map<String, dynamic>;
+    mId = routeArgs['mainCategoryId'];
+    subId = routeArgs['subCategoryId'];
+    childId = routeArgs['childCategoryId'];
+    title = routeArgs['childCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -40,7 +48,7 @@ class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen>
             color: Colors.black38,
           ),
           title: Text(
-            childCategoryTitle,
+            title!,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -53,10 +61,10 @@ class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen>
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
-              print('mainCategoryId: $mainCategoryId');
-              print("subCategoryId: $subCategoryId");
-              print("childCategoryId: $childCategoryId");
-              print("childCategoryTitle: $childCategoryTitle");
+              print('mainCategoryId: $mId');
+              print("subCategoryId: $subId");
+              print("childCategoryId: $childId");
+              print("childCategoryTitle: $title");
               print("small: ${constProviderData.smallSizedFurnitureAmount}");
               print("medium: ${constProviderData.mediumSizedFurnitureAmount}");
               print("large: ${constProviderData.largeSizedFurnitureAmount}");
@@ -154,7 +162,7 @@ class _DisassembleFurnitureScreenState extends State<DisassembleFurnitureScreen>
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: const GeneralStep2Screen(),
+      content: GeneralStep2Screen(mainCategoryId: mId!,subCategoryId: subId!, childCategoryId: childId!,),
     ),
     Step(
       isActive: currentStep >= 2,
