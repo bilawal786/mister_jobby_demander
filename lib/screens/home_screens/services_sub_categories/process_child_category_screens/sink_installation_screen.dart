@@ -24,21 +24,16 @@ class _SinkInstallationScreenState extends State<SinkInstallationScreen> {
   String? title;
 
   @override
-  void initState() {
-    final routeArgs =
-    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    final mainCategoryId = routeArgs['mainCategoryId'];
-    final subCategoryId = routeArgs['subCategoryId'];
-    final childCategoryId = routeArgs['childCategoryId'];
-    final childCategoryTitle = routeArgs['childCategoryTitle'];
-    mId = mainCategoryId;
-    subId= subCategoryId;
-    childId = childCategoryId;
-    title = childCategoryTitle;
-    super.initState();
-  }
-  @override
   Widget build(BuildContext context) {
+    final routeArgs =
+    ModalRoute
+        .of(context)!
+        .settings
+        .arguments as Map<String, dynamic>;
+    mId = routeArgs['mainCategoryId'];
+    subId = routeArgs['subCategoryId'];
+    childId = routeArgs['childCategoryId'];
+    title = routeArgs['childCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{

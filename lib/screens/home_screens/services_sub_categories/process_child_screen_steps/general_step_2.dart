@@ -298,15 +298,111 @@ class GeneralStep2Screen extends StatelessWidget {
               ),
               const Spacer(),
               if(subCategoryId < 5)
+                if(childCategoryId! < 14)
               Text(
                 "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 1].price}€",
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-              if(subCategoryId > 4)
+              if(childCategoryId! > 13 && childCategoryId! < 19)
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 14].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              if(childCategoryId! > 18 && childCategoryId! < 25)
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 19].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              if(childCategoryId! > 24 && childCategoryId! <= 31)
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 25].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              if(subCategoryId > 4 && subCategoryId < 14)
                 Container(
                   color: Colors.blue,
                   child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].price}€",
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 5].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 13 && subCategoryId < 23)
+                Container(
+                  color: Colors.green,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 14].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 22 && subCategoryId < 29)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 23].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 28 && subCategoryId < 30)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 29].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 29 && subCategoryId < 33)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 30].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 32 && subCategoryId < 37)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 33].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 36 && subCategoryId < 47)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 37].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 46 && subCategoryId < 62)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 47].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 61 && subCategoryId < 70)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 62].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 69 && subCategoryId < 71)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 70].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if(subCategoryId > 70 && subCategoryId < 75)
+                Container(
+                  color: Colors.blue,
+                  child: Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 71].price}€",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),

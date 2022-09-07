@@ -27,7 +27,7 @@ class _TerraceCleaningScreenState extends State<TerraceCleaningScreen> {
     ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mainCateId = routeArgs['mainCategoryId'];
     subCateId = routeArgs['subCategoryId'];
-    subCateTitle = routeArgs['childCategoryTitle'];
+    subCateTitle = routeArgs['subCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
@@ -152,7 +152,7 @@ class _TerraceCleaningScreenState extends State<TerraceCleaningScreen> {
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: GeneralStep2Screen(mainCategoryId: mainCateId!, subCategoryId: subCateId!,),
+      content: GeneralStep2Screen(mainCategoryId: mainCateId!, subCategoryId: subCateId!,childCategoryId: 0),
     ),
     Step(
       isActive: currentStep >= 2,

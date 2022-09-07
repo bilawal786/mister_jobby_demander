@@ -25,6 +25,15 @@ class _WaterInstallationScreenState extends State<WaterInstallationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs =
+    ModalRoute
+        .of(context)!
+        .settings
+        .arguments as Map<String, dynamic>;
+    mId = routeArgs['mainCategoryId'];
+    subId = routeArgs['subCategoryId'];
+    childId = routeArgs['childCategoryId'];
+    title = routeArgs['childCategoryTitle'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
