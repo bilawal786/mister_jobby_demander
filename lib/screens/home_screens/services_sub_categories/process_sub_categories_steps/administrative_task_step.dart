@@ -23,7 +23,7 @@ class AdministrativeTaskStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Animator_Step_SubTitle",
+            "What_You_Need_Title",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
