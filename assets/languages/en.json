@@ -417,5 +417,8 @@
   "Request_Frequency_Button_Title4": "Several times a week",
   "Pick-up_address": "Pick-up address",
   "Destination_address" : "Destination Address",
-  "Add_Child" : "Add a child"
+  "Add_Child" : "Add a child",
+  "Budget_Estimate_Step2_Title" : "Budget Estimate",
+  "Administrative_Cost_Step2_Title" : "Administrative costs 10%",
+  "Total_Step2_Title" : "Total"
 }

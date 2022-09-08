@@ -290,6 +290,9 @@ class GeneralStep2Screen extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
           Row(
             children: <Widget>[
               Text(
@@ -319,95 +322,97 @@ class GeneralStep2Screen extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 4 && subCategoryId < 14)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 5].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 5].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 13 && subCategoryId < 23)
-                Container(
-                  color: Colors.green,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 14].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 14].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 22 && subCategoryId < 29)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 23].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 23].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 28 && subCategoryId < 30)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 29].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 29].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 29 && subCategoryId < 33)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 30].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 30].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 32 && subCategoryId < 37)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 33].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 33].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 36 && subCategoryId < 47)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 37].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 37].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 46 && subCategoryId < 62)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 47].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 47].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 61 && subCategoryId < 70)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 62].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 62].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 69 && subCategoryId < 71)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 70].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 70].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               if(subCategoryId > 70 && subCategoryId < 75)
-                Container(
-                  color: Colors.blue,
-                  child: Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 71].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 71].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
             ],
-          )
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 20,
+          ),
+          Row(
+            children: [
+              Text('Budget_Estimate_Step2_Title', style: Theme.of(context).textTheme.bodyLarge,).tr(),
+             const Spacer(),
+              Text('0.0€', style: Theme.of(context).textTheme.bodyLarge,),
+            ],
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Row(
+            children: [
+              Text('Administrative_Cost_Step2_Title', style: Theme.of(context).textTheme.labelMedium,).tr(),
+             const Spacer(),
+              Text('0.0€', style: Theme.of(context).textTheme.bodySmall,),
+            ],
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Row(
+            children: [
+              Text('Total_Step2_Title', style: Theme.of(context).textTheme.labelMedium,).tr(),
+             const Spacer(),
+              Text('0.0€', style: Theme.of(context).textTheme.bodySmall,),
+            ],
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Divider(),
+
         ],
       ),
     );
