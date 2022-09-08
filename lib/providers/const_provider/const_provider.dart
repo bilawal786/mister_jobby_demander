@@ -845,6 +845,7 @@ class ConstProvider with ChangeNotifier {
     int hour,
     bool urgent,
     int jobber,
+    int estimateBudget,
     String address,
     double longitude,
     double latitude,
@@ -906,6 +907,7 @@ class ConstProvider with ChangeNotifier {
     request.fields['hours'] = hour as String;
     request.fields['urgent'] = urgent as String;
     request.fields['jobber'] = jobber as String;
+    request.fields['estimate_budget'] = estimateBudget as String;
     request.fields['address'] = address;
     request.fields['longitude'] = longitude as String;
     request.fields['latitude'] = latitude as String;
