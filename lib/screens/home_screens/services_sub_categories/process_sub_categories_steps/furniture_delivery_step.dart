@@ -39,7 +39,7 @@ class _FurnitureDeliveryStepState extends State<FurnitureDeliveryStep> {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Furniture_Delivery_Step_SubTitle",
+            "Information_about_Need_Step2_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(

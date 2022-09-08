@@ -25,7 +25,7 @@ class BartenderStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Bartender_Step_SubTitle",
+            "Information_about_Need_Step2_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(

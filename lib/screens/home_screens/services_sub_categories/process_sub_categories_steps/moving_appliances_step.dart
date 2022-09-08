@@ -38,7 +38,7 @@ class _MovingAppliancesStepState extends State<MovingAppliancesStep> {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Moving_Appliances_Step_SubTitle",
+            "What_You_Need_Title",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(

@@ -25,7 +25,7 @@ class MowLawnStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            "Mow_Lawn_Step_SubTitle",
+            "What_You_Need_Title",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
           SizedBox(
