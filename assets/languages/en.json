@@ -417,5 +417,6 @@
   "Request_Frequency_Button_Title3": "Once a week",
   "Request_Frequency_Button_Title4": "Several times a week",
   "Pick-up_address": "Pick-up address",
-  "Destination_address" : "Destination Address"
+  "Destination_address" : "Destination Address",
+  "Add_Child" : "Add a child"
 }

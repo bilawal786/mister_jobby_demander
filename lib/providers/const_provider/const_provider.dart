@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:http/http.dart' as http;
+
+import '../../helpers/routes.dart';
 
 class ConstProvider with ChangeNotifier {
   int smallSizedFurnitureAmount = 0;
@@ -53,7 +56,7 @@ class ConstProvider with ChangeNotifier {
 
   void jobberOwnMoverFunction(int index) {
     jobberOwnMoverValue = index + 1;
-    if ( jobberOwnMoverValue == 1) {
+    if (jobberOwnMoverValue == 1) {
       jobberOwnMoverTitle = "Yes";
     } else {
       jobberOwnMoverTitle = "No";
@@ -61,10 +64,10 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int  jobberRemoveWasteValue = 0;
-  String  jobberRemoveWasteTitle = "";
+  int jobberRemoveWasteValue = 0;
+  String jobberRemoveWasteTitle = "";
 
-  void  jobberRemoveWasteFunction(int index) {
+  void jobberRemoveWasteFunction(int index) {
     jobberRemoveWasteValue = index + 1;
     if (jobberRemoveWasteValue == 1) {
       jobberRemoveWasteTitle = "Yes";
@@ -74,10 +77,10 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int  jobberHedgeTimerValue = 0;
-  String  jobberHedgeTimerTitle = "";
+  int jobberHedgeTimerValue = 0;
+  String jobberHedgeTimerTitle = "";
 
-  void  jobberHedgeTimerFunction(int index) {
+  void jobberHedgeTimerFunction(int index) {
     jobberHedgeTimerValue = index + 1;
     if (jobberHedgeTimerValue == 1) {
       jobberHedgeTimerTitle = "Yes";
@@ -87,11 +90,10 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int jobberBringMaterialValue = 0;
+  String jobberBringMaterialTitle = "";
 
-  int  jobberBringMaterialValue = 0;
-  String  jobberBringMaterialTitle = "";
-
-  void  jobberBringMaterialFunction(int index) {
+  void jobberBringMaterialFunction(int index) {
     jobberBringMaterialValue = index + 1;
     if (jobberBringMaterialValue == 1) {
       jobberBringMaterialTitle = "Yes";
@@ -101,10 +103,10 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int  photoEditingValue = 0;
-  String  photoEditingTitle = "";
+  int photoEditingValue = 0;
+  String photoEditingTitle = "";
 
-  void  photoEditingFunction(int index) {
+  void photoEditingFunction(int index) {
     photoEditingValue = index + 1;
     if (photoEditingValue == 1) {
       photoEditingTitle = "Yes";
@@ -114,10 +116,10 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int  discountValue = 0;
-  String  discountTitle = "";
+  int discountValue = 0;
+  String discountTitle = "";
 
-  void  discountFunction(int index) {
+  void discountFunction(int index) {
     discountValue = index + 1;
     if (discountValue == 1) {
       discountTitle = "Yes";
@@ -126,7 +128,6 @@ class ConstProvider with ChangeNotifier {
     }
     notifyListeners();
   }
-
 
   void smallFurnitureAmountIncrement() {
     smallSizedFurnitureAmount += 1;
@@ -537,36 +538,33 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-
-
   int frequencyTrueValue = 0;
   String frequencyTitle = "";
 
   void frequencyFunction(int index) {
     frequencyTrueValue = index + 1;
-   if(frequencyTrueValue == 1){
-     frequencyTitle = "Just this once";
-   }else if(frequencyTrueValue == 2){
-     frequencyTitle = "Twice a month";
-   }else if(frequencyTrueValue == 3){
-     frequencyTitle = "Once a week";
-   }else if(frequencyTrueValue == 4){
-     frequencyTitle = "Several time a week";
-   }
+    if (frequencyTrueValue == 1) {
+      frequencyTitle = "Just this once";
+    } else if (frequencyTrueValue == 2) {
+      frequencyTitle = "Twice a month";
+    } else if (frequencyTrueValue == 3) {
+      frequencyTitle = "Once a week";
+    } else if (frequencyTrueValue == 4) {
+      frequencyTitle = "Several time a week";
+    }
     notifyListeners();
   }
-
 
   int animalGuardTrueValue = 0;
   String animalGuardTitle = "";
 
   void animalThingsFunction(int index) {
     animalGuardTrueValue = index + 1;
-    if(animalGuardTrueValue == 1){
+    if (animalGuardTrueValue == 1) {
       animalGuardTitle = "At the jobber";
-    }else if(animalGuardTrueValue == 2){
+    } else if (animalGuardTrueValue == 2) {
       animalGuardTitle = "At the master";
-    }else if(animalGuardTrueValue == 3){
+    } else if (animalGuardTrueValue == 3) {
       animalGuardTitle = "Visits";
     }
     notifyListeners();
@@ -577,27 +575,25 @@ class ConstProvider with ChangeNotifier {
 
   void courseHourFunction(int index) {
     courseHourTrueValue = index + 1;
-    if(courseHourTrueValue == 1){
+    if (courseHourTrueValue == 1) {
       courseHourTitle = "1 hour";
-    }else if(courseHourTrueValue == 2){
+    } else if (courseHourTrueValue == 2) {
       courseHourTitle = "2 hour";
-    }else if(courseHourTrueValue == 3){
+    } else if (courseHourTrueValue == 3) {
       courseHourTitle = "3 hour";
-    }else if(courseHourTrueValue == 4){
+    } else if (courseHourTrueValue == 4) {
       courseHourTitle = "4 hour";
-    }else if(courseHourTrueValue == 5){
+    } else if (courseHourTrueValue == 5) {
       courseHourTitle = "5 hour";
-    }else if(courseHourTrueValue == 6){
+    } else if (courseHourTrueValue == 6) {
       courseHourTitle = "6 hour";
-    }else if(courseHourTrueValue == 7){
+    } else if (courseHourTrueValue == 7) {
       courseHourTitle = "7 hour";
-    }else if(courseHourTrueValue == 8){
+    } else if (courseHourTrueValue == 8) {
       courseHourTitle = "8 hour";
     }
     notifyListeners();
   }
-
-
 
   String completeAddress = "";
   double longitude = 0;
@@ -609,8 +605,6 @@ class ConstProvider with ChangeNotifier {
     latitude = lat;
     notifyListeners();
   }
-
-
 
   double numberOfTreesSliderValue = 1;
 
@@ -748,9 +742,6 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-
-
-
   double numberOfFlyersSliderValue = 100;
 
   numberOfFlyersSliderFunction(double newValue) {
@@ -841,5 +832,87 @@ class ConstProvider with ChangeNotifier {
     cuttingMaterialValue = 0;
     cuttingMaterialTitle = "";
     notifyListeners();
+  }
+
+  Future<void> postJob(
+    int categoryId,
+    int subcategoryId,
+    int childCategoryId,
+    String title,
+    DateTime date,
+    TimeOfDay time,
+    double duration,
+    int hour,
+    bool urgent,
+    int jobber,
+    String address,
+    double longitude,
+    double latitude,
+    String postal,
+    int countryId,
+    String workDetail,
+    int small,
+    int medium,
+    int large,
+    int veryLarge,
+    String question,
+    int count,
+    String workDescription,
+    String question1,
+    String question2,
+    String question3, double surface,
+  ) async {
+    // SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
+    // String? userToken = sharedPrefs.getString("token");
+    Map<String, String> headers = {
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Accept': 'application/json',
+      'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGZmYjRiYmE3YzkyYzk1OGU5Y2E0ZjdiZDAwMjVkMzg3MDM1MDAyNjg2ZjhlZmEzN2NkZTk0MWFmMjMyMWY0NzgzNDYyZDNjYWU5Y2UwOTMiLCJpYXQiOjE2NjI2MTY5MTguMjIxNDY4LCJuYmYiOjE2NjI2MTY5MTguMjIxNDgsImV4cCI6MTY5NDE1MjkxOC4xOTQ2NjUsInN1YiI6IjMiLCJzY29wZXMiOltdfQ.KfG_X8EXsxDTgXeMcyBNwgQobBFFhX9PKOQFc2xhCeF9kkJLf3BVgt-cc7zpNzgliqaBetiJ78ICoqORXsOTi6_P6cCtnsem3W_4shtWVPyk2pFeKAvrWB064_lTQYD3xOAGv5kyTzGq-WjLE4NCk4uiU3T6-apQGifir_cp5DyKkl288ijt1Sr-P1MOw8Y2nV_1xPvuHv30frN604Yo-BipwRFG7hrhszha-A2bH8TMsiBU8g2uuorWnCOVeOqUcSboyODsngx_i2M6YwWd6VZWf2dH-S2QFMsPQ0LoR0VnMPQ-lNSjkD3EaSqoEGa2r4XijqIQPyC9HB_9_jnaawxTbfAHHfgUllVGa5w8FyXrAW4l_34jtEs34kCFv-3ddKtX37KxoDwEmwhBcDFWm3sR4K6ETiA2kkypEInsRSrxLQueM-YGP-JuBc1sSfAxkugMTxBs6Nvk79w6wj7uIS3mMH4D36brnKe4k86hdyElqvUVEhzcL1dfIEjpa-sCZve6ZSyN_e8p2_sxC37qqIQjviL6ttL6_bMpotfbzyjPopuhAQwWcBz_Zq86499xwe0Q9GQ6904Z74NKYvfVhDckJY_ihblkaYdAWPMNi2erCvx0RwjW4pZ_jJzy_kOIDCqd86VPPN-3V4ZrWMw4IgjOvYWRaSTVo6rbDjvFI4w',
+    };
+
+    var request = http.MultipartRequest(
+      "POST",
+      Uri.parse('${MyRoutes.BASEURL}/jobrequest/submit'),
+    );
+    request.headers.addAll(headers);
+    if (imageFile0 != null || imageFile1 != null || imageFile2 != null) {
+      request.files
+          .add(await http.MultipartFile.fromPath('image1', imageFile0!));
+      request.files
+          .add(await http.MultipartFile.fromPath('image2', imageFile1!));
+      request.files
+          .add(await http.MultipartFile.fromPath('image3', imageFile2!));
+    }
+    request.fields['category_id'] = categoryId as String;
+    request.fields['subcategory_id'] = categoryId as String;
+    request.fields['category_id'] = categoryId as String;
+    request.fields['title'] = title;
+    request.fields['small'] = small as String;
+    request.fields['medium'] = medium as String;
+    request.fields['large'] = large as String;
+    request.fields['verylarge'] = veryLarge as String;
+    request.fields['question'] = question;
+    request.fields['count'] = count as String;
+    request.fields['description'] = workDescription;
+    request.fields['question1'] = question1;
+    request.fields['question2'] = question2;
+    request.fields['question3'] = question3;
+    request.fields['surface'] = surface as String;
+
+    request.fields['service_date'] = date as String;
+    request.fields['start_time'] = time as String;
+    request.fields['duration'] = duration as String;
+    request.fields['hours'] = hour as String;
+    request.fields['urgent'] = urgent as String;
+    request.fields['jobber'] = jobber as String;
+    request.fields['address'] = address;
+    request.fields['longitude'] = longitude as String;
+    request.fields['latitude'] = latitude as String;
+    request.fields['postal'] = postal;
+    request.fields['country_id'] = countryId as String;
+    request.fields['detail_description'] = workDetail;
+
+    await request.send();
   }
 }
