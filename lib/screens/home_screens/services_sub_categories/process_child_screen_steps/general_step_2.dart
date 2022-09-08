@@ -134,6 +134,8 @@ class GeneralStep2Screen extends StatelessWidget {
                     onTap: () {
                       duration.durationDecrement();
                       duration.calculateBudget();
+                      duration.calculateAdminCost();
+                      duration.totalBudget();
                       },
                     icon: Icons.remove,
                     color: duration.duration == 0.0
@@ -155,6 +157,8 @@ class GeneralStep2Screen extends StatelessWidget {
                     onTap: () {
                       duration.durationIncrement();
                       duration.calculateBudget();
+                      duration.calculateAdminCost();
+                      duration.totalBudget();
                     },
                     icon: Icons.add,
                     color: Theme.of(context).primaryColor,
@@ -186,6 +190,8 @@ class GeneralStep2Screen extends StatelessWidget {
                     onTap: () {
                       hourlyRateData.hourlyRateDecrement();
                       hourlyRateData.calculateBudget();
+                      hourlyRateData.calculateAdminCost();
+                      hourlyRateData.totalBudget();
                     },
                     icon: Icons.remove,
                     color: hourlyRateData.hourlyRate == 0
@@ -207,6 +213,8 @@ class GeneralStep2Screen extends StatelessWidget {
                     onTap: (){
                       hourlyRateData.hourlyRateIncrement();
                       hourlyRateData.calculateBudget();
+                      hourlyRateData.calculateAdminCost();
+                      hourlyRateData.totalBudget();
                       },
                     icon: Icons.add,
                     color: Theme.of(context).primaryColor,
@@ -308,9 +316,9 @@ class GeneralStep2Screen extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                "PRICE OF THE REQUESTED SERVICE",
+                "Requested_services",
                 style: Theme.of(context).textTheme.bodySmall,
-              ),
+              ).tr(),
               const Spacer(),
               if (subCategoryId < 5)
                 if (childCategoryId! < 14)
@@ -400,9 +408,11 @@ class GeneralStep2Screen extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyLarge,
               ).tr(),
               const Spacer(),
-              Text(
-                '0.0€',
-                style: Theme.of(context).textTheme.bodyLarge,
+              Consumer<ConstProvider>(
+                builder: (_, budget, child) => Text(
+                  '${budget.estimateBudge}€',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ),
             ],
           ),
@@ -416,9 +426,9 @@ class GeneralStep2Screen extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelMedium,
               ).tr(),
               const Spacer(),
-              Consumer<ConstProvider>(
-                builder: (_, budget, child) => Text(
-                  '${budget.estimateBudge}€',
+              Consumer <ConstProvider>(
+                builder: (_,adminCost,child)=> Text(
+                  '${adminCost.adminCost}€',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ),
@@ -434,9 +444,11 @@ class GeneralStep2Screen extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelMedium,
               ).tr(),
               const Spacer(),
-              Text(
-                '0.0€',
-                style: Theme.of(context).textTheme.bodySmall,
+              Consumer<ConstProvider>(
+                builder:  (_,total, child)=> Text(
+                  '${total.totalCost}€',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ),
             ],
           ),

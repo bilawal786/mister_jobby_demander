@@ -219,7 +219,7 @@
   "Letters_Delivery_Step_Item1_Title": "Do I have to assemble the letter?",
   "Letters_Delivery_Step_Item2_Title": "Number of floors on arrival",
   "Race_Delivery_Step_Title": "Shopping delivery",
-  "Race_Delivery_Step_SubTitle": "Information about the need",
+  "Information_about_Need_Step2_SubTitle": "Information about the need",
   "Race_Delivery_Step_Item1_Title": "Fresh and frozen products?",
   "Race_Delivery_Step_Item2_Title": "Number of floors on arrival",
   "Home_Cleaning_Step_Title": "Home cleaning",
@@ -420,5 +420,6 @@
   "Add_Child" : "Add a child",
   "Budget_Estimate_Step2_Title" : "Budget Estimate",
   "Administrative_Cost_Step2_Title" : "Administrative costs 10%",
-  "Total_Step2_Title" : "Total"
+  "Total_Step2_Title" : "Total",
+  "Requested_services" : "Price of the requested service"
 }
