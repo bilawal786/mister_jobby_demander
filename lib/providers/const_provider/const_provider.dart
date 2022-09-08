@@ -516,8 +516,8 @@ class ConstProvider with ChangeNotifier {
       },
     );
   }
-
-  double surfaceInstallationSliderValue = 10;
+  double surface = 0;
+  double surfaceInstallationSliderValue = 0;
 
   surfaceInstallationSliderFunction(double newValue) {
     surfaceInstallationSliderValue = newValue;
@@ -765,16 +765,16 @@ class ConstProvider with ChangeNotifier {
   }
 
   double adminCost = 0.0;
-   void calculateAdminCost(){
-     adminCost = (estimateBudge * 10 )/ 100;
-     notifyListeners();
-   }
+  void calculateAdminCost() {
+    adminCost = (estimateBudge * 10) / 100;
+    notifyListeners();
+  }
 
-   double totalCost = 0.0;
-    void totalBudget(){
-      totalCost = estimateBudge + adminCost;
-      notifyListeners();
-    }
+  double totalCost = 0.0;
+  void totalBudget() {
+    totalCost = estimateBudge + adminCost;
+    notifyListeners();
+  }
 
   void clearData() {
     courseHourTrueValue = 0;
@@ -854,41 +854,45 @@ class ConstProvider with ChangeNotifier {
   }
 
   Future<void> postJob(
-    int categoryId,
-    int subcategoryId,
-    int childCategoryId,
+    String categoryId,
+    String subcategoryId,
+    String childCategoryId,
     String title,
-    DateTime date,
-    TimeOfDay time,
-    double duration,
-    int hour,
-    bool urgent,
-    int jobber,
-    int estimateBudget,
+    String date,
+    String time,
+    String duration,
+    String hour,
+    String urgent,
+    String jobber,
+    String estimatedBudget,
     String address,
-    double longitude,
-    double latitude,
+    String longitude,
+    String latitude,
     String postal,
-    int countryId,
+    String countryId,
     String workDetail,
-    int small,
-    int medium,
-    int large,
-    int veryLarge,
+    String small,
+    String medium,
+    String large,
+    String veryLarge,
     String question,
-    int count,
+    String count,
     String workDescription,
     String question1,
     String question2,
-    String question3, double surface,
+    String question3,
+    String surface,
+    imageUrl,
+    imageUrl1,
+    imageUrl2,
   ) async {
     // SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     // String? userToken = sharedPrefs.getString("token");
     Map<String, String> headers = {
-      'Content-Type': 'application/json; charset=UTF-8',
+      'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGZmYjRiYmE3YzkyYzk1OGU5Y2E0ZjdiZDAwMjVkMzg3MDM1MDAyNjg2ZjhlZmEzN2NkZTk0MWFmMjMyMWY0NzgzNDYyZDNjYWU5Y2UwOTMiLCJpYXQiOjE2NjI2MTY5MTguMjIxNDY4LCJuYmYiOjE2NjI2MTY5MTguMjIxNDgsImV4cCI6MTY5NDE1MjkxOC4xOTQ2NjUsInN1YiI6IjMiLCJzY29wZXMiOltdfQ.KfG_X8EXsxDTgXeMcyBNwgQobBFFhX9PKOQFc2xhCeF9kkJLf3BVgt-cc7zpNzgliqaBetiJ78ICoqORXsOTi6_P6cCtnsem3W_4shtWVPyk2pFeKAvrWB064_lTQYD3xOAGv5kyTzGq-WjLE4NCk4uiU3T6-apQGifir_cp5DyKkl288ijt1Sr-P1MOw8Y2nV_1xPvuHv30frN604Yo-BipwRFG7hrhszha-A2bH8TMsiBU8g2uuorWnCOVeOqUcSboyODsngx_i2M6YwWd6VZWf2dH-S2QFMsPQ0LoR0VnMPQ-lNSjkD3EaSqoEGa2r4XijqIQPyC9HB_9_jnaawxTbfAHHfgUllVGa5w8FyXrAW4l_34jtEs34kCFv-3ddKtX37KxoDwEmwhBcDFWm3sR4K6ETiA2kkypEInsRSrxLQueM-YGP-JuBc1sSfAxkugMTxBs6Nvk79w6wj7uIS3mMH4D36brnKe4k86hdyElqvUVEhzcL1dfIEjpa-sCZve6ZSyN_e8p2_sxC37qqIQjviL6ttL6_bMpotfbzyjPopuhAQwWcBz_Zq86499xwe0Q9GQ6904Z74NKYvfVhDckJY_ihblkaYdAWPMNi2erCvx0RwjW4pZ_jJzy_kOIDCqd86VPPN-3V4ZrWMw4IgjOvYWRaSTVo6rbDjvFI4w',
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDdkZDJhNTc2MGI4N2M1YjQ0ZjVkMjEzMmMwZDkxNTcyZDYyMGY2NGNhMjM0ODMzM2JhZGEzYjRkMWJhOWJkOGM3MDIwOTUyMjZkZDcyZmQiLCJpYXQiOjE2NjI2MzM1NTkuNTkzOTg0LCJuYmYiOjE2NjI2MzM1NTkuNTkzOTk0LCJleHAiOjE2OTQxNjk1NTkuNTgyOTg0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.lfz3P3dp9lN8WSqqHSCYLYKoIZPyr47PirHueQ3n-7Gk64KkL2oaI5Nhw0Rl6NqKijTbEroiC1lcYraOVWfR_dZYi0wi0TeM45XuivmvoN5vXSZCfgFeTu0Yxd01d5KX3G1oVX53GFnqL9qzNPu9xR24bnpiiaqqh5tox2WLE0FzJlHWG5UT7_Z-9hPOXW4hpEPseVtkOHwzw9O0LLNkzzn1U85AbjKglgX9sbzqIaWl-Pi4L4Ag8K47IS1v8XI6N0htR2qki7Z88CBGcPSxcQk1Jp7m9b83fft7tHX-bXaC1kh8M_tpYur3l_MITxUzKWYnoXworXQfku1TatMjOk8rvKDwVuvql3h4P2biJ_fro_wSnYtXZDrWtLTT_CQr5WUY8iZCb6DkGjU7LlVr24mGhxFO61fHUdhm-a71sbhN35u7_3uwC3FIfGZ7WwyNss9XnB9wCj8tn6o0gQwPNnTkQzJPHTE1mYZavfexeCJuelmXcOe9uJaF0_oQ1ZYKeqsBBJ1o-QvEfzmrZVw6nqndSUtYvIQUWTcAQAaD8fiKjJn2kgn8KwiSJbt5D_b2zaVHpHd1BdvU6ScutwJvgnsrATIzTmtrtHzs4MFUjVoZzXgi_mmCmTKQLlxJenHeb85LJCUXWtKFoa6bsAMiWW1BDIKfOXhUFO38zBBnLG0',
     };
 
     var request = http.MultipartRequest(
@@ -896,44 +900,51 @@ class ConstProvider with ChangeNotifier {
       Uri.parse('${MyRoutes.BASEURL}/jobrequest/submit'),
     );
     request.headers.addAll(headers);
-    if (imageFile0 != null || imageFile1 != null || imageFile2 != null) {
-      request.files
-          .add(await http.MultipartFile.fromPath('image1', imageFile0!));
-      request.files
-          .add(await http.MultipartFile.fromPath('image2', imageFile1!));
-      request.files
-          .add(await http.MultipartFile.fromPath('image3', imageFile2!));
+    if (imageUrl != null) {
+      request.files.add(await http.MultipartFile.fromPath('image1', imageUrl));
     }
-    request.fields['category_id'] = categoryId as String;
-    request.fields['subcategory_id'] = categoryId as String;
-    request.fields['category_id'] = categoryId as String;
+    if (imageUrl1 != null) {
+      request.files.add(await http.MultipartFile.fromPath('image2', imageUrl1));
+    }
+    if (imageUrl2 != null) {
+      request.files.add(await http.MultipartFile.fromPath('image3', imageUrl2));
+    }
+    request.fields['category_id'] = categoryId;
+    request.fields['subcategory_id'] = subcategoryId;
+    request.fields['childcategory_id'] = childCategoryId;
     request.fields['title'] = title;
-    request.fields['small'] = small as String;
-    request.fields['medium'] = medium as String;
-    request.fields['large'] = large as String;
-    request.fields['verylarge'] = veryLarge as String;
+    request.fields['small'] = small;
+    request.fields['medium'] = medium;
+    request.fields['large'] = large;
+    request.fields['verylarge'] = veryLarge;
     request.fields['question'] = question;
-    request.fields['count'] = count as String;
+    request.fields['count'] = count;
     request.fields['description'] = workDescription;
     request.fields['question1'] = question1;
     request.fields['question2'] = question2;
     request.fields['question3'] = question3;
-    request.fields['surface'] = surface as String;
+    request.fields['surface'] = surface;
 
-    request.fields['service_date'] = date as String;
-    request.fields['start_time'] = time as String;
-    request.fields['duration'] = duration as String;
-    request.fields['hours'] = hour as String;
-    request.fields['urgent'] = urgent as String;
-    request.fields['jobber'] = jobber as String;
-    request.fields['estimate_budget'] = estimateBudget as String;
+    request.fields['service_date'] = date;
+    request.fields['start_time'] = time;
+    request.fields['duration'] = duration;
+    request.fields['hours'] = hour;
+    request.fields['urgent'] = urgent;
+    request.fields['jobber'] = jobber;
+    request.fields['estimate_budget'] = estimatedBudget;
     request.fields['address'] = address;
-    request.fields['longitude'] = longitude as String;
-    request.fields['latitude'] = latitude as String;
+    request.fields['longitude'] = longitude;
+    request.fields['latitude'] = latitude;
     request.fields['postal'] = postal;
-    request.fields['country_id'] = countryId as String;
+    request.fields['country_id'] = countryId;
     request.fields['detail_description'] = workDetail;
 
-    await request.send();
+    var response = await request.send();
+
+    if (response.statusCode == 200) {
+      print("job Posted successfully ");
+    } else {
+      print('job Post Failed');
+    }
   }
 }

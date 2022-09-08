@@ -2,42 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-
 import '../process_child_screen_steps/furniture_assemble_step.dart';
 import '../process_child_screen_steps/general_step_2.dart';
 import '../process_child_screen_steps/general_step_3.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
 
-
 class FurnitureAssembleScreen extends StatefulWidget {
   const FurnitureAssembleScreen({Key? key}) : super(key: key);
 
   @override
-  State<FurnitureAssembleScreen> createState() => _FurnitureAssembleScreenState();
+  State<FurnitureAssembleScreen> createState() =>
+      _FurnitureAssembleScreenState();
 }
 
 class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
   int currentStep = 0;
-  int mId =0;
-  int subId =0;
+  int mId = 0;
+  int subId = 0;
   int childId = 0;
   String? title;
 
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute
-        .of(context)!
-        .settings
-        .arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mId = routeArgs['mainCategoryId'];
     subId = routeArgs['subCategoryId'];
     childId = routeArgs['childCategoryId'];
     title = routeArgs['childCategoryTitle'];
-    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
+    final constProviderData =
+        Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
-      onWillPop:  ()async{
+      onWillPop: () async {
         constProviderData.clearData();
         return true;
       },
@@ -49,7 +46,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
             color: Colors.black38,
           ),
           title: Text(
-            "$title $mId $subId $childId",
+            "$title",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -69,7 +66,8 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               print("small: ${constProviderData.smallSizedFurnitureAmount}");
               print("medium: ${constProviderData.mediumSizedFurnitureAmount}");
               print("large: ${constProviderData.largeSizedFurnitureAmount}");
-              print("extra Large: ${constProviderData.veryLargeSizedFurnitureAmount}");
+              print(
+                  "extra Large: ${constProviderData.veryLargeSizedFurnitureAmount}");
               print("question 1: ${constProviderData.cleanBoxTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -86,6 +84,39 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              constProviderData.postJob(
+                  mId.toString(),
+                  subId.toString(),
+                  childId.toString(),
+                  title!,
+                  constProviderData.selectedDate.toString(),
+                  constProviderData.pickedTime.toString(),
+                  constProviderData.duration.toString(),
+                  constProviderData.hourlyRate.toString(),
+                  constProviderData.checkUrgentJob.toString(),
+                  constProviderData.providersAmount.toString(),
+                  constProviderData.estimateBudge.toString(),
+                  constProviderData.completeAddress,
+                  constProviderData.longitude.toString(),
+                  constProviderData.latitude.toString(),
+                  constProviderData.postalCode,
+                  1.toString(),
+                  constProviderData.workDetails,
+                  constProviderData.smallSizedFurnitureAmount.toString(),
+                  constProviderData.mediumSizedFurnitureAmount.toString(),
+                  constProviderData.largeSizedFurnitureAmount.toString(),
+                  constProviderData.veryLargeSizedFurnitureAmount.toString(),
+                  constProviderData.cleanBoxTitle,
+                  constProviderData.fixesAmount.toString(),
+                  constProviderData.needWork,
+                  "",
+                  "",
+                  "",
+                  constProviderData.surface.toString(),
+                  constProviderData.imageFile0,
+                  constProviderData.imageFile1,
+                  constProviderData.imageFile2,
+              );
             } else {
               setState(() => currentStep += 1);
             }
@@ -99,11 +130,17 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,furnitureAssemble,child) => Row(
+                builder: (_, furnitureAssemble, child) => Row(
                   children: <Widget>[
-                    if((furnitureAssemble.smallSizedFurnitureAmount > 0 || furnitureAssemble.mediumSizedFurnitureAmount > 0 || furnitureAssemble.largeSizedFurnitureAmount > 0 || furnitureAssemble.veryLargeSizedFurnitureAmount > 0) && (furnitureAssemble.cleanBoxTitle == "Yes" || furnitureAssemble.cleanBoxTitle == "No"))
-                    Expanded(
-                      child: ElevatedButton(
+                    if ((furnitureAssemble.smallSizedFurnitureAmount > 0 ||
+                            furnitureAssemble.mediumSizedFurnitureAmount > 0 ||
+                            furnitureAssemble.largeSizedFurnitureAmount > 0 ||
+                            furnitureAssemble.veryLargeSizedFurnitureAmount >
+                                0) &&
+                        (furnitureAssemble.cleanBoxTitle == "Yes" ||
+                            furnitureAssemble.cleanBoxTitle == "No"))
+                      Expanded(
+                          child: ElevatedButton(
                         onPressed: details.onStepContinue,
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50.0),
@@ -111,38 +148,38 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                           elevation: 5,
                         ),
                         child: Text(
-                          currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
+                          currentStep > 1
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
                           style: const TextStyle(
                               fontSize: 20,
                               fontFamily: 'Cerebri Sans Regular',
                               fontWeight: FontWeight.normal,
                               color: Colors.white,
-                              letterSpacing: 1
-                          ),
+                              letterSpacing: 1),
                         ).tr(),
-                      )
+                      )),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 40,
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width / 40,),
                     Expanded(
-                      child: ElevatedButton(
-                        onPressed: details.onStepCancel,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Colors.black12,
-                          elevation: 0,
-                        ),
-                        child: const Text(
-                          "Process_Screen_Cancel_Button",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                              letterSpacing: 1
-                          ),
-                        ).tr(),
-                      )
-                    ),
+                        child: ElevatedButton(
+                      onPressed: details.onStepCancel,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Colors.black12,
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        "Process_Screen_Cancel_Button",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            letterSpacing: 1),
+                      ).tr(),
+                    )),
                   ],
                 ),
               ),
@@ -152,7 +189,6 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
       ),
     );
   }
-
 
   List<Step> getSteps() => [
         Step(
@@ -165,12 +201,15 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
           isActive: currentStep >= 1,
           state: currentStep > 1 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: GeneralStep2Screen(mainCategoryId: mId, subCategoryId: subId, childCategoryId: childId),
+          content: GeneralStep2Screen(
+              mainCategoryId: mId,
+              subCategoryId: subId,
+              childCategoryId: childId),
         ),
         Step(
           isActive: currentStep >= 2,
           title: const Text(""),
-          content:const GeneralStep3Screen(),
+          content: const GeneralStep3Screen(),
         ),
       ];
 }
