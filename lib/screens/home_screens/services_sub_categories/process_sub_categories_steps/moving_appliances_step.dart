@@ -5,13 +5,27 @@ import 'package:provider/provider.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
-class MovingAppliancesStep extends StatelessWidget {
+class MovingAppliancesStep extends StatefulWidget {
   const MovingAppliancesStep({Key? key}) : super(key: key);
 
   @override
+  State<MovingAppliancesStep> createState() => _MovingAppliancesStepState();
+}
+
+class _MovingAppliancesStepState extends State<MovingAppliancesStep> {
+  TextEditingController pickAddressController = TextEditingController();
+  TextEditingController destinationAddressController = TextEditingController();
+
+  @override
+  void dispose() {
+    pickAddressController.dispose();
+    destinationAddressController.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
-    // final constProviderData =
-    // Provider.of<ConstProvider>(context, listen: false);
+    final constProviderData =
+    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,6 +41,52 @@ class MovingAppliancesStep extends StatelessWidget {
             "Moving_Appliances_Step_SubTitle",
             style: Theme.of(context).textTheme.titleMedium,
           ).tr(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Text(
+            "Pick-up_address",
+            style: Theme.of(context).textTheme.labelMedium,
+          ).tr(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          TextFormField(
+            controller: pickAddressController,
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              labelText: "Pick-up_address".tr(),
+              isDense: true,
+            ),
+            style: Theme.of(context).textTheme.bodySmall,
+            enabled: true,
+            onChanged: (pValue) {
+              constProviderData.pickupAddress = pValue;
+            },
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          Text(
+            "Destination_address",
+            style: Theme.of(context).textTheme.labelMedium,
+          ).tr(),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 40,
+          ),
+          TextFormField(
+            controller: destinationAddressController,
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              labelText: "Destination_address".tr(),
+              isDense: true,
+            ),
+            style: Theme.of(context).textTheme.bodySmall,
+            enabled: true,
+            onChanged: (pValue) {
+              constProviderData.destinationAddress = pValue;
+            },
+          ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),

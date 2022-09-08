@@ -461,5 +461,7 @@
   "Request_Frequency_Button_Title1": "just this once",
   "Request_Frequency_Button_Title2": "Twice a month",
   "Request_Frequency_Button_Title3": "Once a week",
-  "Request_Frequency_Button_Title4": "Several times a week"
+  "Request_Frequency_Button_Title4": "Several times a week",
+  "Pick-up_address": "Pick-up address",
+  "Destination_address" : "Destination Address"
 }

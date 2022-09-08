@@ -674,6 +674,8 @@ class ConstProvider with ChangeNotifier {
 
   String workDetails = "";
   String postalCode = "";
+  String pickupAddress = "";
+  String destinationAddress = "";
   int groupValue = 1;
 
   void checkGroupValue(int? value) {
@@ -794,6 +796,8 @@ class ConstProvider with ChangeNotifier {
     areaToClearSliderValue = 350;
     workDetails = "";
     postalCode = "";
+    pickupAddress = "";
+    destinationAddress = "";
     groupValue = 1;
     numberOfTreesSliderValue = 1;
     jobberBringMaterialTitle = "";
