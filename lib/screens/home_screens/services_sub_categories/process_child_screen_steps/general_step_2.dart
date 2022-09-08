@@ -131,7 +131,10 @@ class GeneralStep2Screen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   RoundedButton(
-                    onTap: duration.durationDecrement,
+                    onTap: () {
+                      duration.durationDecrement();
+                      duration.calculateBudget();
+                      },
                     icon: Icons.remove,
                     color: duration.duration == 0.0
                         ? Colors.blueGrey
@@ -149,7 +152,10 @@ class GeneralStep2Screen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 20,
                   ),
                   RoundedButton(
-                    onTap: duration.durationIncrement,
+                    onTap: () {
+                      duration.durationIncrement();
+                      duration.calculateBudget();
+                    },
                     icon: Icons.add,
                     color: Theme.of(context).primaryColor,
                   ),
@@ -177,7 +183,10 @@ class GeneralStep2Screen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   RoundedButton(
-                    onTap: hourlyRateData.hourlyRateDecrement,
+                    onTap: () {
+                      hourlyRateData.hourlyRateDecrement();
+                      hourlyRateData.calculateBudget();
+                    },
                     icon: Icons.remove,
                     color: hourlyRateData.hourlyRate == 0
                         ? Colors.blueGrey
@@ -195,7 +204,10 @@ class GeneralStep2Screen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 13.5,
                   ),
                   RoundedButton(
-                    onTap: hourlyRateData.hourlyRateIncrement,
+                    onTap: (){
+                      hourlyRateData.hourlyRateIncrement();
+                      hourlyRateData.calculateBudget();
+                      },
                     icon: Icons.add,
                     color: Theme.of(context).primaryColor,
                   ),
@@ -300,78 +312,78 @@ class GeneralStep2Screen extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               const Spacer(),
-              if(subCategoryId < 5)
-                if(childCategoryId! < 14)
-              Text(
-                "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 1].price}€",
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-              if(childCategoryId! > 13 && childCategoryId! < 19)
+              if (subCategoryId < 5)
+                if (childCategoryId! < 14)
+                  Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 1].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+              if (childCategoryId! > 13 && childCategoryId! < 19)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 14].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(childCategoryId! > 18 && childCategoryId! < 25)
+              if (childCategoryId! > 18 && childCategoryId! < 25)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 19].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(childCategoryId! > 24 && childCategoryId! <= 31)
+              if (childCategoryId! > 24 && childCategoryId! <= 31)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 25].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 4 && subCategoryId < 14)
+              if (subCategoryId > 4 && subCategoryId < 14)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 5].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 13 && subCategoryId < 23)
+              if (subCategoryId > 13 && subCategoryId < 23)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 14].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 22 && subCategoryId < 29)
+              if (subCategoryId > 22 && subCategoryId < 29)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 23].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 28 && subCategoryId < 30)
+              if (subCategoryId > 28 && subCategoryId < 30)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 29].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 29 && subCategoryId < 33)
+              if (subCategoryId > 29 && subCategoryId < 33)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 30].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 32 && subCategoryId < 37)
+              if (subCategoryId > 32 && subCategoryId < 37)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 33].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 36 && subCategoryId < 47)
+              if (subCategoryId > 36 && subCategoryId < 47)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 37].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 46 && subCategoryId < 62)
+              if (subCategoryId > 46 && subCategoryId < 62)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 47].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 61 && subCategoryId < 70)
+              if (subCategoryId > 61 && subCategoryId < 70)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 62].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 69 && subCategoryId < 71)
+              if (subCategoryId > 69 && subCategoryId < 71)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 70].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if(subCategoryId > 70 && subCategoryId < 75)
+              if (subCategoryId > 70 && subCategoryId < 75)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 71].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
@@ -383,9 +395,15 @@ class GeneralStep2Screen extends StatelessWidget {
           ),
           Row(
             children: [
-              Text('Budget_Estimate_Step2_Title', style: Theme.of(context).textTheme.bodyLarge,).tr(),
-             const Spacer(),
-              Text('0.0€', style: Theme.of(context).textTheme.bodyLarge,),
+              Text(
+                'Budget_Estimate_Step2_Title',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ).tr(),
+              const Spacer(),
+              Text(
+                '0.0€',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
             ],
           ),
           SizedBox(
@@ -393,9 +411,17 @@ class GeneralStep2Screen extends StatelessWidget {
           ),
           Row(
             children: [
-              Text('Administrative_Cost_Step2_Title', style: Theme.of(context).textTheme.labelMedium,).tr(),
-             const Spacer(),
-              Text('0.0€', style: Theme.of(context).textTheme.bodySmall,),
+              Text(
+                'Administrative_Cost_Step2_Title',
+                style: Theme.of(context).textTheme.labelMedium,
+              ).tr(),
+              const Spacer(),
+              Consumer<ConstProvider>(
+                builder: (_, budget, child) => Text(
+                  '${budget.estimateBudge}€',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ),
             ],
           ),
           SizedBox(
@@ -403,16 +429,21 @@ class GeneralStep2Screen extends StatelessWidget {
           ),
           Row(
             children: [
-              Text('Total_Step2_Title', style: Theme.of(context).textTheme.labelMedium,).tr(),
-             const Spacer(),
-              Text('0.0€', style: Theme.of(context).textTheme.bodySmall,),
+              Text(
+                'Total_Step2_Title',
+                style: Theme.of(context).textTheme.labelMedium,
+              ).tr(),
+              const Spacer(),
+              Text(
+                '0.0€',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ],
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          Divider(),
-
+          const Divider(),
         ],
       ),
     );

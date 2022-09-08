@@ -757,6 +757,13 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  double estimateBudge = 0.0;
+
+  void calculateBudget() {
+    estimateBudge = duration * hourlyRate;
+    notifyListeners();
+  }
+
   void clearData() {
     courseHourTrueValue = 0;
     courseHourTitle = "";
