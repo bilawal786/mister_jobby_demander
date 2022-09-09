@@ -795,7 +795,7 @@ class ConstProvider with ChangeNotifier {
     selectedDateOfBirth = DateTime.now();
     childCareValue = 0;
     genderDropDownValue = "";
-    selectedDateOfBirth = DateTime.now();
+    selectedDate = DateTime.now();
     vehicleTypeTrueValue = 0;
     numberOfClotheTrueValue = 0;
     checkIroning = false;
@@ -894,19 +894,18 @@ class ConstProvider with ChangeNotifier {
       'Authorization':
           'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDdkZDJhNTc2MGI4N2M1YjQ0ZjVkMjEzMmMwZDkxNTcyZDYyMGY2NGNhMjM0ODMzM2JhZGEzYjRkMWJhOWJkOGM3MDIwOTUyMjZkZDcyZmQiLCJpYXQiOjE2NjI2MzM1NTkuNTkzOTg0LCJuYmYiOjE2NjI2MzM1NTkuNTkzOTk0LCJleHAiOjE2OTQxNjk1NTkuNTgyOTg0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.lfz3P3dp9lN8WSqqHSCYLYKoIZPyr47PirHueQ3n-7Gk64KkL2oaI5Nhw0Rl6NqKijTbEroiC1lcYraOVWfR_dZYi0wi0TeM45XuivmvoN5vXSZCfgFeTu0Yxd01d5KX3G1oVX53GFnqL9qzNPu9xR24bnpiiaqqh5tox2WLE0FzJlHWG5UT7_Z-9hPOXW4hpEPseVtkOHwzw9O0LLNkzzn1U85AbjKglgX9sbzqIaWl-Pi4L4Ag8K47IS1v8XI6N0htR2qki7Z88CBGcPSxcQk1Jp7m9b83fft7tHX-bXaC1kh8M_tpYur3l_MITxUzKWYnoXworXQfku1TatMjOk8rvKDwVuvql3h4P2biJ_fro_wSnYtXZDrWtLTT_CQr5WUY8iZCb6DkGjU7LlVr24mGhxFO61fHUdhm-a71sbhN35u7_3uwC3FIfGZ7WwyNss9XnB9wCj8tn6o0gQwPNnTkQzJPHTE1mYZavfexeCJuelmXcOe9uJaF0_oQ1ZYKeqsBBJ1o-QvEfzmrZVw6nqndSUtYvIQUWTcAQAaD8fiKjJn2kgn8KwiSJbt5D_b2zaVHpHd1BdvU6ScutwJvgnsrATIzTmtrtHzs4MFUjVoZzXgi_mmCmTKQLlxJenHeb85LJCUXWtKFoa6bsAMiWW1BDIKfOXhUFO38zBBnLG0',
     };
-
     var request = http.MultipartRequest(
       "POST",
       Uri.parse('${MyRoutes.BASEURL}/jobrequest/submit'),
     );
     request.headers.addAll(headers);
-    if (imageUrl != null) {
+    if(imageUrl !=  null) {
       request.files.add(await http.MultipartFile.fromPath('image1', imageUrl));
     }
-    if (imageUrl1 != null) {
+    if(imageUrl1 != null) {
       request.files.add(await http.MultipartFile.fromPath('image2', imageUrl1));
     }
-    if (imageUrl2 != null) {
+    if(imageUrl2 != null) {
       request.files.add(await http.MultipartFile.fromPath('image3', imageUrl2));
     }
     request.fields['category_id'] = categoryId;
