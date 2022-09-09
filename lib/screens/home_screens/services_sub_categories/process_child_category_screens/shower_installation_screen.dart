@@ -110,6 +110,8 @@ class _ShowerInstallationScreenState extends State<ShowerInstallationScreen> {
                 "",
                 "",
                 "",
+                constProviderData.pickupAddress,
+                constProviderData.destinationAddress,
                 constProviderData.surface.toString(),
                 constProviderData.imageFile0,
                 constProviderData.imageFile1,

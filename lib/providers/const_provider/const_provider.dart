@@ -966,6 +966,8 @@ class ConstProvider with ChangeNotifier {
     String question1,
     String question2,
     String question3,
+    pickUpAddress,
+    destinationAddress,
     String surface,
     imageUrl,
     imageUrl1,
@@ -1007,6 +1009,8 @@ class ConstProvider with ChangeNotifier {
     request.fields['question1'] = question1;
     request.fields['question2'] = question2;
     request.fields['question3'] = question3;
+    request.fields['pickup_address'] = pickUpAddress;
+    request.fields['destination_address'] = destinationAddress;
     request.fields['surface'] = surface;
 
     request.fields['service_date'] = date;

@@ -109,6 +109,8 @@ class _FixingShelvesScreenState extends State<FixingShelvesScreen> {
                 "",
                 "",
                 "",
+                constProviderData.pickupAddress,
+                constProviderData.destinationAddress,
                 constProviderData.surface.toString(),
                 constProviderData.imageFile0,
                 constProviderData.imageFile1,
