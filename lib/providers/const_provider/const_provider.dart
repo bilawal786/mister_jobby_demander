@@ -558,7 +558,7 @@ class ConstProvider with ChangeNotifier {
     } else if (frequencyTrueValue == 2) {
       frequencyTitle = "Request_Frequency_Button_Title2".tr();
     } else if (frequencyTrueValue == 3) {
-      frequencyTitle = "Request_Frequency_Button_Title3";
+      frequencyTitle = "Request_Frequency_Button_Title3".tr();
     } else if (frequencyTrueValue == 4) {
       frequencyTitle = "Request_Frequency_Button_Title4".tr();
     }
@@ -590,21 +590,21 @@ class ConstProvider with ChangeNotifier {
     if (courseHourTrueValue == 1) {
       courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     } else if (courseHourTrueValue == 2) {
-      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
+      courseHourTitle = "Computer_Courses_Step_Button2_Title".tr();
     } else if (courseHourTrueValue == 3) {
-      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
+      courseHourTitle = "Computer_Courses_Step_Button3_Title".tr();
     } else if (courseHourTrueValue == 4) {
-      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
+      courseHourTitle = "Computer_Courses_Step_Button4_Title".tr();
     } else if (courseHourTrueValue == 5) {
-      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
+      courseHourTitle = "Computer_Courses_Step_Button5_Title".tr();
     } else if (courseHourTrueValue == 6) {
-      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
+      courseHourTitle = "Computer_Courses_Step_Button6_Title".tr();
     } else if (courseHourTrueValue == 7) {
-      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
+      courseHourTitle = "Computer_Courses_Step_Button7_Title".tr();
     } else if (courseHourTrueValue == 8) {
-      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
+      courseHourTitle = "Computer_Courses_Step_Button8_Title".tr();
     }
-    print(courseHourTrueValue);
+    print(courseHourTitle);
     notifyListeners();
   }
 
