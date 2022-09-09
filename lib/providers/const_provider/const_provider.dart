@@ -18,10 +18,11 @@ class ConstProvider with ChangeNotifier {
   void cleanBoxFurnitureFunction(int index) {
     cleanBoxFurniture = index + 1;
     if (cleanBoxFurniture == 1) {
-      cleanBoxTitle = "Yes";
+      cleanBoxTitle = "Yes".tr();
     } else {
-      cleanBoxTitle = "No";
+      cleanBoxTitle = "No".tr();
     }
+    print(cleanBoxTitle);
     notifyListeners();
   }
 
@@ -31,10 +32,11 @@ class ConstProvider with ChangeNotifier {
   void baseBoardInstallFunction(int index) {
     baseBoardInstallValue = index + 1;
     if (baseBoardInstallValue == 1) {
-      baseBoardInstallTitle = "Yes";
+      baseBoardInstallTitle = "Yes".tr();
     } else {
-      baseBoardInstallTitle = "No";
+      baseBoardInstallTitle = "No".tr();
     }
+    print(baseBoardInstallTitle);
     notifyListeners();
   }
 
@@ -44,10 +46,11 @@ class ConstProvider with ChangeNotifier {
   void cuttingMaterialFunction(int index) {
     cuttingMaterialValue = index + 1;
     if (cuttingMaterialValue == 1) {
-      cuttingMaterialTitle = "Yes";
+      cuttingMaterialTitle = "Yes".tr();
     } else {
-      cuttingMaterialTitle = "No";
+      cuttingMaterialTitle = "No".tr();
     }
+    print(cuttingMaterialTitle);
     notifyListeners();
   }
 
@@ -57,10 +60,11 @@ class ConstProvider with ChangeNotifier {
   void jobberOwnMoverFunction(int index) {
     jobberOwnMoverValue = index + 1;
     if (jobberOwnMoverValue == 1) {
-      jobberOwnMoverTitle = "Yes";
+      jobberOwnMoverTitle = "Yes".tr();
     } else {
-      jobberOwnMoverTitle = "No";
+      jobberOwnMoverTitle = "No".tr();
     }
+    print(jobberOwnMoverTitle);
     notifyListeners();
   }
 
@@ -70,10 +74,11 @@ class ConstProvider with ChangeNotifier {
   void jobberRemoveWasteFunction(int index) {
     jobberRemoveWasteValue = index + 1;
     if (jobberRemoveWasteValue == 1) {
-      jobberRemoveWasteTitle = "Yes";
+      jobberRemoveWasteTitle = "Yes".tr();
     } else {
-      jobberRemoveWasteTitle = "No";
+      jobberRemoveWasteTitle = "No".tr();
     }
+    print(jobberRemoveWasteTitle);
     notifyListeners();
   }
 
@@ -83,10 +88,11 @@ class ConstProvider with ChangeNotifier {
   void jobberHedgeTimerFunction(int index) {
     jobberHedgeTimerValue = index + 1;
     if (jobberHedgeTimerValue == 1) {
-      jobberHedgeTimerTitle = "Yes";
+      jobberHedgeTimerTitle = "Yes".tr();
     } else {
-      jobberHedgeTimerTitle = "No";
+      jobberHedgeTimerTitle = "No".tr();
     }
+    print(jobberHedgeTimerTitle);
     notifyListeners();
   }
 
@@ -96,10 +102,11 @@ class ConstProvider with ChangeNotifier {
   void jobberBringMaterialFunction(int index) {
     jobberBringMaterialValue = index + 1;
     if (jobberBringMaterialValue == 1) {
-      jobberBringMaterialTitle = "Yes";
+      jobberBringMaterialTitle = "Yes".tr();
     } else {
-      jobberBringMaterialTitle = "No";
+      jobberBringMaterialTitle = "No".tr();
     }
+    print(jobberBringMaterialTitle);
     notifyListeners();
   }
 
@@ -109,10 +116,11 @@ class ConstProvider with ChangeNotifier {
   void photoEditingFunction(int index) {
     photoEditingValue = index + 1;
     if (photoEditingValue == 1) {
-      photoEditingTitle = "Yes";
+      photoEditingTitle = "Yes".tr();
     } else {
-      photoEditingTitle = "No";
+      photoEditingTitle = "No".tr();
     }
+    print(photoEditingTitle);
     notifyListeners();
   }
 
@@ -122,10 +130,11 @@ class ConstProvider with ChangeNotifier {
   void discountFunction(int index) {
     discountValue = index + 1;
     if (discountValue == 1) {
-      discountTitle = "Yes";
+      discountTitle = "Yes".tr();
     } else {
-      discountTitle = "No";
+      discountTitle = "No".tr();
     }
+    print(discountTitle);
     notifyListeners();
   }
 
@@ -553,6 +562,7 @@ class ConstProvider with ChangeNotifier {
     } else if (frequencyTrueValue == 4) {
       frequencyTitle = "Request_Frequency_Button_Title4".tr();
     }
+    print(frequencyTitle);
     notifyListeners();
   }
 
@@ -562,12 +572,13 @@ class ConstProvider with ChangeNotifier {
   void animalThingsFunction(int index) {
     animalGuardTrueValue = index + 1;
     if (animalGuardTrueValue == 1) {
-      animalGuardTitle = "At the jobber";
+      animalGuardTitle = "Dog_Sitting_Step_Item1_Button1_Title".tr();
     } else if (animalGuardTrueValue == 2) {
-      animalGuardTitle = "At the master";
+      animalGuardTitle = "Dog_Sitting_Step_Item1_Button2_Title".tr();
     } else if (animalGuardTrueValue == 3) {
-      animalGuardTitle = "Visits";
+      animalGuardTitle = "Dog_Sitting_Step_Item1_Button3_Title".tr();
     }
+    print(animalGuardTitle);
     notifyListeners();
   }
 
@@ -577,22 +588,23 @@ class ConstProvider with ChangeNotifier {
   void courseHourFunction(int index) {
     courseHourTrueValue = index + 1;
     if (courseHourTrueValue == 1) {
-      courseHourTitle = "1 hour";
+      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     } else if (courseHourTrueValue == 2) {
-      courseHourTitle = "2 hour";
+      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     } else if (courseHourTrueValue == 3) {
-      courseHourTitle = "3 hour";
+      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     } else if (courseHourTrueValue == 4) {
-      courseHourTitle = "4 hour";
+      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     } else if (courseHourTrueValue == 5) {
-      courseHourTitle = "5 hour";
+      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     } else if (courseHourTrueValue == 6) {
-      courseHourTitle = "6 hour";
+      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     } else if (courseHourTrueValue == 7) {
-      courseHourTitle = "7 hour";
+      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     } else if (courseHourTrueValue == 8) {
-      courseHourTitle = "8 hour";
+      courseHourTitle = "Computer_Courses_Step_Button1_Title".tr();
     }
+    print(courseHourTrueValue);
     notifyListeners();
   }
 
@@ -667,6 +679,7 @@ class ConstProvider with ChangeNotifier {
     } else if (numberOfClotheTrueValue == 4) {
       numberOfClotheTitle = "Ironing_Step_Button4_Title".tr();
     }
+    print(numberOfClotheTitle);
     notifyListeners();
   }
 
@@ -688,6 +701,7 @@ class ConstProvider with ChangeNotifier {
     } else if (windowCleaningTrueValue == 6) {
       windowCleaningTitle = "Window_Cleaning_Step_Button6_Title".tr();
     }
+    print(windowCleaningTitle);
     notifyListeners();
   }
 
@@ -705,6 +719,7 @@ class ConstProvider with ChangeNotifier {
     } else if (vehicleTypeTrueValue == 3) {
       vehicleTypeTitle = "Car_Wash_Step_Button3_Title".tr();
     }
+    print(vehicleTypeTitle);
     notifyListeners();
   }
 
@@ -784,6 +799,7 @@ class ConstProvider with ChangeNotifier {
     } else if (educationLevelTrueValue == 4) {
       educationLevelTitle = "French_Step_Button4_Title".tr();
     }
+    print(educationLevelTitle);
     notifyListeners();
   }
 
@@ -800,6 +816,7 @@ class ConstProvider with ChangeNotifier {
     } else if (courseFormatTrueValue == 2) {
       courseFormatTitle = "French_Step_Button6_Title".tr();
     }
+    print(courseFormatTitle);
     notifyListeners();
   }
 
@@ -838,6 +855,7 @@ class ConstProvider with ChangeNotifier {
   }
 
   void clearData() {
+    completeAddress = "";
     educationLevelTitle = "";
     courseFormatTitle = "";
     numberOfClotheTitle = "";
