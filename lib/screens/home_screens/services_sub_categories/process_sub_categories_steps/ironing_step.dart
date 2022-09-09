@@ -76,35 +76,33 @@ class IroningStep extends StatelessWidget {
           ),
           Consumer<ConstProvider>(
               builder: (_, requestFrequencyData, child) => SizedBox(
-                height: 50,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  itemExtent: MediaQuery.of(context).size.width / 1.9,
-                  itemBuilder: (context, index) => OutlineSelectedButton(
-                    onTap: () => requestFrequencyData
-                        .frequencyFunction(index),
-                    textTitle: index == 0
-                        ? "Request_Frequency_Button_Title1"
-                        : index == 1
-                        ? "Request_Frequency_Button_Title2"
-                        : index == 2
-                        ? "Request_Frequency_Button_Title3"
-                        : "Request_Frequency_Button_Title4",
-                    color: requestFrequencyData.frequencyTrueValue -
-                        1 ==
-                        index
-                        ? Colors.blue.shade50
-                        : Colors.grey.shade300,
-                    border: requestFrequencyData.frequencyTrueValue -
-                        1 ==
-                        index
-                        ? true
-                        : false,
-                  ),
-                ),
-              )),
+                    height: 50,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemExtent: MediaQuery.of(context).size.width / 1.9,
+                      itemBuilder: (context, index) => OutlineSelectedButton(
+                        onTap: () =>
+                            requestFrequencyData.frequencyFunction(index),
+                        textTitle: index == 0
+                            ? "Request_Frequency_Button_Title1"
+                            : index == 1
+                                ? "Request_Frequency_Button_Title2"
+                                : index == 2
+                                    ? "Request_Frequency_Button_Title3"
+                                    : "Request_Frequency_Button_Title4",
+                        color:
+                            requestFrequencyData.frequencyTrueValue - 1 == index
+                                ? Colors.blue.shade50
+                                : Colors.grey.shade300,
+                        border:
+                            requestFrequencyData.frequencyTrueValue - 1 == index
+                                ? true
+                                : false,
+                      ),
+                    ),
+                  )),
         ],
       ),
     );

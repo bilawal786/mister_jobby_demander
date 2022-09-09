@@ -59,7 +59,7 @@ class _CarWashScreenState extends State<CarWashScreen> {
               print('mainCategoryId: $mainCateId');
               print("subCategoryId: $subCateId");
               print("subCategoryTitle: $subCateTitle");
-              print("own material: ${constProviderData.vehicleTypeTrueValue}");
+              print("own material: ${constProviderData.vehicleTypeTitle}");
               print(
                   "own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");

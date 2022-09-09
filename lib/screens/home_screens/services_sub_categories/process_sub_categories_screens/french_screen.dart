@@ -61,8 +61,8 @@ class _FrenchScreenState extends State<FrenchScreen> {
               print('mainCategoryId: $mainCateId');
               print("subCategoryId: $subCateId");
               print("subCategoryTitle: $subCateTitle");
-              print("own material: ${constProviderData.educationLevelTrueValue}");
-              print("own material: ${constProviderData.courseFormatTrueValue}");
+              print("own material: ${constProviderData.educationLevelTitle}");
+              print("own material: ${constProviderData.courseFormatTitle}");
               print("own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");

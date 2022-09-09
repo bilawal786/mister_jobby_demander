@@ -516,6 +516,7 @@ class ConstProvider with ChangeNotifier {
       },
     );
   }
+
   double surface = 0;
   double surfaceInstallationSliderValue = 0;
 
@@ -544,13 +545,13 @@ class ConstProvider with ChangeNotifier {
   void frequencyFunction(int index) {
     frequencyTrueValue = index + 1;
     if (frequencyTrueValue == 1) {
-      frequencyTitle = "Just this once";
+      frequencyTitle = "Request_Frequency_Button_Title1".tr();
     } else if (frequencyTrueValue == 2) {
-      frequencyTitle = "Twice a month";
+      frequencyTitle = "Request_Frequency_Button_Title2".tr();
     } else if (frequencyTrueValue == 3) {
-      frequencyTitle = "Once a week";
+      frequencyTitle = "Request_Frequency_Button_Title3";
     } else if (frequencyTrueValue == 4) {
-      frequencyTitle = "Several time a week";
+      frequencyTitle = "Request_Frequency_Button_Title4".tr();
     }
     notifyListeners();
   }
@@ -653,16 +654,57 @@ class ConstProvider with ChangeNotifier {
   }
 
   int numberOfClotheTrueValue = 0;
+  String numberOfClotheTitle = "";
 
   void numberOfClotheFunction(int index) {
     numberOfClotheTrueValue = index + 1;
+    if (numberOfClotheTrueValue == 1) {
+      numberOfClotheTitle = "Ironing_Step_Button1_Title".tr();
+    } else if (numberOfClotheTrueValue == 2) {
+      numberOfClotheTitle = "Ironing_Step_Button2_Title".tr();
+    } else if (numberOfClotheTrueValue == 3) {
+      numberOfClotheTitle = "Ironing_Step_Button3_Title".tr();
+    } else if (numberOfClotheTrueValue == 4) {
+      numberOfClotheTitle = "Ironing_Step_Button4_Title".tr();
+    }
     notifyListeners();
   }
 
+  int windowCleaningTrueValue = 0;
+  String windowCleaningTitle = "";
+
+  void windowCleaningFunction(int index) {
+    windowCleaningTrueValue = index + 1;
+    if (windowCleaningTrueValue == 1) {
+      windowCleaningTitle = "Window_Cleaning_Step_Button1_Title".tr();
+    } else if (windowCleaningTrueValue == 2) {
+      windowCleaningTitle = "Window_Cleaning_Step_Button2_Title".tr();
+    } else if (windowCleaningTrueValue == 3) {
+      windowCleaningTitle = "Window_Cleaning_Step_Button3_Title".tr();
+    } else if (windowCleaningTrueValue == 4) {
+      windowCleaningTitle = "Window_Cleaning_Step_Button4_Title".tr();
+    } else if (windowCleaningTrueValue == 5) {
+      windowCleaningTitle = "Window_Cleaning_Step_Button5_Title".tr();
+    } else if (windowCleaningTrueValue == 6) {
+      windowCleaningTitle = "Window_Cleaning_Step_Button6_Title".tr();
+    }
+    notifyListeners();
+  }
+
+
+
   int vehicleTypeTrueValue = 0;
+  String vehicleTypeTitle = "";
 
   void vehicleTypeFunction(int index) {
     vehicleTypeTrueValue = index + 1;
+    if (vehicleTypeTrueValue == 1) {
+      vehicleTypeTitle = "Car_Wash_Step_Button1_Title".tr();
+    } else if (vehicleTypeTrueValue == 2) {
+      vehicleTypeTitle = "Car_Wash_Step_Button2_Title".tr();
+    } else if (vehicleTypeTrueValue == 3) {
+      vehicleTypeTitle = "Car_Wash_Step_Button3_Title".tr();
+    }
     notifyListeners();
   }
 
@@ -729,16 +771,35 @@ class ConstProvider with ChangeNotifier {
   }
 
   int educationLevelTrueValue = 0;
+  String educationLevelTitle = "";
 
   void educationLevelFunction(int index) {
     educationLevelTrueValue = index + 1;
+    if (educationLevelTrueValue == 1) {
+      educationLevelTitle = "French_Step_Button1_Title".tr();
+    } else if (educationLevelTrueValue == 2) {
+      educationLevelTitle = "French_Step_Button2_Title".tr();
+    } else if (educationLevelTrueValue == 3) {
+      educationLevelTitle = "French_Step_Button3_Title".tr();
+    } else if (educationLevelTrueValue == 4) {
+      educationLevelTitle = "French_Step_Button4_Title".tr();
+    }
     notifyListeners();
   }
 
+
+
+
   int courseFormatTrueValue = 0;
+  String courseFormatTitle = "";
 
   void courseFormatFunction(int index) {
     courseFormatTrueValue = index + 1;
+    if (courseFormatTrueValue == 1) {
+      courseFormatTitle = "French_Step_Button5_Title".tr();
+    } else if (courseFormatTrueValue == 2) {
+      courseFormatTitle = "French_Step_Button6_Title".tr();
+    }
     notifyListeners();
   }
 
@@ -777,6 +838,12 @@ class ConstProvider with ChangeNotifier {
   }
 
   void clearData() {
+    educationLevelTitle = "";
+    courseFormatTitle = "";
+    numberOfClotheTitle = "";
+    vehicleTypeTitle = "";
+    windowCleaningTrueValue = 0;
+    windowCleaningTitle = "";
     courseHourTrueValue = 0;
     courseHourTitle = "";
     animalGuardTrueValue = 0;
@@ -899,13 +966,13 @@ class ConstProvider with ChangeNotifier {
       Uri.parse('${MyRoutes.BASEURL}/jobrequest/submit'),
     );
     request.headers.addAll(headers);
-    if(imageUrl !=  null) {
+    if (imageUrl != null) {
       request.files.add(await http.MultipartFile.fromPath('image1', imageUrl));
     }
-    if(imageUrl1 != null) {
+    if (imageUrl1 != null) {
       request.files.add(await http.MultipartFile.fromPath('image2', imageUrl1));
     }
-    if(imageUrl2 != null) {
+    if (imageUrl2 != null) {
       request.files.add(await http.MultipartFile.fromPath('image3', imageUrl2));
     }
     request.fields['category_id'] = categoryId;

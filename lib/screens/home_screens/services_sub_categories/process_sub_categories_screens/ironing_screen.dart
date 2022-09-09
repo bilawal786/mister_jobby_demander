@@ -24,7 +24,7 @@ class _IroningScreenState extends State<IroningScreen> {
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mainCateId = routeArgs['mainCategoryId'];
     subCateId = routeArgs['subCategoryId'];
     subCateTitle = routeArgs['subCategoryTitle'];
@@ -59,8 +59,7 @@ class _IroningScreenState extends State<IroningScreen> {
               print('mainCategoryId: $mainCateId');
               print("subCategoryId: $subCateId");
               print("subCategoryTitle: $subCateTitle");
-              print(
-                  "own material: ${constProviderData.numberOfClotheTrueValue}");
+              print("own material: ${constProviderData.numberOfClotheTitle}");
               print("own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -157,7 +156,10 @@ class _IroningScreenState extends State<IroningScreen> {
           isActive: currentStep >= 1,
           state: currentStep > 1 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: GeneralStep2Screen(mainCategoryId: mainCateId!, subCategoryId: subCateId!, childCategoryId: 0),
+          content: GeneralStep2Screen(
+              mainCategoryId: mainCateId!,
+              subCategoryId: subCateId!,
+              childCategoryId: 0),
         ),
         Step(
           isActive: currentStep >= 2,

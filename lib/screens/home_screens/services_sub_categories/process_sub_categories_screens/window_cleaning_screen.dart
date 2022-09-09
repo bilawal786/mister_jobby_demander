@@ -60,7 +60,7 @@ class _WindowCleaningScreenState extends State<WindowCleaningScreen> {
               print("subCategoryId: $subCateId");
               print("subCategoryTitle: $subCateTitle");
               print(
-                  "own material: ${constProviderData.numberOfClotheTrueValue}");
+                  "own material: ${constProviderData.windowCleaningTitle}");
               print("own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -91,7 +91,7 @@ class _WindowCleaningScreenState extends State<WindowCleaningScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    if (need.numberOfClotheTrueValue > 0 &&
+                    if (need.windowCleaningTrueValue > 0 &&
                         need.frequencyTrueValue > 0)
                       Expanded(
                         child: ElevatedButton(

@@ -46,7 +46,7 @@ class WindowCleaningStep extends StatelessWidget {
                 itemCount: 6,
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
-                  onTap: () => windowsData.numberOfClotheFunction(index),
+                  onTap: () => windowsData.windowCleaningFunction(index),
                   textTitle: index == 0
                       ? "Window_Cleaning_Step_Button1_Title"
                       : index == 1
@@ -58,10 +58,10 @@ class WindowCleaningStep extends StatelessWidget {
                                   : index == 4
                                       ? "Window_Cleaning_Step_Button5_Title"
                                       : "Window_Cleaning_Step_Button6_Title",
-                  color: windowsData.numberOfClotheTrueValue - 1 == index
+                  color: windowsData.windowCleaningTrueValue - 1 == index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: windowsData.numberOfClotheTrueValue - 1 == index
+                  border: windowsData.windowCleaningTrueValue - 1 == index
                       ? true
                       : false,
                 ),

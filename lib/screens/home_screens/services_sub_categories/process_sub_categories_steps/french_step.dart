@@ -21,7 +21,6 @@ class FrenchStep extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-
           Text(
             "French_Step_Item1_Title".tr(),
             style: Theme.of(context).textTheme.labelMedium,
@@ -43,18 +42,18 @@ class FrenchStep extends StatelessWidget {
                   textTitle: index == 0
                       ? "French_Step_Button1_Title"
                       : index == 1
-                      ? "French_Step_Button2_Title"
-                      : index == 2
-                      ? "French_Step_Button3_Title"
-                      : "French_Step_Button4_Title",
-                  color: requestFrequencyData.educationLevelTrueValue - 1 ==
-                      index
-                      ? Colors.blue.shade50
-                      : Colors.grey.shade300,
-                  border: requestFrequencyData.educationLevelTrueValue - 1 ==
-                      index
-                      ? true
-                      : false,
+                          ? "French_Step_Button2_Title"
+                          : index == 2
+                              ? "French_Step_Button3_Title"
+                              : "French_Step_Button4_Title",
+                  color:
+                      requestFrequencyData.educationLevelTrueValue - 1 == index
+                          ? Colors.blue.shade50
+                          : Colors.grey.shade300,
+                  border:
+                      requestFrequencyData.educationLevelTrueValue - 1 == index
+                          ? true
+                          : false,
                 ),
               ),
             ),
@@ -79,16 +78,15 @@ class FrenchStep extends StatelessWidget {
                 itemExtent: MediaQuery.of(context).size.width / 1.9,
                 itemBuilder: (context, index) => OutlineSelectedButton(
                   onTap: () {
-                      courseFormatData.courseFormatFunction(index);},
+                    courseFormatData.courseFormatFunction(index);
+                  },
                   textTitle: index == 0
                       ? "French_Step_Button5_Title"
                       : "French_Step_Button6_Title",
-                  color: courseFormatData.courseFormatTrueValue - 1 ==
-                      index
+                  color: courseFormatData.courseFormatTrueValue - 1 == index
                       ? Colors.blue.shade50
                       : Colors.grey.shade300,
-                  border: courseFormatData.courseFormatTrueValue - 1 ==
-                      index
+                  border: courseFormatData.courseFormatTrueValue - 1 == index
                       ? true
                       : false,
                 ),
@@ -107,35 +105,33 @@ class FrenchStep extends StatelessWidget {
           ),
           Consumer<ConstProvider>(
               builder: (_, requestFrequencyData, child) => SizedBox(
-                height: 50,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  itemExtent: MediaQuery.of(context).size.width / 1.9,
-                  itemBuilder: (context, index) => OutlineSelectedButton(
-                    onTap: () => requestFrequencyData
-                        .frequencyFunction(index),
-                    textTitle: index == 0
-                        ? "Request_Frequency_Button_Title1"
-                        : index == 1
-                        ? "Request_Frequency_Button_Title2"
-                        : index == 2
-                        ? "Request_Frequency_Button_Title3"
-                        : "Request_Frequency_Button_Title4",
-                    color: requestFrequencyData.frequencyTrueValue -
-                        1 ==
-                        index
-                        ? Colors.blue.shade50
-                        : Colors.grey.shade300,
-                    border: requestFrequencyData.frequencyTrueValue -
-                        1 ==
-                        index
-                        ? true
-                        : false,
-                  ),
-                ),
-              )),
+                    height: 50,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemExtent: MediaQuery.of(context).size.width / 1.9,
+                      itemBuilder: (context, index) => OutlineSelectedButton(
+                        onTap: () =>
+                            requestFrequencyData.frequencyFunction(index),
+                        textTitle: index == 0
+                            ? "Request_Frequency_Button_Title1"
+                            : index == 1
+                                ? "Request_Frequency_Button_Title2"
+                                : index == 2
+                                    ? "Request_Frequency_Button_Title3"
+                                    : "Request_Frequency_Button_Title4",
+                        color:
+                            requestFrequencyData.frequencyTrueValue - 1 == index
+                                ? Colors.blue.shade50
+                                : Colors.grey.shade300,
+                        border:
+                            requestFrequencyData.frequencyTrueValue - 1 == index
+                                ? true
+                                : false,
+                      ),
+                    ),
+                  )),
         ],
       ),
     );
