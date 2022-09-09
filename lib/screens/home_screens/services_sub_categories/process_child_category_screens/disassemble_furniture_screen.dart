@@ -195,7 +195,7 @@ class _DisassembleFurnitureScreenState
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
-                    (currentStep == 2 &&
+                    ((currentStep == 2) &&
                             (disassembleFurniture.completeAddress != '') &&
                             (disassembleFurniture.postalCode != '') &&
                             (disassembleFurniture.countryDropDownValue !=
