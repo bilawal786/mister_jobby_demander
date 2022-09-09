@@ -184,10 +184,7 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
                       ),
                     )
                         : const SizedBox(),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 40,
-                    ),
-                    (currentStep == 2 &&
+                    ((currentStep == 2) &&
                         (lawnData.completeAddress != '') &&
                         (lawnData.postalCode != '') &&
                         (lawnData.countryDropDownValue != 'null'))

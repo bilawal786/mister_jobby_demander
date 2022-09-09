@@ -527,7 +527,7 @@ class ConstProvider with ChangeNotifier {
   }
 
   double surface = 0;
-  double surfaceInstallationSliderValue = 0;
+  double surfaceInstallationSliderValue = 10;
 
   surfaceInstallationSliderFunction(double newValue) {
     surfaceInstallationSliderValue = newValue;

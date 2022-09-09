@@ -79,6 +79,42 @@ class _ClearingScreenState extends State<ClearingScreen> {
               print("latitude : ${constProviderData.latitude}");
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
+
+              constProviderData.postJob(
+                mainCateId.toString(),
+                subCateId.toString(),
+                0.toString(),
+                subCateTitle!,
+                constProviderData.selectedDate.toString(),
+                constProviderData.pickedTime.toString(),
+                constProviderData.duration.toString(),
+                constProviderData.hourlyRate.toString(),
+                constProviderData.checkUrgentJob.toString(),
+                constProviderData.providersAmount.toString(),
+                constProviderData.estimateBudge.toString(),
+                constProviderData.completeAddress,
+                constProviderData.longitude.toString(),
+                constProviderData.latitude.toString(),
+                constProviderData.postalCode,
+                constProviderData.countryDropDownValue,
+                constProviderData.workDetails,
+                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.mediumSizedFurnitureAmount.toString(),
+                constProviderData.largeSizedFurnitureAmount.toString(),
+                constProviderData.veryLargeSizedFurnitureAmount.toString(),
+                constProviderData.jobberBringMaterialTitle,
+                constProviderData.fixesAmount.toString(),
+                constProviderData.needWork,
+                constProviderData.jobberRemoveWasteTitle,
+                constProviderData.frequencyTitle,
+                "",
+                constProviderData.pickupAddress,
+                constProviderData.destinationAddress,
+                constProviderData.areaToMowSliderValue.toString(),
+                constProviderData.imageFile0,
+                constProviderData.imageFile1,
+                constProviderData.imageFile2,
+              );
             } else {
               setState(() => currentStep += 1);
             }
@@ -94,11 +130,11 @@ class _ClearingScreenState extends State<ClearingScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if ((size.jobberBringMaterialTitle == "Yes" ||
+                     ((currentStep < 1) && (size.jobberBringMaterialTitle == "Yes" ||
                             size.jobberBringMaterialTitle == "No") &&
                         (size.jobberRemoveWasteTitle == "Yes" ||
                             size.jobberRemoveWasteTitle == "No") &&
-                        (size.frequencyTrueValue > 0))
+                        (size.frequencyTrueValue > 0))?
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,
@@ -119,7 +155,7 @@ class _ClearingScreenState extends State<ClearingScreen> {
                                 letterSpacing: 1),
                           ).tr(),
                         ),
-                      ),
+                      ): const SizedBox(),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
