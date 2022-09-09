@@ -185,7 +185,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
-                    (currentStep > 1) ?
+                    (currentStep == 2 && (furnitureAssemble.completeAddress == '') && (furnitureAssemble.postalCode != '') && (furnitureAssemble.countryDropDownValue != 'null')) ?
                     Expanded(
                       child: ElevatedButton(
                         onPressed: details.onStepContinue,
