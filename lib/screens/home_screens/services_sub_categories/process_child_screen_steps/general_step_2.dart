@@ -371,29 +371,29 @@ class GeneralStep2Screen extends StatelessWidget {
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 33].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 36 && subCategoryId < 47)
+              if (subCategoryId > 36 && subCategoryId < 46)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 37].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 46 && subCategoryId < 62)
+              if (subCategoryId > 45 && subCategoryId < 61)
                 Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 47].price}€",
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 46].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 61 && subCategoryId < 70)
+              if (subCategoryId > 60 && subCategoryId < 69)
                 Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 62].price}€",
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 61].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 69 && subCategoryId < 71)
+              if (subCategoryId > 68 && subCategoryId < 70)
+                Text(
+                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 69].price}€",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              if (subCategoryId > 69 && subCategoryId < 72)
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 70].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              if (subCategoryId > 70 && subCategoryId < 75)
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 71].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
             ],
