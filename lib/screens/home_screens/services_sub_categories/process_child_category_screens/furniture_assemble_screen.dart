@@ -82,6 +82,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               print("longitude : ${constProviderData.longitude}");
               print("latitude : ${constProviderData.latitude}");
               print("Postal Code : ${constProviderData.postalCode}");
+              print("country Id : ${constProviderData.countryDropDownValue}");
               print("work Description : ${constProviderData.workDetails}");
 
               constProviderData.postJob(
@@ -100,7 +101,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                 constProviderData.longitude.toString(),
                 constProviderData.latitude.toString(),
                 constProviderData.postalCode,
-                1.toString(),
+                constProviderData.countryDropDownValue,
                 constProviderData.workDetails,
                 constProviderData.smallSizedFurnitureAmount.toString(),
                 constProviderData.mediumSizedFurnitureAmount.toString(),
@@ -132,81 +133,93 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, furnitureAssemble, child) => Row(
                   children: <Widget>[
-                    ((currentStep < 1) && (furnitureAssemble.smallSizedFurnitureAmount > 0 ||
-                            furnitureAssemble.mediumSizedFurnitureAmount > 0 ||
-                            furnitureAssemble.largeSizedFurnitureAmount > 0 ||
-                            furnitureAssemble.veryLargeSizedFurnitureAmount >
-                                0) &&
-                        (furnitureAssemble.cleanBoxTitle == "Yes" ||
-                            furnitureAssemble.cleanBoxTitle == "No")) ?
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: details.onStepContinue,
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(50.0),
-                            primary: Theme.of(context).primaryColor,
-                            elevation: 5,
-                          ),
-                          child: Text(
-                            currentStep > 1
-                                ? "Process_Screen_Confirm_Button"
-                                : "Process_Screen_Continue_Button",
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Cerebri Sans Regular',
-                                fontWeight: FontWeight.normal,
-                                color: Colors.white,
-                                letterSpacing: 1),
-                          ).tr(),
-                        ),
-                      ) : const SizedBox(),
-                    ((currentStep == 1) && (furnitureAssemble.duration > 0) && (furnitureAssemble.hourlyRate > 0) ) ?
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
-                        ),
-                        child: Text(
-                          currentStep > 1
-                              ? "Process_Screen_Confirm_Button"
-                              : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1),
-                        ).tr(),
-                      ),
-                    ) : const SizedBox(),
+                    ((currentStep < 1) &&
+                            (furnitureAssemble.smallSizedFurnitureAmount > 0 ||
+                                furnitureAssemble.mediumSizedFurnitureAmount >
+                                    0 ||
+                                furnitureAssemble.largeSizedFurnitureAmount >
+                                    0 ||
+                                furnitureAssemble
+                                        .veryLargeSizedFurnitureAmount >
+                                    0) &&
+                            (furnitureAssemble.cleanBoxTitle == "Yes" ||
+                                furnitureAssemble.cleanBoxTitle == "No"))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    ((currentStep == 1) &&
+                            (furnitureAssemble.duration > 0) &&
+                            (furnitureAssemble.hourlyRate > 0))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
-                    (currentStep == 2 && (furnitureAssemble.completeAddress == '') && (furnitureAssemble.postalCode != '') && (furnitureAssemble.countryDropDownValue != 'null')) ?
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
-                        ),
-                        child: Text(
-                          currentStep > 1
-                              ? "Process_Screen_Confirm_Button"
-                              : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1),
-                        ).tr(),
-                      ),
-                    ) : const SizedBox(),
+                    (currentStep == 2 &&
+                            (furnitureAssemble.completeAddress != '') &&
+                            (furnitureAssemble.postalCode != '') &&
+                            (furnitureAssemble.countryDropDownValue != 'null'))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),

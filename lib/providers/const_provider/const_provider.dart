@@ -731,7 +731,7 @@ class ConstProvider with ChangeNotifier {
   String countryDropDownValue = "";
 
   countryDropDownFunction(value) {
-    genderDropDownValue = value!;
+    countryDropDownValue = value!;
     notifyListeners();
   }
 

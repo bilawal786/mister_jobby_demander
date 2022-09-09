@@ -47,7 +47,8 @@ class SearchScreen extends StatelessWidget {
                   onTap: () => Navigator.of(context).pushNamed(
                     MyRoutes.SUBCATEGORYROUTE,
                     arguments: {
-                      'id': index,
+                      'index': index,
+                      'mainId': extractMainCategory[index].id,
                     },
                   ),
                   child: ListTile(
