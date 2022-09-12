@@ -426,5 +426,10 @@
   "Budget_Estimate_Step2_Title" : "Budget Estimate",
   "Administrative_Cost_Step2_Title" : "Administrative costs 10%",
   "Total_Step2_Title" : "Total",
-  "Requested_services" : "Price of the requested service"
+  "Requested_services" : "Price of the requested service",
+  "Login_Screen_Title" : "Login",
+  "Login_Screen_SubTitle" : "E-mail address",
+  "Login_Screen_Text1" : "Email",
+  "Login_Screen_Button" : "Continue",
+  "Register_Screen_Title" : "Register"
 }
