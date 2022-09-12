@@ -41,8 +41,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   }
 
   void getSuggestion(String input) async {
-    String kPLACES_API_KEY =
-        "google place api here";
+    String kPLACES_API_KEY = "add google api key here";
     String gBASEURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     String requestUrl =
@@ -66,7 +65,6 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
     super.dispose();
   }
 
-
   double longitude = 0.0;
   double latitude = 0.0;
   String address = "";
@@ -82,31 +80,36 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
           borderRadius: BorderRadius.circular(5.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 1),
+          borderSide:
+              BorderSide(color: Theme.of(context).primaryColor, width: 1),
           borderRadius: BorderRadius.circular(10.0),
         ),
       ),
-      itemHeight: MediaQuery.of(context).size.width / 10 ,
+      itemHeight: MediaQuery.of(context).size.width / 10,
       maxSuggestionsInViewPort: _placesList.length,
       suggestionStyle: Theme.of(context).textTheme.bodySmall,
-      suggestions: _placesList.map((e){
+      suggestions: _placesList.map((e) {
         return SearchFieldListItem(
           e['description'],
           item: e,
         );
-      }
-      ).toList(),
+      }).toList(),
       onSuggestionTap: (p0) async {
-        Provider.of<ConstProvider>(context, listen: false).getAddress(address, longitude, latitude);
         List<Location> location = await locationFromAddress(p0.item.toString());
-        setState((){
-          address = searchController.text;
-          latitude = location.last.latitude;
-          longitude = location.last.longitude;
-        });
-        print("\n \n \n \n " );
-        print("latitude: ${location.last.latitude}");
-        print("longitude: ${location.last.longitude}");
+        Provider.of<ConstProvider>(context, listen: false).getAddress(
+          address = searchController.text,
+          longitude = location.last.longitude,
+          latitude = location.last.latitude,
+        );
+        // setState((){
+        //   address = searchController.text;
+        //   latitude = location.last.latitude;
+        //   longitude = location.last.longitude;
+        // });
+        print("\n \n \n \n ");
+        print("full address : $address");
+        print("latitude: $latitude");
+        print("longitude: $longitude");
       },
     );
   }

@@ -22,7 +22,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       cleanBoxTitle = "No".tr();
     }
-    print(cleanBoxTitle);
     notifyListeners();
   }
 
@@ -36,7 +35,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       baseBoardInstallTitle = "No".tr();
     }
-    print(baseBoardInstallTitle);
     notifyListeners();
   }
 
@@ -50,7 +48,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       cuttingMaterialTitle = "No".tr();
     }
-    print(cuttingMaterialTitle);
     notifyListeners();
   }
 
@@ -64,7 +61,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       jobberOwnMoverTitle = "No".tr();
     }
-    print(jobberOwnMoverTitle);
     notifyListeners();
   }
 
@@ -78,7 +74,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       jobberRemoveWasteTitle = "No".tr();
     }
-    print(jobberRemoveWasteTitle);
     notifyListeners();
   }
 
@@ -92,7 +87,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       jobberHedgeTimerTitle = "No".tr();
     }
-    print(jobberHedgeTimerTitle);
     notifyListeners();
   }
 
@@ -106,7 +100,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       jobberBringMaterialTitle = "No".tr();
     }
-    print(jobberBringMaterialTitle);
     notifyListeners();
   }
 
@@ -120,7 +113,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       photoEditingTitle = "No".tr();
     }
-    print(photoEditingTitle);
     notifyListeners();
   }
 
@@ -134,7 +126,6 @@ class ConstProvider with ChangeNotifier {
     } else {
       discountTitle = "No".tr();
     }
-    print(discountTitle);
     notifyListeners();
   }
 
@@ -562,7 +553,6 @@ class ConstProvider with ChangeNotifier {
     } else if (frequencyTrueValue == 4) {
       frequencyTitle = "Request_Frequency_Button_Title4".tr();
     }
-    print(frequencyTitle);
     notifyListeners();
   }
 
@@ -578,7 +568,6 @@ class ConstProvider with ChangeNotifier {
     } else if (animalGuardTrueValue == 3) {
       animalGuardTitle = "Dog_Sitting_Step_Item1_Button3_Title".tr();
     }
-    print(animalGuardTitle);
     notifyListeners();
   }
 
@@ -604,7 +593,6 @@ class ConstProvider with ChangeNotifier {
     } else if (courseHourTrueValue == 8) {
       courseHourTitle = "Computer_Courses_Step_Button8_Title".tr();
     }
-    print(courseHourTitle);
     notifyListeners();
   }
 
@@ -612,7 +600,7 @@ class ConstProvider with ChangeNotifier {
   double longitude = 0;
   double latitude = 0;
 
-  getAddress(address, long, lat) {
+  void getAddress(address, long, lat) {
     completeAddress = address;
     longitude = long;
     latitude = lat;
@@ -679,7 +667,6 @@ class ConstProvider with ChangeNotifier {
     } else if (numberOfClotheTrueValue == 4) {
       numberOfClotheTitle = "Ironing_Step_Button4_Title".tr();
     }
-    print(numberOfClotheTitle);
     notifyListeners();
   }
 
@@ -701,7 +688,6 @@ class ConstProvider with ChangeNotifier {
     } else if (windowCleaningTrueValue == 6) {
       windowCleaningTitle = "Window_Cleaning_Step_Button6_Title".tr();
     }
-    print(windowCleaningTitle);
     notifyListeners();
   }
 
@@ -719,7 +705,6 @@ class ConstProvider with ChangeNotifier {
     } else if (vehicleTypeTrueValue == 3) {
       vehicleTypeTitle = "Car_Wash_Step_Button3_Title".tr();
     }
-    print(vehicleTypeTitle);
     notifyListeners();
   }
 
@@ -731,7 +716,6 @@ class ConstProvider with ChangeNotifier {
 
   void checkGroupValue(int? value) {
     groupValue = value!;
-    print(groupValue);
     notifyListeners();
   }
 
@@ -799,7 +783,6 @@ class ConstProvider with ChangeNotifier {
     } else if (educationLevelTrueValue == 4) {
       educationLevelTitle = "French_Step_Button4_Title".tr();
     }
-    print(educationLevelTitle);
     notifyListeners();
   }
 
@@ -816,7 +799,6 @@ class ConstProvider with ChangeNotifier {
     } else if (courseFormatTrueValue == 2) {
       courseFormatTitle = "French_Step_Button6_Title".tr();
     }
-    print(courseFormatTitle);
     notifyListeners();
   }
 
@@ -831,7 +813,6 @@ class ConstProvider with ChangeNotifier {
 
   void checkRepairGroupValue(int? value) {
     repairGroupValue = value!;
-    print(repairGroupValue);
     notifyListeners();
   }
 

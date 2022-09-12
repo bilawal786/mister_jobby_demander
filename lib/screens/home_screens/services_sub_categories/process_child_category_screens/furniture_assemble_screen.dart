@@ -196,7 +196,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
-                    (currentStep == 2 &&
+                    ((currentStep == 2) &&
                             (furnitureAssemble.completeAddress != '') &&
                             (furnitureAssemble.postalCode != '') &&
                             (furnitureAssemble.countryDropDownValue != 'null'))
