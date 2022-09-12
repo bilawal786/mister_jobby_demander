@@ -1,3 +1,4 @@
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,9 +32,9 @@ class _ChildCareStepState extends State<ChildCareStep> {
                     Row(
                       children: [
                         Text(
-                          "Boy or Girl",
+                          "Add_Child_Step_Text1",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         const Spacer(),
                         IconButton(
                           onPressed: () {
@@ -60,7 +61,7 @@ class _ChildCareStepState extends State<ChildCareStep> {
                         ),
                         child: DropdownButtonFormField<String>(
                           decoration: InputDecoration(
-                            hintText: "Select Gender",
+                            hintText: "Add_Child_Step_Gender".tr(),
                             hintStyle: Theme.of(context).textTheme.bodyMedium,
                             isCollapsed: true,
                             enabledBorder: InputBorder.none,
@@ -69,8 +70,8 @@ class _ChildCareStepState extends State<ChildCareStep> {
                           isExpanded: true,
                           iconSize: 30.0,
                           items: [
-                            'Boy',
-                            'Girl',
+                            'Add_Child_Step_Boy'.tr(),
+                            'Add_Child_Step_Girl'.tr(),
                           ].map(
                                 (val) {
                               return DropdownMenuItem<String>(
@@ -94,9 +95,9 @@ class _ChildCareStepState extends State<ChildCareStep> {
                       height: MediaQuery.of(context).size.width / 40,
                     ),
                     Text(
-                      "Date of Birth",
+                      "Add_Child_Step_DOB",
                       style: Theme.of(context).textTheme.titleMedium,
-                    ),
+                    ).tr(),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
