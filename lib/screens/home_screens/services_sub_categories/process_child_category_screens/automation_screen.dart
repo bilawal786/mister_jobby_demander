@@ -7,8 +7,6 @@ import '../../../../screens/home_screens/services_sub_categories/process_child_s
 import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3.dart';
 
-
-
 class AutomationScreen extends StatefulWidget {
   const AutomationScreen({Key? key}) : super(key: key);
 
@@ -23,21 +21,18 @@ class _AutomationScreenState extends State<AutomationScreen> {
   int? childId;
   String? title;
 
-
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute
-        .of(context)!
-        .settings
-        .arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mId = routeArgs['mainCategoryId'];
     subId = routeArgs['subCategoryId'];
     childId = routeArgs['childCategoryId'];
     title = routeArgs['childCategoryTitle'];
-    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
+    final constProviderData =
+        Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
-      onWillPop:  ()async{
+      onWillPop: () async {
         constProviderData.clearData();
         return true;
       },
@@ -83,6 +78,41 @@ class _AutomationScreenState extends State<AutomationScreen> {
               print("latitude : ${constProviderData.latitude}");
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
+              constProviderData.postJob(
+                mId.toString(),
+                subId.toString(),
+                childId.toString(),
+                title!,
+                constProviderData.selectedDate.toString(),
+                constProviderData.pickedTime.toString(),
+                constProviderData.duration.toString(),
+                constProviderData.hourlyRate.toString(),
+                constProviderData.checkUrgentJob.toString(),
+                constProviderData.providersAmount.toString(),
+                constProviderData.estimateBudge.toString(),
+                constProviderData.completeAddress,
+                constProviderData.longitude.toString(),
+                constProviderData.latitude.toString(),
+                constProviderData.postalCode,
+                constProviderData.countryDropDownValue,
+                constProviderData.workDetails,
+                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.mediumSizedFurnitureAmount.toString(),
+                constProviderData.largeSizedFurnitureAmount.toString(),
+                constProviderData.veryLargeSizedFurnitureAmount.toString(),
+                constProviderData.cleanBoxTitle,
+                constProviderData.fixesAmount.toString(),
+                constProviderData.needWork,
+                constProviderData.automationEquipmentsNo.toString(),
+                constProviderData.automationCameraNo.toString(),
+                "",
+                constProviderData.pickupAddress,
+                constProviderData.destinationAddress,
+                constProviderData.surface.toString(),
+                constProviderData.imageFile0,
+                constProviderData.imageFile1,
+                constProviderData.imageFile2,
+              );
             } else {
               setState(() => currentStep += 1);
             }
@@ -96,11 +126,15 @@ class _AutomationScreenState extends State<AutomationScreen> {
             return Container(
               margin: const EdgeInsets.only(top: 50),
               child: Consumer<ConstProvider>(
-                builder: (_,size,child) => Row(
+                builder: (_, size, child) => Row(
                   children: <Widget>[
-                    if((size.cleanBoxTitle == "Yes" || size.cleanBoxTitle == "No") && size.automationEquipmentsNo > 0 && size.automationCameraNo > 0 )
-                      Expanded(
-                          child: ElevatedButton(
+                    ((currentStep < 1) &&
+                            (size.cleanBoxTitle == "Yes" ||
+                                size.cleanBoxTitle == "No") &&
+                            size.automationEquipmentsNo > 0 &&
+                            size.automationCameraNo > 0)
+                        ? Expanded(
+                            child: ElevatedButton(
                             onPressed: details.onStepContinue,
                             style: ElevatedButton.styleFrom(
                               minimumSize: const Size.fromHeight(50.0),
@@ -108,38 +142,90 @@ class _AutomationScreenState extends State<AutomationScreen> {
                               elevation: 5,
                             ),
                             child: Text(
-                              currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
+                              currentStep > 1
+                                  ? "Process_Screen_Confirm_Button"
+                                  : "Process_Screen_Continue_Button",
                               style: const TextStyle(
                                   fontSize: 20,
                                   fontFamily: 'Cerebri Sans Regular',
                                   fontWeight: FontWeight.normal,
                                   color: Colors.white,
-                                  letterSpacing: 1
-                              ),
+                                  letterSpacing: 1),
                             ).tr(),
+                          ))
+                        : SizedBox(),
+                    ((currentStep == 1) &&
+                            (size.duration > 0) &&
+                            (size.hourlyRate > 0))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
                           )
-                      ),
-                    SizedBox(width: MediaQuery.of(context).size.width / 40,),
+                        : const SizedBox(),
+                    (currentStep == 2 &&
+                            (size.completeAddress == '') &&
+                            (size.postalCode != '') &&
+                            (size.countryDropDownValue != 'null'))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 40,
+                    ),
                     Expanded(
                         child: ElevatedButton(
-                          onPressed: details.onStepCancel,
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(50.0),
-                            primary: Colors.black12,
-                            elevation: 0,
-                          ),
-                          child: const Text(
-                            "Process_Screen_Cancel_Button",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Cerebri Sans Regular',
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                                letterSpacing: 1
-                            ),
-                          ).tr(),
-                        )
-                    ),
+                      onPressed: details.onStepCancel,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Colors.black12,
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        "Process_Screen_Cancel_Button",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            letterSpacing: 1),
+                      ).tr(),
+                    )),
                   ],
                 ),
               ),
@@ -151,22 +237,25 @@ class _AutomationScreenState extends State<AutomationScreen> {
   }
 
   List<Step> getSteps() => [
-    Step(
-      isActive: currentStep >= 0,
-      state: currentStep > 0 ? StepState.complete : StepState.indexed,
-      title: const Text(""),
-      content: const AutomationStep(),
-    ),
-    Step(
-      isActive: currentStep >= 1,
-      state: currentStep > 1 ? StepState.complete : StepState.indexed,
-      title: const Text(""),
-      content: GeneralStep2Screen(mainCategoryId: mId!,subCategoryId: subId!, childCategoryId: childId!),
-    ),
-    Step(
-      isActive: currentStep >= 2,
-      title: const Text(""),
-      content:const GeneralStep3Screen(),
-    ),
-  ];
+        Step(
+          isActive: currentStep >= 0,
+          state: currentStep > 0 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: const AutomationStep(),
+        ),
+        Step(
+          isActive: currentStep >= 1,
+          state: currentStep > 1 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: GeneralStep2Screen(
+              mainCategoryId: mId!,
+              subCategoryId: subId!,
+              childCategoryId: childId!),
+        ),
+        Step(
+          isActive: currentStep >= 2,
+          title: const Text(""),
+          content: const GeneralStep3Screen(),
+        ),
+      ];
 }

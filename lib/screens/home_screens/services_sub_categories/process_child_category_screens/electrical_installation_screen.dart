@@ -79,6 +79,42 @@ class _ElectricalInstallationScreenState extends State<ElectricalInstallationScr
               print("latitude : ${constProviderData.latitude}");
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
+              constProviderData.postJob(
+                mId.toString(),
+                subId.toString(),
+                childId.toString(),
+                title!,
+                constProviderData.selectedDate.toString(),
+                constProviderData.pickedTime.toString(),
+                constProviderData.duration.toString(),
+                constProviderData.hourlyRate.toString(),
+                constProviderData.checkUrgentJob.toString(),
+                constProviderData.providersAmount.toString(),
+                constProviderData.estimateBudge.toString(),
+                constProviderData.completeAddress,
+                constProviderData.longitude.toString(),
+                constProviderData.latitude.toString(),
+                constProviderData.postalCode,
+                constProviderData.countryDropDownValue,
+                constProviderData.workDetails,
+                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.mediumSizedFurnitureAmount.toString(),
+                constProviderData.largeSizedFurnitureAmount.toString(),
+                constProviderData.veryLargeSizedFurnitureAmount.toString(),
+                constProviderData.cleanBoxTitle,
+                constProviderData.electricalOutletsAmount.toString(),
+                constProviderData.needWork,
+                "",
+                "",
+                "",
+                constProviderData.pickupAddress,
+                constProviderData.destinationAddress,
+                constProviderData.surface.toString(),
+                constProviderData.imageFile0,
+                constProviderData.imageFile1,
+                constProviderData.imageFile2,
+              );
+
             } else {
               setState(() => currentStep += 1);
             }
@@ -94,7 +130,7 @@ class _ElectricalInstallationScreenState extends State<ElectricalInstallationScr
               child: Consumer<ConstProvider>(
                 builder: (_,size,child) => Row(
                   children: <Widget>[
-                    if(size.electricalOutletsAmount > 0 )
+                    ( (currentStep < 1) && size.electricalOutletsAmount > 0 )?
                       Expanded(
                           child: ElevatedButton(
                             onPressed: details.onStepContinue,
@@ -114,7 +150,58 @@ class _ElectricalInstallationScreenState extends State<ElectricalInstallationScr
                               ),
                             ).tr(),
                           )
+                      ) : SizedBox(),
+                    ((currentStep == 1) &&
+                        (size.duration > 0) &&
+                        (size.hourlyRate > 0))
+                        ? Expanded(
+                      child: ElevatedButton(
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 1
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
                       ),
+                    )
+                        : const SizedBox(),
+                    (currentStep == 2 &&
+                        (size.completeAddress == '') &&
+                        (size.postalCode != '') &&
+                        (size.countryDropDownValue != 'null'))
+                        ? Expanded(
+                      child: ElevatedButton(
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 1
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
+                      ),
+                    )
+                        : const SizedBox(),
                     SizedBox(width: MediaQuery.of(context).size.width / 40,),
                     Expanded(
                         child: ElevatedButton(
