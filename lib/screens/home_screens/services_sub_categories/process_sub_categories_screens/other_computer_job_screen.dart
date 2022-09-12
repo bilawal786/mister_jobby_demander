@@ -75,6 +75,42 @@ class _ComputerJobScreenState extends State<ComputerJobScreen> {
               print("latitude : ${constProviderData.latitude}");
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
+
+              constProviderData.postJob(
+                mainCateId.toString(),
+                subCateId.toString(),
+                0.toString(),
+                subCateTitle!,
+                constProviderData.selectedDate.toString(),
+                constProviderData.pickedTime.toString(),
+                constProviderData.duration.toString(),
+                constProviderData.hourlyRate.toString(),
+                constProviderData.checkUrgentJob.toString(),
+                constProviderData.providersAmount.toString(),
+                constProviderData.estimateBudge.toString(),
+                constProviderData.completeAddress,
+                constProviderData.longitude.toString(),
+                constProviderData.latitude.toString(),
+                constProviderData.postalCode,
+                constProviderData.countryDropDownValue,
+                constProviderData.workDetails,
+                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.mediumSizedFurnitureAmount.toString(),
+                constProviderData.largeSizedFurnitureAmount.toString(),
+                constProviderData.veryLargeSizedFurnitureAmount.toString(),
+                constProviderData.jobberOwnMoverTitle,
+                constProviderData.fixesAmount.toString(),
+                constProviderData.needWork,
+                constProviderData.jobberRemoveWasteTitle,
+                constProviderData.frequencyTitle,
+                "",
+                constProviderData.pickupAddress,
+                constProviderData.destinationAddress,
+                constProviderData.areaToMowSliderValue.toString(),
+                constProviderData.imageFile0,
+                constProviderData.imageFile1,
+                constProviderData.imageFile2,
+              );
             } else {
               setState(() => currentStep += 1);
             }
@@ -90,8 +126,9 @@ class _ComputerJobScreenState extends State<ComputerJobScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, lawnData, child) => Row(
                   children: <Widget>[
-                      Expanded(
-                          child: ElevatedButton(
+                    (currentStep < 1)
+                        ? Expanded(
+                      child: ElevatedButton(
                         onPressed: details.onStepContinue,
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50.0),
@@ -109,7 +146,60 @@ class _ComputerJobScreenState extends State<ComputerJobScreen> {
                               color: Colors.white,
                               letterSpacing: 1),
                         ).tr(),
-                      )),
+                      ),
+                    )
+                        : const SizedBox(),
+                    ((currentStep == 1) &&
+                        (lawnData.duration > 0) &&
+                        (lawnData.hourlyRate > 0))
+                        ? Expanded(
+                      child: ElevatedButton(
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 1
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
+                      ),
+                    )
+                        : const SizedBox(),
+                    ((currentStep == 2) &&
+                        (lawnData.completeAddress != '') &&
+                        (lawnData.postalCode != '') &&
+                        (lawnData.countryDropDownValue != 'null'))
+                        ? Expanded(
+                      child: ElevatedButton(
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          primary: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 1
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
+                      ),
+                    )
+                        : const SizedBox(),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
                     ),
