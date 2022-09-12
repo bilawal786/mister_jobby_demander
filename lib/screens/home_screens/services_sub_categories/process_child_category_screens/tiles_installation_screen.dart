@@ -8,12 +8,12 @@ import '../process_child_screen_steps/tiles_installation_step.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
 
-
 class TilesInstallationScreen extends StatefulWidget {
   const TilesInstallationScreen({Key? key}) : super(key: key);
 
   @override
-  State<TilesInstallationScreen> createState() => _TilesInstallationScreenState();
+  State<TilesInstallationScreen> createState() =>
+      _TilesInstallationScreenState();
 }
 
 class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
@@ -26,17 +26,15 @@ class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute
-        .of(context)!
-        .settings
-        .arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mId = routeArgs['mainCategoryId'];
     subId = routeArgs['subCategoryId'];
     childId = routeArgs['childCategoryId'];
     title = routeArgs['childCategoryTitle'];
-    final constProviderData = Provider.of<ConstProvider>(context,listen: false);
+    final constProviderData =
+        Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
-      onWillPop:  ()async{
+      onWillPop: () async {
         constProviderData.clearData();
         return true;
       },
@@ -65,7 +63,8 @@ class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
               print("subCategoryId: $subId");
               print("childCategoryId: $childId");
               print("childCategoryTitle: $title");
-              print("surface to be laid: ${constProviderData.surfaceInstallationSliderValue}");
+              print(
+                  "surface to be laid: ${constProviderData.surfaceInstallationSliderValue}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
               print("selected duration: ${constProviderData.duration}");
@@ -80,6 +79,43 @@ class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
               print("latitude : ${constProviderData.latitude}");
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
+
+
+              constProviderData.postJob(
+                mId.toString(),
+                subId.toString(),
+                childId.toString(),
+                title!,
+                constProviderData.selectedDate.toString(),
+                constProviderData.pickedTime.toString(),
+                constProviderData.duration.toString(),
+                constProviderData.hourlyRate.toString(),
+                constProviderData.checkUrgentJob.toString(),
+                constProviderData.providersAmount.toString(),
+                constProviderData.estimateBudge.toString(),
+                constProviderData.completeAddress,
+                constProviderData.longitude.toString(),
+                constProviderData.latitude.toString(),
+                constProviderData.postalCode,
+                constProviderData.countryDropDownValue,
+                constProviderData.workDetails,
+                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.mediumSizedFurnitureAmount.toString(),
+                constProviderData.largeSizedFurnitureAmount.toString(),
+                constProviderData.veryLargeSizedFurnitureAmount.toString(),
+                constProviderData.cleanBoxTitle,
+                constProviderData.fixesAmount.toString(),
+                constProviderData.needWork,
+                "",
+                "",
+                "",
+                constProviderData.pickupAddress,
+                constProviderData.destinationAddress,
+                constProviderData.surfaceInstallationSliderValue.toString(),
+                constProviderData.imageFile0,
+                constProviderData.imageFile1,
+                constProviderData.imageFile2,
+              );
             } else {
               setState(() => currentStep += 1);
             }
@@ -92,50 +128,105 @@ class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
           controlsBuilder: (context, ControlsDetails details) {
             return Container(
               margin: const EdgeInsets.only(top: 50),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                      child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
-                        ),
-                        child: Text(
-                          currentStep > 1 ? "Process_Screen_Confirm_Button" : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1
-                          ),
-                        ).tr(),
-                      )
-                  ),
-                  SizedBox(width: MediaQuery.of(context).size.width / 40,),
-                  Expanded(
-                      child: ElevatedButton(
-                        onPressed: details.onStepCancel,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Colors.black12,
-                          elevation: 0,
-                        ),
-                        child: const Text(
-                          "Process_Screen_Cancel_Button",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                              letterSpacing: 1
-                          ),
-                        ).tr(),
-                      )
-                  ),
-                ],
+              child: Consumer<ConstProvider>(
+                builder: (_, fixes, child) => Row(
+                  children: <Widget>[
+                    (currentStep < 1)
+                        ? Expanded(
+                            child: ElevatedButton(
+                            onPressed: details.onStepContinue,
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size.fromHeight(50.0),
+                              primary: Theme.of(context).primaryColor,
+                              elevation: 5,
+                            ),
+                            child: Text(
+                              currentStep > 1
+                                  ? "Process_Screen_Confirm_Button"
+                                  : "Process_Screen_Continue_Button",
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: 'Cerebri Sans Regular',
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white,
+                                  letterSpacing: 1),
+                            ).tr(),
+                          ))
+                        : const SizedBox(),
+                    ((currentStep == 1) &&
+                            (fixes.duration > 0) &&
+                            (fixes.hourlyRate > 0))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    (currentStep == 2 &&
+                            (fixes.completeAddress != '') &&
+                            (fixes.postalCode != '') &&
+                            (fixes.countryDropDownValue != 'null'))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Expanded(
+                        child: ElevatedButton(
+                      onPressed: details.onStepCancel,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50.0),
+                        primary: Colors.black12,
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        "Process_Screen_Cancel_Button",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Cerebri Sans Regular',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            letterSpacing: 1),
+                      ).tr(),
+                    )),
+                  ],
+                ),
               ),
             );
           },
@@ -145,22 +236,26 @@ class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
   }
 
   List<Step> getSteps() => [
-    Step(
-      isActive: currentStep >= 0,
-      state: currentStep > 0 ? StepState.complete : StepState.indexed,
-      title: const Text(""),
-      content: const TilesInstallationStep(),
-    ),
-    Step(
-      isActive: currentStep >= 1,
-      state: currentStep > 1 ? StepState.complete : StepState.indexed,
-      title: const Text(""),
-      content: GeneralStep2Screen(mainCategoryId: mId!,subCategoryId: subId!, childCategoryId: childId!,),
-    ),
-    Step(
-      isActive: currentStep >= 2,
-      title: const Text(""),
-      content:const GeneralStep3Screen(),
-    ),
-  ];
+        Step(
+          isActive: currentStep >= 0,
+          state: currentStep > 0 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: const TilesInstallationStep(),
+        ),
+        Step(
+          isActive: currentStep >= 1,
+          state: currentStep > 1 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: GeneralStep2Screen(
+            mainCategoryId: mId!,
+            subCategoryId: subId!,
+            childCategoryId: childId!,
+          ),
+        ),
+        Step(
+          isActive: currentStep >= 2,
+          title: const Text(""),
+          content: const GeneralStep3Screen(),
+        ),
+      ];
 }
