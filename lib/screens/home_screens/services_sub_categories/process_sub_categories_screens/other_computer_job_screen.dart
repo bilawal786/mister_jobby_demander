@@ -148,6 +148,8 @@ class _ComputerJobScreenState extends State<ComputerJobScreen> {
                         ).tr(),
                       ),
                     )
+
+
                         : const SizedBox(),
                     ((currentStep == 1) &&
                         (lawnData.duration > 0) &&
