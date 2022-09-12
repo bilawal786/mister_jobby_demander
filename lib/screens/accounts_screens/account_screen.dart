@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:mister_jobby/helpers/routes.dart';
-import 'package:mister_jobby/screens/home_screens/auth_screens/login_screen.dart';
 import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
 import 'package:mister_jobby/widgets/const_widgets/custom_list_tile.dart';
 
@@ -55,7 +54,8 @@ class AccountsScreen extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE);
+                            Navigator.of(context)
+                                .pushNamed(MyRoutes.LOGINROUTE);
                           },
                           child: Text(
                             "Account_Screen_Login",

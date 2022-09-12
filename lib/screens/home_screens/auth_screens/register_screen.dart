@@ -49,7 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextFormField(
                 style: Theme.of(context).textTheme.labelMedium,
                 decoration: InputDecoration(
-                  labelText: 'Login_Screen_Text1'.tr(),
+                  labelText: 'EmailText'.tr(),
                   contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 15),
                   hintStyle: Theme.of(context).textTheme.labelMedium,
                   hintText: 'jean@dupond.fr',

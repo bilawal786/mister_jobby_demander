@@ -1,4 +1,4 @@
-class MyRoutes{
+class MyRoutes {
   static String SPLASHROUTE = '/';
   static String HOMETABROUTE = '/Home-Screen';
   static String SUBCATEGORYROUTE = '/Sub-Category-Screen';
@@ -71,7 +71,8 @@ class MyRoutes{
   static String DELIVERGROCERIESROUTE = '/Deliver_Groceries_Screen';
   static String HOMEDELIVERYROUTE = '/Home_Delivery_Screen';
   static String ACCOMPANIMENTRACEROUTE = '/Accompaniment_Race_Screen';
-  static String ACCOMPANIMENTMEDICALAPPOINTMENTROUTE = '/Accompaniment_Medical_Appointment_Screen';
+  static String ACCOMPANIMENTMEDICALAPPOINTMENTROUTE =
+      '/Accompaniment_Medical_Appointment_Screen';
   static String PREPAREMEALROUTE = '/Prepare_Meal_Screen';
   static String WAITERWAITRESSROUTE = '/Waiter_Waitress_Screen';
   static String SEWINGALTERATIONROUTE = '/Sewing_Alteration_Screen';
@@ -97,7 +98,6 @@ class MyRoutes{
   static String CHILDCAREROUTE = '/Child-Care-Screen';
   static String LOGINROUTE = '/Login-Screen';
   static String REGISTERROUTE = '/Register-Screen';
-
 
   static String BASEURL = 'https://misterjobby.ikaedigital.com/api';
   static String IMAGEURL = 'https://misterjobby.ikaedigital.com/';
