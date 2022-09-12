@@ -178,9 +178,6 @@ class _SmallRepairScreenState extends State<SmallRepairScreen> {
                         ),
                       )
                           : const SizedBox(),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 40,
-                      ),
                       (currentStep == 2 &&
                           (smallRepair.completeAddress == '') &&
                           (smallRepair.postalCode != '') &&
