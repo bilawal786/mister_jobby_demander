@@ -27,6 +27,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
     super.didChangeDependencies();
   }
 
+
   @override
   Widget build(BuildContext context) {
     final prefData = Provider.of<PreferencesProvider>(context, listen: false);
@@ -153,7 +154,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
               ),
               prefData.token == null ? const SizedBox() : Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: CustomButton(onPress: (){}, buttonName: "Logout"),
+                child: CustomButton(onPress: (){
+                  prefData.logOut(context);
+                }, buttonName: "Logout"),
               ),
             ],
           ),
