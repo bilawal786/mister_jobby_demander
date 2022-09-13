@@ -103,8 +103,8 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/vehicle_maintenance_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/vehicle_repair_screen.dart';
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/troubleshooting_screen.dart';
-import './screens/home_screens/auth_screens/login_screen.dart';
-import './screens/home_screens/auth_screens/register_screen.dart';
+import './screens/auth_screens/login_screen.dart';
+import './screens/auth_screens/register_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
