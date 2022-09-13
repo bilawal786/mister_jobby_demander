@@ -55,6 +55,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 4: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.FIXINGSHELVESROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -65,6 +66,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 5: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.HANGTVROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -75,6 +77,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 6: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.SHOWERINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -85,6 +88,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 7: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.HANGPICTREROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -95,6 +99,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 8: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.MIRRORINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -105,6 +110,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 9: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.FURNITUREREPAIRROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -115,6 +121,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 10: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.SMALLREPAIRROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -125,6 +132,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 11: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.FENCEINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -135,6 +143,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 12: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.HOODINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -145,6 +154,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 13: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.LANDSCAPINGHOODROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -155,6 +165,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 14: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.ELECTRICALINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -165,6 +176,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 15: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.BULBINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -175,6 +187,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 16: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.LAMPINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -185,6 +198,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 17: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.AUTOMATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -195,6 +209,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 18: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.ACINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -205,6 +220,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 19: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.PAINTINGINSTALLATIOROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -215,6 +231,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 20: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.PARQUETINSTALLATIOROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -225,6 +242,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 21: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.TILESINSTALLATIOROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -235,6 +253,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 22: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.CARPETINSTALLATIOROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -245,6 +264,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 23: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.COATWALLROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -255,6 +275,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 24: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.LININGINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -265,6 +286,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 25: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.WATERINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -275,6 +297,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 26: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.FLUSHINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -285,6 +308,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 27: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.FAUCETINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -295,6 +319,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 28: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.SINKINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -305,6 +330,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 29: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.WASHINGMACHINEROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -315,6 +341,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 30: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.TOILETINSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -325,6 +352,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
           break;
           case 31: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.SINKDRAINROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
