@@ -31,10 +31,7 @@ class LoginProvider with ChangeNotifier{
       if (response.statusCode == 200) {
         final login = LoginModel.fromJson(jsonDecode(response.body));
         final SharedPreferences prefs = await SharedPreferences.getInstance();
-        prefs.setString('token', login.success.token);
-        prefs.setString(
-            'name', '${login.success.user.firstName} ${login.success.user.lastName}');
-        prefs.setString('email', login.success.user.email);
+        await prefs.setString('token', login.success.token);
         Navigator.of(context).pushReplacementNamed(MyRoutes.HOMETABROUTE);
         notifyListeners();
       }

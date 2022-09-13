@@ -16,14 +16,14 @@ class AccountsScreen extends StatefulWidget {
 
 class _AccountsScreenState extends State<AccountsScreen> {
 
-  var isInit = false;
+  var isInit = true;
 
   @override
   void didChangeDependencies() {
     if(isInit){
-      Provider.of<PreferencesProvider>(context, listen: false).checkToken();
+      Provider.of<PreferencesProvider>(context).checkToken();
     }
-    isInit = true;
+    isInit = false;
     super.didChangeDependencies();
   }
 
@@ -35,7 +35,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              (prefData.token == 'null')
+              (prefData.token == null)
                   ? Container(
                       padding: const EdgeInsets.all(10.0),
                       margin: const EdgeInsets.all(5.0),
@@ -151,7 +151,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                   ],
                 ),
               ),
-              prefData.token == 'null' ? const SizedBox() : Padding(
+              prefData.token == null ? const SizedBox() : Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: CustomButton(onPress: (){}, buttonName: "Logout"),
               ),
