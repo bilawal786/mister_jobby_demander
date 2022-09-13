@@ -16,10 +16,15 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  RegExp regExp = RegExp(
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
+      multiLine: false);
 
   @override
   void dispose() {
     emailController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 
@@ -106,12 +111,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                     enabled: true,
                                     validator: (value) {
                                       if (value!.isEmpty) {
-                                        return "Please enter email";
+                                        return "Please Enter Email Address";
+                                      }else if (!regExp.hasMatch(value)) {
+                                        return 'Please Enter Valid Email Address';
                                       }
                                       return null;
-                                    },
-                                    onChanged: (pValue) {
-                                      // constProviderData.postalCode = pValue;
                                     },
                                   ),
                                   SizedBox(
@@ -125,17 +129,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                     height: MediaQuery.of(context).size.width / 40,
                                   ),
                                   TextFormField(
-                                    // controller: postalCodeController,
+                                    controller: passwordController,
                                     decoration: InputDecoration(
                                       border: const OutlineInputBorder(),
                                       labelText: "PasswordText".tr(),
                                       isDense: true,
+                                      suffixIcon: const Icon(Icons.remove_red_eye),
                                     ),
                                     style: Theme.of(context).textTheme.bodySmall,
                                     enabled: true,
-                                    onChanged: (pValue) {
-                                      // constProviderData.postalCode = pValue;
-                                    },
                                   ),
                                 ],
                               ),
