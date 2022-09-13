@@ -16,7 +16,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var countryId = "";
   final formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -32,20 +31,19 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void formSubmit() {
+    final constData = Provider.of<ConstProvider>(context, listen: false);
+    final loginData = Provider.of<LoginProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
       return;
     }
-    Provider.of<LoginProvider>(context, listen: false).login(emailController.text, passwordController.text, countryId).then((_) =>
-    Navigator.of(context).pushReplacementNamed(MyRoutes.HOMETABROUTE));
     formKey.currentState!.save();
+    loginData.login(context, emailController.text, passwordController.text, constData.countryDropDownValue);
   }
   @override
   Widget build(BuildContext context) {
     final countryData = Provider.of<CountryProvider>(context, listen: false);
     final extractCountry = countryData.countryList;
-    final constData = Provider.of<ConstProvider>(context,listen: false);
-    countryId = constData.countryDropDownValue;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(

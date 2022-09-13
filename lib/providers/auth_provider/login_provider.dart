@@ -9,34 +9,34 @@ import '../../models/auth_model/login_model.dart';
 
 class LoginProvider with ChangeNotifier{
 
+  bool checkApi = true;
   bool checkObscure = true;
-
+  String? sharedToken ;
   void toggleObscure(){
     checkObscure = !checkObscure;
     notifyListeners();
   }
 
-  Future<void> login(email, password, countryId) async {
+  Future<void> login(BuildContext context, email, password, countryId) async {
     try {
       var response = await http.post(
         Uri.parse('${MyRoutes.BASEURL}/login'),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body:
         jsonEncode(<String, String>{'email': email, 'password': password, 'role': countryId}),
       );
-
       if (response.statusCode == 200) {
         final login = LoginModel.fromJson(jsonDecode(response.body));
-
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('token', login.success.token);
         prefs.setString(
             'name', '${login.success.user.firstName} ${login.success.user.lastName}');
         prefs.setString('email', login.success.user.email);
-        prefs.setString('photo', login.success.user.image);
+        Navigator.of(context).pushReplacementNamed(MyRoutes.HOMETABROUTE);
+        notifyListeners();
       }
       else{
         print("Failed to login.");

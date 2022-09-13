@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/helpers/routes.dart';
 import 'package:provider/provider.dart';
 
+import '../../helpers/routes.dart';
 import '../../providers/categories_provider/main_categories_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
 
@@ -25,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 .pushReplacementNamed(MyRoutes.HOMETABROUTE),
           );
       Provider.of<CountryProvider>(context).getCountries();
-
     }
     _isInit = false;
   }
