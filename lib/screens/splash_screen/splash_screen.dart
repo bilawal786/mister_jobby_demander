@@ -3,6 +3,7 @@ import 'package:mister_jobby/helpers/routes.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/categories_provider/main_categories_provider.dart';
+import '../../providers/country_provider/country_list_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -23,9 +24,14 @@ class _SplashScreenState extends State<SplashScreen> {
             (value) => Navigator.of(context)
                 .pushReplacementNamed(MyRoutes.HOMETABROUTE),
           );
+      Provider.of<CountryProvider>(context).getCountries();
+
     }
     _isInit = false;
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {

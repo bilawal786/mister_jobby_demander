@@ -1,11 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/models/country_model/country_model.dart';
-import 'package:mister_jobby/providers/country_provider/country_list_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import '../../../../providers/country_provider/country_list_provider.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/places_selected_input_widget.dart';
 
@@ -26,22 +25,12 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
     descriptionController.dispose();
     super.dispose();
   }
-   var isInit = true;
-  @override
-  void didChangeDependencies() {
-    if(isInit){
-      Provider.of<CountryProvider>(context).getCountries();
-    }
-    isInit = false;
-    super.didChangeDependencies();
-  }
 
   @override
   Widget build(BuildContext context) {
     final constProviderData = Provider.of<ConstProvider>(context);
     final countryData = Provider.of<CountryProvider>(context, listen: false);
     final extractCountry = countryData.countryList;
-    constProviderData.workDetails = descriptionController.text;
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -367,7 +356,7 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
                       ).toList(),
                       onChanged: (val) {
                         dropDownData.countryDropDownFunction(val);
-                        print("drop down value ${dropDownData.countryDropDownValue}");
+                        // print("drop down value ${dropDownData.countryDropDownValue}");
                       },
                     ),
                   ),

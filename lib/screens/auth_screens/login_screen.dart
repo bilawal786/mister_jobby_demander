@@ -1,6 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../providers/const_provider/const_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
@@ -30,11 +30,10 @@ class _LoginScreenState extends State<LoginScreen> {
     }
     formKey.currentState!.save();
   }
-
   @override
   Widget build(BuildContext context) {
     final countryData = Provider.of<CountryProvider>(context, listen: false);
-    final extractCountryData = countryData.countryList;
+    final extractCountry = countryData.countryList;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -45,8 +44,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: Form(
-                  key: formKey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -70,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: <Widget>[
                             Center(
                               child: Text(
                                 "Login_Screen_Title",
@@ -78,56 +75,70 @@ class _LoginScreenState extends State<LoginScreen> {
                               ).tr(),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.width / 10,
+                              height: MediaQuery.of(context).size.width / 30,
                             ),
-                            Text(
-                              "EmailText",
-                              style: Theme.of(context).textTheme.titleSmall,
-                            ).tr(),
+                            const Divider(),
                             SizedBox(
-                              height: MediaQuery.of(context).size.width / 40,
+                              height: MediaQuery.of(context).size.width / 30,
                             ),
-                            TextFormField(
-                              autovalidateMode: AutovalidateMode.onUserInteraction,
-                              controller: emailController,
-                              decoration: InputDecoration(
-                                border: const OutlineInputBorder(),
-                                labelText: "EmailText".tr(),
-                                isDense: true,
+                            Form(
+                              key: formKey,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "EmailText",
+                                    style: Theme.of(context).textTheme.titleSmall,
+                                  ).tr(),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.width / 40,
+                                  ),
+                                  TextFormField(
+                                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                                    controller: emailController,
+                                    decoration: InputDecoration(
+                                      border: const OutlineInputBorder(),
+                                      labelText: "EmailText".tr(),
+                                      isDense: true,
+                                    ),
+                                    style: Theme.of(context).textTheme.bodySmall,
+                                    enabled: true,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return "Please enter email";
+                                      }
+                                      return null;
+                                    },
+                                    onChanged: (pValue) {
+                                      // constProviderData.postalCode = pValue;
+                                    },
+                                  ),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.width / 40,
+                                  ),
+                                  Text(
+                                    "PasswordText",
+                                    style: Theme.of(context).textTheme.titleSmall,
+                                  ).tr(),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.width / 40,
+                                  ),
+                                  TextFormField(
+                                    // controller: postalCodeController,
+                                    decoration: InputDecoration(
+                                      border: const OutlineInputBorder(),
+                                      labelText: "PasswordText".tr(),
+                                      isDense: true,
+                                    ),
+                                    style: Theme.of(context).textTheme.bodySmall,
+                                    enabled: true,
+                                    onChanged: (pValue) {
+                                      // constProviderData.postalCode = pValue;
+                                    },
+                                  ),
+                                ],
                               ),
-                              style: Theme.of(context).textTheme.bodySmall,
-                              enabled: true,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Please enter email";
-                                }
-                              },
-                              onChanged: (pValue) {
-                                // constProviderData.postalCode = pValue;
-                              },
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.width / 40,
-                            ),
-                            Text(
-                              "PasswordText",
-                              style: Theme.of(context).textTheme.titleSmall,
-                            ).tr(),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.width / 40,
-                            ),
-                            TextFormField(
-                              // controller: postalCodeController,
-                              decoration: InputDecoration(
-                                border: const OutlineInputBorder(),
-                                labelText: "PasswordText".tr(),
-                                isDense: true,
-                              ),
-                              style: Theme.of(context).textTheme.bodySmall,
-                              enabled: true,
-                              onChanged: (pValue) {
-                                // constProviderData.postalCode = pValue;
-                              },
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.width / 40,
@@ -140,47 +151,43 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: MediaQuery.of(context).size.width / 40,
                             ),
                             Consumer<ConstProvider>(
-                              builder: (_, dropDownData, child) => Container(
-                                height: 50.0,
-                                padding:
-                                    const EdgeInsets.fromLTRB(20, 12, 20, 10),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border:
-                                      Border.all(color: Colors.grey, width: 1),
-                                  borderRadius: BorderRadius.circular(5.0),
-                                ),
-                                child: DropdownButtonFormField<String>(
-                                  decoration: InputDecoration(
-                                    hintText: "Select_Country".tr(),
-                                    hintStyle:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                    isCollapsed: true,
-                                    enabledBorder: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
+                              builder: (_,dropDownData,child)=>
+                                  Container(
+                                    height: 50.0,
+                                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      border: Border.all(color: Colors.grey, width: 1),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    child: DropdownButtonFormField<String>(
+                                      decoration: InputDecoration(
+                                        hintText: "Select Country",
+                                        hintStyle: Theme.of(context).textTheme.bodyMedium,
+                                        isCollapsed: true,
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                      ),
+                                      isExpanded: true,
+                                      iconSize: 30.0,
+                                      items:extractCountry?.map(
+                                            (val) {
+                                          return DropdownMenuItem<String>(
+                                            value: val.id.toString(),
+                                            child: Text(
+                                              val.name,
+                                              style:
+                                              Theme.of(context).textTheme.bodySmall,
+                                            ),
+                                          );
+                                        },
+                                      ).toList(),
+                                      onChanged: (val) {
+                                        dropDownData.countryDropDownFunction(val);
+                                        print("drop down value ${dropDownData.countryDropDownValue}");
+                                      },
+                                    ),
                                   ),
-                                  isExpanded: true,
-                                  iconSize: 30.0,
-                                  items: extractCountryData?.map(
-                                    (val) {
-                                      return DropdownMenuItem<String>(
-                                        value: val.id.toString(),
-                                        child: Text(
-                                          val.name,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall,
-                                        ),
-                                      );
-                                    },
-                                  ).toList(),
-                                  onChanged: (val) {
-                                    dropDownData.countryDropDownFunction(val);
-                                    print(
-                                        "drop down value ${dropDownData.countryDropDownValue}");
-                                  },
-                                ),
-                              ),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.width / 25,
@@ -238,7 +245,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-                ),
               ),
             ],
           ),

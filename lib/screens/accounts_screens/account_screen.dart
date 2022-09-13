@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/helpers/routes.dart';
-import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
-import 'package:mister_jobby/widgets/const_widgets/custom_list_tile.dart';
+
+import '../../helpers/routes.dart';
+import '../../widgets/const_widgets/custom_button.dart';
+import '../../widgets/const_widgets/custom_list_tile.dart';
 
 class AccountsScreen extends StatelessWidget {
   const AccountsScreen({Key? key}) : super(key: key);
