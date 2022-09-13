@@ -43,6 +43,7 @@ dependencies:
   uuid: ^3.0.6
   searchfield: ^0.7.0
   geocoding: ^2.0.5
+  shared_preferences: ^2.0.15
 
 
 dev_dependencies:

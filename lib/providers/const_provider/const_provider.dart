@@ -3,6 +3,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
 
@@ -954,13 +955,13 @@ class ConstProvider with ChangeNotifier {
     imageUrl1,
     imageUrl2,
   ) async {
-    // SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-    // String? userToken = sharedPrefs.getString("token");
+    SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
+    String? userToken = sharedPrefs.getString("token");
     Map<String, String> headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDdkZDJhNTc2MGI4N2M1YjQ0ZjVkMjEzMmMwZDkxNTcyZDYyMGY2NGNhMjM0ODMzM2JhZGEzYjRkMWJhOWJkOGM3MDIwOTUyMjZkZDcyZmQiLCJpYXQiOjE2NjI2MzM1NTkuNTkzOTg0LCJuYmYiOjE2NjI2MzM1NTkuNTkzOTk0LCJleHAiOjE2OTQxNjk1NTkuNTgyOTg0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.lfz3P3dp9lN8WSqqHSCYLYKoIZPyr47PirHueQ3n-7Gk64KkL2oaI5Nhw0Rl6NqKijTbEroiC1lcYraOVWfR_dZYi0wi0TeM45XuivmvoN5vXSZCfgFeTu0Yxd01d5KX3G1oVX53GFnqL9qzNPu9xR24bnpiiaqqh5tox2WLE0FzJlHWG5UT7_Z-9hPOXW4hpEPseVtkOHwzw9O0LLNkzzn1U85AbjKglgX9sbzqIaWl-Pi4L4Ag8K47IS1v8XI6N0htR2qki7Z88CBGcPSxcQk1Jp7m9b83fft7tHX-bXaC1kh8M_tpYur3l_MITxUzKWYnoXworXQfku1TatMjOk8rvKDwVuvql3h4P2biJ_fro_wSnYtXZDrWtLTT_CQr5WUY8iZCb6DkGjU7LlVr24mGhxFO61fHUdhm-a71sbhN35u7_3uwC3FIfGZ7WwyNss9XnB9wCj8tn6o0gQwPNnTkQzJPHTE1mYZavfexeCJuelmXcOe9uJaF0_oQ1ZYKeqsBBJ1o-QvEfzmrZVw6nqndSUtYvIQUWTcAQAaD8fiKjJn2kgn8KwiSJbt5D_b2zaVHpHd1BdvU6ScutwJvgnsrATIzTmtrtHzs4MFUjVoZzXgi_mmCmTKQLlxJenHeb85LJCUXWtKFoa6bsAMiWW1BDIKfOXhUFO38zBBnLG0',
+          'Bearer $userToken',
     };
     var request = http.MultipartRequest(
       "POST",
