@@ -32,7 +32,7 @@ class LoginProvider with ChangeNotifier{
         final login = LoginModel.fromJson(jsonDecode(response.body));
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', login.success.token);
-        Navigator.of(context).pushReplacementNamed(MyRoutes.HOMETABROUTE);
+        Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.HOMETABROUTE , (route) => false,);
         notifyListeners();
       }
       else{

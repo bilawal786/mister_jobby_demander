@@ -2,11 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/categories_provider/main_categories_provider.dart';
+import '../../../providers/preferences_provider/preferences_provider.dart';
 import '../../../widgets/const_widgets/search_button.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/child_category_items.dart';
 
-class ChildCategoriesScreen extends StatelessWidget {
+class ChildCategoriesScreen extends StatefulWidget {
   const ChildCategoriesScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ChildCategoriesScreen> createState() => _ChildCategoriesScreenState();
+}
+
+class _ChildCategoriesScreenState extends State<ChildCategoriesScreen> {
+
+  var isInit = true;
+
+  @override
+  void didChangeDependencies() {
+    if(isInit){
+      Provider.of<PreferencesProvider>(context, listen: false).checkToken();
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
