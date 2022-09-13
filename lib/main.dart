@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/providers/country_provider/country_list_provider.dart';
 import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
@@ -105,6 +104,8 @@ import './screens/home_screens/services_sub_categories/process_sub_categories_sc
 import './screens/home_screens/services_sub_categories/process_sub_categories_screens/troubleshooting_screen.dart';
 import './screens/auth_screens/login_screen.dart';
 import './screens/auth_screens/register_screen.dart';
+import './providers/auth_provider/login_provider.dart';
+import './providers/country_provider/country_list_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -131,6 +132,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => MainCategoriesProvider()),
         ChangeNotifierProvider(create: (ctx) => CountryProvider()),
         ChangeNotifierProvider(create: (ctx) => ConstProvider()),
+        ChangeNotifierProvider(create: (ctx) => LoginProvider()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

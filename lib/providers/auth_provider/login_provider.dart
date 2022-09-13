@@ -9,6 +9,12 @@ import '../../models/auth_model/login_model.dart';
 
 class LoginProvider with ChangeNotifier{
 
+  bool checkObscure = true;
+
+  void toggleObscure(){
+    checkObscure = !checkObscure;
+    notifyListeners();
+  }
 
 
   Future<void> login(email, password, countryId) async {

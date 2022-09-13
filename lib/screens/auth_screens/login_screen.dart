@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/providers/auth_provider/login_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -128,16 +129,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                   SizedBox(
                                     height: MediaQuery.of(context).size.width / 40,
                                   ),
-                                  TextFormField(
-                                    controller: passwordController,
-                                    decoration: InputDecoration(
-                                      border: const OutlineInputBorder(),
-                                      labelText: "PasswordText".tr(),
-                                      isDense: true,
-                                      suffixIcon: const Icon(Icons.remove_red_eye),
+                                  Consumer<LoginProvider>(
+                                    builder: (_,toggle, child) => TextFormField(
+                                      controller: passwordController,
+                                      obscureText: toggle.checkObscure,
+                                      decoration: InputDecoration(
+                                        border: const OutlineInputBorder(),
+                                        labelText: "PasswordText".tr(),
+                                        isDense: true,
+                                        suffixIcon: GestureDetector(
+                                          onTap: toggle.toggleObscure,
+                                            child: Icon(toggle.checkObscure == false ? Icons.visibility_off: Icons.visibility),),
+                                      ),
+                                      style: Theme.of(context).textTheme.bodySmall,
+                                      enabled: true,
                                     ),
-                                    style: Theme.of(context).textTheme.bodySmall,
-                                    enabled: true,
                                   ),
                                 ],
                               ),
@@ -186,7 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ).toList(),
                                       onChanged: (val) {
                                         dropDownData.countryDropDownFunction(val);
-                                        print("drop down value ${dropDownData.countryDropDownValue}");
+                                        // print("drop down value ${dropDownData.countryDropDownValue}");
                                       },
                                     ),
                                   ),
