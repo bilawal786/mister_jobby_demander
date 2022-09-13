@@ -41,7 +41,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   }
 
   void getSuggestion(String input) async {
-    String kPLACES_API_KEY = "add google api key here";
+    String kPLACES_API_KEY = "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
     String gBASEURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     String requestUrl =
@@ -70,6 +70,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   String address = "";
   @override
   Widget build(BuildContext context) {
+    final searchData = Provider.of<ConstProvider>(context, listen: false);
     return SearchField(
       controller: searchController,
       hint: 'Find_Address'.tr(),
@@ -96,7 +97,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
       }).toList(),
       onSuggestionTap: (p0) async {
         List<Location> location = await locationFromAddress(p0.item.toString());
-        Provider.of<ConstProvider>(context, listen: false).getAddress(
+        searchData.getAddress(
           address = searchController.text,
           longitude = location.last.longitude,
           latitude = location.last.latitude,
