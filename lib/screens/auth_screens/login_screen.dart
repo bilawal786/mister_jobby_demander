@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/providers/auth_provider/login_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import '../../providers/auth_provider/login_provider.dart';
 import '../../providers/const_provider/const_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
