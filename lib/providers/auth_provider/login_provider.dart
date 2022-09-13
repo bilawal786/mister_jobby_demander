@@ -16,7 +16,6 @@ class LoginProvider with ChangeNotifier{
     notifyListeners();
   }
 
-
   Future<void> login(email, password, countryId) async {
     try {
       var response = await http.post(
@@ -46,6 +45,7 @@ class LoginProvider with ChangeNotifier{
     } catch (e) {
       print(e.toString());
     }
+    notifyListeners();
   }
 
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import '../../helpers/routes.dart';
 import '../../providers/auth_provider/login_provider.dart';
 import '../../providers/const_provider/const_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
@@ -15,6 +16,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  var countryId = "";
   final formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -32,14 +34,18 @@ class _LoginScreenState extends State<LoginScreen> {
   void formSubmit() {
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
-      print("isNotValid");
+      return;
     }
+    Provider.of<LoginProvider>(context, listen: false).login(emailController.text, passwordController.text, countryId).then((_) =>
+    Navigator.of(context).pushReplacementNamed(MyRoutes.HOMETABROUTE));
     formKey.currentState!.save();
   }
   @override
   Widget build(BuildContext context) {
     final countryData = Provider.of<CountryProvider>(context, listen: false);
     final extractCountry = countryData.countryList;
+    final constData = Provider.of<ConstProvider>(context,listen: false);
+    countryId = constData.countryDropDownValue;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -240,7 +246,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   width: MediaQuery.of(context).size.width / 40,
                                 ),
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () => Navigator.of(context).pushReplacementNamed(MyRoutes.REGISTERROUTE),
                                   child: Text(
                                     "Register_Screen_Title".tr(),
                                     style: TextStyle(
