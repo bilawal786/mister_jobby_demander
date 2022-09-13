@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/providers/preferences_provider/preferences_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../helpers/routes.dart';
 import '../../../models/categories_models/main_categories_model.dart';
@@ -12,12 +14,15 @@ class ChildCategoriesItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final prefData = Provider.of<PreferencesProvider>(context, listen: false);
+    final checkToken = prefData.token;
       return ListTile(
       onTap: () {
         var check = childCategory.id;
         switch (check) {
           case 1:
             {
+              checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
               Navigator.of(context).pushNamed(MyRoutes.ASSEMBLEFURNITUREROUTE, arguments: {
                 'mainCategoryId' : mainCategoryId,
                 'subCategoryId'  : subCategoryId,
@@ -28,6 +33,7 @@ class ChildCategoriesItems extends StatelessWidget {
             }
             break;
           case 2: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.DISASSEMBLEFURNITURESROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
@@ -38,6 +44,7 @@ class ChildCategoriesItems extends StatelessWidget {
           }
             break;
           case 3: {
+            checkToken == 'null' ? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE) :
             Navigator.of(context).pushNamed(MyRoutes.CURTAININSTALLATIONROUTE, arguments: {
               'mainCategoryId' : mainCategoryId,
               'subCategoryId'  : subCategoryId,
