@@ -102,11 +102,6 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
           longitude = location.last.longitude,
           latitude = location.last.latitude,
         );
-        // setState((){
-        //   address = searchController.text;
-        //   latitude = location.last.latitude;
-        //   longitude = location.last.longitude;
-        // });
         print("\n \n \n \n ");
         print("full address : $address");
         print("latitude: $latitude");
