@@ -12,8 +12,8 @@ class PreferencesProvider with ChangeNotifier {
   }
 
   void logOut(BuildContext context){
-    token= null;
-    Navigator.of(context).pushReplacementNamed(MyRoutes.HOMETABROUTE);
+    token = "";
+    Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.HOMETABROUTE, (route) => false);
     notifyListeners();
   }
 }
