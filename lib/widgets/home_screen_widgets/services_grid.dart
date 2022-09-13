@@ -3,9 +3,26 @@ import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
 import '../../providers/categories_provider/main_categories_provider.dart';
+import '../../providers/preferences_provider/preferences_provider.dart';
 
-class ServicesGrid extends StatelessWidget {
+class ServicesGrid extends StatefulWidget {
   const ServicesGrid({Key? key}) : super(key: key);
+
+  @override
+  State<ServicesGrid> createState() => _ServicesGridState();
+}
+
+class _ServicesGridState extends State<ServicesGrid> {
+  var isInit = true;
+
+  @override
+  void didChangeDependencies() {
+    if(isInit){
+      Provider.of<PreferencesProvider>(context, listen: false).checkToken();
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -2,29 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/categories_provider/main_categories_provider.dart';
-import '../../../providers/preferences_provider/preferences_provider.dart';
 import '../../../widgets/const_widgets/search_button.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/sub_categories_items.dart';
 
-class SubCategoriesScreen extends StatefulWidget {
+class SubCategoriesScreen extends StatelessWidget {
   const SubCategoriesScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SubCategoriesScreen> createState() => _SubCategoriesScreenState();
-}
-
-class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
-
-  var isInit = true;
-
-  @override
-  void didChangeDependencies() {
-    if(isInit){
-      Provider.of<PreferencesProvider>(context, listen: false).checkToken();
-    }
-    isInit = false;
-    super.didChangeDependencies();
-  }
 
   @override
   Widget build(BuildContext context) {
