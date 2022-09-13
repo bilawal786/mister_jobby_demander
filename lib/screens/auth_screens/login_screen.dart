@@ -143,6 +143,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                       style: Theme.of(context).textTheme.bodySmall,
                                       enabled: true,
+                                      validator: (value){
+                                        if(value!.isEmpty){
+                                          return 'Please Enter the password';
+                                        }else if(value.length < 5) {
+                                          return 'Must be more than 5 characters';
+                                        }
+                                        return null;
+                                      },
                                     ),
                                   ),
                                 ],
@@ -224,7 +232,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Already_Account_Title".tr(),
+                                  "Don't_Have_Account_Title".tr(),
                                   style:
                                       Theme.of(context).textTheme.labelMedium,
                                 ),

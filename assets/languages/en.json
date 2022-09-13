@@ -431,7 +431,10 @@
   "EmailText": "Email",
   "PasswordText": "Password",
   "Already_Account_Title": "Already have an account?",
+  "Don't_Have_Account_Title": "Don't have an account?",
   "Forgot_Button_Text": "Forget Password?",
   "Select_Country": "Select Country",
-  "Register_Screen_Title": "Register"
+  "Register_Screen_Title": "Register",
+  "First_Name": "First Name",
+  "Last_Name": "Last Name"
 }
