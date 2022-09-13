@@ -428,9 +428,10 @@
   "Total_Step2_Title": "Total",
   "Requested_services": "Price of the requested service",
   "Login_Screen_Title": "Login",
-  "Login_Screen_SubTitle": "E-mail",
   "EmailText": "Email",
   "PasswordText": "Password",
-  "Login_Screen_Button": "Forget Pasword",
+  "Already_Account_Title": "Already have an account?",
+  "Forgot_Button_Text": "Forget Password?",
+  "Select_Country": "Select Country",
   "Register_Screen_Title": "Register"
 }
