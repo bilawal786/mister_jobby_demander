@@ -13,7 +13,6 @@ class SubCategoriesItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final prefData = Provider.of<PreferencesProvider>(context, listen: false);
-    final checkToken = prefData.token;
     final routeArgs =
     ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final mainCategoryIndex = routeArgs['index'];
