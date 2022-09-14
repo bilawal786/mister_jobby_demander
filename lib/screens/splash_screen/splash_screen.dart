@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/providers/banner_provider/banner_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
@@ -25,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 .pushReplacementNamed(MyRoutes.HOMETABROUTE),
           );
       Provider.of<CountryProvider>(context).getCountries();
+      Provider.of<BannerProvider>(context).getBanner();
     }
     _isInit = false;
   }

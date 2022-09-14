@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
 import '../../widgets/home_screen_widgets/services_grid.dart';
 import '../../widgets/home_screen_widgets/popular_services_listview.dart';
 import '../../widgets/const_widgets/search_button.dart';
 import '../../widgets/home_screen_widgets/warranties_list_tiles.dart';
+import '../../providers/banner_provider/banner_provider.dart';
 
 class IndexScreen extends StatelessWidget {
   const IndexScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final bannerData = Provider.of<BannerProvider>(context, listen: false);
+    final extractedBanner = bannerData.myBanner;
     var navigator = Navigator.of(context);
     return DefaultTabController(
       length: 1,
@@ -68,6 +72,7 @@ class IndexScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleSmall,
                   ).tr(),
                   const PopularServicesListView(),
+                  extractedBanner != null ?
                   CarouselSlider.builder(
                     options: CarouselOptions(
                       height: MediaQuery.of(context).size.width / 2,
@@ -84,18 +89,18 @@ class IndexScreen extends StatelessWidget {
                       enlargeCenterPage: true,
                       scrollDirection: Axis.horizontal,
                     ),
-                    itemCount: 2,
+                    itemCount: extractedBanner.length,
                     itemBuilder: (context, index, realIndex) => ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
-                      child: const FadeInImage(
-                        placeholder: AssetImage("assets/images/loading.gif"),
+                      child: FadeInImage(
+                        placeholder: const AssetImage("assets/images/loading.gif"),
                         image: NetworkImage(
-                          "https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2020/07/31142105/700StopMotion.jpg",
+                          "${MyRoutes.IMAGEURL}/${extractedBanner[index].sliderImage}",
                         ),
                         fit: BoxFit.cover,
                       ),
                     ),
-                  ),
+                  ): const Center(child: CircularProgressIndicator(),),
                   const SizedBox(
                     height: 15,
                   ),
