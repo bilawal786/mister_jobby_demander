@@ -159,7 +159,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 leadingIcon:
                                     Icons.account_balance_wallet_outlined,
                                 title: 'My_Balance',
-                                onPress: () {},
+                                onPress: () {
+                                  Navigator.of(context).pushNamed(MyRoutes.BALANCEROUTE);
+                                },
                               ),
                               CustomListTile(
                                 leadingIcon: Icons.all_inbox,

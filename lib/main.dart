@@ -111,6 +111,7 @@ import './providers/auth_provider/login_provider.dart';
 import './providers/country_provider/country_list_provider.dart';
 import './screens/accounts_screens/manage_accounts/personal_information.dart';
 import './screens/accounts_screens/products/gift.dart';
+import './screens/accounts_screens/manage_accounts/balance_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -386,6 +387,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.REGISTERROUTE: (ctx) => const RegisterScreen(),
           MyRoutes.PERSONALINFORMATIONROUTE: (ctx) => const PersonalInformation(),
           MyRoutes.GIFTROUTE: (ctx) => const GiftScreen(),
+          MyRoutes.BALANCEROUTE: (ctx) => const BalanceScreen(),
         },
       ),
     );
