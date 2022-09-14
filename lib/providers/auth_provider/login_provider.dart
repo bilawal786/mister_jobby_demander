@@ -9,7 +9,6 @@ import '../../models/auth_model/login_model.dart';
 
 class LoginProvider with ChangeNotifier{
 
-  bool checkApi = true;
   bool checkObscure = true;
   String? sharedToken ;
   void toggleObscure(){
