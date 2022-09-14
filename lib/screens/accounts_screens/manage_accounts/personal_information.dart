@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
+import '../../../widgets/const_widgets/custom_button.dart';
 import '../../../providers/const_provider/const_provider.dart';
 import '../../../providers/country_provider/country_list_provider.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
