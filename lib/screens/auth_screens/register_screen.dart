@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/auth_provider/login_provider.dart';
+import '../../providers/auth_provider/register_provider.dart';
 import '../../providers/const_provider/const_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
@@ -34,11 +35,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void formSubmit() {
+
+    final constData = Provider.of<ConstProvider>(context, listen: false);
+    final registerData = Provider.of<RegisterProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
       print("isNotValid");
     }
     formKey.currentState!.save();
+    formKey.currentState!.save();
+
+    registerData.registration(context, firstNameController.text, lastNameController.text, emailController.text, passwordController.text, constData.countryDropDownValue);
+  print("object");
   }
 
   @override

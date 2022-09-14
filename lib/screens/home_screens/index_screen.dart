@@ -4,17 +4,35 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
+import '../../providers/preferences_provider/preferences_provider.dart';
 import '../../widgets/home_screen_widgets/services_grid.dart';
 import '../../widgets/home_screen_widgets/popular_services_listview.dart';
 import '../../widgets/const_widgets/search_button.dart';
 import '../../widgets/home_screen_widgets/warranties_list_tiles.dart';
 import '../../providers/banner_provider/banner_provider.dart';
 
-class IndexScreen extends StatelessWidget {
+class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key}) : super(key: key);
 
   @override
+  State<IndexScreen> createState() => _IndexScreenState();
+}
+
+class _IndexScreenState extends State<IndexScreen> {
+  var isInit = true;
+
+  @override
+  void didChangeDependencies() {
+    if(isInit){
+      Provider.of<PreferencesProvider>(context, listen: false).checkToken();
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final prefData = Provider.of<PreferencesProvider>(context, listen: false);
     final bannerData = Provider.of<BannerProvider>(context, listen: false);
     final extractedBanner = bannerData.myBanner;
     var navigator = Navigator.of(context);
@@ -72,35 +90,42 @@ class IndexScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleSmall,
                   ).tr(),
                   const PopularServicesListView(),
-                  extractedBanner != null ?
-                  CarouselSlider.builder(
-                    options: CarouselOptions(
-                      height: MediaQuery.of(context).size.width / 2,
-                      aspectRatio: 16 / 9,
-                      viewportFraction: 1,
-                      initialPage: 0,
-                      enableInfiniteScroll: true,
-                      reverse: false,
-                      autoPlay: true,
-                      autoPlayInterval: const Duration(seconds: 5),
-                      autoPlayAnimationDuration:
-                          const Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enlargeCenterPage: true,
-                      scrollDirection: Axis.horizontal,
-                    ),
-                    itemCount: extractedBanner.length,
-                    itemBuilder: (context, index, realIndex) => ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: FadeInImage(
-                        placeholder: const AssetImage("assets/images/loading.gif"),
-                        image: NetworkImage(
-                          "${MyRoutes.IMAGEURL}/${extractedBanner[index].sliderImage}",
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ): const Center(child: CircularProgressIndicator(),),
+                  prefData.token == 'null'
+                      ? const SizedBox()
+                      : extractedBanner != null
+                          ? CarouselSlider.builder(
+                              options: CarouselOptions(
+                                height: MediaQuery.of(context).size.width / 2,
+                                aspectRatio: 16 / 9,
+                                viewportFraction: 1,
+                                initialPage: 0,
+                                enableInfiniteScroll: true,
+                                reverse: false,
+                                autoPlay: true,
+                                autoPlayInterval: const Duration(seconds: 5),
+                                autoPlayAnimationDuration:
+                                    const Duration(milliseconds: 800),
+                                autoPlayCurve: Curves.fastOutSlowIn,
+                                enlargeCenterPage: true,
+                                scrollDirection: Axis.horizontal,
+                              ),
+                              itemCount: extractedBanner.length,
+                              itemBuilder: (context, index, realIndex) =>
+                                  ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: FadeInImage(
+                                  placeholder: const AssetImage(
+                                      "assets/images/loading.gif"),
+                                  image: NetworkImage(
+                                    "${MyRoutes.IMAGEURL}/${extractedBanner[index].sliderImage}",
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            )
+                          : const Center(
+                              child: CircularProgressIndicator(),
+                            ),
                   const SizedBox(
                     height: 15,
                   ),

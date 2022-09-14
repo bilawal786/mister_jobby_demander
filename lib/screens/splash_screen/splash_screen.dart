@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../helpers/routes.dart';
 import '../../providers/categories_provider/main_categories_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
+import '../../providers/preferences_provider/preferences_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -21,6 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (_isInit) {
+      Provider.of<PreferencesProvider>(context, listen: false).checkToken();
       Provider.of<MainCategoriesProvider>(context).getMainCategories().then(
             (value) => Navigator.of(context)
                 .pushReplacementNamed(MyRoutes.HOMETABROUTE),
