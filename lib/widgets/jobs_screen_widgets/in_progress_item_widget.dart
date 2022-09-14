@@ -76,13 +76,9 @@ class InProgressItemWidget extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                SizedBox(
-                  height: 60,
-                  child: ListView.builder(
-                    itemCount: 8,
-                    shrinkWrap: false,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (ctx, index) => Container(
+                Row(
+                  children: [
+                    Container(
                       margin:const EdgeInsets.only(left: 5),
                       height: 60,
                       width: 60,
@@ -98,7 +94,11 @@ class InProgressItemWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Text("+900 ...",style: Theme.of(context).textTheme.labelLarge,),
+                  ],
                 ),
               ],
             ),
