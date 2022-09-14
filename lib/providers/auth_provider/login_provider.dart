@@ -10,7 +10,6 @@ import '../../models/auth_model/login_model.dart';
 class LoginProvider with ChangeNotifier{
 
   bool checkObscure = true;
-  String? sharedToken ;
   void toggleObscure(){
     checkObscure = !checkObscure;
     notifyListeners();
@@ -32,10 +31,36 @@ class LoginProvider with ChangeNotifier{
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', login.success.token);
         Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.HOMETABROUTE , (route) => false,);
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.blueGrey,
+            content: Text(
+              'Login Successfully',
+              // textAlign: TextAlign.center,
+            ),
+            duration: Duration(
+              seconds: 2,
+            ),
+          ),
+        );
         notifyListeners();
       }
       else{
         print("Failed to login.");
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              backgroundColor: Colors.blueGrey,
+              content: Text(
+                'Incorrect Credentials',
+                // textAlign: TextAlign.center,
+              ),
+              duration: Duration(
+                seconds: 2,
+              ),
+            ),
+        );
       }
       print(response.body.toString());
     } catch (e) {

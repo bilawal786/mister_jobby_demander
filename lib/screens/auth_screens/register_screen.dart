@@ -1,8 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/auth_provider/login_provider.dart';
 import '../../providers/auth_provider/register_provider.dart';
 import '../../providers/const_provider/const_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
@@ -170,6 +169,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 TextFormField(
                                   autovalidateMode: AutovalidateMode.onUserInteraction,
                                   controller: emailController,
+                                  keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                     border: const OutlineInputBorder(),
                                     labelText: "EmailText".tr(),
@@ -196,7 +196,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 SizedBox(
                                   height: MediaQuery.of(context).size.width / 40,
                                 ),
-                                Consumer<LoginProvider>(
+                                Consumer<RegisterProvider>(
                                   builder: (_,toggle, child) => TextFormField(
                                     controller: passwordController,
                                     obscureText: toggle.checkObscure,

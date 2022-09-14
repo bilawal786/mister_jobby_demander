@@ -9,6 +9,12 @@ import '../../models/auth_model/register_model.dart';
 
 class RegisterProvider with ChangeNotifier{
 
+  bool checkObscure = true;
+  void toggleObscure(){
+    checkObscure = !checkObscure;
+    notifyListeners();
+  }
+
   Future<void> registration(BuildContext context, firstName, lastName, email, password, countryId) async{
     var response = await http.post(
       Uri.parse('${MyRoutes.BASEURL}/register'),
@@ -29,9 +35,35 @@ class RegisterProvider with ChangeNotifier{
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', register.success.token);
       Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.HOMETABROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.blueGrey,
+          content: Text(
+            'Registration Successfully',
+            // textAlign: TextAlign.center,
+          ),
+          duration: Duration(
+            seconds: 2,
+          ),
+        ),
+      );
       notifyListeners();
     }else{
       print('Register api is not working');
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.blueGrey,
+          content: Text(
+            'Already Registered',
+            // textAlign: TextAlign.center,
+          ),
+          duration: Duration(
+            seconds: 2,
+          ),
+        ),
+      );
     }
   }
 }
