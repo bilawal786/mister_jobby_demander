@@ -115,6 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 TextFormField(
                                   autovalidateMode: AutovalidateMode.onUserInteraction,
                                   controller: firstNameController,
+                                  keyboardType: TextInputType.name,
                                   decoration: InputDecoration(
                                     border: const OutlineInputBorder(),
                                     labelText: "First_Name".tr(),
@@ -142,6 +143,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 TextFormField(
                                   autovalidateMode: AutovalidateMode.onUserInteraction,
                                   controller: lastNameController,
+                                  keyboardType: TextInputType.name,
                                   decoration: InputDecoration(
                                     border: const OutlineInputBorder(),
                                     labelText: "Last_Name".tr(),
@@ -199,6 +201,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 Consumer<RegisterProvider>(
                                   builder: (_,toggle, child) => TextFormField(
                                     controller: passwordController,
+                                    keyboardType: TextInputType.visiblePassword,
                                     obscureText: toggle.checkObscure,
                                     decoration: InputDecoration(
                                       border: const OutlineInputBorder(),
