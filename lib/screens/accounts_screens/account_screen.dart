@@ -15,12 +15,11 @@ class AccountsScreen extends StatefulWidget {
 }
 
 class _AccountsScreenState extends State<AccountsScreen> {
-
   var isInit = true;
 
   @override
   void didChangeDependencies() {
-    if(isInit){
+    if (isInit) {
       Provider.of<PreferencesProvider>(context, listen: false).checkToken();
     }
     isInit = false;
@@ -99,28 +98,33 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       padding: const EdgeInsets.all(10.0),
                       margin: const EdgeInsets.all(5.0),
                       child: Row(
-                        children: <Widget> [
+                        children: <Widget>[
                           Stack(
                             children: <Widget>[
                               Container(
                                 width: MediaQuery.of(context).size.width / 5.5,
-                                height: MediaQuery.of(context).size.width /5.5,
+                                height: MediaQuery.of(context).size.width / 5.5,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   border: Border.all(
                                     color: Colors.black38,
                                   ),
                                 ),
-                                child: Image.asset('assets/images/appLogo.png', fit: BoxFit.cover,),
+                                child: Image.asset(
+                                  'assets/images/appLogo.png',
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                               Positioned(
                                 right: 0,
                                 bottom: 0,
                                 child: InkWell(
-                                  onTap: (){},
+                                  onTap: () {},
                                   child: Container(
-                                    width: MediaQuery.of(context).size.width / 18.5,
-                                    height: MediaQuery.of(context).size.width /18.5,
+                                    width: MediaQuery.of(context).size.width /
+                                        18.5,
+                                    height: MediaQuery.of(context).size.width /
+                                        18.5,
                                     padding: const EdgeInsets.all(3.0),
                                     decoration: BoxDecoration(
                                       border: Border.all(
@@ -129,19 +133,29 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                       shape: BoxShape.circle,
                                       color: Theme.of(context).primaryColor,
                                     ),
-                                    child: const Icon(Icons.camera_alt_outlined, size: 15, color: Colors.white,),
+                                    child: const Icon(
+                                      Icons.camera_alt_outlined,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
                           SizedBox(
-                            width:  MediaQuery.of(context).size.width / 30,
+                            width: MediaQuery.of(context).size.width / 30,
                           ),
                           Column(
                             children: <Widget>[
-                              Text("User Name", style: Theme.of(context).textTheme.titleMedium,),
-                              Text("job Post Status", style: Theme.of(context).textTheme.labelSmall,),
+                              Text(
+                                "User Name",
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              Text(
+                                "job Post Status",
+                                style: Theme.of(context).textTheme.labelSmall,
+                              ),
                             ],
                           )
                         ],
@@ -150,49 +164,80 @@ class _AccountsScreenState extends State<AccountsScreen> {
               const Divider(
                 thickness: 10,
               ),
-              prefData.token == 'null' ? const SizedBox() : Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(5.0),
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text("Manage_account", style: Theme.of(context).textTheme.labelLarge,).tr(),
-                        const CustomListTile(leadingIcon: Icons.person_outline, title: 'personal information'),
-
-                        const CustomListTile(leadingIcon: Icons.account_balance_wallet_outlined, title: 'My Balance'),
-
-                        const CustomListTile(leadingIcon: Icons.all_inbox, title: 'My CESU tickets'),
-
-                        const CustomListTile(leadingIcon: Icons.verified_outlined, title: 'Tax certificates'),
-
-                        const CustomListTile(leadingIcon: Icons.notification_important_outlined, title: 'Manage my notifications'),
-                      ],
-                    ),
-                  ),
-                  const Divider(),
-                  Container(
-                    margin: const EdgeInsets.all(5.0),
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text("Products", style: Theme.of(context).textTheme.labelLarge,).tr(),
-                        CustomListTile(onPress: () {}, leadingIcon: Icons.card_giftcard_outlined, title: 'Gift cards'),
+              prefData.token == 'null'
+                  ? const SizedBox()
+                  : Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Manage_account",
+                                style: Theme.of(context).textTheme.labelLarge,
+                              ).tr(),
+                              CustomListTile(
+                                leadingIcon: Icons.person_outline,
+                                title: 'Personal_Information',
+                                onPress: () {},
+                              ),
+                              CustomListTile(
+                                leadingIcon:
+                                    Icons.account_balance_wallet_outlined,
+                                title: 'My_Balance',
+                                onPress: () {},
+                              ),
+                              CustomListTile(
+                                leadingIcon: Icons.all_inbox,
+                                title: 'My_CESU_Tickets',
+                                onPress: () {},
+                              ),
+                              CustomListTile(
+                                leadingIcon: Icons.verified_outlined,
+                                title: 'Tax_Certificates',
+                                onPress: () {},
+                              ),
+                              CustomListTile(
+                                  onPress: () {},
+                                  leadingIcon:
+                                      Icons.notification_important_outlined,
+                                  title: 'Manage_My_Notifications'),
+                            ],
+                          ),
+                        ),
                         const Divider(),
+                        Container(
+                          margin: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Products",
+                                style: Theme.of(context).textTheme.labelLarge,
+                              ).tr(),
+                              CustomListTile(
+                                  onPress: () {},
+                                  leadingIcon: Icons.card_giftcard_outlined,
+                                  title: 'Gift_Cards'),
+                              const Divider(),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                ],
-              ),
               Container(
                 margin: const EdgeInsets.all(5.0),
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Useful Information", style: Theme.of(context).textTheme.labelLarge,).tr(),
+                    Text(
+                      "Useful_Information",
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ).tr(),
                     CustomListTile(
                       onPress: () {},
                       leadingIcon: Icons.work_outline,
@@ -228,12 +273,16 @@ class _AccountsScreenState extends State<AccountsScreen> {
                 ),
               ),
               const Divider(),
-              prefData.token == 'null' ? const SizedBox() : Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: CustomButton(onPress: (){
-                  prefData.logOut(context);
-                }, buttonName: "Logout"),
-              ),
+              prefData.token == 'null'
+                  ? const SizedBox()
+                  : Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: CustomButton(
+                          onPress: () {
+                            prefData.logOut(context);
+                          },
+                          buttonName: "Logout"),
+                    ),
             ],
           ),
         ),

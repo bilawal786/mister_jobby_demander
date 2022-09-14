@@ -439,6 +439,14 @@
   "Last_Name": "Last Name",
   "Logout": "Logout",
   "I_need_a_favor": "I need a favor",
+  "Personal_Information": "Personal information",
+  "My_Balance": "My Balance",
+  "My_CESU_Tickets": "My CESU tickets",
+  "Tax_Certificates": "Tax certificates",
+  "Products": "Products",
+  "Useful_Information": "Useful Information",
+  "Gift_Cards": "Gift cards",
+  "Manage_My_Notifications": "Manage my notifications",
   "Manage_account": "Manage my account"
 
 }
