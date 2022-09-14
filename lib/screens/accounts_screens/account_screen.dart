@@ -98,11 +98,54 @@ class _AccountsScreenState extends State<AccountsScreen> {
                   : Container(
                       padding: const EdgeInsets.all(10.0),
                       margin: const EdgeInsets.all(5.0),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("User Name", style: Theme.of(context).textTheme.titleLarge,),
-                          ]),
+                      child: Row(
+                        children: <Widget> [
+                          Stack(
+                            children: <Widget>[
+                              Container(
+                                width: MediaQuery.of(context).size.width / 5.5,
+                                height: MediaQuery.of(context).size.width /5.5,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.black38,
+                                  ),
+                                ),
+                                child: Image.asset('assets/images/appLogo.png', fit: BoxFit.cover,),
+                              ),
+                              Positioned(
+                                right: 0,
+                                bottom: 0,
+                                child: InkWell(
+                                  onTap: (){},
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width / 18.5,
+                                    height: MediaQuery.of(context).size.width /18.5,
+                                    padding: const EdgeInsets.all(3.0),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                      shape: BoxShape.circle,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                    child: const Icon(Icons.camera_alt_outlined, size: 15, color: Colors.white,),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width:  MediaQuery.of(context).size.width / 30,
+                          ),
+                          Column(
+                            children: <Widget>[
+                              Text("User Name", style: Theme.of(context).textTheme.titleMedium,),
+                              Text("job Post Status", style: Theme.of(context).textTheme.labelSmall,),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
               const Divider(
                 thickness: 10,

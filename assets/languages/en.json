@@ -436,5 +436,8 @@
   "Select_Country": "Select Country",
   "Register_Screen_Title": "Register",
   "First_Name": "First Name",
-  "Last_Name": "Last Name"
+  "Last_Name": "Last Name",
+  "Logout": "Logout",
+  "I_need_a_favor": "I need a favor"
+
 }
