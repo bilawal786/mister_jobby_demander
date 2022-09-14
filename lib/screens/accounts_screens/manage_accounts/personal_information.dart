@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/const_provider/const_provider.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
-import '../../../widgets/home_screen_widgets/service_sub_categories/process_steps_widgets/places_selected_input_widget.dart';
 
 class PersonalInformation extends StatefulWidget {
   const PersonalInformation({Key? key}) : super(key: key);
@@ -14,6 +14,24 @@ class PersonalInformation extends StatefulWidget {
 }
 
 class _PersonalInformationState extends State<PersonalInformation> {
+
+  final formKey = GlobalKey<FormState>();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+
+
+  void formSubmit() {
+    var isValid = formKey.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    formKey.currentState!.save();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,261 +43,329 @@ class _PersonalInformationState extends State<PersonalInformation> {
       body:SingleChildScrollView(
         child: Padding(
           padding:const EdgeInsets.all(15),
-          child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children:<Widget> [
-              Text(
-                "Personal_Information",
-                style: Theme.of(context).textTheme.titleMedium,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Stack(
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width / 5.5,
-                    height: MediaQuery.of(context).size.width / 5.5,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.black38,
+          child:  Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:<Widget> [
+                Text(
+                  "Personal_Information",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Stack(
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width / 5.5,
+                      height: MediaQuery.of(context).size.width / 5.5,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.black38,
+                        ),
+                      ),
+                      child: Image.asset(
+                        'assets/images/appLogo.png',
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    child: Image.asset(
-                      'assets/images/appLogo.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Positioned(
-                    right: 0,
-                    bottom: 0,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: MediaQuery.of(context).size.width /
-                            18.5,
-                        height: MediaQuery.of(context).size.width /
-                            18.5,
-                        padding: const EdgeInsets.all(3.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
+                    Positioned(
+                      right: 0,
+                      bottom: 0,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Container(
+                          width: MediaQuery.of(context).size.width /
+                              18.5,
+                          height: MediaQuery.of(context).size.width /
+                              18.5,
+                          padding: const EdgeInsets.all(3.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            shape: BoxShape.circle,
                             color: Theme.of(context).primaryColor,
                           ),
-                          shape: BoxShape.circle,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        child: const Icon(
-                          Icons.camera_alt_outlined,
-                          size: 15,
-                          color: Colors.white,
+                          child: const Icon(
+                            Icons.camera_alt_outlined,
+                            size: 15,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
+                  ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "First_Name",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: firstNameController,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelText: "First_Name".tr(),
+                    isDense: true,
                   ),
-                ],
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text(
-                "First_Name",
-                style: Theme.of(context).textTheme.labelLarge,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                // controller: emailController,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelText: "First_Name".tr(),
-                  isDense: true,
+                  style: Theme.of(context).textTheme.bodySmall,
+                  enabled: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter First Name";
+                    }
+                    return null;
+                  },
                 ),
-                style: Theme.of(context).textTheme.bodySmall,
-                enabled: true,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please Enter First Name";
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text(
-                "Last_Name",
-                style: Theme.of(context).textTheme.labelLarge,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                // controller: emailController,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelText: "Last_Name".tr(),
-                  isDense: true,
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
                 ),
-                style: Theme.of(context).textTheme.bodySmall,
-                enabled: true,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please Enter Last Name";
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text(
-                "EmailText",
-                style: Theme.of(context).textTheme.labelLarge,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                // controller: emailController,
-                initialValue: "EmailText".tr(),
-                readOnly: true,
-                decoration: InputDecoration(
-                enabled: false,
-                  border: const OutlineInputBorder(),
-                  labelText: "EmailText".tr(),
-                  isDense: true,
+                Text(
+                  "Last_Name",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
                 ),
-                style: Theme.of(context).textTheme.bodySmall,
-                enabled: true,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please Enter Email Address";
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text(
-                "Gender",
-                style: Theme.of(context).textTheme.labelLarge,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Consumer<ConstProvider>(
-                builder: (_, genderData, child) => SizedBox(height:45,child: ListView.builder(
-                  itemCount: 2,
-                  itemExtent: MediaQuery.of(context).size.width / 2.25,
-                  physics:const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
-                    onTap: ()=>genderData.genderCheckFunction(index),
-                    textTitle: index == 0?"Male":"Female",
-                    color:genderData.genderCheck-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
-                    border: genderData.genderCheck-1 == index ? true : false,
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: lastNameController,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelText: "Last_Name".tr(),
+                    isDense: true,
                   ),
-                ),),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text(
-                "Phone_Number",
-                style: Theme.of(context).textTheme.labelLarge,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                // controller: emailController,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelText: "Phone_Number".tr(),
-                  isDense: true,
+                  style: Theme.of(context).textTheme.bodySmall,
+                  enabled: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter Last Name";
+                    }
+                    return null;
+                  },
                 ),
-                style: Theme.of(context).textTheme.bodySmall,
-                enabled: true,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please Enter Email Address";
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text(
-                "PasswordText",
-                style: Theme.of(context).textTheme.labelLarge,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                // controller: emailController,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelText: "PasswordText".tr(),
-                  isDense: true,
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
                 ),
-                style: Theme.of(context).textTheme.bodySmall,
-                enabled: true,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please Enter New Password";
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text(
-                "Password_Confirm_Text",
-                style: Theme.of(context).textTheme.labelLarge,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                // controller: emailController,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelText: "Password_Confirm_Text".tr(),
-                  isDense: true,
+                Text(
+                  "EmailText",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
                 ),
-                style: Theme.of(context).textTheme.bodySmall,
-                enabled: true,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please Enter Confirm Password";
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text(
-                "Address_Title",
-                style: Theme.of(context).textTheme.labelLarge,
-              ).tr(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              const GooglePlacesApi(),
-            ],
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  initialValue: "EmailText".tr(),
+                  readOnly: true,
+                  decoration: InputDecoration(
+                  enabled: false,
+                    border: const OutlineInputBorder(),
+                    labelText: "EmailText".tr(),
+                    isDense: true,
+                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  enabled: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter Email Address";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "Gender",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Consumer<ConstProvider>(
+                  builder: (_, genderData, child) => SizedBox(height:45,child: ListView.builder(
+                    itemCount: 2,
+                    itemExtent: MediaQuery.of(context).size.width / 2.25,
+                    physics:const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
+                      onTap: ()=>genderData.genderCheckFunction(index),
+                      textTitle: index == 0?"Male":"Female",
+                      color:genderData.genderCheck-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
+                      border: genderData.genderCheck-1 == index ? true : false,
+                    ),
+                  ),),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "Phone_Number",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: phoneNumberController,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelText: "Phone_Number".tr(),
+                    isDense: true,
+                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  enabled: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter Phone Number";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "PasswordText",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: passwordController,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelText: "PasswordText".tr(),
+                    isDense: true,
+                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  enabled: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter New Password";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "Password_Confirm_Text",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: confirmPasswordController,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelText: "Password_Confirm_Text".tr(),
+                    isDense: true,
+                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  enabled: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter Confirm Password";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "Address_Title",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: addressController,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelText: "Address_Title".tr(),
+                    isDense: true,
+                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  enabled: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter Address";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "Date_Of_Birth",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Consumer<ConstProvider>(
+                  builder: (_, selectDate, child) => GestureDetector(
+                    onTap: () {
+                      selectDate.selectDateDateOfBirthProvider(context);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(left: 30, right: 10),
+                      alignment: Alignment.centerLeft,
+                      width: MediaQuery.of(context).size.width,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 0.2,
+                            blurRadius: 1,
+                            offset: const Offset(
+                                0.5, 1), // changes position of shadow
+                          ),
+                        ],
+                        border: Border.all(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      child: Text(
+                        "${selectDate.selectedDateOfBirth.day < 10 ? "0${selectDate.selectedDateOfBirth.day}" : "${selectDate.selectedDateOfBirth.day}"}-${selectDate.selectedDateOfBirth.month < 10 ? "0${selectDate.selectedDateOfBirth.month}" : "${selectDate.selectedDateOfBirth.month}"}-${selectDate.selectedDateOfBirth.year}",
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                CustomButton(onPress: (){
+                  formSubmit();
+                }, buttonName: "Saved"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+              ],
+            ),
           ),
         ),
       ),
