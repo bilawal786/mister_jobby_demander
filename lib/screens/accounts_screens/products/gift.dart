@@ -1,6 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+import '../../../widgets/const_widgets/custom_button.dart';
 
 class GiftScreen extends StatefulWidget {
   const GiftScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _GiftScreenState extends State<GiftScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
