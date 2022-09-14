@@ -191,7 +191,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 style: Theme.of(context).textTheme.labelLarge,
                               ).tr(),
                               CustomListTile(
-                                  onPress: () {},
+                                  onPress: () {
+                                    Navigator.of(context).pushNamed(MyRoutes.GIFTROUTE);
+                                  },
                                   leadingIcon: Icons.card_giftcard_outlined,
                                   title: 'Gift_Cards'),
                               const Divider(),
