@@ -1,16 +1,15 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
 import '../../models/auth_model/login_model.dart';
 
-class LoginProvider with ChangeNotifier{
-
+class LoginProvider with ChangeNotifier {
   bool checkObscure = true;
-  void toggleObscure(){
+  void toggleObscure() {
     checkObscure = !checkObscure;
     notifyListeners();
   }
@@ -23,14 +22,20 @@ class LoginProvider with ChangeNotifier{
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body:
-        jsonEncode(<String, String>{'email': email, 'password': password, 'role': countryId}),
+        body: jsonEncode(<String, String>{
+          'email': email.toString(),
+          'password': password.toString(),
+          'role': countryId.toString(),
+        }),
       );
       if (response.statusCode == 200) {
         final login = LoginModel.fromJson(jsonDecode(response.body));
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', login.success.token);
-        Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.HOMETABROUTE , (route) => false,);
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          MyRoutes.HOMETABROUTE,
+          (route) => false,
+        );
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -45,21 +50,20 @@ class LoginProvider with ChangeNotifier{
           ),
         );
         notifyListeners();
-      }
-      else{
+      } else {
         print("Failed to login.");
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              backgroundColor: Colors.blueGrey,
-              content: Text(
-                'Incorrect Credentials',
-                // textAlign: TextAlign.center,
-              ),
-              duration: Duration(
-                seconds: 2,
-              ),
+          const SnackBar(
+            backgroundColor: Colors.blueGrey,
+            content: Text(
+              'Incorrect Credentials',
+              // textAlign: TextAlign.center,
             ),
+            duration: Duration(
+              seconds: 2,
+            ),
+          ),
         );
       }
       print(response.body.toString());
@@ -68,5 +72,4 @@ class LoginProvider with ChangeNotifier{
     }
     notifyListeners();
   }
-
 }

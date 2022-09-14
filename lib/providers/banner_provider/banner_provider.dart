@@ -26,6 +26,6 @@ class BannerProvider with ChangeNotifier {
     }else{
       print('Banner Api is not working correctly');
     }
-    print(response.body);
+    // print(response.body);
   }
 }
