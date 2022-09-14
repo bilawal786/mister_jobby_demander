@@ -438,6 +438,7 @@
   "First_Name": "First Name",
   "Last_Name": "Last Name",
   "Logout": "Logout",
-  "I_need_a_favor": "I need a favor"
+  "I_need_a_favor": "I need a favor",
+  "Manage_account": "Manage my account"
 
 }

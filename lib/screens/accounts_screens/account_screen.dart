@@ -150,42 +150,75 @@ class _AccountsScreenState extends State<AccountsScreen> {
               const Divider(
                 thickness: 10,
               ),
+              prefData.token == 'null' ? const SizedBox() : Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text("Manage_account", style: Theme.of(context).textTheme.labelLarge,).tr(),
+                        const CustomListTile(leadingIcon: Icons.person_outline, title: 'personal information'),
+
+                        const CustomListTile(leadingIcon: Icons.account_balance_wallet_outlined, title: 'My Balance'),
+
+                        const CustomListTile(leadingIcon: Icons.all_inbox, title: 'My CESU tickets'),
+
+                        const CustomListTile(leadingIcon: Icons.verified_outlined, title: 'Tax certificates'),
+
+                        const CustomListTile(leadingIcon: Icons.notification_important_outlined, title: 'Manage my notifications'),
+                      ],
+                    ),
+                  ),
+                  const Divider(),
+                  Container(
+                    margin: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text("Products", style: Theme.of(context).textTheme.labelLarge,).tr(),
+                        CustomListTile(onPress: () {}, leadingIcon: Icons.card_giftcard_outlined, title: 'Gift cards'),
+                        const Divider(),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
               Container(
-                margin: const EdgeInsets.all(10.0),
+                margin: const EdgeInsets.all(5.0),
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text("Useful Information", style: Theme.of(context).textTheme.labelLarge,).tr(),
                     CustomListTile(
                       onPress: () {},
                       leadingIcon: Icons.work_outline,
                       title: "Account_Screen_Service_Provider",
                       subTitle: "Account_Screen_Service_Provider_Subtitle",
                     ),
-                    const Divider(),
                     CustomListTile(
                       onPress: () {},
                       leadingIcon: Icons.question_mark_rounded,
                       title: "Account_Screen_Help_Center",
                     ),
-                    const Divider(),
                     CustomListTile(
                       onPress: () {},
                       leadingIcon: Icons.handshake_outlined,
                       title: "Account_Screen_Insurance",
                     ),
-                    const Divider(),
                     CustomListTile(
                       onPress: () {},
                       leadingIcon: Icons.security_outlined,
                       title: "Account_Screen_Trust_security",
                     ),
-                    const Divider(),
                     CustomListTile(
                       onPress: () {},
                       leadingIcon: Icons.percent_outlined,
                       title: "Account_Screen_Tax_Credit",
                     ),
-                    const Divider(),
                     CustomListTile(
                       onPress: () {},
                       leadingIcon: Icons.fact_check_outlined,
@@ -194,6 +227,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                   ],
                 ),
               ),
+              const Divider(),
               prefData.token == 'null' ? const SizedBox() : Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: CustomButton(onPress: (){
