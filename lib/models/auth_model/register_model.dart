@@ -10,7 +10,7 @@ String registerModelToJson(RegisterModel data) => json.encode(data.toJson());
 
 class RegisterModel {
   RegisterModel({
-  required  this.success,
+    required this.success,
   });
 
   Success success;
@@ -26,8 +26,8 @@ class RegisterModel {
 
 class Success {
   Success({
-  required  this.token,
-  required  this.user,
+    required this.token,
+    required this.user,
   });
 
   String token;
@@ -46,21 +46,21 @@ class Success {
 
 class User {
   User({
-  required  this.userId,
-  required  this.firstName,
-  required  this.lastName,
-  required  this.phone,
-  required  this.email,
-  required  this.address,
-  required  this.country,
-  required  this.postalCode,
-  required  this.image,
-  required  this.categoryId,
-  required  this.subcategoryId,
-  required  this.role,
-  required  this.gender,
-  required  this.description,
-  required  this.dob,
+    required this.userId,
+    required this.firstName,
+    required this.lastName,
+    required this.phone,
+    required this.email,
+    required this.address,
+    required this.country,
+    required this.postalCode,
+    required this.image,
+    required this.categoryId,
+    required this.subcategoryId,
+    required this.role,
+    required this.gender,
+    required this.description,
+    required this.dob,
   });
 
   int userId;
@@ -72,8 +72,8 @@ class User {
   String country;
   String postalCode;
   String image;
-  String categoryId;
-  String subcategoryId;
+  int categoryId;
+  int subcategoryId;
   int role;
   String gender;
   String description;
