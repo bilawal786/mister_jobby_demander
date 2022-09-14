@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
@@ -58,49 +60,72 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                Stack(
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width / 5.5,
-                      height: MediaQuery.of(context).size.width / 5.5,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: Colors.black38,
+                Consumer<ConstProvider>(
+                  builder: (_,imageFileData,child)=>
+                   Stack(
+                    children: <Widget>[
+                      imageFileData.imageFile0 != null? Container(
+                        width: MediaQuery.of(context).size.width / 5.5,
+                        height: MediaQuery.of(context).size.width / 5.5,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Colors.black38,
+                          ),
+                        ),
+                        child:ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image.file(
+                            File(
+                              imageFileData.imageFile0 ?? "",
+                            ).absolute,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ):Container(
+                        width: MediaQuery.of(context).size.width / 5.5,
+                        height: MediaQuery.of(context).size.width / 5.5,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Colors.black38,
+                          ),
+                        ),
+                        child:ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset("assets/images/appLogo.png"),
                         ),
                       ),
-                      child: Image.asset(
-                        'assets/images/appLogo.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Positioned(
-                      right: 0,
-                      bottom: 0,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          width: MediaQuery.of(context).size.width /
-                              18.5,
-                          height: MediaQuery.of(context).size.width /
-                              18.5,
-                          padding: const EdgeInsets.all(3.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(
+                      Positioned(
+                        right: 0,
+                        bottom: 0,
+                        child: InkWell(
+                          onTap: () {
+                            imageFileData.showPicker(context, 0);
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width /
+                                18.5,
+                            height: MediaQuery.of(context).size.width /
+                                18.5,
+                            padding: const EdgeInsets.all(3.0),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              shape: BoxShape.circle,
                               color: Theme.of(context).primaryColor,
                             ),
-                            shape: BoxShape.circle,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          child: const Icon(
-                            Icons.camera_alt_outlined,
-                            size: 15,
-                            color: Colors.white,
+                            child: const Icon(
+                              Icons.camera_alt_outlined,
+                              size: 15,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
