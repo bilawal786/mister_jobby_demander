@@ -237,7 +237,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
                 style: Theme.of(context).textTheme.titleSmall,
               ).tr(),
               SizedBox(
-                height: MediaQuery.of(context).size.width/10,
+                height: MediaQuery.of(context).size.width / 10,
               ),
               Center(
                 child: Icon(

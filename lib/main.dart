@@ -112,6 +112,7 @@ import './providers/country_provider/country_list_provider.dart';
 import './screens/accounts_screens/manage_accounts/personal_information.dart';
 import './screens/accounts_screens/products/gift.dart';
 import './screens/accounts_screens/manage_accounts/balance_screen.dart';
+import './screens/accounts_screens/manage_accounts/my_tickets.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -388,6 +389,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.PERSONALINFORMATIONROUTE: (ctx) => const PersonalInformation(),
           MyRoutes.GIFTROUTE: (ctx) => const GiftScreen(),
           MyRoutes.BALANCEROUTE: (ctx) => const BalanceScreen(),
+          MyRoutes.MYTICKETSROUTE: (ctx) => const MyTickets(),
         },
       ),
     );

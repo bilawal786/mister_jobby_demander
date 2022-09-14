@@ -166,7 +166,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                               CustomListTile(
                                 leadingIcon: Icons.all_inbox,
                                 title: 'My_CESU_Tickets',
-                                onPress: () {},
+                                onPress: () {
+                                  Navigator.of(context).pushNamed(MyRoutes.MYTICKETSROUTE);
+                                },
                               ),
                               CustomListTile(
                                 leadingIcon: Icons.verified_outlined,

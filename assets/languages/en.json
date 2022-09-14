@@ -475,6 +475,10 @@
   "Balance_CESU_Button": "See more",
   "Balance_Mean_Payment": "Means of payment",
   "Balance_Mean_SubPayment": "You don't have a saved payment method",
-  "Balance_Transaction_History": "Transaction history"
+  "Balance_Transaction_History": "Transaction history",
+  "My_Tickets": "My Tickets",
+  "No_Tickets": "No CESU ticket",
+  "My_Tickets_Text": "You have not yet added a CESU ticket to your account",
+  "My_Tickets_Button": "Add CESU tickets"
 
 }
