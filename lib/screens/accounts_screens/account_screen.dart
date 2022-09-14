@@ -99,49 +99,19 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       margin: const EdgeInsets.all(5.0),
                       child: Row(
                         children: <Widget>[
-                          Stack(
-                            children: <Widget>[
-                              Container(
-                                width: MediaQuery.of(context).size.width / 5.5,
-                                height: MediaQuery.of(context).size.width / 5.5,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: Colors.black38,
-                                  ),
-                                ),
-                                child: Image.asset(
-                                  'assets/images/appLogo.png',
-                                  fit: BoxFit.cover,
-                                ),
+                          Container(
+                            width: MediaQuery.of(context).size.width / 5.5,
+                            height: MediaQuery.of(context).size.width / 5.5,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.black38,
                               ),
-                              Positioned(
-                                right: 0,
-                                bottom: 0,
-                                child: InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    width: MediaQuery.of(context).size.width /
-                                        18.5,
-                                    height: MediaQuery.of(context).size.width /
-                                        18.5,
-                                    padding: const EdgeInsets.all(3.0),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: Theme.of(context).primaryColor,
-                                      ),
-                                      shape: BoxShape.circle,
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                                    child: const Icon(
-                                      Icons.camera_alt_outlined,
-                                      size: 15,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
+                            child: Image.asset(
+                              'assets/images/appLogo.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 30,
