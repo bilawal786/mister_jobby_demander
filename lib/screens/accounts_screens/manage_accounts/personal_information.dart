@@ -4,6 +4,7 @@ import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/const_provider/const_provider.dart';
+import '../../../providers/country_provider/country_list_provider.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
 class PersonalInformation extends StatefulWidget {
@@ -34,6 +35,8 @@ class _PersonalInformationState extends State<PersonalInformation> {
   }
   @override
   Widget build(BuildContext context) {
+    final countryData = Provider.of<CountryProvider>(context, listen: false);
+    final extractCountry = countryData.countryList;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -210,6 +213,47 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 Text(
+                  "Date_Of_Birth",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Consumer<ConstProvider>(
+                  builder: (_, selectDate, child) => GestureDetector(
+                    onTap: () {
+                      selectDate.selectDateDateOfBirthProvider(context);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(left: 30, right: 10),
+                      alignment: Alignment.centerLeft,
+                      width: MediaQuery.of(context).size.width,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 0.2,
+                            blurRadius: 1,
+                            offset: const Offset(
+                                0.5, 1), // changes position of shadow
+                          ),
+                        ],
+                        border: Border.all(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      child: Text(
+                        "${selectDate.selectedDateOfBirth.day < 10 ? "0${selectDate.selectedDateOfBirth.day}" : "${selectDate.selectedDateOfBirth.day}"}-${selectDate.selectedDateOfBirth.month < 10 ? "0${selectDate.selectedDateOfBirth.month}" : "${selectDate.selectedDateOfBirth.month}"}-${selectDate.selectedDateOfBirth.year}",
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
                   "Phone_Number",
                   style: Theme.of(context).textTheme.labelLarge,
                 ).tr(),
@@ -290,6 +334,56 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
+
+                Text(
+                  "Country_Title",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Consumer<ConstProvider>(
+                  builder: (_,dropDownData,child)=>
+                      Container(
+                        height: 50.0,
+                        padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(color: Colors.grey, width: 1),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: DropdownButtonFormField<String>(
+                          decoration: InputDecoration(
+                            hintText: "Select Country",
+                            hintStyle: Theme.of(context).textTheme.bodyMedium,
+                            isCollapsed: true,
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                          ),
+                          isExpanded: true,
+                          iconSize: 30.0,
+                          items:extractCountry?.map(
+                                (val) {
+                              return DropdownMenuItem<String>(
+                                value: val.id.toString(),
+                                child: Text(
+                                  val.name,
+                                  style:
+                                  Theme.of(context).textTheme.bodySmall,
+                                ),
+                              );
+                            },
+                          ).toList(),
+                          onChanged: (val) {
+                            dropDownData.countryDropDownFunction(val);
+                            // print("drop down value ${dropDownData.countryDropDownValue}");
+                          },
+                        ),
+                      ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
                 Text(
                   "Address_Title",
                   style: Theme.of(context).textTheme.labelLarge,
@@ -313,47 +407,6 @@ class _PersonalInformationState extends State<PersonalInformation> {
                     }
                     return null;
                   },
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                Text(
-                  "Date_Of_Birth",
-                  style: Theme.of(context).textTheme.labelLarge,
-                ).tr(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                Consumer<ConstProvider>(
-                  builder: (_, selectDate, child) => GestureDetector(
-                    onTap: () {
-                      selectDate.selectDateDateOfBirthProvider(context);
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.only(left: 30, right: 10),
-                      alignment: Alignment.centerLeft,
-                      width: MediaQuery.of(context).size.width,
-                      height: 45,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 0.2,
-                            blurRadius: 1,
-                            offset: const Offset(
-                                0.5, 1), // changes position of shadow
-                          ),
-                        ],
-                        border: Border.all(color: Colors.grey.shade300),
-                        borderRadius: BorderRadius.circular(7),
-                      ),
-                      child: Text(
-                        "${selectDate.selectedDateOfBirth.day < 10 ? "0${selectDate.selectedDateOfBirth.day}" : "${selectDate.selectedDateOfBirth.day}"}-${selectDate.selectedDateOfBirth.month < 10 ? "0${selectDate.selectedDateOfBirth.month}" : "${selectDate.selectedDateOfBirth.month}"}-${selectDate.selectedDateOfBirth.year}",
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
-                    ),
-                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
