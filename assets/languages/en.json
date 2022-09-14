@@ -454,6 +454,17 @@
   "Useful_Information": "Useful Information",
   "Gift_Cards": "Gift cards",
   "Manage_My_Notifications": "Manage my notifications",
-  "Manage_account": "Manage my account"
+  "Manage_account": "Manage my account",
+  "Gift_Card_text": "Gift cards",
+  "Gift_Card_Field": "Code indicated on your gift card",
+  "Gift_Card_Field_Hint": "Enter the 8 character code",
+  "How_it_Works": "How it works?",
+  "Gift_Card_List_Title1": "Enter the code",
+  "Gift_Card_List_SubTitle1": "Add the code found on the gift card.",
+  "Gift_Card_List_Title2": "The amount is credited to the kitty",
+  "Gift_Card_List_SubTitle2": "Your kitty is credited with the full amount of the card.",
+  "Gift_Card_List_Title3": "Use your credit",
+  "Gift_Card_List_SubTitle3": "You can use this amount when you book your jobber.",
+  "Gift_Card_Button": "Add map"
 
 }

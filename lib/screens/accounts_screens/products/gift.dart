@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
 
@@ -26,23 +27,23 @@ class _GiftScreenState extends State<GiftScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Gift cards",
+                "Gift_Card_text",
                 style: Theme.of(context).textTheme.titleLarge,
-              ),
+              ).tr(),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
               Text(
-                "Code indicated on your gift card",
+                "Gift_Card_Field",
                 style: Theme.of(context).textTheme.bodySmall,
-              ),
+              ).tr(),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
               TextFormField(
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: "Enter the 8 character code",
+                  hintText: "Gift_Card_Field_Hint".tr(),
                   isDense: true,
                 ),
                 style: Theme.of(context).textTheme.bodySmall,
@@ -52,9 +53,9 @@ class _GiftScreenState extends State<GiftScreen> {
                 height: MediaQuery.of(context).size.width / 20,
               ),
               Text(
-                "How it works?",
+                "How_it_Works",
                 style: Theme.of(context).textTheme.labelMedium,
-              ),
+              ).tr(),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
@@ -65,13 +66,13 @@ class _GiftScreenState extends State<GiftScreen> {
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
-                  "Enter the code",
+                  "Gift_Card_List_Title1",
                   style: Theme.of(context).textTheme.bodySmall,
-                ),
+                ).tr(),
                 subtitle: Text(
-                  "Add the code found on the gift card.",
+                  "Gift_Card_List_SubTitle1",
                   style: Theme.of(context).textTheme.labelSmall,
-                ),
+                ).tr(),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
@@ -83,13 +84,13 @@ class _GiftScreenState extends State<GiftScreen> {
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
-                  "Enter the code",
+                  "Gift_Card_List_Title2",
                   style: Theme.of(context).textTheme.bodySmall,
-                ),
+                ).tr(),
                 subtitle: Text(
-                  "Add the code found on the gift card.",
+                  "Gift_Card_List_SubTitle2",
                   style: Theme.of(context).textTheme.labelSmall,
-                ),
+                ).tr(),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
@@ -101,18 +102,18 @@ class _GiftScreenState extends State<GiftScreen> {
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
-                  "Enter the code",
+                  "Gift_Card_List_Title3",
                   style: Theme.of(context).textTheme.bodySmall,
-                ),
+                ).tr(),
                 subtitle: Text(
-                  "Add the code found on the gift card.",
+                  "Gift_Card_List_SubTitle3",
                   style: Theme.of(context).textTheme.labelSmall,
                 ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              CustomButton(onPress: () {}, buttonName: "Add map"),
+              CustomButton(onPress: () {}, buttonName: "Gift_Card_Button".tr()),
             ],
           ),
         ),
