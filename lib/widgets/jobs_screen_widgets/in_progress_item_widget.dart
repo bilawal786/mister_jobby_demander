@@ -79,20 +79,13 @@ class InProgressItemWidget extends StatelessWidget {
                 Row(
                   children: [
                     Container(
-                      margin:const EdgeInsets.only(left: 5),
-                      height: 60,
-                      width: 60,
+                      width: MediaQuery.of(context).size.width / 8,
+                      height: MediaQuery.of(context).size.width / 8,
                       decoration:const BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
                       ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100.0),
-                        child: Image.asset(
-                          'assets/images/appLogo.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                      child: Image.asset('assets/images/appLogo.png', fit: BoxFit.cover,),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
