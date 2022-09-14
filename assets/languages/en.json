@@ -465,6 +465,16 @@
   "Gift_Card_List_SubTitle2": "Your kitty is credited with the full amount of the card.",
   "Gift_Card_List_Title3": "Use your credit",
   "Gift_Card_List_SubTitle3": "You can use this amount when you book your jobber.",
-  "Gift_Card_Button": "Add map"
+  "Gift_Card_Button": "Add map",
+  "Balance_Text": "Amount available to pay for your next jobs",
+  "Balance_Jackpot_Text1": "Jackpot",
+  "Balance_Jackpot_Text2": "Amount of refunds, gift cards and promotions.",
+  "Balance_Jackpot_Button": "Repayment",
+  "Balance_CESU_Text1": "CESU",
+  "Balance_CESU_Text2": "Amount of CESU tickets available for your requests.",
+  "Balance_CESU_Button": "See more",
+  "Balance_Mean_Payment": "Means of payment",
+  "Balance_Mean_SubPayment": "You don't have a saved payment method",
+  "Balance_Transaction_History": "Transaction history"
 
 }
