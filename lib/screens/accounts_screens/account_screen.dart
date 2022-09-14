@@ -181,7 +181,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                               CustomListTile(
                                 leadingIcon: Icons.person_outline,
                                 title: 'Personal_Information',
-                                onPress: () {},
+                                onPress: () {
+                                  Navigator.of(context).pushNamed(MyRoutes.PERSONALINFORMATIONROUTE);
+                                },
                               ),
                               CustomListTile(
                                 leadingIcon:

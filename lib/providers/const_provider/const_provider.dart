@@ -26,6 +26,19 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  int genderCheck = 0;
+  String genderCheckTitle = "";
+
+  void genderCheckFunction(int index) {
+    genderCheck = index + 1;
+    if (genderCheck == 1) {
+      genderCheckTitle = "Male".tr();
+    } else {
+      genderCheckTitle = "Female".tr();
+    }
+    notifyListeners();
+  }
+
   int baseBoardInstallValue = 0;
   String baseBoardInstallTitle = "";
 
@@ -395,7 +408,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  imgFromCamera(int index) async {
+  imgFromCameraJob(int index) async {
     XFile? pickedFile =
         await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
     getImage =
@@ -412,7 +425,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  imgFromGallery(int index) async {
+  imgFromGalleryJob(int index) async {
     XFile? pickedFile =
         await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
     getImage =
@@ -460,7 +473,7 @@ class ConstProvider with ChangeNotifier {
                 const Divider(),
                 InkWell(
                   onTap: () {
-                    imgFromCamera(index);
+                    imgFromCameraJob(index);
                     Navigator.of(context).pop();
                   },
                   child: Row(
@@ -486,7 +499,7 @@ class ConstProvider with ChangeNotifier {
                 const Divider(),
                 InkWell(
                   onTap: () {
-                    imgFromGallery(index);
+                    imgFromGalleryJob(index);
                     Navigator.of(context).pop();
                   },
                   child: Row(
@@ -837,6 +850,8 @@ class ConstProvider with ChangeNotifier {
   }
 
   void clearData() {
+    genderCheck = 0;
+    genderCheckTitle = "";
     completeAddress = "";
     educationLevelTitle = "";
     courseFormatTitle = "";

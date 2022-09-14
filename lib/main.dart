@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:mister_jobby/providers/preferences_provider/preferences_provider.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/personal_information.dart';
 import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
@@ -378,6 +379,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.CHILDCAREROUTE: (ctx) => const ChildCareScreen(),
           MyRoutes.LOGINROUTE: (ctx) => const LoginScreen(),
           MyRoutes.REGISTERROUTE: (ctx) => const RegisterScreen(),
+          MyRoutes.PERSONALINFORMATIONROUTE: (ctx) => const PersonalInformation(),
         },
       ),
     );

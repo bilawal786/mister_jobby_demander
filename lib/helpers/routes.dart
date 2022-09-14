@@ -98,6 +98,7 @@ class MyRoutes {
   static String CHILDCAREROUTE = '/Child-Care-Screen';
   static String LOGINROUTE = '/Login-Screen';
   static String REGISTERROUTE = '/Register-Screen';
+  static String PERSONALINFORMATIONROUTE = '/Personal-Information-Screen';
 
   static String BASEURL = 'https://misterjobby.ikaedigital.com/api';
   static String IMAGEURL = 'https://misterjobby.ikaedigital.com/';
