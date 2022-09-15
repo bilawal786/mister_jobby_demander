@@ -14,7 +14,7 @@ class PreferencesProvider with ChangeNotifier {
   void logOut(BuildContext context) async{
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     await sharedPrefs.clear();
-    Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.HOMETABROUTE, (route) => false);
+    Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.SPLASHROUTE, (route) => false);
     notifyListeners();
   }
 }

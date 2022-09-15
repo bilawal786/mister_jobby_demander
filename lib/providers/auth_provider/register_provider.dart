@@ -35,7 +35,7 @@ class RegisterProvider with ChangeNotifier {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', register.success.token);
       Navigator.of(context)
-          .pushNamedAndRemoveUntil(MyRoutes.HOMETABROUTE, (route) => false);
+          .pushNamedAndRemoveUntil(MyRoutes.SPLASHROUTE, (route) => false);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

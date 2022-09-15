@@ -26,18 +26,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int genderCheck = 0;
-  String genderCheckTitle = "";
 
-  void genderCheckFunction(int index) {
-    genderCheck = index + 1;
-    if (genderCheck == 1) {
-      genderCheckTitle = "Male".tr();
-    } else {
-      genderCheckTitle = "Female".tr();
-    }
-    notifyListeners();
-  }
 
   int baseBoardInstallValue = 0;
   String baseBoardInstallTitle = "";
@@ -850,8 +839,6 @@ class ConstProvider with ChangeNotifier {
   }
 
   void clearData() {
-    genderCheck = 0;
-    genderCheckTitle = "";
     completeAddress = "";
     educationLevelTitle = "";
     courseFormatTitle = "";

@@ -6,7 +6,6 @@ import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart'
 import 'package:provider/provider.dart';
 
 import '../../../widgets/const_widgets/custom_button.dart';
-import '../../../providers/const_provider/const_provider.dart';
 import '../../../providers/country_provider/country_list_provider.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
@@ -64,10 +63,10 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                Consumer<ConstProvider>(
+                Consumer<ProfileProvider>(
                   builder: (_, imageFileData, child) => Stack(
                     children: <Widget>[
-                      imageFileData.imageFile0 != null
+                      imageFileData.imageFile != null
                           ? Container(
                               width: MediaQuery.of(context).size.width / 5.5,
                               height: MediaQuery.of(context).size.width / 5.5,
@@ -81,7 +80,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                                 borderRadius: BorderRadius.circular(100),
                                 child: Image.file(
                                   File(
-                                    imageFileData.imageFile0 ?? "",
+                                    imageFileData.imageFile ?? "",
                                   ).absolute,
                                   fit: BoxFit.cover,
                                 ),
@@ -106,7 +105,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                         bottom: 0,
                         child: InkWell(
                           onTap: () {
-                            imageFileData.showPicker(context, 0);
+                            imageFileData.showPicker(context,);
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width / 18.5,
@@ -141,7 +140,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 TextFormField(
-                  initialValue: extractProfile!.firstName,
+                  initialValue: extractProfile?.firstName,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   // controller: firstNameController,
                   decoration: InputDecoration(
@@ -169,7 +168,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 TextFormField(
-                  initialValue: extractProfile.lastName,
+                  initialValue: extractProfile?.lastName,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   // controller: lastNameController,
                   decoration: InputDecoration(
@@ -198,7 +197,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  initialValue: extractProfile.email,
+                  initialValue: extractProfile?.email,
                   readOnly: true,
                   decoration: InputDecoration(
                     enabled: false,
@@ -225,7 +224,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                Consumer<ConstProvider>(
+                Consumer<ProfileProvider>(
                   builder: (_, genderData, child) => SizedBox(
                     height: 45,
                     child: ListView.builder(
@@ -256,7 +255,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                Consumer<ConstProvider>(
+                Consumer<ProfileProvider>(
                   builder: (_, selectDate, child) => GestureDetector(
                     onTap: () {
                       selectDate.selectDateDateOfBirthProvider(context);
@@ -378,7 +377,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                Consumer<ConstProvider>(
+                Consumer<ProfileProvider>(
                   builder: (_, dropDownData, child) => Container(
                     height: 50.0,
                     padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
@@ -410,7 +409,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       ).toList(),
                       onChanged: (val) {
                         dropDownData.countryDropDownFunction(val);
-                        // print("drop down value ${dropDownData.countryDropDownValue}");
+                        print("drop down value $val");
                       },
                     ),
                   ),

@@ -33,7 +33,7 @@ class LoginProvider with ChangeNotifier {
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', login.success.token);
         Navigator.of(context).pushNamedAndRemoveUntil(
-          MyRoutes.HOMETABROUTE,
+          MyRoutes.SPLASHROUTE,
           (route) => false,
         );
         ScaffoldMessenger.of(context).hideCurrentSnackBar();

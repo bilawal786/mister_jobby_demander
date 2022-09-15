@@ -14,16 +14,6 @@ class TestScreen extends StatefulWidget {
 
 class _TestScreenState extends State<TestScreen> {
 
-  var isInit = true;
-
-  @override
-  void didChangeDependencies() {
-    if (isInit) {
-      Provider.of<ProfileProvider>(context, listen: false).getProfile();
-    }
-    isInit = false;
-    super.didChangeDependencies();
-  }
   int childValue = 0;
   String _dropDownValue = "";
   @override
