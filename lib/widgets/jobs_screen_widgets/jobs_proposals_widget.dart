@@ -124,7 +124,7 @@ class JobsProposalsWidget extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
-            OutlineSelectedButton(onTap: (){}, textTitle: "See Profile", border: true, width: double.infinity,),
+            OutlineSelectedButton(onTap: (){}, textTitle: "See_Profile", border: true, width: double.infinity,),
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
