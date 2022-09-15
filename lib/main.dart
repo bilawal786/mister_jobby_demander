@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
-import 'package:mister_jobby/providers/auth_provider/register_provider.dart';
-import 'package:mister_jobby/providers/banner_provider/banner_provider.dart';
-import 'package:mister_jobby/providers/preferences_provider/preferences_provider.dart';
 import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
 import './providers/categories_provider/main_categories_provider.dart';
+import './providers/auth_provider/register_provider.dart';
+import './providers/banner_provider/banner_provider.dart';
+import './providers/jobs_provider/jobs_in_progress_provider.dart';
+import './providers/preferences_provider/preferences_provider.dart';
 import './screens/splash_screen/splash_screen.dart';
 import './screens/home_screens/search_screen.dart';
 import './screens/home_screens/home_tabs_screen.dart';
@@ -115,6 +115,7 @@ import './screens/accounts_screens/products/gift.dart';
 import './screens/accounts_screens/manage_accounts/balance_screen.dart';
 import './screens/accounts_screens/manage_accounts/my_tickets.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -144,7 +145,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => RegisterProvider()),
         ChangeNotifierProvider(create: (ctx) => PreferencesProvider()),
         ChangeNotifierProvider(create: (ctx) => BannerProvider()),
-        ChangeNotifierProvider(create: (ctx) => ProfileProvider()),
+        ChangeNotifierProvider(create: (ctx) => JobsInProgressProvider()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
