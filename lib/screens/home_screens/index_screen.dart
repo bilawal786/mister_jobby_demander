@@ -23,7 +23,7 @@ class _IndexScreenState extends State<IndexScreen> {
 
   @override
   void didChangeDependencies() {
-    if(isInit){
+    if (isInit) {
       Provider.of<PreferencesProvider>(context, listen: false).checkToken();
     }
     isInit = false;
@@ -56,6 +56,18 @@ class _IndexScreenState extends State<IndexScreen> {
                     "Home_AppBar_Title",
                     style: Theme.of(context).textTheme.titleLarge,
                   ).tr()),
+              actions: [
+                IconButton(
+                  onPressed: () {
+
+                  },
+                  icon: Icon(
+                    Icons.notifications_none_outlined,
+                     color: Theme.of(context).iconTheme.color,
+                  ),
+                ),
+                SizedBox(width: MediaQuery.of(context).size.width/40,),
+              ],
               centerTitle: false,
               backgroundColor: Colors.white,
               bottom: TabBar(
