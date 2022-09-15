@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
 import 'package:mister_jobby/providers/auth_provider/register_provider.dart';
 import 'package:mister_jobby/providers/banner_provider/banner_provider.dart';
 import 'package:mister_jobby/providers/preferences_provider/preferences_provider.dart';
@@ -143,6 +144,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => RegisterProvider()),
         ChangeNotifierProvider(create: (ctx) => PreferencesProvider()),
         ChangeNotifierProvider(create: (ctx) => BannerProvider()),
+        ChangeNotifierProvider(create: (ctx) => ProfileProvider()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

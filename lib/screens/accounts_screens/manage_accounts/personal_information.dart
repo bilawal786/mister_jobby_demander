@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../widgets/const_widgets/custom_button.dart';
@@ -17,16 +18,15 @@ class PersonalInformation extends StatefulWidget {
 }
 
 class _PersonalInformationState extends State<PersonalInformation> {
-
   final formKey = GlobalKey<FormState>();
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final TextEditingController addressController = TextEditingController();
-
 
   void formSubmit() {
     var isValid = formKey.currentState!.validate();
@@ -35,24 +35,28 @@ class _PersonalInformationState extends State<PersonalInformation> {
     }
     formKey.currentState!.save();
   }
+
+
   @override
   Widget build(BuildContext context) {
     final countryData = Provider.of<CountryProvider>(context, listen: false);
     final extractCountry = countryData.countryList;
+    final profileData = Provider.of<ProfileProvider>(context, listen: false);
+    final extractProfile = profileData.myProfile;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         iconTheme: Theme.of(context).iconTheme,
         elevation: 0,
       ),
-      body:SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
-          padding:const EdgeInsets.all(15),
-          child:  Form(
+          padding: const EdgeInsets.all(15),
+          child: Form(
             key: formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children:<Widget> [
+              children: <Widget>[
                 Text(
                   "Personal_Information",
                   style: Theme.of(context).textTheme.titleMedium,
@@ -61,41 +65,42 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 Consumer<ConstProvider>(
-                  builder: (_,imageFileData,child)=>
-                   Stack(
+                  builder: (_, imageFileData, child) => Stack(
                     children: <Widget>[
-                      imageFileData.imageFile0 != null? Container(
-                        width: MediaQuery.of(context).size.width / 5.5,
-                        height: MediaQuery.of(context).size.width / 5.5,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Colors.black38,
-                          ),
-                        ),
-                        child:ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Image.file(
-                            File(
-                              imageFileData.imageFile0 ?? "",
-                            ).absolute,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ):Container(
-                        width: MediaQuery.of(context).size.width / 5.5,
-                        height: MediaQuery.of(context).size.width / 5.5,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Colors.black38,
-                          ),
-                        ),
-                        child:ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset("assets/images/appLogo.png"),
-                        ),
-                      ),
+                      imageFileData.imageFile0 != null
+                          ? Container(
+                              width: MediaQuery.of(context).size.width / 5.5,
+                              height: MediaQuery.of(context).size.width / 5.5,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.black38,
+                                ),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(100),
+                                child: Image.file(
+                                  File(
+                                    imageFileData.imageFile0 ?? "",
+                                  ).absolute,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            )
+                          : Container(
+                              width: MediaQuery.of(context).size.width / 5.5,
+                              height: MediaQuery.of(context).size.width / 5.5,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.black38,
+                                ),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset("assets/images/appLogo.png"),
+                              ),
+                            ),
                       Positioned(
                         right: 0,
                         bottom: 0,
@@ -104,10 +109,8 @@ class _PersonalInformationState extends State<PersonalInformation> {
                             imageFileData.showPicker(context, 0);
                           },
                           child: Container(
-                            width: MediaQuery.of(context).size.width /
-                                18.5,
-                            height: MediaQuery.of(context).size.width /
-                                18.5,
+                            width: MediaQuery.of(context).size.width / 18.5,
+                            height: MediaQuery.of(context).size.width / 18.5,
                             padding: const EdgeInsets.all(3.0),
                             decoration: BoxDecoration(
                               border: Border.all(
@@ -138,8 +141,9 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 TextFormField(
+                  initialValue: extractProfile!.firstName,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: firstNameController,
+                  // controller: firstNameController,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: "First_Name".tr(),
@@ -165,8 +169,9 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 TextFormField(
+                  initialValue: extractProfile.lastName,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: lastNameController,
+                  // controller: lastNameController,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: "Last_Name".tr(),
@@ -193,10 +198,10 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  initialValue: "EmailText".tr(),
+                  initialValue: extractProfile.email,
                   readOnly: true,
                   decoration: InputDecoration(
-                  enabled: false,
+                    enabled: false,
                     border: const OutlineInputBorder(),
                     labelText: "EmailText".tr(),
                     isDense: true,
@@ -221,18 +226,25 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 Consumer<ConstProvider>(
-                  builder: (_, genderData, child) => SizedBox(height:45,child: ListView.builder(
-                    itemCount: 2,
-                    itemExtent: MediaQuery.of(context).size.width / 2.25,
-                    physics:const NeverScrollableScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context,int index)=> OutlineSelectedButton(
-                      onTap: ()=>genderData.genderCheckFunction(index),
-                      textTitle: index == 0?"Male":"Female",
-                      color:genderData.genderCheck-1 == index ?Colors.blue.shade50: Colors.grey.shade300,
-                      border: genderData.genderCheck-1 == index ? true : false,
+                  builder: (_, genderData, child) => SizedBox(
+                    height: 45,
+                    child: ListView.builder(
+                      itemCount: 2,
+                      itemExtent: MediaQuery.of(context).size.width / 2.25,
+                      physics: const NeverScrollableScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) =>
+                          OutlineSelectedButton(
+                        onTap: () => genderData.genderCheckFunction(index),
+                        textTitle: index == 0 ? "Male" : "Female",
+                        color: genderData.genderCheck - 1 == index
+                            ? Colors.blue.shade50
+                            : Colors.grey.shade300,
+                        border:
+                            genderData.genderCheck - 1 == index ? true : false,
+                      ),
                     ),
-                  ),),
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
@@ -359,7 +371,6 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-
                 Text(
                   "Country_Title",
                   style: Theme.of(context).textTheme.labelLarge,
@@ -368,43 +379,41 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 Consumer<ConstProvider>(
-                  builder: (_,dropDownData,child)=>
-                      Container(
-                        height: 50.0,
-                        padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: Colors.grey, width: 1),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: DropdownButtonFormField<String>(
-                          decoration: InputDecoration(
-                            hintText: "Select Country",
-                            hintStyle: Theme.of(context).textTheme.bodyMedium,
-                            isCollapsed: true,
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                          ),
-                          isExpanded: true,
-                          iconSize: 30.0,
-                          items:extractCountry?.map(
-                                (val) {
-                              return DropdownMenuItem<String>(
-                                value: val.id.toString(),
-                                child: Text(
-                                  val.name,
-                                  style:
-                                  Theme.of(context).textTheme.bodySmall,
-                                ),
-                              );
-                            },
-                          ).toList(),
-                          onChanged: (val) {
-                            dropDownData.countryDropDownFunction(val);
-                            // print("drop down value ${dropDownData.countryDropDownValue}");
-                          },
-                        ),
+                  builder: (_, dropDownData, child) => Container(
+                    height: 50.0,
+                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey, width: 1),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        hintText: "Select Country",
+                        hintStyle: Theme.of(context).textTheme.bodyMedium,
+                        isCollapsed: true,
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
                       ),
+                      isExpanded: true,
+                      iconSize: 30.0,
+                      items: extractCountry?.map(
+                        (val) {
+                          return DropdownMenuItem<String>(
+                            value: val.id.toString(),
+                            child: Text(
+                              val.name,
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                          );
+                        },
+                      ).toList(),
+                      onChanged: (val) {
+                        dropDownData.countryDropDownFunction(val);
+                        // print("drop down value ${dropDownData.countryDropDownValue}");
+                      },
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
@@ -436,9 +445,11 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                CustomButton(onPress: (){
-                  formSubmit();
-                }, buttonName: "Saved"),
+                CustomButton(
+                    onPress: () {
+                      formSubmit();
+                    },
+                    buttonName: "Saved"),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),

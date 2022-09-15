@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/accounts_providers/profile_provider.dart';
 import '../providers/const_provider/const_provider.dart';
 
 class TestScreen extends StatefulWidget {
@@ -12,6 +13,17 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
+
+  var isInit = true;
+
+  @override
+  void didChangeDependencies() {
+    if (isInit) {
+      Provider.of<ProfileProvider>(context, listen: false).getProfile();
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
   int childValue = 0;
   String _dropDownValue = "";
   @override
