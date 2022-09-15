@@ -85,7 +85,7 @@ class JobsDetailsScreen extends StatelessWidget {
                             width: MediaQuery.of(context).size.width / 40,
                           ),
                           Text(
-                            " ",
+                            "${jobsInProgressDetail!.jobberRequired}",
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           SizedBox(
@@ -148,6 +148,8 @@ class JobsDetailsScreen extends StatelessWidget {
                 ),
                 const Divider(),
                 ListTile(
+                  dense: true,
+                  horizontalTitleGap: 0,
                   onTap: () {},
                   leading: Icon(
                     Icons.message_rounded,
@@ -155,12 +157,12 @@ class JobsDetailsScreen extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                   title: Text(
-                    "View Comments",
+                    "View Comments \(${jobsInProgressDetail!.comments}\)",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
                     "You haven't received any comments yet.",
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                   trailing: const Icon(
                     Icons.arrow_forward_ios,
@@ -174,6 +176,66 @@ class JobsDetailsScreen extends StatelessWidget {
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
+                ),
+                Row(
+                  children: <Widget>[
+                    Text(
+                      "Offers",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    Text(
+                      "\(${jobsInProgressDetail!.totalOffers}\)",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                ListView.builder(
+                  padding: const EdgeInsets.all(0.0),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 1,
+                    itemBuilder: (ctx, index) => Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 5.5,
+                                height: MediaQuery.of(context).size.width / 5.5,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black12,
+                                ),
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width / 40,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text("Name Here", style: Theme.of(context).textTheme.bodyMedium,),
+                                  Row(
+                                    children: <Widget>[
+                                      const Icon(Icons.star, color: Colors.amber,size: 10,),
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width / 40,
+                                      ),
+                                      Text("rating", style: Theme.of(context).textTheme.bodySmall,),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              Text("285 €", style: Theme.of(context).textTheme.bodyMedium,),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                 ),
               ],
             ),
