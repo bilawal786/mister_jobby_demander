@@ -9,6 +9,8 @@ import 'package:mister_jobby/models/accounts_models/profile_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../models/accounts_models/update_profile_model.dart';
+
 class ProfileProvider with ChangeNotifier {
   ProfileModel? myProfile;
   final picker = ImagePicker();
@@ -31,26 +33,84 @@ class ProfileProvider with ChangeNotifier {
     if (response.statusCode == 200) {
       print('get profile successfully');
       myProfile = ProfileModel.fromJson(jsonDecode(response.body));
+      getProfileData();
       notifyListeners();
     } else {
       print('profile api not working');
     }
   }
 
+  UpdateProfileModel? updateMyProfile;
+
+  Future<void> upDateProfile(
+    BuildContext context,
+    firstName,
+    lastName,
+    gender,
+    dob,
+    phone,
+    password,
+    countryId,
+    address,
+  ) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? userToken = prefs.getString('token');
+    var response = await http.post(
+      Uri.parse('${MyRoutes.BASEURL}/profile/update'),
+      headers: <String, String>{
+        'Accept': "application/json",
+        'Content-Type': "application/json",
+        'Authorization': 'Bearer $userToken',
+      },
+      body: jsonEncode(<String, String>{
+        'firstName': firstName.toString(),
+        'lastName': lastName.toString(),
+        'gender': gender,
+        'dob': dob.toString(),
+        "phone": phone.toString(),
+        'password': password.toString(),
+        'country': countryId.toString(),
+        'address': address.toString(),
+      }),
+    );
+    if (response.statusCode == 200) {
+      updateMyProfile = updateProfileModelFromJson(response.body);
+      // Navigator.of(context)
+      //     .pushNamedAndRemoveUntil(MyRoutes.SPLASHROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.blueGrey,
+          content: Text(
+            'Updated Successfully',
+            // textAlign: TextAlign.center,
+          ),
+          duration: Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+      notifyListeners();
+    } else {
+      print('Update api is not working');
+    }
+    print(response.body);
+  }
+
   imgFromCamera() async {
     XFile? pickedFile =
-    await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
+        await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
     getImage =
-    await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
-      imageFile = getImage!.path;
+        await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
+    imageFile = getImage!.path;
     notifyListeners();
   }
 
   imgFromGallery() async {
     XFile? pickedFile =
-    await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
+        await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
     getImage =
-    await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
+        await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
     imageFile = getImage!.path;
     notifyListeners();
   }
@@ -138,7 +198,7 @@ class ProfileProvider with ChangeNotifier {
     } else {
       genderCheckTitle = "Female".tr();
     }
-    // genderCheckTitle = myProfile!.gender;
+    print(genderCheckTitle);
     notifyListeners();
   }
 
@@ -151,14 +211,21 @@ class ProfileProvider with ChangeNotifier {
     if (picked != null) {
       selectedDateOfBirth = picked;
     }
-    selectedDateOfBirth = DateTime.parse(myProfile!.dob);
     notifyListeners();
   }
 
-
+  void getProfileData() {
+    // selectedDateOfBirth = DateTime(int.parse(myProfile!.dob));
+    if (myProfile?.gender == "Male".tr()) {
+      genderCheck = 1;
+    } else {
+      genderCheck = 2;
+    }
+    notifyListeners();
+  }
 
   countryDropDownFunction(value) {
-      value = myProfile?.role;
+    value = myProfile?.country;
     notifyListeners();
   }
 }
