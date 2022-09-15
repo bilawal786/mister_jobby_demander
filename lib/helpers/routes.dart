@@ -102,6 +102,7 @@ class MyRoutes {
   static String BALANCEROUTE = '/Balance-Screen';
   static String MYTICKETSROUTE = '/My-Tickets-Screen';
   static String PERSONALINFORMATIONROUTE = '/Personal-Information-Screen';
+  static String JOBSDETAILSCREENROUTE = '/Jobs-Detail-Screen';
 
   static String BASEURL = 'https://misterjobby.ikaedigital.com/api';
   static String IMAGEURL = 'https://misterjobby.ikaedigital.com/';

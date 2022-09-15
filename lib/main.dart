@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
 import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
@@ -115,7 +114,8 @@ import './screens/accounts_screens/manage_accounts/personal_information.dart';
 import './screens/accounts_screens/products/gift.dart';
 import './screens/accounts_screens/manage_accounts/balance_screen.dart';
 import './screens/accounts_screens/manage_accounts/my_tickets.dart';
-
+import './providers/accounts_providers/profile_provider.dart';
+import './screens/jobs_screens/jobs_tab_screens/jobs_details_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -395,6 +395,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.GIFTROUTE: (ctx) => const GiftScreen(),
           MyRoutes.BALANCEROUTE: (ctx) => const BalanceScreen(),
           MyRoutes.MYTICKETSROUTE: (ctx) => const MyTickets(),
+          MyRoutes.JOBSDETAILSCREENROUTE: (ctx) => const JobsDetailsScreen(),
         },
       ),
     );

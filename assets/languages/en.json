@@ -481,6 +481,10 @@
   "My_Tickets_Text": "You have not yet added a CESU ticket to your account",
   "My_Tickets_Button": "Add CESU tickets",
   "Manage_Request": "Manage my request",
-  "Received_Offer_Notification": "You have received offers:"
+  "Received_Offer_Notification": "You have received offers:",
+  "Proposed_Compensation": "Proposed Compensation",
+  "Jobber_Asks": "Jobber Asks",
+  "Details": "Details",
+  "Modifier": "Edit"
 
 }

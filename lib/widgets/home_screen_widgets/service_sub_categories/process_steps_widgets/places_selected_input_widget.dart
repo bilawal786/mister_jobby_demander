@@ -41,7 +41,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   }
 
   void getSuggestion(String input) async {
-    String kPLACES_API_KEY = "Api Here";
+    String kPLACES_API_KEY = "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
     String gBASEURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     String requestUrl =

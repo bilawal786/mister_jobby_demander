@@ -2,12 +2,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/helpers/routes.dart';
 import 'package:mister_jobby/models/jobs_models/jobs_in_progress_model.dart';
+import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/jobs_details_screen.dart';
 
 import '../const_widgets/custom_button.dart';
 
 class InProgressItemWidget extends StatelessWidget {
   final JobsInProgressModel? jobsInProgress;
-  const InProgressItemWidget({Key? key, this.jobsInProgress,}) : super(key: key);
+  const InProgressItemWidget({
+    Key? key,
+    this.jobsInProgress,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +93,9 @@ class InProgressItemWidget extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          CustomButton(onPress: () {}, buttonName: "Manage_Request"),
+          CustomButton(onPress: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> JobsDetailsScreen(jobsInProgressDetail: jobsInProgress,)));
+          }, buttonName: "Manage_Request"),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
