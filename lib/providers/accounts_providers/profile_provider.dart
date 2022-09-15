@@ -215,7 +215,10 @@ class ProfileProvider with ChangeNotifier {
   }
 
   void getProfileData() {
-    // selectedDateOfBirth = DateTime(int.parse(myProfile!.dob));
+    countryDropDownValue = myProfile!.countryId.toString();
+    selectedDateOfBirth = DateTime.parse(myProfile!.dob);
+    print(selectedDateOfBirth);
+    print(DateTime.parse(myProfile!.dob));
     if (myProfile?.gender == "Male".tr()) {
       genderCheck = 1;
     } else {
@@ -225,7 +228,7 @@ class ProfileProvider with ChangeNotifier {
   }
 
   countryDropDownFunction(value) {
-    value = myProfile?.country;
+  countryDropDownValue = value;
     notifyListeners();
   }
 }

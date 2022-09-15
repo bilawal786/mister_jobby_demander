@@ -4,7 +4,8 @@
 
 import 'dart:convert';
 
-ProfileModel profileModelFromJson(String str) => ProfileModel.fromJson(json.decode(str));
+ProfileModel profileModelFromJson(String str) =>
+    ProfileModel.fromJson(json.decode(str));
 
 String profileModelToJson(ProfileModel data) => json.encode(data.toJson());
 
@@ -17,6 +18,7 @@ class ProfileModel {
     required this.email,
     required this.address,
     required this.country,
+    required this.countryId,
     required this.postalCode,
     required this.image,
     required this.categoryId,
@@ -34,6 +36,7 @@ class ProfileModel {
   String email;
   String address;
   String country;
+  int countryId;
   String postalCode;
   String image;
   int categoryId;
@@ -44,38 +47,40 @@ class ProfileModel {
   String dob;
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
-    userId: json["user_id"],
-    firstName: json["firstName"],
-    lastName: json["lastName"],
-    phone: json["phone"],
-    email: json["email"],
-    address: json["address"],
-    country: json["country"],
-    postalCode: json["postalCode"],
-    image: json["image"],
-    categoryId: json["category_id"],
-    subcategoryId: json["subcategory_id"],
-    role: json["role"],
-    gender: json["gender"],
-    description: json["description"],
-    dob: json["dob"],
-  );
+        userId: json["user_id"],
+        firstName: json["firstName"],
+        lastName: json["lastName"],
+        phone: json["phone"],
+        email: json["email"],
+        address: json["address"],
+        country: json["country"],
+        countryId: json["country_id"],
+        postalCode: json["postalCode"],
+        image: json["image"],
+        categoryId: json["category_id"],
+        subcategoryId: json["subcategory_id"],
+        role: json["role"],
+        gender: json["gender"],
+        description: json["description"],
+        dob: json["dob"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "user_id": userId,
-    "firstName": firstName,
-    "lastName": lastName,
-    "phone": phone,
-    "email": email,
-    "address": address,
-    "country": country,
-    "postalCode": postalCode,
-    "image": image,
-    "category_id": categoryId,
-    "subcategory_id": subcategoryId,
-    "role": role,
-    "gender": gender,
-    "description": description,
-    "dob": dob,
-  };
+        "user_id": userId,
+        "firstName": firstName,
+        "lastName": lastName,
+        "phone": phone,
+        "email": email,
+        "address": address,
+        "country": country,
+        "country_id": countryId,
+        "postalCode": postalCode,
+        "image": image,
+        "category_id": categoryId,
+        "subcategory_id": subcategoryId,
+        "role": role,
+        "gender": gender,
+        "description": description,
+        "dob": dob,
+      };
 }
