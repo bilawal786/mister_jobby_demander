@@ -22,7 +22,7 @@ class InProgressItemWidget extends StatelessWidget {
         children: <Widget>[
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width / 2.8,
+            height: MediaQuery.of(context).size.width / 2.6,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               color: Colors.black12,
@@ -31,7 +31,7 @@ class InProgressItemWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
               child: Image.network(
                 '${MyRoutes.IMAGEURL}/${jobsInProgress!.image}',
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -40,7 +40,7 @@ class InProgressItemWidget extends StatelessWidget {
           ),
           Text(
             jobsInProgress!.title,
-            style: Theme.of(context).textTheme.titleSmall,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 80,
@@ -62,7 +62,7 @@ class InProgressItemWidget extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   Icons.notifications_outlined,
-                  size: 22,
+                  size: 20,
                   color: Theme.of(context).primaryColor,
                 ),
                 SizedBox(
@@ -73,7 +73,7 @@ class InProgressItemWidget extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Cerebri Sans Bold',
                     color: Theme.of(context).primaryColor,
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 ).tr(),
                 SizedBox(
@@ -84,7 +84,7 @@ class InProgressItemWidget extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Cerebri Sans Bold',
                     color: Theme.of(context).primaryColor,
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 )
               ],
@@ -93,13 +93,20 @@ class InProgressItemWidget extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          CustomButton(onPress: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> JobsDetailsScreen(jobsInProgressDetail: jobsInProgress,)));
-          }, buttonName: "Manage_Request"),
+          CustomButton(
+              onPress: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (ctx) => JobsDetailsScreen(
+                          jobsInProgressDetail: jobsInProgress,
+                        )));
+              },
+              buttonName: "Manage_Request"),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          const Divider(),
+          const Divider(
+            thickness: 2,
+          ),
         ],
       ),
     );
