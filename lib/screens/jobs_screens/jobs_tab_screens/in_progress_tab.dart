@@ -14,8 +14,10 @@ class InProgressTab extends StatefulWidget {
 }
 
 class _InProgressTabState extends State<InProgressTab> {
-  var isInit = true;
 
+  // List<JobsInProgressModel> inProgress;
+
+  var isInit = true;
   @override
   void didChangeDependencies() {
     if(isInit){
@@ -76,7 +78,7 @@ class _InProgressTabState extends State<InProgressTab> {
             shrinkWrap: false,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: extractedInProgressJobs.length,
-            itemBuilder: (ctx, index) => const InProgressItemWidget(),
+            itemBuilder: (ctx, index) => InProgressItemWidget(jobsInProgress: extractedInProgressJobs[index]),
           ),
         );
   }

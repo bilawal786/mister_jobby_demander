@@ -1,9 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/helpers/routes.dart';
+import 'package:mister_jobby/models/jobs_models/jobs_in_progress_model.dart';
 
 import '../const_widgets/custom_button.dart';
 
 class InProgressItemWidget extends StatelessWidget {
-  const InProgressItemWidget({Key? key}) : super(key: key);
+  final JobsInProgressModel? jobsInProgress;
+  const InProgressItemWidget({Key? key, this.jobsInProgress,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +25,8 @@ class InProgressItemWidget extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
-              child: Image.asset(
-                'assets/images/appLogo.png',
+              child: Image.network(
+                '${MyRoutes.IMAGEURL}/${jobsInProgress!.image}',
                 fit: BoxFit.cover,
               ),
             ),
@@ -31,15 +35,15 @@ class InProgressItemWidget extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           Text(
-            'Job Title Here',
+            jobsInProgress!.title,
             style: Theme.of(context).textTheme.titleSmall,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 80,
           ),
           Text(
-            'Job subTitle Here',
-            style: Theme.of(context).textTheme.labelSmall,
+            '${jobsInProgress!.serviceDate} from ${jobsInProgress!.startTime}',
+            style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
@@ -50,56 +54,42 @@ class InProgressItemWidget extends StatelessWidget {
               color: Colors.blueGrey.shade100,
               borderRadius: BorderRadius.circular(10.0),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Row(
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.notifications_outlined,
-                      size: 15,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 40,
-                    ),
-                    Text(
-                      "You have received 1 offer",
-                      style: TextStyle(
-                        fontFamily: 'Cerebri Sans Bold',
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 12,
-                      ),
-                    )
-                  ],
+                Icon(
+                  Icons.notifications_outlined,
+                  size: 22,
+                  color: Theme.of(context).primaryColor,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
+                  width: MediaQuery.of(context).size.width / 40,
                 ),
-                Row(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width / 8,
-                      height: MediaQuery.of(context).size.width / 8,
-                      decoration:const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.asset('assets/images/appLogo.png', fit: BoxFit.cover,),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 40,
-                    ),
-                    Text("+900 ...",style: Theme.of(context).textTheme.labelLarge,),
-                  ],
+                Text(
+                  "Received_Offer_Notification",
+                  style: TextStyle(
+                    fontFamily: 'Cerebri Sans Bold',
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 16,
+                  ),
+                ).tr(),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 40,
                 ),
+                Text(
+                  '${jobsInProgress!.totalOffers}',
+                  style: TextStyle(
+                    fontFamily: 'Cerebri Sans Bold',
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 16,
+                  ),
+                )
               ],
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          CustomButton(onPress: () {}, buttonName: "Jobs"),
+          CustomButton(onPress: () {}, buttonName: "Manage_Request"),
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),

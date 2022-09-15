@@ -479,6 +479,8 @@
   "My_Tickets": "My Tickets",
   "No_Tickets": "No CESU ticket",
   "My_Tickets_Text": "You have not yet added a CESU ticket to your account",
-  "My_Tickets_Button": "Add CESU tickets"
+  "My_Tickets_Button": "Add CESU tickets",
+  "Manage_Request": "Manage my request",
+  "Received_Offer_Notification": "You have received offers:"
 
 }
