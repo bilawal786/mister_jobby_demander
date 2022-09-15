@@ -93,7 +93,7 @@ class _HelpCenterState extends State<HelpCenter> {
                 title: Text(
                   "Help_Recurrent_Services",
                   style: Theme.of(context).textTheme.labelMedium,
-                ),
+                ).tr(),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
                   size: 20,
