@@ -11,7 +11,7 @@ class OutlineSelectedButton extends StatelessWidget {
   const OutlineSelectedButton({
     required this.onTap,
     this.border =false,
-    this.height = 45,
+    this.height = 50,
     this.width,
     this.color = Colors.white,
     required this.textTitle,
@@ -25,7 +25,7 @@ class OutlineSelectedButton extends StatelessWidget {
         onTap();
       },
       child: Container(
-        margin:const EdgeInsets.only(left: 10,right: 10,),
+        margin:const EdgeInsets.only(left: 5,right: 5,),
         height: height,
         width: width,
         decoration: BoxDecoration(

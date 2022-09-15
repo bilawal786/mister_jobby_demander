@@ -500,7 +500,10 @@
   "Help_Show_Cancellations": "No shows and cancellations",
   "Help_Contact_Us": "Contact us",
   "Help_Support_Requset": "New support request",
-  "Help_View_Support_Requset": "View my support requests"
-
+  "Help_View_Support_Requset": "View my support requests",
+  "Proposed_Compensation": "Proposed Compensation",
+  "Jobber_Asks": "Jobber Asks",
+  "Details": "Details",
+  "Modifier": "Edit"
 
 }

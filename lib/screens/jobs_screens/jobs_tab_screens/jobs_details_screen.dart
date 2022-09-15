@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
 
 import '../../../helpers/routes.dart';
 import '../../../../models/jobs_models/jobs_in_progress_model.dart';
@@ -20,7 +21,7 @@ class JobsDetailsScreen extends StatelessWidget {
             backgroundColor: Colors.white,
             iconTheme: const IconThemeData(color: Colors.black, size: 25),
             elevation: 0,
-            expandedHeight: 200,
+            expandedHeight: 180,
             pinned: true,
             floating: true,
             snap: true,
@@ -59,7 +60,7 @@ class JobsDetailsScreen extends StatelessWidget {
                         children: <Widget>[
                           Icon(
                             Icons.location_on_outlined,
-                            size: 25,
+                            size: 22,
                             color: Theme.of(context).primaryColor,
                           ),
                           SizedBox(
@@ -67,7 +68,7 @@ class JobsDetailsScreen extends StatelessWidget {
                           ),
                           Text(
                             jobsInProgressDetail!.address,
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ],
                       ),
@@ -78,7 +79,7 @@ class JobsDetailsScreen extends StatelessWidget {
                         children: <Widget>[
                           Icon(
                             Icons.person,
-                            size: 25,
+                            size: 22,
                             color: Theme.of(context).primaryColor,
                           ),
                           SizedBox(
@@ -86,14 +87,14 @@ class JobsDetailsScreen extends StatelessWidget {
                           ),
                           Text(
                             "${jobsInProgressDetail!.jobberRequired}",
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 40,
                           ),
                           Text(
                             "Jobber_Asks",
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ).tr(),
                         ],
                       ),
@@ -104,7 +105,7 @@ class JobsDetailsScreen extends StatelessWidget {
                         children: <Widget>[
                           Icon(
                             Icons.account_balance_wallet,
-                            size: 25,
+                            size: 22,
                             color: Theme.of(context).primaryColor,
                           ),
                           SizedBox(
@@ -112,14 +113,14 @@ class JobsDetailsScreen extends StatelessWidget {
                           ),
                           Text(
                             '${jobsInProgressDetail!.estimateBudget} € ',
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 40,
                           ),
                           Text(
                             'Proposed_Compensation',
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ).tr(),
                         ],
                       ),
@@ -157,7 +158,7 @@ class JobsDetailsScreen extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                   title: Text(
-                    "View Comments \(${jobsInProgressDetail!.comments}\)",
+                    "View Comments (${jobsInProgressDetail!.comments})",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
@@ -184,7 +185,7 @@ class JobsDetailsScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Text(
-                      "\(${jobsInProgressDetail!.totalOffers}\)",
+                      "(${jobsInProgressDetail!.totalOffers})",
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ],
@@ -192,87 +193,7 @@ class JobsDetailsScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                ListView.builder(
-                  padding: const EdgeInsets.all(0.0),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 1,
-                  itemBuilder: (ctx, index) => Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width / 5.5,
-                              height: MediaQuery.of(context).size.width / 5.5,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.black12,
-                              ),
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width / 40,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  "Name Here",
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    const Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                      size: 20,
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          80,
-                                    ),
-                                    Text(
-                                      "5",
-                                      style:
-                                          Theme.of(context).textTheme.bodySmall,
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          80,
-                                    ),
-                                    Text(
-                                      "\(views\)",
-                                      style:
-                                          Theme.of(context).textTheme.bodySmall,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            Text(
-                              "285 €",
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Icon(Icons.person)
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                const JobsProposalsWidget(),
               ],
             ),
           ),
