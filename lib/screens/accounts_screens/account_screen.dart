@@ -223,7 +223,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       subTitle: "Account_Screen_Service_Provider_Subtitle",
                     ),
                     CustomListTile(
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.of(context).pushNamed(MyRoutes.HELPCENTERROUTE);
+                      },
                       leadingIcon: Icons.question_mark_rounded,
                       title: "Account_Screen_Help_Center",
                     ),

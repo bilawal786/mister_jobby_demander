@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+
 class MyTickets extends StatefulWidget {
   const MyTickets({Key? key}) : super(key: key);
 
@@ -9,6 +10,7 @@ class MyTickets extends StatefulWidget {
 }
 
 class _MyTicketsState extends State<MyTickets> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,29 +83,35 @@ class _MyTicketsState extends State<MyTickets> {
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(10.0),
-                      height: MediaQuery.of(context).size.width / 9,
-                      width: MediaQuery.of(context).size.width / 2.2,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          const Icon(
-                            Icons.indeterminate_check_box_outlined,
-                            size: 16,
-                            color: Colors.black45,
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 40,
-                          ),
-                          Text(
-                            "My_Tickets_Button",
-                            style: Theme.of(context).textTheme.labelMedium,
-                          ).tr(),
-                        ],
+
+                    InkWell(
+                      onTap: (){
+                        // barcodeScan();
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(10.0),
+                        height: MediaQuery.of(context).size.width / 9,
+                        width: MediaQuery.of(context).size.width / 2.2,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            const Icon(
+                              Icons.indeterminate_check_box_outlined,
+                              size: 16,
+                              color: Colors.black45,
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 40,
+                            ),
+                            Text(
+                              "My_Tickets_Button",
+                              style: Theme.of(context).textTheme.labelMedium,
+                            ).tr(),
+                          ],
+                        ),
                       ),
                     ),
                   ],

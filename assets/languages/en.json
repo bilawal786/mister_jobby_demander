@@ -482,9 +482,25 @@
   "My_Tickets_Button": "Add CESU tickets",
   "Manage_Request": "Manage my request",
   "Received_Offer_Notification": "You have received offers:",
-  "Proposed_Compensation": "Proposed Compensation",
-  "Jobber_Asks": "Jobber Asks",
-  "Details": "Details",
-  "Modifier": "Edit"
+  "Help_Center": "Help Center",
+  "Help_Problem_Request": "A problem with a request?",
+  "Help_IKEA_Furniture": "Assembly of IKEA furniture",
+  "Help_Day_Date": "Thursday, September 8, 2022 from 1:30 p.m. to 3:00 p.m.",
+  "Help_More_Request": "See more requests",
+  "Help_Popular_Questions": "Most popular questions",
+  "Help_Recurrent_Services": "How do I modify my recurent service?",
+  "Help_Services_Request": "How to make a service request?",
+  "Help_Chat_Jobber": "How to chat with a jobber?",
+  "Help_All_Topics": "All topics",
+  "Help_Jobber_Live": "Jobber live",
+  "Help_Your_Account": "Your account",
+  "Help_Service_Request": "Service Request",
+  "Help_Payment_Invoicing": "Payment and invoicing",
+  "Help_Insurance_guarantees": "Insurance and guarantees",
+  "Help_Show_Cancellations": "No shows and cancellations",
+  "Help_Contact_Us": "Contact us",
+  "Help_Support_Requset": "New support request",
+  "Help_View_Support_Requset": "View my support requests"
+
 
 }
