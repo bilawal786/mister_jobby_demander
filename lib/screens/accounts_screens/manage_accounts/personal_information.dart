@@ -18,21 +18,23 @@ class PersonalInformation extends StatefulWidget {
 
 class _PersonalInformationState extends State<PersonalInformation> {
   final formKey = GlobalKey<FormState>();
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController phoneNumberController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
-  final TextEditingController addressController = TextEditingController();
+
+  String? firstName;
+  String? lastName;
+  String? phoneNumber;
+  String? password;
+  String? address;
+
+
 
   void formSubmit() {
+    final updateProfileData = Provider.of<ProfileProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
       return;
     }
     formKey.currentState!.save();
+    updateProfileData.upDateProfile(context, firstName,lastName, updateProfileData.genderCheckTitle, updateProfileData.selectedDateOfBirth, phoneNumber, password, updateProfileData.countryDropDownValue, address);
   }
 
 
@@ -150,6 +152,9 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   ),
                   style: Theme.of(context).textTheme.bodySmall,
                   enabled: true,
+                  onSaved: (value){
+                    firstName = value;
+                  },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter First Name";
@@ -178,6 +183,9 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   ),
                   style: Theme.of(context).textTheme.bodySmall,
                   enabled: true,
+                  onSaved: (value){
+                    lastName = value;
+                  },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter Last Name";
@@ -234,7 +242,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (BuildContext context, int index) =>
                           OutlineSelectedButton(
-                        onTap: () => genderData.genderCheckFunction(index),
+                        onTap: () => genderData.genderCheckFunction(index,),
                         textTitle: index == 0 ? "Male" : "Female",
                         color: genderData.genderCheck - 1 == index
                             ? Colors.blue.shade50
@@ -298,7 +306,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: phoneNumberController,
+                  initialValue: extractProfile?.phone,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: "Phone_Number".tr(),
@@ -306,6 +314,9 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   ),
                   style: Theme.of(context).textTheme.bodySmall,
                   enabled: true,
+                  onSaved: (value){
+                    phoneNumber = value;
+                  },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter Phone Number";
@@ -313,60 +324,58 @@ class _PersonalInformationState extends State<PersonalInformation> {
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                Text(
-                  "PasswordText",
-                  style: Theme.of(context).textTheme.labelLarge,
-                ).tr(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: passwordController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: "PasswordText".tr(),
-                    isDense: true,
-                  ),
-                  style: Theme.of(context).textTheme.bodySmall,
-                  enabled: true,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter New Password";
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                Text(
-                  "Password_Confirm_Text",
-                  style: Theme.of(context).textTheme.labelLarge,
-                ).tr(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: confirmPasswordController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: "Password_Confirm_Text".tr(),
-                    isDense: true,
-                  ),
-                  style: Theme.of(context).textTheme.bodySmall,
-                  enabled: true,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter Confirm Password";
-                    }
-                    return null;
-                  },
-                ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.width / 40,
+                // ),
+                // Text(
+                //   "PasswordText",
+                //   style: Theme.of(context).textTheme.labelLarge,
+                // ).tr(),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.width / 40,
+                // ),
+                // TextFormField(
+                //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                //   decoration: InputDecoration(
+                //     border: const OutlineInputBorder(),
+                //     labelText: "PasswordText".tr(),
+                //     isDense: true,
+                //   ),
+                //   style: Theme.of(context).textTheme.bodySmall,
+                //   enabled: true,
+                //   validator: (value) {
+                //     if (value!.isEmpty) {
+                //       return "Please Enter New Password";
+                //     }
+                //     return null;
+                //   },
+                // ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.width / 40,
+                // ),
+                // Text(
+                //   "Password_Confirm_Text",
+                //   style: Theme.of(context).textTheme.labelLarge,
+                // ).tr(),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.width / 40,
+                // ),
+                // TextFormField(
+                //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                //   decoration: InputDecoration(
+                //     border: const OutlineInputBorder(),
+                //     labelText: "Password_Confirm_Text".tr(),
+                //     isDense: true,
+                //   ),
+                //   style: Theme.of(context).textTheme.bodySmall,
+                //   enabled: true,
+                //   validator: (value) {
+                //     if (value!.isEmpty) {
+                //       return "Please Enter Confirm Password";
+                //     }
+                //     return null;
+                //   },
+                // ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
@@ -387,7 +396,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: DropdownButtonFormField<String>(
-                      value: "${extractProfile!.role}",
+                      value: extractProfile!.country,
                       decoration: InputDecoration(
                         hintText: "Select Country",
                         hintStyle: Theme.of(context).textTheme.bodyMedium,
@@ -427,7 +436,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: addressController,
+                  initialValue: extractProfile?.address,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: "Address_Title".tr(),
@@ -435,6 +444,9 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   ),
                   style: Theme.of(context).textTheme.bodySmall,
                   enabled: true,
+                  onSaved: (value){
+                    address = value;
+                  },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter Address";
