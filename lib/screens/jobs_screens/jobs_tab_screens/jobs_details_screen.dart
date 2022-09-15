@@ -194,48 +194,84 @@ class JobsDetailsScreen extends StatelessWidget {
                 ),
                 ListView.builder(
                   padding: const EdgeInsets.all(0.0),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 1,
-                    itemBuilder: (ctx, index) => Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width / 5.5,
-                                height: MediaQuery.of(context).size.width / 5.5,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.black12,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 1,
+                  itemBuilder: (ctx, index) => Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width / 5.5,
+                              height: MediaQuery.of(context).size.width / 5.5,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.black12,
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 40,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Name Here",
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 ),
-                              ),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width / 40,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                Row(
+                                  children: <Widget>[
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                      size: 20,
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          80,
+                                    ),
+                                    Text(
+                                      "5",
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          80,
+                                    ),
+                                    Text(
+                                      "\(views\)",
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            Text(
+                              "285 €",
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            children: <Widget>[
+                              Row(
                                 children: <Widget>[
-                                  Text("Name Here", style: Theme.of(context).textTheme.bodyMedium,),
-                                  Row(
-                                    children: <Widget>[
-                                      const Icon(Icons.star, color: Colors.amber,size: 10,),
-                                      SizedBox(
-                                        width: MediaQuery.of(context).size.width / 40,
-                                      ),
-                                      Text("rating", style: Theme.of(context).textTheme.bodySmall,),
-                                    ],
-                                  ),
+                                  Icon(Icons.person)
                                 ],
-                              ),
-                              const Spacer(),
-                              Text("285 €", style: Theme.of(context).textTheme.bodyMedium,),
+                              )
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
+                  ),
                 ),
               ],
             ),
