@@ -387,6 +387,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: DropdownButtonFormField<String>(
+                      value: "${extractProfile!.role}",
                       decoration: InputDecoration(
                         hintText: "Select Country",
                         hintStyle: Theme.of(context).textTheme.bodyMedium,

@@ -138,6 +138,7 @@ class ProfileProvider with ChangeNotifier {
     } else {
       genderCheckTitle = "Female".tr();
     }
+    // genderCheckTitle = myProfile!.gender;
     notifyListeners();
   }
 
@@ -149,14 +150,15 @@ class ProfileProvider with ChangeNotifier {
         lastDate: DateTime.now());
     if (picked != null) {
       selectedDateOfBirth = picked;
-      notifyListeners();
     }
+    selectedDateOfBirth = DateTime.parse(myProfile!.dob);
+    notifyListeners();
   }
 
 
 
   countryDropDownFunction(value) {
-    countryDropDownValue = value!;
+      value = myProfile?.role;
     notifyListeners();
   }
 }
