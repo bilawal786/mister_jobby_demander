@@ -255,6 +255,13 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       onPress: () {},
                       leadingIcon: Icons.fact_check_outlined,
                       title: "Account_Screen_Terms_conditions",
+                    ),
+                    CustomListTile(
+                      onPress: () {
+                        Navigator.of(context).pushNamed(MyRoutes.ABOUTUSROUTE);
+                      },
+                      leadingIcon: Icons.info_outline_rounded,
+                      title: "About Us",
                     )
                   ],
                 ),
