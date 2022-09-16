@@ -33,9 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
     _isInit = false;
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
