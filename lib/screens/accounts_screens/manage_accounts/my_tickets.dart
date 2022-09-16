@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/helpers/routes.dart';
 
 
 class MyTickets extends StatefulWidget {
@@ -15,13 +16,14 @@ class _MyTicketsState extends State<MyTickets> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
           "My CESU tickets",
           style: Theme.of(context).textTheme.titleMedium,
         ),
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
@@ -45,16 +47,16 @@ class _MyTicketsState extends State<MyTickets> {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        Text(
+                        const Text(
                           "Balance_CESU_Text1",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontFamily: 'Cerebri Sans Bold',
                             fontSize: 16,
                             color: Colors.white,
                           ),
                         ).tr(),
-                        Spacer(),
-                        Icon(
+                        const Spacer(),
+                        const Icon(
                           Icons.account_balance_wallet_outlined,
                           color: Colors.white,
                           size: 20,
@@ -86,7 +88,7 @@ class _MyTicketsState extends State<MyTickets> {
 
                     InkWell(
                       onTap: (){
-                        // barcodeScan();
+                      Navigator.of(context).pushNamed(MyRoutes.TICKETSCANNERROUTE);
                       },
                       child: Container(
                         padding: const EdgeInsets.all(10.0),

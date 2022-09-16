@@ -512,6 +512,11 @@
   "Views)": "Views)",
   "Jobs_Performed": "Jobs Performed",
   "Information": "Information",
-  "About_Us": "About us"
+  "About_Us": "About us",
+  "Scan_Code_Title": "Scan a code",
+  "Scan_a_Code": "Scan a code",
+  "Scan_Code_Text": "Please place your barcode in the camera above to start scanning your tickets",
+  "Scan_Code_Add_Tickets": "Add tickets manually",
+  "Scan_Code_Add_CESU": "Add an e-CES"
 
 }

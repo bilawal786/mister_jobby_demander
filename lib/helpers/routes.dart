@@ -102,6 +102,7 @@ class MyRoutes {
   static String BALANCEROUTE = '/Balance-Screen';
   static String MYTICKETSROUTE = '/My-Tickets-Screen';
   static String HELPCENTERROUTE = '/Help-Center-Screen';
+  static String TICKETSCANNERROUTE = '/Ticket-Scanner-Screen';
   static String PERSONALINFORMATIONROUTE = '/Personal-Information-Screen';
   static String JOBSDETAILSCREENROUTE = '/Jobs-Detail-Screen';
   static String NOTIFICATIONDISPLAYROUTE = '/Notification-Display-Screen';
