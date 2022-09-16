@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:mister_jobby/providers/jobs_provider/job_proposals_provider.dart';
 import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
@@ -155,6 +156,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => JobsInProgressProvider()),
         ChangeNotifierProvider(create: (ctx) => ProfileProvider()),
         ChangeNotifierProvider(create: (ctx) => FAQProvider()),
+        ChangeNotifierProvider(create: (ctx) => JobProposalsProvider()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
