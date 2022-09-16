@@ -65,7 +65,7 @@ class _FAQScreenState extends State<FAQScreen> {
                 builder: (index, faqData, child) => ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 10,
+                  itemCount: faqData.myFAQ!.length,
                   itemBuilder: (ctx, index) => GestureDetector(
                     onTap: () {
                       faqData.expansionFunction(index);
@@ -95,9 +95,11 @@ class _FAQScreenState extends State<FAQScreen> {
                                 : Colors.white,
                             child: Row(
                               children: [
-                                Text(
-                                  "Is this build with Flutter",
-                                  style: Theme.of(context).textTheme.titleSmall,
+                                Expanded(
+                                  child: Text(
+                                    faqData.myFAQ![index].question,
+                                    style: Theme.of(context).textTheme.bodySmall,
+                                  ),
                                 ),
                                 const Spacer(),
                                 faqData.expansion.contains(index)
@@ -116,7 +118,7 @@ class _FAQScreenState extends State<FAQScreen> {
                               ? Container(
                                   padding: const EdgeInsets.all(10),
                                   child: Text(
-                                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                                    faqData.myFAQ![index].answer,
                                     style:
                                         Theme.of(context).textTheme.labelMedium,
                                   ),
