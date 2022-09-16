@@ -57,16 +57,34 @@ class _IndexScreenState extends State<IndexScreen> {
                     style: Theme.of(context).textTheme.titleLarge,
                   ).tr()),
               actions: [
-                IconButton(
-                  onPressed: () {
-                    navigator.pushNamed(MyRoutes.NOTIFICATIONDISPLAYROUTE);
-                  },
-                  icon: Icon(
-                    Icons.notifications_none_outlined,
-                     color: Theme.of(context).iconTheme.color,
-                  ),
+                Stack(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        navigator.pushNamed(MyRoutes.NOTIFICATIONDISPLAYROUTE);
+                      },
+                      icon: const Icon(
+                        Icons.notifications_none_outlined,
+                        color: Colors.amber,
+                      ),
+                    ),
+                    Positioned(
+                      right: 7,
+                      top: 7,
+                      child: Container(
+                        height: 7,
+                        width: 7,
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(width: MediaQuery.of(context).size.width/40,),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 40,
+                ),
               ],
               centerTitle: false,
               backgroundColor: Colors.white,

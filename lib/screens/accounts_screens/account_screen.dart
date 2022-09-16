@@ -217,6 +217,13 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       style: Theme.of(context).textTheme.labelLarge,
                     ).tr(),
                     CustomListTile(
+                      leadingIcon: Icons.question_answer_outlined,
+                      title: 'FAQ',
+                      onPress: () {
+                        Navigator.of(context).pushNamed(MyRoutes.FAQSCREENROUTE);
+                      },
+                    ),
+                    CustomListTile(
                       onPress: () {},
                       leadingIcon: Icons.work_outline,
                       title: "Account_Screen_Service_Provider",
