@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
 
 import '../../../helpers/routes.dart';
+import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
 import '../../../../models/jobs_models/jobs_in_progress_model.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
