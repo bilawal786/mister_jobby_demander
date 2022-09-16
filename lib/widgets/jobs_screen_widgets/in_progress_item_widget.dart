@@ -105,7 +105,8 @@ class InProgressItemWidget extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 40,
           ),
           const Divider(
-            thickness: 2,
+            thickness: 5,
+            color: Colors.black26,
           ),
         ],
       ),

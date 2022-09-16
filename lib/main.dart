@@ -117,6 +117,7 @@ import './screens/accounts_screens/products/gift.dart';
 import './screens/accounts_screens/manage_accounts/balance_screen.dart';
 import './screens/accounts_screens/manage_accounts/my_tickets.dart';
 import './screens/accounts_screens/manage_accounts/help_center.dart';
+import './providers/jobs_provider/job_proposals_provider.dart';
 
 
 void main() async {
@@ -150,6 +151,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => BannerProvider()),
         ChangeNotifierProvider(create: (ctx) => JobsInProgressProvider()),
         ChangeNotifierProvider(create: (ctx) => ProfileProvider()),
+        ChangeNotifierProvider(create: (ctx) => JobProposalsProvider()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

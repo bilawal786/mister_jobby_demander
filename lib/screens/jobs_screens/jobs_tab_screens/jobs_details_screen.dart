@@ -193,7 +193,7 @@ class JobsDetailsScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                const JobsProposalsWidget(),
+                JobsProposalsWidget(jobId: jobsInProgressDetail!.id),
               ],
             ),
           ),
