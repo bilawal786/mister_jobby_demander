@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
-import 'package:mister_jobby/providers/accounts_providers/useful_information_providers/faq_provider.dart';
-import 'package:mister_jobby/screens/home_screens/notification_display.dart';
 import 'package:provider/provider.dart';
 
 import './helpers/routes.dart';
@@ -15,6 +12,10 @@ import './providers/preferences_provider/preferences_provider.dart';
 import './screens/splash_screen/splash_screen.dart';
 import './screens/home_screens/search_screen.dart';
 import './screens/home_screens/home_tabs_screen.dart';
+import './providers/accounts_providers/profile_provider.dart';
+import './providers/accounts_providers/useful_information_providers/faq_provider.dart';
+import './screens/accounts_screens/useful_information/faq_screen.dart';
+import './screens/home_screens/notification_display.dart';
 import './screens/home_screens/services_sub_categories/sub_categories_screen.dart';
 import './screens/home_screens/services_sub_categories/child_categories_screen.dart';
 import './screens/home_screens/services_sub_categories/process_child_category_screens/disassemble_furniture_screen.dart';
@@ -403,6 +404,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.HELPCENTERROUTE: (ctx) => const HelpCenter(),
           MyRoutes.TICKETSCANNERROUTE: (ctx) => const TicketScannerScreen(),
           MyRoutes.NOTIFICATIONDISPLAYROUTE: (ctx) => const NotificationDisplay(),
+          MyRoutes.FAQSCREENROUTE: (ctx) => const FAQScreen(),
         },
       ),
     );
