@@ -59,7 +59,7 @@ class _IndexScreenState extends State<IndexScreen> {
               actions: [
                 IconButton(
                   onPressed: () {
-
+                    navigator.pushNamed(MyRoutes.NOTIFICATIONDISPLAYROUTE);
                   },
                   icon: Icon(
                     Icons.notifications_none_outlined,

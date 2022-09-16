@@ -1,25 +1,16 @@
 import 'package:flutter/material.dart';
 
-class TestScreen extends StatefulWidget {
-  const TestScreen({Key? key}) : super(key: key);
+class NotificationDisplay extends StatefulWidget {
+  const NotificationDisplay({Key? key}) : super(key: key);
 
   @override
-  State<TestScreen> createState() => _TestScreenState();
+  State<NotificationDisplay> createState() => _NotificationDisplayState();
 }
 
-class _TestScreenState extends State<TestScreen> {
-  int childValue = 0;
+class _NotificationDisplayState extends State<NotificationDisplay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: Theme.of(context).iconTheme,
-        title: Text(
-          "Test Screen",
-          style: Theme.of(context).textTheme.titleSmall,
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15),
