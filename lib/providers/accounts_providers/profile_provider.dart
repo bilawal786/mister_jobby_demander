@@ -217,8 +217,6 @@ class ProfileProvider with ChangeNotifier {
   void getProfileData() {
     countryDropDownValue = myProfile!.countryId.toString();
     selectedDateOfBirth = DateTime.parse(myProfile!.dob);
-    print(selectedDateOfBirth);
-    print(DateTime.parse(myProfile!.dob));
     if (myProfile?.gender == "Male".tr()) {
       genderCheck = 1;
     } else {

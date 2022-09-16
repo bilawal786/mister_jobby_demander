@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/providers/banner_provider/banner_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
-import '../../providers/accounts_providers/profile_provider.dart';
+import '../../providers/banner_provider/banner_provider.dart';
 import '../../providers/categories_provider/main_categories_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
@@ -30,7 +29,6 @@ class _SplashScreenState extends State<SplashScreen> {
           );
       Provider.of<CountryProvider>(context).getCountries();
       Provider.of<BannerProvider>(context).getBanner();
-      Provider.of<ProfileProvider>(context, listen: false).getProfile();
     }
     _isInit = false;
   }

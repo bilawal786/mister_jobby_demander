@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../../providers/accounts_providers/profile_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
 import '../../../providers/country_provider/country_list_provider.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
@@ -37,6 +37,16 @@ class _PersonalInformationState extends State<PersonalInformation> {
     updateProfileData.upDateProfile(context, firstName,lastName, updateProfileData.genderCheckTitle, updateProfileData.selectedDateOfBirth, phoneNumber, password, updateProfileData.countryDropDownValue, address);
   }
 
+  var isInit = true;
+
+  @override
+  void didChangeDependencies() {
+    if(isInit){
+      Provider.of<ProfileProvider>(context).getProfile();
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +60,11 @@ class _PersonalInformationState extends State<PersonalInformation> {
         iconTheme: Theme.of(context).iconTheme,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
+      body: extractProfile == null ? Column(
+        children: const <Widget>[
+          Center(child: CircularProgressIndicator(),),
+        ],
+      ): SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Form(
@@ -142,7 +156,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 TextFormField(
-                  initialValue: extractProfile?.firstName,
+                  initialValue: extractProfile.firstName,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   // controller: firstNameController,
                   decoration: InputDecoration(
@@ -173,7 +187,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 TextFormField(
-                  initialValue: extractProfile?.lastName,
+                  initialValue: extractProfile.lastName,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   // controller: lastNameController,
                   decoration: InputDecoration(
@@ -205,7 +219,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  initialValue: extractProfile?.email,
+                  initialValue: extractProfile.email,
                   readOnly: true,
                   decoration: InputDecoration(
                     enabled: false,
@@ -306,7 +320,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  initialValue: extractProfile?.phone,
+                  initialValue: extractProfile.phone,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: "Phone_Number".tr(),
@@ -396,7 +410,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: DropdownButtonFormField<String>(
-                      value: "${extractProfile?.countryId}",
+                      value: "${extractProfile.countryId}",
                       decoration: InputDecoration(
                         hintText: "Select Country",
                         hintStyle: Theme.of(context).textTheme.bodyMedium,
@@ -419,7 +433,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       ).toList(),
                       onChanged: (val) {
                         dropDownData.countryDropDownFunction(val);
-                        print("drop down value $val");
+                        // print("drop down value $val");
                       },
                     ),
                   ),
@@ -436,7 +450,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  initialValue: extractProfile?.address,
+                  initialValue: extractProfile.address,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: "Address_Title".tr(),
