@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/screens/jobs_screens/jobber_profile_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -38,7 +39,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
           )
         : extractProposal.isEmpty
             ? Center(
-              child: Column(
+                child: Column(
                   children: <Widget>[
                     Icon(
                       Icons.find_in_page_rounded,
@@ -51,7 +52,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                     ).tr(),
                   ],
                 ),
-            )
+              )
             : ListView.builder(
                 padding: const EdgeInsets.all(0.0),
                 shrinkWrap: true,
@@ -121,7 +122,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                                 100,
                                       ),
                                       Text(
-                                        "View)",
+                                        "Views)",
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodySmall,
@@ -209,7 +210,12 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       OutlineSelectedButton(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) => JobberProfileScreen(
+                                    jobber: extractProposal[index].jobber,
+                                  )));
+                        },
                         textTitle: "See_Profile",
                         border: true,
                         width: double.infinity,
