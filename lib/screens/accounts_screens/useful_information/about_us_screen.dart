@@ -22,14 +22,82 @@ class AboutUsScreen extends StatelessWidget {
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  child: Text(
+                    "Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design.",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ),
               ),
-              Container(
-                  color: Colors.greenAccent,
-                  child: Image.asset("assets/images/appLogo.png",scale:4)),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Card(
+                child: Column(
+                  children: [
+                    Image.asset("assets/images/appLogo.png", scale: 4),
+                    Text(
+                      "Tous les droits sont réservés.",
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Container(
+                        margin: const EdgeInsets.all(10),
+                        child: Text(
+                          "Mister Jobby est une application de services mobiles polyvalents. Professionnellement construit avec un UX élevé pour donner à votre page\n                le grand regard.",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        )),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height * .08,
+                          width: MediaQuery.of(context).size.height * .08,
+                          decoration: BoxDecoration(
+                            color: Colors.blue.shade50,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child:const Icon(Icons.facebook),
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height * .08,
+                          width: MediaQuery.of(context).size.height * .08,
+                          decoration: BoxDecoration(
+                            color: Colors.red.shade50,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Icon(Icons.facebook),
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height * .08,
+                          width: MediaQuery.of(context).size.height * .08,
+                          decoration: BoxDecoration(
+                            color: Colors.pink.shade50,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Icon(Icons.facebook),
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height * .08,
+                          width: MediaQuery.of(context).size.height * .08,
+                          decoration: BoxDecoration(
+                            color: Colors.green.shade50,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Icon(Icons.facebook),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
