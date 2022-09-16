@@ -69,9 +69,9 @@ class JobberProfileScreen extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Text("${jobber!.completedJobs}", style: Theme.of(context).textTheme.labelMedium,),
+                  Text("${jobber!.completedJobs}", style: Theme.of(context).textTheme.bodyMedium,),
                   SizedBox(width: MediaQuery.of(context).size.width / 80,),
-                  Text("Jobs_Performed", style: Theme.of(context).textTheme.labelMedium,).tr(),
+                  Text("Jobs_Performed", style: Theme.of(context).textTheme.bodyMedium,).tr(),
                 ],
               ),
               SizedBox(
