@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/models/categories_models/main_categories_model.dart';
+
+import '../../helpers/routes.dart';
 
 class PopularServicesListItems extends StatelessWidget {
-  const PopularServicesListItems({Key? key}) : super(key: key);
+  final ChildCategory? childCategory;
+  const PopularServicesListItems({Key? key, required this.childCategory}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +21,37 @@ class PopularServicesListItems extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: Image.network(
-                "https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2020/07/31142105/700StopMotion.jpg",
+                "${MyRoutes.IMAGEURL}/${childCategory!.img}",
                 fit: BoxFit.cover,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.fromLTRB(0, 9, 0, 0),
             child: Text(
-              "Bricolage",
+              childCategory!.title,
               style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width / 50,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 9, 0, 0),
+            child: Row(
+              children: [
+                Text(
+                  "Price:",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "${childCategory!.price} €",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ],
             ),
           ),
         ],
