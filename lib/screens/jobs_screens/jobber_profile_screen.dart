@@ -214,15 +214,15 @@ class JobberProfileScreen extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Container(
-                          width: MediaQuery.of(context).size.width / 10,
-                          height: MediaQuery.of(context).size.width / 10,
+                          width: MediaQuery.of(context).size.width / 20,
+                          height: MediaQuery.of(context).size.width / 20,
                           decoration: BoxDecoration(
                             color: Colors.blue.shade50,
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
                             Icons.home_work_rounded,
-                            size: 20,
+                            size: 14,
                             color: Theme.of(context).primaryColor,
                           ),
                         ),
@@ -234,6 +234,33 @@ class JobberProfileScreen extends StatelessWidget {
                             jobber!.address,
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width / 20,
+                          height: MediaQuery.of(context).size.width / 20,
+                          decoration: BoxDecoration(
+                            color: Colors.blue.shade50,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.location_history,
+                            size: 14,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 40,
+                        ),
+                        Text(
+                          jobber!.country,
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
                     ),
@@ -257,7 +284,7 @@ class JobberProfileScreen extends StatelessWidget {
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: 5,
+                itemCount: jobber!.reviews.length,
                 itemBuilder: (ctx, index) => Container(
                   padding: const EdgeInsets.all(10.0),
                   width: MediaQuery.of(context).size.width,
@@ -275,7 +302,7 @@ class JobberProfileScreen extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(50),
                               child: Image.network(
-                                "${MyRoutes.IMAGEURL}/${jobber!.image}",
+                                "${MyRoutes.IMAGEURL}/${jobber!.reviews[index].image}",
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -283,41 +310,17 @@ class JobberProfileScreen extends StatelessWidget {
                           SizedBox(
                               width: MediaQuery.of(context).size.width / 40),
                           Text(
-                            "Client Name",
+                            jobber!.reviews[index].name,
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           SizedBox(
                               width: MediaQuery.of(context).size.width / 90),
-                          const Icon(
-                            Icons.star,
-                            size: 12,
-                            color: Colors.amber,
-                          ),
-                          SizedBox(
-                              width: MediaQuery.of(context).size.width / 90),
-                          const Icon(
-                            Icons.star,
-                            size: 12,
-                            color: Colors.amber,
-                          ),
-                          SizedBox(
-                              width: MediaQuery.of(context).size.width / 90),
-                          const Icon(
-                            Icons.star,
-                            size: 12,
-                            color: Colors.amber,
-                          ),
-                          SizedBox(
-                              width: MediaQuery.of(context).size.width / 90),
-                          const Icon(
-                            Icons.star,
-                            size: 12,
-                            color: Colors.amber,
-                          ),
+                          for(int i = 1; i < jobber!.reviews[index].star; i++)
+                            const Icon(Icons.star, size: 14, color: Colors.yellow),
                           const Spacer(),
                           Text(
-                            "Time and date",
-                            style: Theme.of(context).textTheme.labelSmall,
+                            jobber!.reviews[index].date,
+                            style: Theme.of(context).textTheme.labelMedium,
                           ),
                         ],
                       ),
@@ -327,8 +330,8 @@ class JobberProfileScreen extends StatelessWidget {
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
                         child: Text(
-                          "review description here",
-                          style: Theme.of(context).textTheme.labelMedium,
+                          jobber!.reviews[index].message,
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
                       SizedBox(
