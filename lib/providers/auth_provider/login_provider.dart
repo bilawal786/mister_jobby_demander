@@ -14,7 +14,7 @@ class LoginProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> login(BuildContext context, email, password, countryId) async {
+  Future<void> login(BuildContext context, email, password) async {
     try {
       var response = await http.post(
         Uri.parse('${MyRoutes.BASEURL}/login'),
@@ -25,7 +25,6 @@ class LoginProvider with ChangeNotifier {
         body: jsonEncode(<String, String>{
           'email': email.toString(),
           'password': password.toString(),
-          'role': countryId.toString(),
         }),
       );
       if (response.statusCode == 200) {

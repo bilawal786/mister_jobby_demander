@@ -31,14 +31,13 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void formSubmit() {
-    final constData = Provider.of<ConstProvider>(context, listen: false);
     final loginData = Provider.of<LoginProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
       return;
     }
     formKey.currentState!.save();
-    loginData.login(context, emailController.text, passwordController.text, constData.countryDropDownValue);
+    loginData.login(context, emailController.text, passwordController.text,);
   }
   @override
   Widget build(BuildContext context) {
