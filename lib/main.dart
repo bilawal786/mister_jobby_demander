@@ -122,6 +122,7 @@ import './screens/accounts_screens/manage_accounts/my_tickets.dart';
 import './screens/accounts_screens/manage_accounts/help_center.dart';
 import './screens/accounts_screens/manage_accounts/ticket_scannar_screen.dart';
 import './screens/accounts_screens/useful_information/about_us_screen.dart';
+import './screens/jobs_screens/jobs_tab_screens/comment_screen.dart';
 
 
 void main() async {
@@ -409,6 +410,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.NOTIFICATIONDISPLAYROUTE: (ctx) => const NotificationDisplay(),
           MyRoutes.FAQSCREENROUTE: (ctx) => const FAQScreen(),
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),
+          MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
         },
       ),
     );

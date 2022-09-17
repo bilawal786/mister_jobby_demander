@@ -151,7 +151,7 @@ class JobsDetailsScreen extends StatelessWidget {
                 ListTile(
                   dense: true,
                   horizontalTitleGap: 0,
-                  onTap: () {},
+                  onTap: () => Navigator.of(context).pushNamed(MyRoutes.COMMENTSCREENROUTE),
                   leading: Icon(
                     Icons.message_rounded,
                     size: 20,
