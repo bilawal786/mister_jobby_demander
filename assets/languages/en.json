@@ -517,6 +517,7 @@
   "Scan_a_Code": "Scan a code",
   "Scan_Code_Text": "Please place your barcode in the camera above to start scanning your tickets",
   "Scan_Code_Add_Tickets": "Add tickets manually",
-  "Scan_Code_Add_CESU": "Add an e-CES"
+  "Scan_Code_Add_CESU": "Add an e-CES",
+  "About": "About"
 
 }

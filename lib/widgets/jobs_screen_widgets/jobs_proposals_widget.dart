@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/screens/jobs_screens/jobber_profile_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../helpers/routes.dart';
+
 import '../../providers/jobs_provider/job_proposals_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
+import '../../../screens/jobs_screens/jobber_profile_screen.dart';
 
 class JobsProposalsWidget extends StatefulWidget {
   final int jobId;
@@ -39,7 +40,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
           )
         : extractProposal.isEmpty
             ? Center(
-              child: Column(
+                child: Column(
                   children: <Widget>[
                     Icon(
                       Icons.find_in_page_rounded,
@@ -52,7 +53,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                     ).tr(),
                   ],
                 ),
-            )
+              )
             : ListView.builder(
                 padding: const EdgeInsets.all(0.0),
                 shrinkWrap: true,
@@ -210,7 +211,12 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       OutlineSelectedButton(
-                        onTap: () { Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => JobberProfileScreen(jobber: extractProposal[index].jobber,)));},
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) => JobberProfileScreen(
+                                    jobber: extractProposal[index].jobber,
+                                  )));
+                        },
                         textTitle: "See_Profile",
                         border: true,
                         width: double.infinity,

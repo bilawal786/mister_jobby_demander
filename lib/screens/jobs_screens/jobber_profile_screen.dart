@@ -205,7 +205,7 @@ class JobberProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Information",
+                      "About",
                       style: Theme.of(context).textTheme.labelLarge,
                     ).tr(),
                     SizedBox(
@@ -221,7 +221,7 @@ class JobberProfileScreen extends StatelessWidget {
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
-                            Icons.business_center,
+                            Icons.home_work_rounded,
                             size: 20,
                             color: Theme.of(context).primaryColor,
                           ),
@@ -231,7 +231,7 @@ class JobberProfileScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            jobber!.personalDescription,
+                            jobber!.address,
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),
