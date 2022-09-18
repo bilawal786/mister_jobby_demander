@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/screens/test_screen.dart';
+import 'package:provider/provider.dart';
+
+import './index_screen.dart';
 
 import '../jobs_screens/jobs_screen.dart';
 import '../messages_screens/message_screen.dart';
 import '../accounts_screens/account_screen.dart';
 
-import './index_screen.dart';
+import '../../providers/preferences_provider/preferences_provider.dart';
+import '../../screens/auth_screens/login_screen.dart';
+import '../../screens/test_screen.dart';
 
 class MyHomeBottomTabScreen extends StatefulWidget {
   const MyHomeBottomTabScreen({Key? key}) : super(key: key);
@@ -23,6 +27,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final prefsData = Provider.of<PreferencesProvider>(context, listen: false).token;
     return Scaffold(
       body: PageStorage(
         bucket: bucket,
@@ -52,8 +57,11 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
               bottomTabBarItem(
                 () {
                   setState(() {
-                    currentScreen =
-                        const JobsScreen(); // if user taps on this dashboard tab will be active
+                    if (prefsData == 'null') {
+                      currentScreen = const LoginScreen();
+                    } else {
+                      currentScreen = const JobsScreen();
+                    } // if user taps on this dashboard tab will be active
                     pageIndex = 1;
                   });
                 },
