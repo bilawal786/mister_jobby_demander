@@ -45,7 +45,7 @@ class JobsInProgressModel {
     required this.destinationAddress,
     required this.dob,
     required this.totalOffers,
-    required this.comments,
+    required this.totalComments,
     required this.jobberRequired,
   });
 
@@ -84,7 +84,7 @@ class JobsInProgressModel {
   String destinationAddress;
   String dob;
   int totalOffers;
-  int comments;
+  int totalComments;
   int jobberRequired;
 
   factory JobsInProgressModel.fromJson(Map<String, dynamic> json) => JobsInProgressModel(
@@ -123,7 +123,7 @@ class JobsInProgressModel {
     destinationAddress: json["destination_address"],
     dob: json["dob"],
     totalOffers: json["total_offers"],
-    comments: json["comments"],
+    totalComments: json["total_comments"],
     jobberRequired: json["jobber_required"],
   );
 
@@ -163,7 +163,7 @@ class JobsInProgressModel {
     "destination_address": destinationAddress,
     "dob": dob,
     "total_offers": totalOffers,
-    "comments": comments,
+    "total_comments": totalComments,
     "jobber_required": jobberRequired,
   };
 }

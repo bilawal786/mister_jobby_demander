@@ -15,7 +15,7 @@ class RegisterProvider with ChangeNotifier {
   }
 
   Future<void> registration(BuildContext context, firstName, lastName, email,
-      password, countryId) async {
+      password) async {
     var response = await http.post(
       Uri.parse('${MyRoutes.BASEURL}/register'),
       headers: <String, String>{
@@ -27,7 +27,7 @@ class RegisterProvider with ChangeNotifier {
         'lastName': lastName.toString(),
         'email': email.toString(),
         'password': password.toString(),
-        'role': countryId.toString(),
+        'role': 2.toString(),
       }),
     );
     if (response.statusCode == 200) {

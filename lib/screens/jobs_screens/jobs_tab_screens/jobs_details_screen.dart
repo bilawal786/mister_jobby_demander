@@ -158,7 +158,7 @@ class JobsDetailsScreen extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                   title: Text(
-                    "View Comments (${jobsInProgressDetail!.comments})",
+                    "View Comments (${jobsInProgressDetail!.totalComments})",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(

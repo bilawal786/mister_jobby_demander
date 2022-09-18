@@ -34,8 +34,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void formSubmit() {
-
-    final constData = Provider.of<ConstProvider>(context, listen: false);
     final registerData = Provider.of<RegisterProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
@@ -44,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     formKey.currentState!.save();
     formKey.currentState!.save();
 
-    registerData.registration(context, firstNameController.text, lastNameController.text, emailController.text, passwordController.text, constData.countryDropDownValue);
+    registerData.registration(context, firstNameController.text, lastNameController.text, emailController.text, passwordController.text);
   print("object");
   }
 

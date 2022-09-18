@@ -33,7 +33,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
       return;
     }
     formKey.currentState!.save();
-    updateProfileData.upDateProfile(context, firstName,lastName, updateProfileData.genderCheckTitle, updateProfileData.selectedDateOfBirth, phoneNumber, password, updateProfileData.countryDropDownValue, address);
+    // updateProfileData.upDateProfile(context, firstName,lastName, updateProfileData.genderCheckTitle, updateProfileData.selectedDateOfBirth, phoneNumber, updateProfileData.countryDropDownValue, address);
   }
 
   var isInit = true;
@@ -80,17 +80,18 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 Center(
                   child: Container(
-                            width: MediaQuery.of(context).size.width / 5.5,
-                            height: MediaQuery.of(context).size.width / 5.5,
+                            width: MediaQuery.of(context).size.width / 4,
+                            height: MediaQuery.of(context).size.width / 4,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Colors.black38,
+                                color: Colors.black,
+                                width: 1.2,
                               ),
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                              child: Image.asset("${MyRoutes.IMAGEURL}/${extractProfile.image}"),
+                              child: Image.network("${MyRoutes.IMAGEURL}/${extractProfile.image}"),
                             ),
                           ),
                 ),
@@ -309,32 +310,6 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter Phone Number";
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                Text(
-                  "PasswordText",
-                  style: Theme.of(context).textTheme.labelLarge,
-                ).tr(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: "PasswordText".tr(),
-                    isDense: true,
-                  ),
-                  style: Theme.of(context).textTheme.bodySmall,
-                  enabled: true,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter New Password";
                     }
                     return null;
                   },

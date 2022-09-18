@@ -33,7 +33,7 @@ class ProfileProvider with ChangeNotifier {
     if (response.statusCode == 200) {
       print('get profile successfully');
       myProfile = ProfileModel.fromJson(jsonDecode(response.body));
-      getProfileData();
+      // getProfileData();
       notifyListeners();
     } else {
       print('get profile api not working');
@@ -49,7 +49,6 @@ class ProfileProvider with ChangeNotifier {
     gender,
     dob,
     phone,
-    password,
     countryId,
     address,
   ) async {
@@ -68,7 +67,6 @@ class ProfileProvider with ChangeNotifier {
         'gender': gender,
         'dob': dob.toString(),
         "phone": phone.toString(),
-        'password': password.toString(),
         'country': countryId.toString(),
         'address': address.toString(),
       }),
