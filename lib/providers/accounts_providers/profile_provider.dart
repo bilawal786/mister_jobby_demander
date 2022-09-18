@@ -36,7 +36,7 @@ class ProfileProvider with ChangeNotifier {
       getProfileData();
       notifyListeners();
     } else {
-      print('profile api not working');
+      print('get profile api not working');
     }
   }
 

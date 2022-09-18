@@ -160,55 +160,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.width / 40,
-                            ),
-                            Text(
-                              "Country_Title",
-                              style: Theme.of(context).textTheme.titleSmall,
-                            ).tr(),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.width / 40,
-                            ),
-                            Consumer<ConstProvider>(
-                              builder: (_,dropDownData,child)=>
-                                  Container(
-                                    height: 50.0,
-                                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(color: Colors.grey, width: 1),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    child: DropdownButtonFormField<String>(
-                                      decoration: InputDecoration(
-                                        hintText: "Select Country",
-                                        hintStyle: Theme.of(context).textTheme.bodyMedium,
-                                        isCollapsed: true,
-                                        enabledBorder: InputBorder.none,
-                                        focusedBorder: InputBorder.none,
-                                      ),
-                                      isExpanded: true,
-                                      iconSize: 30.0,
-                                      items:extractCountry?.map(
-                                            (val) {
-                                          return DropdownMenuItem<String>(
-                                            value: val.id.toString(),
-                                            child: Text(
-                                              val.name,
-                                              style:
-                                              Theme.of(context).textTheme.bodySmall,
-                                            ),
-                                          );
-                                        },
-                                      ).toList(),
-                                      onChanged: (val) {
-                                        dropDownData.countryDropDownFunction(val);
-                                        // print("drop down value ${dropDownData.countryDropDownValue}");
-                                      },
-                                    ),
-                                  ),
-                            ),
-                            SizedBox(
                               height: MediaQuery.of(context).size.width / 25,
                             ),
                             InkWell(

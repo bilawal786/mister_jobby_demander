@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
+import '../../providers/accounts_providers/profile_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/const_widgets/custom_list_tile.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
@@ -29,6 +32,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
   @override
   Widget build(BuildContext context) {
     final prefData = Provider.of<PreferencesProvider>(context, listen: false);
+    final profileData = Provider.of<ProfileProvider>(context, listen: false);
+    final extractedProfile = profileData.myProfile;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -94,43 +99,91 @@ class _AccountsScreenState extends State<AccountsScreen> {
                         ],
                       ),
                     )
-                  : Container(
-                      padding: const EdgeInsets.all(10.0),
-                      margin: const EdgeInsets.all(5.0),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            width: MediaQuery.of(context).size.width / 5.5,
-                            height: MediaQuery.of(context).size.width / 5.5,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.black38,
-                              ),
-                            ),
-                            child: Image.asset(
-                              'assets/images/appLogo.png',
-                              fit: BoxFit.cover,
+                  : Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Consumer<ProfileProvider>(
+                            builder: (_, imageFileData, child) => Stack(
+                              children: <Widget>[
+                                imageFileData.imageFile != null
+                                    ? Container(
+                                        width:
+                                            MediaQuery.of(context).size.width / 5.5,
+                                        height:
+                                            MediaQuery.of(context).size.width / 5.5,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.black38,
+                                          ),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(100),
+                                          child: Image.file(
+                                            File(
+                                              imageFileData.imageFile ?? "",
+                                            ).absolute,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      )
+                                    : Container(
+                                        width:
+                                            MediaQuery.of(context).size.width / 5.5,
+                                        height:
+                                            MediaQuery.of(context).size.width / 5.5,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.black38,
+                                          ),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Image.asset(
+                                              "assets/images/appLogo.png"),
+                                        ),
+                                      ),
+                                Positioned(
+                                  right: 0,
+                                  bottom: 0,
+                                  child: InkWell(
+                                    onTap: () {
+                                      imageFileData.showPicker(
+                                        context,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width / 18.5,
+                                      height:
+                                          MediaQuery.of(context).size.width / 18.5,
+                                      padding: const EdgeInsets.all(3.0),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                        shape: BoxShape.circle,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                      child: const Icon(
+                                        Icons.camera_alt_outlined,
+                                        size: 15,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 30,
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Text(
-                                "User Name",
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                              Text(
-                                "job Post Status",
-                                style: Theme.of(context).textTheme.labelSmall,
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 40,
+                        ),
+                        if(extractedProfile != null) Text(extractedProfile.firstName),
+                      ],
                     ),
+                  ),
               const Divider(
                 thickness: 10,
               ),
@@ -152,7 +205,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 leadingIcon: Icons.person_outline,
                                 title: 'Personal_Information',
                                 onPress: () {
-                                  Navigator.of(context).pushNamed(MyRoutes.PERSONALINFORMATIONROUTE);
+                                  Navigator.of(context).pushNamed(
+                                      MyRoutes.PERSONALINFORMATIONROUTE);
                                 },
                               ),
                               CustomListTile(
@@ -160,14 +214,16 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                     Icons.account_balance_wallet_outlined,
                                 title: 'My_Balance',
                                 onPress: () {
-                                  Navigator.of(context).pushNamed(MyRoutes.BALANCEROUTE);
+                                  Navigator.of(context)
+                                      .pushNamed(MyRoutes.BALANCEROUTE);
                                 },
                               ),
                               CustomListTile(
                                 leadingIcon: Icons.all_inbox,
                                 title: 'My_CESU_Tickets',
                                 onPress: () {
-                                  Navigator.of(context).pushNamed(MyRoutes.MYTICKETSROUTE);
+                                  Navigator.of(context)
+                                      .pushNamed(MyRoutes.MYTICKETSROUTE);
                                 },
                               ),
                               CustomListTile(
@@ -196,7 +252,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
                               ).tr(),
                               CustomListTile(
                                   onPress: () {
-                                    Navigator.of(context).pushNamed(MyRoutes.GIFTROUTE);
+                                    Navigator.of(context)
+                                        .pushNamed(MyRoutes.GIFTROUTE);
                                   },
                                   leadingIcon: Icons.card_giftcard_outlined,
                                   title: 'Gift_Cards'),
@@ -220,7 +277,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       leadingIcon: Icons.question_answer_outlined,
                       title: 'FAQ',
                       onPress: () {
-                        Navigator.of(context).pushNamed(MyRoutes.FAQSCREENROUTE);
+                        Navigator.of(context)
+                            .pushNamed(MyRoutes.FAQSCREENROUTE);
                       },
                     ),
                     CustomListTile(
@@ -231,7 +289,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
                     ),
                     CustomListTile(
                       onPress: () {
-                        Navigator.of(context).pushNamed(MyRoutes.HELPCENTERROUTE);
+                        Navigator.of(context)
+                            .pushNamed(MyRoutes.HELPCENTERROUTE);
                       },
                       leadingIcon: Icons.question_mark_rounded,
                       title: "Account_Screen_Help_Center",

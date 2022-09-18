@@ -25,6 +25,7 @@ class LoginProvider with ChangeNotifier {
         body: jsonEncode(<String, String>{
           'email': email.toString(),
           'password': password.toString(),
+          'role': "1",
         }),
       );
       if (response.statusCode == 200) {
