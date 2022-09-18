@@ -6,10 +6,16 @@ import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
 import '../../../../models/jobs_models/jobs_in_progress_model.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
-class JobsDetailsScreen extends StatelessWidget {
+class JobsDetailsScreen extends StatefulWidget {
   final JobsInProgressModel? jobsInProgressDetail;
   const JobsDetailsScreen({Key? key, this.jobsInProgressDetail})
       : super(key: key);
+
+  @override
+  State<JobsDetailsScreen> createState() => _JobsDetailsScreenState();
+}
+
+class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class JobsDetailsScreen extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               background: Image.network(
-                "${MyRoutes.IMAGEURL}/${jobsInProgressDetail!.image}",
+                "${MyRoutes.IMAGEURL}/${widget.jobsInProgressDetail!.image}",
                 fit: BoxFit.cover,
               ),
             ),
@@ -41,11 +47,11 @@ class JobsDetailsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  jobsInProgressDetail!.title,
+                  widget.jobsInProgressDetail!.title,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Text(
-                  '${jobsInProgressDetail!.serviceDate} ${jobsInProgressDetail!.startTime}',
+                  '${widget.jobsInProgressDetail!.serviceDate} ${widget.jobsInProgressDetail!.startTime}',
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
                 SizedBox(
@@ -67,7 +73,7 @@ class JobsDetailsScreen extends StatelessWidget {
                             width: MediaQuery.of(context).size.width / 40,
                           ),
                           Text(
-                            jobsInProgressDetail!.address,
+                            widget.jobsInProgressDetail!.address,
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ],
@@ -86,7 +92,7 @@ class JobsDetailsScreen extends StatelessWidget {
                             width: MediaQuery.of(context).size.width / 40,
                           ),
                           Text(
-                            "${jobsInProgressDetail!.jobberRequired}",
+                            "${widget.jobsInProgressDetail!.jobberRequired}",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           SizedBox(
@@ -112,7 +118,7 @@ class JobsDetailsScreen extends StatelessWidget {
                             width: MediaQuery.of(context).size.width / 40,
                           ),
                           Text(
-                            '${jobsInProgressDetail!.estimateBudget} € ',
+                            '${widget.jobsInProgressDetail!.estimateBudget} € ',
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           SizedBox(
@@ -151,14 +157,16 @@ class JobsDetailsScreen extends StatelessWidget {
                 ListTile(
                   dense: true,
                   horizontalTitleGap: 0,
-                  onTap: () => Navigator.of(context).pushNamed(MyRoutes.COMMENTSCREENROUTE),
+                  onTap: () => Navigator.of(context).pushNamed(MyRoutes.COMMENTSCREENROUTE, arguments: {
+                    'jobId': widget.jobsInProgressDetail!.id.toString(),
+                  }),
                   leading: Icon(
                     Icons.message_rounded,
                     size: 20,
                     color: Theme.of(context).primaryColor,
                   ),
                   title: Text(
-                    "View Comments (${jobsInProgressDetail!.totalComments})",
+                    "View Comments (${widget.jobsInProgressDetail!.totalComments})",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   subtitle: Text(
@@ -185,7 +193,7 @@ class JobsDetailsScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Text(
-                      "(${jobsInProgressDetail!.totalOffers})",
+                      "(${widget.jobsInProgressDetail!.totalOffers})",
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ],
@@ -193,7 +201,7 @@ class JobsDetailsScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                JobsProposalsWidget(jobId: jobsInProgressDetail!.id),
+                JobsProposalsWidget(jobId: widget.jobsInProgressDetail!.id),
               ],
             ),
           ),

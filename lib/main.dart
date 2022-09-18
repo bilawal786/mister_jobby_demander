@@ -123,6 +123,7 @@ import './screens/accounts_screens/manage_accounts/help_center.dart';
 import './screens/accounts_screens/manage_accounts/ticket_scannar_screen.dart';
 import './screens/accounts_screens/useful_information/about_us_screen.dart';
 import './screens/jobs_screens/jobs_tab_screens/comment_screen.dart';
+import './providers/jobs_provider/single_job_comments_provider.dart';
 
 
 void main() async {
@@ -158,6 +159,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => ProfileProvider()),
         ChangeNotifierProvider(create: (ctx) => FAQProvider()),
         ChangeNotifierProvider(create: (ctx) => JobProposalsProvider()),
+        ChangeNotifierProvider(create: (ctx) => SingleJobCommentsProvider(),),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
