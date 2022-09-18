@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
 import 'package:mister_jobby/providers/accounts_providers/useful_information_providers/faq_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -29,6 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 .pushReplacementNamed(MyRoutes.HOMETABROUTE),
           );
       Provider.of<CountryProvider>(context).getCountries();
+      Provider.of<ProfileProvider>(context, listen: false).getProfile();
       Provider.of<BannerProvider>(context).getBanner();
       Provider.of<FAQProvider>(context).getFAQ();
     }

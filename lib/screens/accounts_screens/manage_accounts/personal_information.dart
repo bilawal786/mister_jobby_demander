@@ -27,24 +27,13 @@ class _PersonalInformationState extends State<PersonalInformation> {
 
 
   void formSubmit() {
-    final updateProfileData = Provider.of<ProfileProvider>(context, listen: false);
+    // final updateProfileData = Provider.of<ProfileProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
       return;
     }
     formKey.currentState!.save();
     // updateProfileData.upDateProfile(context, firstName,lastName, updateProfileData.genderCheckTitle, updateProfileData.selectedDateOfBirth, phoneNumber, updateProfileData.countryDropDownValue, address);
-  }
-
-  var isInit = true;
-
-  @override
-  void didChangeDependencies() {
-    if(isInit){
-      Provider.of<ProfileProvider>(context).getProfile();
-    }
-    isInit = false;
-    super.didChangeDependencies();
   }
 
   @override

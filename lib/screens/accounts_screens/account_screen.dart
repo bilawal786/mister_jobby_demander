@@ -141,8 +141,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                         ),
                                         child: ClipRRect(
                                           borderRadius: BorderRadius.circular(10),
-                                          child: Image.asset(
-                                              "assets/images/appLogo.png"),
+                                          child: Image.network(
+                                              "${MyRoutes.IMAGEURL}/${extractedProfile!.image}"),
                                         ),
                                       ),
                                 Positioned(
@@ -180,7 +180,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 40,
                         ),
-                        if(extractedProfile != null) Text(extractedProfile.firstName),
+                        if(extractedProfile != null) Text('${extractedProfile.firstName} ${extractedProfile.lastName}', style: Theme.of(context).textTheme.bodyMedium,),
                       ],
                     ),
                   ),
@@ -320,7 +320,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                         Navigator.of(context).pushNamed(MyRoutes.ABOUTUSROUTE);
                       },
                       leadingIcon: Icons.info_outline_rounded,
-                      title: "About Us",
+                      title: "About",
                     )
                   ],
                 ),
