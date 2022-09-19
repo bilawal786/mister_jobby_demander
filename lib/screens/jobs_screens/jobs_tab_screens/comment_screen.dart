@@ -15,14 +15,15 @@ class CommentScreen extends StatefulWidget {
 
 class _CommentScreenState extends State<CommentScreen> {
   var isInit = true;
+  String? jobId;
 
   @override
   void didChangeDependencies() {
     final routeArgs =
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    final jobId = routeArgs['jobId'];
+    jobId = routeArgs['jobId'];
     if (isInit) {
-      Provider.of<SingleJobCommentsProvider>(context, listen: false)
+      Provider.of<SingleJobCommentsProvider>(context)
           .getSingleJobComments(jobId);
     }
     isInit = false;
@@ -78,7 +79,7 @@ class _CommentScreenState extends State<CommentScreen> {
                       : const Center(child: CircularProgressIndicator()),
             ),
           ),
-          const CommentInputWidget(),
+          CommentInputWidget(jobId: int.parse(jobId!)),
         ],
       ),
     );
