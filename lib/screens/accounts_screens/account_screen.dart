@@ -100,18 +100,20 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       ),
                     )
                   : Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      children: [
-                        Consumer<ProfileProvider>(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        children: [
+                          Consumer<ProfileProvider>(
                             builder: (_, imageFileData, child) => Stack(
                               children: <Widget>[
                                 imageFileData.imageFile != null
                                     ? Container(
                                         width:
-                                            MediaQuery.of(context).size.width / 5.5,
+                                            MediaQuery.of(context).size.width /
+                                                5.5,
                                         height:
-                                            MediaQuery.of(context).size.width / 5.5,
+                                            MediaQuery.of(context).size.width /
+                                                5.5,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
@@ -119,7 +121,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                           ),
                                         ),
                                         child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(100),
+                                          borderRadius:
+                                              BorderRadius.circular(100),
                                           child: Image.file(
                                             File(
                                               imageFileData.imageFile ?? "",
@@ -130,9 +133,11 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                       )
                                     : Container(
                                         width:
-                                            MediaQuery.of(context).size.width / 5.5,
+                                            MediaQuery.of(context).size.width /
+                                                5.5,
                                         height:
-                                            MediaQuery.of(context).size.width / 5.5,
+                                            MediaQuery.of(context).size.width /
+                                                5.5,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
@@ -140,7 +145,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                           ),
                                         ),
                                         child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Image.network(
                                               "${MyRoutes.IMAGEURL}/${extractedProfile!.image}"),
                                         ),
@@ -155,9 +161,11 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                       );
                                     },
                                     child: Container(
-                                      width: MediaQuery.of(context).size.width / 18.5,
+                                      width: MediaQuery.of(context).size.width /
+                                          18.5,
                                       height:
-                                          MediaQuery.of(context).size.width / 18.5,
+                                          MediaQuery.of(context).size.width /
+                                              18.5,
                                       padding: const EdgeInsets.all(3.0),
                                       decoration: BoxDecoration(
                                         border: Border.all(
@@ -177,13 +185,17 @@ class _AccountsScreenState extends State<AccountsScreen> {
                               ],
                             ),
                           ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 40,
-                        ),
-                        if(extractedProfile != null) Text('${extractedProfile.firstName} ${extractedProfile.lastName}', style: Theme.of(context).textTheme.bodyMedium,),
-                      ],
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 40,
+                          ),
+                          if (extractedProfile != null)
+                            Text(
+                              '${extractedProfile.firstName} ${extractedProfile.lastName}',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                        ],
+                      ),
                     ),
-                  ),
               const Divider(
                 thickness: 10,
               ),
