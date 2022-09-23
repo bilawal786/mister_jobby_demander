@@ -520,6 +520,10 @@
   "Scan_Code_Add_CESU": "Add an e-CES",
   "About": "About",
   "Comments": "Comments",
-  "No_Comments": "No Comments"
+  "No_Comments": "No Comments",
+  "Edit_Job": "Edit Job",
+  "Change_Date": "Change date or time",
+  "Delete_Job": "Delete the job",
+  "Cancel": "Cancel"
 
 }

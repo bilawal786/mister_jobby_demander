@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/screens/jobs_screens/jobber_continue_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -206,7 +207,9 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
-                      CustomButton(onPress: () {}, buttonName: "Continue"),
+                      CustomButton(onPress: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> ContinueJobber()));
+                      }, buttonName: "Continue"),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),

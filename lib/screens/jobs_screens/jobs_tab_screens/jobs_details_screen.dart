@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/edit_job_screen.dart';
 
 import '../../../helpers/routes.dart';
 import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
@@ -17,8 +18,85 @@ class JobsDetailsScreen extends StatefulWidget {
 
 class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
 
+  void openSheet(){
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Container(
+            height: MediaQuery.of(context).size.height / 5,
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Edit_Job",
+                  style: Theme.of(context).textTheme.titleSmall,
+                ).tr(),
+                const Divider(),
+                InkWell(
+                  onTap: () {
+                    print('open date and time editor');
+                    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const EditJobScreen() ,),);
+                  },
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                       Icon(
+                        Icons.watch_later_outlined,
+                        color: Theme.of(context).primaryColor,
+                        size: 25,
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Text(
+                        "Change_Date",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ).tr(),
+                    ],
+                  ),
+                ),
+                const Divider(),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      const Icon(
+                        Icons.delete,
+                        color: Colors.red,
+                        size: 25,
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Text(
+                        "Delete_Job",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ).tr(),
+                    ],
+                  ),
+                ),
+                const Divider(),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: NestedScrollView(
         floatHeaderSlivers: true,
@@ -144,7 +222,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                     ),
                     Expanded(
                       child: OutlineSelectedButton(
-                          onTap: () {},
+                          onTap: () { openSheet();},
                           textTitle: "Modifier",
                           color: Colors.blueGrey.shade100),
                     ),
