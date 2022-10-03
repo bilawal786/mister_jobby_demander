@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/const_widgets/custom_button.dart';
+import '../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
+
 class TestScreen extends StatefulWidget {
   const TestScreen({Key? key}) : super(key: key);
 
@@ -15,6 +18,7 @@ class _TestScreenState extends State<TestScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        elevation: 0,
         iconTheme: Theme.of(context).iconTheme,
         title: Text(
           "Test Screen",
@@ -23,88 +27,325 @@ class _TestScreenState extends State<TestScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    "Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design.",
-                    style: Theme.of(context).textTheme.labelMedium,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "Interior painting",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width / 4.8,
+                    height: 5,
+                    decoration: const BoxDecoration(
+                      color: Colors.green,
+                    ),
                   ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 4.8,
+                    height: 5,
+                    decoration: const BoxDecoration(
+                      color: Colors.green,
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 4.8,
+                    height: 5,
+                    decoration: const BoxDecoration(
+                      color: Colors.green,
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 4.8,
+                    height: 5,
+                    decoration: const BoxDecoration(
+                      color: Colors.green,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              const Text(
+                "The job was paid on 09/29/2022",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.green,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Cerebri Sans Bold',
                 ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              Card(
-                child: Column(
-                  children: [
-                    Image.asset("assets/images/appLogo.png", scale: 4),
-                    Text(
-                      "Tous les droits sont réservés.",
-                      style: Theme.of(context).textTheme.bodySmall,
+              Row(
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width / 6,
+                    height: MediaQuery.of(context).size.width / 6,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black12,
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width / 40,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.network(
+                        "https://www.erc.com.pk/wp-content/uploads/person4.jpg",
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    Container(
-                        margin: const EdgeInsets.all(10),
-                        child: Text(
-                          "Mister Jobby est une application de services mobiles polyvalents. Professionnellement construit avec un UX élevé pour donner à votre page\n                le grand regard.",
-                          style: Theme.of(context).textTheme.bodySmall,
-                        )),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width / 40,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        'Client',
+                        style: Theme.of(context).textTheme.labelSmall,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width / 80,
+                      ),
+                      Text(
+                        'Name',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: OutlineSelectedButton(
+                      onTap: () {},
+                      textTitle: "Message",
+                      border: true,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height * .08,
-                          width: MediaQuery.of(context).size.height * .08,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade50,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child:const Icon(Icons.facebook),
-                        ),
-                        Container(
-                          height: MediaQuery.of(context).size.height * .08,
-                          width: MediaQuery.of(context).size.height * .08,
-                          decoration: BoxDecoration(
-                            color: Colors.red.shade50,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Icon(Icons.facebook),
-                        ),
-                        Container(
-                          height: MediaQuery.of(context).size.height * .08,
-                          width: MediaQuery.of(context).size.height * .08,
-                          decoration: BoxDecoration(
-                            color: Colors.pink.shade50,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Icon(Icons.facebook),
-                        ),
-                        Container(
-                          height: MediaQuery.of(context).size.height * .08,
-                          width: MediaQuery.of(context).size.height * .08,
-                          decoration: BoxDecoration(
-                            color: Colors.green.shade50,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Icon(Icons.facebook),
-                        ),
-                      ],
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Expanded(
+                    child: OutlineSelectedButton(
+                      onTap: () {},
+                      textTitle: "Call",
+                      border: true,
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width / 40,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 20,
+              ),
+              Text(
+                "Job details",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.date_range,
+                    color: Theme.of(context).primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    "Date",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const Spacer(),
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      "Thursday, September 29, 2022 from 7:00 p.m. to 8:00 p.m.",
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
-                  ],
+                  ),
+                ],
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.watch_later_outlined,
+                    color: Theme.of(context).primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    "Initial duration",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const Spacer(),
+                  Text(
+                    "1h",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ],
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.account_balance_wallet_outlined,
+                    color: Theme.of(context).primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    "Remuneration",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const Spacer(),
+                  Text(
+                    "9 €",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ],
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.account_balance_wallet,
+                    color: Theme.of(context).primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    "Hourly rate",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const Spacer(),
+                  Text(
+                    "9 €",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ],
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Text(
+                "See the job",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Cerebri Sans Bold',
                 ),
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 20,
+              ),
+              Text(
+                "Payment Details",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Text("Initial duration", style: Theme.of(context).textTheme.bodySmall,),
+                  const Spacer(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text("9 €", style: Theme.of(context).textTheme.bodySmall,),
+                      Text("9€ x 1h", style: Theme.of(context).textTheme.labelSmall,),
+                    ],
+                  ),
+                ],
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Text("Overtime", style: Theme.of(context).textTheme.bodySmall,),
+                  const Spacer(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text("0 €", style: Theme.of(context).textTheme.bodySmall,),
+                      Text("9€ x 0h", style: Theme.of(context).textTheme.labelSmall,),
+                    ],
+                  ),
+                ],
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Text("Service charge", style: Theme.of(context).textTheme.bodySmall,),
+                  const Spacer(),
+                  Text("-0.45 €", style: Theme.of(context).textTheme.labelMedium,),
+                ],
+              ),
+              const Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.width / 40,
+              ),
+              Row(
+                children: <Widget>[
+                  Text("Final remuneration", style: Theme.of(context).textTheme.bodySmall,),
+                  const Spacer(),
+                  Text("8,55 €", style: Theme.of(context).textTheme.labelMedium,),
+                ],
+              ),
+              const Divider(),
             ],
           ),
         ),

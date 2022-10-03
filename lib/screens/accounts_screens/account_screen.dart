@@ -9,6 +9,7 @@ import '../../providers/accounts_providers/profile_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/const_widgets/custom_list_tile.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
+import '../test_screen.dart';
 
 class AccountsScreen extends StatefulWidget {
   const AccountsScreen({Key? key}) : super(key: key);
@@ -333,7 +334,14 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       },
                       leadingIcon: Icons.info_outline_rounded,
                       title: "About",
-                    )
+                    ),
+                    CustomListTile(
+                      onPress: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => TestScreen()));
+                      },
+                      leadingIcon: Icons.info_outline_rounded,
+                      title: "Test",
+                    ),
                   ],
                 ),
               ),
