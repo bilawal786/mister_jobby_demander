@@ -10,7 +10,7 @@ import '../accounts_screens/account_screen.dart';
 
 import '../../providers/preferences_provider/preferences_provider.dart';
 import '../../screens/auth_screens/login_screen.dart';
-import '../../screens/test_screen.dart';
+import '../../screens/home_screens/search_screen.dart';
 
 class MyHomeBottomTabScreen extends StatefulWidget {
   const MyHomeBottomTabScreen({Key? key}) : super(key: key);
@@ -77,7 +77,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const TestScreen(),
+                        builder: (context) => const SearchScreen(),
                       ),
                     );
                   },
