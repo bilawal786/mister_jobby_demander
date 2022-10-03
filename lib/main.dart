@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:mister_jobby/providers/jobs_provider/job_proposals_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 import './helpers/routes.dart';
 import './providers/categories_provider/main_categories_provider.dart';
@@ -129,6 +130,8 @@ import './providers/jobs_provider/single_job_comments_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  Stripe.publishableKey = 'pk_test_51LRubcLtkEa5U40QDdRaKQr5SIt815sibBnPLIGbQMzr1mSRgF8EUesAVr5UNRt7mcEGwicNuTSwIdN3UEypjZLO00WV9Hc6ME';
+  await Stripe.instance.applySettings();
   runApp(
     EasyLocalization(
       supportedLocales: const [
