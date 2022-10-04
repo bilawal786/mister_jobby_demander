@@ -125,6 +125,9 @@ import './screens/accounts_screens/manage_accounts/ticket_scannar_screen.dart';
 import './screens/accounts_screens/useful_information/about_us_screen.dart';
 import './screens/jobs_screens/jobs_tab_screens/comment_screen.dart';
 import './providers/jobs_provider/single_job_comments_provider.dart';
+import './screens/jobs_screens/payment_success_screen.dart';
+import './screens/jobs_screens/request_view.dart';
+import './screens/jobs_screens/rating_reviews_screen.dart';
 
 
 void main() async {
@@ -416,6 +419,9 @@ class MyApp extends StatelessWidget {
           MyRoutes.FAQSCREENROUTE: (ctx) => const FAQScreen(),
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
+          MyRoutes.PAYMENTSUCCESSFULLY: (ctx) => const PaymentSuccessScreen(),
+          MyRoutes.VIEWREQUESTROUTE: (ctx) => const ViewRequestScreen(),
+          MyRoutes.RATINGSCREENROUTE: (ctx) => const RatingReviewsScreen(),
         },
       ),
     );

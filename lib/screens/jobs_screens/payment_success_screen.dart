@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../helpers/routes.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
@@ -42,23 +43,36 @@ class PaymentSuccessScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 25,
                 ),
-                Text("Reservation made!", style: Theme.of(context).textTheme.titleMedium,),
+                Text(
+                  "Reservation made!",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 1.2,
-                  child: Text("User has been notified of your reservation. You can now get in touch via private messaging or by phone.", style: Theme.of(context).textTheme.bodySmall,
-                    textAlign: TextAlign.center,),
+                  child: Text(
+                    "User has been notified of your reservation. You can now get in touch via private messaging or by phone.",
+                    style: Theme.of(context).textTheme.bodySmall,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 2,
                 ),
-                CustomButton(onPress: (){}, buttonName: 'Discuss in private',),
+                CustomButton(
+                  onPress: () {},
+                  buttonName: 'Discuss in private',
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                OutlineSelectedButton(onTap: (){}, textTitle: 'View my request',)
+                OutlineSelectedButton(
+                  onTap: () => Navigator.of(context)
+                      .pushNamed(MyRoutes.VIEWREQUESTROUTE),
+                  textTitle: 'View my request',
+                )
               ],
             ),
           ),

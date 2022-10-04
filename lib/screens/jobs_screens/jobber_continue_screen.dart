@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
+import '../../helpers/routes.dart';
 import '../../widgets/const_widgets/custom_button.dart';
-
 
 class ContinueJobber extends StatefulWidget {
   const ContinueJobber({Key? key}) : super(key: key);
@@ -17,13 +17,17 @@ class ContinueJobber extends StatefulWidget {
 
 class _ContinueJobberState extends State<ContinueJobber> {
   Map<String, dynamic>? paymentIntent;
+  var check = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text("Edit Job", style: Theme.of(context).textTheme.bodyLarge,),
+        title: Text(
+          "Edit Job",
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
         iconTheme: const IconThemeData(
           color: Colors.black45,
           size: 25,
@@ -71,36 +75,27 @@ class _ContinueJobberState extends State<ContinueJobber> {
                             size: 20,
                           ),
                           SizedBox(
-                            width:
-                            MediaQuery.of(context).size.width / 80,
+                            width: MediaQuery.of(context).size.width / 80,
                           ),
                           Text(
                             "5",
-                            style:
-                            Theme.of(context).textTheme.bodySmall,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                           SizedBox(
-                            width:
-                            MediaQuery.of(context).size.width / 80,
+                            width: MediaQuery.of(context).size.width / 80,
                           ),
                           Row(
                             children: [
                               Text(
                                 "(5",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall,
+                                style: Theme.of(context).textTheme.bodySmall,
                               ),
                               SizedBox(
-                                width:
-                                MediaQuery.of(context).size.width /
-                                    100,
+                                width: MediaQuery.of(context).size.width / 100,
                               ),
                               Text(
                                 "Views)",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall,
+                                style: Theme.of(context).textTheme.bodySmall,
                               ).tr(),
                             ],
                           ),
@@ -119,26 +114,41 @@ class _ContinueJobberState extends State<ContinueJobber> {
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
-            Text("Summary", style: Theme.of(context).textTheme.bodyLarge,),
+            Text(
+              "Summary",
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: <Widget>[
                   Row(
                     children: <Widget>[
-                      Text("Jobber Remuneration", style: Theme.of(context).textTheme.labelMedium,).tr(),
+                      Text(
+                        "Jobber Remuneration",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ).tr(),
                       const Spacer(),
-                      Text("171 ", style: Theme.of(context).textTheme.labelMedium,),
+                      Text(
+                        "171 ",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
                     ],
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width /40,
+                    height: MediaQuery.of(context).size.width / 40,
                   ),
                   Row(
                     children: <Widget>[
-                      Text("Service charge", style: Theme.of(context).textTheme.labelMedium,).tr(),
+                      Text(
+                        "Service charge",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ).tr(),
                       const Spacer(),
-                      Text("35 ", style: Theme.of(context).textTheme.labelMedium,),
+                      Text(
+                        "35 ",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
                     ],
                   ),
                 ],
@@ -153,9 +163,15 @@ class _ContinueJobberState extends State<ContinueJobber> {
             ),
             Row(
               children: [
-                Text("Total", style: Theme.of(context).textTheme.bodyLarge,),
+                Text(
+                  "Total",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
                 const Spacer(),
-                Text("206 ", style: Theme.of(context).textTheme.bodyLarge,),
+                Text(
+                  "206 ",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ],
             ),
             SizedBox(
@@ -165,9 +181,14 @@ class _ContinueJobberState extends State<ContinueJobber> {
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
-            CustomButton(onPress: ()async{
-              await makePayment();
-            }, buttonName: "To Book"),
+            check == false ? CustomButton(
+                onPress: () async {
+                  setState(() {
+                    check = true;
+                  });
+                  await makePayment();
+                },
+                buttonName: "To Book") : const Center(child: CircularProgressIndicator(),),
           ],
         ),
       ),
@@ -178,61 +199,76 @@ class _ContinueJobberState extends State<ContinueJobber> {
     try {
       paymentIntent = await createPaymentIntent('10', 'USD');
       //Payment Sheet
-      await Stripe.instance.initPaymentSheet(
-          paymentSheetParameters: SetupPaymentSheetParameters(
-              paymentIntentClientSecret: paymentIntent!['client_secret'],
-              // applePay: const PaymentSheetApplePay(merchantCountryCode: '+92',),
-              // googlePay: const PaymentSheetGooglePay(testEnv: true, currencyCode: "US", merchantCountryCode: "+92"),
-              style: ThemeMode.dark,
-              merchantDisplayName: 'Adnan')).then((value){
+      await Stripe.instance
+          .initPaymentSheet(
+              paymentSheetParameters: SetupPaymentSheetParameters(
+                  paymentIntentClientSecret: paymentIntent!['client_secret'],
+                  // applePay: const PaymentSheetApplePay(merchantCountryCode: '+92',),
+                  // googlePay: const PaymentSheetGooglePay(testEnv: true, currencyCode: "US", merchantCountryCode: "+92"),
+                  style: ThemeMode.dark,
+                  merchantDisplayName: 'Hassan'))
+          .then((value) {});
+      setState(() {
+        check = true;
       });
-
-
       ///now finally display payment sheeet
       displayPaymentSheet();
     } catch (e, s) {
       print('exception:$e$s');
+      setState(() {
+        check = false;
+      });
     }
   }
 
   displayPaymentSheet() async {
-
     try {
-      await Stripe.instance.presentPaymentSheet(
-      ).then((value){
+      await Stripe.instance.presentPaymentSheet().then((value) {
+        Navigator.of(context).pushNamed(MyRoutes.PAYMENTSUCCESSFULLY);
         showDialog(
             context: context,
             builder: (_) => AlertDialog(
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.check_circle, color: Colors.green,),
-                      Text("Payment Successfull"),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        children: const [
+                          Icon(
+                            Icons.check_circle,
+                            color: Colors.green,
+                          ),
+                          Text("Payment Successfull"),
+                        ],
+                      ),
                     ],
                   ),
-                ],
-              ),
-            ));
+                ),);
         // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("paid successfully")));
-
         paymentIntent = null;
-
-      }).onError((error, stackTrace){
+        setState(() {
+          check = false;
+        });
+      }).onError((error, stackTrace) {
         print('Error is:--->$error $stackTrace');
+        setState(() {
+          check = false;
+        });
       });
-
-
     } on StripeException catch (e) {
       print('Error is:---> $e');
       showDialog(
           context: context,
           builder: (_) => const AlertDialog(
-            content: Text("Cancelled "),
-          ));
+                content: Text("Cancelled "),
+              ));
+      setState(() {
+        check = false;
+      });
     } catch (e) {
       print('$e');
+      setState(() {
+        check = false;
+      });
     }
   }
 
@@ -248,7 +284,8 @@ class _ContinueJobberState extends State<ContinueJobber> {
       var response = await http.post(
         Uri.parse('https://api.stripe.com/v1/payment_intents'),
         headers: {
-          'Authorization': 'Bearer sk_test_51LRubcLtkEa5U40QApwIt13tNTcs9x2v95PKmJjoZ57xvfMf1PaPH0hYB556mGLJyhFDniqtEBRQbbDAY4wtmFE500xuKSA0Qb',
+          'Authorization':
+              'Bearer sk_test_51LRubcLtkEa5U40QApwIt13tNTcs9x2v95PKmJjoZ57xvfMf1PaPH0hYB556mGLJyhFDniqtEBRQbbDAY4wtmFE500xuKSA0Qb',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: body,
@@ -263,7 +300,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
   }
 
   calculateAmount(String amount) {
-    final calculatedAmout = (int.parse(amount)) * 100 ;
+    final calculatedAmout = (int.parse(amount)) * 100;
     return calculatedAmout.toString();
   }
 }

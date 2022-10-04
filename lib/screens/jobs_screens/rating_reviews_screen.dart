@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../widgets/const_widgets/custom_button.dart';
-import '../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
+import '../../widgets/const_widgets/custom_button.dart';
 
-class TestScreen extends StatefulWidget {
-  const TestScreen({Key? key}) : super(key: key);
+class RatingReviewsScreen extends StatelessWidget {
+  const RatingReviewsScreen({Key? key}) : super(key: key);
 
-  @override
-  State<TestScreen> createState() => _TestScreenState();
-}
-
-class _TestScreenState extends State<TestScreen> {
-  var rating = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +14,7 @@ class _TestScreenState extends State<TestScreen> {
         elevation: 0,
         iconTheme: Theme.of(context).iconTheme,
         title: Text(
-          "Test Screen",
+          "Give Reviews",
           style: Theme.of(context).textTheme.titleSmall,
         ),
       ),
@@ -61,41 +54,21 @@ class _TestScreenState extends State<TestScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-            RatingBar.builder(
-              initialRating: 0,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: false,
-              itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              onRatingUpdate: (rating) {
-                print(rating);
-              },
-            ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: <Widget>[
-                //     for (int i = 0; i < 5; i++)
-                //       GestureDetector(
-                //         onTap: () {
-                //           setState(() {
-                //             rating = true;
-                //           });
-                //         },
-                //         child: Icon(
-                //           Icons.star,
-                //           size: 40,
-                //           color: rating == true
-                //               ? Colors.amber
-                //               : Colors.transparent,
-                //         ),
-                //       ),
-                //   ],
-                // ),
+                RatingBar.builder(
+                  initialRating: 0,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: false,
+                  itemCount: 5,
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                  },
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),

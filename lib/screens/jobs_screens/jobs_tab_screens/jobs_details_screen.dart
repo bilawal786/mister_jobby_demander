@@ -391,8 +391,8 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         CustomButton(
-                          onPress: () {},
-                          buttonName: "Validate payment",
+                          onPress: () => Navigator.of(context).pushNamed(MyRoutes.VIEWREQUESTROUTE),
+                          buttonName: "View Request",
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,

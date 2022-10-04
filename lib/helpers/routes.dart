@@ -109,6 +109,9 @@ class MyRoutes {
   static String FAQSCREENROUTE = '/FAQ-Screen';
   static String ABOUTUSROUTE = '/About-Us-Screen';
   static String COMMENTSCREENROUTE = '/Comment-Screen';
+  static String PAYMENTSUCCESSFULLY = '/Payment-Successfully-Screen';
+  static String VIEWREQUESTROUTE = '/View-request-Screen';
+  static String RATINGSCREENROUTE = '/Rating-review-Screen';
 
   static String BASEURL = 'https://misterjobby.ikaedigital.com/api';
   static String IMAGEURL = 'https://misterjobby.ikaedigital.com/';
