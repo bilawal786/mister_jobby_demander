@@ -4,10 +4,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferencesProvider with ChangeNotifier {
   String? token;
+  int? id;
   Future<void> checkToken() async {
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     String? userToken = sharedPrefs.getString("token");
+    int? userId = sharedPrefs.getInt("demandeurId");
     token = userToken.toString();
+    id = userId?.toInt();
     notifyListeners();
   }
 

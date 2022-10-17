@@ -24,7 +24,8 @@ class ProfileProvider with ChangeNotifier {
   Future<void> getProfile() async {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? token = sharePref.getString('token');
-    var response = await http.get(Uri.parse('${MyRoutes.BASEURL}/get/profile'),
+    int? id = sharePref.getInt('demandeurId');
+    var response = await http.get(Uri.parse('${MyRoutes.BASEURL}/demandeur/profile/$id'),
         headers: <String, String>{
           'Accept': "application/json",
           'Content-Type': "application/json",
@@ -212,16 +213,16 @@ class ProfileProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void getProfileData() {
-    countryDropDownValue = myProfile!.countryId.toString();
-    selectedDateOfBirth = DateTime.parse(myProfile!.dob);
-    if (myProfile?.gender == "Male".tr()) {
-      genderCheck = 1;
-    } else {
-      genderCheck = 2;
-    }
-    notifyListeners();
-  }
+  // void getProfileData() {
+  //   countryDropDownValue = myProfile!.countryId.toString();
+  //   selectedDateOfBirth = DateTime.parse(myProfile!.dob);
+  //   if (myProfile?.gender == "Male".tr()) {
+  //     genderCheck = 1;
+  //   } else {
+  //     genderCheck = 2;
+  //   }
+  //   notifyListeners();
+  // }
 
   countryDropDownFunction(value) {
   countryDropDownValue = value;

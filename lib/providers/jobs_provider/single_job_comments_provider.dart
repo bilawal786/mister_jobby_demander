@@ -16,7 +16,7 @@ class SingleJobCommentsProvider with ChangeNotifier {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? userToken = sharePref.getString('token');
     var response = await http.get(
-      Uri.parse('${MyRoutes.BASEURL}/getComments/$jobId'),
+      Uri.parse('${MyRoutes.BASEURL}/demandeur/getComments/$jobId'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json',
@@ -38,7 +38,7 @@ class SingleJobCommentsProvider with ChangeNotifier {
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     String? userToken = sharedPrefs.getString("token");
     var response = await http.post(
-      Uri.parse('${MyRoutes.BASEURL}/comments'),
+      Uri.parse('${MyRoutes.BASEURL}/demandeur/comments'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json',
@@ -52,7 +52,7 @@ class SingleJobCommentsProvider with ChangeNotifier {
     if (response.statusCode == 200) {
       final newComment = SingleJobCommentsModel(
           id: 0,
-          userId: profileData!.userId,
+          userId: profileData!.demandeurId,
           name: "${profileData.firstName} ${profileData.lastName}",
           image: profileData.image,
           message: sComments.message,
@@ -64,6 +64,7 @@ class SingleJobCommentsProvider with ChangeNotifier {
     } else {
       print("Comment Post API NOT WORKS");
     }
+    print(response.body);
     notifyListeners();
   }
 }

@@ -967,7 +967,7 @@ class ConstProvider with ChangeNotifier {
     };
     var request = http.MultipartRequest(
       "POST",
-      Uri.parse('${MyRoutes.BASEURL}/jobrequest/submit'),
+      Uri.parse('${MyRoutes.BASEURL}/demandeur/jobrequest/submit'),
     );
     request.headers.addAll(headers);
     if (imageUrl != null) {
@@ -1011,12 +1011,15 @@ class ConstProvider with ChangeNotifier {
     request.fields['country_id'] = countryId;
     request.fields['detail_description'] = workDetail;
 
-    var response = await request.send();
+    // var response = await request.send();
+    http.Response response = await http.Response.fromStream(await request.send());
 
     if (response.statusCode == 200) {
       print("job Posted successfully ");
     } else {
       print('job Post Failed');
+      print(response.body);
     }
+    print(response.request);
   }
 }

@@ -12,7 +12,7 @@ class JobProposalsProvider with ChangeNotifier {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? userToken = sharePref.getString('token');
     var response = await http.get(
-      Uri.parse('${MyRoutes.BASEURL}/job/proposals/$jobId'),
+      Uri.parse('${MyRoutes.BASEURL}/demandeur/job/proposals/$jobId'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json',

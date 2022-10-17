@@ -32,6 +32,7 @@ class LoginProvider with ChangeNotifier {
         final login = LoginModel.fromJson(jsonDecode(response.body));
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', login.success.token);
+        await prefs.setInt('demandeurId', login.success.id);
         Navigator.of(context).pushNamedAndRemoveUntil(
           MyRoutes.SPLASHROUTE,
           (route) => false,

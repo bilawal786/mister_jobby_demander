@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
-import '../../models/auth_model/register_model.dart';
+import '../../models/auth_model/login_model.dart';
 
 class RegisterProvider with ChangeNotifier {
   bool checkObscure = true;
@@ -31,7 +31,7 @@ class RegisterProvider with ChangeNotifier {
       }),
     );
     if (response.statusCode == 200) {
-      final register = RegisterModel.fromJson(jsonDecode(response.body));
+      final register = LoginModel.fromJson(jsonDecode(response.body));
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', register.success.token);
       Navigator.of(context)

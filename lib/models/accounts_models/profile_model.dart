@@ -10,7 +10,7 @@ String profileModelToJson(ProfileModel data) => json.encode(data.toJson());
 
 class ProfileModel {
   ProfileModel({
-    required this.userId,
+    required this.demandeurId,
     required this.firstName,
     required this.lastName,
     required this.phone,
@@ -18,17 +18,18 @@ class ProfileModel {
     required this.address,
     required this.country,
     required this.countryId,
-    required this.postalCode,
     required this.image,
-    required this.categoryId,
-    required this.subcategoryId,
-    required this.role,
     required this.gender,
     required this.description,
-    required this.dob,
+    required this.memberSince,
+    required this.totalHireJobber,
+    required this.activeJobs,
+    required this.totalReview,
+    required this.rating,
+    required this.reviews,
   });
 
-  int userId;
+  int demandeurId;
   String firstName;
   String lastName;
   String phone;
@@ -36,50 +37,53 @@ class ProfileModel {
   String address;
   String country;
   int countryId;
-  String postalCode;
   String image;
-  int categoryId;
-  int subcategoryId;
-  int role;
   String gender;
   String description;
-  String dob;
+  String memberSince;
+  int totalHireJobber;
+  int activeJobs;
+  int totalReview;
+  int rating;
+  List<dynamic> reviews;
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
-    userId: json["user_id"],
-    firstName: json["firstName"],
-    lastName: json["lastName"],
+    demandeurId: json["demandeur_id"],
+    firstName: json["first_name"],
+    lastName: json["last_name"],
     phone: json["phone"],
     email: json["email"],
     address: json["address"],
     country: json["country"],
     countryId: json["country_id"],
-    postalCode: json["postalCode"],
     image: json["image"],
-    categoryId: json["category_id"],
-    subcategoryId: json["subcategory_id"],
-    role: json["role"],
     gender: json["gender"],
     description: json["description"],
-    dob: json["dob"],
+    memberSince: json["member_since"],
+    totalHireJobber: json["total_hire_jobber"],
+    activeJobs: json["active_jobs"],
+    totalReview: json["total_review"],
+    rating: json["rating"],
+    reviews: List<dynamic>.from(json["reviews"].map((x) => x)),
   );
 
   Map<String, dynamic> toJson() => {
-    "user_id": userId,
-    "firstName": firstName,
-    "lastName": lastName,
+    "demandeur_id": demandeurId,
+    "first_name": firstName,
+    "last_name": lastName,
     "phone": phone,
     "email": email,
     "address": address,
     "country": country,
     "country_id": countryId,
-    "postalCode": postalCode,
     "image": image,
-    "category_id": categoryId,
-    "subcategory_id": subcategoryId,
-    "role": role,
     "gender": gender,
     "description": description,
-    "dob": dob,
+    "member_since": memberSince,
+    "total_hire_jobber": totalHireJobber,
+    "active_jobs": activeJobs,
+    "total_review": totalReview,
+    "rating": rating,
+    "reviews": List<dynamic>.from(reviews.map((x) => x)),
   };
 }

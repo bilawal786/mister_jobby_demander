@@ -153,9 +153,12 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 40,
                           ),
-                          Text(
-                            widget.jobsInProgressDetail!.address,
-                            style: Theme.of(context).textTheme.bodySmall,
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 1.3,
+                            child: Text(
+                              widget.jobsInProgressDetail!.address,
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
                           ),
                         ],
                       ),

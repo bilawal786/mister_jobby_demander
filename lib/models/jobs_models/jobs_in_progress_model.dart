@@ -14,7 +14,6 @@ class JobsInProgressModel {
     required this.title,
     required this.image,
     required this.detailDescription,
-    required this.description,
     required this.estimateBudget,
     required this.duration,
     required this.serviceDate,
@@ -41,19 +40,19 @@ class JobsInProgressModel {
     required this.surface,
     required this.count,
     required this.input,
+    required this.isHired,
     required this.pickupAddress,
     required this.destinationAddress,
     required this.dob,
     required this.totalOffers,
-    required this.totalComments,
     required this.jobberRequired,
+    required this.totalComments,
   });
 
   int id;
   String title;
   String image;
   String detailDescription;
-  String description;
   String estimateBudget;
   String duration;
   String serviceDate;
@@ -80,19 +79,19 @@ class JobsInProgressModel {
   String surface;
   String count;
   String input;
+  int isHired;
   String pickupAddress;
   String destinationAddress;
   String dob;
   int totalOffers;
-  int totalComments;
   int jobberRequired;
+  int totalComments;
 
   factory JobsInProgressModel.fromJson(Map<String, dynamic> json) => JobsInProgressModel(
     id: json["id"],
     title: json["title"],
     image: json["image"],
     detailDescription: json["detail_description"],
-    description: json["description"],
     estimateBudget: json["estimate_budget"],
     duration: json["duration"],
     serviceDate: json["service_date"],
@@ -119,12 +118,13 @@ class JobsInProgressModel {
     surface: json["surface"],
     count: json["count"],
     input: json["input"],
+    isHired: json["is_hired"],
     pickupAddress: json["pickup_address"],
     destinationAddress: json["destination_address"],
     dob: json["dob"],
     totalOffers: json["total_offers"],
-    totalComments: json["total_comments"],
     jobberRequired: json["jobber_required"],
+    totalComments: json["total_comments"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -132,7 +132,6 @@ class JobsInProgressModel {
     "title": title,
     "image": image,
     "detail_description": detailDescription,
-    "description": description,
     "estimate_budget": estimateBudget,
     "duration": duration,
     "service_date": serviceDate,
@@ -159,11 +158,12 @@ class JobsInProgressModel {
     "surface": surface,
     "count": count,
     "input": input,
+    "is_hired": isHired,
     "pickup_address": pickupAddress,
     "destination_address": destinationAddress,
     "dob": dob,
     "total_offers": totalOffers,
-    "total_comments": totalComments,
     "jobber_required": jobberRequired,
+    "total_comments": totalComments,
   };
 }
