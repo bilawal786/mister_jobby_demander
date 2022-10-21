@@ -19,7 +19,7 @@ class ProfileProvider with ChangeNotifier {
   int genderCheck = 0;
   String genderCheckTitle = "";
   DateTime selectedDateOfBirth = DateTime.now();
-  String countryDropDownValue = "";
+  String countryDropDownValue = "select country";
 
   Future<void> getProfile() async {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
@@ -213,16 +213,6 @@ class ProfileProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  // void getProfileData() {
-  //   countryDropDownValue = myProfile!.countryId.toString();
-  //   selectedDateOfBirth = DateTime.parse(myProfile!.dob);
-  //   if (myProfile?.gender == "Male".tr()) {
-  //     genderCheck = 1;
-  //   } else {
-  //     genderCheck = 2;
-  //   }
-  //   notifyListeners();
-  // }
 
   countryDropDownFunction(value) {
   countryDropDownValue = value;
