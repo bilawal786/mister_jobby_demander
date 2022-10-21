@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/providers/accounts_providers/useful_information_providers/faq_provider.dart';
+import '../../../providers/accounts_providers/useful_information_providers/faq_provider.dart';
 import 'package:provider/provider.dart';
 
 class FAQScreen extends StatefulWidget {
