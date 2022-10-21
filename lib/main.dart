@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:mister_jobby/providers/jobs_provider/job_proposals_provider.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/insurance.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/notifications.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/tax_credit.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/term_and_conditions.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/trust_and_security.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-
 import './helpers/routes.dart';
 import './providers/categories_provider/main_categories_provider.dart';
 import './providers/auth_provider/register_provider.dart';
@@ -265,8 +269,8 @@ class MyApp extends StatelessWidget {
             ),
           ),
           iconTheme: const IconThemeData(
-            color: Colors.black38,
-            size: 30,
+            color: Colors.black,
+            size: 25,
           ),
           buttonTheme: ButtonThemeData(
             buttonColor: Theme.of(context).primaryColor,
@@ -417,6 +421,12 @@ class MyApp extends StatelessWidget {
           MyRoutes.TICKETSCANNERROUTE: (ctx) => const TicketScannerScreen(),
           MyRoutes.NOTIFICATIONDISPLAYROUTE: (ctx) => const NotificationDisplay(),
           MyRoutes.FAQSCREENROUTE: (ctx) => const FAQScreen(),
+          MyRoutes.TRUSTANDSECURITY: (ctx) => const TrustAndSecurity(),
+          MyRoutes.MANAGENOTIFICATIONS: (ctx) => const ManageNotifications(),
+
+          MyRoutes.INSURANCE: (ctx) => const Insurance(),
+          MyRoutes.TAXCREDIT: (ctx) => const TaxCredit(),
+          MyRoutes.TERMSANDCONDITION: (ctx) => const TermsAndCondition(),
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
           MyRoutes.PAYMENTSUCCESSFULLY: (ctx) => const PaymentSuccessScreen(),

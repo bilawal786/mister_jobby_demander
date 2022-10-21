@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class AboutUsScreen extends StatefulWidget {
-  const AboutUsScreen({Key? key}) : super(key: key);
+class TaxCredit extends StatefulWidget {
+  const TaxCredit({Key? key}) : super(key: key);
 
   @override
-  State<AboutUsScreen> createState() => _AboutUsScreenState();
+  State<TaxCredit> createState() => _TaxCreditState();
 }
 
-class _AboutUsScreenState extends State<AboutUsScreen> {
+class _TaxCreditState extends State<TaxCredit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("About Us", style: Theme.of(context).textTheme.titleMedium,),
+        title: Text("Tax credit", style: Theme.of(context).textTheme.titleMedium,),
 
         iconTheme: const IconThemeData(
           color: Colors.black,

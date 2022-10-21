@@ -167,7 +167,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                       height:
                                           MediaQuery.of(context).size.width /
                                               18.5,
-                                      padding: const EdgeInsets.all(3.0),
+                                      // padding: const EdgeInsets.all(2.0),
                                       decoration: BoxDecoration(
                                         border: Border.all(
                                           color: Theme.of(context).primaryColor,
@@ -175,10 +175,12 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                         shape: BoxShape.circle,
                                         color: Theme.of(context).primaryColor,
                                       ),
-                                      child: const Icon(
-                                        Icons.camera_alt_outlined,
-                                        size: 15,
-                                        color: Colors.white,
+                                      child: const Center(
+                                        child:  Icon(
+                                          Icons.camera_alt_outlined,
+                                          size: 15,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -245,7 +247,10 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 onPress: () {},
                               ),
                               CustomListTile(
-                                  onPress: () {},
+                                  onPress: () {
+                                    Navigator.of(context)
+                                        .pushNamed(MyRoutes.MANAGENOTIFICATIONS);
+                                  },
                                   leadingIcon:
                                       Icons.notification_important_outlined,
                                   title: 'Manage_My_Notifications'),
@@ -309,22 +314,26 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       title: "Account_Screen_Help_Center",
                     ),
                     CustomListTile(
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.of(context).pushNamed(MyRoutes.INSURANCE);},
                       leadingIcon: Icons.handshake_outlined,
                       title: "Account_Screen_Insurance",
                     ),
                     CustomListTile(
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.of(context).pushNamed(MyRoutes.TRUSTANDSECURITY);},
                       leadingIcon: Icons.security_outlined,
                       title: "Account_Screen_Trust_security",
                     ),
                     CustomListTile(
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.of(context).pushNamed(MyRoutes.TAXCREDIT);},
                       leadingIcon: Icons.percent_outlined,
                       title: "Account_Screen_Tax_Credit",
                     ),
                     CustomListTile(
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.of(context).pushNamed(MyRoutes.TERMSANDCONDITION);},
                       leadingIcon: Icons.fact_check_outlined,
                       title: "Account_Screen_Terms_conditions",
                     ),
@@ -335,13 +344,13 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       leadingIcon: Icons.info_outline_rounded,
                       title: "About",
                     ),
-                    CustomListTile(
-                      onPress: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const TestScreen()));
-                      },
-                      leadingIcon: Icons.info_outline_rounded,
-                      title: "Test",
-                    ),
+                    // CustomListTile(
+                    //   onPress: () {
+                    //     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const TestScreen()));
+                    //   },
+                    //   leadingIcon: Icons.info_outline_rounded,
+                    //   title: "Test",
+                    // ),
                   ],
                 ),
               ),
