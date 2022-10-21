@@ -38,7 +38,7 @@ class ProfileModel {
   String country;
   int countryId;
   String image;
-  String gender;
+  int gender;
   String description;
   String memberSince;
   int totalHireJobber;

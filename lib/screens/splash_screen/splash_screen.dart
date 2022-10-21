@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 .pushReplacementNamed(MyRoutes.HOMETABROUTE),
           );
       Provider.of<CountryProvider>(context).getCountries();
-      Provider.of<ProfileProvider>(context, listen: false).getProfile();
+      Provider.of<ProfileProvider>(context).getProfile();
       Provider.of<BannerProvider>(context).getBanner();
       Provider.of<FAQProvider>(context).getFAQ();
     }

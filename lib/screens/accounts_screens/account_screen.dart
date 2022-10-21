@@ -149,7 +149,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           child: Image.network(
-                                              "${MyRoutes.IMAGEURL}/${extractedProfile!.image}"),
+                                              "${MyRoutes.IMAGEURL}${extractedProfile?.image}"),
                                         ),
                                       ),
                                 Positioned(
@@ -337,7 +337,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                     ),
                     CustomListTile(
                       onPress: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => TestScreen()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const TestScreen()));
                       },
                       leadingIcon: Icons.info_outline_rounded,
                       title: "Test",
