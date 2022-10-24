@@ -13,14 +13,15 @@ import '../../screens/auth_screens/login_screen.dart';
 import '../../screens/home_screens/search_screen.dart';
 
 class MyHomeBottomTabScreen extends StatefulWidget {
-  const MyHomeBottomTabScreen({Key? key}) : super(key: key);
+   int pageIndex;
+   MyHomeBottomTabScreen({Key? key, this.pageIndex = 0,}) : super(key: key);
 
   @override
   State<MyHomeBottomTabScreen> createState() => _MyHomeBottomTabScreenState();
 }
 
 class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
-  int pageIndex = 0;
+
 
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = const IndexScreen();
@@ -45,9 +46,11 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
               bottomTabBarItem(
                 () {
                   setState(() {
-                    currentScreen =
-                        const IndexScreen(); // if user taps on this dashboard tab will be active
-                    pageIndex = 0;
+                    widget.pageIndex = 0;
+                    if(widget.pageIndex == 0) {
+                      currentScreen =
+                      const IndexScreen();
+                    }// if user taps on this dashboard tab will be active
                   });
                 },
                 Icons.home_rounded,
@@ -60,9 +63,11 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     if (prefsData == 'null') {
                       currentScreen = const LoginScreen();
                     } else {
-                      currentScreen = const JobsScreen();
-                    } // if user taps on this dashboard tab will be active
-                    pageIndex = 1;
+                      widget.pageIndex = 1;
+                      if (widget.pageIndex == 1) {
+                        currentScreen = const JobsScreen();
+                      } // if user taps on this dashboard tab will be active
+                    }
                   });
                 },
                 Icons.work_history_outlined,
@@ -91,9 +96,11 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
               bottomTabBarItem(
                 () {
                   setState(() {
-                    currentScreen =
-                        const MessagesScreen(); // if user taps on this dashboard tab will be active
-                    pageIndex = 2;
+                    widget.pageIndex = 2;
+                    if(widget.pageIndex == 2) {
+                      currentScreen =
+                      const MessagesScreen();
+                    }// if user taps on this dashboard tab will be active
                   });
                 },
                 Icons.mark_as_unread_outlined,
@@ -103,9 +110,11 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
               bottomTabBarItem(
                 () {
                   setState(() {
-                    currentScreen =
-                        const AccountsScreen(); // if user taps on this dashboard tab will be active
-                    pageIndex = 3;
+                    widget.pageIndex = 3;
+                    if(widget.pageIndex == 3) {
+                      currentScreen =
+                      const AccountsScreen();
+                    }// if user taps on this dashboard tab will be active
                   });
                 },
                 Icons.person_outline,
@@ -134,7 +143,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
             Icon(
               iconData,
               size: 25,
-              color: pageIndex == index
+              color: widget.pageIndex == index
                   ? Colors.black
                   : Theme.of(context).iconTheme.color,
             ),
@@ -145,7 +154,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                 fontWeight: FontWeight.w700,
                 overflow: TextOverflow.ellipsis,
                 fontFamily: 'Cerebri Sans Regular',
-                color: pageIndex == index
+                color: widget.pageIndex == index
                     ? Colors.black
                     : Theme.of(context).iconTheme.color,
               ),

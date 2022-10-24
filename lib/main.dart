@@ -280,7 +280,7 @@ class MyApp extends StatelessWidget {
         initialRoute: MyRoutes.SPLASHROUTE,
         routes: {
           MyRoutes.SPLASHROUTE: (ctx) => const SplashScreen(),
-          MyRoutes.HOMETABROUTE: (ctx) => const MyHomeBottomTabScreen(),
+          MyRoutes.HOMETABROUTE: (ctx) => MyHomeBottomTabScreen(),
           MyRoutes.SUBCATEGORYROUTE: (ctx) => const SubCategoriesScreen(),
           MyRoutes.CHILDCATEGORYROUTE: (ctx) => const ChildCategoriesScreen(),
           MyRoutes.ASSEMBLEFURNITUREROUTE: (ctx) =>

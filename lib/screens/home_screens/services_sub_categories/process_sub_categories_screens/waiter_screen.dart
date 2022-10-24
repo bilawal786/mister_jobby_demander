@@ -76,6 +76,7 @@ class _WaiterScreenState extends State<WaiterScreen> {
               print("work Description : ${constProviderData.workDetails}");
 
               constProviderData.postJob(
+                context,
                 mainCateId.toString(),
                 subCateId.toString(),
                 0.toString(),

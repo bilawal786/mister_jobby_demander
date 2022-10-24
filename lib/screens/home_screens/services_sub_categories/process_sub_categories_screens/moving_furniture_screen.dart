@@ -78,6 +78,7 @@ class _MovingFurnitureScreenState extends State<MovingFurnitureScreen> {
               print("work Description : ${constProviderData.workDetails}");
 
               constProviderData.postJob(
+                context,
                 mainCateId.toString(),
                 subCateId.toString(),
                 0.toString(),

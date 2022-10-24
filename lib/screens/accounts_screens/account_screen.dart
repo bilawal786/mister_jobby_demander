@@ -149,7 +149,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           child: Image.network(
-                                              "${MyRoutes.IMAGEURL}${extractedProfile?.image}"),
+                                              "${MyRoutes.IMAGEURL}${extractedProfile!.image}"),
                                         ),
                                       ),
                                 Positioned(

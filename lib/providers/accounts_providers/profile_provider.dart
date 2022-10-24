@@ -32,9 +32,8 @@ class ProfileProvider with ChangeNotifier {
           'Authorization': 'Bearer $token',
         });
     if (response.statusCode == 200) {
-      print('get profile successfully');
+      debugPrint('get profile successfully');
       myProfile = ProfileModel.fromJson(jsonDecode(response.body));
-      // getProfileData();
       notifyListeners();
     } else {
       print('get profile api not working');

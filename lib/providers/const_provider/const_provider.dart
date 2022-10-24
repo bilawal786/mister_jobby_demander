@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
+import '../../widgets/home_screen_widgets/login_progress_indicator.dart';
 
 class ConstProvider with ChangeNotifier {
   int smallSizedFurnitureAmount = 0;
@@ -922,7 +923,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> postJob(
+  Future<void> postJob( context,
     String categoryId,
     String subcategoryId,
     String childCategoryId,
@@ -957,6 +958,9 @@ class ConstProvider with ChangeNotifier {
     imageUrl1,
     imageUrl2,
   ) async {
+    showDialog(context: context, builder: (BuildContext context){
+      return LoginProgressIndicator();
+    });
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     String? userToken = sharedPrefs.getString("token");
     Map<String, String> headers = {
@@ -1015,11 +1019,43 @@ class ConstProvider with ChangeNotifier {
     http.Response response = await http.Response.fromStream(await request.send());
 
     if (response.statusCode == 200) {
-      print("job Posted successfully ");
+      Navigator.pop(context);
+      Navigator.of(context).pushNamed(MyRoutes.HOMETABROUTE,arguments: {
+        'pageIndex': 1,
+      });
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.blueGrey,
+          content: Text(
+            'job Posted successfully',
+            // textAlign: TextAlign.center,
+          ),
+          duration: Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+      debugPrint("job Posted successfully ");
     } else {
-      print('job Post Failed');
-      print(response.body);
+      Navigator.pop(context);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.blueGrey,
+          content: Text(
+            'job Post Failed',
+            // textAlign: TextAlign.center,
+          ),
+          duration: Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+      debugPrint('job Post Failed');
+      debugPrint(response.body);
     }
-    print(response.request);
+    // print(response.request);
+  notifyListeners();
   }
 }

@@ -21,7 +21,7 @@ class LoginProgressIndicator extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width/20,
+                width: MediaQuery.of(context).size.width/30,
               ),
               const CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation(Colors.black),

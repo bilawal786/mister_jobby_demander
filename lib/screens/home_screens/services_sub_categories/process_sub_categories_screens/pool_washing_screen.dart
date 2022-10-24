@@ -80,6 +80,7 @@ class _PoolWashingScreenState extends State<PoolWashingScreen> {
               print("work Description : ${constProviderData.workDetails}");
 
               constProviderData.postJob(
+                context,
                 mainCateId.toString(),
                 subCateId.toString(),
                 0.toString(),

@@ -39,6 +39,7 @@ class RegisterProvider with ChangeNotifier {
       final register = RegistrationModel.fromJson(jsonDecode(response.body));
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', register.success.token);
+      await prefs.setInt('demandeurId', register.success.id);
       Navigator.of(context)
           .pushNamedAndRemoveUntil(MyRoutes.SPLASHROUTE, (route) => false);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();

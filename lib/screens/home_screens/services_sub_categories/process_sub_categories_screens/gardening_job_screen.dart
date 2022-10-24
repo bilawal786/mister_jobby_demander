@@ -76,6 +76,7 @@ class _GardeningJobScreenState extends State<GardeningJobScreen> {
               print("work Description : ${constProviderData.workDetails}");
 
               constProviderData.postJob(
+                context,
                 mainCateId.toString(),
                 subCateId.toString(),
                 0.toString(),

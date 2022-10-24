@@ -81,6 +81,7 @@ class _WashingMachineScreenState extends State<WashingMachineScreen> {
               print("work Description : ${constProviderData.workDetails}");
 
               constProviderData.postJob(
+                context,
                 mId.toString(),
                 subId.toString(),
                 childId.toString(),

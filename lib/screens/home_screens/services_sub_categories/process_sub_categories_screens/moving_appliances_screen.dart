@@ -77,6 +77,7 @@ class _MovingAppliancesScreenState extends State<MovingAppliancesScreen> {
               print("work Description : ${constProviderData.workDetails}");
 
               constProviderData.postJob(
+                context,
                 mainCateId.toString(),
                 subCateId.toString(),
                 0.toString(),
