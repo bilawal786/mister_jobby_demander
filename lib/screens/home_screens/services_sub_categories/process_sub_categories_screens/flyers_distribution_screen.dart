@@ -79,6 +79,7 @@ class _FlyersDistributionScreenState extends State<FlyersDistributionScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mainCateId.toString(),

@@ -78,6 +78,7 @@ class _HoodInstallationScreenState extends State<HoodInstallationScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mId.toString(),

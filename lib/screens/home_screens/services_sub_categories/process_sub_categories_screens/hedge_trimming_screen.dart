@@ -89,6 +89,7 @@ class _HedgeTrimmingScreenState extends State<HedgeTrimmingScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mainCateId.toString(),

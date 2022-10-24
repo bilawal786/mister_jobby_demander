@@ -76,6 +76,7 @@ class _IroningScreenState extends State<IroningScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mainCateId.toString(),

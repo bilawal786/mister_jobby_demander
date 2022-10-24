@@ -82,6 +82,7 @@ class _HangPictureScreenState extends State<HangPictureScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mId.toString(),

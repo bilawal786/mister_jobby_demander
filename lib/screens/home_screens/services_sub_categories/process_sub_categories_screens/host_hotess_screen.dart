@@ -75,6 +75,7 @@ class _HostHostessScreenState extends State<HostHostessScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mainCateId.toString(),

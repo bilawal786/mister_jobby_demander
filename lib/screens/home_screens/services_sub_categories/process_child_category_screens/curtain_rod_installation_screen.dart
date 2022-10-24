@@ -81,6 +81,7 @@ class _CurtainInstallationScreenState extends State<CurtainInstallationScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mId.toString(),

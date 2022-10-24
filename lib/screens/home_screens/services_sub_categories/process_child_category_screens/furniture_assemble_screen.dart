@@ -85,6 +85,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               print("country Id : ${constProviderData.countryDropDownValue}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mId.toString(),

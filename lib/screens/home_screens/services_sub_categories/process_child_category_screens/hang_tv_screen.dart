@@ -83,6 +83,7 @@ class _HangTVScreenState extends State<HangTVScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mId.toString(),

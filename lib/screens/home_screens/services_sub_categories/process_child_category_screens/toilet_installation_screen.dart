@@ -80,7 +80,7 @@ class _ToiletInstallationScreenState extends State<ToiletInstallationScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
-
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mId.toString(),

@@ -15,100 +15,107 @@ class InProgressItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(5.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width / 2.6,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.black12,
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: Image.network(
-                '${MyRoutes.IMAGEURL}/${jobsInProgress!.image}',
-                fit: BoxFit.fill,
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (ctx) => JobsDetailsScreen(
+              jobsInProgressDetail: jobsInProgress,
+            )));
+      },
+      child: Container(
+        margin: const EdgeInsets.all(5.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width / 2.6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.black12,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.network(
+                  '${MyRoutes.IMAGEURL}/${jobsInProgress!.image}',
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
-          ),
-          Text(
-            jobsInProgress!.title,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 80,
-          ),
-          Text(
-            '${jobsInProgress!.serviceDate} from ${jobsInProgress!.startTime}',
-            style: Theme.of(context).textTheme.labelMedium,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
-          ),
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              color: Colors.blueGrey.shade100,
-              borderRadius: BorderRadius.circular(10.0),
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 40,
             ),
-            child: Row(
-              children: <Widget>[
-                Icon(
-                  Icons.notifications_outlined,
-                  size: 20,
-                  color: Theme.of(context).primaryColor,
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Text(
-                  "Received_Offer_Notification",
-                  style: TextStyle(
-                    fontFamily: 'Cerebri Sans Bold',
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 14,
-                  ),
-                ).tr(),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 40,
-                ),
-                Text(
-                  '${jobsInProgress!.totalOffers}',
-                  style: TextStyle(
-                    fontFamily: 'Cerebri Sans Bold',
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 14,
-                  ),
-                )
-              ],
+            Text(
+              jobsInProgress!.title,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
-          ),
-          CustomButton(
-              onPress: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (ctx) => JobsDetailsScreen(
-                          jobsInProgressDetail: jobsInProgress,
-                        )));
-              },
-              buttonName: "Manage_Request"),
-          SizedBox(
-            height: MediaQuery.of(context).size.width / 40,
-          ),
-          const Divider(
-            thickness: 5,
-            color: Colors.black26,
-          ),
-        ],
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 80,
+            ),
+            Text(
+              '${jobsInProgress!.serviceDate} from ${jobsInProgress!.startTime}',
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 40,
+            ),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.blueGrey.shade100,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.notifications_outlined,
+                    size: 20,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    "Received_Offer_Notification",
+                    style: TextStyle(
+                      fontFamily: 'Cerebri Sans Bold',
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 14,
+                    ),
+                  ).tr(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    '${jobsInProgress!.totalOffers}',
+                    style: TextStyle(
+                      fontFamily: 'Cerebri Sans Bold',
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 14,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 40,
+            ),
+            CustomButton(
+                onPress: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (ctx) => JobsDetailsScreen(
+                        jobsInProgressDetail: jobsInProgress,
+                      )));},
+                buttonName: "Manage_Request"),
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 40,
+            ),
+            const Divider(
+              thickness: 5,
+              color: Colors.black26,
+            ),
+          ],
+        ),
       ),
     );
   }

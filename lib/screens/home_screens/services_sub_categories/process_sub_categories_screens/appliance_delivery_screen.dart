@@ -79,6 +79,7 @@ class _ApplianceDeliveryScreenState extends State<ApplianceDeliveryScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mainCateId.toString(),

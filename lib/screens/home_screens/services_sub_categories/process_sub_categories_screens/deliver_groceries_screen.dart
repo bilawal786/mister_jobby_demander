@@ -77,6 +77,7 @@ class _DeliverGroceriesScreenState extends State<DeliverGroceriesScreen> {
               print("Postal Code : ${constProviderData.postalCode}");
               print("work Description : ${constProviderData.workDetails}");
 
+              FocusScope.of(context).unfocus();
               constProviderData.postJob(
                 context,
                 mainCateId.toString(),
