@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
 import '../../models/auth_model/login_model.dart';
+import '../../widgets/home_screen_widgets/login_progress_indicator.dart';
 
 class LoginProvider with ChangeNotifier {
   bool checkObscure = true;
@@ -15,6 +16,9 @@ class LoginProvider with ChangeNotifier {
   }
 
   Future<void> login(BuildContext context, email, password) async {
+    showDialog(context: context, builder: (BuildContext context){
+      return LoginProgressIndicator();
+    });
     try {
       var response = await http.post(
         Uri.parse('${MyRoutes.BASEURL}/login'),
@@ -33,6 +37,7 @@ class LoginProvider with ChangeNotifier {
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', login.success.token);
         await prefs.setInt('demandeurId', login.success.id);
+        Navigator.pop(context);
         Navigator.of(context).pushNamedAndRemoveUntil(
           MyRoutes.SPLASHROUTE,
           (route) => false,
@@ -52,6 +57,7 @@ class LoginProvider with ChangeNotifier {
         );
         notifyListeners();
       } else {
+        Navigator.of(context).pop();
         print("Failed to login.");
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(

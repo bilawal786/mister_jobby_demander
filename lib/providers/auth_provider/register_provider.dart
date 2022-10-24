@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
-import '../../models/auth_model/login_model.dart';
+import '../../models/auth_model/registration_model.dart';
+import '../../widgets/home_screen_widgets/login_progress_indicator.dart';
 
 class RegisterProvider with ChangeNotifier {
   bool checkObscure = true;
@@ -16,6 +17,9 @@ class RegisterProvider with ChangeNotifier {
 
   Future<void> registration(BuildContext context, firstName, lastName, email,
       password) async {
+    showDialog(context: context, builder: (BuildContext context){
+      return LoginProgressIndicator();
+    });
     var response = await http.post(
       Uri.parse('${MyRoutes.BASEURL}/register'),
       headers: <String, String>{
@@ -31,7 +35,8 @@ class RegisterProvider with ChangeNotifier {
       }),
     );
     if (response.statusCode == 200) {
-      final register = LoginModel.fromJson(jsonDecode(response.body));
+      Navigator.pop(context);
+      final register = RegistrationModel.fromJson(jsonDecode(response.body));
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', register.success.token);
       Navigator.of(context)
@@ -51,6 +56,7 @@ class RegisterProvider with ChangeNotifier {
       );
       notifyListeners();
     } else {
+      Navigator.pop(context);
       print('Register api is not working');
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
