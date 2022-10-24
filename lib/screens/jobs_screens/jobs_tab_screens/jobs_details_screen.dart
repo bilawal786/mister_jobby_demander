@@ -24,7 +24,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
       builder: (BuildContext context) {
         return SafeArea(
           child: Container(
-            height: MediaQuery.of(context).size.width / 4.8,
+            height: MediaQuery.of(context).size.width / 2.5,
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.all(10),
             child: Column(
