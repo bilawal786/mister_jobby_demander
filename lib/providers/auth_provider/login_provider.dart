@@ -17,7 +17,7 @@ class LoginProvider with ChangeNotifier {
 
   Future<void> login(BuildContext context, email, password) async {
     showDialog(context: context, builder: (BuildContext context){
-      return LoginProgressIndicator();
+      return const LoginProgressIndicator();
     });
     try {
       var response = await http.post(
