@@ -3,6 +3,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:http/http.dart' as http;
+import 'package:mister_jobby/screens/home_screens/home_tabs_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
@@ -1020,9 +1021,7 @@ class ConstProvider with ChangeNotifier {
 
     if (response.statusCode == 200) {
       Navigator.pop(context);
-      Navigator.of(context).pushNamed(MyRoutes.HOMETABROUTE,arguments: {
-        'pageIndex': 1,
-      });
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => MyHomeBottomTabScreen(pageIndex: 1,)));
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
