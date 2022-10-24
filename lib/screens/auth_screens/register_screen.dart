@@ -3,8 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/auth_provider/register_provider.dart';
-import '../../providers/const_provider/const_provider.dart';
-import '../../providers/country_provider/country_list_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -37,18 +35,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
     final registerData = Provider.of<RegisterProvider>(context, listen: false);
     var isValid = _formKey.currentState!.validate();
     if (!isValid) {
-      print("isNotValid");
+      return;
     }
     _formKey.currentState!.save();
 
     registerData.registration(context, firstNameController.text, lastNameController.text, emailController.text, passwordController.text);
-  print("object");
   }
 
   @override
   Widget build(BuildContext context) {
-    final countryData = Provider.of<CountryProvider>(context, listen: false);
-    final extractCountry = countryData.countryList;
     return Scaffold(
       backgroundColor: const Color(0xFFebf9fe),
       body: SafeArea(
