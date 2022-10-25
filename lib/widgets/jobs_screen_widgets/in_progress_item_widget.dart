@@ -28,20 +28,20 @@ class InProgressItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.width / 2.6,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.black12,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.network(
-                  '${MyRoutes.IMAGEURL}/${jobsInProgress!.image}',
-                  fit: BoxFit.fill,
-                ),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.width / 2.6,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color: Colors.black12,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.network(
+                '${MyRoutes.IMAGEURL}/${jobsInProgress!.image}',
+                fit: BoxFit.fill,
               ),
             ),
+              ),
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),

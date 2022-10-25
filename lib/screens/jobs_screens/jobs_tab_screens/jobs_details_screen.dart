@@ -105,10 +105,24 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(5),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    child: Icon(
+                      Icons.more_vert,
+                    ))
+              ],
+            ),
             backgroundColor: Colors.white,
             iconTheme: const IconThemeData(color: Colors.black, size: 25),
             elevation: 0,
-            expandedHeight: 180,
+            expandedHeight: 140,
             pinned: true,
             floating: true,
             snap: true,
@@ -299,20 +313,32 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       children: <Widget>[
                         Row(
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width / 6,
-                              height: MediaQuery.of(context).size.width / 6,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.black12,
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50),
-                                child: Image.network(
-                                  "https://www.erc.com.pk/wp-content/uploads/person4.jpg",
-                                  fit: BoxFit.cover,
+                            Stack(
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width / 6,
+                                  height: MediaQuery.of(context).size.width / 6,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.black12,
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(50),
+                                    child: Image.network(
+                                      "https://www.erc.com.pk/wp-content/uploads/person4.jpg",
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                Positioned(
+                                  right: -2,
+                                  child: Icon(
+                                    Icons.verified_user,
+                                    color: Colors.green.shade700,
+                                    size: 23,
+                                  ),
+                                ),
+                              ],
                             ),
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 40,
@@ -320,9 +346,41 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  "Name here",
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                Stack(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(right: 28),
+                                      child: Text(
+                                        "Name here",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      right: 0,
+                                      top: 3,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                          borderRadius:
+                                              BorderRadius.circular(2),
+                                        ),
+                                        padding: const EdgeInsets.only(
+                                          left: 1,
+                                          right: 1,
+                                        ),
+                                        child: const Text(
+                                          'PRO',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.white,
+                                            fontFamily: 'Cerebri Sans Bold',
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Row(
                                   children: <Widget>[
@@ -332,8 +390,8 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                       size: 20,
                                     ),
                                     SizedBox(
-                                      width:
-                                          MediaQuery.of(context).size.width / 80,
+                                      width: MediaQuery.of(context).size.width /
+                                          80,
                                     ),
                                     Text(
                                       "5",
@@ -341,8 +399,8 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                           Theme.of(context).textTheme.bodySmall,
                                     ),
                                     SizedBox(
-                                      width:
-                                          MediaQuery.of(context).size.width / 80,
+                                      width: MediaQuery.of(context).size.width /
+                                          80,
                                     ),
                                     Row(
                                       children: [
@@ -353,9 +411,10 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                               .bodySmall,
                                         ),
                                         SizedBox(
-                                          width:
-                                              MediaQuery.of(context).size.width /
-                                                  100,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              100,
                                         ),
                                         Text(
                                           "Views)",
@@ -394,7 +453,8 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         CustomButton(
-                          onPress: () => Navigator.of(context).pushNamed(MyRoutes.VIEWREQUESTROUTE),
+                          onPress: () => Navigator.of(context)
+                              .pushNamed(MyRoutes.VIEWREQUESTROUTE),
                           buttonName: "View Request",
                         ),
                         SizedBox(
