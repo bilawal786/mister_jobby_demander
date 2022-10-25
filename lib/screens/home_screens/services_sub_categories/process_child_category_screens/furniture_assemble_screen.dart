@@ -73,7 +73,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               print("selected time: ${constProviderData.pickedTime.hour < 10 ? "0${constProviderData.pickedTime.hour}":"${constProviderData.pickedTime.hour}"}:${constProviderData.pickedTime.minute < 10 ? "0${constProviderData.pickedTime.minute}" : "${constProviderData.pickedTime.minute}"}");
               // print("selected duration: ${constProviderData.duration}");
               // print("selected rate: ${constProviderData.hourlyRate}");
-              // print("isUrgent : ${constProviderData.checkUrgentJob}");
+              print("isUrgent : ${constProviderData.checkUrgentJob}");
               // print("provider required : ${constProviderData.providersAmount}");
               // print("image1 : ${constProviderData.imageFile0}");
               // print("image2 : ${constProviderData.imageFile1}");
