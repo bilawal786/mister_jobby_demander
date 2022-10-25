@@ -1007,7 +1007,7 @@ class ConstProvider with ChangeNotifier {
     request.fields['duration'] = duration;
     request.fields['hours'] = hour;
     request.fields['urgent'] = urgent;
-    request.fields['jobber'] = jobber;
+    request.fields['jobbers'] = jobber;
     request.fields['estimate_budget'] = estimatedBudget;
     request.fields['address'] = address;
     request.fields['longitude'] = longitude;
