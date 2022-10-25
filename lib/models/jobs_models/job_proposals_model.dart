@@ -2,6 +2,7 @@
 //
 //     final jobProposalsModel = jobProposalsModelFromJson(jsonString);
 
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
 List<JobProposalsModel> jobProposalsModelFromJson(String str) => List<JobProposalsModel>.from(json.decode(str).map((x) => JobProposalsModel.fromJson(x)));
@@ -54,11 +55,22 @@ class Jobber {
     required this.description,
     required this.hours,
     required this.totalHours,
+    required this.latitude,
+    required this.longitude,
+    required this.radius,
     required this.memberSince,
     required this.experince,
     required this.totalJobs,
     required this.completedJobs,
     required this.cancelJobs,
+    required this.skilsSubcategory,
+    required this.skilsChildcategory,
+    required this.badge,
+    required this.qualification,
+    required this.professional,
+    required this.availableStatus,
+    required this.pro,
+    required this.verified,
     required this.equipements,
     required this.engagments,
     required this.personalDescription,
@@ -75,26 +87,37 @@ class Jobber {
   String address;
   String country;
   String image;
-  String gender;
+  int gender;
   String description;
   String hours;
   String totalHours;
+  String latitude;
+  String longitude;
+  String radius;
   DateTime memberSince;
   String experince;
   int totalJobs;
   int completedJobs;
   int cancelJobs;
+  List<SkilsCategory> skilsSubcategory;
+  List<SkilsCategory> skilsChildcategory;
+  int badge;
+  String qualification;
+  String professional;
+  bool availableStatus;
+  bool pro;
+  bool verified;
   String equipements;
   String engagments;
   String personalDescription;
   int totalReview;
   int rating;
-  List<Review> reviews;
+  List<dynamic> reviews;
 
   factory Jobber.fromJson(Map<String, dynamic> json) => Jobber(
     jobberId: json["jobber_id"],
-    firstName: json["firstName"],
-    lastName: json["lastName"],
+    firstName: json["first_name"],
+    lastName: json["last_name"],
     phone: json["phone"],
     email: json["email"],
     address: json["address"],
@@ -104,23 +127,34 @@ class Jobber {
     description: json["description"],
     hours: json["hours"],
     totalHours: json["total_hours"],
+    latitude: json["latitude"],
+    longitude: json["longitude"],
+    radius: json["radius"],
     memberSince: DateTime.parse(json["member_since"]),
     experince: json["experince"],
     totalJobs: json["total_jobs"],
     completedJobs: json["completed_jobs"],
     cancelJobs: json["cancel_jobs"],
+    skilsSubcategory: List<SkilsCategory>.from(json["skilsSubcategory"].map((x) => SkilsCategory.fromJson(x))),
+    skilsChildcategory: List<SkilsCategory>.from(json["skilsChildcategory"].map((x) => SkilsCategory.fromJson(x))),
+    badge: json["badge"],
+    qualification: json["qualification"],
+    professional: json["professional"],
+    availableStatus: json["available_status"],
+    pro: json["pro"],
+    verified: json["verified"],
     equipements: json["equipements"],
     engagments: json["engagments"],
     personalDescription: json["personal_description"],
     totalReview: json["total_review"],
     rating: json["rating"],
-    reviews: List<Review>.from(json["reviews"].map((x) => Review.fromJson(x))),
+    reviews: List<dynamic>.from(json["reviews"].map((x) => x)),
   );
 
   Map<String, dynamic> toJson() => {
     "jobber_id": jobberId,
-    "firstName": firstName,
-    "lastName": lastName,
+    "first_name": firstName,
+    "last_name": lastName,
     "phone": phone,
     "email": email,
     "address": address,
@@ -130,56 +164,51 @@ class Jobber {
     "description": description,
     "hours": hours,
     "total_hours": totalHours,
+    "latitude": latitude,
+    "longitude": longitude,
+    "radius": radius,
     "member_since": memberSince.toIso8601String(),
     "experince": experince,
     "total_jobs": totalJobs,
     "completed_jobs": completedJobs,
     "cancel_jobs": cancelJobs,
+    "skilsSubcategory": List<dynamic>.from(skilsSubcategory.map((x) => x.toJson())),
+    "skilsChildcategory": List<dynamic>.from(skilsChildcategory.map((x) => x.toJson())),
+    "badge": badge,
+    "qualification": qualification,
+    "professional": professional,
+    "available_status": availableStatus,
+    "pro": pro,
+    "verified": verified,
     "equipements": equipements,
     "engagments": engagments,
     "personal_description": personalDescription,
     "total_review": totalReview,
     "rating": rating,
-    "reviews": List<dynamic>.from(reviews.map((x) => x.toJson())),
+    "reviews": List<dynamic>.from(reviews.map((x) => x)),
   };
 }
 
-class Review {
-  Review({
+class SkilsCategory {
+  SkilsCategory({
     required this.id,
-    required this.userId,
-    required this.name,
+    required this.title,
     required this.image,
-    required this.message,
-    required this.star,
-    required this.date,
   });
 
   int id;
-  int userId;
-  String name;
+  String title;
   String image;
-  String message;
-  int star;
-  String date;
 
-  factory Review.fromJson(Map<String, dynamic> json) => Review(
+  factory SkilsCategory.fromJson(Map<String, dynamic> json) => SkilsCategory(
     id: json["id"],
-    userId: json["user_id"],
-    name: json["name"],
+    title: json["title"],
     image: json["image"],
-    message: json["message"],
-    star: json["star"],
-    date: json["date"],
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "user_id": userId,
-    "name": name,
+    "title": title,
     "image": image,
-    "message": message,
-    "star": star,
-    "date": date,
   };
 }
