@@ -1027,7 +1027,7 @@ class ConstProvider with ChangeNotifier {
         const SnackBar(
           backgroundColor: Colors.blueGrey,
           content: Text(
-            'job Posted successfully',
+            'Job Posted successfully',
             // textAlign: TextAlign.center,
           ),
           duration: Duration(
@@ -1043,7 +1043,7 @@ class ConstProvider with ChangeNotifier {
         const SnackBar(
           backgroundColor: Colors.blueGrey,
           content: Text(
-            'job Post Failed',
+            'Job Post Failed',
             // textAlign: TextAlign.center,
           ),
           duration: Duration(
