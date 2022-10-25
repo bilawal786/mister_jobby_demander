@@ -105,7 +105,7 @@ class MyRoutes {
   static String TICKETSCANNERROUTE = '/Ticket-Scanner-Screen';
   static String PERSONALINFORMATIONROUTE = '/Personal-Information-Screen';
   static String JOBSDETAILSCREENROUTE = '/Jobs-Detail-Screen';
-  static String NOTIFICATIONDISPLAYROUTE = '/Notification-Display-Screen';
+  static const String NOTIFICATIONDISPLAYROUTE = '/Notification-Display-Screen';
   static String FAQSCREENROUTE = '/FAQ-Screen';
   static String ABOUTUSROUTE = '/About-Us-Screen';
   static String COMMENTSCREENROUTE = '/Comment-Screen';
@@ -113,9 +113,9 @@ class MyRoutes {
   static String VIEWREQUESTROUTE = '/View-request-Screen';
   static String RATINGSCREENROUTE = '/Rating-review-Screen';
   static String TERMSANDCONDITION = '/Terms-and-condition-Screen';
-  static String MANAGENOTIFICATIONS = '/Manage-notifications-Screen';
+  static const String MANAGENOTIFICATIONS = '/Manage-notifications-Screen';
 
-  static String INSURANCE = '/Insurance-Screen';
+  static const String INSURANCE = '/Insurance-Screen';
   static String TRUSTANDSECURITY = '/Trust-and-security-Screen';
   static String TAXCREDIT = '/Tax-credit-Screen';
   static String BASEURL = 'https://misterjobby.ikaedigital.com/api';
