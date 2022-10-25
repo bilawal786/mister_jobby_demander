@@ -26,7 +26,6 @@ class ProfileModel {
     required this.activeJobs,
     required this.totalReview,
     required this.rating,
-    required this.reviews,
   });
 
   int demandeurId;
@@ -45,7 +44,6 @@ class ProfileModel {
   int activeJobs;
   int totalReview;
   int rating;
-  List<dynamic> reviews;
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
     demandeurId: json["demandeur_id"],
@@ -64,7 +62,6 @@ class ProfileModel {
     activeJobs: json["active_jobs"],
     totalReview: json["total_review"],
     rating: json["rating"],
-    reviews: List<dynamic>.from(json["reviews"].map((x) => x)),
   );
 
   Map<String, dynamic> toJson() => {
@@ -84,6 +81,5 @@ class ProfileModel {
     "active_jobs": activeJobs,
     "total_review": totalReview,
     "rating": rating,
-    "reviews": List<dynamic>.from(reviews.map((x) => x)),
   };
 }
