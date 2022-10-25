@@ -201,7 +201,7 @@ class ConstProvider with ChangeNotifier {
       context: context,
       initialTime: pickedTime,
       builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+        data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
         child: Container(child: child),
       ),
     );

@@ -59,31 +59,31 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print("Step completed");
-              print('mainCategoryId: $mId');
-              print("subCategoryId: $subId");
-              print("childCategoryId: $childId");
-              print("childCategoryTitle: $title");
-              print("small: ${constProviderData.smallSizedFurnitureAmount}");
-              print("medium: ${constProviderData.mediumSizedFurnitureAmount}");
-              print("large: ${constProviderData.largeSizedFurnitureAmount}");
-              print(
-                  "extra Large: ${constProviderData.veryLargeSizedFurnitureAmount}");
-              print("question 1: ${constProviderData.cleanBoxTitle}");
-              print("selected date: ${constProviderData.selectedDate}");
-              print("selected time: ${constProviderData.pickedTime}");
-              print("selected duration: ${constProviderData.duration}");
-              print("selected rate: ${constProviderData.hourlyRate}");
-              print("isUrgent : ${constProviderData.checkUrgentJob}");
-              print("provider required : ${constProviderData.providersAmount}");
-              print("image1 : ${constProviderData.imageFile0}");
-              print("image2 : ${constProviderData.imageFile1}");
-              print("image3 : ${constProviderData.imageFile2}");
-              print("address : ${constProviderData.completeAddress}");
-              print("longitude : ${constProviderData.longitude}");
-              print("latitude : ${constProviderData.latitude}");
-              print("Postal Code : ${constProviderData.postalCode}");
-              print("country Id : ${constProviderData.countryDropDownValue}");
-              print("work Description : ${constProviderData.workDetails}");
+              // print('mainCategoryId: $mId');
+              // print("subCategoryId: $subId");
+              // print("childCategoryId: $childId");
+              // print("childCategoryTitle: $title");
+              // print("small: ${constProviderData.smallSizedFurnitureAmount}");
+              // print("medium: ${constProviderData.mediumSizedFurnitureAmount}");
+              // print("large: ${constProviderData.largeSizedFurnitureAmount}");
+              // print(
+              //     "extra Large: ${constProviderData.veryLargeSizedFurnitureAmount}");
+              // print("question 1: ${constProviderData.cleanBoxTitle}");
+              // print("selected date: ${constProviderData.selectedDate}");
+              print("selected time: ${constProviderData.pickedTime.hour < 10 ? "0${constProviderData.pickedTime.hour}":"${constProviderData.pickedTime.hour}"}:${constProviderData.pickedTime.minute < 10 ? "0${constProviderData.pickedTime.minute}" : "${constProviderData.pickedTime.minute}"}");
+              // print("selected duration: ${constProviderData.duration}");
+              // print("selected rate: ${constProviderData.hourlyRate}");
+              // print("isUrgent : ${constProviderData.checkUrgentJob}");
+              // print("provider required : ${constProviderData.providersAmount}");
+              // print("image1 : ${constProviderData.imageFile0}");
+              // print("image2 : ${constProviderData.imageFile1}");
+              // print("image3 : ${constProviderData.imageFile2}");
+              // print("address : ${constProviderData.completeAddress}");
+              // print("longitude : ${constProviderData.longitude}");
+              // print("latitude : ${constProviderData.latitude}");
+              // print("Postal Code : ${constProviderData.postalCode}");
+              // print("country Id : ${constProviderData.countryDropDownValue}");
+              // print("work Description : ${constProviderData.workDetails}");
 
               FocusScope.of(context).unfocus();
               constProviderData.postJob(
@@ -93,7 +93,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                 childId.toString(),
                 title!,
                 constProviderData.selectedDate.toString(),
-                constProviderData.pickedTime.toString(),
+                "${constProviderData.pickedTime.hour < 10 ? "0${constProviderData.pickedTime.hour}":"${constProviderData.pickedTime.hour}"}:${constProviderData.pickedTime.minute < 10 ? "0${constProviderData.pickedTime.minute}" : "${constProviderData.pickedTime.minute}"}",
                 constProviderData.duration.toString(),
                 constProviderData.hourlyRate.toString(),
                 constProviderData.checkUrgentJob.toString(),
