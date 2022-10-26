@@ -75,6 +75,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                               ).tr(),
                             ),
                           ),
+
                         ],
                       ),
                     ),

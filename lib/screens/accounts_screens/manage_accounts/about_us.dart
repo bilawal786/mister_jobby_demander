@@ -52,11 +52,12 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
-                    Container(
+                    Container(color: Colors.red,
                         margin: const EdgeInsets.all(10),
                         child: Text(
                           extractAbout.copyright,
                           style: Theme.of(context).textTheme.bodySmall,
+                          textAlign: TextAlign.center,
                         )),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,

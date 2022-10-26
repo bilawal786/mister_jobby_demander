@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
+import '../../../providers/jobs_provider/jobs_in_progress_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
 import '../../../providers/const_provider/const_provider.dart';
 
@@ -10,11 +11,16 @@ class EditJobScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final editJobData = Provider.of<JobsInProgressProvider>(context);
+    final extractJobsData = editJobData.inProgressJobs;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text("Edit Job", style: Theme.of(context).textTheme.bodyLarge,),
+        title: Text(
+          "Edit Job",
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
         iconTheme: const IconThemeData(
           color: Colors.black45,
           size: 25,
@@ -50,7 +56,7 @@ class EditJobScreen extends StatelessWidget {
                         spreadRadius: 0.2,
                         blurRadius: 1,
                         offset:
-                        const Offset(0.5, 1), // changes position of shadow
+                            const Offset(0.5, 1), // changes position of shadow
                       ),
                     ],
                     border: Border.all(color: Colors.grey.shade300),
@@ -96,7 +102,7 @@ class EditJobScreen extends StatelessWidget {
                         spreadRadius: 0.2,
                         blurRadius: 1,
                         offset:
-                        const Offset(0.5, 1), // changes position of shadow
+                            const Offset(0.5, 1), // changes position of shadow
                       ),
                     ],
                     borderRadius: BorderRadius.circular(7),
@@ -241,7 +247,8 @@ class EditJobScreen extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.width / 30,
             ),
-            CustomButton(onPress: (){}, buttonName: "Saved"),
+            CustomButton(onPress: () {
+            }, buttonName: "Saved"),
           ],
         ),
       ),

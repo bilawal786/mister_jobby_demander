@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../providers/accounts_providers/about_provider/about_provider.dart';
 import '../../../providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
 
 class TermsAndCondition extends StatefulWidget {
@@ -13,6 +14,8 @@ class TermsAndCondition extends StatefulWidget {
 class _TermsAndConditionState extends State<TermsAndCondition> {
   @override
   Widget build(BuildContext context) {
+    final copyrightData = Provider.of<AboutProvider>(context);
+    final extractCopyRight = copyrightData.about;
     final termsAndConditionData = Provider.of<TermsAndConditionProvider>(context);
     final extractTermsAndCondition = termsAndConditionData.termsAndCondition;
     return Scaffold(
@@ -47,8 +50,9 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                   children: [
                     Image.asset("assets/images/appLogo.png", scale: 4),
                     Text(
-                      "Tous les droits sont réservés.",
+                      extractCopyRight!.copyright,
                       style: Theme.of(context).textTheme.bodySmall,
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
@@ -56,7 +60,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                     Container(
                         margin: const EdgeInsets.all(10),
                         child: Text(
-                          extractTermsAndCondition.privacy,
+                          extractCopyRight.condition,
                           style: Theme.of(context).textTheme.bodySmall,
                         )),
                     SizedBox(
