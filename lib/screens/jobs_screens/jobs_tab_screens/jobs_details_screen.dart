@@ -39,7 +39,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                   const SizedBox(height: 10,),
                   InkWell(
                     onTap: () {
-                      print('open date and time editor');
+                      debugPrint('open date and time editor');
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (ctx) => const EditJobScreen(),
@@ -66,7 +66,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                               size: 25,
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width/1.4,
                             child: Center(
                               child: Text(
@@ -104,7 +104,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                               size: 25,
                           ),
                            ),
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width/1.4,
                             child: Center(
                               child: Text(
@@ -157,7 +157,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                         size: 25,
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width/1.4,
                       child: Center(
                         child: Text(
@@ -196,7 +196,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.more_vert,
                       ))
                 ],
@@ -431,8 +431,8 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                               children: <Widget>[
                                 Stack(
                                   children: [
-                                    Container(
-                                      padding: EdgeInsets.only(right: 28),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 28),
                                       child: Text(
                                         "Name here",
                                         style: Theme.of(context)
