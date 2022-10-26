@@ -179,7 +179,7 @@ class _HoodInstallationScreenState extends State<HoodInstallationScreen> {
                           )
                         : const SizedBox(),
                     (currentStep == 2 &&
-                            (hoodInstallData.completeAddress == '') &&
+                            (hoodInstallData.completeAddress != '') &&
                             (hoodInstallData.postalCode != '') &&
                             (hoodInstallData.countryDropDownValue != 'null'))
                         ? Expanded(

@@ -186,7 +186,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
                         width: MediaQuery.of(context).size.width / 40,
                       ),
                       (currentStep == 2 &&
-                          (furniture.completeAddress == '') &&
+                          (furniture.completeAddress != '') &&
                           (furniture.postalCode != '') &&
                           (furniture.countryDropDownValue != 'null'))
                           ? Expanded(

@@ -186,7 +186,7 @@ class _FenceInstallationScreenState extends State<FenceInstallationScreen> {
                         width: MediaQuery.of(context).size.width / 40,
                       ),
                       (currentStep == 2 &&
-                          (fence.completeAddress == '') &&
+                          (fence.completeAddress != '') &&
                           (fence.postalCode != '') &&
                           (fence.countryDropDownValue != 'null'))
                           ? Expanded(

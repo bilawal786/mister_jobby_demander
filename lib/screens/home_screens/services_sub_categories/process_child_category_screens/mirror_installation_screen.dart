@@ -101,12 +101,12 @@ class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
                 constProviderData.postalCode,
                 constProviderData.countryDropDownValue,
                 constProviderData.workDetails,
-                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.mirrorAmount.toString(),
                 constProviderData.mediumSizedFurnitureAmount.toString(),
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
                 constProviderData.cleanBoxTitle,
-                constProviderData.mirrorAmount.toString(),
+                "",
                 constProviderData.needWork,
                 "",
                 "",
@@ -186,7 +186,7 @@ class _MirrorInstallationScreenState extends State<MirrorInstallationScreen> {
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     (currentStep == 2 &&
-                        (mirror.completeAddress == '') &&
+                        (mirror.completeAddress != '') &&
                         (mirror.postalCode != '') &&
                         (mirror.countryDropDownValue != 'null'))
                         ? Expanded(

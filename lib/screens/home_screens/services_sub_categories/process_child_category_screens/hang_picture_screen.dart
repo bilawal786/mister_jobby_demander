@@ -102,12 +102,12 @@ class _HangPictureScreenState extends State<HangPictureScreen> {
                 constProviderData.postalCode,
                 constProviderData.countryDropDownValue,
                 constProviderData.workDetails,
-                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.pictureAmount.toString(),
                 constProviderData.mediumSizedFurnitureAmount.toString(),
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
                 constProviderData.cleanBoxTitle,
-                constProviderData.pictureAmount.toString(),
+                "",
                 constProviderData.needWork,
                 "",
                 "",
@@ -187,7 +187,7 @@ class _HangPictureScreenState extends State<HangPictureScreen> {
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     (currentStep == 2 &&
-                        (picture.completeAddress == '') &&
+                        (picture.completeAddress != '') &&
                         (picture.postalCode != '') &&
                         (picture.countryDropDownValue != 'null'))
                         ? Expanded(

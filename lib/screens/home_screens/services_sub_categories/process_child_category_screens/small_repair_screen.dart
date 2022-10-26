@@ -182,7 +182,7 @@ class _SmallRepairScreenState extends State<SmallRepairScreen> {
                       )
                           : const SizedBox(),
                       (currentStep == 2 &&
-                          (smallRepair.completeAddress == '') &&
+                          (smallRepair.completeAddress != '') &&
                           (smallRepair.postalCode != '') &&
                           (smallRepair.countryDropDownValue != 'null'))
                           ? Expanded(

@@ -102,12 +102,12 @@ class _ShowerInstallationScreenState extends State<ShowerInstallationScreen> {
                 constProviderData.postalCode,
                 constProviderData.countryDropDownValue,
                 constProviderData.workDetails,
-                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.showerAmount.toString(),
                 constProviderData.mediumSizedFurnitureAmount.toString(),
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
                 constProviderData.cleanBoxTitle,
-                constProviderData.showerAmount.toString(),
+                "",
                 constProviderData.needWork,
                 "",
                 "",
@@ -187,7 +187,7 @@ class _ShowerInstallationScreenState extends State<ShowerInstallationScreen> {
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     (currentStep == 2 &&
-                        (shower.completeAddress == '') &&
+                        (shower.completeAddress != '') &&
                         (shower.postalCode != '') &&
                         (shower.countryDropDownValue != 'null'))
                         ? Expanded(

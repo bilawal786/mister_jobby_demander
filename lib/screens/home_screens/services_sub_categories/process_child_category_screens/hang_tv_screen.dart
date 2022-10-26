@@ -103,12 +103,12 @@ class _HangTVScreenState extends State<HangTVScreen> {
                 constProviderData.postalCode,
                 constProviderData.countryDropDownValue,
                 constProviderData.workDetails,
-                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.tvHangNo.toString(),
                 constProviderData.mediumSizedFurnitureAmount.toString(),
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
                 constProviderData.cleanBoxTitle,
-                constProviderData.tvHangNo.toString(),
+                "",
                 constProviderData.needWork,
                 "",
                 "",
@@ -189,7 +189,7 @@ class _HangTVScreenState extends State<HangTVScreen> {
                       width: MediaQuery.of(context).size.width / 40,
                     ),
                     (currentStep == 2 &&
-                        (tv.completeAddress == '') &&
+                        (tv.completeAddress != '') &&
                         (tv.postalCode != '') &&
                         (tv.countryDropDownValue != 'null'))
                         ? Expanded(
