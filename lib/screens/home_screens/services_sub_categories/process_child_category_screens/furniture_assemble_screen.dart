@@ -75,9 +75,9 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               // print("selected rate: ${constProviderData.hourlyRate}");
               print("isUrgent : ${constProviderData.checkUrgentJob}");
               print("provider required : ${constProviderData.providersAmount}");
-              // print("image1 : ${constProviderData.imageFile0}");
-              // print("image2 : ${constProviderData.imageFile1}");
-              // print("image3 : ${constProviderData.imageFile2}");
+              print("image1 : ${constProviderData.imageFile0}");
+              print("image2 : ${constProviderData.imageFile1}");
+              print("image3 : ${constProviderData.imageFile2}");
               // print("address : ${constProviderData.completeAddress}");
               // print("longitude : ${constProviderData.longitude}");
               // print("latitude : ${constProviderData.latitude}");

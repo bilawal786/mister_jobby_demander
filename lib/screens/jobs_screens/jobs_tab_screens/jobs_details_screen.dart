@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/edit_job_screen.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../helpers/routes.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
@@ -24,73 +25,100 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
       builder: (BuildContext context) {
         return SafeArea(
           child: Container(
-            height: MediaQuery.of(context).size.width / 2.5,
+            height: MediaQuery.of(context).size.width/ 1.8,
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Edit_Job",
-                  style: Theme.of(context).textTheme.titleSmall,
-                ).tr(),
-                const Divider(),
-                InkWell(
-                  onTap: () {
-                    print('open date and time editor');
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (ctx) => const EditJobScreen(),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Edit_Job",
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ).tr(),
+                  const SizedBox(height: 10,),
+                  InkWell(
+                    onTap: () {
+                      print('open date and time editor');
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => const EditJobScreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width:double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(width: 1,color: Colors.blue),
                       ),
-                    );
-                  },
-                  child: Row(
-                    children: [
-                      const SizedBox(
-                        width: 15,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(color: Colors.blueGrey.shade100,
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                            child: Icon(
+                              Icons.watch_later_outlined,
+                              color: Theme.of(context).primaryColor,
+                              size: 25,
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width/1.4,
+                            child: Center(
+                              child: Text(
+                                "Change_Date",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ).tr(),
+                            ),
+                          ),
+                        ],
                       ),
-                      Icon(
-                        Icons.watch_later_outlined,
-                        color: Theme.of(context).primaryColor,
-                        size: 25,
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        "Change_Date",
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ).tr(),
-                    ],
+                    ),
                   ),
-                ),
-                const Divider(),
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Row(
-                    children: [
-                      const SizedBox(
-                        width: 15,
+                 const SizedBox(height: 15,),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                      width:double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(width: 1,color: Colors.blue),
                       ),
-                      const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                        size: 25,
+                      child: Row(
+                        children: [
+                           Container(
+                             width: 60,
+                             height: 60,
+                             decoration: BoxDecoration(color: Colors.blueGrey.shade100,
+                               borderRadius: BorderRadius.circular(3),
+                             ),
+                             child: const Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                              size: 25,
+                          ),
+                           ),
+                          Container(
+                            width: MediaQuery.of(context).size.width/1.4,
+                            child: Center(
+                              child: Text(
+                                "Delete_Job",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ).tr(),
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        "Delete_Job",
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ).tr(),
-                    ],
+                    ),
                   ),
-                ),
-                const Divider(),
-              ],
+                ],
+              ),
             ),
           ),
         );
@@ -104,41 +132,43 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
       builder: (BuildContext context) {
         return SafeArea(
           child: Container(
-            height: MediaQuery.of(context).size.width / 2.5,
+            height: MediaQuery.of(context).size.width / 6,
             margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "",
-                  style: Theme.of(context).textTheme.titleSmall,
-                ).tr(),
-                const Divider(),
-                InkWell(
-                  onTap: () {},
-                  child: Row(
-                    children: [
-                      const SizedBox(
-                        width: 15,
+            // padding: const EdgeInsets.all(10,),
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                width:double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(width: 1,color: Colors.blue),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 60,
+                      height: double.infinity,
+                      decoration: BoxDecoration(color: Colors.blueGrey.shade100,
+                      borderRadius: BorderRadius.circular(3),
                       ),
-                      const Icon(
-                        Icons.disabled_by_default_outlined,
-                        color: Colors.red,
+                      child: Icon(
+                        FontAwesomeIcons.personCircleXmark,
+                        color: Colors.red.shade400,
                         size: 25,
                       ),
-                      const SizedBox(
-                        width: 15,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width/1.4,
+                      child: Center(
+                        child: Text(
+                          "Ignore_Job",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ).tr(),
                       ),
-                      Text(
-                        "Ignore_Job",
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ).tr(),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                const Divider(),
-              ],
+              ),
             ),
           ),
         );
