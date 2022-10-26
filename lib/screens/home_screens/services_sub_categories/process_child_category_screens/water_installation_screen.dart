@@ -89,7 +89,7 @@ class _WaterInstallationScreenState extends State<WaterInstallationScreen> {
                 childId.toString(),
                 title!,
                 constProviderData.selectedDate.toString(),
-                constProviderData.pickedTime.toString(),
+                "${constProviderData.pickedTime.hour < 10 ? "0${constProviderData.pickedTime.hour}":"${constProviderData.pickedTime.hour}"}:${constProviderData.pickedTime.minute < 10 ? "0${constProviderData.pickedTime.minute}" : "${constProviderData.pickedTime.minute}"}",
                 constProviderData.duration.toString(),
                 constProviderData.hourlyRate.toString(),
                 constProviderData.checkUrgentJob.toString(),
