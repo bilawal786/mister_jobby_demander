@@ -524,6 +524,6 @@
   "Edit_Job": "Edit Job",
   "Change_Date": "Change date or time",
   "Delete_Job": "Delete the job",
-  "Cancel": "Cancel"
-
+  "Cancel": "Cancel",
+  "Ignore_Job": "Ignore this job"
 }

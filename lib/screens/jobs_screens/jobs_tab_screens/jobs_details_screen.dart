@@ -98,6 +98,54 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
     );
   }
 
+  void ignoreOpenSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Container(
+            height: MediaQuery.of(context).size.width / 2.5,
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "",
+                  style: Theme.of(context).textTheme.titleSmall,
+                ).tr(),
+                const Divider(),
+                InkWell(
+                  onTap: () {},
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      const Icon(
+                        Icons.disabled_by_default_outlined,
+                        color: Colors.red,
+                        size: 25,
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Text(
+                        "Ignore_Job",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ).tr(),
+                    ],
+                  ),
+                ),
+                const Divider(),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,19 +153,24 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(5),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    child: Icon(
-                      Icons.more_vert,
-                    ))
-              ],
+            title: InkWell(
+              onTap: (){
+                ignoreOpenSheet();
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: Icon(
+                        Icons.more_vert,
+                      ))
+                ],
+              ),
             ),
             backgroundColor: Colors.white,
             iconTheme: const IconThemeData(color: Colors.black, size: 25),
@@ -417,7 +470,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                               100,
                                         ),
                                         Text(
-                                          "Views)",
+                                          "Reviews)",
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodySmall,
@@ -452,10 +505,13 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
-                        CustomButton(
-                          onPress: () => Navigator.of(context)
-                              .pushNamed(MyRoutes.VIEWREQUESTROUTE),
-                          buttonName: "View Request",
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: CustomButton(
+                            onPress: () => Navigator.of(context)
+                                .pushNamed(MyRoutes.VIEWREQUESTROUTE),
+                            buttonName: "View Request",
+                          ),
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,

@@ -1022,6 +1022,7 @@ class ConstProvider with ChangeNotifier {
     if (response.statusCode == 200) {
       Navigator.pop(context);
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => MyHomeBottomTabScreen(pageIndex: 1,)));
+      clearData();
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

@@ -66,19 +66,31 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                     children: <Widget>[
                       Row(
                         children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width / 6,
-                            height: MediaQuery.of(context).size.width / 6,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.black12,
-                            ),
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50),
-                                child: Image.network(
-                                  "${MyRoutes.IMAGEURL}/${extractProposal[index].jobber.image}",
-                                  fit: BoxFit.cover,
-                                )),
+                          Stack(
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 6,
+                                height: MediaQuery.of(context).size.width / 6,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black12,
+                                ),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(50),
+                                    child: Image.network(
+                                      "${MyRoutes.IMAGEURL}/${extractProposal[index].jobber.image}",
+                                      fit: BoxFit.cover,
+                                    )),
+                              ),
+                              Positioned(
+                                right: -2,
+                                child: Icon(
+                                  Icons.verified_user,
+                                  color: Colors.green.shade700,
+                                  size: 23,
+                                ),
+                              ),
+                            ],
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 40,
@@ -86,9 +98,40 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                "${extractProposal[index].jobber.firstName} ${extractProposal[index].jobber.lastName}",
-                                style: Theme.of(context).textTheme.bodyMedium,
+                              Stack(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.only(right: 28),
+                                    child: Text(
+                                      "${extractProposal[index].jobber.firstName} ${extractProposal[index].jobber.lastName}",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    right: 0,
+                                    top: 3,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        borderRadius: BorderRadius.circular(2),
+                                      ),
+                                      padding: const EdgeInsets.only(
+                                        left: 1,
+                                        right: 1,
+                                      ),
+                                      child: const Text(
+                                        'PRO',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.white,
+                                          fontFamily: 'Cerebri Sans Bold',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                               Row(
                                 children: <Widget>[
@@ -124,7 +167,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                                 100,
                                       ),
                                       Text(
-                                        "Views)",
+                                        "Reviews)",
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodySmall,
@@ -207,9 +250,15 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
-                      CustomButton(onPress: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> ContinueJobber()));
-                      }, buttonName: "Continue"),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: CustomButton(
+                            onPress: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => ContinueJobber()));
+                            },
+                            buttonName: "Continue"),
+                      ),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
