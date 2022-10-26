@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
-
-class TermsAndCondition extends StatefulWidget {
-  const TermsAndCondition({Key? key}) : super(key: key);
+class TaxCertificatesScreen extends StatefulWidget {
+  const TaxCertificatesScreen({Key? key}) : super(key: key);
 
   @override
-  State<TermsAndCondition> createState() => _TermsAndConditionState();
+  State<TaxCertificatesScreen> createState() => _TaxCertificatesScreenState();
 }
 
-class _TermsAndConditionState extends State<TermsAndCondition> {
+class _TaxCertificatesScreenState extends State<TaxCertificatesScreen> {
   @override
   Widget build(BuildContext context) {
-    final termsAndConditionData = Provider.of<TermsAndConditionProvider>(context);
-    final extractTermsAndCondition = termsAndConditionData.termsAndCondition;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("Terms and conditions", style: Theme.of(context).textTheme.titleMedium,),
+        title: Text("Tax Certificate", style: Theme.of(context).textTheme.titleMedium,),
 
         iconTheme: const IconThemeData(
-            color: Colors.black,
+          color: Colors.black,
         ),
       ),
       body: SingleChildScrollView(
@@ -34,7 +29,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    extractTermsAndCondition!.terms,
+                    "Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design.",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ),
@@ -56,7 +51,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                     Container(
                         margin: const EdgeInsets.all(10),
                         child: Text(
-                          extractTermsAndCondition.privacy,
+                          "Mister Jobby est une application de services mobiles polyvalents. Professionnellement construit avec un UX élevé pour donner à votre page\n                le grand regard.",
                           style: Theme.of(context).textTheme.bodySmall,
                         )),
                     SizedBox(

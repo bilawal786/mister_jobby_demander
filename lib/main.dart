@@ -132,6 +132,9 @@ import './providers/jobs_provider/single_job_comments_provider.dart';
 import './screens/jobs_screens/payment_success_screen.dart';
 import './screens/jobs_screens/request_view.dart';
 import './screens/jobs_screens/rating_reviews_screen.dart';
+import 'providers/accounts_providers/about_provider/about_provider.dart';
+import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
+import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 
 
 void main() async {
@@ -170,6 +173,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => FAQProvider()),
         ChangeNotifierProvider(create: (ctx) => JobProposalsProvider()),
         ChangeNotifierProvider(create: (ctx) => SingleJobCommentsProvider(),),
+        ChangeNotifierProvider(create: (ctx) => TermsAndConditionProvider(),),
+        ChangeNotifierProvider(create: (ctx) => AboutProvider(),),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
@@ -425,6 +430,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.MANAGENOTIFICATIONS: (ctx) => const ManageNotifications(),
 
           MyRoutes.INSURANCE: (ctx) => const Insurance(),
+          MyRoutes.TAXCERTIFICATEROUTE: (ctx) => const TaxCertificatesScreen(),
           MyRoutes.TAXCREDIT: (ctx) => const TaxCredit(),
           MyRoutes.TERMSANDCONDITION: (ctx) => const TermsAndCondition(),
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),

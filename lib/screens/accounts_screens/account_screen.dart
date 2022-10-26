@@ -244,7 +244,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                               CustomListTile(
                                 leadingIcon: Icons.verified_outlined,
                                 title: 'Tax_Certificates',
-                                onPress: () {},
+                                onPress: () {
+                                  Navigator.of(context).pushNamed(MyRoutes.TAXCERTIFICATEROUTE);
+                                },
                               ),
                               CustomListTile(
                                   onPress: () {

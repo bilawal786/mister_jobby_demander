@@ -113,6 +113,7 @@ class MyRoutes {
   static String VIEWREQUESTROUTE = '/View-request-Screen';
   static String RATINGSCREENROUTE = '/Rating-review-Screen';
   static String TERMSANDCONDITION = '/Terms-and-condition-Screen';
+  static String TAXCERTIFICATEROUTE = '/Tax-certificate-Screen';
   static const String MANAGENOTIFICATIONS = '/Manage-notifications-Screen';
 
   static const String INSURANCE = '/Insurance-Screen';
