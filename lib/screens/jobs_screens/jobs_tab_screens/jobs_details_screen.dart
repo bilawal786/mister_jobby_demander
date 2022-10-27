@@ -42,7 +42,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       debugPrint('open date and time editor');
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (ctx) => const EditJobScreen(),
+                          builder: (ctx) => EditJobScreen(jobModel:  widget.jobsInProgressDetail),
                         ),
                       );
                     },
