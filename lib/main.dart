@@ -134,6 +134,7 @@ import './screens/jobs_screens/request_view.dart';
 import './screens/jobs_screens/rating_reviews_screen.dart';
 import 'providers/accounts_providers/about_provider/about_provider.dart';
 import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
+import 'providers/jobs_provider/edit_jobs_provider.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 
 
@@ -175,6 +176,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => SingleJobCommentsProvider(),),
         ChangeNotifierProvider(create: (ctx) => TermsAndConditionProvider(),),
         ChangeNotifierProvider(create: (ctx) => AboutProvider(),),
+        ChangeNotifierProvider(create: (ctx) => EditJobsProvider(),),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

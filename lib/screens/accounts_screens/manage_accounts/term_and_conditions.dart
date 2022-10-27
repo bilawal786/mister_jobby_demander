@@ -47,12 +47,15 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
               ),
               Card(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset("assets/images/appLogo.png", scale: 4),
-                    Text(
-                      extractCopyRight!.copyright,
-                      style: Theme.of(context).textTheme.bodySmall,
-                      textAlign: TextAlign.justify,
+                    Center(child: Image.asset("assets/images/appLogo.png", scale: 4)),
+                    Center(
+                      child: Text(
+                        extractCopyRight!.copyright,
+                        textAlign: TextAlign.justify,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
