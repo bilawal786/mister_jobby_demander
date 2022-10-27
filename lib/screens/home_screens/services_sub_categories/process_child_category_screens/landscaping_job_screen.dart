@@ -105,7 +105,7 @@ class _LandscapingJobScreenState extends State<LandscapingJobScreen> {
                 constProviderData.mediumSizedFurnitureAmount.toString(),
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
-                constProviderData.cleanBoxFurniture.toString(),
+                constProviderData.cleanBoxTitle,
                 constProviderData.fixesAmount.toString(),
                 constProviderData.needWork,
                 "",

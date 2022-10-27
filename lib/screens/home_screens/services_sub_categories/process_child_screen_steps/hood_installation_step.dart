@@ -30,7 +30,9 @@ class HoodInstallationStep extends StatelessWidget {
             height: MediaQuery.of(context).size.width / 20,
           ),
           TextFormField(
-            onChanged: (value) {},
+            onChanged: (value) {
+              constProviderData.needWork = value;
+            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Hood_Installation_Step_DescriptionTitle'.tr(),

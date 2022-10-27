@@ -183,7 +183,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
                           )
                         : const SizedBox(),
                     (currentStep == 2 &&
-                            (size.completeAddress == '') &&
+                            (size.completeAddress != '') &&
                             (size.postalCode != '') &&
                             (size.countryDropDownValue != 'null'))
                         ? Expanded(

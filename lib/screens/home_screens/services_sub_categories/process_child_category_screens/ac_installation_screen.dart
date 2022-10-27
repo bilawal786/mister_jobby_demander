@@ -97,12 +97,12 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
                 constProviderData.postalCode,
                 constProviderData.countryDropDownValue,
                 constProviderData.workDetails,
-                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.acAmount.toString(),
                 constProviderData.mediumSizedFurnitureAmount.toString(),
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
                 constProviderData.cleanBoxTitle,
-                constProviderData.acAmount.toString(),
+                "",
                 constProviderData.needWork,
                 "",
                 "",
@@ -177,7 +177,7 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
                           )
                         : const SizedBox(),
                     (currentStep == 2 &&
-                            (ac.completeAddress == '') &&
+                            (ac.completeAddress != '') &&
                             (ac.postalCode != '') &&
                             (ac.countryDropDownValue != 'null'))
                         ? Expanded(

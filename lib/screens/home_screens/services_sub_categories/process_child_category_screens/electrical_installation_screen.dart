@@ -100,7 +100,7 @@ class _ElectricalInstallationScreenState extends State<ElectricalInstallationScr
                 constProviderData.postalCode,
                 constProviderData.countryDropDownValue,
                 constProviderData.workDetails,
-                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.electricalOutletsAmount.toString(),
                 constProviderData.mediumSizedFurnitureAmount.toString(),
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
@@ -180,7 +180,7 @@ class _ElectricalInstallationScreenState extends State<ElectricalInstallationScr
                     )
                         : const SizedBox(),
                     (currentStep == 2 &&
-                        (size.completeAddress == '') &&
+                        (size.completeAddress != '') &&
                         (size.postalCode != '') &&
                         (size.countryDropDownValue != 'null'))
                         ? Expanded(

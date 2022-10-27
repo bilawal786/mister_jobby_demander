@@ -100,12 +100,12 @@ class _LampInstallationScreenState extends State<LampInstallationScreen> {
                 constProviderData.postalCode,
                 constProviderData.countryDropDownValue,
                 constProviderData.workDetails,
-                constProviderData.smallSizedFurnitureAmount.toString(),
+                constProviderData.lampInstallationAmount.toString(),
                 constProviderData.mediumSizedFurnitureAmount.toString(),
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
                 constProviderData.cleanBoxTitle,
-                constProviderData.lampInstallationAmount.toString(),
+                "",
                 constProviderData.needWork,
                 "",
                 "",
@@ -180,7 +180,7 @@ class _LampInstallationScreenState extends State<LampInstallationScreen> {
                     )
                         : const SizedBox(),
                     (currentStep == 2 &&
-                        (size.completeAddress == '') &&
+                        (size.completeAddress != '') &&
                         (size.postalCode != '') &&
                         (size.countryDropDownValue != 'null'))
                         ? Expanded(
