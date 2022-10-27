@@ -118,7 +118,7 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
                 "",
                 constProviderData.pickupAddress,
                 constProviderData.destinationAddress,
-                constProviderData.surface.toString(),
+                constProviderData.surfaceInstallationSliderValue.toString(),
                 constProviderData.imageFile0,
                 constProviderData.imageFile1,
                 constProviderData.imageFile2,

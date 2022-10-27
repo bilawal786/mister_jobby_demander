@@ -10,8 +10,8 @@ class TerraceCleaningStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final constProviderData =
-    // Provider.of<ConstProvider>(context, listen: false);
+    final constProviderData =
+    Provider.of<ConstProvider>(context, listen: false);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +39,9 @@ class TerraceCleaningStep extends StatelessWidget {
           ),
 
           TextFormField(
-            onChanged: (value){},
+            onChanged: (value){
+              constProviderData.needWork = value;
+            },
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: 'Terrace_Cleaning_Step_Item2_Title'.tr(),
