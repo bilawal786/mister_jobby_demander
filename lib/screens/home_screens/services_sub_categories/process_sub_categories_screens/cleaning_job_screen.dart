@@ -103,7 +103,7 @@ class _CleaningJobScreenState extends State<CleaningJobScreen> {
                 constProviderData.largeSizedFurnitureAmount.toString(),
                 constProviderData.veryLargeSizedFurnitureAmount.toString(),
                 constProviderData.frequencyTitle,
-                constProviderData.fixesAmount.toString(),
+                "",
                 constProviderData.needWork,
                 "",
                 "",
