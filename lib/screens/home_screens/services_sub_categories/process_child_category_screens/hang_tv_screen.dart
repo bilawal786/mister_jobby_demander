@@ -91,7 +91,7 @@ class _HangTVScreenState extends State<HangTVScreen> {
                 childId.toString(),
                 title!,
                 constProviderData.selectedDate.toString(),
-                "${constProviderData.pickedTime.hour < 10 ? "0${constProviderData.pickedTime.hour}":"${constProviderData.pickedTime.hour}"}:${constProviderData.pickedTime.minute < 10 ? "0${constProviderData.pickedTime.minute}" : "${constProviderData.pickedTime.minute}"}",
+                constProviderData.statusName.toString(),
                 constProviderData.duration.toString(),
                 constProviderData.hourlyRate.toString(),
                 constProviderData.checkUrgentJob.toString(),
