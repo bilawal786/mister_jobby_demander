@@ -102,7 +102,7 @@ class _TroubleShootingScreenState extends State<TroubleShootingScreen> {
                 constProviderData.groupValue.toString(),
                 constProviderData.fixesAmount.toString(),
                 constProviderData.needWork,
-                constProviderData.jobberRemoveWasteTitle,
+                constProviderData.repairGroupValue.toString(),
                 constProviderData.frequencyTitle,
                 "",
                 constProviderData.pickupAddress,
