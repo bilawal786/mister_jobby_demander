@@ -10,6 +10,7 @@ import '../../providers/accounts_providers/terms_and_condition_provider/terms_an
 import '../../providers/banner_provider/banner_provider.dart';
 import '../../providers/categories_provider/main_categories_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
+import '../../providers/notification_provider/notification_provider.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
 import '../jobs_screens/jobs_screen.dart';
 
@@ -38,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Provider.of<FAQProvider>(context).getFAQ();
       Provider.of<AboutProvider>(context).getAbout();
       Provider.of<TermsAndConditionProvider>(context).getTermsAndConditions();
+      Provider.of<NotificationProvider>(context).getNotification();
     }
     _isInit = false;
   }

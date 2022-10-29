@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:mister_jobby/providers/jobs_provider/job_proposals_provider.dart';
+import './providers/jobs_provider/job_proposals_provider.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/insurance.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/notifications.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/tax_credit.dart';
@@ -17,7 +17,6 @@ import './providers/jobs_provider/jobs_in_progress_provider.dart';
 import './providers/preferences_provider/preferences_provider.dart';
 import './screens/splash_screen/splash_screen.dart';
 import './screens/home_screens/search_screen.dart';
-import './screens/home_screens/home_tabs_screen.dart';
 import './providers/accounts_providers/profile_provider.dart';
 import './providers/accounts_providers/useful_information_providers/faq_provider.dart';
 import './screens/accounts_screens/useful_information/faq_screen.dart';
@@ -135,6 +134,7 @@ import './screens/jobs_screens/rating_reviews_screen.dart';
 import 'providers/accounts_providers/about_provider/about_provider.dart';
 import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
 import 'providers/jobs_provider/edit_jobs_provider.dart';
+import 'providers/notification_provider/notification_provider.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 
 
@@ -177,6 +177,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => TermsAndConditionProvider(),),
         ChangeNotifierProvider(create: (ctx) => AboutProvider(),),
         ChangeNotifierProvider(create: (ctx) => EditJobsProvider(),),
+        ChangeNotifierProvider(create: (ctx) => NotificationProvider(),),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

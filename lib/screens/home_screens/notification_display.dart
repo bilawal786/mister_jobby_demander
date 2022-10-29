@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/notification_provider/notification_provider.dart';
 
 class NotificationDisplay extends StatefulWidget {
   const NotificationDisplay({Key? key}) : super(key: key);
@@ -11,6 +14,8 @@ class NotificationDisplay extends StatefulWidget {
 class _NotificationDisplayState extends State<NotificationDisplay> {
   @override
   Widget build(BuildContext context) {
+    final notificationsData = Provider.of<NotificationProvider>(context, listen: false);
+    final extractNotification = notificationsData.notificationItems;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -25,16 +30,16 @@ class _NotificationDisplayState extends State<NotificationDisplay> {
           child: ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 10,
+            itemCount: extractNotification!.length,
             itemBuilder: (ctx, index) => Column(
               children:<Widget> [
                 ListTile(
                   title: Text(
-                    "7 days ago",
+                    extractNotification[index].activity,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                   subtitle: Text(
-                    "your job 'Assembly of IKEA furniture' has been closed",
+                    extractNotification[index].message,
                     style: Theme.of(context).textTheme.labelLarge,
                   ),
                   trailing: const Icon(
