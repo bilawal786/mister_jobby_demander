@@ -87,34 +87,70 @@ class GeneralStep2Screen extends StatelessWidget {
           Consumer<ConstProvider>(
             builder: (_, selectTime, child) => GestureDetector(
               onTap: () {
-                selectTime.selectTimeProvider(context);
+                selectTime.statusPicker(context);
               },
               child: Container(
-                padding: const EdgeInsets.only(left: 30, right: 10),
-                alignment: Alignment.centerLeft,
-                width: MediaQuery.of(context).size.width,
-                height: 45,
+                padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.grey.shade300),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 0.2,
-                      blurRadius: 1,
-                      offset:
-                          const Offset(0.5, 1), // changes position of shadow
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(7.0),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 22,),
+                      child: Text(
+                        selectTime.statusName,
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                    ),
+                    const Spacer(),
+                    const Icon(
+                      Icons.arrow_drop_down_rounded,
+                      size: 30,
+                      color: Colors.black,
                     ),
                   ],
-                  borderRadius: BorderRadius.circular(7),
-                ),
-                child: Text(
-                  "${selectTime.pickedTime.hour < 10 ? "0${selectTime.pickedTime.hour}" : "${selectTime.pickedTime.hour}"} : ${selectTime.pickedTime.minute < 10 ? "0${selectTime.pickedTime.minute}" : "${selectTime.pickedTime.minute}"}",
-                  style: Theme.of(context).textTheme.labelLarge,
                 ),
               ),
             ),
           ),
+
+
+
+
+          const Divider(),
+          // Consumer<ConstProvider>(
+          //   builder: (_, selectTime, child) => GestureDetector(
+          //     onTap: () {
+          //       selectTime.selectTimeProvider(context);
+          //     },
+          //     child: Container(
+          //       padding: const EdgeInsets.only(left: 30, right: 10),
+          //       alignment: Alignment.centerLeft,
+          //       width: MediaQuery.of(context).size.width,
+          //       height: 45,
+          //       decoration: BoxDecoration(
+          //         color: Colors.white,
+          //         border: Border.all(color: Colors.grey.shade300),
+          //         boxShadow: [
+          //           BoxShadow(
+          //             color: Colors.grey.withOpacity(0.2),
+          //             spreadRadius: 0.2,
+          //             blurRadius: 1,
+          //             offset:
+          //             const Offset(0.5, 1), // changes position of shadow
+          //           ),
+          //         ],
+          //         borderRadius: BorderRadius.circular(7),
+          //       ),
+          //       child: Text(
+          //         "${selectTime.pickedTime.hour < 10 ? "0${selectTime.pickedTime.hour}" : "${selectTime.pickedTime.hour}"} : ${selectTime.pickedTime.minute < 10 ? "0${selectTime.pickedTime.minute}" : "${selectTime.pickedTime.minute}"}",
+          //         style: Theme.of(context).textTheme.labelLarge,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 30,
           ),
