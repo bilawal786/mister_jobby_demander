@@ -40,6 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Provider.of<AboutProvider>(context).getAbout();
       Provider.of<TermsAndConditionProvider>(context).getTermsAndConditions();
       Provider.of<NotificationProvider>(context).getNotification();
+      Provider.of<MainCategoriesProvider>(context).searchFilter();
     }
     _isInit = false;
   }

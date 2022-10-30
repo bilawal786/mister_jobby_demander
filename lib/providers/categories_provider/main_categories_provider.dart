@@ -6,6 +6,12 @@ import '../../models/categories_models/main_categories_model.dart';
 
 class MainCategoriesProvider with ChangeNotifier {
   List<MainCategoriesModel>? mainCategories;
+  String value = 'bricolage';
+  void searchFilter(){
+    var result =
+    mainCategories!.where((element) => element.title==value.toLowerCase());
+    print('result $result');
+  }
 
   Future<void> getMainCategories() async {
     var response = await http.get(
@@ -25,5 +31,6 @@ class MainCategoriesProvider with ChangeNotifier {
     }
     // print(response.body);
   }
+
 
 }
