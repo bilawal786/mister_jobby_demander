@@ -25,7 +25,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
       builder: (BuildContext context) {
         return SafeArea(
           child: Container(
-            height: MediaQuery.of(context).size.width/ 1.8,
+            height: MediaQuery.of(context).size.width / 1.8,
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.all(10),
             child: SingleChildScrollView(
@@ -36,28 +36,32 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                     "Edit_Job",
                     style: Theme.of(context).textTheme.titleSmall,
                   ).tr(),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   InkWell(
                     onTap: () {
                       debugPrint('open date and time editor');
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (ctx) => EditJobScreen(jobModel:  widget.jobsInProgressDetail),
+                          builder: (ctx) => EditJobScreen(
+                              jobModel: widget.jobsInProgressDetail),
                         ),
                       );
                     },
                     child: Container(
-                      width:double.infinity,
+                      width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        border: Border.all(width: 1,color: Colors.blue),
+                        border: Border.all(width: 1, color: Colors.blue),
                       ),
                       child: Row(
                         children: [
                           Container(
                             width: 60,
                             height: 60,
-                            decoration: BoxDecoration(color: Colors.blueGrey.shade100,
+                            decoration: BoxDecoration(
+                              color: Colors.blueGrey.shade100,
                               borderRadius: BorderRadius.circular(3),
                             ),
                             child: Icon(
@@ -67,7 +71,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                             ),
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width/1.4,
+                            width: MediaQuery.of(context).size.width / 1.4,
                             child: Center(
                               child: Text(
                                 "Change_Date",
@@ -75,38 +79,40 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                               ).tr(),
                             ),
                           ),
-
                         ],
                       ),
                     ),
                   ),
-                 const SizedBox(height: 15,),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   InkWell(
                     onTap: () {
                       Navigator.of(context).pop();
                     },
                     child: Container(
-                      width:double.infinity,
+                      width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        border: Border.all(width: 1,color: Colors.blue),
+                        border: Border.all(width: 1, color: Colors.blue),
                       ),
                       child: Row(
                         children: [
-                           Container(
-                             width: 60,
-                             height: 60,
-                             decoration: BoxDecoration(color: Colors.blueGrey.shade100,
-                               borderRadius: BorderRadius.circular(3),
-                             ),
-                             child: const Icon(
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: Colors.blueGrey.shade100,
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                            child: const Icon(
                               Icons.delete,
                               color: Colors.red,
                               size: 25,
+                            ),
                           ),
-                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width/1.4,
+                            width: MediaQuery.of(context).size.width / 1.4,
                             child: Center(
                               child: Text(
                                 "Delete_Job",
@@ -139,18 +145,19 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
             child: InkWell(
               onTap: () {},
               child: Container(
-                width:double.infinity,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  border: Border.all(width: 1,color: Colors.blue),
+                  border: Border.all(width: 1, color: Colors.blue),
                 ),
                 child: Row(
                   children: [
                     Container(
                       width: 60,
                       height: double.infinity,
-                      decoration: BoxDecoration(color: Colors.blueGrey.shade100,
-                      borderRadius: BorderRadius.circular(3),
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey.shade100,
+                        borderRadius: BorderRadius.circular(3),
                       ),
                       child: Icon(
                         FontAwesomeIcons.personCircleXmark,
@@ -159,7 +166,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width/1.4,
+                      width: MediaQuery.of(context).size.width / 1.4,
                       child: Center(
                         child: Text(
                           "Ignore_Job",
@@ -185,7 +192,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
             title: InkWell(
-              onTap: (){
+              onTap: () {
                 ignoreOpenSheet();
               },
               child: Row(

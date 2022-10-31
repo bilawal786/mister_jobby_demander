@@ -8,7 +8,7 @@ import 'package:mister_jobby/screens/accounts_screens/manage_accounts/tax_credit
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/term_and_conditions.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/trust_and_security.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
+// import 'package:flutter_stripe/flutter_stripe.dart';
 import './helpers/routes.dart';
 import './providers/categories_provider/main_categories_provider.dart';
 import './providers/auth_provider/register_provider.dart';
@@ -137,12 +137,12 @@ import 'providers/jobs_provider/edit_jobs_provider.dart';
 import 'providers/notification_provider/notification_provider.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  Stripe.publishableKey = 'pk_test_51LRubcLtkEa5U40QDdRaKQr5SIt815sibBnPLIGbQMzr1mSRgF8EUesAVr5UNRt7mcEGwicNuTSwIdN3UEypjZLO00WV9Hc6ME';
-  await Stripe.instance.applySettings();
+  // Stripe.publishableKey =
+  //     'pk_test_51LRubcLtkEa5U40QDdRaKQr5SIt815sibBnPLIGbQMzr1mSRgF8EUesAVr5UNRt7mcEGwicNuTSwIdN3UEypjZLO00WV9Hc6ME';
+  // await Stripe.instance.applySettings();
   runApp(
     EasyLocalization(
       supportedLocales: const [
@@ -173,11 +173,21 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => ProfileProvider()),
         ChangeNotifierProvider(create: (ctx) => FAQProvider()),
         ChangeNotifierProvider(create: (ctx) => JobProposalsProvider()),
-        ChangeNotifierProvider(create: (ctx) => SingleJobCommentsProvider(),),
-        ChangeNotifierProvider(create: (ctx) => TermsAndConditionProvider(),),
-        ChangeNotifierProvider(create: (ctx) => AboutProvider(),),
-        ChangeNotifierProvider(create: (ctx) => EditJobsProvider(),),
-        ChangeNotifierProvider(create: (ctx) => NotificationProvider(),),
+        ChangeNotifierProvider(
+          create: (ctx) => SingleJobCommentsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => TermsAndConditionProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => AboutProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => EditJobsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => NotificationProvider(),
+        ),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
@@ -421,13 +431,15 @@ class MyApp extends StatelessWidget {
           MyRoutes.CHILDCAREROUTE: (ctx) => const ChildCareScreen(),
           MyRoutes.LOGINROUTE: (ctx) => const LoginScreen(),
           MyRoutes.REGISTERROUTE: (ctx) => const RegisterScreen(),
-          MyRoutes.PERSONALINFORMATIONROUTE: (ctx) => const PersonalInformation(),
+          MyRoutes.PERSONALINFORMATIONROUTE: (ctx) =>
+              const PersonalInformation(),
           MyRoutes.GIFTROUTE: (ctx) => const GiftScreen(),
           MyRoutes.BALANCEROUTE: (ctx) => const BalanceScreen(),
           MyRoutes.MYTICKETSROUTE: (ctx) => const MyTickets(),
           MyRoutes.HELPCENTERROUTE: (ctx) => const HelpCenter(),
           MyRoutes.TICKETSCANNERROUTE: (ctx) => const TicketScannerScreen(),
-          MyRoutes.NOTIFICATIONDISPLAYROUTE: (ctx) => const NotificationDisplay(),
+          MyRoutes.NOTIFICATIONDISPLAYROUTE: (ctx) =>
+              const NotificationDisplay(),
           MyRoutes.FAQSCREENROUTE: (ctx) => const FAQScreen(),
           MyRoutes.TRUSTANDSECURITY: (ctx) => const TrustAndSecurity(),
           MyRoutes.MANAGENOTIFICATIONS: (ctx) => const ManageNotifications(),

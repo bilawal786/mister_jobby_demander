@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/models/categories_models/main_categories_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
@@ -8,21 +7,15 @@ import '../../widgets/const_widgets/search_input_field.dart';
 
 import '../../../providers/categories_provider/main_categories_provider.dart';
 
-class SearchScreen extends StatefulWidget {
+class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SearchScreen> createState() => _SearchScreenState();
-}
-
-class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
     final mainCategoryData =
         Provider.of<MainCategoriesProvider>(context, listen: false);
     final extractMainCategory = mainCategoryData.mainCategories;
-
+    Provider.of<MainCategoriesProvider>(context, listen: false).findById("Bricolage");
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

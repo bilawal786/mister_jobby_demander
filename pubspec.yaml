@@ -45,10 +45,10 @@ dependencies:
   geocoding: ^2.0.5
   shared_preferences: ^2.0.15
   qr_code_scanner: ^1.0.1
-  flutter_stripe: ^5.1.0
   flutter_rating_bar: ^4.0.1
   font_awesome_flutter: ^10.2.1
   intl: ^0.17.0
+#  flutter_stripe: ^6.0.0
 
 
 

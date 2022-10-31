@@ -11,7 +11,6 @@ class SearchInputField extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.grey.shade200, borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
-        // onChanged: (value) => _runFilter(value),
         style: Theme.of(context).textTheme.labelMedium,
         decoration: InputDecoration(
           iconColor: Colors.grey,

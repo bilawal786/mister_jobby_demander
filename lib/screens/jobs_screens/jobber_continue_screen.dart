@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
-
-import '../../helpers/routes.dart';
+// import 'package:flutter_stripe/flutter_stripe.dart';
+//
+// import '../../helpers/routes.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 
 class ContinueJobber extends StatefulWidget {
@@ -181,96 +181,102 @@ class _ContinueJobberState extends State<ContinueJobber> {
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
-            check == false ? CustomButton(
-                onPress: () async {
-                  setState(() {
-                    check = true;
-                  });
-                  await makePayment();
-                },
-                buttonName: "To Book") : const Center(child: CircularProgressIndicator(),),
+            check == false
+                ? CustomButton(
+                    onPress: () async {
+                      setState(() {
+                        check = true;
+                      });
+                      // await makePayment();
+                    },
+                    buttonName: "To Book")
+                : const Center(
+                    child: CircularProgressIndicator(),
+                  ),
           ],
         ),
       ),
     );
   }
 
-  Future<void> makePayment() async {
-    try {
-      paymentIntent = await createPaymentIntent('10', 'USD');
-      //Payment Sheet
-      await Stripe.instance
-          .initPaymentSheet(
-              paymentSheetParameters: SetupPaymentSheetParameters(
-                  paymentIntentClientSecret: paymentIntent!['client_secret'],
-                  // applePay: const PaymentSheetApplePay(merchantCountryCode: '+92',),
-                  // googlePay: const PaymentSheetGooglePay(testEnv: true, currencyCode: "US", merchantCountryCode: "+92"),
-                  style: ThemeMode.dark,
-                  merchantDisplayName: 'Hassan'))
-          .then((value) {});
-      setState(() {
-        check = true;
-      });
-      ///now finally display payment sheeet
-      displayPaymentSheet();
-    } catch (e, s) {
-      print('exception:$e$s');
-      setState(() {
-        check = false;
-      });
-    }
-  }
+  // Future<void> makePayment() async {
+  //   try {
+  //     paymentIntent = await createPaymentIntent('10', 'USD');
+  //     //Payment Sheet
+  //     await Stripe.instance
+  //         .initPaymentSheet(
+  //             paymentSheetParameters: SetupPaymentSheetParameters(
+  //                 paymentIntentClientSecret: paymentIntent!['client_secret'],
+  //                 // applePay: const PaymentSheetApplePay(merchantCountryCode: '+92',),
+  //                 // googlePay: const PaymentSheetGooglePay(testEnv: true, currencyCode: "US", merchantCountryCode: "+92"),
+  //                 style: ThemeMode.dark,
+  //                 merchantDisplayName: 'Hassan'))
+  //         .then((value) {});
+  //     setState(() {
+  //       check = true;
+  //     });
+  //
+  //     ///now finally display payment sheeet
+  //     displayPaymentSheet();
+  //   } catch (e, s) {
+  //     print('exception:$e$s');
+  //     setState(() {
+  //       check = false;
+  //     });
+  //   }
+  // }
 
-  displayPaymentSheet() async {
-    try {
-      await Stripe.instance.presentPaymentSheet().then((value) {
-        Navigator.of(context).pushNamed(MyRoutes.PAYMENTSUCCESSFULLY);
-        showDialog(
-            context: context,
-            builder: (_) => AlertDialog(
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.check_circle,
-                            color: Colors.green,
-                          ),
-                          Text("Payment Successfull"),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),);
-        // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("paid successfully")));
-        paymentIntent = null;
-        setState(() {
-          check = false;
-        });
-      }).onError((error, stackTrace) {
-        print('Error is:--->$error $stackTrace');
-        setState(() {
-          check = false;
-        });
-      });
-    } on StripeException catch (e) {
-      print('Error is:---> $e');
-      showDialog(
-          context: context,
-          builder: (_) => const AlertDialog(
-                content: Text("Cancelled "),
-              ));
-      setState(() {
-        check = false;
-      });
-    } catch (e) {
-      print('$e');
-      setState(() {
-        check = false;
-      });
-    }
-  }
+  // displayPaymentSheet() async {
+  //   try {
+  //     await Stripe.instance.presentPaymentSheet().then((value) {
+  //       Navigator.of(context).pushNamed(MyRoutes.PAYMENTSUCCESSFULLY);
+  //       showDialog(
+  //         context: context,
+  //         builder: (_) => AlertDialog(
+  //           content: Column(
+  //             mainAxisSize: MainAxisSize.min,
+  //             children: [
+  //               Row(
+  //                 children: const [
+  //                   Icon(
+  //                     Icons.check_circle,
+  //                     color: Colors.green,
+  //                   ),
+  //                   Text("Payment Successfull"),
+  //                 ],
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       );
+  //       // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("paid successfully")));
+  //       paymentIntent = null;
+  //       setState(() {
+  //         check = false;
+  //       });
+  //     }).onError((error, stackTrace) {
+  //       print('Error is:--->$error $stackTrace');
+  //       setState(() {
+  //         check = false;
+  //       });
+  //     });
+  //   } on StripeException catch (e) {
+  //     print('Error is:---> $e');
+  //     showDialog(
+  //         context: context,
+  //         builder: (_) => const AlertDialog(
+  //               content: Text("Cancelled "),
+  //             ));
+  //     setState(() {
+  //       check = false;
+  //     });
+  //   } catch (e) {
+  //     print('$e');
+  //     setState(() {
+  //       check = false;
+  //     });
+  //   }
+  // }
 
   //  Future<Map<String, dynamic>>
   createPaymentIntent(String amount, String currency) async {
