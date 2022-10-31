@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
+import '../../widgets/home_screen_widgets/login_progress_indicator.dart';
 
 class EditJobsProvider with ChangeNotifier {
 
@@ -973,7 +974,9 @@ class EditJobsProvider with ChangeNotifier {
 
   Future<void> postEditJob(
       BuildContext context, jobId, serviceDate, startTime,imageUrl,imageUrl1,imageUrl2) async {
-
+    showDialog(context: context, builder: (BuildContext context){
+      return const LoginProgressIndicator();
+    });
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     String? userToken = sharedPrefs.getString("token");
     Map<String, String> headers = {
@@ -1003,6 +1006,7 @@ class EditJobsProvider with ChangeNotifier {
 
       if (response.statusCode == 200) {
         debugPrint('update job api is workiing');
+        Navigator.pop(context);
         Provider.of<JobsInProgressProvider>(context, listen: false)
             .getInProgressJobs();
         clearEditJobData();
@@ -1026,6 +1030,7 @@ class EditJobsProvider with ChangeNotifier {
         );
         notifyListeners();
       } else {
+        Navigator.pop(context);
         Navigator.of(context).pop();
         print("Failed to update");
         ScaffoldMessenger.of(context).hideCurrentSnackBar();

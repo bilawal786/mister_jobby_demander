@@ -6,6 +6,7 @@ import '../../models/categories_models/main_categories_model.dart';
 
 class MainCategoriesProvider with ChangeNotifier {
   List<MainCategoriesModel>? mainCategories;
+  List<SubCategory>? subCategory;
   // String value = 'bricolage';
 
 
@@ -28,10 +29,28 @@ class MainCategoriesProvider with ChangeNotifier {
     }
     // print(response.body);
   }
+  List<MainCategoriesModel>? searchPost;
 
-  MainCategoriesModel findById(String title) {
-    print(title);
-    return mainCategories!.firstWhere((cate) => cate.title == title.toLowerCase());
+  void findByCategories(String title) {
+    if(title.isEmpty)
+      {
+        searchPost = null;
+        print(title);
+      }
+    searchPost = mainCategories!.where((cate,) => cate.title.toLowerCase().contains(title)).toList();
+    print('method search print:${searchPost![0].title}');
+    notifyListeners();
   }
 
+  List<SubCategory>? searchSub;
+  void findBySubCategories(String title) {
+    if(title.isEmpty)
+    {
+      searchSub = null;
+      print(title);
+    }
+    searchSub = subCategory?.where((cate) => cate.title.toLowerCase().contains(title)).toList();
+    print('sub search print:${searchSub?[0].title}');
+    notifyListeners();
+  }
 }

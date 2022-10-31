@@ -13,9 +13,9 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mainCategoryData =
-        Provider.of<MainCategoriesProvider>(context, listen: false);
+        Provider.of<MainCategoriesProvider>(context, listen: true);
     final extractMainCategory = mainCategoryData.mainCategories;
-    Provider.of<MainCategoriesProvider>(context, listen: false).findById("Bricolage");
+    // Provider.of<MainCategoriesProvider>(context, listen: false).findById("B");
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -38,6 +38,8 @@ class SearchScreen extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
+
+              (mainCategoryData.searchPost == null || mainCategoryData.searchPost!.isEmpty) ?
               ListView.builder(
                 padding: const EdgeInsets.only(
                     left: 0.0, top: 10.0, right: 0.0, bottom: 10.0),
@@ -80,7 +82,51 @@ class SearchScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+              ):
+              ListView.builder(
+                padding: const EdgeInsets.only(
+                    left: 0.0, top: 10.0, right: 0.0, bottom: 10.0),
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: mainCategoryData.searchPost!.length,
+                itemBuilder: (ctx, index) => InkWell(
+                  onTap: () => Navigator.of(context).pushNamed(
+                    MyRoutes.SUBCATEGORYROUTE,
+                    arguments: {
+                      'index': index,
+                      'mainId': mainCategoryData.searchPost![index].id,
+                    },
+                  ),
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.only(
+                        left: 0.0, bottom: 10.0, top: 10.0, right: 0.0),
+                    leading: Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        // color: Colors.green,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.network(
+                          '${MyRoutes.IMAGEURL}/${mainCategoryData.searchPost![index].image}',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    title: Text(
+                      mainCategoryData.searchPost![index].title,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    trailing: const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 20,
+                    ),
+                  ),
+                ),
               ),
+              // Text(mainCategoryData.searchPost![0].title) ,
             ],
           ),
         ),
