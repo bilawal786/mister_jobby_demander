@@ -38,7 +38,7 @@ class MainCategoriesProvider with ChangeNotifier {
         print(title);
       }
     searchPost = mainCategories!.where((cate,) => cate.title.toLowerCase().contains(title)).toList();
-    print('method search print:${searchPost![0].title}');
+    print('method search print:${searchPost?[0].title}');
     notifyListeners();
   }
 
