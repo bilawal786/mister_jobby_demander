@@ -45,7 +45,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (ctx) => EditJobScreen(
-                              jobModel: widget.jobsInProgressDetail),
+                              jobsDetail: widget.jobsInProgressDetail),
                         ),
                       );
                     },

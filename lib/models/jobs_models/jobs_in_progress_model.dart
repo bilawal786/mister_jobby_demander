@@ -2,6 +2,7 @@
 //
 //     final jobsInProgressModel = jobsInProgressModelFromJson(jsonString);
 
+
 import 'dart:convert';
 
 List<JobsInProgressModel> jobsInProgressModelFromJson(String str) => List<JobsInProgressModel>.from(json.decode(str).map((x) => JobsInProgressModel.fromJson(x)));
@@ -12,7 +13,11 @@ class JobsInProgressModel {
   JobsInProgressModel({
     required this.id,
     required this.title,
+    required this.categoryId,
+    required this.subcategoryId,
+    required this.childcategoryId,
     required this.image,
+    required this.description,
     required this.detailDescription,
     required this.estimateBudget,
     required this.duration,
@@ -51,7 +56,11 @@ class JobsInProgressModel {
 
   int id;
   String title;
+  int categoryId;
+  int subcategoryId;
+  int childcategoryId;
   String image;
+  String description;
   String detailDescription;
   String estimateBudget;
   String duration;
@@ -90,7 +99,11 @@ class JobsInProgressModel {
   factory JobsInProgressModel.fromJson(Map<String, dynamic> json) => JobsInProgressModel(
     id: json["id"],
     title: json["title"],
+    categoryId: json["category_id"],
+    subcategoryId: json["subcategory_id"],
+    childcategoryId: json["childcategory_id"],
     image: json["image"],
+    description: json["description"],
     detailDescription: json["detail_description"],
     estimateBudget: json["estimate_budget"],
     duration: json["duration"],
@@ -130,7 +143,11 @@ class JobsInProgressModel {
   Map<String, dynamic> toJson() => {
     "id": id,
     "title": title,
+    "category_id": categoryId,
+    "subcategory_id": subcategoryId,
+    "childcategory_id": childcategoryId,
     "image": image,
+    "description": description,
     "detail_description": detailDescription,
     "estimate_budget": estimateBudget,
     "duration": duration,
