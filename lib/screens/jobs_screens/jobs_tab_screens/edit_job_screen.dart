@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 
 import '../../../providers/jobs_provider/edit_jobs_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
-import '../../../providers/const_provider/const_provider.dart';
 
 class EditJobScreen extends StatefulWidget {
   final JobsInProgressModel? jobModel;
@@ -21,7 +20,6 @@ class _EditJobScreenState extends State<EditJobScreen> {
   @override
   Widget build(BuildContext context) {
     final editJobsData = Provider.of<EditJobsProvider>(context);
-    final extractJobs = editJobsData;
 
     return WillPopScope(
       onWillPop: () async {
