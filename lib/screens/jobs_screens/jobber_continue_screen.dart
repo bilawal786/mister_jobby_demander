@@ -6,10 +6,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 import '../../helpers/routes.dart';
+import '../../models/jobs_models/job_proposals_model.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 
 class ContinueJobber extends StatefulWidget {
-  const ContinueJobber({Key? key}) : super(key: key);
+  final JobProposalsModel? proposel;
+  const ContinueJobber({Key? key, required this.proposel}) : super(key: key);
 
   @override
   State<ContinueJobber> createState() => _ContinueJobberState();
@@ -64,7 +66,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "name here",
+                        "${widget.proposel!.jobber.firstName} ${widget.proposel!.jobber.lastName}",
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Row(
@@ -78,7 +80,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                             width: MediaQuery.of(context).size.width / 80,
                           ),
                           Text(
-                            "5",
+                            "${widget.proposel!.jobber.rating}",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           SizedBox(
@@ -87,7 +89,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                           Row(
                             children: [
                               Text(
-                                "(5",
+                                "(${widget.proposel!.jobber.reviews.length}",
                                 style: Theme.of(context).textTheme.bodySmall,
                               ),
                               SizedBox(
@@ -105,7 +107,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                   ),
                   const Spacer(),
                   Text(
-                    "18.15 €",
+                    "${widget.proposel!.price} €",
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
@@ -130,8 +132,8 @@ class _ContinueJobberState extends State<ContinueJobber> {
                       ).tr(),
                       const Spacer(),
                       Text(
-                        "171 ",
-                        style: Theme.of(context).textTheme.labelMedium,
+                        "${widget.proposel!.price} €",
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
                   ),
@@ -141,13 +143,13 @@ class _ContinueJobberState extends State<ContinueJobber> {
                   Row(
                     children: <Widget>[
                       Text(
-                        "Service charge",
+                        "Service charge 10%",
                         style: Theme.of(context).textTheme.labelMedium,
                       ).tr(),
                       const Spacer(),
                       Text(
-                        "35 ",
-                        style: Theme.of(context).textTheme.labelMedium,
+                        "${((double.parse(widget.proposel!.price) * 10) / 100)} €",
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
                   ),
@@ -169,7 +171,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                 ),
                 const Spacer(),
                 Text(
-                  "206 ",
+                  " ${double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100)} €" ,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ],
@@ -200,8 +202,9 @@ class _ContinueJobberState extends State<ContinueJobber> {
   }
 
   Future<void> makePayment() async {
+    var amount = double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100);
     try {
-      paymentIntent = await createPaymentIntent('10', 'USD');
+      paymentIntent = await createPaymentIntent(amount, 'EUR');
       //Payment Sheet
       await Stripe.instance
           .initPaymentSheet(
@@ -279,7 +282,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
   }
 
   //  Future<Map<String, dynamic>>
-  createPaymentIntent(String amount, String currency) async {
+  createPaymentIntent(double amount, String currency) async {
     try {
       Map<String, dynamic> body = {
         'amount': calculateAmount(amount),
@@ -307,8 +310,8 @@ class _ContinueJobberState extends State<ContinueJobber> {
     }
   }
 
-  calculateAmount(String amount) {
-    final calculatedAmout = (int.parse(amount)) * 100;
+  calculateAmount(double amount) {
+    final calculatedAmout = (amount * 100).toInt();
     return calculatedAmout.toString();
   }
 }

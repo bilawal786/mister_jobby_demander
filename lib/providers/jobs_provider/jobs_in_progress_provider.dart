@@ -67,6 +67,7 @@ class JobsInProgressProvider with ChangeNotifier {
     }else{
       print('InProgress Jobs Api is not working correctly');
     }
+    notifyListeners();
     // print(response.body);
   }
 }

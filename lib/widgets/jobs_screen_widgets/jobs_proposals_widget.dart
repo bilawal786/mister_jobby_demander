@@ -255,7 +255,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                         child: CustomButton(
                             onPress: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => ContinueJobber()));
+                                  builder: (ctx) => ContinueJobber(proposel: extractProposal[index],)));
                             },
                             buttonName: "Continue"),
                       ),
