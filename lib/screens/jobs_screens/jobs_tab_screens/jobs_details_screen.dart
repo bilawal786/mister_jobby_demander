@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/providers/jobs_provider/jobs_in_progress_provider.dart';
 import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/edit_job_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/single_jobs_details.dart';
+import 'package:provider/provider.dart';
 
 import '../../../helpers/routes.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
@@ -143,7 +146,9 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
             margin: const EdgeInsets.all(10),
             // padding: const EdgeInsets.all(10,),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Provider.of<JobsInProgressProvider>(context, listen: false).closeThisJob(context, widget.jobsInProgressDetail!.id.toString());
+              },
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -169,7 +174,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       width: MediaQuery.of(context).size.width / 1.4,
                       child: Center(
                         child: Text(
-                          "Ignore_Job",
+                          "Close_Job",
                           style: Theme.of(context).textTheme.bodySmall,
                         ).tr(),
                       ),
@@ -329,7 +334,13 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                   children: <Widget>[
                     Expanded(
                       child: OutlineSelectedButton(
-                          onTap: () {}, textTitle: "Details", border: true),
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) => SingleJobsDetails(
+                                  jobsDetail: widget.jobsInProgressDetail),
+                            ),
+                            );
+                          }, textTitle: "Details", border: true),
                     ),
                     Expanded(
                       child: OutlineSelectedButton(

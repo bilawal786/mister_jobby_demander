@@ -371,7 +371,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         widget.jobsDetail!.childcategoryId == 19 ||
                         widget.jobsDetail!.childcategoryId == 23)) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -500,7 +500,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -510,7 +510,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 3) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -542,9 +542,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
-                  ),
+                  
                   const Divider(
                     height: 2,
                     thickness: 10,
@@ -553,7 +551,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 4) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -586,7 +584,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -596,7 +594,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 5) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -629,7 +627,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -639,7 +637,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 6) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -672,7 +670,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -682,7 +680,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 7) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -715,7 +713,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -725,7 +723,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 8) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -758,7 +756,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -773,7 +771,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         widget.jobsDetail!.description.isNotEmpty) ||
                     widget.jobsDetail!.childcategoryId == 13) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -825,7 +823,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -836,7 +834,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 14) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -869,7 +867,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -879,7 +877,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 15) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -912,7 +910,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -922,7 +920,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 16) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -955,7 +953,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -966,7 +964,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     (widget.jobsDetail!.childcategoryId == 17 ||
                         widget.jobsDetail!.childcategoryId == 20)) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1076,7 +1074,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1086,7 +1084,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 18) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1119,7 +1117,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1129,7 +1127,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.childcategoryId == 21 ||
                     widget.jobsDetail!.childcategoryId == 22) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1158,7 +1156,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1167,7 +1165,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.childcategoryId == 24) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1212,7 +1210,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1228,7 +1226,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         widget.jobsDetail!.childcategoryId == 30 ||
                         widget.jobsDetail!.childcategoryId == 31)) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1292,7 +1290,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1303,7 +1301,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.subcategoryId == 5 ||
                     widget.jobsDetail!.subcategoryId == 8) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1407,7 +1405,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1416,7 +1414,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 6) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1534,7 +1532,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1543,7 +1541,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 7) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1661,7 +1659,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1671,7 +1669,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
 
                 if (widget.jobsDetail!.subcategoryId == 9) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1733,7 +1731,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1745,7 +1743,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     widget.jobsDetail!.subcategoryId == 12 ||
                     widget.jobsDetail!.subcategoryId == 13) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1797,7 +1795,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1807,7 +1805,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
 
                 if (widget.jobsDetail!.subcategoryId == 14) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1889,7 +1887,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -1899,7 +1897,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.subcategoryId == 15 ||
                     widget.jobsDetail!.subcategoryId == 16) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -1981,7 +1979,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2001,7 +1999,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     widget.jobsDetail!.subcategoryId == 44 ||
                     widget.jobsDetail!.subcategoryId == 45) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2072,7 +2070,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2085,7 +2083,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     widget.jobsDetail!.subcategoryId == 21 ||
                     widget.jobsDetail!.subcategoryId == 22) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2174,7 +2172,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2183,7 +2181,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 23) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2310,7 +2308,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2321,7 +2319,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     widget.jobsDetail!.subcategoryId == 25 ||
                     widget.jobsDetail!.subcategoryId == 27) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2396,7 +2394,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2405,7 +2403,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 26) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2463,7 +2461,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2475,7 +2473,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     widget.jobsDetail!.subcategoryId == 32 ||
                     widget.jobsDetail!.subcategoryId == 34) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2521,7 +2519,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2530,7 +2528,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 33) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2628,7 +2626,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2637,7 +2635,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 35) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2681,7 +2679,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2694,7 +2692,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     widget.jobsDetail!.subcategoryId == 69
                 ) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2726,7 +2724,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2750,7 +2748,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     widget.jobsDetail!.subcategoryId == 59 ||
                     widget.jobsDetail!.subcategoryId == 60) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2843,7 +2841,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2853,7 +2851,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.subcategoryId == 61 ||
                     widget.jobsDetail!.subcategoryId == 65) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -2937,7 +2935,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -2946,7 +2944,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 62) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -3110,7 +3108,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -3119,7 +3117,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 63) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -3239,7 +3237,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -3248,7 +3246,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 64) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -3358,7 +3356,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -3367,7 +3365,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 67) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -3450,7 +3448,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -3459,7 +3457,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 70) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -3557,7 +3555,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -3566,7 +3564,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 71) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -3680,7 +3678,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -3689,7 +3687,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 ],
                 if (widget.jobsDetail!.subcategoryId == 72) ...[
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -3793,7 +3791,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width / 40,
+                    height: MediaQuery.of(context).size.width / 20,
                   ),
                   const Divider(
                     height: 2,
@@ -3808,7 +3806,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                   style: Theme.of(context).textTheme.titleSmall,
                 ).tr(),
                 Container(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.only(top: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[

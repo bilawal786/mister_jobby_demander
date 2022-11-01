@@ -44,11 +44,11 @@ class MainCategoriesProvider with ChangeNotifier {
 
   List<SubCategory>? searchSub;
   void findBySubCategories(String title) {
-    if(title.isEmpty)
-    {
-      searchSub = null;
-      print(title);
-    }
+    // if(title.isEmpty)
+    // {
+    //   searchSub = null;
+    //   print(title);
+    // }
     searchSub = subCategory?.where((cate) => cate.title.toLowerCase().contains(title)).toList();
     print('sub search print:${searchSub?[0].title}');
     notifyListeners();
