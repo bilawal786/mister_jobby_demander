@@ -455,7 +455,6 @@ class MyApp extends StatelessWidget {
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
           MyRoutes.PAYMENTSUCCESSFULLY: (ctx) => const PaymentSuccessScreen(),
-          MyRoutes.VIEWREQUESTROUTE: (ctx) => const ViewRequestScreen(),
           MyRoutes.RATINGSCREENROUTE: (ctx) => const RatingReviewsScreen(),
         },
       ),

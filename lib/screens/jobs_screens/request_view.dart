@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../helpers/routes.dart';
+import '../../models/jobs_models/job_reservations_model.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
 class ViewRequestScreen extends StatelessWidget {
-  const ViewRequestScreen({Key? key}) : super(key: key);
+  final JobReservationsModel? reservation;
+  const ViewRequestScreen({Key? key, required this.reservation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class ViewRequestScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "Interior painting",
+                reservation!.job.title,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(
@@ -76,9 +78,9 @@ class ViewRequestScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              const Text(
-                "The job was paid on 09/29/2022",
-                style: TextStyle(
+              Text(
+                "The job was paid on ${reservation!.date}",
+                style: const TextStyle(
                   fontSize: 12,
                   color: Colors.green,
                   fontWeight: FontWeight.w700,
@@ -100,7 +102,7 @@ class ViewRequestScreen extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: Image.network(
-                        "https://www.erc.com.pk/wp-content/uploads/person4.jpg",
+                        "${MyRoutes.IMAGEURL}/${reservation!.jobberProfile.image}",
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -109,6 +111,7 @@ class ViewRequestScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 40,
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         'Client',
@@ -118,7 +121,7 @@ class ViewRequestScreen extends StatelessWidget {
                         height: MediaQuery.of(context).size.width / 80,
                       ),
                       Text(
-                        'Name',
+                        '${reservation!.jobberProfile.firstName} ${reservation!.jobberProfile.lastName}',
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
@@ -178,12 +181,9 @@ class ViewRequestScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const Spacer(),
-                  Expanded(
-                    flex: 3,
-                    child: Text(
-                      "Thursday, September 29, 2022 from 7:00 p.m. to 8:00 p.m.",
-                      style: Theme.of(context).textTheme.labelMedium,
-                    ),
+                  Text(
+                    "${reservation!.job.serviceDate} at ${reservation!.job.startTime}",
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
               ),
@@ -207,7 +207,7 @@ class ViewRequestScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    "1h",
+                    "${reservation!.job.duration} h",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
@@ -232,7 +232,7 @@ class ViewRequestScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    "9 €",
+                    "price is not available €",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
@@ -257,7 +257,7 @@ class ViewRequestScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    "9 €",
+                    "${reservation!.job.hours} €",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],

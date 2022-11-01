@@ -12,6 +12,7 @@ import '../../../widgets/const_widgets/custom_button.dart';
 import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
 import '../../../../models/jobs_models/jobs_in_progress_model.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
+import '../request_view.dart';
 
 class JobsDetailsScreen extends StatefulWidget {
   final JobsInProgressModel? jobsInProgressDetail;
@@ -574,7 +575,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                               padding: const EdgeInsets.symmetric(horizontal: 4),
                               child: CustomButton(
                                 onPress: () => Navigator.of(context)
-                                    .pushNamed(MyRoutes.VIEWREQUESTROUTE),
+                                    .push(MaterialPageRoute(builder: (ctx) => ViewRequestScreen(reservation: extractedReservation[index],))),
                                 buttonName: "View Request",
                               ),
                             ),
