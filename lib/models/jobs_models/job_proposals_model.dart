@@ -11,6 +11,7 @@ String jobProposalsModelToJson(List<JobProposalsModel> data) => json.encode(List
 
 class JobProposalsModel {
   JobProposalsModel({
+    required this.id,
     required this.title,
     required this.price,
     required this.createdAt,
@@ -18,6 +19,7 @@ class JobProposalsModel {
     required this.jobber,
   });
 
+  int id;
   String title;
   String price;
   String createdAt;
@@ -25,6 +27,7 @@ class JobProposalsModel {
   Jobber jobber;
 
   factory JobProposalsModel.fromJson(Map<String, dynamic> json) => JobProposalsModel(
+    id: json["id"],
     title: json["title"],
     price: json["price"],
     createdAt: json["created_at"],
@@ -33,6 +36,7 @@ class JobProposalsModel {
   );
 
   Map<String, dynamic> toJson() => {
+    "id": id,
     "title": title,
     "price": price,
     "created_at": createdAt,

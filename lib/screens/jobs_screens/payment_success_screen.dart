@@ -13,6 +13,10 @@ class PaymentSuccessScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+          size: 25,
+        ),
       ),
       body: SingleChildScrollView(
         child: Center(

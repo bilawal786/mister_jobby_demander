@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart'as http;
@@ -20,11 +22,36 @@ class JobProposalsProvider with ChangeNotifier {
       },
     );
     if(response.statusCode == 200) {
-      print('Job Proposals Api is working perfectly.');
+      debugPrint('Job Proposals Api is working perfectly.');
       jobProposal = jobProposalsModelFromJson(response.body);
       notifyListeners();
     }else{
-      print('Job Proposals Api is not working correctly');
+      debugPrint('Job Proposals Api is not working correctly');
+    }
+    // print(response.body);
+  }
+
+  Future<void> postProposalContract(proposalId, totalPrice, tax) async {
+    final SharedPreferences sharePref = await SharedPreferences.getInstance();
+    String? userToken = sharePref.getString('token');
+    var response = await http.post(
+      Uri.parse('${MyRoutes.BASEURL}/demandeur/proposals/contract'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $userToken'
+      },
+      body: jsonEncode(<String, dynamic> {
+        'proposal_id': proposalId,
+        'price': totalPrice,
+        'percentage': tax,
+      }),
+    );
+    if(response.statusCode == 200) {
+      debugPrint('Job Proposals Contract Api is working perfectly.');
+      notifyListeners();
+    }else{
+      debugPrint('Job Proposals contract Api is not working correctly');
     }
     // print(response.body);
   }

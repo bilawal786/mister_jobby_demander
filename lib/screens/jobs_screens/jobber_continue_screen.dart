@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:mister_jobby/providers/jobs_provider/job_proposals_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
 import '../../models/jobs_models/job_proposals_model.dart';
@@ -232,7 +234,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
   displayPaymentSheet() async {
     try {
       await Stripe.instance.presentPaymentSheet().then((value) {
-        Navigator.of(context).pushNamed(MyRoutes.PAYMENTSUCCESSFULLY);
+        Navigator.of(context).pushReplacementNamed(MyRoutes.PAYMENTSUCCESSFULLY);
         showDialog(
           context: context,
           builder: (_) => AlertDialog(
@@ -283,6 +285,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
 
   //  Future<Map<String, dynamic>>
   createPaymentIntent(double amount, String currency) async {
+    final proposalData = Provider.of<JobProposalsProvider>(context, listen: false);
     try {
       Map<String, dynamic> body = {
         'amount': calculateAmount(amount),
@@ -301,7 +304,10 @@ class _ContinueJobberState extends State<ContinueJobber> {
       );
       // ignore: avoid_print
       if(response.statusCode == 200) {
-        print('Payment Intent Body->>> ${response.body.toString()}');
+        debugPrint('Payment Intent Body->>> ${response.body.toString()}');
+        proposalData.postProposalContract(widget.proposel!.id.toString(),
+            double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100),
+            ((double.parse(widget.proposel!.price) * 10) / 100));
         return jsonDecode(response.body);
       }
     } catch (err) {
