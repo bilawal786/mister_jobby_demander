@@ -136,7 +136,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
     );
   }
 
-  void ignoreOpenSheet() {
+  void closeJobOpenSheet() {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -198,7 +198,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
           SliverAppBar(
             title: InkWell(
               onTap: () {
-                ignoreOpenSheet();
+                closeJobOpenSheet();
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
