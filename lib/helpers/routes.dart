@@ -115,10 +115,10 @@ class MyRoutes {
   static String TERMSANDCONDITION = '/Terms-and-condition-Screen';
   static String TAXCERTIFICATEROUTE = '/Tax-certificate-Screen';
   static const String MANAGENOTIFICATIONS = '/Manage-notifications-Screen';
-
   static const String INSURANCE = '/Insurance-Screen';
   static String TRUSTANDSECURITY = '/Trust-and-security-Screen';
   static String TAXCREDIT = '/Tax-credit-Screen';
+
   static String BASEURL = 'https://misterjobby.ikaedigital.com/api';
   static String IMAGEURL = 'https://misterjobby.ikaedigital.com/';
 }

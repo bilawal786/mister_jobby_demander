@@ -35,7 +35,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           iconTheme: const IconThemeData(
-            color: Colors.black45,
+            color: Colors.black,
             size: 25,
           ),
         ),

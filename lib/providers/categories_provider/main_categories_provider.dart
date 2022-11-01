@@ -38,19 +38,19 @@ class MainCategoriesProvider with ChangeNotifier {
         print(title);
       }
     searchPost = mainCategories!.where((cate,) => cate.title.toLowerCase().contains(title)).toList();
-    print('method search print:${searchPost?[0].title}');
+    print('search categories print:${searchPost?[0].title}');
     notifyListeners();
   }
 
   List<SubCategory>? searchSub;
   void findBySubCategories(String title) {
-    // if(title.isEmpty)
-    // {
-    //   searchSub = null;
-    //   print(title);
-    // }
+    if(title.isEmpty)
+    {
+      searchSub = null;
+      print(title);
+    }
     searchSub = subCategory?.where((cate) => cate.title.toLowerCase().contains(title)).toList();
-    print('sub search print:${searchSub?[0].title}');
+    print('sub search categories print:${searchSub?[1].title}');
     notifyListeners();
   }
 }

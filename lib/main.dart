@@ -134,7 +134,6 @@ import './screens/jobs_screens/rating_reviews_screen.dart';
 import 'providers/accounts_providers/about_provider/about_provider.dart';
 import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
 import 'providers/jobs_provider/edit_jobs_provider.dart';
-import 'providers/jobs_provider/job_reservation_provider.dart';
 import 'providers/notification_provider/notification_provider.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 
@@ -188,9 +187,6 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (ctx) => NotificationProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (ctx) => JobReservationProvider(),
         ),
       ],
       child: MaterialApp(

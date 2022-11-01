@@ -4,18 +4,18 @@ import 'package:mister_jobby/providers/categories_provider/main_categories_provi
 import 'package:provider/provider.dart';
 
 
-class SearchInputField extends StatefulWidget {
-  const SearchInputField({Key? key}) : super(key: key);
+class SubSearchInputField extends StatefulWidget {
+  const SubSearchInputField({Key? key}) : super(key: key);
 
   @override
-  State<SearchInputField> createState() => _SearchInputFieldState();
+  State<SubSearchInputField> createState() => _SubSearchInputFieldState();
 }
 
-class _SearchInputFieldState extends State<SearchInputField> {
+class _SubSearchInputFieldState extends State<SubSearchInputField> {
 
   @override
   Widget build(BuildContext context) {
-      final filterData = Provider.of<MainCategoriesProvider>(context);
+    final filterData = Provider.of<MainCategoriesProvider>(context);
     return Container(
       margin: const EdgeInsets.only(left: 15, right: 15),
       decoration: BoxDecoration(
@@ -23,7 +23,7 @@ class _SearchInputFieldState extends State<SearchInputField> {
       child: TextFormField(
         onChanged: (value){
           print(value);
-          filterData.findByCategories(value);
+          filterData.findBySubCategories(value);
         },
         style: Theme.of(context).textTheme.labelMedium,
         decoration: InputDecoration(
