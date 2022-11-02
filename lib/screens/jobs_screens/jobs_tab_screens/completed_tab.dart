@@ -32,10 +32,16 @@ class _CompletedTabState extends State<CompletedTab> {
       child: CircularProgressIndicator(),
     ):extractJobsCompleted.isEmpty ?
          const NoDataFoundWidget()
-        : ListView.builder(
-            itemCount: extractJobsCompleted.length,
-            padding: const EdgeInsets.all(10),
-            itemBuilder: (context, index) => CompleteItemWidget(jobsCompletedModel: extractJobsCompleted[index]),
-          );
+        : RefreshIndicator(
+          onRefresh: ()async{
+            Provider.of<JobsCompletedProvider>(context, listen: false).getJobsCompleted();
+          },
+          child: ListView.builder(
+              clipBehavior: Clip.none,
+              itemCount: extractJobsCompleted.length,
+              padding: const EdgeInsets.all(10),
+              itemBuilder: (context, index) => CompleteItemWidget(jobsCompletedModel: extractJobsCompleted[index]),
+            ),
+        );
   }
 }

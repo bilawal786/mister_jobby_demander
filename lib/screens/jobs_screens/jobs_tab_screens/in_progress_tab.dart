@@ -18,7 +18,7 @@ class _InProgressTabState extends State<InProgressTab> {
   @override
   void didChangeDependencies() {
     if (isInit) {
-      Provider.of<JobsInProgressProvider>(context).getInProgressJobs();
+      Provider.of<JobsInProgressProvider>(context, listen: false).getInProgressJobs();
     }
     isInit = false;
     super.didChangeDependencies();
@@ -27,7 +27,7 @@ class _InProgressTabState extends State<InProgressTab> {
   @override
   Widget build(BuildContext context) {
     final inProgressJobsData =
-        Provider.of<JobsInProgressProvider>(context, listen: false);
+        Provider.of<JobsInProgressProvider>(context,);
     final extractedInProgressJobs = inProgressJobsData.inProgressJobs;
     return extractedInProgressJobs == null
         ? const Center(
@@ -74,13 +74,18 @@ class _InProgressTabState extends State<InProgressTab> {
             : Container(
                 padding: const EdgeInsets.all(10.0),
                 margin: const EdgeInsets.all(5.0),
-                child: ListView.builder(
-                  padding: const EdgeInsets.all(0.0),
-                  shrinkWrap: false,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: extractedInProgressJobs.length,
-                  itemBuilder: (ctx, index) => InProgressItemWidget(
-                    jobsInProgress: extractedInProgressJobs[index],
+                child: RefreshIndicator(
+                  onRefresh: ()async{
+                    Provider.of<JobsInProgressProvider>(context, listen: false).getInProgressJobs();
+                  },
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(0.0),
+                    shrinkWrap: false,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: extractedInProgressJobs.length,
+                    itemBuilder: (ctx, index) => InProgressItemWidget(
+                      jobsInProgress: extractedInProgressJobs[index],
+                    ),
                   ),
                 ),
               );

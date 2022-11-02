@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:mister_jobby/providers/jobs_provider/jobs_compleleted_provider.dart';
 import './providers/jobs_provider/job_proposals_provider.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/insurance.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/notifications.dart';
@@ -192,6 +193,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => JobReservationProvider(),
         ),
+        ChangeNotifierProvider(create:(context) => JobsCompletedProvider(),),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

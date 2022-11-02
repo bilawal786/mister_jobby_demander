@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/single_completed_job_details.dart';
 
 import '../../../helpers/routes.dart';
 import '../../../models/jobs_models/jobs_completed_model.dart';
@@ -146,11 +147,11 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                     Expanded(
                       child: OutlineSelectedButton(
                           onTap: () {
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //   builder: (ctx) => SingleJobsDetails(
-                            //       jobsDetail: widget.jobsInProgressDetail),
-                            // ),
-                            // );
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) =>
+                                  SingleCompletedJobsDetails(jobsCompletedModel: widget.jobsCompletedModel),
+                            ),
+                            );
                           }, textTitle: "Details", border: true),
                     ),
                     Expanded(
