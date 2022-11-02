@@ -11,6 +11,9 @@ String jobReservationsModelToJson(List<JobReservationsModel> data) => json.encod
 class JobReservationsModel {
   JobReservationsModel({
     required this.id,
+    required this.price,
+    required this.contractNo,
+    required this.hourlyRate,
     required this.job,
     required this.jobberProfile,
     required this.status,
@@ -18,6 +21,9 @@ class JobReservationsModel {
   });
 
   int id;
+  String price;
+  String contractNo;
+  String hourlyRate;
   Job job;
   JobberProfile jobberProfile;
   int status;
@@ -25,6 +31,9 @@ class JobReservationsModel {
 
   factory JobReservationsModel.fromJson(Map<String, dynamic> json) => JobReservationsModel(
     id: json["id"],
+    price: json["price"],
+    contractNo: json["contract_no"],
+    hourlyRate: json["hourly_rate"],
     job: Job.fromJson(json["job"]),
     jobberProfile: JobberProfile.fromJson(json["jobberProfile"]),
     status: json["status"],
@@ -33,6 +42,9 @@ class JobReservationsModel {
 
   Map<String, dynamic> toJson() => {
     "id": id,
+    "price": price,
+    "contract_no": contractNo,
+    "hourly_rate": hourlyRate,
     "job": job.toJson(),
     "jobberProfile": jobberProfile.toJson(),
     "status": status,

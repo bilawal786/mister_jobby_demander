@@ -82,6 +82,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                       fit: BoxFit.cover,
                                     )),
                               ),
+                              if(extractProposal[index].jobber.verified == true)
                               Positioned(
                                 right: -2,
                                 child: Icon(
@@ -109,6 +110,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                           .bodyMedium,
                                     ),
                                   ),
+                                  if(extractProposal[index].jobber.verified == true)
                                   Positioned(
                                     right: 0,
                                     top: 3,

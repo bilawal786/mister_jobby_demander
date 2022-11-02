@@ -159,12 +159,23 @@ class ViewRequestScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 20,
               ),
-              Text(
-                "Job details",
-                style: Theme.of(context).textTheme.bodyMedium,
+              Row(
+                children: <Widget>[
+                  Text(
+                    "Job details",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const Spacer(),
+                  Text(reservation!.contractNo, style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Cerebri Sans Bold',
+                    color: Colors.green.shade700,
+                    fontWeight: FontWeight.bold,
+                  ),)
+                ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
+                height: MediaQuery.of(context).size.width / 20,
               ),
               Row(
                 children: <Widget>[
@@ -219,31 +230,6 @@ class ViewRequestScreen extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Icon(
-                    Icons.account_balance_wallet_outlined,
-                    color: Theme.of(context).primaryColor,
-                    size: 16,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 40,
-                  ),
-                  Text(
-                    "Remuneration",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                  const Spacer(),
-                  Text(
-                    "price is not available €",
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
-                ],
-              ),
-              const Divider(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Row(
-                children: <Widget>[
-                  Icon(
                     Icons.account_balance_wallet,
                     color: Theme.of(context).primaryColor,
                     size: 16,
@@ -257,7 +243,7 @@ class ViewRequestScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    "${reservation!.job.hours} €",
+                    "${reservation!.hourlyRate} €",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
@@ -266,36 +252,24 @@ class ViewRequestScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              Text(
-                "See the job",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Cerebri Sans Bold',
-                ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 20,
-              ),
-              Text(
-                "Payment Details",
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
               Row(
                 children: <Widget>[
-                  Text("Initial duration", style: Theme.of(context).textTheme.bodySmall,),
+                  Icon(
+                    Icons.account_balance_wallet_outlined,
+                    color: Theme.of(context).primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    "Remuneration",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                   const Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text("9 €", style: Theme.of(context).textTheme.bodySmall,),
-                      Text("9€ x 1h", style: Theme.of(context).textTheme.labelSmall,),
-                    ],
+                  Text(
+                    "${reservation!.price} €",
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
               ),
@@ -305,15 +279,22 @@ class ViewRequestScreen extends StatelessWidget {
               ),
               Row(
                 children: <Widget>[
-                  Text("Overtime", style: Theme.of(context).textTheme.bodySmall,),
+                  Icon(
+                    Icons.account_balance_wallet_outlined,
+                    color: Theme.of(context).primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    "Administration tax",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                   const Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text("0 €", style: Theme.of(context).textTheme.bodySmall,),
-                      Text("9€ x 0h", style: Theme.of(context).textTheme.labelSmall,),
-                    ],
+                  Text(
+                    "${((double.parse(reservation!.price) * 10) / 100 )} €",
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
               ),
@@ -323,25 +304,28 @@ class ViewRequestScreen extends StatelessWidget {
               ),
               Row(
                 children: <Widget>[
-                  Text("Service charge", style: Theme.of(context).textTheme.bodySmall,),
+                  Icon(
+                    Icons.account_balance_wallet_outlined,
+                    color: Theme.of(context).primaryColor,
+                    size: 16,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 40,
+                  ),
+                  Text(
+                    "Total Amount",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                   const Spacer(),
-                  Text("-0.45 €", style: Theme.of(context).textTheme.labelMedium,),
+                  Text(
+                    "${(((double.parse(reservation!.price) * 10) / 100 ) +  double.parse(reservation!.price))} €",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
                 ],
               ),
               const Divider(),
               SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Row(
-                children: <Widget>[
-                  Text("Final remuneration", style: Theme.of(context).textTheme.bodySmall,),
-                  const Spacer(),
-                  Text("8,55 €", style: Theme.of(context).textTheme.labelMedium,),
-                ],
-              ),
-              const Divider(),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 20,
+                height: MediaQuery.of(context).size.width / 10,
               ),
               Text(
                 "Evaluation",
@@ -365,7 +349,8 @@ class ViewRequestScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              CustomButton(onPress: ()=> Navigator.of(context).pushNamed(MyRoutes.RATINGSCREENROUTE), buttonName: 'Give Review',),
+              const Divider(),
+              CustomButton(onPress: ()=> Navigator.of(context).pushNamed(MyRoutes.RATINGSCREENROUTE), buttonName: 'Complete Job',),
             ],
           ),
         ),

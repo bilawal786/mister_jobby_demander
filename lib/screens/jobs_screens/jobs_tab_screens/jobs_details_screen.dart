@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/providers/jobs_provider/job_proposals_provider.dart';
 import 'package:mister_jobby/providers/jobs_provider/jobs_in_progress_provider.dart';
 import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/edit_job_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -206,7 +207,9 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final reservationData = Provider.of<JobReservationProvider>(context,listen: false);
+    final offerData = Provider.of<JobProposalsProvider>(context,listen: false);
     final extractedReservation = reservationData.jobReservations;
+    final extractedOffer = offerData.jobProposal;
     return Scaffold(
       body: NestedScrollView(
         floatHeaderSlivers: true,
@@ -405,7 +408,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                if(extractedReservation != null ) ...[
+                if(extractedReservation != null && extractedReservation.isNotEmpty ) ...[
                   Row(
                     children: <Widget>[
                       Text(
@@ -449,6 +452,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                         ),
                                       ),
                                     ),
+                                    if(extractedReservation[index].jobberProfile.verified == true)
                                     Positioned(
                                       right: -2,
                                       child: Icon(
@@ -476,6 +480,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                                 .bodyMedium,
                                           ),
                                         ),
+                                        if(extractedReservation[index].jobberProfile.verified == true)
                                         Positioned(
                                           right: 0,
                                           top: 3,
@@ -607,7 +612,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Text(
-                      "(${widget.jobsInProgressDetail!.totalOffers})",
+                      "(${extractedOffer?.length})",
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ],
