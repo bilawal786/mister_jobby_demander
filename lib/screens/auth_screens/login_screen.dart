@@ -6,6 +6,7 @@ import '../../helpers/routes.dart';
 import '../../providers/auth_provider/login_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
+import 'forget_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -55,9 +56,10 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.width/1.2,
+                height: MediaQuery.of(context).size.width / 1.2,
                 width: MediaQuery.of(context).size.width,
-                child: Image.asset('assets/images/login.jpeg',
+                child: Image.asset(
+                  'assets/images/login.jpeg',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -150,7 +152,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: MediaQuery.of(context).size.width / 25,
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const ForgetPassword(),
+                            ));
+                          },
                           child: Text(
                             "Forgot_Button_Text".tr(),
                             style: TextStyle(
