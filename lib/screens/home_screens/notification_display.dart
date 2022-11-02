@@ -14,7 +14,7 @@ class NotificationDisplay extends StatefulWidget {
 class _NotificationDisplayState extends State<NotificationDisplay> {
   @override
   Widget build(BuildContext context) {
-    final notificationsData = Provider.of<NotificationProvider>(context, listen: false);
+    final notificationsData = Provider.of<NotificationProvider>(context,);
     final extractNotification = notificationsData.notificationItems;
     return Scaffold(
       appBar: AppBar(
@@ -24,31 +24,53 @@ class _NotificationDisplayState extends State<NotificationDisplay> {
         centerTitle: true,
          iconTheme: Theme.of(context).iconTheme,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: extractNotification!.length,
-            itemBuilder: (ctx, index) => Column(
-              children:<Widget> [
-                ListTile(
-                  title: Text(
-                    extractNotification[index].activity,
-                    style: Theme.of(context).textTheme.labelMedium,
+      body: RefreshIndicator(
+        onRefresh: ()async{
+          Provider.of<NotificationProvider>(context, listen: false).getNotification();
+        },
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: extractNotification!.length,
+              itemBuilder: (ctx, index) => Column(
+                children:<Widget> [
+
+                  Container(
+                    color: extractNotification[index].status == "1" ? Colors.transparent : Colors.blueGrey.shade50,
+                    child: ListTile(
+                      title: Row(
+                        children: [
+                          Icon(extractNotification[index].status == "1"?
+                            Icons.notifications_none : Icons.notifications,
+                            size: 22,
+                          ),
+                          Text(
+                            extractNotification[index].activity.toString(),
+                            style: Theme.of(context).textTheme.labelMedium,
+                          ),
+                        ],
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            extractNotification[index].message.toString(),
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          Text(
+                            extractNotification[index].createdAt.toString(),
+                            style: Theme.of(context).textTheme.labelSmall,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  subtitle: Text(
-                    extractNotification[index].message,
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  trailing: const Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    size: 20,
-                  ),
-                ),
-               const Divider(),
-              ],
+                 const Divider(),
+                ],
+              ),
             ),
           ),
         ),
