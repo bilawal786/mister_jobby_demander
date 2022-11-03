@@ -10,6 +10,7 @@ import '../../providers/accounts_providers/profile_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/const_widgets/custom_list_tile.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
+import '../auth_screens/change_password_screen.dart';
 import '../test_screen.dart';
 
 class AccountsScreen extends StatefulWidget {
@@ -260,7 +261,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                   title: 'Manage_My_Notifications'),
                               CustomListTile(
                                   onPress: () {
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfirmPassword(),));
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>const ChangePassword(),));
                                   },
                                   leadingIcon:
                                   Icons.key,

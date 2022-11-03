@@ -6,6 +6,7 @@ import '../../providers/auth_provider/forget_password_provider.dart';
 import '../../providers/auth_provider/login_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import 'confirm_password_screen.dart';
+import 'otp_verify_screen.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({Key? key}) : super(key: key);
@@ -28,13 +29,14 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   }
 
   void formSubmitemail() {
-    // final forgetPasswordData = Provider.of<ForgetPasswordProvider>(context, listen: false);
+     final verifyEmailData = Provider.of<ForgetPasswordProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
 
     if (!isValid) {
-      return;
+      return ;
     }
     formKey.currentState!.save();
+    verifyEmailData.verifyEmail(context, emailController.text);
         // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfirmPassword(email: emailController.text.toString()),));
   }
 
@@ -100,7 +102,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       height: MediaQuery.of(context).size.width / 25,
                     ),
                     CustomButton(onPress: formSubmitemail,
-                        // () =>
+                        // ()=>
                         // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfirmPassword(),),),
                         buttonName: "Confirm Email"),
                   ],

@@ -5,27 +5,32 @@ import '../../providers/accounts_providers/profile_provider.dart';
 import '../../providers/auth_provider/forget_password_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 
-class ConfirmPassword extends StatefulWidget {
-  final email;
-  const ConfirmPassword({Key? key, required this.email,}) : super(key: key);
+class ChangePassword extends StatefulWidget {
+  const ChangePassword({
+    Key? key,
+  }) : super(key: key);
   @override
-  State<ConfirmPassword> createState() => _ConfirmPasswordState();
+  State<ChangePassword> createState() => _ChangePasswordState();
 }
-class _ConfirmPasswordState extends State<ConfirmPassword> {
+
+class _ChangePasswordState extends State<ChangePassword> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController newPasswordController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   RegExp regExp = RegExp(
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
       multiLine: false);
+  String getEmail = '';
   @override
   void dispose() {
     newPasswordController.dispose();
     passwordController.dispose();
     super.dispose();
   }
+
   void formSubmit() {
-    final forgetPasswordData = Provider.of<ForgetPasswordProvider>(context, listen: false);
+    final forgetPasswordData =
+        Provider.of<ForgetPasswordProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
       return;
@@ -33,12 +38,16 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
     formKey.currentState!.save();
     forgetPasswordData.forgetPassword(
       context,
-      widget.email,
+      getEmail,
       newPasswordController.text,
     );
   }
+
   @override
   Widget build(BuildContext context) {
+    final profileData = Provider.of<ProfileProvider>(context, listen: false);
+    final extractProfile = profileData.myProfile;
+    getEmail = extractProfile!.email;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -124,9 +133,7 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
                         return 'Please Enter the password';
                       } else if (value.length < 5) {
                         return 'Must be more than 5 characters';
-                      }else if(value != passwordController.text){
-                        print(passwordController.text);
-                        print(newPasswordController.text);
+                      } else if (value != passwordController.text) {
                         return 'Password not matched';
                       }
                       return null;
