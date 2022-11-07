@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
 
@@ -90,25 +91,6 @@ class JobberProfileScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelMedium,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.width / 80,
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text(
-                    "${jobber!.completedJobs}",
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 80,
-                  ),
-                  Text(
-                    "Jobs_Performed",
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ).tr(),
-                ],
-              ),
-              SizedBox(
                 height: MediaQuery.of(context).size.width / 20,
               ),
               SizedBox(
@@ -117,36 +99,276 @@ class JobberProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "DIY",
-                      style: Theme.of(context).textTheme.labelLarge,
+                      "Skills",
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          width: MediaQuery.of(context).size.width / 20,
-                          height: MediaQuery.of(context).size.width / 20,
-                          decoration: BoxDecoration(
-                            color: Colors.red.shade100,
-                            shape: BoxShape.circle,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 1,
+                      child: ListView.builder(
+                        itemCount: jobber!.skills.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (ctx, index) => Card(
+                          elevation: 5,
+                          child: Container(
+                            padding: const EdgeInsets.all(10.0),
+                            width: MediaQuery.of(context).size.width / 1.2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  jobber!.skills[index].mainCategory.toString(),
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.width / 40,
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          10,
+                                      height:
+                                          MediaQuery.of(context).size.width /
+                                              10,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue.shade50,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Icon(
+                                        FontAwesomeIcons.businessTime,
+                                        size: 20,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          40,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "Experience".tr(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+                                        SizedBox(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              80,
+                                        ),
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              1.8,
+                                          child: Text(
+                                            jobber!.skills[index].experience,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.width / 40,
+                                ),
+                                Text(
+                                  "Information".tr(),
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.width / 40,
+                                ),
+                                if(jobber!.skills[index].diplomaName != "")
+                                  Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          10,
+                                      height:
+                                          MediaQuery.of(context).size.width /
+                                              10,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue.shade50,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Icon(
+                                        FontAwesomeIcons.graduationCap,
+                                        size: 20,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          40,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "Diploma".tr(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+                                        SizedBox(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              80,
+                                        ),
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              1.8,
+                                          child: Text(
+                                            jobber!.skills[index].diplomaName,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.width / 40,
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          10,
+                                      height:
+                                          MediaQuery.of(context).size.width /
+                                              10,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue.shade50,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Icon(
+                                        FontAwesomeIcons.screwdriverWrench,
+                                        size: 20,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          40,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "Equipments".tr(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+                                        SizedBox(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              80,
+                                        ),
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              1.8,
+                                          child: Text(
+                                            jobber!.skills[index].equipments,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.width / 40,
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          10,
+                                      height:
+                                          MediaQuery.of(context).size.width /
+                                              10,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue.shade50,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Icon(
+                                        FontAwesomeIcons.groupArrowsRotate,
+                                        size: 20,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          40,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          "Engagements".tr(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+                                        SizedBox(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              80,
+                                        ),
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              1.6,
+                                          child: Text(
+                                            jobber!.skills[index].engagments,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                          child: const Icon(
-                            Icons.stars,
-                            size: 14,
-                            color: Colors.red,
-                          ),
                         ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 80,
-                        ),
-                        Text(
-                          jobber!.experince,
-                          style: Theme.of(context).textTheme.displaySmall,
-                        ),
-                      ],
-                    ),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -160,110 +382,159 @@ class JobberProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Information",
-                      style: Theme.of(context).textTheme.labelLarge,
+                      "About".tr(),
+                      style: Theme.of(context).textTheme.titleSmall,
                     ).tr(),
                     SizedBox(
-                      height: MediaQuery.of(context).size.width / 40,
+                      height: MediaQuery.of(context).size.width /40,
                     ),
                     Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Container(
-                          width: MediaQuery.of(context).size.width / 10,
-                          height: MediaQuery.of(context).size.width / 10,
+                          width: MediaQuery.of(context).size.width /
+                              10,
+                          height:
+                          MediaQuery.of(context).size.width /
+                              10,
                           decoration: BoxDecoration(
                             color: Colors.blue.shade50,
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
-                            Icons.business_center,
+                            FontAwesomeIcons.clipboardCheck,
                             size: 20,
                             color: Theme.of(context).primaryColor,
                           ),
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width / 40,
-                        ),
-                        Expanded(
-                          child: Text(
-                            jobber!.personalDescription,
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              const Divider(),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "About",
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ).tr(),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width / 40,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          width: MediaQuery.of(context).size.width / 20,
-                          height: MediaQuery.of(context).size.width / 20,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade50,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.home_work_rounded,
-                            size: 14,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 40,
-                        ),
-                        Expanded(
-                          child: Text(
-                            jobber!.address,
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width / 40,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          width: MediaQuery.of(context).size.width / 20,
-                          height: MediaQuery.of(context).size.width / 20,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade50,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.location_history,
-                            size: 14,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 40,
+                          width: MediaQuery.of(context).size.width /
+                              40,
                         ),
                         Text(
-                          jobber!.country,
+                          "${jobber!.completedJobs}",
                           style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 80,
+                        ),
+                        Text(
+                          "Jobs_Performed",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ).tr(),
+                      ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width /
+                              10,
+                          height:
+                          MediaQuery.of(context).size.width /
+                              10,
+                          decoration: BoxDecoration(
+                            color: Colors.blue.shade50,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            FontAwesomeIcons.clipboardList,
+                            size: 20,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width /
+                              40,
+                        ),
+                        Expanded(
+                          child: Text(
+                            "${jobber!.cancelJobs} Jobs Canceled",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width /
+                              10,
+                          height:
+                          MediaQuery.of(context).size.width /
+                              10,
+                          decoration: BoxDecoration(
+                            color: Colors.blue.shade50,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            FontAwesomeIcons.checkDouble,
+                            size: 20,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width /
+                              40,
+                        ),
+                        Expanded(
+                          child: Text(
+                            "${jobber!.totalJobs} Total Jobs",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width /
+                              10,
+                          height:
+                          MediaQuery.of(context).size.width /
+                              10,
+                          decoration: BoxDecoration(
+                            color: Colors.blue.shade50,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            FontAwesomeIcons.locationCrosshairs,
+                            size: 20,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width /
+                              40,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              "Address",
+                              style: Theme.of(context).textTheme.labelMedium,
+                            ),
+                            SizedBox(height: MediaQuery.of(context).size.width / 80,),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 1.3,
+                              child: Text(
+                                jobber!.address,
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+
                   ],
                 ),
               ),
@@ -315,8 +586,9 @@ class JobberProfileScreen extends StatelessWidget {
                           ),
                           SizedBox(
                               width: MediaQuery.of(context).size.width / 90),
-                          for(int i = 1; i < jobber!.reviews[index].star; i++)
-                            const Icon(Icons.star, size: 14, color: Colors.yellow),
+                          for (int i = 1; i < jobber!.reviews[index].star; i++)
+                            const Icon(Icons.star,
+                                size: 14, color: Colors.yellow),
                           const Spacer(),
                           Text(
                             jobber!.reviews[index].date,
@@ -338,7 +610,6 @@ class JobberProfileScreen extends StatelessWidget {
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       const Divider(),
-
                     ],
                   ),
                 ),
@@ -346,7 +617,7 @@ class JobberProfileScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              CustomButton(onPress: (){}, buttonName: "Continue")
+              CustomButton(onPress: () {}, buttonName: "Continue")
             ],
           ),
         ),
