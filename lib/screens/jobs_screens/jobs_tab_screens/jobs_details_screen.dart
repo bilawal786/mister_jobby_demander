@@ -456,7 +456,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                     Positioned(
                                       right: -2,
                                       child: Icon(
-                                        Icons.verified_user,
+                                        Icons.verified_user_sharp,
                                         color: Colors.green.shade700,
                                         size: 23,
                                       ),
@@ -615,12 +615,36 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       "(${extractedOffer?.length})",
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
+                    const Spacer(),
+                    Consumer<JobProposalsProvider>(
+                      builder: (_,offers,child) => InkWell(
+                        onTap: (){
+                          offers.setCheckApi();
+                          offers.getJobProposals(widget.jobsInProgressDetail!.id);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: offers.checkApi == false ?
+                          const SizedBox(
+                              width: 25,
+                              height: 25,
+                              child: CircularProgressIndicator()) :
+                               const Icon(
+                            Icons.refresh,
+                            size: 25,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                JobsProposalsWidget(jobId: widget.jobsInProgressDetail!.id),
+                AbsorbPointer(
+                    absorbing: (widget.jobsInProgressDetail!.isHired == widget.jobsInProgressDetail!.jobberRequired) ? true  : false,
+                    child: JobsProposalsWidget(jobId: widget.jobsInProgressDetail!.id),),
               ],
             ),
           ),

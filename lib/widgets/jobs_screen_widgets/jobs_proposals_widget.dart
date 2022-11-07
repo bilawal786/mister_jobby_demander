@@ -82,15 +82,16 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                       fit: BoxFit.cover,
                                     )),
                               ),
-                              if(extractProposal[index].jobber.verified == true)
-                              Positioned(
-                                right: -2,
-                                child: Icon(
-                                  Icons.verified_user,
-                                  color: Colors.green.shade700,
-                                  size: 23,
+                              if (extractProposal[index].jobber.verified ==
+                                  true)
+                                Positioned(
+                                  right: -2,
+                                  child: Icon(
+                                    Icons.verified_user,
+                                    color: Colors.green.shade700,
+                                    size: 23,
+                                  ),
                                 ),
-                              ),
                             ],
                           ),
                           SizedBox(
@@ -110,29 +111,30 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                           .bodyMedium,
                                     ),
                                   ),
-                                  if(extractProposal[index].jobber.pro == 2)
-                                  Positioned(
-                                    right: 0,
-                                    top: 3,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        borderRadius: BorderRadius.circular(2),
-                                      ),
-                                      padding: const EdgeInsets.only(
-                                        left: 1,
-                                        right: 1,
-                                      ),
-                                      child: const Text(
-                                        'PRO',
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.white,
-                                          fontFamily: 'Cerebri Sans Bold',
+                                  if (extractProposal[index].jobber.pro == 2)
+                                    Positioned(
+                                      right: 0,
+                                      top: 3,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                          borderRadius:
+                                              BorderRadius.circular(2),
+                                        ),
+                                        padding: const EdgeInsets.only(
+                                          left: 1,
+                                          right: 1,
+                                        ),
+                                        child: const Text(
+                                          'PRO',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.white,
+                                            fontFamily: 'Cerebri Sans Bold',
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
                                 ],
                               ),
                               Row(
@@ -254,16 +256,36 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4),
-                        child: CustomButton(
-                            onPress: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => ContinueJobber(proposel: extractProposal[index],)));
-                            },
-                            buttonName: "Continue"),
+                        child: (extractProposal[index].status != 2)
+                            ? CustomButton(
+                                onPress: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (ctx) => ContinueJobber(
+                                            proposel: extractProposal[index],
+                                          ),),);
+                                },
+                                buttonName: "Continue")
+                            : OutlinedButton(
+                                onPressed: () {},
+                                style: OutlinedButton.styleFrom(
+                                  backgroundColor: Colors.green,
+                                  minimumSize: const Size.fromHeight(50),
+                                ),
+                                child: const Text(
+                                  "Hired",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontFamily: 'Cerebri Sans Regular',
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.white,
+                                      letterSpacing: 0.8),
+                                ),
+                              ),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
+                      if(extractProposal[index].status != 2)
                       OutlineSelectedButton(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(

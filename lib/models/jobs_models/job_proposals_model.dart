@@ -15,6 +15,7 @@ class JobProposalsModel {
     required this.price,
     required this.createdAt,
     required this.duration,
+    required this.status,
     required this.jobber,
   });
 
@@ -23,6 +24,7 @@ class JobProposalsModel {
   String price;
   String createdAt;
   String duration;
+  int status;
   Jobber jobber;
 
   factory JobProposalsModel.fromJson(Map<String, dynamic> json) => JobProposalsModel(
@@ -31,6 +33,7 @@ class JobProposalsModel {
     price: json["price"],
     createdAt: json["created_at"],
     duration: json["duration"],
+    status: json["status"],
     jobber: Jobber.fromJson(json["jobber"]),
   );
 
@@ -40,6 +43,7 @@ class JobProposalsModel {
     "price": price,
     "created_at": createdAt,
     "duration": duration,
+    "status": status,
     "jobber": jobber.toJson(),
   };
 }

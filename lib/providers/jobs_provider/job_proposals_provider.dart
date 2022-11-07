@@ -10,6 +10,13 @@ import '../../models/jobs_models/job_proposals_model.dart';
 class JobProposalsProvider with ChangeNotifier {
   List<JobProposalsModel>? jobProposal;
 
+  var checkApi = false;
+
+  setCheckApi(){
+    checkApi = false;
+    notifyListeners();
+  }
+
   Future<void> getJobProposals(jobId) async {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? userToken = sharePref.getString('token');
@@ -24,9 +31,12 @@ class JobProposalsProvider with ChangeNotifier {
     if(response.statusCode == 200) {
       debugPrint('Job Proposals Api is working perfectly.');
       jobProposal = jobProposalsModelFromJson(response.body);
+      checkApi = true;
       notifyListeners();
     }else{
+      checkApi = true;
       debugPrint('Job Proposals Api is not working correctly');
+      notifyListeners();
     }
     // print(response.body);
   }
