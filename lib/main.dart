@@ -3,7 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:mister_jobby/providers/auth_provider/forget_password_provider.dart';
 import 'package:mister_jobby/providers/jobs_provider/jobs_compleleted_provider.dart';
-import 'package:mister_jobby/screens/auth_screens/forget_password_screen.dart';
 import './providers/jobs_provider/job_proposals_provider.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/insurance.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/notifications.dart';
@@ -132,7 +131,6 @@ import './screens/accounts_screens/useful_information/about_us_screen.dart';
 import './screens/jobs_screens/jobs_tab_screens/comment_screen.dart';
 import './providers/jobs_provider/single_job_comments_provider.dart';
 import './screens/jobs_screens/payment_success_screen.dart';
-import './screens/jobs_screens/request_view.dart';
 import './screens/jobs_screens/rating_reviews_screen.dart';
 import 'providers/accounts_providers/about_provider/about_provider.dart';
 import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
@@ -140,6 +138,7 @@ import 'providers/jobs_provider/edit_jobs_provider.dart';
 import 'providers/jobs_provider/job_reservation_provider.dart';
 import 'providers/notification_provider/notification_provider.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
+import 'screens/home_screens/services_sub_categories/process_sub_categories_steps/equipment_rental_step.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -461,6 +460,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
           MyRoutes.PAYMENTSUCCESSFULLY: (ctx) => const PaymentSuccessScreen(),
           MyRoutes.RATINGSCREENROUTE: (ctx) => const RatingReviewsScreen(),
+          MyRoutes.EQUIPMENTRENTALSCREENROUTE: (ctx) => const EquipmentRentalStepScreen(),
         },
       ),
     );

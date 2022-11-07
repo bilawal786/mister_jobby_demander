@@ -710,6 +710,16 @@ class SubCategoriesItems extends StatelessWidget {
                 });
               }
               break;
+            case 73:
+              {
+                prefData.token == 'null'? Navigator.of(context).pushNamed(MyRoutes.LOGINROUTE):
+                Navigator.of(context).pushNamed(MyRoutes.EQUIPMENTRENTALSCREENROUTE, arguments: {
+                  'mainCategoryId': mainCategoryId,
+                  'subCategoryId': subCategory.id,
+                  'subCategoryTitle': subCategory.title,
+                });
+              }
+              break;
           }
         }
       },
