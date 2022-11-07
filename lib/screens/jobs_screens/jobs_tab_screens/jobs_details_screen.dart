@@ -480,7 +480,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                                 .bodyMedium,
                                           ),
                                         ),
-                                        if(extractedReservation[index].jobberProfile.verified == true)
+                                        if(extractedReservation[index].jobberProfile.pro == 2)
                                         Positioned(
                                           right: 0,
                                           top: 3,

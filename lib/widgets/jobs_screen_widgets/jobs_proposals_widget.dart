@@ -102,7 +102,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                               Stack(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.only(right: 28),
+                                    padding: const EdgeInsets.only(right: 28),
                                     child: Text(
                                       "${extractProposal[index].jobber.firstName} ${extractProposal[index].jobber.lastName}",
                                       style: Theme.of(context)
@@ -110,7 +110,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                           .bodyMedium,
                                     ),
                                   ),
-                                  if(extractProposal[index].jobber.verified == true)
+                                  if(extractProposal[index].jobber.pro == 2)
                                   Positioned(
                                     right: 0,
                                     top: 3,
@@ -203,7 +203,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                 ),
                                 Expanded(
                                   child: Text(
-                                    extractProposal[index].jobber.experince,
+                                    extractProposal[index].jobber.equipements,
                                     style:
                                         Theme.of(context).textTheme.bodySmall,
                                     textAlign: TextAlign.left,
