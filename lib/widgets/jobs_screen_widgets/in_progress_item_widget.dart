@@ -16,11 +16,11 @@ class InProgressItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (ctx) => JobsDetailsScreen(
-              jobsInProgressDetail: jobsInProgress,
-            )));
+                  jobsInProgressDetail: jobsInProgress,
+                )));
       },
       child: Container(
         margin: const EdgeInsets.all(5.0),
@@ -28,20 +28,20 @@ class InProgressItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width / 2.6,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.black12,
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: Image.network(
-                '${MyRoutes.IMAGEURL}/${jobsInProgress!.image}',
-                fit: BoxFit.fill,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width / 2.6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.black12,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.network(
+                  '${MyRoutes.IMAGEURL}/${jobsInProgress!.image}',
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
-              ),
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
@@ -100,13 +100,37 @@ class InProgressItemWidget extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
-            CustomButton(
-                onPress: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (ctx) => JobsDetailsScreen(
-                        jobsInProgressDetail: jobsInProgress,
-                      )));},
-                buttonName: "Manage_Request"),
+            (jobsInProgress!.isHired == 0)
+                ? CustomButton(
+                    onPress: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (ctx) => JobsDetailsScreen(
+                                jobsInProgressDetail: jobsInProgress,
+                              ),),);
+                    },
+                    buttonName: "Manage_Request")
+                : OutlinedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (ctx) => JobsDetailsScreen(
+                          jobsInProgressDetail: jobsInProgress,
+                        ),),);
+                    },
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      minimumSize: const Size.fromHeight(50),
+                    ),
+                    child: const Text(
+                      "Manage my request",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Cerebri Sans Regular',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          letterSpacing: 0.8
+                      ),
+                    ),
+                  ),
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
