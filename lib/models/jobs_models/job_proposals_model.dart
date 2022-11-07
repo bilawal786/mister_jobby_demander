@@ -2,7 +2,6 @@
 //
 //     final jobProposalsModel = jobProposalsModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 List<JobProposalsModel> jobProposalsModelFromJson(String str) => List<JobProposalsModel>.from(json.decode(str).map((x) => JobProposalsModel.fromJson(x)));
@@ -67,8 +66,7 @@ class Jobber {
     required this.totalJobs,
     required this.completedJobs,
     required this.cancelJobs,
-    required this.skilsSubcategory,
-    required this.skilsChildcategory,
+    required this.skills,
     required this.badge,
     required this.qualification,
     required this.professional,
@@ -103,13 +101,12 @@ class Jobber {
   int totalJobs;
   int completedJobs;
   int cancelJobs;
-  List<SkilsCategory> skilsSubcategory;
-  List<SkilsCategory> skilsChildcategory;
+  List<Skill> skills;
   int badge;
   String qualification;
   String professional;
   bool availableStatus;
-  bool pro;
+  int pro;
   bool verified;
   String equipements;
   String engagments;
@@ -139,8 +136,7 @@ class Jobber {
     totalJobs: json["total_jobs"],
     completedJobs: json["completed_jobs"],
     cancelJobs: json["cancel_jobs"],
-    skilsSubcategory: List<SkilsCategory>.from(json["skilsSubcategory"].map((x) => SkilsCategory.fromJson(x))),
-    skilsChildcategory: List<SkilsCategory>.from(json["skilsChildcategory"].map((x) => SkilsCategory.fromJson(x))),
+    skills: List<Skill>.from(json["skills"].map((x) => Skill.fromJson(x))),
     badge: json["badge"],
     qualification: json["qualification"],
     professional: json["professional"],
@@ -176,8 +172,7 @@ class Jobber {
     "total_jobs": totalJobs,
     "completed_jobs": completedJobs,
     "cancel_jobs": cancelJobs,
-    "skilsSubcategory": List<dynamic>.from(skilsSubcategory.map((x) => x.toJson())),
-    "skilsChildcategory": List<dynamic>.from(skilsChildcategory.map((x) => x.toJson())),
+    "skills": List<dynamic>.from(skills.map((x) => x.toJson())),
     "badge": badge,
     "qualification": qualification,
     "professional": professional,
@@ -193,26 +188,50 @@ class Jobber {
   };
 }
 
-class SkilsCategory {
-  SkilsCategory({
+class Skill {
+  Skill({
     required this.id,
-    required this.title,
-    required this.image,
+    required this.mainCategory,
+    required this.subCategory,
+    required this.skills,
+    required this.equipments,
+    required this.engagments,
+    required this.experience,
+    required this.diplomaName,
+    required this.description,
   });
 
   int id;
-  String title;
-  String image;
+  String mainCategory;
+  String subCategory;
+  String skills;
+  String equipments;
+  String engagments;
+  String experience;
+  String diplomaName;
+  String description;
 
-  factory SkilsCategory.fromJson(Map<String, dynamic> json) => SkilsCategory(
+  factory Skill.fromJson(Map<String, dynamic> json) => Skill(
     id: json["id"],
-    title: json["title"],
-    image: json["image"],
+    mainCategory: json["main_category"],
+    subCategory: json["sub_category"],
+    skills: json["skills"],
+    equipments: json["equipments"],
+    engagments: json["engagments"],
+    experience: json["experience"],
+    diplomaName: json["diploma_name"],
+    description: json["description"],
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "title": title,
-    "image": image,
+    "main_category": mainCategory,
+    "sub_category": subCategory,
+    "skills": skills,
+    "equipments": equipments,
+    "engagments": engagments,
+    "experience": experience,
+    "diploma_name": diplomaName,
+    "description": description,
   };
 }
