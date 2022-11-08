@@ -301,7 +301,7 @@ class JobberProfile {
   String personalDescription;
   int totalReview;
   int rating;
-  List<dynamic> reviews;
+  List<Review> reviews;
 
   factory JobberProfile.fromJson(Map<String, dynamic> json) => JobberProfile(
     jobberId: json["jobber_id"],
@@ -336,7 +336,7 @@ class JobberProfile {
     personalDescription: json["personal_description"],
     totalReview: json["total_review"],
     rating: json["rating"],
-    reviews: List<dynamic>.from(json["reviews"].map((x) => x)),
+    reviews: List<Review>.from(json["reviews"].map((x) => Review.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -372,7 +372,47 @@ class JobberProfile {
     "personal_description": personalDescription,
     "total_review": totalReview,
     "rating": rating,
-    "reviews": List<dynamic>.from(reviews.map((x) => x)),
+    "reviews": List<dynamic>.from(reviews.map((x) => x.toJson())),
+  };
+}
+
+class Review {
+  Review({
+    required this.id,
+    required this.userId,
+    required this.name,
+    required this.image,
+    required this.message,
+    required this.star,
+    required this.date,
+  });
+
+  int id;
+  int userId;
+  String name;
+  String image;
+  String message;
+  int star;
+  String date;
+
+  factory Review.fromJson(Map<String, dynamic> json) => Review(
+    id: json["id"],
+    userId: json["user_id"],
+    name: json["name"],
+    image: json["image"],
+    message: json["message"],
+    star: json["star"],
+    date: json["date"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "user_id": userId,
+    "name": name,
+    "image": image,
+    "message": message,
+    "star": star,
+    "date": date,
   };
 }
 
