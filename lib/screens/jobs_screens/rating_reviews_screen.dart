@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:provider/provider.dart';
 
+import '../../helpers/routes.dart';
+import '../../models/jobs_models/job_reservations_model.dart';
+import '../../providers/jobs_provider/rating_reviews_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 
 class RatingReviewsScreen extends StatelessWidget {
-  const RatingReviewsScreen({Key? key}) : super(key: key);
+  final JobReservationsModel? reservation;
+  const RatingReviewsScreen({Key? key, required this.reservation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,7 @@ class RatingReviewsScreen extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Image.network(
-                      "https://www.erc.com.pk/wp-content/uploads/person4.jpg",
+                      "${MyRoutes.IMAGEURL}${reservation!.jobberProfile.image}",
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -54,20 +59,22 @@ class RatingReviewsScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                RatingBar.builder(
-                  initialRating: 0,
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: false,
-                  itemCount: 5,
-                  itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  itemBuilder: (context, _) => const Icon(
-                    Icons.star,
-                    color: Colors.amber,
+                Consumer<RatingProvider>(
+                  builder: (_,rating,child) => RatingBar.builder(
+                    initialRating: 0,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: false,
+                    itemCount: 5,
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (double value) {
+                      rating.getRating(value);
+                    },
                   ),
-                  onRatingUpdate: (rating) {
-                    print(rating);
-                  },
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
@@ -89,20 +96,30 @@ class RatingReviewsScreen extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
-                    const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Aa...',
-                        isDense: true,
-                        border: OutlineInputBorder(),
+                    Consumer<RatingProvider>(
+                      builder: (_,rating,child) => TextField(
+                        decoration: const InputDecoration(
+                          hintText: 'Aa...',
+                          isDense: true,
+                          border: OutlineInputBorder(),
+                        ),
+                        onChanged: (value) {
+                          rating.getMessage(value);
+                        },
+                        maxLines: 3,
                       ),
-                      maxLines: 4,
                     ),
                   ],
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 3,
                 ),
-                CustomButton(onPress: () {}, buttonName: "buttonName"),
+                Consumer<RatingProvider>(
+                  builder: (_,rating,child) => CustomButton(onPress: () {
+                    FocusScope.of(context).unfocus();
+                    rating.postRating(context, rating.ratingValue, rating.message, reservation!.id.toString());
+                  }, buttonName: "Confirm"),
+                ),
               ],
             ),
           ),

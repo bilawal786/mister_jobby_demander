@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/screens/jobs_screens/rating_reviews_screen.dart';
 
 import '../../helpers/routes.dart';
 import '../../models/jobs_models/job_reservations_model.dart';
@@ -7,7 +9,8 @@ import '../../widgets/home_screen_widgets/service_sub_categories/process_const_w
 
 class ViewRequestScreen extends StatelessWidget {
   final JobReservationsModel? reservation;
-  const ViewRequestScreen({Key? key, required this.reservation}) : super(key: key);
+  const ViewRequestScreen({Key? key, required this.reservation})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +117,7 @@ class ViewRequestScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Client',
+                        'Client'.tr(),
                         style: Theme.of(context).textTheme.labelSmall,
                       ),
                       SizedBox(
@@ -162,16 +165,19 @@ class ViewRequestScreen extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    "Job details",
+                    "Job details".tr(),
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const Spacer(),
-                  Text(reservation!.contractNo, style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Cerebri Sans Bold',
-                    color: Colors.green.shade700,
-                    fontWeight: FontWeight.bold,
-                  ),)
+                  Text(
+                    reservation!.contractNo,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Cerebri Sans Bold',
+                      color: Colors.green.shade700,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
                 ],
               ),
               SizedBox(
@@ -238,7 +244,7 @@ class ViewRequestScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 40,
                   ),
                   Text(
-                    "Hourly rate",
+                    "Hourly rate".tr(),
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const Spacer(),
@@ -263,7 +269,7 @@ class ViewRequestScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 40,
                   ),
                   Text(
-                    "Remuneration",
+                    "Remuneration".tr(),
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const Spacer(),
@@ -288,12 +294,12 @@ class ViewRequestScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 40,
                   ),
                   Text(
-                    "Administration tax",
+                    "Administration tax".tr(),
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const Spacer(),
                   Text(
-                    "${((double.parse(reservation!.price) * 10) / 100 )} €",
+                    "${((double.parse(reservation!.price) * 10) / 100)} €",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
@@ -313,12 +319,12 @@ class ViewRequestScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 40,
                   ),
                   Text(
-                    "Total Amount",
+                    "Total Amount".tr(),
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const Spacer(),
                   Text(
-                    "${(((double.parse(reservation!.price) * 10) / 100 ) +  double.parse(reservation!.price))} €",
+                    "${(((double.parse(reservation!.price) * 10) / 100) + double.parse(reservation!.price))} €",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
@@ -328,29 +334,105 @@ class ViewRequestScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.width / 10,
               ),
               Text(
-                "Evaluation",
+                "Evaluation".tr(),
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              Row(
-                children: <Widget>[
-                  Text("29 Sept 2022", style: Theme.of(context).textTheme.labelMedium,),
-                  const Spacer(),
-                  for(int i =0 ; i< 5; i++)
-                    const Icon(Icons.star, color: Colors.amber,size: 14,),
-                ],
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: reservation!.jobberProfile.reviews.length,
+                itemBuilder: (ctx, index) => Container(
+                  padding: const EdgeInsets.all(10.0),
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Container(
+                            width: MediaQuery.of(context).size.width / 10,
+                            height: MediaQuery.of(context).size.width / 10,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.black12,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.network(
+                                "${MyRoutes.IMAGEURL}/${reservation!.jobberProfile.reviews[index].image}",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                              width: MediaQuery.of(context).size.width / 40),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                reservation!.jobberProfile.reviews[index].name,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  for (int i = 0;
+                                      i <
+                                          reservation!.jobberProfile
+                                              .reviews[index].star;
+                                      i++)
+                                    const Icon(Icons.star,
+                                        size: 14, color: Colors.amber),
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width / 40,
+                                  ),
+                                  Text(
+                                    "(${reservation!.jobberProfile.reviews[index].star}.0)",
+                                    style:
+                                        Theme.of(context).textTheme.bodySmall,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                              width: MediaQuery.of(context).size.width / 90),
+                          const Spacer(),
+                          Text(
+                            reservation!.jobberProfile.reviews[index].date,
+                            style: Theme.of(context).textTheme.labelMedium,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width / 40,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          reservation!.jobberProfile.reviews[index].message,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width / 40,
+                      ),
+                      const Divider(),
+                    ],
+                  ),
+                ),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 40,
-              ),
-              Text("thanks for your advice", style: Theme.of(context).textTheme.bodySmall,),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
               const Divider(),
-              CustomButton(onPress: ()=> Navigator.of(context).pushNamed(MyRoutes.RATINGSCREENROUTE), buttonName: 'Complete Job',),
+              CustomButton(
+                onPress: () =>
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => RatingReviewsScreen(reservation: reservation),),),
+                buttonName: 'Complete Job',
+              ),
             ],
           ),
         ),

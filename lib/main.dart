@@ -131,11 +131,11 @@ import './screens/accounts_screens/useful_information/about_us_screen.dart';
 import './screens/jobs_screens/jobs_tab_screens/comment_screen.dart';
 import './providers/jobs_provider/single_job_comments_provider.dart';
 import './screens/jobs_screens/payment_success_screen.dart';
-import './screens/jobs_screens/rating_reviews_screen.dart';
 import 'providers/accounts_providers/about_provider/about_provider.dart';
 import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
 import 'providers/jobs_provider/edit_jobs_provider.dart';
 import 'providers/jobs_provider/job_reservation_provider.dart';
+import 'providers/jobs_provider/rating_reviews_provider.dart';
 import 'providers/notification_provider/notification_provider.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 import 'screens/home_screens/services_sub_categories/process_sub_categories_steps/equipment_rental_step.dart';
@@ -196,6 +196,7 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(create:(context) => JobsCompletedProvider(),),
         ChangeNotifierProvider(create:(context) => ForgetPasswordProvider(),),
+        ChangeNotifierProvider(create:(context) => RatingProvider(),),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
@@ -459,7 +460,6 @@ class MyApp extends StatelessWidget {
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
           MyRoutes.PAYMENTSUCCESSFULLY: (ctx) => const PaymentSuccessScreen(),
-          MyRoutes.RATINGSCREENROUTE: (ctx) => const RatingReviewsScreen(),
           MyRoutes.EQUIPMENTRENTALSCREENROUTE: (ctx) => const EquipmentRentalStepScreen(),
         },
       ),
