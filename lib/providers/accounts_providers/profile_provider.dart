@@ -7,11 +7,43 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mister_jobby/helpers/routes.dart';
 import 'package:mister_jobby/models/accounts_models/profile_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/accounts_models/update_profile_model.dart';
+import '../../widgets/home_screen_widgets/login_progress_indicator.dart';
 
 class ProfileProvider with ChangeNotifier {
+
+  String? firstName;
+  String? lastName;
+  String? phoneNumber;
+  String? address;
+
+  getFirstName(value){
+    firstName = value;
+    notifyListeners();
+  }
+  getLastName(value){
+    lastName = value;
+    notifyListeners();
+  }
+  getPhoneNumber(value){
+    phoneNumber = value;
+    notifyListeners();
+  }
+  getAddress(value){
+    address = value;
+    notifyListeners();
+  }
+
+  clearData(){
+    firstName = null;
+    lastName = null;
+    phoneNumber = null;
+    address = null;
+  }
+
   ProfileModel? myProfile;
   final picker = ImagePicker();
   String? imageFile;
@@ -40,6 +72,55 @@ class ProfileProvider with ChangeNotifier {
     }
   }
 
+  Future<void>updateProfileImage(context, imageUrl)async{
+    showDialog(context: context, builder: (BuildContext context){
+      return const LoginProgressIndicator();
+    });
+    SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
+    String? userToken = sharedPrefs.getString("token");
+    Map<String, String> headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization':
+      'Bearer $userToken',
+    };
+    var request = http.MultipartRequest(
+      "POST",
+      Uri.parse('${MyRoutes.BASEURL}/profile/image/update'),
+    );
+    request.headers.addAll(headers);
+    if (imageUrl != null) {
+      request.files.add(await http.MultipartFile.fromPath('image', imageUrl));
+    }
+    http.Response response = await http.Response.fromStream(await request.send());
+
+    if (response.statusCode == 200) {
+      debugPrint("Profile Image Posted successfully ");
+      Provider.of<ProfileProvider>(context, listen: false).getProfile();
+      Navigator.pop(context);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.blueGrey,
+          content: Text(
+            'Profile Picture Step Completed',
+            // textAlign: TextAlign.center,
+          ),
+          duration: Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+    } else {
+      Navigator.pop(context);
+      debugPrint('profile Image upload Failed');
+      debugPrint(response.body);
+    }
+    debugPrint(response.body);
+    notifyListeners();
+  }
+
+
   UpdateProfileModel? updateMyProfile;
 
   Future<void> upDateProfile(
@@ -49,9 +130,11 @@ class ProfileProvider with ChangeNotifier {
     gender,
     dob,
     phone,
-    countryId,
     address,
   ) async {
+    showDialog(context: context, builder: (BuildContext context){
+      return const LoginProgressIndicator();
+    });
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     String? userToken = prefs.getString('token');
     var response = await http.post(
@@ -67,14 +150,14 @@ class ProfileProvider with ChangeNotifier {
         'gender': gender,
         'dob': dob.toString(),
         "phone": phone.toString(),
-        'country': countryId.toString(),
         'address': address.toString(),
       }),
     );
     if (response.statusCode == 200) {
+      clearData();
       updateMyProfile = updateProfileModelFromJson(response.body);
-      // Navigator.of(context)
-      //     .pushNamedAndRemoveUntil(MyRoutes.SPLASHROUTE, (route) => false);
+      Provider.of<ProfileProvider>(context, listen: false).getProfile();
+      Navigator.of(context).pop();
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -95,21 +178,23 @@ class ProfileProvider with ChangeNotifier {
     print(response.body);
   }
 
-  imgFromCamera() async {
+  imgFromCamera(context) async {
     XFile? pickedFile =
         await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
     getImage =
         await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
     imageFile = getImage!.path;
+    Provider.of<ProfileProvider>(context, listen: false).updateProfileImage(context, imageFile);
     notifyListeners();
   }
 
-  imgFromGallery() async {
+  imgFromGallery(context) async {
     XFile? pickedFile =
         await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
     getImage =
         await ImageCropper().cropImage(sourcePath: pickedFile?.path ?? "");
     imageFile = getImage!.path;
+    Provider.of<ProfileProvider>(context, listen: false).updateProfileImage(context, imageFile);
     notifyListeners();
   }
 
@@ -131,7 +216,7 @@ class ProfileProvider with ChangeNotifier {
                 const Divider(),
                 InkWell(
                   onTap: () {
-                    imgFromCamera();
+                    imgFromCamera(context);
                     Navigator.of(context).pop();
                   },
                   child: Row(
@@ -157,7 +242,7 @@ class ProfileProvider with ChangeNotifier {
                 const Divider(),
                 InkWell(
                   onTap: () {
-                    imgFromGallery();
+                    imgFromGallery(context);
                     Navigator.of(context).pop();
                   },
                   child: Row(

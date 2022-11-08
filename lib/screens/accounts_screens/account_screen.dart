@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/screens/auth_screens/confirm_password_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
@@ -11,11 +10,9 @@ import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/const_widgets/custom_list_tile.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
 import '../auth_screens/change_password_screen.dart';
-import '../test_screen.dart';
 
 class AccountsScreen extends StatefulWidget {
-  final email;
-  const AccountsScreen({Key? key, this.email}) : super(key: key);
+  const AccountsScreen({Key? key}) : super(key: key);
 
   @override
   State<AccountsScreen> createState() => _AccountsScreenState();
@@ -150,9 +147,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                         ),
                                         child: ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(100),
                                           child: Image.network(
-                                              "${MyRoutes.IMAGEURL}${extractedProfile!.image}"),
+                                              "${MyRoutes.IMAGEURL}${extractedProfile!.image}", fit: BoxFit.cover,),
                                         ),
                                       ),
                                 Positioned(

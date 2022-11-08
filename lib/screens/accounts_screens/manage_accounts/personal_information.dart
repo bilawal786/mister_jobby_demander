@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import '../../../helpers/routes.dart';
 import '../../../providers/accounts_providers/profile_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
-import '../../../providers/country_provider/country_list_provider.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 
 class PersonalInformation extends StatefulWidget {
@@ -18,28 +17,18 @@ class PersonalInformation extends StatefulWidget {
 class _PersonalInformationState extends State<PersonalInformation> {
   final formKey = GlobalKey<FormState>();
 
-  String? firstName;
-  String? lastName;
-  String? phoneNumber;
-  String? password;
-  String? address;
-
-
-
-  void formSubmit() {
-    // final updateProfileData = Provider.of<ProfileProvider>(context, listen: false);
+  void formSubmit(fName,lName,gender,dob,number,address) {
+    final updateProfileData = Provider.of<ProfileProvider>(context, listen: false);
     var isValid = formKey.currentState!.validate();
     if (!isValid) {
       return;
     }
     formKey.currentState!.save();
-    // updateProfileData.upDateProfile(context, firstName,lastName, updateProfileData.genderCheckTitle, updateProfileData.selectedDateOfBirth, phoneNumber, updateProfileData.countryDropDownValue, address);
+    updateProfileData.upDateProfile(context, fName,lName, gender, dob, number, address);
   }
 
   @override
   Widget build(BuildContext context) {
-    final countryData = Provider.of<CountryProvider>(context, listen: false);
-    final extractCountry = countryData.countryList;
     final profileData = Provider.of<ProfileProvider>(context, listen: false);
     final extractProfile = profileData.myProfile;
     return Scaffold(
@@ -79,8 +68,8 @@ class _PersonalInformationState extends State<PersonalInformation> {
                               ),
                             ),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.network("${MyRoutes.IMAGEURL}/${extractProfile.image}"),
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.network("${MyRoutes.IMAGEURL}/${extractProfile.image}", fit: BoxFit.cover,),
                             ),
                           ),
                 ),
@@ -94,26 +83,26 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                TextFormField(
-                  initialValue: extractProfile.firstName,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  // controller: firstNameController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: "First_Name".tr(),
-                    isDense: true,
+                Consumer<ProfileProvider>(
+                  builder:(_,info,child) => TextFormField(
+                    initialValue: info.myProfile!.firstName,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: const InputDecoration(
+                      border:  OutlineInputBorder(),
+                      isDense: true,
+                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
+                    enabled: true,
+                    onChanged: (value){
+                      info.getFirstName(value);
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please Enter First Name";
+                      }
+                      return null;
+                    },
                   ),
-                  style: Theme.of(context).textTheme.bodySmall,
-                  enabled: true,
-                  onSaved: (value){
-                    firstName = value;
-                  },
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter First Name";
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
@@ -125,26 +114,26 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                TextFormField(
-                  initialValue: extractProfile.lastName,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  // controller: lastNameController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: "Last_Name".tr(),
-                    isDense: true,
+                Consumer<ProfileProvider>(
+                  builder:(_,info,child) => TextFormField(
+                    initialValue: info.myProfile!.lastName,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      isDense: true,
+                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
+                    enabled: true,
+                    onChanged: (value){
+                      info.getLastName(value);
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please Enter Last Name";
+                      }
+                      return null;
+                    },
                   ),
-                  style: Theme.of(context).textTheme.bodySmall,
-                  enabled: true,
-                  onSaved: (value){
-                    lastName = value;
-                  },
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter Last Name";
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
@@ -160,10 +149,9 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   initialValue: extractProfile.email,
                   readOnly: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     enabled: false,
-                    border: const OutlineInputBorder(),
-                    labelText: "EmailText".tr(),
+                    border: OutlineInputBorder(),
                     isDense: true,
                   ),
                   style: Theme.of(context).textTheme.bodySmall,
@@ -177,32 +165,6 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
-                ),
-                Text(
-                  "EmailText",
-                  style: Theme.of(context).textTheme.labelLarge,
-                ).tr(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  initialValue: extractProfile.email,
-                  readOnly: true,
-                  decoration: InputDecoration(
-                    enabled: false,
-                    border: const OutlineInputBorder(),
-                    labelText: "EmailText".tr(),
-                    isDense: true,
-                  ),
-                  style: Theme.of(context).textTheme.bodySmall,
-                  enabled: true,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter Email Address";
-                    }
-                    return null;
-                  },
                 ),
                 Text(
                   "Gender",
@@ -283,112 +245,27 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  initialValue: extractProfile.phone,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: "Phone_Number".tr(),
-                    isDense: true,
-                  ),
-                  style: Theme.of(context).textTheme.bodySmall,
-                  enabled: true,
-                  onSaved: (value){
-                    phoneNumber = value;
-                  },
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter Phone Number";
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                Text(
-                  "Country_Title",
-                  style: Theme.of(context).textTheme.labelLarge,
-                ).tr(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 40,
-                ),
-                // Consumer<ProfileProvider>(
-                //   builder: (_, dropDownData, child) => Container(
-                //     height: 50.0,
-                //     padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
-                //     decoration: BoxDecoration(
-                //       color: Colors.white,
-                //       border: Border.all(color: Colors.grey, width: 1),
-                //       borderRadius: BorderRadius.circular(5.0),
-                //     ),
-                //     child: DropdownButtonFormField<String>(
-                //       value: "${extractProfile.countryId}",
-                //       decoration: InputDecoration(
-                //         hintText: "Select Country",
-                //         hintStyle: Theme.of(context).textTheme.bodyMedium,
-                //         isCollapsed: true,
-                //         enabledBorder: InputBorder.none,
-                //         focusedBorder: InputBorder.none,
-                //       ),
-                //       isExpanded: true,
-                //       iconSize: 30.0,
-                //       items: extractCountry?.map(
-                //         (val) {
-                //           return DropdownMenuItem<String>(
-                //             value: val.id.toString(),
-                //             child: Text(
-                //               val.name,
-                //               style: Theme.of(context).textTheme.bodySmall,
-                //             ),
-                //           );
-                //         },
-                //       ).toList(),
-                //       onChanged: (val) {
-                //         dropDownData.countryDropDownFunction(val);
-                //         // print("drop down value $val");
-                //       },
-                //     ),
-                //   ),
-                // ),
                 Consumer<ProfileProvider>(
-                  builder: (_,dropDownData,child)=>
-                      Container(
-                        height: 50.0,
-                        padding: const EdgeInsets.fromLTRB(20, 12, 20, 10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: Colors.grey, width: 1),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: DropdownButtonFormField<String>(
-                          decoration: InputDecoration(
-                            hintText: "Select Country",
-                            hintStyle: Theme.of(context).textTheme.bodyMedium,
-                            isCollapsed: true,
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                          ),
-                          isExpanded: true,
-                          iconSize: 30.0,
-                          items:extractCountry?.map(
-                                (val) {
-                              return DropdownMenuItem<String>(
-                                value: val.id.toString(),
-                                child: Text(
-                                  val.name,
-                                  style:
-                                  Theme.of(context).textTheme.bodySmall,
-                                ),
-                              );
-                            },
-                          ).toList(),
-                          onChanged: (val) {
-                            dropDownData.countryDropDownFunction(val);
-                            // print("drop down value ${dropDownData.countryDropDownValue}");
-                          },
-                        ),
-                      ),
+                  builder: (_,info,child) => TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    initialValue: extractProfile.phone,
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText: "Phone_Number".tr(),
+                      isDense: true,
+                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
+                    enabled: true,
+                    onChanged: (value){
+                      info.getPhoneNumber(value);
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please Enter Phone Number";
+                      }
+                      return null;
+                    },
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
@@ -400,32 +277,34 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  initialValue: extractProfile.address,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: "Address_Title".tr(),
-                    isDense: true,
+                Consumer<ProfileProvider>(
+                  builder: (_,info,child) => TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    initialValue: extractProfile.address,
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText: "Address_Title".tr(),
+                      isDense: true,
+                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
+                    enabled: true,
+                    onChanged: (value){
+                      info.getAddress(value);
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please Enter Address";
+                      }
+                      return null;
+                    },
                   ),
-                  style: Theme.of(context).textTheme.bodySmall,
-                  enabled: true,
-                  onSaved: (value){
-                    address = value;
-                  },
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please Enter Address";
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 CustomButton(
                     onPress: () {
-                      formSubmit();
+                      formSubmit((profileData.firstName == null)? extractProfile.firstName : profileData.firstName , (profileData.lastName == null) ? extractProfile.lastName : profileData.lastName, profileData.genderCheckTitle, profileData.selectedDateOfBirth, (profileData.phoneNumber == null) ? extractProfile.phone : profileData.phoneNumber, (profileData.address == null) ? extractProfile.address : profileData.address );
                     },
                     buttonName: "Saved"),
                 SizedBox(
