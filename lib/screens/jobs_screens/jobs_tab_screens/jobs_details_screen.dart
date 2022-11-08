@@ -25,13 +25,13 @@ class JobsDetailsScreen extends StatefulWidget {
 }
 
 class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
-
   var isInit = true;
 
   @override
   void didChangeDependencies() {
-    if(isInit){
-      Provider.of<JobReservationProvider>(context).getJobReservations(widget.jobsInProgressDetail!.id.toString());
+    if (isInit) {
+      Provider.of<JobReservationProvider>(context)
+          .getJobReservations(widget.jobsInProgressDetail!.id.toString());
     }
     isInit = false;
     super.didChangeDependencies();
@@ -162,7 +162,9 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
             // padding: const EdgeInsets.all(10,),
             child: InkWell(
               onTap: () {
-                Provider.of<JobsInProgressProvider>(context, listen: false).closeThisJob(context, widget.jobsInProgressDetail!.id.toString());
+                Provider.of<JobsInProgressProvider>(context, listen: false)
+                    .closeThisJob(
+                        context, widget.jobsInProgressDetail!.id.toString());
               },
               child: Container(
                 width: double.infinity,
@@ -206,8 +208,9 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final reservationData = Provider.of<JobReservationProvider>(context,listen: false);
-    final offerData = Provider.of<JobProposalsProvider>(context,listen: false);
+    final reservationData =
+        Provider.of<JobReservationProvider>(context, listen: false);
+    final offerData = Provider.of<JobProposalsProvider>(context, listen: false);
     final extractedReservation = reservationData.jobReservations;
     final extractedOffer = offerData.jobProposal;
     return Scaffold(
@@ -354,12 +357,15 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                     Expanded(
                       child: OutlineSelectedButton(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (ctx) => SingleJobsDetails(
-                                  jobsDetail: widget.jobsInProgressDetail),
-                            ),
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (ctx) => SingleJobsDetails(
+                                    jobsDetail: widget.jobsInProgressDetail),
+                              ),
                             );
-                          }, textTitle: "Details", border: true),
+                          },
+                          textTitle: "Details",
+                          border: true),
                     ),
                     Expanded(
                       child: OutlineSelectedButton(
@@ -408,7 +414,8 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
-                if(extractedReservation != null && extractedReservation.isNotEmpty ) ...[
+                if (extractedReservation != null &&
+                    extractedReservation.isNotEmpty) ...[
                   Row(
                     children: <Widget>[
                       Text(
@@ -425,34 +432,39 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                     height: MediaQuery.of(context).size.width / 40,
                   ),
                   ListView.builder(
-                      padding: const EdgeInsets.all(0.0),
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: extractedReservation.length,
-                      itemBuilder: (ctx, index) => Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          children: <Widget>[
-                            Row(
-                              children: [
-                                Stack(
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.of(context).size.width / 6,
-                                      height: MediaQuery.of(context).size.width / 6,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.black12,
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(50),
-                                        child: Image.network(
-                                          "${MyRoutes.IMAGEURL}/${extractedReservation[index].jobberProfile.image}",
-                                          fit: BoxFit.cover,
-                                        ),
+                    padding: const EdgeInsets.all(0.0),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: extractedReservation.length,
+                    itemBuilder: (ctx, index) => Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              Stack(
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 6,
+                                    height:
+                                        MediaQuery.of(context).size.width / 6,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.black12,
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        "${MyRoutes.IMAGEURL}/${extractedReservation[index].jobberProfile.image}",
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                    if(extractedReservation[index].jobberProfile.verified == true)
+                                  ),
+                                  if (extractedReservation[index]
+                                          .jobberProfile
+                                          .verified ==
+                                      true)
                                     Positioned(
                                       right: -2,
                                       child: Icon(
@@ -461,26 +473,30 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                         size: 23,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width / 40,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Stack(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(right: 28),
-                                          child: Text(
-                                            "${extractedReservation[index].jobberProfile.firstName} ${extractedReservation[index].jobberProfile.lastName}",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium,
-                                          ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width / 40,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Stack(
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 28),
+                                        child: Text(
+                                          "${extractedReservation[index].jobberProfile.firstName} ${extractedReservation[index].jobberProfile.lastName}",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
                                         ),
-                                        if(extractedReservation[index].jobberProfile.pro == 2)
+                                      ),
+                                      if (extractedReservation[index]
+                                              .jobberProfile
+                                              .pro ==
+                                          2)
                                         Positioned(
                                           right: 0,
                                           top: 3,
@@ -488,7 +504,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                             decoration: BoxDecoration(
                                               color: Colors.blue,
                                               borderRadius:
-                                              BorderRadius.circular(2),
+                                                  BorderRadius.circular(2),
                                             ),
                                             padding: const EdgeInsets.only(
                                               left: 1,
@@ -504,106 +520,142 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: <Widget>[
-                                        const Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                          size: 20,
-                                        ),
-                                        SizedBox(
-                                          width: MediaQuery.of(context).size.width /
-                                              80,
-                                        ),
-                                        Text(
-                                          "${extractedReservation[index].jobberProfile.rating}",
-                                          style:
-                                          Theme.of(context).textTheme.bodySmall,
-                                        ),
-                                        SizedBox(
-                                          width: MediaQuery.of(context).size.width /
-                                              80,
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              "(${extractedReservation[index].jobberProfile.reviews.length}",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodySmall,
-                                            ),
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                                  100,
-                                            ),
-                                            Text(
-                                              "Reviews)",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodySmall,
-                                            ).tr(),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                const Spacer(),
-                                Row(
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.phone_outlined,
-                                        color: Theme.of(context).primaryColor,
+                                    ],
+                                  ),
+                                  Row(
+                                    children: <Widget>[
+                                      const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                        size: 20,
                                       ),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.chat_outlined,
-                                        color: Theme.of(context).primaryColor,
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                80,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.width / 40,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 4),
-                              child: CustomButton(
-                                onPress: () => Navigator.of(context)
-                                    .push(MaterialPageRoute(builder: (ctx) => ViewRequestScreen(reservation: extractedReservation[index],))),
-                                buttonName: "View Request",
+                                      Text(
+                                        "${extractedReservation[index].jobberProfile.rating}",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall,
+                                      ),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                80,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            "(${extractedReservation[index].jobberProfile.reviews.length}",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ),
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                100,
+                                          ),
+                                          Text(
+                                            "Reviews)",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ).tr(),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.width / 40,
-                            ),
+                              const Spacer(),
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.phone_outlined,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.chat_outlined,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.width / 40,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: (extractedReservation[index].status != 2)
+                                ? CustomButton(
+                                    onPress: () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (ctx) => ViewRequestScreen(
+                                          reservation:
+                                              extractedReservation[index],
+                                        ),
+                                      ),
+                                    ),
+                                    buttonName: "View Request",
+                                  )
+                                : OutlinedButton(
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (ctx) => ViewRequestScreen(
+                                            reservation:
+                                                extractedReservation[index],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    style: OutlinedButton.styleFrom(
+                                      backgroundColor: Colors.green,
+                                      minimumSize: const Size.fromHeight(50),
+                                    ),
+                                    child: Text(
+                                      "View Request".tr(),
+                                      style: const TextStyle(
+                                          fontSize: 20,
+                                          fontFamily: 'Cerebri Sans Regular',
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.white,
+                                          letterSpacing: 0.8),
+                                    ),
+                                  ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.width / 40,
+                          ),
+                          if (extractedReservation[index].status != 2)
                             OutlineSelectedButton(
                               onTap: () {},
                               textTitle: "Change or cancel",
                               border: true,
                               width: double.infinity,
                             ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.width / 40,
-                            ),
-                            const Divider(
-                              color: Colors.black12,
-                              thickness: 10,
-                            ),
-                          ],
-                        ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.width / 40,
+                          ),
+                          const Divider(
+                            color: Colors.black12,
+                            thickness: 10,
+                          ),
+                        ],
                       ),
                     ),
+                  ),
                 ],
                 Row(
                   children: <Widget>[
@@ -617,23 +669,24 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                     ),
                     const Spacer(),
                     Consumer<JobProposalsProvider>(
-                      builder: (_,offers,child) => InkWell(
-                        onTap: (){
+                      builder: (_, offers, child) => InkWell(
+                        onTap: () {
                           offers.setCheckApi();
-                          offers.getJobProposals(widget.jobsInProgressDetail!.id);
+                          offers
+                              .getJobProposals(widget.jobsInProgressDetail!.id);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: offers.checkApi == false ?
-                          const SizedBox(
-                              width: 25,
-                              height: 25,
-                              child: CircularProgressIndicator()) :
-                               const Icon(
-                            Icons.refresh,
-                            size: 25,
-                            color: Colors.black,
-                          ),
+                          child: offers.checkApi == false
+                              ? const SizedBox(
+                                  width: 25,
+                                  height: 25,
+                                  child: CircularProgressIndicator())
+                              : const Icon(
+                                  Icons.refresh,
+                                  size: 25,
+                                  color: Colors.black,
+                                ),
                         ),
                       ),
                     ),
@@ -643,8 +696,13 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 AbsorbPointer(
-                    absorbing: (widget.jobsInProgressDetail!.isHired == widget.jobsInProgressDetail!.jobberRequired) ? true  : false,
-                    child: JobsProposalsWidget(jobId: widget.jobsInProgressDetail!.id),),
+                  absorbing: (widget.jobsInProgressDetail!.isHired ==
+                          widget.jobsInProgressDetail!.jobberRequired)
+                      ? true
+                      : false,
+                  child: JobsProposalsWidget(
+                      jobId: widget.jobsInProgressDetail!.id),
+                ),
               ],
             ),
           ),
