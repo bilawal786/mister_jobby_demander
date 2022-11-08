@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -106,21 +108,30 @@ class JobberProfileScreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.width / 40,
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.width / 1,
+                      height: MediaQuery.of(context).size.width * 1.3,
                       child: ListView.builder(
                         itemCount: jobber!.skills.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (ctx, index) => Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
                           elevation: 5,
                           child: Container(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(20.0),
                             width: MediaQuery.of(context).size.width / 1.2,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
                                   jobber!.skills[index].mainCategory.toString(),
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontFamily: 'Cerebri Sans Bold',
+                                  ),
                                 ),
                                 SizedBox(
                                   height:
@@ -154,9 +165,12 @@ class JobberProfileScreen extends StatelessWidget {
                                       children: <Widget>[
                                         Text(
                                           "Experience".tr(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelMedium,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.white70,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: 'Cerebri Sans Regular',
+                                          ),
                                         ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
@@ -171,9 +185,13 @@ class JobberProfileScreen extends StatelessWidget {
                                               1.8,
                                           child: Text(
                                             jobber!.skills[index].experience,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.8,
+                                              fontFamily: 'Cerebri Sans Regular',
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -186,13 +204,17 @@ class JobberProfileScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   "Information".tr(),
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontFamily: 'Cerebri Sans Bold',
+                                  ),
                                 ),
                                 SizedBox(
                                   height:
                                       MediaQuery.of(context).size.width / 40,
                                 ),
-                                if(jobber!.skills[index].diplomaName != "")
                                   Row(
                                   children: <Widget>[
                                     Container(
@@ -221,9 +243,12 @@ class JobberProfileScreen extends StatelessWidget {
                                       children: <Widget>[
                                         Text(
                                           "Diploma".tr(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelMedium,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.white70,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: 'Cerebri Sans Regular',
+                                          ),
                                         ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
@@ -237,10 +262,14 @@ class JobberProfileScreen extends StatelessWidget {
                                                   .width /
                                               1.8,
                                           child: Text(
-                                            jobber!.skills[index].diplomaName,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall,
+                                            (jobber!.skills[index].diplomaName != "") ? jobber!.skills[index].diplomaName : "No diploma",
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.8,
+                                              fontFamily: 'Cerebri Sans Regular',
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -279,9 +308,12 @@ class JobberProfileScreen extends StatelessWidget {
                                       children: <Widget>[
                                         Text(
                                           "Equipments".tr(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelMedium,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.white70,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: 'Cerebri Sans Regular',
+                                          ),
                                         ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
@@ -296,9 +328,13 @@ class JobberProfileScreen extends StatelessWidget {
                                               1.8,
                                           child: Text(
                                             jobber!.skills[index].equipments,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.8,
+                                              fontFamily: 'Cerebri Sans Regular',
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -337,9 +373,12 @@ class JobberProfileScreen extends StatelessWidget {
                                       children: <Widget>[
                                         Text(
                                           "Engagements".tr(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelMedium,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.white70,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: 'Cerebri Sans Regular',
+                                          ),
                                         ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
@@ -351,17 +390,54 @@ class JobberProfileScreen extends StatelessWidget {
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width /
-                                              1.6,
+                                              1.8,
                                           child: Text(
                                             jobber!.skills[index].engagments,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.8,
+                                              fontFamily: 'Cerebri Sans Regular',
+                                            ),
                                           ),
                                         ),
                                       ],
                                     ),
                                   ],
+                                ),
+                                SizedBox(
+                                  height:
+                                  MediaQuery.of(context).size.width / 40,
+                                ),
+                                Text(
+                                  "Description".tr(),
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontFamily: 'Cerebri Sans Bold',
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                  MediaQuery.of(context).size.width / 40,
+                                ),
+                                SizedBox(
+                                  width: MediaQuery.of(context)
+                                      .size
+                                      .width /
+                                      1.4,
+                                  child: Text(
+                                    jobber!.skills[index].description,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: 0.8,
+                                      fontFamily: 'Cerebri Sans Regular',
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
