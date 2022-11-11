@@ -24,7 +24,7 @@ class _WindowCleaningScreenState extends State<WindowCleaningScreen> {
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mainCateId = routeArgs['mainCategoryId'];
     subCateId = routeArgs['subCategoryId'];
     subCateTitle = routeArgs['subCategoryTitle'];
@@ -40,7 +40,7 @@ class _WindowCleaningScreenState extends State<WindowCleaningScreen> {
           backgroundColor: Colors.white,
           elevation: 0,
           iconTheme: const IconThemeData(
-            color: Colors.black38,
+            color: Colors.black,
           ),
           title: Text(
             subCateTitle!,
@@ -59,8 +59,7 @@ class _WindowCleaningScreenState extends State<WindowCleaningScreen> {
               print('mainCategoryId: $mainCateId');
               print("subCategoryId: $subCateId");
               print("subCategoryTitle: $subCateTitle");
-              print(
-                  "own material: ${constProviderData.windowCleaningTitle}");
+              print("own material: ${constProviderData.windowCleaningTitle}");
               print("own material: ${constProviderData.frequencyTitle}");
               print("selected date: ${constProviderData.selectedDate}");
               print("selected time: ${constProviderData.pickedTime}");
@@ -129,79 +128,81 @@ class _WindowCleaningScreenState extends State<WindowCleaningScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, need, child) => Row(
                   children: <Widget>[
-                    ((currentStep < 1) &&(need.windowCleaningTrueValue > 0) &&
-                        (need.frequencyTrueValue > 0))?
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: details.onStepContinue,
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(50.0),
-                            primary: Theme.of(context).primaryColor,
-                            elevation: 5,
-                          ),
-                          child: Text(
-                            currentStep > 1
-                                ? "Process_Screen_Confirm_Button"
-                                : "Process_Screen_Continue_Button",
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Cerebri Sans Regular',
-                                fontWeight: FontWeight.normal,
-                                color: Colors.white,
-                                letterSpacing: 1),
-                          ).tr(),
-                        ),
-                      ): const SizedBox(),
-                    ((currentStep == 1) &&
-                        (need.duration > 0) &&
-                        (need.hourlyRate > 0))
+                    ((currentStep < 1) &&
+                            (need.windowCleaningTrueValue > 0) &&
+                            (need.frequencyTrueValue > 0))
                         ? Expanded(
-                      child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
-                        ),
-                        child: Text(
-                          currentStep > 1
-                              ? "Process_Screen_Confirm_Button"
-                              : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1),
-                        ).tr(),
-                      ),
-                    )
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    ((currentStep == 1) &&
+                            (need.duration > 0) &&
+                            (need.hourlyRate > 0))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
                         : const SizedBox(),
                     ((currentStep == 2) &&
-                        (need.completeAddress != '') &&
-                        (need.postalCode != '') &&
-                        (need.countryDropDownValue != 'null'))
+                            (need.completeAddress != '') &&
+                            (need.postalCode != '') &&
+                            (need.countryDropDownValue != 'null'))
                         ? Expanded(
-                      child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
-                          elevation: 5,
-                        ),
-                        child: Text(
-                          currentStep > 1
-                              ? "Process_Screen_Confirm_Button"
-                              : "Process_Screen_Continue_Button",
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Cerebri Sans Regular',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                              letterSpacing: 1),
-                        ).tr(),
-                      ),
-                    )
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                primary: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
                         : const SizedBox(),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 40,
@@ -246,7 +247,10 @@ class _WindowCleaningScreenState extends State<WindowCleaningScreen> {
           isActive: currentStep >= 1,
           state: currentStep > 1 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: GeneralStep2Screen(mainCategoryId: mainCateId!, subCategoryId: subCateId!,childCategoryId: 0),
+          content: GeneralStep2Screen(
+              mainCategoryId: mainCateId!,
+              subCategoryId: subCateId!,
+              childCategoryId: 0),
         ),
         Step(
           isActive: currentStep >= 2,

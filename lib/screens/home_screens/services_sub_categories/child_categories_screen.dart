@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/categories_provider/main_categories_provider.dart';
-import '../../../providers/preferences_provider/preferences_provider.dart';
 import '../../../widgets/const_widgets/search_button.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/child_category_items.dart';
 
 class ChildCategoriesScreen extends StatelessWidget {
   const ChildCategoriesScreen({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +25,12 @@ class ChildCategoriesScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: Colors.black38,
+          color: Colors.black,
         ),
         title: Text(
-          extractedCategory![mainCategoryIndex].subCategories[subCategoryIndex].title,
+          extractedCategory![mainCategoryIndex]
+              .subCategories[subCategoryIndex]
+              .title,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),

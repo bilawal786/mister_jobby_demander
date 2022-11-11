@@ -37,7 +37,7 @@ class _CommentScreenState extends State<CommentScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: const IconThemeData(
-          color: Colors.black45,
+          color: Colors.black,
           size: 25,
         ),
         title: Text(

@@ -23,7 +23,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: const IconThemeData(
-          color: Colors.black45,
+          color: Colors.black,
           size: 25,
         ),
       ),
@@ -3645,6 +3645,22 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
+                    // Row(
+                    //   children: [
+                    //     Text(
+                    //       "End Time",
+                    //       style: Theme.of(context).textTheme.labelMedium,
+                    //     ).tr(),
+                    //     const Spacer(),
+                    //     Text(
+                    //       widget.jobsDetail!.startTime,
+                    //       style: Theme.of(context).textTheme.bodySmall,
+                    //     ).tr(),
+                    //   ],
+                    // ),
+                    // SizedBox(
+                    //   height: MediaQuery.of(context).size.width / 40,
+                    // ),
                     Row(
                       children: [
                         Text(

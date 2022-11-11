@@ -40,7 +40,7 @@ class _TroubleShootingScreenState extends State<TroubleShootingScreen> {
           backgroundColor: Colors.white,
           elevation: 0,
           iconTheme: const IconThemeData(
-            color: Colors.black38,
+            color: Colors.black,
           ),
           title: Text(
             subCateTitle!,

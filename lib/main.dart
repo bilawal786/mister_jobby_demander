@@ -130,7 +130,6 @@ import './screens/accounts_screens/manage_accounts/ticket_scannar_screen.dart';
 import './screens/accounts_screens/useful_information/about_us_screen.dart';
 import './screens/jobs_screens/jobs_tab_screens/comment_screen.dart';
 import './providers/jobs_provider/single_job_comments_provider.dart';
-import './screens/jobs_screens/payment_success_screen.dart';
 import 'providers/accounts_providers/about_provider/about_provider.dart';
 import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
 import 'providers/jobs_provider/edit_jobs_provider.dart';
@@ -459,7 +458,6 @@ class MyApp extends StatelessWidget {
           MyRoutes.TERMSANDCONDITION: (ctx) => const TermsAndCondition(),
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
-          MyRoutes.PAYMENTSUCCESSFULLY: (ctx) => const PaymentSuccessScreen(),
           MyRoutes.EQUIPMENTRENTALSCREENROUTE: (ctx) => const EquipmentRentalStepScreen(),
         },
       ),

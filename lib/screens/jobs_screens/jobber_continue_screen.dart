@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import '../../helpers/routes.dart';
 import '../../models/jobs_models/job_proposals_model.dart';
 import '../../widgets/const_widgets/custom_button.dart';
+import 'payment_success_screen.dart';
 
 class ContinueJobber extends StatefulWidget {
   final JobProposalsModel? proposel;
@@ -33,7 +34,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         iconTheme: const IconThemeData(
-          color: Colors.black45,
+          color: Colors.black,
           size: 25,
         ),
       ),
@@ -57,7 +58,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: Image.network(
-                          "https://cdn.searchenginejournal.com/wp-content/uploads/2022/04/reverse-image-search-627b7e49986b0-sej-760x400.png",
+                          "${MyRoutes.IMAGEURL}${widget.proposel!.jobber.image}",
                           fit: BoxFit.cover,
                         )),
                   ),
@@ -234,7 +235,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
   displayPaymentSheet() async {
     try {
       await Stripe.instance.presentPaymentSheet().then((value) {
-        Navigator.of(context).pushReplacementNamed(MyRoutes.PAYMENTSUCCESSFULLY);
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => PaymentSuccessScreen(jobber: widget.proposel!.jobber,),),);
         showDialog(
           context: context,
           builder: (_) => AlertDialog(

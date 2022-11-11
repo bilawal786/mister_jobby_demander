@@ -68,19 +68,27 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                         children: [
                           Stack(
                             children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width / 6,
-                                height: MediaQuery.of(context).size.width / 6,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.black12,
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (ctx) => JobberProfileScreen(
+                                        jobber: extractProposal[index].jobber,
+                                      )));
+                                },
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width / 6,
+                                  height: MediaQuery.of(context).size.width / 6,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.black12,
+                                  ),
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        "${MyRoutes.IMAGEURL}/${extractProposal[index].jobber.image}",
+                                        fit: BoxFit.cover,
+                                      )),
                                 ),
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.network(
-                                      "${MyRoutes.IMAGEURL}/${extractProposal[index].jobber.image}",
-                                      fit: BoxFit.cover,
-                                    )),
                               ),
                               if (extractProposal[index].jobber.verified ==
                                   true)

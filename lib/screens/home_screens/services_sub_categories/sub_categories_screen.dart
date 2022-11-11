@@ -24,7 +24,7 @@ class SubCategoriesScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: Colors.black38,
+          color: Colors.black,
         ),
         title: Text(
           extractedCategory![mainCategoryIndex].title,

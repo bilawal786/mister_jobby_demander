@@ -22,7 +22,7 @@ class SearchScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: Colors.black38,
+          color: Colors.black,
         ),
         title: Text(
           "Search_Screen_AppBar_Title",

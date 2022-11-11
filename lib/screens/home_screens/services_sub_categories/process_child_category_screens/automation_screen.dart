@@ -41,7 +41,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
           backgroundColor: Colors.white,
           elevation: 0,
           iconTheme: const IconThemeData(
-            color: Colors.black38,
+            color: Colors.black,
           ),
           title: Text(
             title!,

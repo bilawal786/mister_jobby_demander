@@ -6,15 +6,22 @@ import '../../screens/jobs_screens/jobs_tab_screens/completed_jobs_details_scree
 
 class CompleteItemWidget extends StatelessWidget {
   final JobsCompletedModel? jobsCompletedModel;
-  const CompleteItemWidget({Key? key, this.jobsCompletedModel}) : super(key: key);
+  const CompleteItemWidget({Key? key, this.jobsCompletedModel})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         GestureDetector(
-          onTap: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => CompletedJobsDetails(jobsCompletedModel: jobsCompletedModel),));
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) =>
+                    CompletedJobsDetails(
+                    jobsCompletedModel: jobsCompletedModel),
+              ),
+            );
           },
           child: ListTile(
             contentPadding: const EdgeInsets.all(0),

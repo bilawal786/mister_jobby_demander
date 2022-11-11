@@ -14,6 +14,7 @@ import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
 import '../../../../models/jobs_models/jobs_in_progress_model.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 import '../request_view.dart';
+import 'jobber_profile_reservation.dart';
 
 class JobsDetailsScreen extends StatefulWidget {
   final JobsInProgressModel? jobsInProgressDetail;
@@ -444,20 +445,28 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                             children: [
                               Stack(
                                 children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width / 6,
-                                    height:
-                                        MediaQuery.of(context).size.width / 6,
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.black12,
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        "${MyRoutes.IMAGEURL}/${extractedReservation[index].jobberProfile.image}",
-                                        fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                          builder: (ctx) => JobberProfileReservationScreen(
+                                            jobber: extractedReservation[index].jobberProfile,
+                                          )));
+                                    },
+                                    child: Container(
+                                      width:
+                                          MediaQuery.of(context).size.width / 6,
+                                      height:
+                                          MediaQuery.of(context).size.width / 6,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.black12,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.network(
+                                          "${MyRoutes.IMAGEURL}/${extractedReservation[index].jobberProfile.image}",
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                   ),

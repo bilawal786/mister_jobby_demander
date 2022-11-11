@@ -3,13 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/models/jobs_models/job_reservations_model.dart';
 
-import '../../helpers/routes.dart';
-import '../../models/jobs_models/job_proposals_model.dart';
+import '../../../helpers/routes.dart';
 
-class JobberProfileScreen extends StatelessWidget {
-  final Jobber? jobber;
-  const JobberProfileScreen({
+class JobberProfileReservationScreen extends StatelessWidget {
+  final JobberProfile? jobber;
+  const JobberProfileReservationScreen({
     Key? key,
     required this.jobber,
   }) : super(key: key);
@@ -300,7 +300,7 @@ class JobberProfileScreen extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   height:
-                                      MediaQuery.of(context).size.width / 40,
+                                  MediaQuery.of(context).size.width / 40,
                                 ),
                                 Row(
                                   children: <Widget>[
@@ -308,8 +308,8 @@ class JobberProfileScreen extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       height:
-                                          MediaQuery.of(context).size.width /
-                                              10,
+                                      MediaQuery.of(context).size.width /
+                                          10,
                                       decoration: BoxDecoration(
                                         color: Colors.blue.shade50,
                                         shape: BoxShape.circle,
@@ -326,7 +326,7 @@ class JobberProfileScreen extends StatelessWidget {
                                     ),
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
                                           "Experience".tr(),
@@ -339,14 +339,14 @@ class JobberProfileScreen extends StatelessWidget {
                                         ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
+                                              .size
+                                              .width /
                                               80,
                                         ),
                                         SizedBox(
                                           width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
+                                              .size
+                                              .width /
                                               1.8,
                                           child: Text(
                                             jobber!.skills[index].experience,
@@ -365,7 +365,7 @@ class JobberProfileScreen extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   height:
-                                      MediaQuery.of(context).size.width / 40,
+                                  MediaQuery.of(context).size.width / 40,
                                 ),
                                 Text(
                                   "Information".tr(),
@@ -378,16 +378,16 @@ class JobberProfileScreen extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   height:
-                                      MediaQuery.of(context).size.width / 40,
+                                  MediaQuery.of(context).size.width / 40,
                                 ),
-                                  Row(
+                                Row(
                                   children: <Widget>[
                                     Container(
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       height:
-                                          MediaQuery.of(context).size.width /
-                                              10,
+                                      MediaQuery.of(context).size.width /
+                                          10,
                                       decoration: BoxDecoration(
                                         color: Colors.blue.shade50,
                                         shape: BoxShape.circle,
@@ -404,7 +404,7 @@ class JobberProfileScreen extends StatelessWidget {
                                     ),
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
                                           "Diploma".tr(),
@@ -417,14 +417,14 @@ class JobberProfileScreen extends StatelessWidget {
                                         ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
+                                              .size
+                                              .width /
                                               80,
                                         ),
                                         SizedBox(
                                           width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
+                                              .size
+                                              .width /
                                               1.8,
                                           child: Text(
                                             (jobber!.skills[index].diplomaName != "") ? jobber!.skills[index].diplomaName : "No diploma",
@@ -443,7 +443,7 @@ class JobberProfileScreen extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   height:
-                                      MediaQuery.of(context).size.width / 40,
+                                  MediaQuery.of(context).size.width / 40,
                                 ),
                                 Row(
                                   children: <Widget>[
@@ -451,8 +451,8 @@ class JobberProfileScreen extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       height:
-                                          MediaQuery.of(context).size.width /
-                                              10,
+                                      MediaQuery.of(context).size.width /
+                                          10,
                                       decoration: BoxDecoration(
                                         color: Colors.blue.shade50,
                                         shape: BoxShape.circle,
@@ -469,7 +469,7 @@ class JobberProfileScreen extends StatelessWidget {
                                     ),
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
                                           "Equipments".tr(),
@@ -482,14 +482,14 @@ class JobberProfileScreen extends StatelessWidget {
                                         ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
+                                              .size
+                                              .width /
                                               80,
                                         ),
                                         SizedBox(
                                           width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
+                                              .size
+                                              .width /
                                               1.8,
                                           child: Text(
                                             jobber!.skills[index].equipments,
@@ -508,7 +508,7 @@ class JobberProfileScreen extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   height:
-                                      MediaQuery.of(context).size.width / 40,
+                                  MediaQuery.of(context).size.width / 40,
                                 ),
                                 Row(
                                   children: <Widget>[
@@ -516,8 +516,8 @@ class JobberProfileScreen extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width /
                                           10,
                                       height:
-                                          MediaQuery.of(context).size.width /
-                                              10,
+                                      MediaQuery.of(context).size.width /
+                                          10,
                                       decoration: BoxDecoration(
                                         color: Colors.blue.shade50,
                                         shape: BoxShape.circle,
@@ -534,7 +534,7 @@ class JobberProfileScreen extends StatelessWidget {
                                     ),
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
                                           "Engagements".tr(),
@@ -547,14 +547,14 @@ class JobberProfileScreen extends StatelessWidget {
                                         ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
+                                              .size
+                                              .width /
                                               80,
                                         ),
                                         SizedBox(
                                           width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
+                                              .size
+                                              .width /
                                               1.8,
                                           child: Text(
                                             jobber!.skills[index].engagments,

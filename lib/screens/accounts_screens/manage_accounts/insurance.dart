@@ -14,8 +14,10 @@ class _InsuranceState extends State<Insurance> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("Insurance", style: Theme.of(context).textTheme.titleMedium,),
-
+        title: Text(
+          "Insurance",
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
@@ -67,7 +69,7 @@ class _InsuranceState extends State<Insurance> {
                             color: Colors.blue.shade50,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child:const Icon(Icons.facebook),
+                          child: const Icon(Icons.facebook),
                         ),
                         Container(
                           height: MediaQuery.of(context).size.height * .08,
