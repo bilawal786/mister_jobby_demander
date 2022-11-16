@@ -248,7 +248,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                       Icons.check_circle,
                       color: Colors.green,
                     ),
-                    Text("Payment Successfull"),
+                    Text("Payment Successfully"),
                   ],
                 ),
               ],
