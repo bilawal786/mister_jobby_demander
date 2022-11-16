@@ -211,9 +211,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
   Widget build(BuildContext context) {
     final reservationData =
         Provider.of<JobReservationProvider>(context, listen: false);
-    final offerData = Provider.of<JobProposalsProvider>(context, listen: false);
     final extractedReservation = reservationData.jobReservations;
-    final extractedOffer = offerData.jobProposal;
     return Scaffold(
       body: NestedScrollView(
         floatHeaderSlivers: true,
@@ -672,9 +670,11 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       "Offers",
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
-                    Text(
-                      "(${extractedOffer?.length})",
-                      style: Theme.of(context).textTheme.titleMedium,
+                    Consumer<JobProposalsProvider>(
+                      builder: (_,extractOffer,child) => Text(
+                        "(${extractOffer.jobProposal?.length})",
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
                     ),
                     const Spacer(),
                     Consumer<JobProposalsProvider>(

@@ -252,7 +252,6 @@ class JobberProfileScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-
                   ],
                 ),
               ),
@@ -500,6 +499,7 @@ class JobberProfileScreen extends StatelessWidget {
                                               letterSpacing: 0.8,
                                               fontFamily: 'Cerebri Sans Regular',
                                             ),
+                                            maxLines: 4,
                                           ),
                                         ),
                                       ],
@@ -565,6 +565,7 @@ class JobberProfileScreen extends StatelessWidget {
                                               letterSpacing: 0.8,
                                               fontFamily: 'Cerebri Sans Regular',
                                             ),
+                                            maxLines: 3,
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
@@ -595,7 +596,7 @@ class JobberProfileScreen extends StatelessWidget {
                                       .width /
                                       1.4,
                                   child: Text(
-                                    jobber!.skills[index].engagments,
+                                    jobber!.skills[index].description,
                                     style: const TextStyle(
                                       fontSize: 14,
                                       color: Colors.white,
@@ -603,6 +604,8 @@ class JobberProfileScreen extends StatelessWidget {
                                       letterSpacing: 0.8,
                                       fontFamily: 'Cerebri Sans Regular',
                                     ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                               ],
@@ -628,79 +631,100 @@ class JobberProfileScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: jobber!.reviews.length,
-                itemBuilder: (ctx, index) => Container(
-                  padding: const EdgeInsets.all(10.0),
-                  width: MediaQuery.of(context).size.width,
+              if(jobber!.reviews.isEmpty) ... [
+                Center(
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: MediaQuery.of(context).size.width / 10,
-                            height: MediaQuery.of(context).size.width / 10,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.black12,
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child: Image.network(
-                                "${MyRoutes.IMAGEURL}/${jobber!.reviews[index].image}",
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                              width: MediaQuery.of(context).size.width / 40),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                jobber!.reviews[index].name,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  for (int i = 0; i < jobber!.reviews[index].star; i++)
-                                    const Icon(Icons.star,
-                                        size: 14, color: Colors.amber),
-                                  SizedBox(width: MediaQuery.of(context).size.width / 40,),
-                                  Text("(${jobber!.reviews[index].star}.0)", style: Theme.of(context).textTheme.bodySmall,),
-                                ],
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                              width: MediaQuery.of(context).size.width / 90),
-                          const Spacer(),
-                          Text(
-                            jobber!.reviews[index].date,
-                            style: Theme.of(context).textTheme.labelMedium,
-                          ),
-                        ],
+                      Icon(
+                        Icons.find_in_page_rounded,
+                        size: 150,
+                        color: Theme.of(context).primaryColor,
                       ),
+                      Text(
+                        "No Reviews Available",
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: Text(
-                          jobber!.reviews[index].message,
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.width / 40,
-                      ),
-                      const Divider(),
                     ],
                   ),
                 ),
-              ),
+              ] else if(jobber!.reviews.isNotEmpty) ...[
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: jobber!.reviews.length,
+                  itemBuilder: (ctx, index) => Container(
+                    padding: const EdgeInsets.all(10.0),
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: MediaQuery.of(context).size.width / 10,
+                              height: MediaQuery.of(context).size.width / 10,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.black12,
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Image.network(
+                                  "${MyRoutes.IMAGEURL}/${jobber!.reviews[index].image}",
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                                width: MediaQuery.of(context).size.width / 40),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  jobber!.reviews[index].name,
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    for (int i = 0; i < jobber!.reviews[index].star; i++)
+                                      const Icon(Icons.star,
+                                          size: 14, color: Colors.amber),
+                                    SizedBox(width: MediaQuery.of(context).size.width / 40,),
+                                    Text("(${jobber!.reviews[index].star}.0)", style: Theme.of(context).textTheme.bodySmall,),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                                width: MediaQuery.of(context).size.width / 90),
+                            const Spacer(),
+                            Text(
+                              jobber!.reviews[index].date,
+                              style: Theme.of(context).textTheme.labelMedium,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.width / 40,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          child: Text(
+                            jobber!.reviews[index].message,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.width / 40,
+                        ),
+                        const Divider(),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ],
           ),
         ),
