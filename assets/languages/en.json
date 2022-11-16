@@ -526,5 +526,13 @@
   "Change_Date": "Change date or time",
   "Delete_Job": "Delete the job",
   "Cancel": "Cancel",
-  "Close_Job": "Close this job"
+  "Close_Job": "Close this job",
+  "New Password": "New Password",
+  "Confirm Password": "Confirm Password",
+  "Change Password": "Change Password",
+  "Add map":"Add map",
+  "Does the service provider have to come with his own truck?": "Does the service provider have to come with his own truck?"
+
+
+
 }

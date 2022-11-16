@@ -496,7 +496,7 @@ class JobberProfileReservationScreen extends StatelessWidget {
                                               fontFamily:
                                                   'Cerebri Sans Regular',
                                             ),
-                                            maxLines:  4,
+                                            maxLines:  3,
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
@@ -564,7 +564,7 @@ class JobberProfileReservationScreen extends StatelessWidget {
                                               fontFamily:
                                                   'Cerebri Sans Regular',
                                             ),
-                                            maxLines: 3,
+                                            maxLines: 2,
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),

@@ -90,7 +90,8 @@ class AccompanimentMedicalAppointmentStep extends StatelessWidget {
                         : false,
                   ),
                 ),
-              )),
+              ),
+          ),
         ],
       ),
     );
