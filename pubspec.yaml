@@ -42,7 +42,6 @@ dependencies:
   image_cropper: ^3.0.0
   uuid: ^3.0.6
   searchfield: ^0.7.0
-  geocoding: ^2.0.5
   shared_preferences: ^2.0.15
   qr_code_scanner: ^1.0.1
   flutter_rating_bar: ^4.0.1
