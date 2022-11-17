@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
-import 'package:geocoding/geocoding.dart';
 
+import '../../../../models/coordinatesModel.dart';
 import '../../../../providers/const_provider/const_provider.dart';
 
 class GooglePlacesApi extends StatefulWidget {
@@ -18,7 +18,7 @@ class GooglePlacesApi extends StatefulWidget {
 
 class _GooglePlacesApiState extends State<GooglePlacesApi> {
   TextEditingController searchController = TextEditingController();
-  var uuid = Uuid();
+  var uuid = const Uuid();
   String _sessionToken = '123456';
   List<dynamic> _placesList = [];
   @override
@@ -31,7 +31,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   }
 
   void onChange() {
-    if (_sessionToken == null) {
+    if (_sessionToken == 'null') {
       setState(() {
         _sessionToken = uuid.v4();
       });
@@ -41,11 +41,11 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   }
 
   void getSuggestion(String input) async {
-    String kPLACES_API_KEY = "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
+    String kPLACESAPIKEY = "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
     String gBASEURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     String requestUrl =
-        '$gBASEURL?input=$input&key=$kPLACES_API_KEY&sessiontoken=$_sessionToken&components=country:mq|country:gp|country:gf|country:re|country:fr';
+        '$gBASEURL?input=$input&key=$kPLACESAPIKEY&sessiontoken=$_sessionToken';
 
     var response = await http.get(Uri.parse(requestUrl));
 
@@ -59,6 +59,21 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
     // print(response.body.toString());
   }
 
+
+  CoordinatesModel? getCoordinates;
+
+  Future<void> getLatLngGeoCodingApi(String address) async {
+    String geoCodingApiKey = "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
+    String geoCodingBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json";
+    String requestUrl = "$geoCodingBaseUrl?address=$address&key=$geoCodingApiKey";
+    var response = await http.get(Uri.parse(requestUrl));
+    if(response.statusCode == 200){
+      setState(() {
+        getCoordinates = CoordinatesModel.fromJson(jsonDecode(response.body));
+      });
+      // print("response : ${response.body}");
+    }
+  }
   @override
   void dispose() {
     searchController.dispose();
@@ -97,16 +112,18 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
       }).toList(),
       onSuggestionTap: (p0) async {
         FocusScope.of(context).unfocus();
-        List<Location> location = await locationFromAddress(searchController.text);
-        searchData.getAddress(
-          address = searchController.text,
-          longitude = location.last.longitude,
-          latitude = location.last.latitude,
-        );
-        print("\n \n \n \n ");
-        print("full address : $address");
-        print("latitude: $latitude");
-        print("longitude: $longitude");
+        getLatLngGeoCodingApi(searchController.text).then((value) {
+          searchData.getAddress(
+            address = searchController.text,
+            longitude = getCoordinates!.results[0].geometry.location.lng,
+            latitude = getCoordinates!.results[0].geometry.location.lat,
+          );
+          debugPrint("\n \n \n \n ");
+          debugPrint("full address : $address");
+          debugPrint("latitude:  $latitude");
+          debugPrint("longitude: $longitude");
+        });
+        // List<Location> location = await locationFromAddress(searchController.text);
 
       },
     );
