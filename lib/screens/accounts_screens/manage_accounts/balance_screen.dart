@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/helpers/routes.dart';
 
 class BalanceScreen extends StatefulWidget {
   const BalanceScreen({Key? key}) : super(key: key);
@@ -134,85 +135,90 @@ class _BalanceScreenState extends State<BalanceScreen> {
                         ],
                       ),
                     ),
-                    Container(
-                      width: MediaQuery.of(context).size.width / 1.6,
-                      height: MediaQuery.of(context).size.width / 1.8,
-                      padding: const EdgeInsets.all(10.0),
-                      margin: const EdgeInsets.all(5.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.blue.shade900,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Balance_CESU_Text1",
-                                style: TextStyle(
-                                  fontFamily: 'Cerebri Sans Bold',
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                ),
-                              ).tr(),
-                              Spacer(),
-                              Icon(
-                                Icons.account_balance_wallet_outlined,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.width / 5,
-                          ),
-                          const Text(
-                            "0 €",
-                            style: TextStyle(
-                              fontFamily: 'Cerebri Sans Bold',
-                              fontSize: 22,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const Text(
-                            "Balance_CESU_Text2",
-                            style: TextStyle(
-                              fontFamily: 'Cerebri Sans Bold',
-                              fontSize: 12,
-                              color: Colors.white,
-                            ),
-                          ).tr(),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.width / 40,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(10.0),
-                            height: MediaQuery.of(context).size.width / 9,
-                            width: MediaQuery.of(context).size.width / 2.2,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                            ),
-                            child: Row(
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).pushNamed(MyRoutes.MYTICKETSROUTE);
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 1.6,
+                        height: MediaQuery.of(context).size.width / 1.8,
+                        padding: const EdgeInsets.all(10.0),
+                        margin: const EdgeInsets.all(5.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.blue.shade900,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
                               children: <Widget>[
-                                const Icon(
-                                  Icons.add,
-                                  size: 16,
-                                  color: Colors.black45,
-                                ),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width / 40,
-                                ),
-                                Text(
-                                  "Balance_CESU_Button",
-                                  style:
-                                      Theme.of(context).textTheme.labelMedium,
+                                const Text(
+                                  "Balance_CESU_Text1",
+                                  style: TextStyle(
+                                    fontFamily: 'Cerebri Sans Bold',
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                  ),
                                 ).tr(),
+                                const Spacer(),
+                                const Icon(
+                                  Icons.account_balance_wallet_outlined,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
                               ],
                             ),
-                          ),
-                        ],
+                            SizedBox(
+                              height: MediaQuery.of(context).size.width / 5,
+                            ),
+                            const Text(
+                              "0 €",
+                              style: TextStyle(
+                                fontFamily: 'Cerebri Sans Bold',
+                                fontSize: 22,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const Text(
+                              "Balance_CESU_Text2",
+                              style: TextStyle(
+                                fontFamily: 'Cerebri Sans Bold',
+                                fontSize: 12,
+                                color: Colors.white,
+                              ),
+                            ).tr(),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.width / 40,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(10.0),
+                              height: MediaQuery.of(context).size.width / 9,
+                              width: MediaQuery.of(context).size.width / 2.2,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                              ),
+                              child: Row(
+                                children: <Widget>[
+                                  const Icon(
+                                    Icons.add,
+                                    size: 16,
+                                    color: Colors.black45,
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width / 40,
+                                  ),
+                                  Text(
+                                    "Balance_CESU_Button",
+                                    style:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ).tr(),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -237,13 +243,32 @@ class _BalanceScreenState extends State<BalanceScreen> {
                 style: Theme.of(context).textTheme.titleSmall,
               ).tr(),
               SizedBox(
-                height: MediaQuery.of(context).size.width / 10,
+                height: MediaQuery.of(context).size.width / 40,
               ),
-              Center(
-                child: Icon(
-                  Icons.find_in_page_rounded,
-                  size: 150,
-                  color: Theme.of(context).primaryColor,
+              ListView.builder(
+                shrinkWrap: true,
+                controller: ScrollController(),
+                primary: false,
+                itemCount: 7,
+                itemBuilder: (context, index) => Column(
+                  children: [
+                    ListTile(
+
+                      title: Text(
+                        'IBFT BNP',
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                      subtitle: Text(
+                        '25-10-2022',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      trailing: Text(
+                        '€ 300',
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                    ),
+                    const Divider(),
+                  ],
                 ),
               ),
             ],

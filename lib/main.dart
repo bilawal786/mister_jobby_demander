@@ -136,6 +136,7 @@ import 'providers/jobs_provider/edit_jobs_provider.dart';
 import 'providers/jobs_provider/job_reservation_provider.dart';
 import 'providers/jobs_provider/rating_reviews_provider.dart';
 import 'providers/notification_provider/notification_provider.dart';
+import 'screens/accounts_screens/manage_accounts/add_ticket_manually.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 import 'screens/home_screens/services_sub_categories/process_sub_categories_steps/equipment_rental_step.dart';
 
@@ -459,6 +460,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
           MyRoutes.EQUIPMENTRENTALSCREENROUTE: (ctx) => const EquipmentRentalStepScreen(),
+          MyRoutes.ADDTICKETMANUALLYROUTE: (ctx) => const AddTicketManually(),
         },
       ),
     );

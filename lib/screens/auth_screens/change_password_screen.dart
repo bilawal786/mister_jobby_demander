@@ -73,7 +73,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                   height: MediaQuery.of(context).size.width / 40,
                 ),
                 Consumer<ForgetPasswordProvider>(
-                  builder: (_, toggle, child) => TextFormField(
+                  builder: (_, toggle, child) =>
+                      TextFormField(
                     enableSuggestions: false,
                     controller: passwordController,
                     obscureText: toggle.checkObscure,
