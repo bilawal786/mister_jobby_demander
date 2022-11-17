@@ -97,7 +97,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
       }).toList(),
       onSuggestionTap: (p0) async {
         FocusScope.of(context).unfocus();
-        List<Location> location = await locationFromAddress(p0.item.toString());
+        List<Location> location = await locationFromAddress(searchController.text);
         searchData.getAddress(
           address = searchController.text,
           longitude = location.last.longitude,
@@ -107,6 +107,7 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
         print("full address : $address");
         print("latitude: $latitude");
         print("longitude: $longitude");
+
       },
     );
   }
