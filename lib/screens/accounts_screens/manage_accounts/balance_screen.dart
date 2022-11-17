@@ -249,21 +249,21 @@ class _BalanceScreenState extends State<BalanceScreen> {
                 shrinkWrap: true,
                 controller: ScrollController(),
                 primary: false,
-                itemCount: 7,
+                itemCount: 2,
                 itemBuilder: (context, index) => Column(
                   children: [
                     ListTile(
 
                       title: Text(
-                        'IBFT BNP',
+                        'RCI Banque',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       subtitle: Text(
                         '25-10-2022',
-                        style: Theme.of(context).textTheme.bodySmall,
+                        style: Theme.of(context).textTheme.labelMedium,
                       ),
                       trailing: Text(
-                        '€ 300',
+                        '€100',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ),

@@ -14,6 +14,7 @@ class NotificationDisplay extends StatefulWidget {
 class _NotificationDisplayState extends State<NotificationDisplay> {
   @override
   Widget build(BuildContext context) {
+    Provider.of<NotificationProvider>(context).getNotification();
     final notificationsData = Provider.of<NotificationProvider>(context,);
     final extractNotification = notificationsData.notificationItems;
     return Scaffold(
@@ -24,20 +25,19 @@ class _NotificationDisplayState extends State<NotificationDisplay> {
         centerTitle: true,
          iconTheme: Theme.of(context).iconTheme,
       ),
-      body: RefreshIndicator(
-        onRefresh: ()async{
-          Provider.of<NotificationProvider>(context, listen: false).getNotification();
-        },
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: RefreshIndicator(
+            onRefresh: ()async{
+              Provider.of<NotificationProvider>(context, listen: false).getNotification();
+            },
             child: ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: extractNotification!.length,
               itemBuilder: (ctx, index) => Column(
                 children:<Widget> [
-
                   Container(
                     color: extractNotification[index].status == "1" ? Colors.transparent : Colors.blueGrey.shade50,
                     child: ListTile(

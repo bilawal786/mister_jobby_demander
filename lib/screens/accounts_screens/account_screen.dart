@@ -10,6 +10,9 @@ import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/const_widgets/custom_list_tile.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
 import '../auth_screens/change_password_screen.dart';
+import 'manage_accounts/error_screen.dart';
+import 'manage_accounts/internet_disconnect_error_screen.dart';
+import 'package:store_redirect/store_redirect.dart';
 
 class AccountsScreen extends StatefulWidget {
   const AccountsScreen({Key? key}) : super(key: key);
@@ -309,7 +312,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       },
                     ),
                     CustomListTile(
-                      onPress: () {},
+                      onPress: () {
+                        // StoreRedirect.redirect(androidAppId: 'shri.complete.fitness.gymtrainingapp',);
+                      },
                       leadingIcon: Icons.work_outline,
                       title: "Account_Screen_Service_Provider",
                       subTitle: "Account_Screen_Service_Provider_Subtitle",
@@ -360,6 +365,19 @@ class _AccountsScreenState extends State<AccountsScreen> {
                     //   leadingIcon: Icons.info_outline_rounded,
                     //   title: "Test",
                     // ),
+                    CustomListTile(
+                      onPress: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                          const InternetDisconnectScreen(),));},
+                      leadingIcon: Icons.signal_wifi_bad,
+                      title: "Internet Error Test Screen",
+                    ),
+                    CustomListTile(
+                      onPress: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                        const ErrorScreen(),));},
+                      leadingIcon: Icons.error_outline_outlined,
+                      title: "Error Test Screen",
+                    ),
                   ],
                 ),
               ),

@@ -531,8 +531,9 @@
   "Confirm Password": "Confirm Password",
   "Change Password": "Change Password",
   "Add map":"Add map",
-  "Does the service provider have to come with his own truck?": "Does the service provider have to come with his own truck?"
-
+  "Does the service provider have to come with his own truck?": "Does the service provider have to come with his own truck?",
+  "Internet_Error": "Please check your internet connection and try again",
+  "Error_Text2": "This page doesn't exits"
 
 
 }
