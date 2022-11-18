@@ -46,6 +46,7 @@ class GiftCardProvider with ChangeNotifier {
       notifyListeners();
     }else {
       debugPrint('Gift card post Api is not working');
+      Navigator.pop(context);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

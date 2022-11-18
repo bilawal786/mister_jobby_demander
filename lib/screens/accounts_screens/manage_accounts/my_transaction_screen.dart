@@ -46,7 +46,7 @@ class MyTransactionScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.labelLarge,
                   ),
                   trailing: Text(
-                    extractData[index].price,
+                    "${extractData[index].price} €",
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                 ),
