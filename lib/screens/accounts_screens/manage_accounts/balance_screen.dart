@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/helpers/routes.dart';
+import 'package:provider/provider.dart';
+
+import '../../../providers/accounts_providers/my_balance_provider/my_balance_provider.dart';
 
 class BalanceScreen extends StatefulWidget {
   const BalanceScreen({Key? key}) : super(key: key);
@@ -12,6 +15,8 @@ class BalanceScreen extends StatefulWidget {
 class _BalanceScreenState extends State<BalanceScreen> {
   @override
   Widget build(BuildContext context) {
+    final balanceData = Provider.of<MyBalanceProvider>(context);
+    final extractData = balanceData.myBalanceModel;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -34,7 +39,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "0 €",
+                      "${extractData?.wallet}€",
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
@@ -68,7 +73,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              Text(
+                              const Text(
                                 "Balance_Jackpot_Text1",
                                 style: TextStyle(
                                   fontFamily: 'Cerebri Sans Bold',
@@ -76,8 +81,8 @@ class _BalanceScreenState extends State<BalanceScreen> {
                                   color: Colors.white,
                                 ),
                               ).tr(),
-                              Spacer(),
-                              Icon(
+                              const Spacer(),
+                              const Icon(
                                 Icons.account_balance_wallet_outlined,
                                 color: Colors.white,
                                 size: 20,
@@ -249,22 +254,32 @@ class _BalanceScreenState extends State<BalanceScreen> {
                 shrinkWrap: true,
                 controller: ScrollController(),
                 primary: false,
-                itemCount: 2,
+                itemCount: extractData!.details.length,
                 itemBuilder: (context, index) => Column(
                   children: [
                     ListTile(
 
                       title: Text(
-                        'RCI Banque',
+                        extractData.details[index].paymentType,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       subtitle: Text(
-                        '25-10-2022',
+                        extractData.details[index].createdAt,
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
-                      trailing: Text(
-                        '€100',
-                        style: Theme.of(context).textTheme.titleSmall,
+                      trailing: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            '${extractData.details[index].amount}€',
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                           Icon(
+                              (extractData.details[index].transactionType == 'ingoing') ?
+                              Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined),
+                        ],
                       ),
                     ),
                     const Divider(),

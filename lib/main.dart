@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:mister_jobby/providers/auth_provider/forget_password_provider.dart';
 import 'package:mister_jobby/providers/coordinates_provider.dart';
 import 'package:mister_jobby/providers/jobs_provider/jobs_compleleted_provider.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/my_transaction_screen.dart';
 import './providers/jobs_provider/job_proposals_provider.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/insurance.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/notifications.dart';
@@ -132,7 +133,11 @@ import './screens/accounts_screens/useful_information/about_us_screen.dart';
 import './screens/jobs_screens/jobs_tab_screens/comment_screen.dart';
 import './providers/jobs_provider/single_job_comments_provider.dart';
 import 'providers/accounts_providers/about_provider/about_provider.dart';
+import 'providers/accounts_providers/cesu_ticket_provider/csey_ticket_provider.dart';
+import 'providers/accounts_providers/gift_card_provider/gift_card_provider.dart';
+import 'providers/accounts_providers/my_balance_provider/my_balance_provider.dart';
 import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
+import 'providers/accounts_providers/transaction_provider/transaction_provider.dart';
 import 'providers/jobs_provider/edit_jobs_provider.dart';
 import 'providers/jobs_provider/job_reservation_provider.dart';
 import 'providers/jobs_provider/rating_reviews_provider.dart';
@@ -199,6 +204,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create:(context) => ForgetPasswordProvider(),),
         ChangeNotifierProvider(create:(context) => RatingProvider(),),
         ChangeNotifierProvider(create:(context) => CoordinateProvider(),),
+        ChangeNotifierProvider(create:(context) => CseuTicketProvider(),),
+        ChangeNotifierProvider(create:(context) => MyBalanceProvider(),),
+        ChangeNotifierProvider(create:(context) => GiftCardProvider(),),
+        ChangeNotifierProvider(create:(context) => TransactionProvider(),),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
@@ -463,6 +472,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
           MyRoutes.EQUIPMENTRENTALSCREENROUTE: (ctx) => const EquipmentRentalStepScreen(),
           MyRoutes.ADDTICKETMANUALLYROUTE: (ctx) => const AddTicketManually(),
+          MyRoutes.MYTRANSACTION: (ctx) => const MyTransactionScreen(),
         },
       ),
     );

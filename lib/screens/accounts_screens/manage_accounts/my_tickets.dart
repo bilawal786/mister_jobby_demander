@@ -3,6 +3,10 @@ import 'dart:math';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/helpers/routes.dart';
+import 'package:mister_jobby/models/accounts_models/cesu_tickets_model.dart';
+import 'package:provider/provider.dart';
+
+import '../../../providers/accounts_providers/cesu_ticket_provider/csey_ticket_provider.dart';
 
 
 class MyTickets extends StatefulWidget {
@@ -17,6 +21,10 @@ class _MyTicketsState extends State<MyTickets> {
   int status = 1;
   @override
   Widget build(BuildContext context) {
+
+    final cesuData = Provider.of<CseuTicketProvider>(context);
+    final extractData = cesuData.ticketModel;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -135,60 +143,55 @@ class _MyTicketsState extends State<MyTickets> {
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: 3,
+                itemCount: extractData!.length,
                 itemBuilder: (context, index) => Container(
                   margin: const EdgeInsets.symmetric(vertical: 7),
                 width: double.infinity,
-                height: MediaQuery.of(context).size.width /4,
+                height: MediaQuery.of(context).size.width /4.5,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
                   color: Colors.grey.shade300,),
                   // Colors.primaries[Random().nextInt(Colors.primaries.length)].shade300,),
-                child: Row(children: <Widget>[
+                child: Row(
+                  children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text('Ticket Number', style: Theme.of(context).textTheme.titleSmall,),
-                        Text('Nov 2022', style: Theme.of(context).textTheme.labelMedium,),
+                        Text(extractData[index].number, style: Theme.of(context).textTheme.titleSmall,),
+                        SizedBox(height: MediaQuery.of(context).size.width /60,),
+                        Text(extractData[index].createdAt.toString(), style: Theme.of(context).textTheme.labelMedium,),
                       ],),
                   ),
                   const Spacer(),
-                  Column(children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width / 4,
-                      height: MediaQuery.of(context).size.width / 7,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
-                          color: Colors.grey.shade500),
-                      child: const Center(child: Text('€100 ', style: TextStyle(
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10, bottom: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                      (extractData[index].status == 2 ) ?
+                      Text('Rejected', style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Cerebri Sans Regular',
-                      ),)),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.width / 40,),
-                    (status == 0 ) ?
-                    Text('Rejected', style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.red.shade300,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Cerebri Sans Bold',
-                    ),) :
-                    (status == 1) ?
-                    const Text('Pending', style: TextStyle(
-                      fontSize: 16,
-                      color: Color.fromARGB(247,203,115,5),
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Cerebri Sans Bold',
-                    ),) :
-                    Text('Accepted', style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.green.shade600,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Cerebri Sans Bold',
-                    ),),
-                  ],),
+                        color: Colors.red.shade300,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Cerebri Sans Bold',
+                      ),) :
+                      (extractData[index].status == 0) ?
+                      const Text('Pending', style: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(247,203,115,5),
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Cerebri Sans Bold',
+                      ),) :
+                      Text('Accepted', style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.green.shade600,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Cerebri Sans Bold',
+                      ),),
+                    ],),
+                  ),
                 ],),
               ),),
             ],

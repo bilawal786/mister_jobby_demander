@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../providers/accounts_providers/cesu_ticket_provider/csey_ticket_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
 
 class AddTicketManually extends StatefulWidget {
@@ -21,7 +23,7 @@ class _AddTicketManuallyState extends State<AddTicketManually> {
 
   @override
   Widget build(BuildContext context) {
-
+    final cseyData = Provider.of<CseuTicketProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -49,7 +51,9 @@ class _AddTicketManuallyState extends State<AddTicketManually> {
               style: Theme.of(context).textTheme.bodySmall,
             ),
             SizedBox(height: MediaQuery.of(context).size.width /2,),
-            CustomButton(onPress: (){}, buttonName: 'Send Code',),
+            CustomButton(onPress: (){
+              cseyData.postCesuTicket(context, qrController.text);
+            }, buttonName: 'Send Code',),
           ],),
         ),
       ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:provider/provider.dart';
 
+import '../../../providers/accounts_providers/gift_card_provider/gift_card_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
 
 class GiftScreen extends StatefulWidget {
@@ -11,6 +13,15 @@ class GiftScreen extends StatefulWidget {
 }
 
 class _GiftScreenState extends State<GiftScreen> {
+
+  final TextEditingController giftCardController = TextEditingController();
+
+  @override
+  void dispose() {
+    giftCardController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +53,7 @@ class _GiftScreenState extends State<GiftScreen> {
                 height: MediaQuery.of(context).size.width / 40,
               ),
               TextFormField(
+                controller: giftCardController,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
                   hintText: "Gift_Card_Field_Hint".tr(),
@@ -114,7 +126,9 @@ class _GiftScreenState extends State<GiftScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              CustomButton(onPress: () {}, buttonName: "Gift_Card_Button".tr()),
+              CustomButton(onPress: () {
+                Provider.of<GiftCardProvider>(context, listen: false).postGiftCard(context, giftCardController.text);
+              }, buttonName: "Gift_Card_Button".tr()),
             ],
           ),
         ),

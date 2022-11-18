@@ -110,9 +110,7 @@ class ForgetPasswordProvider with ChangeNotifier {
   }
 
   Future<void> forgetPassword(BuildContext context, email, password) async {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
+    showDialog(context: context, builder: (BuildContext context) {
           return const LoginProgressIndicator();
         });
     var response = await http.post(

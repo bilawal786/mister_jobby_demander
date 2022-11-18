@@ -2,7 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/helpers/routes.dart';
 import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
+import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+
+import '../../../providers/accounts_providers/cesu_ticket_provider/csey_ticket_provider.dart';
 
 class TicketScannerScreen extends StatefulWidget {
   const TicketScannerScreen({Key? key}) : super(key: key);
@@ -27,6 +30,7 @@ class _TicketScannerScreenState extends State<TicketScannerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cseyData = Provider.of<CseuTicketProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -74,7 +78,9 @@ class _TicketScannerScreenState extends State<TicketScannerScreen> {
                           SizedBox(
                             height: MediaQuery.of(context).size.width / 5,
                           ),
-                          CustomButton(onPress: (){}, buttonName: "Send Code")
+                          CustomButton(onPress: (){
+                            cseyData.postCesuTicket(context, result!.code);
+                          }, buttonName: "Send Code")
                         ],
                       )
                       : Column(
