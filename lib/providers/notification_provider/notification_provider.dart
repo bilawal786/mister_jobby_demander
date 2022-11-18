@@ -7,6 +7,7 @@ import '../../models/notification_model/notification_model.dart';
 
 class NotificationProvider with ChangeNotifier {
   List<NotificationModel>? notificationItems;
+  // var checkApi = false;
 
   Future<void> getNotification() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -22,8 +23,10 @@ class NotificationProvider with ChangeNotifier {
     if(response.statusCode == 200) {
       debugPrint('Notifications Api is working');
       notificationItems = notificationModelFromJson(response.body);
+      notifyListeners();
     }else{
       debugPrint('Notifications Api is not working');
+      notifyListeners();
     }
   }
 

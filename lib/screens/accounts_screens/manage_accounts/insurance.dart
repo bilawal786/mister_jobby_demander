@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Insurance extends StatefulWidget {
   const Insurance({Key? key}) : super(key: key);
@@ -69,7 +70,7 @@ class _InsuranceState extends State<Insurance> {
                             color: Colors.blue.shade50,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: const Icon(Icons.facebook),
+                          child:const Icon(Icons.facebook),
                         ),
                         Container(
                           height: MediaQuery.of(context).size.height * .08,
@@ -78,7 +79,7 @@ class _InsuranceState extends State<Insurance> {
                             color: Colors.red.shade50,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: const Icon(Icons.facebook),
+                          child: const Icon(FontAwesomeIcons.instagram),
                         ),
                         Container(
                           height: MediaQuery.of(context).size.height * .08,
@@ -87,7 +88,7 @@ class _InsuranceState extends State<Insurance> {
                             color: Colors.pink.shade50,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: const Icon(Icons.facebook),
+                          child: const Icon(FontAwesomeIcons.twitter),
                         ),
                         Container(
                           height: MediaQuery.of(context).size.height * .08,
@@ -96,7 +97,7 @@ class _InsuranceState extends State<Insurance> {
                             color: Colors.green.shade50,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: const Icon(Icons.facebook),
+                          child: const Icon(FontAwesomeIcons.pinterest),
                         ),
                       ],
                     ),

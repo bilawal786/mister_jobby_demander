@@ -48,7 +48,7 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   intl: ^0.17.0
   flutter_stripe: ^6.0.0
-  store_redirect:
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:

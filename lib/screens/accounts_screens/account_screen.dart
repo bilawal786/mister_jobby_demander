@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../helpers/routes.dart';
 import '../../providers/accounts_providers/profile_provider.dart';
@@ -12,7 +13,6 @@ import '../../providers/preferences_provider/preferences_provider.dart';
 import '../auth_screens/change_password_screen.dart';
 import 'manage_accounts/error_screen.dart';
 import 'manage_accounts/internet_disconnect_error_screen.dart';
-import 'package:store_redirect/store_redirect.dart';
 
 class AccountsScreen extends StatefulWidget {
   const AccountsScreen({Key? key}) : super(key: key);
@@ -312,8 +312,12 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       },
                     ),
                     CustomListTile(
-                      onPress: () {
-                        // StoreRedirect.redirect(androidAppId: 'shri.complete.fitness.gymtrainingapp',);
+                      onPress: () async {
+                        final Uri _url = Uri.parse('https://play.google.com/store/apps/details?id=com.pinterest&hl=en&gl=US');
+                        if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
+                          throw 'Could not launch $_url';
+
+                        }
                       },
                       leadingIcon: Icons.work_outline,
                       title: "Account_Screen_Service_Provider",

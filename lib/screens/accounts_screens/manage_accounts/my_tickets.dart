@@ -149,7 +149,7 @@ class _MyTicketsState extends State<MyTickets> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text('Woolworth\'s', style: Theme.of(context).textTheme.titleSmall,),
+                        Text('Ticket Number', style: Theme.of(context).textTheme.titleSmall,),
                         Text('Nov 2022', style: Theme.of(context).textTheme.labelMedium,),
                       ],),
                   ),
@@ -191,33 +191,6 @@ class _MyTicketsState extends State<MyTickets> {
                   ],),
                 ],),
               ),),
-              // Center(
-              //   child: Icon(
-              //     Icons.find_in_page_rounded,
-              //     size: 130,
-              //     color: Theme.of(context).primaryColor,
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: MediaQuery.of(context).size.width / 40,
-              // ),
-              // Container(
-              //   padding: const EdgeInsets.all(10.0),
-              //   width: double.infinity,
-              //   child: Column(
-              //     children: <Widget>[
-              //       Text(
-              //         "No_Tickets",
-              //         style: Theme.of(context).textTheme.titleSmall,
-              //       ).tr(),
-              //       Text(
-              //         "My_Tickets_Text",
-              //         style: Theme.of(context).textTheme.labelMedium,
-              //         textAlign: TextAlign.center,
-              //       ).tr(),
-              //     ],
-              //   ),
-              // ),
             ],
           ),
         ),
