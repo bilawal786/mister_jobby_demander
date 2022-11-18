@@ -21,7 +21,7 @@ class CoordinateProvider with ChangeNotifier {
 
         getCoordinates = CoordinatesModel.fromJson(jsonDecode(response.body));
       Navigator.of(context).pop();
-      print("response : ${response.body}");
+      // print("response : ${response.body}");
       notifyListeners();
     }else {
       Navigator.of(context).pop();
