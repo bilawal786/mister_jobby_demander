@@ -3,7 +3,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 import '../process_child_screen_steps/furniture_assemble_step.dart';
+import '../process_child_screen_steps/general_step_2.5.dart';
 import '../process_child_screen_steps/general_step_2.dart';
+import '../process_child_screen_steps/general_step_3.0.dart';
 import '../process_child_screen_steps/general_step_3.dart';
 
 import '../../../../providers/const_provider/const_provider.dart';
@@ -70,7 +72,8 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
               //     "extra Large: ${constProviderData.veryLargeSizedFurnitureAmount}");
               // print("question 1: ${constProviderData.cleanBoxTitle}");
               // print("selected date: ${constProviderData.selectedDate}");
-              print("selected time: ${constProviderData.pickedTime.hour < 10 ? "0${constProviderData.pickedTime.hour}":"${constProviderData.pickedTime.hour}"}:${constProviderData.pickedTime.minute < 10 ? "0${constProviderData.pickedTime.minute}" : "${constProviderData.pickedTime.minute}"}");
+              print(
+                  "selected time: ${constProviderData.pickedTime.hour < 10 ? "0${constProviderData.pickedTime.hour}" : "${constProviderData.pickedTime.hour}"}:${constProviderData.pickedTime.minute < 10 ? "0${constProviderData.pickedTime.minute}" : "${constProviderData.pickedTime.minute}"}");
               print("selected duration: ${constProviderData.duration}");
               // print("selected rate: ${constProviderData.hourlyRate}");
               print("isUrgent : ${constProviderData.checkUrgentJob}");
@@ -152,7 +155,8 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                             child: ElevatedButton(
                               onPressed: details.onStepContinue,
                               style: ElevatedButton.styleFrom(
-                                minimumSize: const Size.fromHeight(50.0), backgroundColor: Theme.of(context).primaryColor,
+                                minimumSize: const Size.fromHeight(50.0),
+                                backgroundColor: Theme.of(context).primaryColor,
                                 elevation: 5,
                               ),
                               child: Text(
@@ -169,18 +173,42 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                             ),
                           )
                         : const SizedBox(),
-                    ((currentStep == 1) &&
+                    ((currentStep == 1))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                backgroundColor: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 1
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    ((currentStep == 2) &&
                             (furnitureAssemble.duration > 0) &&
                             (furnitureAssemble.hourlyRate > 0))
                         ? Expanded(
                             child: ElevatedButton(
                               onPressed: details.onStepContinue,
                               style: ElevatedButton.styleFrom(
-                                minimumSize: const Size.fromHeight(50.0), backgroundColor: Theme.of(context).primaryColor,
+                                minimumSize: const Size.fromHeight(50.0),
+                                backgroundColor: Theme.of(context).primaryColor,
                                 elevation: 5,
                               ),
                               child: Text(
-                                currentStep > 1
+                                currentStep > 2
                                     ? "Process_Screen_Confirm_Button"
                                     : "Process_Screen_Continue_Button",
                                 style: const TextStyle(
@@ -193,10 +221,30 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                             ),
                           )
                         : const SizedBox(),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 40,
-                    ),
-                    ((currentStep == 2) &&
+                    ((currentStep == 3))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                backgroundColor: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 3
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    ((currentStep == 4) &&
                             (furnitureAssemble.completeAddress != '') &&
                             (furnitureAssemble.postalCode != '') &&
                             (furnitureAssemble.countryDropDownValue != 'null'))
@@ -204,11 +252,12 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                             child: ElevatedButton(
                               onPressed: details.onStepContinue,
                               style: ElevatedButton.styleFrom(
-                                minimumSize: const Size.fromHeight(50.0), backgroundColor: Theme.of(context).primaryColor,
+                                minimumSize: const Size.fromHeight(50.0),
+                                backgroundColor: Theme.of(context).primaryColor,
                                 elevation: 5,
                               ),
                               child: Text(
-                                currentStep > 1
+                                currentStep == 4
                                     ? "Process_Screen_Confirm_Button"
                                     : "Process_Screen_Continue_Button",
                                 style: const TextStyle(
@@ -228,7 +277,8 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                       child: ElevatedButton(
                         onPressed: details.onStepCancel,
                         style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50.0), backgroundColor: Colors.black12,
+                          minimumSize: const Size.fromHeight(50.0),
+                          backgroundColor: Colors.black12,
                           elevation: 0,
                         ),
                         child: const Text(
@@ -263,13 +313,25 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
           isActive: currentStep >= 1,
           state: currentStep > 1 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: GeneralStep2Screen(
+          content: const GeneralStep2Screen(),
+        ),
+        Step(
+          isActive: currentStep >= 2,
+          state: currentStep > 2 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: GeneralStep02(
               mainCategoryId: mId,
               subCategoryId: subId,
               childCategoryId: childId),
         ),
         Step(
-          isActive: currentStep >= 2,
+          isActive: currentStep >= 3,
+          state: currentStep > 3 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: const GeneralStep03(),
+        ),
+        Step(
+          isActive: currentStep >= 4,
           title: const Text(""),
           content: const GeneralStep3Screen(),
         ),
