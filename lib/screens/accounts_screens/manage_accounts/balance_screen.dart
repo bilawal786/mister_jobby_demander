@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/helpers/routes.dart';
 import 'package:provider/provider.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../providers/accounts_providers/my_balance_provider/my_balance_provider.dart';
 
 class BalanceScreen extends StatefulWidget {
@@ -258,7 +258,41 @@ class _BalanceScreenState extends State<BalanceScreen> {
                 itemBuilder: (context, index) => Column(
                   children: [
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      // tileColor: Colors.red,
+                      horizontalTitleGap: 10,
+                      // minVerticalPadding: 20,
+                      leading: Container(
+                        width: MediaQuery.of(context).size.width /7,
+                        height: MediaQuery.of(context).size.width /8,
+                        child: Stack(children: <Widget>[
+                          Center(
+                            child: Container(
+                              width: MediaQuery.of(context).size.width /10,
+                                height: MediaQuery.of(context).size.width /10,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                    color: Colors.black26,),
+                                child: Icon(FontAwesomeIcons.coins,
+                                  size: MediaQuery.of(context).size.width /20,
+                                  color: Colors.white,)),
+                          ),
+                          Positioned(
+                            right: -1,
+                              top: 0,
+                              child:
+                              (extractData.details[index].transactionType == 'ingoing') ?
+                              Icon(
+                                Icons.arrow_upward,
+                                size: MediaQuery.of(context).size.width / 25,
+                                color: Colors.green.shade600,
 
+                              ) :
+                            Icon(
+                            Icons.arrow_downward, size: 15, color: Colors.red.shade600,
+                          )
+                          ),],),
+                      ),
                       title: Text(
                         extractData.details[index].paymentType,
                         style: Theme.of(context).textTheme.titleSmall,
@@ -276,9 +310,9 @@ class _BalanceScreenState extends State<BalanceScreen> {
                             '${extractData.details[index].amount}€',
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
-                           Icon(
-                              (extractData.details[index].transactionType == 'ingoing') ?
-                              Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined),
+                           // Icon(
+                           //
+                           //    Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined),
                         ],
                       ),
                     ),
