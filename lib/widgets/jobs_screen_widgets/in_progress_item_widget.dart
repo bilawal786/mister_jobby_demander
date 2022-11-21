@@ -23,7 +23,7 @@ class InProgressItemWidget extends StatelessWidget {
                 )));
       },
       child: Container(
-        margin: const EdgeInsets.all(5.0),
+        margin: const EdgeInsets.all(0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

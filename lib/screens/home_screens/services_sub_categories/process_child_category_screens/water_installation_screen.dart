@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
+import '../process_child_screen_steps/general_step_2.5.dart';
 import '../process_child_screen_steps/general_step_2.dart';
+import '../process_child_screen_steps/general_step_3.0.dart';
 import '../process_child_screen_steps/general_step_3.dart';
 import '../process_child_screen_steps/water_installation_step.dart';
 
@@ -155,15 +157,13 @@ class _WaterInstallationScreenState extends State<WaterInstallationScreen> {
                           ).tr(),
                         )
                     ): const SizedBox(),
-                    ((currentStep == 1) &&
-                        (waterLeakValue.duration > 0) &&
-                        (waterLeakValue.hourlyRate > 0))
+                    ((currentStep == 1))
                         ? Expanded(
                       child: ElevatedButton(
                         onPressed: details.onStepContinue,
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
+                          backgroundColor: Theme.of(context).primaryColor,
                           elevation: 5,
                         ),
                         child: Text(
@@ -180,10 +180,55 @@ class _WaterInstallationScreenState extends State<WaterInstallationScreen> {
                       ),
                     )
                         : const SizedBox(),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 40,
-                    ),
-                    (currentStep == 2 &&
+                    ((currentStep == 2) &&
+                        (waterLeakValue.duration > 0) &&
+                        (waterLeakValue.hourlyRate > 0))
+                        ? Expanded(
+                      child: ElevatedButton(
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          backgroundColor: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 2
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
+                      ),
+                    )
+                        : const SizedBox(),
+                    ((currentStep == 3))
+                        ? Expanded(
+                      child: ElevatedButton(
+                        onPressed: details.onStepContinue,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50.0),
+                          backgroundColor: Theme.of(context).primaryColor,
+                          elevation: 5,
+                        ),
+                        child: Text(
+                          currentStep > 3
+                              ? "Process_Screen_Confirm_Button"
+                              : "Process_Screen_Continue_Button",
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Cerebri Sans Regular',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              letterSpacing: 1),
+                        ).tr(),
+                      ),
+                    )
+                        : const SizedBox(),
+                    ((currentStep == 4) &&
                         (waterLeakValue.completeAddress != '') &&
                         (waterLeakValue.postalCode != '') &&
                         (waterLeakValue.countryDropDownValue != 'null'))
@@ -192,11 +237,11 @@ class _WaterInstallationScreenState extends State<WaterInstallationScreen> {
                         onPressed: details.onStepContinue,
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50.0),
-                          primary: Theme.of(context).primaryColor,
+                          backgroundColor: Theme.of(context).primaryColor,
                           elevation: 5,
                         ),
                         child: Text(
-                          currentStep > 1
+                          currentStep == 4
                               ? "Process_Screen_Confirm_Button"
                               : "Process_Screen_Continue_Button",
                           style: const TextStyle(
@@ -251,12 +296,27 @@ class _WaterInstallationScreenState extends State<WaterInstallationScreen> {
       isActive: currentStep >= 1,
       state: currentStep > 1 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content: GeneralStep2Screen(mainCategoryId: mId!,subCategoryId: subId!, childCategoryId: childId!,),
+      content: const GeneralStep2Screen(),
     ),
     Step(
       isActive: currentStep >= 2,
+      state: currentStep > 2 ? StepState.complete : StepState.indexed,
       title: const Text(""),
-      content:const GeneralStep3Screen(),
+      content: GeneralStep02(
+          mainCategoryId: mId!,
+          subCategoryId: subId!,
+          childCategoryId: childId),
+    ),
+    Step(
+      isActive: currentStep >= 3,
+      state: currentStep > 3 ? StepState.complete : StepState.indexed,
+      title: const Text(""),
+      content: const GeneralStep03(),
+    ),
+    Step(
+      isActive: currentStep >= 4,
+      title: const Text(""),
+      content: const GeneralStep3Screen(),
     ),
   ];
 }

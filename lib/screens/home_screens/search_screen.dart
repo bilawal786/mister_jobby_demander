@@ -38,7 +38,6 @@ class SearchScreen extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-
               (mainCategoryData.searchPost == null || mainCategoryData.searchPost!.isEmpty) ?
               ListView.builder(
                 padding: const EdgeInsets.only(

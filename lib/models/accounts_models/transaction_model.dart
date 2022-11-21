@@ -19,6 +19,7 @@ class TransactionModel {
     required this.jobberGet,
     required this.type,
     required this.jobTitle,
+    required this.createdAt,
   });
 
   int transactionId;
@@ -29,6 +30,7 @@ class TransactionModel {
   String jobberGet;
   String type;
   String jobTitle;
+  String createdAt;
 
   factory TransactionModel.fromJson(Map<String, dynamic> json) => TransactionModel(
     transactionId: json["transaction_id"],
@@ -39,6 +41,7 @@ class TransactionModel {
     jobberGet: json["jobber_get"],
     type: json["type"],
     jobTitle: json["job_title"],
+    createdAt: json["created_at"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -50,5 +53,6 @@ class TransactionModel {
     "jobber_get": jobberGet,
     "type": type,
     "job_title": jobTitle,
+    "created_at": createdAt,
   };
 }

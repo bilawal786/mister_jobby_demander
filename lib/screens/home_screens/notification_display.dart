@@ -43,7 +43,6 @@ class _NotificationDisplayState extends State<NotificationDisplay> {
             await Provider.of<NotificationProvider>(context, listen: false).getNotification();
           },
           child: ListView.builder(
-            shrinkWrap: true,
             itemCount: extractNotification.length,
             itemBuilder: (ctx, index) => Column(
               children:<Widget> [

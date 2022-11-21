@@ -10,6 +10,11 @@ import '../../../widgets/home_screen_widgets/login_progress_indicator.dart';
 
 class CseuTicketProvider with ChangeNotifier {
 
+  getData (){
+    var data = ticketModel!.where((element) => element.status == 1);
+    return data.length;
+  }
+
   List<CesuTicketModel>? ticketModel;
 
   Future<void> getCesuTicket() async {

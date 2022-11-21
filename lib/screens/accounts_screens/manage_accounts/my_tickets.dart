@@ -22,9 +22,10 @@ class _MyTicketsState extends State<MyTickets> {
   @override
   Widget build(BuildContext context) {
 
+    String sum = '';
     final cesuData = Provider.of<CseuTicketProvider>(context);
     final extractData = cesuData.ticketModel;
-
+    final filterData = cesuData.getData();
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -77,9 +78,9 @@ class _MyTicketsState extends State<MyTickets> {
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 5,
                     ),
-                    const Text(
-                      "0 €",
-                      style: TextStyle(
+                     Text(
+                    filterData.toString(),
+                      style: const TextStyle(
                         fontFamily: 'Cerebri Sans Bold',
                         fontSize: 22,
                         color: Colors.white,

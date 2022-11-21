@@ -73,7 +73,7 @@ class _InProgressTabState extends State<InProgressTab> {
               )
             : Container(
                 padding: const EdgeInsets.all(10.0),
-                margin: const EdgeInsets.all(5.0),
+                margin: const EdgeInsets.all(0.0),
                 child: RefreshIndicator(
                   onRefresh: ()async{
                     Provider.of<JobsInProgressProvider>(context, listen: false).getInProgressJobs();

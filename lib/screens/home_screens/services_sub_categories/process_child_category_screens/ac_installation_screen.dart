@@ -6,6 +6,8 @@ import '../../../../providers/const_provider/const_provider.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/ac_installation_step.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_2.dart';
 import '../../../../screens/home_screens/services_sub_categories/process_child_screen_steps/general_step_3.dart';
+import '../process_child_screen_steps/general_step_2.5.dart';
+import '../process_child_screen_steps/general_step_3.0.dart';
 
 class ACInstallationScreen extends StatefulWidget {
   const ACInstallationScreen({Key? key}) : super(key: key);
@@ -135,7 +137,7 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
                             onPressed: details.onStepContinue,
                             style: ElevatedButton.styleFrom(
                               minimumSize: const Size.fromHeight(50.0),
-                              primary: Theme.of(context).primaryColor,
+                              backgroundColor: Theme.of(context).primaryColor,
                               elevation: 5,
                             ),
                             child: Text(
@@ -150,16 +152,14 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
                                   letterSpacing: 1),
                             ).tr(),
                           ))
-                        : SizedBox(),
-                    ((currentStep == 1) &&
-                            (ac.duration > 0) &&
-                            (ac.hourlyRate > 0))
+                        : const SizedBox(),
+                    ((currentStep == 1))
                         ? Expanded(
                             child: ElevatedButton(
                               onPressed: details.onStepContinue,
                               style: ElevatedButton.styleFrom(
                                 minimumSize: const Size.fromHeight(50.0),
-                                primary: Theme.of(context).primaryColor,
+                                backgroundColor: Theme.of(context).primaryColor,
                                 elevation: 5,
                               ),
                               child: Text(
@@ -176,7 +176,55 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
                             ),
                           )
                         : const SizedBox(),
-                    (currentStep == 2 &&
+                    ((currentStep == 2) &&
+                            (ac.duration > 0) &&
+                            (ac.hourlyRate > 0))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                backgroundColor: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 2
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    ((currentStep == 3))
+                        ? Expanded(
+                            child: ElevatedButton(
+                              onPressed: details.onStepContinue,
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(50.0),
+                                backgroundColor: Theme.of(context).primaryColor,
+                                elevation: 5,
+                              ),
+                              child: Text(
+                                currentStep > 3
+                                    ? "Process_Screen_Confirm_Button"
+                                    : "Process_Screen_Continue_Button",
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Cerebri Sans Regular',
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    letterSpacing: 1),
+                              ).tr(),
+                            ),
+                          )
+                        : const SizedBox(),
+                    ((currentStep == 4) &&
                             (ac.completeAddress != '') &&
                             (ac.postalCode != '') &&
                             (ac.countryDropDownValue != 'null'))
@@ -185,11 +233,11 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
                               onPressed: details.onStepContinue,
                               style: ElevatedButton.styleFrom(
                                 minimumSize: const Size.fromHeight(50.0),
-                                primary: Theme.of(context).primaryColor,
+                                backgroundColor: Theme.of(context).primaryColor,
                                 elevation: 5,
                               ),
                               child: Text(
-                                currentStep > 1
+                                currentStep == 4
                                     ? "Process_Screen_Confirm_Button"
                                     : "Process_Screen_Continue_Button",
                                 style: const TextStyle(
@@ -210,7 +258,7 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
                       onPressed: details.onStepCancel,
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
+                        backgroundColor: Colors.black12,
                         elevation: 0,
                       ),
                       child: const Text(
@@ -244,13 +292,25 @@ class _ACInstallationScreenState extends State<ACInstallationScreen> {
           isActive: currentStep >= 1,
           state: currentStep > 1 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: GeneralStep2Screen(
-              mainCategoryId: mId!,
-              subCategoryId: subId!,
-              childCategoryId: childId!),
+          content: const GeneralStep2Screen(),
         ),
         Step(
           isActive: currentStep >= 2,
+          state: currentStep > 2 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: GeneralStep02(
+              mainCategoryId: mId!,
+              subCategoryId: subId!,
+              childCategoryId: childId),
+        ),
+        Step(
+          isActive: currentStep >= 3,
+          state: currentStep > 3 ? StepState.complete : StepState.indexed,
+          title: const Text(""),
+          content: const GeneralStep03(),
+        ),
+        Step(
+          isActive: currentStep >= 4,
           title: const Text(""),
           content: const GeneralStep3Screen(),
         ),

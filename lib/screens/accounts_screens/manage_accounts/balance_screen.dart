@@ -13,10 +13,12 @@ class BalanceScreen extends StatefulWidget {
 }
 
 class _BalanceScreenState extends State<BalanceScreen> {
+
   @override
   Widget build(BuildContext context) {
     final balanceData = Provider.of<MyBalanceProvider>(context);
     final extractData = balanceData.myBalanceModel;
+    final filterData = balanceData.getData();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -92,8 +94,8 @@ class _BalanceScreenState extends State<BalanceScreen> {
                           SizedBox(
                             height: MediaQuery.of(context).size.width / 5,
                           ),
-                          const Text(
-                            "0 €",
+                          Text(
+                            '0',
                             style: TextStyle(
                               fontFamily: 'Cerebri Sans Bold',
                               fontSize: 22,
@@ -177,9 +179,9 @@ class _BalanceScreenState extends State<BalanceScreen> {
                             SizedBox(
                               height: MediaQuery.of(context).size.width / 5,
                             ),
-                            const Text(
-                              "0 €",
-                              style: TextStyle(
+                            Text(
+                              filterData.toString(),
+                              style: const TextStyle(
                                 fontFamily: 'Cerebri Sans Bold',
                                 fontSize: 22,
                                 color: Colors.white,
@@ -283,13 +285,13 @@ class _BalanceScreenState extends State<BalanceScreen> {
                               child:
                               (extractData.details[index].transactionType == 'ingoing') ?
                               Icon(
-                                Icons.arrow_upward,
+                                Icons.arrow_downward,
                                 size: MediaQuery.of(context).size.width / 25,
                                 color: Colors.green.shade600,
 
                               ) :
                             Icon(
-                            Icons.arrow_downward, size: 15, color: Colors.red.shade600,
+                            Icons.arrow_upward, size: 15, color: Colors.red.shade600,
                           )
                           ),],),
                       ),

@@ -8,6 +8,11 @@ class MyBalanceProvider with ChangeNotifier {
 
   MyBalanceModel? myBalanceModel;
 
+  getData (){
+    var data = myBalanceModel!.details.where((element) => element.paymentType == "CESU TICKET");
+    return data.length;
+  }
+
   Future<void> getMyBalance () async {
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
     String? userToken = sharedPref.getString('token');
