@@ -24,7 +24,7 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
   @override
   Widget build(BuildContext context) {
     final routeArgs =
-    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mainCateId = routeArgs['mainCategoryId'];
     subCateId = routeArgs['subCategoryId'];
     subCateTitle = routeArgs['subCategoryTitle'];
@@ -98,7 +98,7 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
                           onPressed: details.onStepContinue,
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size.fromHeight(50.0),
-                            primary: Theme.of(context).primaryColor,
+                            backgroundColor: Theme.of(context).primaryColor,
                             elevation: 5,
                           ),
                           child: Text(
@@ -122,7 +122,7 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
                         onPressed: details.onStepCancel,
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size.fromHeight(50.0),
-                          primary: Colors.black12,
+                          backgroundColor: Colors.black12,
                           elevation: 0,
                         ),
                         child: const Text(
@@ -157,7 +157,11 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
           isActive: currentStep >= 1,
           state: currentStep > 1 ? StepState.complete : StepState.indexed,
           title: const Text(""),
-          content: GeneralStep2Screen(mainCategoryId: mainCateId!, subCategoryId: subCateId!, childCategoryId: 0,),
+          content: GeneralStep2Screen(
+            mainCategoryId: mainCateId!,
+            subCategoryId: subCateId!,
+            childCategoryId: 0,
+          ),
         ),
         Step(
           isActive: currentStep >= 2,
