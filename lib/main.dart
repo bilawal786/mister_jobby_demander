@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
@@ -147,9 +149,18 @@ import 'screens/accounts_screens/manage_accounts/add_ticket_manually.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 import 'screens/home_screens/services_sub_categories/process_sub_categories_steps/equipment_rental_step.dart';
 
+  Future<void> backgroundHandler(RemoteMessage message) async {
+    print(message.data.toString());
+    print(message.notification!.title);
+  }
+
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage((backgroundHandler));
   Stripe.publishableKey =
       'pk_test_51LRubcLtkEa5U40QDdRaKQr5SIt815sibBnPLIGbQMzr1mSRgF8EUesAVr5UNRt7mcEGwicNuTSwIdN3UEypjZLO00WV9Hc6ME';
   await Stripe.instance.applySettings();
