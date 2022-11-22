@@ -12,6 +12,7 @@ import '../../providers/accounts_providers/terms_and_condition_provider/terms_an
 import '../../providers/accounts_providers/transaction_provider/transaction_provider.dart';
 import '../../providers/banner_provider/banner_provider.dart';
 import '../../providers/categories_provider/main_categories_provider.dart';
+import '../../providers/categories_provider/search_categories_provider.dart';
 import '../../providers/country_provider/country_list_provider.dart';
 import '../../providers/notification_provider/notification_provider.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
@@ -45,6 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Provider.of<CseuTicketProvider>(context).getCesuTicket();
       Provider.of<MyBalanceProvider>(context).getMyBalance();
       Provider.of<TransactionProvider>(context).getTransaction();
+      Provider.of<SearchCategoriesProvider>(context).getSearchCategories();
     }
     _isInit = false;
   }
