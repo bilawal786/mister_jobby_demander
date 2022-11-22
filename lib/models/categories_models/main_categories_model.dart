@@ -41,7 +41,7 @@ class SubCategory {
     required this.id,
     required this.title,
     required this.image,
-    this.price,
+    required this.price,
     required this.childCategories,
   });
 

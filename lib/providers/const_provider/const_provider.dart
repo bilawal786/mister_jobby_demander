@@ -1697,6 +1697,9 @@ class ConstProvider with ChangeNotifier {
     cuttingMaterialValue = 0;
     cuttingMaterialTitle = "";
     statusName = '00:00';
+    estimateBudge = 0.0;
+    adminCost = 0.0;
+    totalCost = 0.0;
     status = 1;
     notifyListeners();
   }

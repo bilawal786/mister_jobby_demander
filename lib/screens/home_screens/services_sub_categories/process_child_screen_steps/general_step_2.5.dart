@@ -10,7 +10,8 @@ class GeneralStep02 extends StatelessWidget {
   final int mainCategoryId;
   final int subCategoryId;
   final int? childCategoryId;
-  const GeneralStep02({Key? key,
+  const GeneralStep02({
+    Key? key,
     required this.mainCategoryId,
     required this.subCategoryId,
     this.childCategoryId,
@@ -19,7 +20,7 @@ class GeneralStep02 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mainCategoryData =
-    Provider.of<MainCategoriesProvider>(context, listen: false);
+        Provider.of<MainCategoriesProvider>(context, listen: false);
     final extractedMainCategory = mainCategoryData.mainCategories;
     return SingleChildScrollView(
       child: Column(
@@ -127,7 +128,7 @@ class GeneralStep02 extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 13.5,
                   ),
                   RoundedButton(
-                    onTap: (){
+                    onTap: () {
                       hourlyRateData.hourlyRateIncrement();
                       hourlyRateData.calculateBudget();
                       hourlyRateData.calculateAdminCost();
@@ -154,82 +155,84 @@ class GeneralStep02 extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodySmall,
               ).tr(),
               const Spacer(),
-              if (subCategoryId < 5)
-                if (childCategoryId! < 14)
+              if (subCategoryId < 5) ...[
+                if (childCategoryId! < 14) ...[
                   Text(
                     "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 1].price}€",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
-              if (childCategoryId! > 13 && childCategoryId! < 19)
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 14].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              if (childCategoryId! > 18 && childCategoryId! < 25)
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 19].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              if (childCategoryId! > 24 && childCategoryId! <= 31)
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 25].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              if (subCategoryId > 4 && subCategoryId < 14)
+                ] else if (childCategoryId! > 13 && childCategoryId! < 19) ...[
+                  Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 14].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ] else if (childCategoryId! > 18 && childCategoryId! < 25) ...[
+                  Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 19].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ] else if (childCategoryId! > 24 && childCategoryId! <= 31) ...[
+                  Text(
+                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 25].price}€",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
+              ] else if (subCategoryId > 4 && subCategoryId < 14) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 5].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 13 && subCategoryId < 23)
+              ] else if (subCategoryId > 13 && subCategoryId < 23) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 14].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 22 && subCategoryId < 29)
+              ] else if (subCategoryId > 22 && subCategoryId < 29) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 23].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 28 && subCategoryId < 30)
+              ] else if (subCategoryId > 28 && subCategoryId < 30) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 29].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 29 && subCategoryId < 33)
+              ] else if (subCategoryId > 29 && subCategoryId < 33) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 30].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 32 && subCategoryId < 37)
+              ] else if (subCategoryId > 32 && subCategoryId < 37) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 33].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 36 && subCategoryId < 46)
+              ] else if (subCategoryId > 36 && subCategoryId < 46) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 37].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 45 && subCategoryId < 61)
+              ] else if (subCategoryId > 45 && subCategoryId < 61) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 46].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 60 && subCategoryId < 69)
+              ] else if (subCategoryId > 60 && subCategoryId < 69) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 61].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 68 && subCategoryId < 70)
+              ] else if (subCategoryId > 68 && subCategoryId < 70) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 69].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-              if (subCategoryId > 69 && subCategoryId < 72)
+              ] else if (subCategoryId > 69 && subCategoryId < 72) ...[
                 Text(
                   "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 70].price}€",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
+              ],
             ],
           ),
           SizedBox(
@@ -260,8 +263,8 @@ class GeneralStep02 extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelMedium,
               ).tr(),
               const Spacer(),
-              Consumer <ConstProvider>(
-                builder: (_,adminCost,child)=> Text(
+              Consumer<ConstProvider>(
+                builder: (_, adminCost, child) => Text(
                   '${adminCost.adminCost}€',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
@@ -279,7 +282,7 @@ class GeneralStep02 extends StatelessWidget {
               ).tr(),
               const Spacer(),
               Consumer<ConstProvider>(
-                builder:  (_,total, child)=> Text(
+                builder: (_, total, child) => Text(
                   '${total.totalCost}€',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
