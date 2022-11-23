@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:mister_jobby/providers/auth_provider/forget_password_provider.dart';
 import 'package:mister_jobby/providers/categories_provider/search_categories_provider.dart';
 import 'package:mister_jobby/providers/coordinates_provider.dart';
@@ -149,18 +150,66 @@ import 'screens/accounts_screens/manage_accounts/add_ticket_manually.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
 import 'screens/home_screens/services_sub_categories/process_sub_categories_steps/equipment_rental_step.dart';
 
-  Future<void> backgroundHandler(RemoteMessage message) async {
-    print(message.data.toString());
-    print(message.notification!.title);
-  }
+late final FirebaseMessaging _messaging;
+const AndroidNotificationChannel channel = AndroidNotificationChannel(
+  'high_importance_channel', // id
+  'High Important Notification', // name, title
+  // 'This channel is used for important notification', // description
+  importance: Importance.high,
+  playSound: true,
+);
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 
-void main() async {
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  // print('A bg message just showed up : ${message.messageId}');
+}
 
+// Future<void> backgroundHandler(RemoteMessage message) async {
+//   print(message.data.toString());
+//   print(message.notification!.title);
+// }
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  FirebaseMessaging.onBackgroundMessage((backgroundHandler));
+  // 2. Instantiate Firebase Messaging
+  _messaging = FirebaseMessaging.instance;
+
+  // 3. On iOS, this helps to take the user permissions
+  NotificationSettings settings = await _messaging.requestPermission(
+    alert: true,
+    badge: true,
+    provisional: false,
+    sound: true,
+  );
+
+  if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+    // print('User granted permission');
+    // TODO: handle the received notifications
+  } else {
+    // print('User declined or has not accepted permission');
+  }
+
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  await flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channel);
+  await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+    alert: true,
+    badge: true,
+    sound: true,
+  );
+  final token = await FirebaseMessaging.instance.getToken();
+  print("firebase token: "+token.toString());
+
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+  // FirebaseMessaging.onBackgroundMessage((backgroundHandler));
   Stripe.publishableKey =
       'pk_test_51LRubcLtkEa5U40QDdRaKQr5SIt815sibBnPLIGbQMzr1mSRgF8EUesAVr5UNRt7mcEGwicNuTSwIdN3UEypjZLO00WV9Hc6ME';
   await Stripe.instance.applySettings();
@@ -212,15 +261,33 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => JobReservationProvider(),
         ),
-        ChangeNotifierProvider(create:(context) => JobsCompletedProvider(),),
-        ChangeNotifierProvider(create:(context) => ForgetPasswordProvider(),),
-        ChangeNotifierProvider(create:(context) => RatingProvider(),),
-        ChangeNotifierProvider(create:(context) => CoordinateProvider(),),
-        ChangeNotifierProvider(create:(context) => CseuTicketProvider(),),
-        ChangeNotifierProvider(create:(context) => MyBalanceProvider(),),
-        ChangeNotifierProvider(create:(context) => GiftCardProvider(),),
-        ChangeNotifierProvider(create:(context) => TransactionProvider(),),
-        ChangeNotifierProvider(create:(context) => SearchCategoriesProvider(),),
+        ChangeNotifierProvider(
+          create: (context) => JobsCompletedProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ForgetPasswordProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => RatingProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CoordinateProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CseuTicketProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MyBalanceProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => GiftCardProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TransactionProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SearchCategoriesProvider(),
+        ),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
@@ -483,7 +550,8 @@ class MyApp extends StatelessWidget {
           MyRoutes.TERMSANDCONDITION: (ctx) => const TermsAndCondition(),
           MyRoutes.ABOUTUSROUTE: (ctx) => const AboutUsScreen(),
           MyRoutes.COMMENTSCREENROUTE: (ctx) => const CommentScreen(),
-          MyRoutes.EQUIPMENTRENTALSCREENROUTE: (ctx) => const EquipmentRentalStepScreen(),
+          MyRoutes.EQUIPMENTRENTALSCREENROUTE: (ctx) =>
+              const EquipmentRentalStepScreen(),
           MyRoutes.ADDTICKETMANUALLYROUTE: (ctx) => const AddTicketManually(),
           MyRoutes.MYTRANSACTION: (ctx) => const MyTransactionScreen(),
         },

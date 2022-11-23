@@ -1,7 +1,11 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import '../../main.dart';
 import './index_screen.dart';
 
 import '../jobs_screens/jobs_screen.dart';
@@ -23,6 +27,88 @@ class MyHomeBottomTabScreen extends StatefulWidget {
 }
 
 class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
+
+  String? checkuserToken;
+  String? checkUserName;
+
+  // sendToken() async {
+  //   final token = await FirebaseMessaging.instance.getToken();
+  //   print("firebase token: "+token.toString());
+  //   SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
+  //   String? userToken = sharedPrefs.getString("token");
+  //
+  //   if(userToken != null){
+  //     var response = await http.get(
+  //       Uri.parse(MyRoutes.baseUrl + '/save-token/$token'),
+  //       headers: <String, String>{
+  //         'Content-Type': 'application/json; charset=UTF-8',
+  //         'Accept': 'application/json',
+  //         'Authorization': 'Bearer ' + userToken,
+  //       },
+  //     );
+  //     // var data = jsonDecode(response.body);
+  //     if (response.statusCode == 200) {
+  //       var json = response.body;
+  //       print ("send token successfully");
+  //       print(json);
+  //     } else {
+  //       print("request not work");
+  //     }
+  //   }
+  // }
+
+
+  @override
+  void initState() {
+    super.initState();
+    // sendToken();
+
+    //
+
+
+    // sendToken();
+
+    //
+
+    FirebaseMessaging.onMessage.listen(
+      // check if notification is not empty display the notification
+            (RemoteMessage message) {
+          RemoteNotification? notification = message.notification;
+          AndroidNotification? android = message.notification?.android;
+
+          if(notification != null && android != null) {
+            flutterLocalNotificationsPlugin.show(
+              notification.hashCode, //id
+              notification.title, //title
+              notification.body, //body
+              NotificationDetails(
+                android: AndroidNotificationDetails(
+                  channel.id,
+                  channel.name,
+                  color: Colors.pink.shade100,
+                  playSound: true,
+                  icon: '@mipmap/ic_launcher',
+                ),
+              ),
+            );
+          }
+        });
+
+    // if app is running on background or terminated open notification and show notification in dialog box
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+      if(notification != null && android != null)
+      {
+        setState((){
+          // widget.index = 3;
+
+        });
+      }
+    });
+  }
+
+  //-------------------------------------------
   final PageStorageBucket bucket = PageStorageBucket();
   List<Widget> screenWidgets = [
     IndexScreen(),
