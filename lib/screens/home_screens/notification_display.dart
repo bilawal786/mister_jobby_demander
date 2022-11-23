@@ -23,15 +23,15 @@ class _NotificationDisplayState extends State<NotificationDisplay> {
         print("FirebaseMessaging.instance.getInitialMessage");
         if (message != null) {
           print("New Notification");
-          // if (message.data['_id'] != null) {
-          //   Navigator.of(context).push(
-          //     MaterialPageRoute(
-          //       builder: (context) => DemoScreen(
-          //         id: message.data['_id'],
-          //       ),
-          //     ),
-          //   );
-          // }
+          if (message.data['_id'] != null) {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => NotificationDisplay(
+                  // id: message.data['_id'],
+                ),
+              ),
+            );
+          }
         }
       },
     );
