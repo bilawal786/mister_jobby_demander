@@ -103,6 +103,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
       {
         setState((){
           Navigator.of(context).pushNamed(MyRoutes.NOTIFICATIONDISPLAYROUTE);
+          print('notification');
         });
       }
     });
