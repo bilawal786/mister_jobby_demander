@@ -166,15 +166,9 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // print('A bg message just showed up : ${message.messageId}');
 }
 
-// Future<void> backgroundHandler(RemoteMessage message) async {
-//   print(message.data.toString());
-//   print(message.notification!.title);
-// }
-
-Future<void> main() async {
+ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   // 2. Instantiate Firebase Messaging
   _messaging = FirebaseMessaging.instance;
@@ -204,12 +198,10 @@ Future<void> main() async {
     badge: true,
     sound: true,
   );
+
   final token = await FirebaseMessaging.instance.getToken();
   print("firebase token: "+token.toString());
 
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
-  // FirebaseMessaging.onBackgroundMessage((backgroundHandler));
   Stripe.publishableKey =
       'pk_test_51LRubcLtkEa5U40QDdRaKQr5SIt815sibBnPLIGbQMzr1mSRgF8EUesAVr5UNRt7mcEGwicNuTSwIdN3UEypjZLO00WV9Hc6ME';
   await Stripe.instance.applySettings();

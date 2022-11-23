@@ -2,6 +2,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:mister_jobby/helpers/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -101,8 +102,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
       if(notification != null && android != null)
       {
         setState((){
-          // widget.index = 3;
-
+          Navigator.of(context).pushNamed(MyRoutes.NOTIFICATIONDISPLAYROUTE);
         });
       }
     });
