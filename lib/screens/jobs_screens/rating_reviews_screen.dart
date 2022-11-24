@@ -117,7 +117,7 @@ class RatingReviewsScreen extends StatelessWidget {
                 Consumer<RatingProvider>(
                   builder: (_,rating,child) => CustomButton(onPress: () {
                     FocusScope.of(context).unfocus();
-                    rating.postRating(context, rating.ratingValue, rating.message, reservation!.id.toString());
+                    rating.postRating(context, rating.ratingValue, rating.message, reservation!.job.id.toString());
                   }, buttonName: "Confirm"),
                 ),
               ],

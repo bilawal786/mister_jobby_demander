@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
 import 'package:mister_jobby/providers/jobs_provider/job_proposals_provider.dart';
 import 'package:mister_jobby/providers/jobs_provider/job_reservation_provider.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/error_screen.dart';
 import 'package:mister_jobby/widgets/home_screen_widgets/login_progress_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -67,8 +68,10 @@ class RatingProvider with ChangeNotifier {
         notifyListeners();
       }
       else {
+        print(response.body);
         debugPrint("Post Rating Api is not working");
         Navigator.of(context).pop();
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ErrorScreen(),));
         notifyListeners();
       }
     }catch(e){

@@ -243,12 +243,16 @@ class _ContinueJobberState extends State<ContinueJobber> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
-                  children: const [
-                    Icon(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
                       Icons.check_circle,
                       color: Colors.green,
                     ),
-                    Text("Payment Successfully"),
+                    SizedBox(width: MediaQuery.of(context).size.width / 20,),
+                    Text("Payment Successfully",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                   ],
                 ),
               ],
