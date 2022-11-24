@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/single_completed_job_details.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../helpers/routes.dart';
 import '../../../models/jobs_models/jobs_completed_model.dart';
@@ -383,7 +384,9 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                               Row(
                                 children: [
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      _makePhoneCall('tel:${extractedReservation[index].jobberProfile.phone}');
+                                    },
                                     icon: Icon(
                                       Icons.phone_outlined,
                                       color: Theme.of(context).primaryColor,
@@ -517,5 +520,12 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
         ),
       ),
     );
+  }
+  Future<void> _makePhoneCall(String url) async {
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
