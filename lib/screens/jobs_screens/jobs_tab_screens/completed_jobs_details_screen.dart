@@ -385,7 +385,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                 children: [
                                   IconButton(
                                     onPressed: () {
-                                      _makePhoneCall('tel:${extractedReservation[index].jobberProfile.phone}');
+                                      _makePhoneCall(extractedReservation[index].jobberProfile.phone);
                                     },
                                     icon: Icon(
                                       Icons.phone_outlined,
@@ -522,8 +522,8 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
     );
   }
   Future<void> _makePhoneCall(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
+    if (await canLaunchUrl(Uri(scheme: 'tel', path: url))) {
+      await launchUrl(Uri(scheme: 'tel', path: url));
     } else {
       throw 'Could not launch $url';
     }
