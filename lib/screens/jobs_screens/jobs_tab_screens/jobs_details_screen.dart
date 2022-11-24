@@ -14,6 +14,7 @@ import '../../../widgets/const_widgets/custom_button.dart';
 import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
 import '../../../../models/jobs_models/jobs_in_progress_model.dart';
 import '../../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
+import '../../messages_screens/chat_screen.dart';
 import '../request_view.dart';
 import 'jobber_profile_reservation.dart';
 
@@ -445,11 +446,16 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                               Stack(
                                 children: [
                                   GestureDetector(
-                                    onTap: (){
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (ctx) => JobberProfileReservationScreen(
-                                            jobber: extractedReservation[index].jobberProfile,
-                                          )));
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (ctx) =>
+                                                  JobberProfileReservationScreen(
+                                                    jobber:
+                                                        extractedReservation[
+                                                                index]
+                                                            .jobberProfile,
+                                                  )));
                                     },
                                     child: Container(
                                       width:
@@ -584,7 +590,9 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                 children: [
                                   IconButton(
                                     onPressed: () {
-                                      _makePhoneCall(extractedReservation[index].jobberProfile.phone);
+                                      _makePhoneCall(extractedReservation[index]
+                                          .jobberProfile
+                                          .phone);
                                     },
                                     icon: Icon(
                                       Icons.phone_outlined,
@@ -592,7 +600,13 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                     ),
                                   ),
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (ctx) => const ChatScreen(),
+                                        ),
+                                      );
+                                    },
                                     icon: Icon(
                                       Icons.chat_outlined,
                                       color: Theme.of(context).primaryColor,
@@ -674,7 +688,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Consumer<JobProposalsProvider>(
-                      builder: (_,extractOffer,child) => Text(
+                      builder: (_, extractOffer, child) => Text(
                         "(${extractOffer.jobProposal?.length})",
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
@@ -724,8 +738,8 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
   }
 
   Future<void> _makePhoneCall(String url) async {
-    if (await canLaunchUrl(Uri(scheme:'tel', path: url))) {
-      await launchUrl(Uri(scheme:'tel', path: url));
+    if (await canLaunchUrl(Uri(scheme: 'tel', path: url))) {
+      await launchUrl(Uri(scheme: 'tel', path: url));
     } else {
       throw 'Could not launch $url';
     }
