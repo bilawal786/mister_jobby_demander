@@ -6,6 +6,7 @@ import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/edit_job_scre
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mister_jobby/screens/jobs_screens/jobs_tab_screens/single_jobs_details.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../helpers/routes.dart';
 import '../../../providers/jobs_provider/job_reservation_provider.dart';
@@ -582,7 +583,9 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                               Row(
                                 children: [
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      _makePhoneCall('tel:${extractedReservation[index].jobberProfile.phone}');
+                                    },
                                     icon: Icon(
                                       Icons.phone_outlined,
                                       color: Theme.of(context).primaryColor,
@@ -718,5 +721,13 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _makePhoneCall(String url) async {
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
