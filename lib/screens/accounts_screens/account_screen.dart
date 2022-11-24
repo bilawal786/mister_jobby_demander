@@ -254,6 +254,14 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 },
                               ),
                               CustomListTile(
+                                leadingIcon: Icons.reviews_outlined,
+                                title: 'My Reviews',
+                                onPress: () {
+                                  Navigator.of(context)
+                                      .pushNamed(MyRoutes.MYREVIEWS);
+                                },
+                              ),
+                              CustomListTile(
                                 leadingIcon: Icons.verified_outlined,
                                 title: 'Tax_Certificates',
                                 onPress: () {

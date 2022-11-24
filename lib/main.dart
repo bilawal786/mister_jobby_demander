@@ -9,6 +9,7 @@ import 'package:mister_jobby/providers/categories_provider/search_categories_pro
 import 'package:mister_jobby/providers/coordinates_provider.dart';
 import 'package:mister_jobby/providers/jobs_provider/jobs_compleleted_provider.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/my_transaction_screen.dart';
+import 'package:mister_jobby/screens/accounts_screens/manage_accounts/reviews_screen.dart';
 import './providers/jobs_provider/job_proposals_provider.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/insurance.dart';
 import 'package:mister_jobby/screens/accounts_screens/manage_accounts/notifications.dart';
@@ -546,6 +547,7 @@ class MyApp extends StatelessWidget {
               const EquipmentRentalStepScreen(),
           MyRoutes.ADDTICKETMANUALLYROUTE: (ctx) => const AddTicketManually(),
           MyRoutes.MYTRANSACTION: (ctx) => const MyTransactionScreen(),
+          MyRoutes.MYREVIEWS: (ctx) => const ReviewsScreen(),
         },
       ),
     );
