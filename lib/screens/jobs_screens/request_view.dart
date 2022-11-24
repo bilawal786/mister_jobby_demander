@@ -1,11 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/screens/jobs_screens/rating_reviews_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../helpers/routes.dart';
 import '../../models/jobs_models/job_reservations_model.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
+import '../messages_screens/chat_screen.dart';
 
 class ViewRequestScreen extends StatelessWidget {
   final JobReservationsModel? reservation;
@@ -138,7 +140,13 @@ class ViewRequestScreen extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: OutlineSelectedButton(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => const ChatScreen(),
+                          ),
+                        );
+                      },
                       textTitle: "Message",
                       border: true,
                     ),
@@ -148,7 +156,10 @@ class ViewRequestScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: OutlineSelectedButton(
-                      onTap: () {},
+                      onTap: () {
+                        _makePhoneCall(reservation!.jobberProfile
+                            .phone);
+                      },
                       textTitle: "Call",
                       border: true,
                     ),
@@ -439,5 +450,13 @@ class ViewRequestScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _makePhoneCall(String url) async {
+    if (await canLaunchUrl(Uri(scheme: 'tel', path: url))) {
+      await launchUrl(Uri(scheme: 'tel', path: url));
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
