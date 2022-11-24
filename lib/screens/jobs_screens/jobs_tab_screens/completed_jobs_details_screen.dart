@@ -11,6 +11,7 @@ import '../../../providers/jobs_provider/job_reservation_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
+import '../../messages_screens/chat_screen.dart';
 import '../request_view.dart';
 import 'edit_completed_jobs_screen.dart';
 
@@ -393,7 +394,9 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                     ),
                                   ),
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const ChatScreen()));
+                                    },
                                     icon: Icon(
                                       Icons.chat_outlined,
                                       color: Theme.of(context).primaryColor,
