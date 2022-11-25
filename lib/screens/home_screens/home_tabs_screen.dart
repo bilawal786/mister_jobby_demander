@@ -32,45 +32,36 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
   String? checkuserToken;
   String? checkUserName;
 
-  // sendToken() async {
-  //   final token = await FirebaseMessaging.instance.getToken();
-  //   print("firebase token: "+token.toString());
-  //   SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-  //   String? userToken = sharedPrefs.getString("token");
-  //
-  //   if(userToken != null){
-  //     var response = await http.get(
-  //       Uri.parse(MyRoutes.baseUrl + '/save-token/$token'),
-  //       headers: <String, String>{
-  //         'Content-Type': 'application/json; charset=UTF-8',
-  //         'Accept': 'application/json',
-  //         'Authorization': 'Bearer ' + userToken,
-  //       },
-  //     );
-  //     // var data = jsonDecode(response.body);
-  //     if (response.statusCode == 200) {
-  //       var json = response.body;
-  //       print ("send token successfully");
-  //       print(json);
-  //     } else {
-  //       print("request not work");
-  //     }
-  //   }
-  // }
+  sendToken() async {
+    final token = await FirebaseMessaging.instance.getToken();
+    debugPrint("firebase token: $token");
+    SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
+    String? userToken = sharedPrefs.getString("token");
+
+    if(userToken != null){
+      var response = await http.get(
+        Uri.parse('${MyRoutes.BASEURL}/save-token/$token'),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $userToken',
+        },
+      );
+      if (response.statusCode == 200) {
+        var json = response.body;
+        debugPrint ("send token successfully");
+        debugPrint(json);
+      } else {
+        debugPrint("request not work");
+      }
+    }
+  }
 
 
   @override
   void initState() {
     super.initState();
-    // sendToken();
-
-    //
-
-
-    // sendToken();
-
-    //
-
+    sendToken();
     FirebaseMessaging.onMessage.listen(
       // check if notification is not empty display the notification
             (RemoteMessage message) {
@@ -103,7 +94,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
       {
         setState((){
           Navigator.of(context).pushNamed(MyRoutes.NOTIFICATIONDISPLAYROUTE);
-          print('notification');
+          debugPrint('notification');
         });
       }
     });
@@ -111,7 +102,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
 
   //-------------------------------------------
   final PageStorageBucket bucket = PageStorageBucket();
-  List<Widget> screenWidgets = [
+  List<Widget> screenWidgets = const [
     IndexScreen(),
     JobsScreen(),
     MessagesScreen(),
@@ -159,7 +150,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                           content: Text(
                             "Please Login First",
                             style: TextStyle(
-                              color: Theme.of(context).errorColor,
+                              color: Theme.of(context).colorScheme.error,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Cerebri Sans Bold',

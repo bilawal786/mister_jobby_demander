@@ -204,7 +204,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print("firebase token: "+token.toString());
 
   Stripe.publishableKey =
-      'pk_test_51LRubcLtkEa5U40QDdRaKQr5SIt815sibBnPLIGbQMzr1mSRgF8EUesAVr5UNRt7mcEGwicNuTSwIdN3UEypjZLO00WV9Hc6ME';
+      'pk_test_mhfC6RVLoiK6pNLoINPHyjGO00LXtQiByW';
   await Stripe.instance.applySettings();
   runApp(
     EasyLocalization(

@@ -302,7 +302,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
         Uri.parse('https://api.stripe.com/v1/payment_intents'),
         headers: {
           'Authorization':
-              'Bearer sk_test_51LRubcLtkEa5U40QApwIt13tNTcs9x2v95PKmJjoZ57xvfMf1PaPH0hYB556mGLJyhFDniqtEBRQbbDAY4wtmFE500xuKSA0Qb',
+              'Bearer sk_test_bNs6F2GH5AWstJEQg7KT852l00SdVU7GF0',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: body,
