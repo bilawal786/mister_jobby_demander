@@ -235,6 +235,11 @@ class _ContinueJobberState extends State<ContinueJobber> {
   displayPaymentSheet() async {
     try {
       await Stripe.instance.presentPaymentSheet().then((value) {
+        final proposalData = Provider.of<JobProposalsProvider>(context, listen: false);
+
+        proposalData.postProposalContract(widget.proposel!.id.toString(),
+            double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100),
+        ((double.parse(widget.proposel!.price) * 10) / 100));
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => PaymentSuccessScreen(jobber: widget.proposel!.jobber,),),);
         showDialog(
           context: context,
@@ -290,14 +295,12 @@ class _ContinueJobberState extends State<ContinueJobber> {
 
   //  Future<Map<String, dynamic>>
   createPaymentIntent(double amount, String currency) async {
-    final proposalData = Provider.of<JobProposalsProvider>(context, listen: false);
     try {
       Map<String, dynamic> body = {
         'amount': calculateAmount(amount),
         'currency': currency,
         'payment_method_types[]': 'card'
       };
-
       var response = await http.post(
         Uri.parse('https://api.stripe.com/v1/payment_intents'),
         headers: {
@@ -310,9 +313,6 @@ class _ContinueJobberState extends State<ContinueJobber> {
       // ignore: avoid_print
       if(response.statusCode == 200) {
         debugPrint('Payment Intent Body->>> ${response.body.toString()}');
-        proposalData.postProposalContract(widget.proposel!.id.toString(),
-            double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100),
-            ((double.parse(widget.proposel!.price) * 10) / 100));
         return jsonDecode(response.body);
       }
     } catch (err) {

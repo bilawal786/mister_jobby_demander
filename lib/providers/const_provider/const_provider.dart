@@ -1000,7 +1000,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int hourlyRate = 0;
+  int hourlyRate = 9;
 
   void hourlyRateIncrement() {
     hourlyRate += 1;
@@ -1008,7 +1008,7 @@ class ConstProvider with ChangeNotifier {
   }
 
   void hourlyRateDecrement() {
-    if (hourlyRate >= 1) {
+    if (hourlyRate > 9) {
       hourlyRate -= 1;
     }
     notifyListeners();
@@ -1669,7 +1669,7 @@ class ConstProvider with ChangeNotifier {
     largeSizedFurnitureAmount = 0;
     veryLargeSizedFurnitureAmount = 0;
     duration = 0.0;
-    hourlyRate = 0;
+    hourlyRate = 9;
     checkUrgentJob = false;
     fixesAmount = 0;
     tvHangNo = 0;
