@@ -674,7 +674,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                   widget.jobsInProgressDetail!.id.toString(),
                                 );
                               },
-                              textTitle: "Change or cancel",
+                              textTitle: "Request For Cancellation",
                               border: true,
                               width: double.infinity,
                             ),
