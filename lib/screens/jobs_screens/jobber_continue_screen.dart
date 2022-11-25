@@ -24,6 +24,8 @@ class ContinueJobber extends StatefulWidget {
 class _ContinueJobberState extends State<ContinueJobber> {
   Map<String, dynamic>? paymentIntent;
   var check = false;
+  var readTerms = false;
+  bool? alert;
   @override
   Widget build(BuildContext context) {
     final balanceData = Provider.of<MyBalanceProvider>(context);
@@ -122,6 +124,39 @@ class _ContinueJobberState extends State<ContinueJobber> {
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black26, width: 0.5),
+                color: Colors.white,
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 3,
+                    spreadRadius: 1,
+                    offset: Offset(2, 5),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).pushNamed(MyRoutes.TERMSANDCONDITION);
+                    },
+                      child: Text("Are you Read Terms and Conditions", style: Theme.of(context).textTheme.bodyMedium,)),
+                  const Spacer(),
+                  Switch(value: readTerms, onChanged: (value){
+                    setState(() {
+                      readTerms = value;
+                    });
+                  }),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 40,
+            ),
             Text(
               "Summary",
               style: Theme.of(context).textTheme.bodyLarge,
@@ -186,8 +221,25 @@ class _ContinueJobberState extends State<ContinueJobber> {
               height: MediaQuery.of(context).size.width / 40,
             ),
             const Divider(),
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 2.5,
+            ),
+            if(alert == true)
+            Text("Make Sure you read the terms and condition" , style: TextStyle(
+              fontSize: 16,
+              color: Theme.of(context).colorScheme.error,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'Cerebri Sans Bold',
+            ),),
+            SizedBox(
+              height: MediaQuery.of(context).size.width / 40,
+            ),
+            const Divider(),
             ListTile(
-              onTap: (){
+              onTap: readTerms == true ? (){
+                setState(() {
+                  alert = false;
+                });
                 (double.parse(extractData!.wallet) > (double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100))) ?
                 showDialog(context: context, builder: (context) => AlertDialog(title: Text('Pay From Wallet',
                   style: Theme.of(context).textTheme.bodyMedium,),
@@ -211,10 +263,14 @@ class _ContinueJobberState extends State<ContinueJobber> {
                     TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text('OK',),),
                   ],
                 ),);
+              } : (){
+                setState(() {
+                  alert = true;
+                });
               },
               horizontalTitleGap: 0,
               minVerticalPadding: 0,
-              leading: Icon(FontAwesomeIcons.wallet),
+              leading: const Icon(FontAwesomeIcons.wallet),
               title: Text('Pay From Wallet', style: Theme.of(context).textTheme.bodyMedium,),
               trailing: Text("${extractData!.wallet}€", style: Theme.of(context).textTheme.bodyMedium,),
             ),
@@ -224,11 +280,16 @@ class _ContinueJobberState extends State<ContinueJobber> {
             ),
             check == false
                 ? CustomButton(
-                    onPress: () async {
+                    onPress: readTerms == true ? () async {
                       setState(() {
                         check = true;
+                        alert = false;
                       });
                       await makePayment();
+                    } : (){
+                      setState(() {
+                        alert = true;
+                      });
                     },
                     buttonName: "Pay From Card")
                 : const Center(
