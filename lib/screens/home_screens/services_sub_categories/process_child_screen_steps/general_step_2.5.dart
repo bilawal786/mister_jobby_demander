@@ -112,7 +112,7 @@ class GeneralStep02 extends StatelessWidget {
                       hourlyRateData.totalBudget();
                     },
                     icon: Icons.remove,
-                    color: hourlyRateData.hourlyRate == 0
+                    color: hourlyRateData.hourlyRate == 9
                         ? Colors.blueGrey
                         : Theme.of(context).primaryColor,
                     // color: buttonColorSubTract,
