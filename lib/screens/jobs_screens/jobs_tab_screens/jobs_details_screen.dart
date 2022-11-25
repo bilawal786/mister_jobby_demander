@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../helpers/routes.dart';
+import '../../../providers/jobs_provider/cancel_reservation_provider.dart';
 import '../../../providers/jobs_provider/job_reservation_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
 import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
@@ -662,12 +663,42 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                           SizedBox(
                             height: MediaQuery.of(context).size.width / 40,
                           ),
-                          if (extractedReservation[index].status != 2)
+                          if (extractedReservation[index].status == 1)
                             OutlineSelectedButton(
-                              onTap: () {},
+                              onTap: () {
+                                Provider.of<CancelReservationProvider>(context,
+                                        listen: false)
+                                    .cancelJobReservations(
+                                  context,
+                                  extractedReservation[index].id.toString(),
+                                  widget.jobsInProgressDetail!.id.toString(),
+                                );
+                              },
                               textTitle: "Change or cancel",
                               border: true,
                               width: double.infinity,
+                            ),
+                          if (extractedReservation[index].status == 4)
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
+                              width: MediaQuery.of(context).size.width / 1.15,
+                              decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              child: Text("Waiting for approvel", style: Theme.of(context).textTheme.bodyMedium,
+                              textAlign: TextAlign.center,).tr(),
+                            ),
+                          if (extractedReservation[index].status == 3)
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
+                              width: MediaQuery.of(context).size.width / 1.15,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              child: Text("Cancelled", style: Theme.of(context).textTheme.bodyMedium,
+                                textAlign: TextAlign.center,).tr(),
                             ),
                           SizedBox(
                             height: MediaQuery.of(context).size.width / 40,
