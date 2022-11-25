@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:mister_jobby/providers/accounts_providers/my_balance_provider/my_balance_provider.dart';
 import 'package:mister_jobby/providers/jobs_provider/job_proposals_provider.dart';
 import 'package:provider/provider.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../helpers/routes.dart';
 import '../../models/jobs_models/job_proposals_model.dart';
 import '../../widgets/const_widgets/custom_button.dart';
@@ -25,6 +26,8 @@ class _ContinueJobberState extends State<ContinueJobber> {
   var check = false;
   @override
   Widget build(BuildContext context) {
+    final balanceData = Provider.of<MyBalanceProvider>(context);
+    final extractData = balanceData.myBalanceModel;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -183,6 +186,39 @@ class _ContinueJobberState extends State<ContinueJobber> {
               height: MediaQuery.of(context).size.width / 40,
             ),
             const Divider(),
+            ListTile(
+              onTap: (){
+                (double.parse(extractData!.wallet) > (double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100))) ?
+                showDialog(context: context, builder: (context) => AlertDialog(title: Text('Pay From Wallet',
+                  style: Theme.of(context).textTheme.bodyMedium,),
+                  content: Text('Please Confirm',
+                    style: Theme.of(context).textTheme.labelMedium,),
+                  actions: [
+                    TextButton(onPressed: (){Navigator.of(context).pop();}, child: const Text('Cancel',),),
+                    TextButton(onPressed: (){
+                      balanceData.payFromWallet(context,widget.proposel!.id.toString(),
+                        double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100),
+                        ((double.parse(widget.proposel!.price) * 10) / 100),).then((value) =>
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => PaymentSuccessScreen(jobber: widget.proposel!.jobber,),),),);
+
+                    }, child: Text('OK',),),
+                  ],),) :
+                showDialog(context: context, builder: (context) => AlertDialog(title: Text('Insufficient Balance',
+                  style: Theme.of(context).textTheme.bodyMedium,),
+                  content: Text('Please recharge your account and try again',
+                    style: Theme.of(context).textTheme.labelMedium,),
+                  actions: [
+                    TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text('OK',),),
+                  ],
+                ),);
+              },
+              horizontalTitleGap: 0,
+              minVerticalPadding: 0,
+              leading: Icon(FontAwesomeIcons.wallet),
+              title: Text('Pay From Wallet', style: Theme.of(context).textTheme.bodyMedium,),
+              trailing: Text("${extractData!.wallet}€", style: Theme.of(context).textTheme.bodyMedium,),
+            ),
+            const Divider(),
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
             ),
@@ -194,7 +230,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                       });
                       await makePayment();
                     },
-                    buttonName: "To Book")
+                    buttonName: "Pay From Card")
                 : const Center(
                     child: CircularProgressIndicator(),
                   ),

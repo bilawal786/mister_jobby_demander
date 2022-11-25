@@ -386,6 +386,10 @@ class ViewRequestScreen extends StatelessWidget {
                                 reservation!.jobberProfile.reviews[index].name,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
+                              Text(
+                                reservation!.jobberProfile.reviews[index].date,
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
                               Row(
                                 children: <Widget>[
                                   for (int i = 0;
@@ -408,13 +412,8 @@ class ViewRequestScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
-                              width: MediaQuery.of(context).size.width / 90),
                           const Spacer(),
-                          Text(
-                            reservation!.jobberProfile.reviews[index].date,
-                            style: Theme.of(context).textTheme.labelMedium,
-                          ),
+
                         ],
                       ),
                       SizedBox(
