@@ -7,16 +7,36 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../models/accounts_models/my_balance_model.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../screens/jobs_screens/payment_success_screen.dart';
 import '../../../widgets/home_screen_widgets/login_progress_indicator.dart';
 
 class MyBalanceProvider with ChangeNotifier {
 
   MyBalanceModel? myBalanceModel;
+  int cesuPriceSum = 0;
+  int ticketPriceSum = 0;
+  getCESUData (){
+    var data = myBalanceModel!.details.where((element) => element.paymentType == "CESU TICKET").toList();
+    for(int i = 0; i < data.length; i++) {
+      cesuPriceSum = int.parse(data[i].amount) + cesuPriceSum;
+    }
+    print(cesuPriceSum);
+  }
+  getTicketData (){
+    var data = myBalanceModel!.details.where((element) => element.paymentType == "CESU TICKET").toList();
+    for(int i = 0; i < data.length; i++) {
+      ticketPriceSum = int.parse(data[i].amount) + ticketPriceSum;
+    }
+    print(ticketPriceSum);
+  }
 
-  getData (){
-    var data = myBalanceModel!.details.where((element) => element.paymentType == "CESU TICKET");
-    return data.length;
+  clearTicketData (){
+    ticketPriceSum = 0;
+    notifyListeners();
+  }
+
+  clearCESUData (){
+    cesuPriceSum = 0;
+    notifyListeners();
   }
 
   Future<void> getMyBalance () async {

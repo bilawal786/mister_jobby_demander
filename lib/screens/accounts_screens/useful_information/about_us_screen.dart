@@ -11,8 +11,8 @@ class AboutUsScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("About_Us".tr(),style: Theme.of(context).textTheme.titleSmall,),
-        centerTitle: true,
+        title: Text("About_Us".tr(),style: Theme.of(context).textTheme.bodyLarge,),
+        centerTitle: false,
         iconTheme: Theme.of(context).iconTheme,
       ),
       body: SingleChildScrollView(

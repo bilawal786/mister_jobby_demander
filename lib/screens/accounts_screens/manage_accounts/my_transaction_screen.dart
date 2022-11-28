@@ -24,7 +24,7 @@ class _MyTransactionScreenState extends State<MyTransactionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final transactionData = Provider.of<TransactionProvider>(context);
+    final transactionData = Provider.of<TransactionProvider>(context, listen: false);
     final extractData = transactionData.transactionModel;
     return Scaffold(
       appBar: AppBar(
@@ -33,7 +33,7 @@ class _MyTransactionScreenState extends State<MyTransactionScreen> {
         elevation: 0,
         title: Text(
           'My_Transaction',
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.bodyLarge,
         ).tr(),
       ),
       body: Padding(

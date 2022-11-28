@@ -31,8 +31,8 @@ class _NotificationDisplayState extends State<NotificationDisplay> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("Notifications".tr(),style: Theme.of(context).textTheme.titleSmall,),
-        centerTitle: true,
+        title: Text("Notifications".tr(),style: Theme.of(context).textTheme.bodyLarge,),
+        centerTitle: false,
          iconTheme: Theme.of(context).iconTheme,
       ),
       body: extractNotification == null ? const Center(child: CircularProgressIndicator(),) : Padding(

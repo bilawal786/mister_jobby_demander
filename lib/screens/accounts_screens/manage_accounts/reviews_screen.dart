@@ -11,8 +11,9 @@ class ReviewsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        centerTitle: false,
         elevation: 0,
-        title: Text('Reviews', style: Theme.of(context).textTheme.titleSmall,),
+        title: Text('Reviews', style: Theme.of(context).textTheme.bodyLarge,).tr(),
       ),
       body: SingleChildScrollView(
         child: Padding(

@@ -23,7 +23,7 @@ class ChildCategoriesScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        centerTitle: true,
+        centerTitle: false,
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),

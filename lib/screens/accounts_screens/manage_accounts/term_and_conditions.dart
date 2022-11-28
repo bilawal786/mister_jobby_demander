@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,15 +16,16 @@ class TermsAndCondition extends StatefulWidget {
 class _TermsAndConditionState extends State<TermsAndCondition> {
   @override
   Widget build(BuildContext context) {
-    final copyrightData = Provider.of<AboutProvider>(context);
+    final copyrightData = Provider.of<AboutProvider>(context, listen: false);
     final extractCopyRight = copyrightData.about;
-    final termsAndConditionData = Provider.of<TermsAndConditionProvider>(context);
+    final termsAndConditionData = Provider.of<TermsAndConditionProvider>(context, listen: false);
     final extractTermsAndCondition = termsAndConditionData.termsAndCondition;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("Terms and conditions", style: Theme.of(context).textTheme.titleMedium,),
+        centerTitle: false,
+        title: Text("Terms and conditions", style: Theme.of(context).textTheme.bodyLarge,).tr(),
 
         iconTheme: const IconThemeData(
             color: Colors.black,

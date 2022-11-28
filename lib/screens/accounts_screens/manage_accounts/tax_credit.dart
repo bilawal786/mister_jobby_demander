@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,8 +16,8 @@ class _TaxCreditState extends State<TaxCredit> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("Tax credit", style: Theme.of(context).textTheme.titleMedium,),
-
+        centerTitle: false,
+        title: Text("Tax credit", style: Theme.of(context).textTheme.bodyLarge,).tr(),
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),

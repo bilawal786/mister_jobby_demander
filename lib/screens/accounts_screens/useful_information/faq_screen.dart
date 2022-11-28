@@ -18,8 +18,8 @@ class _FAQScreenState extends State<FAQScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("FAQ".tr(),style: Theme.of(context).textTheme.titleSmall,),
-        centerTitle: true,
+        title: Text("FAQ".tr(),style: Theme.of(context).textTheme.bodyLarge,),
+        centerTitle: false,
         iconTheme: Theme.of(context).iconTheme,
       ),
       body: SingleChildScrollView(

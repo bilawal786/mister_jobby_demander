@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,10 +16,11 @@ class _InsuranceState extends State<Insurance> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
+        centerTitle: false,
         title: Text(
           "Insurance",
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+          style: Theme.of(context).textTheme.bodyLarge,
+        ).tr(),
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),

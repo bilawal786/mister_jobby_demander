@@ -91,7 +91,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                 ),
                               ),
                               if (extractProposal[index].jobber.verified ==
-                                  true)
+                                  2)
                                 Positioned(
                                   right: -2,
                                   child: Icon(

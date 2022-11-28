@@ -398,11 +398,11 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                   title: Text(
                     "View Comments (${widget.jobsInProgressDetail!.totalComments})",
                     style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                  ).tr(),
                   subtitle: Text(
                     "You haven't received any comments yet.",
                     style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                  ).tr(),
                   trailing: const Icon(
                     Icons.arrow_forward_ios,
                     size: 14,
@@ -423,7 +423,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       Text(
                         "Reservations",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       Text(
                         "(${extractedReservation.length})",
                         style: Theme.of(context).textTheme.titleMedium,
@@ -479,7 +479,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                   if (extractedReservation[index]
                                           .jobberProfile
                                           .verified ==
-                                      true)
+                                      2)
                                     Positioned(
                                       right: -2,
                                       child: Icon(

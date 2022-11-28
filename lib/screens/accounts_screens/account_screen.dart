@@ -253,14 +253,14 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                       .pushNamed(MyRoutes.MYTICKETSROUTE);
                                 },
                               ),
-                              CustomListTile(
-                                leadingIcon: Icons.reviews_outlined,
-                                title: 'My Reviews',
-                                onPress: () {
-                                  Navigator.of(context)
-                                      .pushNamed(MyRoutes.MYREVIEWS);
-                                },
-                              ),
+                              // CustomListTile(
+                              //   leadingIcon: Icons.reviews_outlined,
+                              //   title: 'My Reviews',
+                              //   onPress: () {
+                              //     Navigator.of(context)
+                              //         .pushNamed(MyRoutes.MYREVIEWS);
+                              //   },
+                              // ),
                               CustomListTile(
                                 leadingIcon: Icons.verified_outlined,
                                 title: 'Tax_Certificates',
@@ -386,19 +386,19 @@ class _AccountsScreenState extends State<AccountsScreen> {
                     //   leadingIcon: Icons.info_outline_rounded,
                     //   title: "Test",
                     // ),
-                    CustomListTile(
-                      onPress: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                          const InternetDisconnectScreen(),));},
-                      leadingIcon: Icons.signal_wifi_bad,
-                      title: "Internet Error Test Screen",
-                    ),
-                    CustomListTile(
-                      onPress: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        const ErrorScreen(),));},
-                      leadingIcon: Icons.error_outline_outlined,
-                      title: "Error Test Screen",
-                    ),
+                    // CustomListTile(
+                    //   onPress: () {
+                    //     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                    //       const InternetDisconnectScreen(),));},
+                    //   leadingIcon: Icons.signal_wifi_bad,
+                    //   title: "Internet Error Test Screen",
+                    // ),
+                    // CustomListTile(
+                    //   onPress: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                    //     const ErrorScreen(),));},
+                    //   leadingIcon: Icons.error_outline_outlined,
+                    //   title: "Error Test Screen",
+                    // ),
                   ],
                 ),
               ),

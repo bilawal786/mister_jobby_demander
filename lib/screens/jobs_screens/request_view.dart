@@ -438,7 +438,7 @@ class ViewRequestScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.width / 40,
               ),
               const Divider(),
-              if(reservation!.status != 2)
+              if(reservation!.status == 1)
               CustomButton(
                 onPress: () =>
                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => RatingReviewsScreen(reservation: reservation),),),

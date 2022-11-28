@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,7 +16,8 @@ class _TaxCertificatesScreenState extends State<TaxCertificatesScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text("Tax Certificate", style: Theme.of(context).textTheme.titleMedium,),
+        centerTitle: false,
+        title: Text("Tax Certificate", style: Theme.of(context).textTheme.bodyLarge,).tr(),
 
         iconTheme: const IconThemeData(
           color: Colors.black,
@@ -32,7 +34,7 @@ class _TaxCertificatesScreenState extends State<TaxCertificatesScreen> {
                   child: Text(
                     "Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design.",
                     style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                  ).tr(),
                 ),
               ),
               SizedBox(
@@ -45,7 +47,7 @@ class _TaxCertificatesScreenState extends State<TaxCertificatesScreen> {
                     Text(
                       "Tous les droits sont réservés.",
                       style: Theme.of(context).textTheme.bodySmall,
-                    ),
+                    ).tr(),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
@@ -54,7 +56,7 @@ class _TaxCertificatesScreenState extends State<TaxCertificatesScreen> {
                         child: Text(
                           "Mister Jobby est une application de services mobiles polyvalents. Professionnellement construit avec un UX élevé pour donner à votre page\n                le grand regard.",
                           style: Theme.of(context).textTheme.bodySmall,
-                        )),
+                        ).tr(),),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),

@@ -35,8 +35,8 @@ class _TicketScannerScreenState extends State<TicketScannerScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text("Scan_Code_Title", style: Theme.of(context).textTheme.titleMedium,).tr(),
-        centerTitle: true,
+        title: Text("Scan_Code_Title", style: Theme.of(context).textTheme.bodyLarge,).tr(),
+        centerTitle: false,
         iconTheme: const IconThemeData(
            color: Colors.black,
         ),

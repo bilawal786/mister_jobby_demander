@@ -295,7 +295,7 @@ class JobberProfile {
   String professional;
   bool availableStatus;
   int pro;
-  bool verified;
+  int verified;
   String equipements;
   String engagments;
   String personalDescription;

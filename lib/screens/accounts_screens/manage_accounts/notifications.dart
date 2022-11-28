@@ -21,7 +21,7 @@ class _ManageNotificationsState extends State<ManageNotifications> {
         backgroundColor: Colors.white,
         title: Text(
           "",
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         iconTheme: const IconThemeData(
           color: Colors.black,

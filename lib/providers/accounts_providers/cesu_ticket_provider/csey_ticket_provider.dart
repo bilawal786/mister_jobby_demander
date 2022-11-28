@@ -12,7 +12,7 @@ class CseuTicketProvider with ChangeNotifier {
 
   getData (){
     var data = ticketModel!.where((element) => element.status == 1);
-    return data.length;
+    return data;
   }
 
   List<CesuTicketModel>? ticketModel;
