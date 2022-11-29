@@ -8,6 +8,12 @@ import '../../models/jobs_models/job_reservations_model.dart';
 class JobReservationProvider with ChangeNotifier {
   List<JobReservationsModel>? jobReservations;
 
+  var checkApi = false;
+
+  setCheckApi(){
+    checkApi = false;
+    notifyListeners();
+  }
   Future<void> getJobReservations(jobId) async {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? userToken = sharePref.getString('token');
@@ -22,10 +28,14 @@ class JobReservationProvider with ChangeNotifier {
     if(response.statusCode == 200) {
       debugPrint('Job Reservation Api is working perfectly.');
       jobReservations = jobReservationsModelFromJson(response.body);
+      checkApi = true;
       notifyListeners();
     }else{
       debugPrint('Job Reservation Api is not working correctly');
+      checkApi = true;
+      notifyListeners();
     }
+    notifyListeners();
     // print(response.body);
   }
 }

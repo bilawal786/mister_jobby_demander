@@ -94,10 +94,16 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                   2)
                                 Positioned(
                                   right: -2,
-                                  child: Icon(
-                                    Icons.verified_user,
-                                    color: Colors.green.shade700,
-                                    size: 23,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      color:Colors.white,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Icon(
+                                      Icons.verified_user_sharp,
+                                      color: Colors.green.shade700,
+                                      size: 18,
+                                    ),
                                   ),
                                 ),
                             ],

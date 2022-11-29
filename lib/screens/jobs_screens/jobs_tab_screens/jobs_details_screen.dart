@@ -428,6 +428,29 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                         "(${extractedReservation.length})",
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
+                      const Spacer(),
+                      Consumer<JobReservationProvider>(
+                        builder: (_, reservation, child) => InkWell(
+                          onTap: () {
+                            reservation.setCheckApi();
+                            reservation
+                                .getJobReservations(widget.jobsInProgressDetail!.id);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: reservation.checkApi == false
+                                ? const SizedBox(
+                                width: 25,
+                                height: 25,
+                                child: CircularProgressIndicator())
+                                : const Icon(
+                              Icons.refresh,
+                              size: 25,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -481,11 +504,18 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                           .verified ==
                                       2)
                                     Positioned(
+                                      top: 0,
                                       right: -2,
-                                      child: Icon(
-                                        Icons.verified_user_sharp,
-                                        color: Colors.green.shade700,
-                                        size: 23,
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          color:Colors.white,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Icon(
+                                          Icons.verified_user_sharp,
+                                          color: Colors.green.shade700,
+                                          size: 18,
+                                        ),
                                       ),
                                     ),
                                 ],
@@ -686,7 +716,12 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                 color: Colors.amber,
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
-                              child: Text("Waiting for approvel", style: Theme.of(context).textTheme.bodyMedium,
+                              child: const Text("Waiting for approval", style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                                fontFamily: 'Cerebri Sans Bold',
+                              ),
                               textAlign: TextAlign.center,).tr(),
                             ),
                           if (extractedReservation[index].status == 3)
@@ -697,7 +732,12 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
-                              child: Text("Cancelled", style: Theme.of(context).textTheme.bodyMedium,
+                              child: const Text("Cancelled", style:  TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                                fontFamily: 'Cerebri Sans Bold',
+                              ),
                                 textAlign: TextAlign.center,).tr(),
                             ),
                           SizedBox(
