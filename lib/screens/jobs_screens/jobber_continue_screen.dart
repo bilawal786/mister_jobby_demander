@@ -45,7 +45,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
