@@ -7,7 +7,14 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.grey.shade200,
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+          size: 25,
+        ),
+      ),
       backgroundColor: Colors.grey.shade200,
       body:
       Column(

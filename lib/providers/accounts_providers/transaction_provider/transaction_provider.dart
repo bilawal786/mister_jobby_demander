@@ -9,7 +9,7 @@ class TransactionProvider with ChangeNotifier{
 
   List<TransactionModel>? transactionModel;
 
-  Future<void> getTransaction() async {
+  Future<void> getTransaction(context) async {
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
     String? userToken = sharedPref.getString('token');
     var response = await http.get(Uri.parse('${MyRoutes.BASEURL}/demandeur/transactions'),
@@ -22,7 +22,9 @@ class TransactionProvider with ChangeNotifier{
       debugPrint('Transaction Api is working');
       transactionModel = transactionModelFromJson(response.body);
       notifyListeners();
-    }else{
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       debugPrint('Transaction Api is not working');
     }
 

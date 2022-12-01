@@ -17,7 +17,7 @@ class _MyTransactionScreenState extends State<MyTransactionScreen> {
   @override
   void didChangeDependencies() {
     if(isInit){
-      Provider.of<TransactionProvider>(context).getTransaction();
+      Provider.of<TransactionProvider>(context).getTransaction(context);
     } isInit = false;
     super.didChangeDependencies();
   }
@@ -40,7 +40,7 @@ class _MyTransactionScreenState extends State<MyTransactionScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: RefreshIndicator(
           onRefresh: () async{
-            await Provider.of<TransactionProvider>(context).getTransaction();
+            await Provider.of<TransactionProvider>(context, listen: false).getTransaction(context);
           },
           child: ListView.builder(
             itemCount: extractData!.length,
@@ -50,13 +50,13 @@ class _MyTransactionScreenState extends State<MyTransactionScreen> {
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Container(
                     color: Colors.grey.shade300,
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child:
 
                     ListTile(
-                      contentPadding: EdgeInsets.only(left: 0,right: 5, top: 5, bottom: 5),
+                      contentPadding: const EdgeInsets.only(left: 0,right: 5, top: 5, bottom: 5),
                       horizontalTitleGap: 10,
-                      leading: Container(
+                      leading: SizedBox(
                         width: MediaQuery.of(context).size.width /7,
                         height: MediaQuery.of(context).size.width /8,
                         child: Stack(children: <Widget>[

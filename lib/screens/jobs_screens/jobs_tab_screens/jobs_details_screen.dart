@@ -35,7 +35,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
   void didChangeDependencies() {
     if (isInit) {
       Provider.of<JobReservationProvider>(context)
-          .getJobReservations(widget.jobsInProgressDetail!.id.toString());
+          .getJobReservations(context, widget.jobsInProgressDetail!.id.toString());
     }
     isInit = false;
     super.didChangeDependencies();
@@ -434,7 +434,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                           onTap: () {
                             reservation.setCheckApi();
                             reservation
-                                .getJobReservations(widget.jobsInProgressDetail!.id);
+                                .getJobReservations(context, widget.jobsInProgressDetail!.id);
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
@@ -696,13 +696,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                           if (extractedReservation[index].status == 1)
                             OutlineSelectedButton(
                               onTap: () {
-                                Provider.of<CancelReservationProvider>(context,
-                                        listen: false)
-                                    .cancelJobReservations(
-                                  context,
-                                  extractedReservation[index].id.toString(),
-                                  widget.jobsInProgressDetail!.id.toString(),
-                                );
+                                confirmCancellation(extractedReservation[index].id.toString(), widget.jobsInProgressDetail!.id.toString(),);
                               },
                               textTitle: "Request For Cancellation",
                               border: true,
@@ -770,7 +764,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                         onTap: () {
                           offers.setCheckApi();
                           offers
-                              .getJobProposals(widget.jobsInProgressDetail!.id);
+                              .getJobProposals(context, widget.jobsInProgressDetail!.id);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -814,5 +808,36 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
     } else {
       throw 'Could not launch $url';
     }
+  }
+
+  confirmCancellation(reservationId, jobInProgressId) {
+    showDialog(context: context, builder: (ctx) => AlertDialog(
+      title: Text("Are you sure?", style: Theme.of(context).textTheme.bodyLarge).tr(),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text(
+          "Cancel",
+          style: TextStyle(fontSize: 16,
+            color: Colors.black,
+            fontWeight: FontWeight.normal,
+            fontFamily: 'Cerebri Sans Bold',),),),
+        ElevatedButton(
+          onPressed: (){
+
+          Provider.of<CancelReservationProvider>(context,
+                  listen: false)
+              .cancelJobReservations(
+            context,
+            reservationId,
+            jobInProgressId,
+          ).then((value) => Navigator.of(context).pop());
+        }, child: const Text(
+          "Confirm",
+          style: TextStyle(fontSize: 16,
+          color: Colors.white,
+          fontWeight: FontWeight.normal,
+          fontFamily: 'Cerebri Sans Bold',),),),
+      ],
+    ) );
+
   }
 }

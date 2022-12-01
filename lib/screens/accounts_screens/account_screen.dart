@@ -11,7 +11,7 @@ import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/const_widgets/custom_list_tile.dart';
 import '../../providers/preferences_provider/preferences_provider.dart';
 import '../auth_screens/change_password_screen.dart';
-import 'manage_accounts/error_screen.dart';
+import '../error_screen.dart';
 import 'manage_accounts/internet_disconnect_error_screen.dart';
 
 class AccountsScreen extends StatefulWidget {

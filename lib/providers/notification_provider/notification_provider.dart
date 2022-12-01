@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,7 +10,7 @@ class NotificationProvider with ChangeNotifier {
   List<NotificationModel>? notificationItems;
   // var checkApi = false;
 
-  Future<void> getNotification() async {
+  Future<void> getNotification(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? userToken = prefs.getString('token');
     var response = await http.get(
@@ -24,7 +25,26 @@ class NotificationProvider with ChangeNotifier {
       debugPrint('Notifications Api is working');
       notificationItems = notificationModelFromJson(response.body);
       notifyListeners();
-    }else{
+    } else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content: Text(
+            'Session Expired...  Please Log-In',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       debugPrint('Notifications Api is not working');
       notifyListeners();
     }

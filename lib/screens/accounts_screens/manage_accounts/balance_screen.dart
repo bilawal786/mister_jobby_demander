@@ -18,8 +18,8 @@ class _BalanceScreenState extends State<BalanceScreen> {
   @override
   void didChangeDependencies() {
     if(isInit){
-      Provider.of<MyBalanceProvider>(context).getMyBalance();
-      Provider.of<CseuTicketProvider>(context).getCesuTicket();
+      Provider.of<MyBalanceProvider>(context).getMyBalance(context);
+      Provider.of<CseuTicketProvider>(context).getCesuTicket(context);
       Provider.of<MyBalanceProvider>(context,listen: false).getCESUData();
     } isInit = false;
     super.didChangeDependencies();
@@ -47,7 +47,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
         ),
         body: RefreshIndicator(
           onRefresh: () async {
-            await Provider.of<MyBalanceProvider>(context).getMyBalance();
+            await Provider.of<MyBalanceProvider>(context, listen: false).getMyBalance(context);
           },
           child: SingleChildScrollView(
             child: Padding(

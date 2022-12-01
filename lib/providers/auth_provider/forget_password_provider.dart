@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mister_jobby/helpers/routes.dart';
@@ -46,13 +47,14 @@ class ForgetPasswordProvider with ChangeNotifier {
       Navigator.pop(context);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.blueGrey,
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Incorrect OTP',
-            // textAlign: TextAlign.center,
-          ),
-          duration: Duration(
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
             seconds: 2,
           ),
         ),
@@ -92,11 +94,12 @@ class ForgetPasswordProvider with ChangeNotifier {
       Navigator.pop(context);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.blueGrey,
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'User not exits',
-            // textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           duration: Duration(
             seconds: 2,
@@ -137,11 +140,12 @@ class ForgetPasswordProvider with ChangeNotifier {
       );
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.blueGrey,
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Password Changed Successfully',
-            // textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           duration: Duration(
             seconds: 2,

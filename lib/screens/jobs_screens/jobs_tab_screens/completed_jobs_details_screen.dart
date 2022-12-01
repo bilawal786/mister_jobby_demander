@@ -30,7 +30,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
   void didChangeDependencies() {
     if (isInit) {
       Provider.of<JobReservationProvider>(context)
-          .getJobReservations(widget.jobsCompletedModel!.id.toString());
+          .getJobReservations(context, widget.jobsCompletedModel!.id.toString());
     }
     isInit = false;
     super.didChangeDependencies();
@@ -274,13 +274,19 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                   if (extractedReservation[index]
                                       .jobberProfile
                                       .verified ==
-                                      true)
+                                      2)
                                     Positioned(
                                       right: -2,
-                                      child: Icon(
-                                        Icons.verified_user_sharp,
-                                        color: Colors.green.shade700,
-                                        size: 23,
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          color:Colors.white,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Icon(
+                                          Icons.verified_user_sharp,
+                                          color: Colors.green.shade700,
+                                          size: 18,
+                                        ),
                                       ),
                                     ),
                                 ],
@@ -487,7 +493,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                         onTap: () {
                           offers.setCheckApi();
                           offers
-                              .getJobProposals(widget.jobsCompletedModel!.id);
+                              .getJobProposals(context, widget.jobsCompletedModel!.id);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),

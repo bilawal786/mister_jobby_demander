@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/models/jobs_models/jobs_in_progress_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../../models/jobs_models/jobs_completed_model.dart';

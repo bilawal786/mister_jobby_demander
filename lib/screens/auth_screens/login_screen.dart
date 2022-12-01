@@ -4,7 +4,6 @@ import 'package:easy_localization/easy_localization.dart';
 
 import '../../helpers/routes.dart';
 import '../../providers/auth_provider/login_provider.dart';
-import '../../providers/country_provider/country_list_provider.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import 'forget_password_screen.dart';
 
@@ -47,8 +46,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final countryData = Provider.of<CountryProvider>(context, listen: false);
-    final extractCountry = countryData.countryList;
     return Scaffold(
       backgroundColor: const Color(0xFFebf9fe),
       body: SafeArea(

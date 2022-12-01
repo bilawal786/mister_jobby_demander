@@ -122,6 +122,8 @@ class MyRoutes {
   static String ADDTICKETMANUALLYROUTE = '/Add-Ticket-Manually';
   static String MYTRANSACTION = '/My_Transaction';
   static String MYREVIEWS = '/My_Reviews';
+  static String ERRORSCREENROUTE = '/Error-Screen';
+
 
   static String BASEURL = 'https://misterjobby.ikaedigital.com/api';
   static String IMAGEURL = 'https://misterjobby.ikaedigital.com/';

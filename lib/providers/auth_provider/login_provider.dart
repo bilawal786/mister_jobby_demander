@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,13 +45,14 @@ class LoginProvider with ChangeNotifier {
         );
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            backgroundColor: Colors.blueGrey,
+           SnackBar(
+            padding: const EdgeInsets.all(20.0),
+            backgroundColor: const Color(0xFFebf9fe),
             content: Text(
               'Login Successfully',
-              // textAlign: TextAlign.center,
-            ),
-            duration: Duration(
+              style: Theme.of(context).textTheme.bodyMedium,
+            ).tr(),
+            duration: const Duration(
               seconds: 2,
             ),
           ),
@@ -61,13 +63,13 @@ class LoginProvider with ChangeNotifier {
         print("Failed to login.");
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            backgroundColor: Colors.blueGrey,
+          SnackBar(
+            backgroundColor: const Color(0xFFebf9fe),
             content: Text(
               'Incorrect Credentials',
-              // textAlign: TextAlign.center,
-            ),
-            duration: Duration(
+              style: Theme.of(context).textTheme.bodyMedium,
+            ).tr(),
+            duration: const Duration(
               seconds: 2,
             ),
           ),

@@ -21,8 +21,8 @@ class _MyTicketsState extends State<MyTickets> {
   @override
   void didChangeDependencies() {
     if(isInit) {
-      Provider.of<MyBalanceProvider>(context).getMyBalance();
-      Provider.of<CseuTicketProvider>(context).getCesuTicket();
+      Provider.of<MyBalanceProvider>(context).getMyBalance(context);
+      Provider.of<CseuTicketProvider>(context).getCesuTicket(context);
       Provider.of<MyBalanceProvider>(context,listen: false).getTicketData();
     }
     isInit = false;
@@ -53,7 +53,7 @@ class _MyTicketsState extends State<MyTickets> {
         ),
         body: cesuData.ticketModel == null ? const Center(child: CircularProgressIndicator()): RefreshIndicator(
           onRefresh: () async {
-            await Provider.of<CseuTicketProvider>(context, listen: false).getCesuTicket();
+            await Provider.of<CseuTicketProvider>(context, listen: false).getCesuTicket(context);
           },
           child: SingleChildScrollView(
             child: Padding(

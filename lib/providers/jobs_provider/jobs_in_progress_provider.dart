@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -29,13 +29,14 @@ class JobsInProgressProvider with ChangeNotifier {
       Navigator.pop(context);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.blueGrey,
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Closed this Job Successfully',
-            // textAlign: TextAlign.center,
-          ),
-          duration: Duration(
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
             seconds: 2,
           ),
         ),
@@ -44,12 +45,31 @@ class JobsInProgressProvider with ChangeNotifier {
         builder: (context) => MyHomeBottomTabScreen(pageIndex: 1),
       ),);
       notifyListeners();
-    }else{
+    } else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content: Text(
+            'Session Expired...  Please Log-In',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       debugPrint('Close this job API is not working');
     }
   }
 
-  Future<void> getInProgressJobs() async {
+  Future<void> getInProgressJobs(context) async {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? userToken = sharePref.getString('token');
     var response = await http.get(
@@ -61,11 +81,30 @@ class JobsInProgressProvider with ChangeNotifier {
       },
     );
     if(response.statusCode == 200) {
-      print('InProgress Jobs Api is working perfectly.');
+      debugPrint('InProgress Jobs Api is working perfectly.');
       inProgressJobs = jobsInProgressModelFromJson(response.body);
       notifyListeners();
-    }else{
-      print('InProgress Jobs Api is not working correctly');
+    } else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content: Text(
+            'Session Expired...  Please Log-In',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
+      debugPrint('InProgress Jobs Api is not working correctly');
     }
     notifyListeners();
     // print(response.body);

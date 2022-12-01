@@ -8,7 +8,7 @@ import '../../models/banner_model/banner_model.dart';
 class BannerProvider with ChangeNotifier {
   List<BannerModel>? myBanner;
 
-  Future<void> getBanner() async {
+  Future<void> getBanner(context) async {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? userToken = sharePref.getString('token');
     var response = await http.get(
@@ -20,11 +20,13 @@ class BannerProvider with ChangeNotifier {
       },
     );
     if(response.statusCode == 200) {
-      print('Banner Api is working perfectly.');
+      debugPrint('Banner Api is working perfectly.');
       myBanner = bannerModelFromJson(response.body);
       notifyListeners();
-    }else{
-      print('Banner Api is not working correctly');
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
+      debugPrint('Banner Api is not working correctly');
     }
     // print(response.body);
   }

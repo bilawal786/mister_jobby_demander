@@ -1007,7 +1007,7 @@ class EditJobsProvider with ChangeNotifier {
         debugPrint('update job api is workiing');
         Navigator.pop(context);
         Provider.of<JobsInProgressProvider>(context, listen: false)
-            .getInProgressJobs();
+            .getInProgressJobs(context);
         clearEditJobData();
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
@@ -1016,31 +1016,52 @@ class EditJobsProvider with ChangeNotifier {
         );
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            backgroundColor: Colors.blueGrey,
+          SnackBar(
+            padding :const EdgeInsets.all(20.0),
+            backgroundColor: const Color(0xFFebf9fe),
             content: Text(
               'Update Job Successfully',
-              // textAlign: TextAlign.center,
-            ),
-            duration: Duration(
+              style: Theme.of(context).textTheme.bodyMedium,
+            ).tr(),
+            duration: const Duration(
               seconds: 2,
             ),
           ),
         );
         notifyListeners();
-      } else {
+      } else if(response.statusCode == 401){
+        debugPrint('error: 401');
+        Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            padding :const EdgeInsets.all(20.0),
+            backgroundColor: const Color(0xFFebf9fe),
+            content: Text(
+              'Session Expired...  Please Log-In',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ).tr(),
+            duration: const Duration(
+              seconds: 2,
+            ),
+          ),
+        );
+      }
+      else{
+        Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
         Navigator.pop(context);
         Navigator.of(context).pop();
         print("Failed to update");
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            backgroundColor: Colors.blueGrey,
-            content: Text(
+          SnackBar(
+            margin: const EdgeInsets.all(10.0),
+            backgroundColor: const Color(0xFFebf9fe),
+            content: const Text(
               'Incorrect Credentials',
               // textAlign: TextAlign.center,
-            ),
-            duration: Duration(
+            ).tr(),
+            duration: const Duration(
               seconds: 2,
             ),
           ),

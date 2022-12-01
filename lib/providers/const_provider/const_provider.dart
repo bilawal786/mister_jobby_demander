@@ -1823,17 +1823,37 @@ class ConstProvider with ChangeNotifier {
       );
       debugPrint("job Posted successfully ");
       debugPrint(time);
-    } else {
-      Navigator.pop(context);
+    } else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.blueGrey,
+        SnackBar(
+          margin: const EdgeInsets.all(10.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content: const Text(
+            'Session Expired...  Please Log-In',
+            // textAlign: TextAlign.center,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+    }
+    else{
+      Navigator.pop(context);
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Job Post Failed',
-            // textAlign: TextAlign.center,
-          ),
-          duration: Duration(
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
             seconds: 2,
           ),
         ),

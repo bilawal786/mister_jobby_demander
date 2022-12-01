@@ -1,5 +1,6 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:mister_jobby/helpers/routes.dart';
@@ -133,7 +134,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     widget.pageIndex = 0;
                   });
                 },
-                Icons.home_rounded,
+                CupertinoIcons.home,
                 "Index_Page_Label",
                 0,
               ),
@@ -164,7 +165,8 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     }
                   });
                 },
-                Icons.work_history_outlined,
+                CupertinoIcons.rectangle_stack_badge_person_crop,
+                // Icons.work_history_outlined,
                 "Jobs_Page_Label",
                 1,
               ),
@@ -193,7 +195,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     widget.pageIndex = 2;
                   });
                 },
-                Icons.mark_as_unread_outlined,
+                CupertinoIcons.bubble_left_bubble_right,
                 "Message_Page_Label",
                 2,
               ),
@@ -203,7 +205,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     widget.pageIndex = 3;
                   });
                 },
-                Icons.person_outline,
+                CupertinoIcons.person,
                 "Account_Page_Label",
                 3,
               ),

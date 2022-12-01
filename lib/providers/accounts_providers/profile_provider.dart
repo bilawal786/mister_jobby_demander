@@ -53,7 +53,7 @@ class ProfileProvider with ChangeNotifier {
   DateTime selectedDateOfBirth = DateTime.now();
   String countryDropDownValue = "select country";
 
-  Future<void> getProfile() async {
+  Future<void> getProfile(context) async {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? token = sharePref.getString('token');
     int? id = sharePref.getInt('demandeurId');
@@ -67,7 +67,9 @@ class ProfileProvider with ChangeNotifier {
       debugPrint('get profile successfully');
       myProfile = ProfileModel.fromJson(jsonDecode(response.body));
       notifyListeners();
-    } else {
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       print('get profile api not working');
     }
   }
@@ -96,7 +98,7 @@ class ProfileProvider with ChangeNotifier {
 
     if (response.statusCode == 200) {
       debugPrint("Profile Image Posted successfully ");
-      Provider.of<ProfileProvider>(context, listen: false).getProfile();
+      Provider.of<ProfileProvider>(context, listen: false).getProfile(context);
       Navigator.pop(context);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -111,12 +113,17 @@ class ProfileProvider with ChangeNotifier {
           ),
         ),
       );
-    } else {
-      Navigator.pop(context);
-      debugPrint('profile Image upload Failed');
-      debugPrint(response.body);
+    }else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
     }
-    debugPrint(response.body);
+    else{
+      Navigator.pop(context);
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
+      debugPrint('profile Image upload Failed');
+      // debugPrint(response.body);
+    }
+    // debugPrint(response.body);
     notifyListeners();
   }
 
@@ -156,26 +163,46 @@ class ProfileProvider with ChangeNotifier {
     if (response.statusCode == 200) {
       clearData();
       updateMyProfile = updateProfileModelFromJson(response.body);
-      Provider.of<ProfileProvider>(context, listen: false).getProfile();
+      Provider.of<ProfileProvider>(context, listen: false).getProfile(context);
       Navigator.of(context).pop();
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.blueGrey,
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Updated Successfully',
-            // textAlign: TextAlign.center,
-          ),
-          duration: Duration(
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
             seconds: 2,
           ),
         ),
       );
       notifyListeners();
-    } else {
+    } else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content: Text(
+            'Session Expired...  Please Log-In',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       print('Update api is not working');
     }
-    print(response.body);
+    // print(response.body);
   }
 
   imgFromCamera(context) async {

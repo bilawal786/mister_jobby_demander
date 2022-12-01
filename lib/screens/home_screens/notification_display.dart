@@ -16,7 +16,7 @@ class _NotificationDisplayState extends State<NotificationDisplay> {
   @override
   void didChangeDependencies() {
     if(_isInit){
-      Provider.of<NotificationProvider>(context, listen: true).getNotification();
+      Provider.of<NotificationProvider>(context, listen: true).getNotification(context);
     }
     _isInit = false;
     super.didChangeDependencies();
@@ -39,7 +39,7 @@ class _NotificationDisplayState extends State<NotificationDisplay> {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: RefreshIndicator(
           onRefresh: ()async{
-            await Provider.of<NotificationProvider>(context, listen: false).getNotification();
+            await Provider.of<NotificationProvider>(context, listen: false).getNotification(context);
           },
           child: ListView.builder(
             itemCount: extractNotification.length,

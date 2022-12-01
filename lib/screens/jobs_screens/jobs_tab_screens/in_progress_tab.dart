@@ -18,7 +18,7 @@ class _InProgressTabState extends State<InProgressTab> {
   @override
   void didChangeDependencies() {
     if (isInit) {
-      Provider.of<JobsInProgressProvider>(context, listen: false).getInProgressJobs();
+      Provider.of<JobsInProgressProvider>(context, listen: false).getInProgressJobs(context);
     }
     isInit = false;
     super.didChangeDependencies();
@@ -76,7 +76,7 @@ class _InProgressTabState extends State<InProgressTab> {
                 margin: const EdgeInsets.all(0.0),
                 child: RefreshIndicator(
                   onRefresh: ()async{
-                    Provider.of<JobsInProgressProvider>(context, listen: false).getInProgressJobs();
+                    Provider.of<JobsInProgressProvider>(context, listen: false).getInProgressJobs(context);
                   },
                   child: ListView.builder(
                     padding: const EdgeInsets.all(0.0),

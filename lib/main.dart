@@ -150,6 +150,7 @@ import 'providers/jobs_provider/rating_reviews_provider.dart';
 import 'providers/notification_provider/notification_provider.dart';
 import 'screens/accounts_screens/manage_accounts/add_ticket_manually.dart';
 import 'screens/accounts_screens/manage_accounts/tax_certificate.dart';
+import 'screens/error_screen.dart';
 import 'screens/home_screens/services_sub_categories/process_sub_categories_steps/equipment_rental_step.dart';
 
 late final FirebaseMessaging _messaging;
@@ -552,6 +553,7 @@ class MyApp extends StatelessWidget {
           MyRoutes.ADDTICKETMANUALLYROUTE: (ctx) => const AddTicketManually(),
           MyRoutes.MYTRANSACTION: (ctx) => const MyTransactionScreen(),
           MyRoutes.MYREVIEWS: (ctx) => const ReviewsScreen(),
+          MyRoutes.ERRORSCREENROUTE: (ctx) => const ErrorScreen(),
         },
       ),
     );

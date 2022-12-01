@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +13,7 @@ import '../../models/jobs_models/single_job_comments.dart';
 class SingleJobCommentsProvider with ChangeNotifier {
   List<SingleJobCommentsModel>? singleJobComments;
 
-  Future<void> getSingleJobComments(jobId) async {
+  Future<void> getSingleJobComments(context,jobId) async {
     final SharedPreferences sharePref = await SharedPreferences.getInstance();
     String? userToken = sharePref.getString('token');
     var response = await http.get(
@@ -24,11 +25,30 @@ class SingleJobCommentsProvider with ChangeNotifier {
       },
     );
     if (response.statusCode == 200) {
-      print('Single Job Comments Api is working perfectly.');
+      debugPrint('Single Job Comments Api is working perfectly.');
       singleJobComments = singleJobCommentsModelFromJson(response.body);
       notifyListeners();
-    } else {
-      print('Single Job Comments Api is not working correctly');
+    }  else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content: Text(
+            'Session Expired...  Please Log-In',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
+      debugPrint('Single Job Comments Api is not working correctly');
     }
     notifyListeners();
   }
@@ -61,10 +81,29 @@ class SingleJobCommentsProvider with ChangeNotifier {
       singleJobComments!.add(newComment);
       print("Comment Post API WORKS");
       notifyListeners();
-    } else {
-      print("Comment Post API NOT WORKS");
+    } else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content: Text(
+            'Session Expired...  Please Log-In',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
     }
-    print(response.body);
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
+      debugPrint("Comment Post API NOT WORKS");
+    }
+    // print(response.body);
     notifyListeners();
   }
 }

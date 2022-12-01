@@ -20,12 +20,12 @@ class MainCategoriesProvider with ChangeNotifier {
       },
     );
     if(response.statusCode == 200) {
-      print('Main Categories Api is working perfectly.');
+      debugPrint('Main Categories Api is working perfectly.');
       // final extractMainCategories = json.decode();
       mainCategories = mainCategoriesModelFromJson(response.body);
       notifyListeners();
     }else{
-      print('Main Categories Api is not working correctly');
+      debugPrint('Main Categories Api is not working correctly');
     }
     // print(response.body);
   }
@@ -35,10 +35,10 @@ class MainCategoriesProvider with ChangeNotifier {
     if(title.isEmpty)
       {
         searchPost = null;
-        print(title);
+        debugPrint(title);
       }
     searchPost = mainCategories!.where((cate,) => cate.title.toLowerCase().contains(title)).toList();
-    print('search categories print:${searchPost?[0].title}');
+    debugPrint('search categories print:${searchPost?[0].title}');
     notifyListeners();
   }
 
@@ -47,10 +47,10 @@ class MainCategoriesProvider with ChangeNotifier {
     if(title.isEmpty)
     {
       searchSub = null;
-      print(title);
+      debugPrint(title);
     }
     searchSub = subCategory?.where((cate) => cate.title.toLowerCase().contains(title)).toList();
-    print('sub search categories print:${searchSub?[1].title}');
+    debugPrint('sub search categories print:${searchSub?[1].title}');
     notifyListeners();
   }
 }

@@ -17,11 +17,11 @@ class SearchCategoriesProvider with ChangeNotifier {
       },
     );
     if (response.statusCode == 200) {
-      print('Search Categories Api is working.');
+      debugPrint('Search Categories Api is working.');
       searchCategoriesModel = searchCategoriesModelFromJson(response.body);
       notifyListeners();
     } else {
-      print('Search Categories Api is not working');
+      debugPrint('Search Categories Api is not working');
     }
   }
 
@@ -30,10 +30,10 @@ class SearchCategoriesProvider with ChangeNotifier {
     if(title.isEmpty)
     {
       searchCat = null;
-      print(title);
+      debugPrint(title);
     }
     searchCat = searchCategoriesModel?.where((cate) => cate.title.toLowerCase().contains(title)).toList();
-    print('sub search categories print:${searchCat?[0].title}');
+    debugPrint('sub search categories print:${searchCat?[0].title}');
     notifyListeners();
   }
 

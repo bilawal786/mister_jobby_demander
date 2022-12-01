@@ -24,7 +24,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
   @override
   void didChangeDependencies() {
     if (isInit) {
-      Provider.of<JobProposalsProvider>(context).getJobProposals(widget.jobId);
+      Provider.of<JobProposalsProvider>(context).getJobProposals(context, widget.jobId);
     }
     isInit = false;
     super.didChangeDependencies();

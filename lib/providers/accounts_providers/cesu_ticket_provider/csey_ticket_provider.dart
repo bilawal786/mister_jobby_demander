@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/helpers/routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,7 +18,7 @@ class CseuTicketProvider with ChangeNotifier {
 
   List<CesuTicketModel>? ticketModel;
 
-  Future<void> getCesuTicket() async {
+  Future<void> getCesuTicket(context) async {
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
     String? userToken = sharedPref.getString('token');
     var response = await http.get(Uri.parse('${MyRoutes.BASEURL}/demandeur/my/cesu/tickets'),
@@ -30,7 +31,9 @@ class CseuTicketProvider with ChangeNotifier {
       debugPrint('CESU get Api is working');
       ticketModel = cesuTicketModelFromJson(response.body);
       notifyListeners();
-    }else{
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       debugPrint('CESU get Api is not working');
     }
 
@@ -54,23 +57,42 @@ class CseuTicketProvider with ChangeNotifier {
     if(response.statusCode == 200){
       debugPrint('CSEY post Api is working');
       Navigator.pop(context);
-      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.MYTICKETSROUTE,
-            (route) => false,);
+      Navigator.of(context).popUntil(ModalRoute.withName(MyRoutes.MYTICKETSROUTE),);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.blueGrey,
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Ticket Scanned Successfully',
-            // textAlign: TextAlign.center,
-          ),
-          duration: Duration(
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
             seconds: 2,
           ),
         ),
       );
       notifyListeners();
-    }else {
+    }else if(response.statusCode == 401){
+      debugPrint('error: 401');
+      Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content:  Text(
+            'Session Expired...  Please Log-In',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       debugPrint('CESU post Api is not working');}
   // print(response.body);
   }

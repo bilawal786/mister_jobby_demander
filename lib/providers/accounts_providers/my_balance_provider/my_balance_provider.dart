@@ -39,7 +39,7 @@ class MyBalanceProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getMyBalance () async {
+  Future<void> getMyBalance (context) async {
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
     String? userToken = sharedPref.getString('token');
     var response = await http.get(Uri.parse('${MyRoutes.BASEURL}/demandeur/my/wallet/details'),
@@ -52,7 +52,9 @@ class MyBalanceProvider with ChangeNotifier {
       debugPrint('My Balance Api is working');
       myBalanceModel = myBalanceModelFromJson(response.body);
       notifyListeners();
-    }else{
+    }
+    else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       debugPrint('My Balance Api is not working');}
   }
   
@@ -77,10 +79,11 @@ class MyBalanceProvider with ChangeNotifier {
     if(response.statusCode == 200){
       debugPrint('Pay from wallet Api is working');
       Navigator.of(context).pop();
-      Provider.of<MyBalanceProvider>(context, listen: false).getMyBalance();
+      Provider.of<MyBalanceProvider>(context, listen: false).getMyBalance(context);
       Navigator.of(context).pop();
       notifyListeners();
-    }else{
+    } else{
+      Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       debugPrint('Pay from wallet Api is not working');
     }
   }

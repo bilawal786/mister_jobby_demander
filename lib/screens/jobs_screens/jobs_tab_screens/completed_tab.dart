@@ -17,7 +17,7 @@ class _CompletedTabState extends State<CompletedTab> {
   @override
   void didChangeDependencies() {
     if(isInit){
-      Provider.of<JobsCompletedProvider>(context).getJobsCompleted();
+      Provider.of<JobsCompletedProvider>(context).getJobsCompleted(context);
     }
     isInit = false;
     super.didChangeDependencies();
@@ -34,7 +34,7 @@ class _CompletedTabState extends State<CompletedTab> {
          const NoDataFoundWidget()
         : RefreshIndicator(
           onRefresh: ()async{
-            Provider.of<JobsCompletedProvider>(context, listen: false).getJobsCompleted();
+            Provider.of<JobsCompletedProvider>(context, listen: false).getJobsCompleted(context);
           },
           child: ListView.builder(
               clipBehavior: Clip.none,
