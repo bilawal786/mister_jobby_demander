@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:mister_jobby/helpers/routes.dart';
 import 'package:mister_jobby/widgets/const_widgets/custom_button.dart';
 import 'package:provider/provider.dart';
@@ -60,7 +61,7 @@ class _TicketScannerScreenState extends State<TicketScannerScreen> {
                 ),),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.width / 5,
+              height: MediaQuery.of(context).size.width / 40,
             ),
              Container(
               width: double.infinity,
@@ -85,7 +86,7 @@ class _TicketScannerScreenState extends State<TicketScannerScreen> {
                       )
                       : Column(
                     children: <Widget>[
-                      const Icon(Icons.qr_code_scanner_sharp, size: 30, color: Colors.black,),
+                      const Icon(CupertinoIcons.barcode_viewfinder, size: 40, color: Colors.black,),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 50,
                       ),
