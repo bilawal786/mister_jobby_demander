@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
@@ -64,7 +65,8 @@ class _IndexScreenState extends State<IndexScreen> {
                         navigator.pushNamed(MyRoutes.NOTIFICATIONDISPLAYROUTE);
                       },
                       icon: const Icon(
-                        Icons.notifications_none_outlined,
+                        CupertinoIcons.bell,
+                        // Icons.notifications_none_outlined,
                         color: Colors.amber,
                       ),
                     ),

@@ -183,7 +183,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     );
                   },
                   child: const Icon(
-                    Icons.add,
+                    CupertinoIcons.add,
                     size: 30,
                     color: Colors.white,
                   ),
