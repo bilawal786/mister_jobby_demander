@@ -31,6 +31,8 @@ class CseuTicketProvider with ChangeNotifier {
       debugPrint('CESU get Api is working');
       ticketModel = cesuTicketModelFromJson(response.body);
       notifyListeners();
+    }else if(response.statusCode == 401){
+      debugPrint("user unauthenticated");
     }
     else{
       Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
