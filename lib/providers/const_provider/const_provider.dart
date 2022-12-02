@@ -1738,7 +1738,7 @@ class ConstProvider with ChangeNotifier {
     showDialog(
         context: context,
         builder: (BuildContext context) {
-          return LoginProgressIndicator();
+          return const LoginProgressIndicator();
         });
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
     String? userToken = sharedPrefs.getString("token");
@@ -1810,13 +1810,14 @@ class ConstProvider with ChangeNotifier {
       clearData();
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.blueGrey,
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Job Posted successfully',
-            // textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
-          duration: Duration(
+          duration: const Duration(
             seconds: 2,
           ),
         ),
@@ -1829,11 +1830,11 @@ class ConstProvider with ChangeNotifier {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          margin: const EdgeInsets.all(10.0),
+          padding :const EdgeInsets.all(20.0),
           backgroundColor: const Color(0xFFebf9fe),
-          content: const Text(
+          content: Text(
             'Session Expired...  Please Log-In',
-            // textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
           duration: const Duration(
             seconds: 2,
