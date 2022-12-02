@@ -22,6 +22,8 @@ class TransactionProvider with ChangeNotifier{
       debugPrint('Transaction Api is working');
       transactionModel = transactionModelFromJson(response.body);
       notifyListeners();
+    }else if(response.statusCode == 401) {
+      debugPrint("Session Expired");
     }
     else{
       Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);

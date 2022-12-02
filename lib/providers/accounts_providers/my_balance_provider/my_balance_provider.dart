@@ -52,6 +52,8 @@ class MyBalanceProvider with ChangeNotifier {
       debugPrint('My Balance Api is working');
       myBalanceModel = myBalanceModelFromJson(response.body);
       notifyListeners();
+    }else if(response.statusCode == 401 ){
+      debugPrint("Session Expired");
     }
     else{
       Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
@@ -82,7 +84,10 @@ class MyBalanceProvider with ChangeNotifier {
       Provider.of<MyBalanceProvider>(context, listen: false).getMyBalance(context);
       Navigator.of(context).pop();
       notifyListeners();
-    } else{
+    } else if(response.statusCode == 401) {
+      debugPrint("Session Expired");
+    }
+    else{
       Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
       debugPrint('Pay from wallet Api is not working');
     }

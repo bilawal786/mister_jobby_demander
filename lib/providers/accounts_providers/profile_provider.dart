@@ -67,10 +67,12 @@ class ProfileProvider with ChangeNotifier {
       debugPrint('get profile successfully');
       myProfile = ProfileModel.fromJson(jsonDecode(response.body));
       notifyListeners();
+    } else if(response.statusCode == 401) {
+      debugPrint("Session Expired");
     }
     else{
       Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
-      print('get profile api not working');
+      debugPrint('get profile api not working');
     }
   }
 
@@ -214,7 +216,7 @@ class ProfileProvider with ChangeNotifier {
     }
     else{
       Navigator.of(context).pushNamed(MyRoutes.ERRORSCREENROUTE);
-      print('Update api is not working');
+      debugPrint('Update api is not working');
     }
     // print(response.body);
   }
@@ -322,7 +324,7 @@ class ProfileProvider with ChangeNotifier {
     } else {
       genderCheckTitle = "Female".tr();
     }
-    print(genderCheckTitle);
+    debugPrint(genderCheckTitle);
     notifyListeners();
   }
 

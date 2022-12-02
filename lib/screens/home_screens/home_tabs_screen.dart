@@ -165,7 +165,7 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                     }
                   });
                 },
-                CupertinoIcons.rectangle_stack_badge_person_crop,
+                CupertinoIcons.briefcase,
                 // Icons.work_history_outlined,
                 "Jobs_Page_Label",
                 1,
