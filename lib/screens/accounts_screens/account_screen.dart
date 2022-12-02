@@ -328,9 +328,9 @@ class _AccountsScreenState extends State<AccountsScreen> {
                     ),
                     CustomListTile(
                       onPress: () async {
-                        final Uri _url = Uri.parse('https://play.google.com/store/apps/details?id=com.pinterest&hl=en&gl=US');
-                        if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
-                          throw 'Could not launch $_url';
+                        final Uri url = Uri.parse('https://play.google.com/store/apps/details?id=com.pinterest&hl=en&gl=US');
+                        if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                          throw 'Could not launch $url';
 
                         }
                       },

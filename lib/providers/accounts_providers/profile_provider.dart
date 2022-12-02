@@ -116,6 +116,20 @@ class ProfileProvider with ChangeNotifier {
     }else if(response.statusCode == 401){
       debugPrint('error: 401');
       Navigator.of(context).pushNamedAndRemoveUntil(MyRoutes.LOGINROUTE, (route) => false);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding :const EdgeInsets.all(20.0),
+          backgroundColor: const Color(0xFFebf9fe),
+          content: Text(
+            'Session Expired...',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ).tr(),
+          duration: const Duration(
+            seconds: 2,
+          ),
+        ),
+      );
     }
     else{
       Navigator.pop(context);
