@@ -203,7 +203,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   );
 
   final token = await FirebaseMessaging.instance.getToken();
-  print("firebase token: "+token.toString());
+  debugPrint("firebase token: $token");
 
   Stripe.publishableKey =
       'pk_test_mhfC6RVLoiK6pNLoINPHyjGO00LXtQiByW';
