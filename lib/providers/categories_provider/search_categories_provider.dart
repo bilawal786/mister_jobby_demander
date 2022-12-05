@@ -27,13 +27,14 @@ class SearchCategoriesProvider with ChangeNotifier {
 
   List<SearchCategoriesModel>? searchCat;
   void filterCategories(String title) {
-    if(title.isEmpty)
+    if(title.isEmpty || title == "null")
     {
       searchCat = null;
       debugPrint(title);
+      notifyListeners();
     }
-    searchCat = searchCategoriesModel?.where((cate) => cate.title.toLowerCase().contains(title)).toList();
-    debugPrint('sub search categories print:${searchCat?[0].title}');
+    searchCat = searchCategoriesModel?.where((cate) => cate.title.toLowerCase().contains(title.toLowerCase())).toList();
+    // debugPrint('sub search categories print:${searchCat![0].title}');
     notifyListeners();
   }
 

@@ -148,93 +148,93 @@ class GeneralStep02 extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.width / 40,
           ),
-          Row(
-            children: <Widget>[
-              Text(
-                "Requested_services",
-                style: Theme.of(context).textTheme.bodySmall,
-              ).tr(),
-              const Spacer(),
-              if (subCategoryId < 5) ...[
-                if (childCategoryId! < 14) ...[
-                  Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 1].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ] else if (childCategoryId! > 13 && childCategoryId! < 19) ...[
-                  Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 14].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ] else if (childCategoryId! > 18 && childCategoryId! < 25) ...[
-                  Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 19].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ] else if (childCategoryId! > 24 && childCategoryId! <= 31) ...[
-                  Text(
-                    "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 25].price}€",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ],
-              ] else if (subCategoryId > 4 && subCategoryId < 14) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 5].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 13 && subCategoryId < 23) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 14].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 22 && subCategoryId < 29) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 23].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 28 && subCategoryId < 30) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 29].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 29 && subCategoryId < 33) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 30].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 32 && subCategoryId < 37) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 33].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 36 && subCategoryId < 46) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 37].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 45 && subCategoryId < 61) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 46].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 60 && subCategoryId < 69) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 61].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 68 && subCategoryId < 70) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 69].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ] else if (subCategoryId > 69 && subCategoryId < 72) ...[
-                Text(
-                  "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 70].price}€",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ],
-            ],
-          ),
+          // Row(
+          //   children: <Widget>[
+          //     Text(
+          //       "Requested_services",
+          //       style: Theme.of(context).textTheme.bodySmall,
+          //     ).tr(),
+          //     const Spacer(),
+          //     if (subCategoryId < 5) ...[
+          //       if (childCategoryId! < 14) ...[
+          //         Text(
+          //           "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 1].price}€",
+          //           style: Theme.of(context).textTheme.bodySmall,
+          //         ),
+          //       ] else if (childCategoryId! > 13 && childCategoryId! < 19) ...[
+          //         Text(
+          //           "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 14].price}€",
+          //           style: Theme.of(context).textTheme.bodySmall,
+          //         ),
+          //       ] else if (childCategoryId! > 18 && childCategoryId! < 25) ...[
+          //         Text(
+          //           "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 19].price}€",
+          //           style: Theme.of(context).textTheme.bodySmall,
+          //         ),
+          //       ] else if (childCategoryId! > 24 && childCategoryId! <= 31) ...[
+          //         Text(
+          //           "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 1].childCategories[childCategoryId! - 25].price}€",
+          //           style: Theme.of(context).textTheme.bodySmall,
+          //         ),
+          //       ],
+          //     ] else if (subCategoryId > 4 && subCategoryId < 14) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 5].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 13 && subCategoryId < 23) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 14].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 22 && subCategoryId < 29) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 23].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 28 && subCategoryId < 30) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 29].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 29 && subCategoryId < 33) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 30].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 32 && subCategoryId < 37) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 33].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 36 && subCategoryId < 46) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 37].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 45 && subCategoryId < 61) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 46].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 60 && subCategoryId < 69) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 61].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 68 && subCategoryId < 70) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 69].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ] else if (subCategoryId > 69 && subCategoryId < 72) ...[
+          //       Text(
+          //         "${extractedMainCategory![mainCategoryId - 1].subCategories[subCategoryId - 70].price}€",
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //     ],
+          //   ],
+          // ),
           SizedBox(
             height: MediaQuery.of(context).size.width / 20,
           ),

@@ -10,24 +10,32 @@ String searchCategoriesModelToJson(List<SearchCategoriesModel> data) => json.enc
 
 class SearchCategoriesModel {
   SearchCategoriesModel({
-    required this.id,
+    required this.maincategoryId,
+    required this.subcategoryId,
+    required this.childcategoryId,
     required this.title,
-    required this.img,
+    required this.image,
   });
 
-  int id;
+  int maincategoryId;
+  int subcategoryId;
+  int childcategoryId;
   String title;
-  String img;
+  String image;
 
   factory SearchCategoriesModel.fromJson(Map<String, dynamic> json) => SearchCategoriesModel(
-    id: json["id"],
+    maincategoryId: json["maincategory_id"],
+    subcategoryId: json["subcategory_id"],
+    childcategoryId: json["childcategory_id"],
     title: json["title"],
-    img: json["img"],
+    image: json["image"],
   );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
+    "maincategory_id": maincategoryId,
+    "subcategory_id": subcategoryId,
+    "childcategory_id": childcategoryId,
     "title": title,
-    "img": img,
+    "image": image,
   };
 }

@@ -176,11 +176,34 @@ class _MyHomeBottomTabScreenState extends State<MyHomeBottomTabScreen> {
                 child: FloatingActionButton(
                   elevation: 0,
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const SearchScreen(),
-                      ),
-                    );
+                    setState(() {
+                      if (prefsData == 'null') {
+                        widget.pageIndex = 3;
+                        // currentScreen = const AccountsScreen();
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: const Color(0xFFebf9fe),
+                            content: Text(
+                              "Please Login First",
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.error,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Cerebri Sans Bold',
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                      } else {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const SearchScreen(),
+                          ),
+                        );
+                      }
+                    });
                   },
                   child: const Icon(
                     CupertinoIcons.add,

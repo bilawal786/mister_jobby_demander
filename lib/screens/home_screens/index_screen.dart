@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mister_jobby/screens/home_screens/home_tabs_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
@@ -96,9 +97,14 @@ class _IndexScreenState extends State<IndexScreen> {
                 tabs: [
                   Tab(
                     child: GestureDetector(
-                      onTap: () => navigator.pushNamed(
-                        MyRoutes.SEARCHROUTE,
-                      ),
+                      onTap: () => prefData.token == 'null'
+                          ? navigator.pushReplacement(MaterialPageRoute(
+                              builder: (ctx) => MyHomeBottomTabScreen(
+                                    pageIndex: 3,
+                                  )))
+                          : navigator.pushNamed(
+                              MyRoutes.SEARCHROUTE,
+                            ),
                       child: const SearchButton(),
                     ),
                   ),
