@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 
 import '../../helpers/routes.dart';
 import '../../models/categories_models/main_categories_model.dart';
-import '../../models/search_model.dart';
 
 class MainCategoriesProvider with ChangeNotifier {
   List<MainCategoriesModel>? mainCategories;
@@ -43,45 +42,6 @@ class MainCategoriesProvider with ChangeNotifier {
             cate.title.toLowerCase().contains(title))
         .toList();
     debugPrint('search categories print:${searchPost?[0].title}');
-    notifyListeners();
-  }
-
-  List searchAll = [];
-
-  getSearchData() {
-    print("Get Search is working");
-    var mData;
-    var sData;
-    var cData;
-    for (int i = 0; i < mainCategories!.length; i++) {
-      mData = SearchMainCategoryModel(
-        mainCategoryId: mainCategories![i].id,
-        mainCategoryImageUrl: mainCategories![i].image,
-        mainCategoryTitle: mainCategories![i].title,
-      );
-      searchAll.add(mData);
-      for(int j = 0; j< mainCategories![i].subCategories.length; j++){
-        sData = SearchSubCategoryModel(
-            subCategoryId: mainCategories![i].subCategories[j].id,
-            subCategoryTitle: mainCategories![i].subCategories[j].title,
-            subCategoryImageUrl: mainCategories![i].subCategories[j].image,
-        );
-        searchAll.add(sData);
-        for(int k = 0; k< mainCategories![i].subCategories[j].childCategories.length ; k++){
-           cData = SearchChildCategoryModel(
-              childCategoryId: mainCategories![i].subCategories[j].childCategories[k].id,
-              childCategoryTitle: mainCategories![i].subCategories[j].childCategories[k].title,
-              childCategoryImageUrl: mainCategories![i].subCategories[j].childCategories[k].img,
-          );
-           searchAll.add(cData);
-        }
-      }
-    }
-    print("search all  + ${searchAll.length}");
-    print("search all  + ${searchAll[0].toString()}");
-    // print("search all  + ${searchAll[0]}");
-    // print("main  + ${mData}");
-    // print("sub  + ${sData}");
     notifyListeners();
   }
 }

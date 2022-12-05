@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mister_jobby/providers/categories_provider/main_categories_provider.dart';
-import 'package:provider/provider.dart';
 
 import '../../widgets/const_widgets/search_input_field.dart';
 
@@ -17,8 +15,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final searchData = Provider.of<MainCategoriesProvider>(context);
-    final extractedData = searchData.searchAll;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -41,7 +37,6 @@ class _SearchScreenState extends State<SearchScreen> {
         height: 50,
         width: 300,
         padding: const EdgeInsets.all(50),
-        child: Text(" length : ${extractedData.length}", style: TextStyle(fontSize: 50, color: Colors.black),),
       )
 
 

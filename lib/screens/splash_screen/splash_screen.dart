@@ -33,7 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
       Provider.of<PreferencesProvider>(context, listen: false).checkToken();
       Provider.of<MainCategoriesProvider>(context).getMainCategories().then(
             (value) {
-              Provider.of<MainCategoriesProvider>(context, listen: false).getSearchData();
               Navigator.of(context)
                 .pushReplacement(MaterialPageRoute(builder: (ctx) => MyHomeBottomTabScreen(),),);
             });
