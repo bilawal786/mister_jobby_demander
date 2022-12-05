@@ -22,8 +22,8 @@ class _SubSearchInputFieldState extends State<SubSearchInputField> {
           color: Colors.grey.shade200, borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
         onChanged: (value){
-          print(value);
-          filterData.findBySubCategories(value);
+          debugPrint(value);
+          filterData.findByCategories(value);
         },
         style: Theme.of(context).textTheme.labelMedium,
         decoration: InputDecoration(
