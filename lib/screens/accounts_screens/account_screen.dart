@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -178,8 +179,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                       ),
                                       child: const Center(
                                         child:  Icon(
-                                          Icons.camera_alt_outlined,
-                                          size: 15,
+                                          CupertinoIcons.camera,
+                                          size: 14,
                                           color: Colors.white,
                                         ),
                                       ),
@@ -218,7 +219,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 style: Theme.of(context).textTheme.labelLarge,
                               ).tr(),
                               CustomListTile(
-                                leadingIcon: Icons.person_outline,
+                                leadingIcon: CupertinoIcons.person_alt,
                                 title: 'Personal_Information',
                                 onPress: () {
                                   Navigator.of(context).pushNamed(
@@ -236,7 +237,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                               ),
                               CustomListTile(
                                 leadingIcon:
-                                Icons.currency_pound,
+                                CupertinoIcons.money_euro_circle,
                                 title: 'My_Transaction',
                                 onPress: () {
                                   Navigator.of(context)
@@ -244,7 +245,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                 },
                               ),
                               CustomListTile(
-                                leadingIcon: Icons.all_inbox,
+                                leadingIcon: CupertinoIcons.tickets,
                                 title: 'My_CESU_Tickets',
                                 onPress: () {
                                   Navigator.of(context)
@@ -300,7 +301,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                                     Navigator.of(context)
                                         .pushNamed(MyRoutes.GIFTROUTE);
                                   },
-                                  leadingIcon: Icons.card_giftcard_outlined,
+                                  leadingIcon: CupertinoIcons.gift,
                                   title: 'Gift_Cards'),
                               const Divider(),
                             ],
@@ -319,7 +320,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       style: Theme.of(context).textTheme.labelLarge,
                     ).tr(),
                     CustomListTile(
-                      leadingIcon: Icons.question_answer_outlined,
+                      leadingIcon: CupertinoIcons.chat_bubble_2,
                       title: 'FAQ',
                       onPress: () {
                         Navigator.of(context)
@@ -334,7 +335,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
 
                         }
                       },
-                      leadingIcon: Icons.work_outline,
+                      leadingIcon: CupertinoIcons.bag,
                       title: "Account_Screen_Service_Provider",
                       subTitle: "Account_Screen_Service_Provider_Subtitle",
                     ),
@@ -343,7 +344,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                         Navigator.of(context)
                             .pushNamed(MyRoutes.HELPCENTERROUTE);
                       },
-                      leadingIcon: Icons.question_mark_rounded,
+                      leadingIcon: CupertinoIcons.question,
                       title: "Account_Screen_Help_Center",
                     ),
                     CustomListTile(
@@ -361,7 +362,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                     CustomListTile(
                       onPress: () {
                         Navigator.of(context).pushNamed(MyRoutes.TAXCREDIT);},
-                      leadingIcon: Icons.percent_outlined,
+                      leadingIcon: CupertinoIcons.percent,
                       title: "Account_Screen_Tax_Credit",
                     ),
                     CustomListTile(
@@ -374,7 +375,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       onPress: () {
                         Navigator.of(context).pushNamed(MyRoutes.ABOUTUSROUTE);
                       },
-                      leadingIcon: Icons.info_outline_rounded,
+                      leadingIcon: CupertinoIcons.info_circle,
                       title: "About",
                     ),
                     // CustomListTile(
