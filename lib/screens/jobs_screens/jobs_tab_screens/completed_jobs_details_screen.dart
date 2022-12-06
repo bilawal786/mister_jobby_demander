@@ -14,10 +14,12 @@ import '../../../widgets/jobs_screen_widgets/jobs_proposals_widget.dart';
 import '../../messages_screens/chat_screen.dart';
 import '../request_view.dart';
 import 'edit_completed_jobs_screen.dart';
+import 'jobber_profile_reservation.dart';
 
 class CompletedJobsDetails extends StatefulWidget {
   final JobsCompletedModel? jobsCompletedModel;
-  const CompletedJobsDetails({Key? key, this.jobsCompletedModel}) : super(key: key);
+  const CompletedJobsDetails({Key? key, this.jobsCompletedModel})
+      : super(key: key);
 
   @override
   State<CompletedJobsDetails> createState() => _CompletedJobsDetailsState();
@@ -29,16 +31,17 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
   @override
   void didChangeDependencies() {
     if (isInit) {
-      Provider.of<JobReservationProvider>(context)
-          .getJobReservations(context, widget.jobsCompletedModel!.id.toString());
+      Provider.of<JobReservationProvider>(context).getJobReservations(
+          context, widget.jobsCompletedModel!.id.toString());
     }
     isInit = false;
     super.didChangeDependencies();
   }
+
   @override
   Widget build(BuildContext context) {
     final reservationData =
-    Provider.of<JobReservationProvider>(context, listen: false);
+        Provider.of<JobReservationProvider>(context, listen: false);
     final offerData = Provider.of<JobProposalsProvider>(context, listen: false);
     final extractedReservation = reservationData.jobReservations;
     final extractedOffer = offerData.jobProposal;
@@ -64,9 +67,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
           ),
         ],
         body: SingleChildScrollView(
-          child:
-
-          Padding(
+          child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,18 +170,26 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                     Expanded(
                       child: OutlineSelectedButton(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (ctx) =>
-                                  SingleCompletedJobsDetails(jobsCompletedModel: widget.jobsCompletedModel),
-                            ),
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (ctx) => SingleCompletedJobsDetails(
+                                    jobsCompletedModel:
+                                        widget.jobsCompletedModel),
+                              ),
                             );
-                          }, textTitle: "Details", border: true),
+                          },
+                          textTitle: "Details",
+                          border: true),
                     ),
                     Expanded(
                       child: OutlineSelectedButton(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                            EditCompletedJobScreen(jobsDetail: widget.jobsCompletedModel),),);
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => EditCompletedJobScreen(
+                                    jobsDetail: widget.jobsCompletedModel),
+                              ),
+                            );
                           },
                           textTitle: "Repost",
                           color: Colors.blueGrey.shade100),
@@ -254,32 +263,45 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                             children: [
                               Stack(
                                 children: [
-                                  Container(
-                                    width:
-                                    MediaQuery.of(context).size.width / 6,
-                                    height:
-                                    MediaQuery.of(context).size.width / 6,
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.black12,
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        "${MyRoutes.IMAGEURL}/${extractedReservation[index].jobberProfile.image}",
-                                        fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (ctx) =>
+                                              JobberProfileReservationScreen(
+                                            jobber: extractedReservation[index]
+                                                .jobberProfile,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: Container(
+                                      width:
+                                          MediaQuery.of(context).size.width / 6,
+                                      height:
+                                          MediaQuery.of(context).size.width / 6,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.black12,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.network(
+                                          "${MyRoutes.IMAGEURL}/${extractedReservation[index].jobberProfile.image}",
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                   ),
                                   if (extractedReservation[index]
-                                      .jobberProfile
-                                      .verified ==
+                                          .jobberProfile
+                                          .verified ==
                                       2)
                                     Positioned(
                                       right: -2,
                                       child: Container(
                                         decoration: const BoxDecoration(
-                                          color:Colors.white,
+                                          color: Colors.white,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Icon(
@@ -301,7 +323,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                     children: [
                                       Padding(
                                         padding:
-                                        const EdgeInsets.only(right: 28),
+                                            const EdgeInsets.only(right: 28),
                                         child: Text(
                                           "${extractedReservation[index].jobberProfile.firstName} ${extractedReservation[index].jobberProfile.lastName}",
                                           style: Theme.of(context)
@@ -310,8 +332,8 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                         ),
                                       ),
                                       if (extractedReservation[index]
-                                          .jobberProfile
-                                          .pro ==
+                                              .jobberProfile
+                                              .pro ==
                                           2)
                                         Positioned(
                                           right: 0,
@@ -320,7 +342,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                             decoration: BoxDecoration(
                                               color: Colors.blue,
                                               borderRadius:
-                                              BorderRadius.circular(2),
+                                                  BorderRadius.circular(2),
                                             ),
                                             padding: const EdgeInsets.only(
                                               left: 1,
@@ -347,8 +369,8 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                       ),
                                       SizedBox(
                                         width:
-                                        MediaQuery.of(context).size.width /
-                                            80,
+                                            MediaQuery.of(context).size.width /
+                                                80,
                                       ),
                                       Text(
                                         "${extractedReservation[index].jobberProfile.rating}",
@@ -358,8 +380,8 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                       ),
                                       SizedBox(
                                         width:
-                                        MediaQuery.of(context).size.width /
-                                            80,
+                                            MediaQuery.of(context).size.width /
+                                                80,
                                       ),
                                       Row(
                                         children: [
@@ -371,8 +393,8 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                           ),
                                           SizedBox(
                                             width: MediaQuery.of(context)
-                                                .size
-                                                .width /
+                                                    .size
+                                                    .width /
                                                 100,
                                           ),
                                           Text(
@@ -392,7 +414,9 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                 children: [
                                   IconButton(
                                     onPressed: () {
-                                      _makePhoneCall(extractedReservation[index].jobberProfile.phone);
+                                      _makePhoneCall(extractedReservation[index]
+                                          .jobberProfile
+                                          .phone);
                                     },
                                     icon: Icon(
                                       Icons.phone_outlined,
@@ -401,7 +425,10 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                   ),
                                   IconButton(
                                     onPressed: () {
-                                      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const ChatScreen()));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (ctx) =>
+                                                  const ChatScreen()));
                                     },
                                     icon: Icon(
                                       Icons.chat_outlined,
@@ -458,12 +485,44 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                           SizedBox(
                             height: MediaQuery.of(context).size.width / 40,
                           ),
-                          if (extractedReservation[index].status != 2)
+                          if (extractedReservation[index].status == 2)
                             OutlineSelectedButton(
-                              onTap: () {},
-                              textTitle: "Change or cancel",
+                              onTap: (){},
+                              textTitle: "Completed",
                               border: true,
                               width: double.infinity,
+                            ),
+                          if (extractedReservation[index].status == 4)
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
+                              width: MediaQuery.of(context).size.width / 1.15,
+                              decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              child: const Text("Waiting for approval", style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                                fontFamily: 'Cerebri Sans Bold',
+                              ),
+                                textAlign: TextAlign.center,).tr(),
+                            ),
+                          if (extractedReservation[index].status == 3)
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
+                              width: MediaQuery.of(context).size.width / 1.15,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              child: const Text("Cancelled", style:  TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                                fontFamily: 'Cerebri Sans Bold',
+                              ),
+                                textAlign: TextAlign.center,).tr(),
                             ),
                           SizedBox(
                             height: MediaQuery.of(context).size.width / 40,
@@ -492,21 +551,21 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                       builder: (_, offers, child) => InkWell(
                         onTap: () {
                           offers.setCheckApi();
-                          offers
-                              .getJobProposals(context, widget.jobsCompletedModel!.id);
+                          offers.getJobProposals(
+                              context, widget.jobsCompletedModel!.id);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: offers.checkApi == false
                               ? const SizedBox(
-                              width: 25,
-                              height: 25,
-                              child: CircularProgressIndicator())
+                                  width: 25,
+                                  height: 25,
+                                  child: CircularProgressIndicator())
                               : const Icon(
-                            Icons.refresh,
-                            size: 25,
-                            color: Colors.black,
-                          ),
+                                  Icons.refresh,
+                                  size: 25,
+                                  color: Colors.black,
+                                ),
                         ),
                       ),
                     ),
@@ -517,11 +576,11 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                 ),
                 AbsorbPointer(
                   absorbing: (widget.jobsCompletedModel!.isHired ==
-                      widget.jobsCompletedModel!.jobberRequired)
+                          widget.jobsCompletedModel!.jobberRequired)
                       ? true
                       : false,
-                  child: JobsProposalsWidget(
-                      jobId: widget.jobsCompletedModel!.id),
+                  child:
+                      JobsProposalsWidget(jobId: widget.jobsCompletedModel!.id),
                 ),
               ],
             ),
@@ -530,6 +589,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
       ),
     );
   }
+
   Future<void> _makePhoneCall(String url) async {
     if (await canLaunchUrl(Uri(scheme: 'tel', path: url))) {
       await launchUrl(Uri(scheme: 'tel', path: url));

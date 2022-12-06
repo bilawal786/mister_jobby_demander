@@ -261,7 +261,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
-                        "\"${extractProposal[index].jobber.description}\"",
+                        "\"${extractProposal[index].jobber.personalDescription}\"",
                         style: Theme.of(context).textTheme.labelMedium,
                         textAlign: TextAlign.center,
                       ),

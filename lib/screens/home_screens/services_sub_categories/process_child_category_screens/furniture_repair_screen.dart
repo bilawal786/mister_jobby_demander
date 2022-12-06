@@ -23,6 +23,7 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
   int? mId;
   int? subId;
   int? childId;
+  int? price;
   String? title;
 
   @override
@@ -36,10 +37,11 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
     subId = routeArgs['subCategoryId'];
     childId = routeArgs['childCategoryId'];
     title = routeArgs['childCategoryTitle'];
+    price = routeArgs['price'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
-        constProviderData.clearData();
+        constProviderData.clearData(context);
         return true;
       },
       child: Scaffold(
@@ -306,7 +308,9 @@ class _FurnitureRepairScreenState extends State<FurnitureRepairScreen> {
       content: GeneralStep02(
           mainCategoryId: mId!,
           subCategoryId: subId!,
-          childCategoryId: childId),
+          childCategoryId: childId,
+        price: price,
+      ),
     ),
     Step(
       isActive: currentStep >= 3,

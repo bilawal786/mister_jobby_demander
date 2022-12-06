@@ -23,6 +23,7 @@ class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
   int? mId;
   int? subId;
   int? childId;
+  int? price;
   String? title;
 
   @override
@@ -33,11 +34,12 @@ class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
     subId = routeArgs['subCategoryId'];
     childId = routeArgs['childCategoryId'];
     title = routeArgs['childCategoryTitle'];
+    price = routeArgs['price'];
     final constProviderData =
         Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
       onWillPop: () async {
-        constProviderData.clearData();
+        constProviderData.clearData(context);
         return true;
       },
       child: Scaffold(
@@ -304,7 +306,9 @@ class _TilesInstallationScreenState extends State<TilesInstallationScreen> {
       content: GeneralStep02(
           mainCategoryId: mId!,
           subCategoryId: subId!,
-          childCategoryId: childId),
+          childCategoryId: childId,
+        price: price,
+      ),
     ),
     Step(
       isActive: currentStep >= 3,

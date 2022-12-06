@@ -238,6 +238,43 @@ class JobberProfileReservationScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width /
+                              10,
+                          height:
+                          MediaQuery.of(context).size.width /
+                              10,
+                          decoration: BoxDecoration(
+                            color: Colors.blue.shade50,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            FontAwesomeIcons.person,
+                            size: 20,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width /
+                              40,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 1.5,
+                          child: Text(
+                            " ${jobber!.personalDescription} ",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width / 40,
+                    ),
                   ],
                 ),
               ),

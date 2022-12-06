@@ -22,6 +22,7 @@ class _AdministrativeTaskScreenState extends State<AdministrativeTaskScreen> {
   int currentStep = 0;
   int? mainCateId;
   int? subCateId;
+  int? price = 0;
   String? subCateTitle;
 
   @override
@@ -30,12 +31,13 @@ class _AdministrativeTaskScreenState extends State<AdministrativeTaskScreen> {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mainCateId = routeArgs['mainCategoryId'];
     subCateId = routeArgs['subCategoryId'];
+  price = routeArgs['price'];
     subCateTitle = routeArgs['subCategoryTitle'];
     final constProviderData =
         Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
       onWillPop: () async {
-        constProviderData.clearData();
+        constProviderData.clearData(context);
         return true;
       },
       child: Scaffold(
@@ -300,7 +302,8 @@ class _AdministrativeTaskScreenState extends State<AdministrativeTaskScreen> {
           state: currentStep > 2 ? StepState.complete : StepState.indexed,
           title: const Text(""),
           content: GeneralStep02(
-              mainCategoryId: mainCateId!, subCategoryId: subCateId!),
+              mainCategoryId: mainCateId!, subCategoryId: subCateId!,
+  price : price,),
         ),
         Step(
           isActive: currentStep >= 3,

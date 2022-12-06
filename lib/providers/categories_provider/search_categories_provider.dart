@@ -25,6 +25,8 @@ class SearchCategoriesProvider with ChangeNotifier {
     }
   }
 
+  bool isSearch = false;
+
   List<SearchCategoriesModel>? searchCat;
   void filterCategories(String title) {
     if(title.isEmpty || title == "null")
@@ -35,6 +37,14 @@ class SearchCategoriesProvider with ChangeNotifier {
     }
     searchCat = searchCategoriesModel?.where((cate) => cate.title.toLowerCase().contains(title.toLowerCase())).toList();
     // debugPrint('sub search categories print:${searchCat![0].title}');
+    isSearch = true;
+    notifyListeners();
+  }
+
+  clearSearchData(context){
+    searchCat = null;
+    FocusScope.of(context).unfocus();
+    isSearch = false;
     notifyListeners();
   }
 

@@ -22,6 +22,7 @@ class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
   int? mId;
   int? subId;
   int? childId;
+  int? price;
   String? title;
 
   @override
@@ -35,10 +36,11 @@ class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
     subId = routeArgs['subCategoryId'];
     childId = routeArgs['childCategoryId'];
     title = routeArgs['childCategoryTitle'];
+    price = routeArgs['price'];
     final constProviderData = Provider.of<ConstProvider>(context,listen: false);
     return WillPopScope(
       onWillPop:  ()async{
-        constProviderData.clearData();
+        constProviderData.clearData(context);
         return true;
       },
       child: Scaffold(
@@ -303,7 +305,9 @@ class _FlushInstallationScreenState extends State<FlushInstallationScreen> {
       content: GeneralStep02(
           mainCategoryId: mId!,
           subCategoryId: subId!,
-          childCategoryId: childId),
+          childCategoryId: childId,
+        price: price,
+      ),
     ),
     Step(
       isActive: currentStep >= 3,

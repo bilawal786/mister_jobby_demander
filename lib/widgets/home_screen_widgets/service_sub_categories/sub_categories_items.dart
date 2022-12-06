@@ -26,6 +26,7 @@ class SubCategoriesItems extends StatelessWidget {
             'mainCategoryIndex': mainCategoryIndex,
             'mainCategoryId': mainCategoryId,
             'subCategoryId': subCategory.id,
+            'price': 0,
           });
         } else {
           var checkId = subCategory.id;
@@ -36,6 +37,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.MOWLAWNROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -46,6 +48,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.HEDGETRIMMINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -56,6 +59,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.CUTTREEROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -66,6 +70,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.CLEARINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -76,6 +81,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.WEEDINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -86,6 +92,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.MAINTENANCEGREENSPACEROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -96,6 +103,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.LAWNCAREROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -106,6 +114,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.TERRACECLEANINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -116,6 +125,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.GARDENINGJOBROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -126,6 +136,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.MOVINGASSISTANCEROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -136,6 +147,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.MOVINGFURNITUREROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -146,6 +158,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.MOVINGAPPLIANCESROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -156,6 +169,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.RIDCLUTTERROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -166,6 +180,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.JOBREMOVALROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -176,6 +191,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FURNITUREDELIVERYROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -186,6 +202,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.APPLIANCEDELIVERYROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -196,6 +213,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.LETTERSDELIVERYROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -206,6 +224,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.RACEDELIVERYROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -216,6 +235,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.HOMECLEANINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -226,6 +246,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.IRONINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -236,6 +257,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.CARWASHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -246,6 +268,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.POOLWASHINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -256,6 +279,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.WINDOWCLEANINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -266,6 +290,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.CLEANINGJOBROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -276,6 +301,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.CHILDCAREROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -286,6 +312,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.DOGSITTERROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -296,6 +323,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.KEEPCATROUTE, arguments: {
                 'mainCategoryId': mainCategoryId,
                 'subCategoryId': subCategory.id,
+            'price': 0,
                 'subCategoryTitle': subCategory.title,
                 });
               }
@@ -306,6 +334,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.KEEPANIMALSROUTE , arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -316,6 +345,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.CLEANCOMPUTERROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -326,6 +356,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.COMPUTERCOURSESROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -336,6 +367,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.INSTALLPRINTERROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -346,6 +378,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.COMPUTERJOBROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -356,6 +389,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.HOMECAREROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -366,6 +400,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.MEDICINEDELIVERYROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -376,6 +411,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.DELIVERGROCERIESROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -386,6 +422,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.HOMEDELIVERYROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -396,6 +433,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.ACCOMPANIMENTRACEROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -406,6 +444,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.ACCOMPANIMENTMEDICALAPPOINTMENTROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -416,6 +455,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.PREPAREMEALROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -426,6 +466,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.WAITERWAITRESSROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -436,6 +477,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.SEWINGALTERATIONROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -446,6 +488,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -456,6 +499,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -466,6 +510,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -476,6 +521,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -486,6 +532,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -496,6 +543,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -506,6 +554,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -516,6 +565,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -526,6 +576,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -536,6 +587,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -546,6 +598,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -556,6 +609,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -566,6 +620,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -576,6 +631,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -586,6 +642,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FRENCHROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -596,6 +653,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.PHOTOGRAPHYROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -606,6 +664,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.HOMECHEFROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -616,6 +675,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.BARTENDERROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -626,6 +686,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.WAITERROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -636,6 +697,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.DJROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -646,6 +708,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.ANIMATORROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -656,6 +719,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.FLYERSDISTRIBUTIONROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -666,6 +730,7 @@ class SubCategoriesItems extends StatelessWidget {
               Navigator.of(context).pushNamed(MyRoutes.HOSTHOTESSROUTE, arguments: {
                 'mainCategoryId': mainCategoryId,
                 'subCategoryId': subCategory.id,
+            'price': 0,
                 'subCategoryTitle': subCategory.title,
               });
             }
@@ -676,6 +741,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.ADMINISTRAVTIVETASKROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -686,6 +752,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.VEHICLEMAINTENANCEROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -696,6 +763,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.VEHICLEREPAIRROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -706,6 +774,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.TROUBLESHOOTINGROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }
@@ -716,6 +785,7 @@ class SubCategoriesItems extends StatelessWidget {
                 Navigator.of(context).pushNamed(MyRoutes.EQUIPMENTRENTALSCREENROUTE, arguments: {
                   'mainCategoryId': mainCategoryId,
                   'subCategoryId': subCategory.id,
+            'price': 0,
                   'subCategoryTitle': subCategory.title,
                 });
               }

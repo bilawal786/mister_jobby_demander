@@ -15,6 +15,7 @@ class SearchCategoriesModel {
     required this.childcategoryId,
     required this.title,
     required this.image,
+    required this.price,
   });
 
   int maincategoryId;
@@ -22,6 +23,7 @@ class SearchCategoriesModel {
   int childcategoryId;
   String title;
   String image;
+  String price;
 
   factory SearchCategoriesModel.fromJson(Map<String, dynamic> json) => SearchCategoriesModel(
     maincategoryId: json["maincategory_id"],
@@ -29,6 +31,7 @@ class SearchCategoriesModel {
     childcategoryId: json["childcategory_id"],
     title: json["title"],
     image: json["image"],
+    price: json["price"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -37,5 +40,6 @@ class SearchCategoriesModel {
     "childcategory_id": childcategoryId,
     "title": title,
     "image": image,
+    "price": price,
   };
 }

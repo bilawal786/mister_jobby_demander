@@ -1,7 +1,7 @@
 {
   "test_text": "Welcome Screen test",
   "Home_AppBar_Title": "Welcome,",
-  "Search_Screen_AppBar_Title": "Ask for a service",
+  "Search_Screen_AppBar_Title": "Search",
   "Search_Hint_Text": "Search Services",
   "Index_Page_Label": "Home",
   "Process_Screen_Continue_Button": "Continue",
@@ -567,6 +567,8 @@
   "Pay From Card": "Pay From Card",
   "Discuss in private": "Discuss in private",
   "Jobs Screen": "Jobs Screen",
-  "Confirm": "Confirm"
+  "Confirm": "Confirm",
+  "Completed": "Completed",
+  "Complete Job Successfully": "Complete Job Successfully"
 
 }

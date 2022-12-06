@@ -19,6 +19,7 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
   int currentStep = 0;
   int? mainCateId;
   int? subCateId;
+  int? price = 0;
   String? subCateTitle;
 
   @override
@@ -27,12 +28,13 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     mainCateId = routeArgs['mainCategoryId'];
     subCateId = routeArgs['subCategoryId'];
+  price = routeArgs['price'];
     subCateTitle = routeArgs['subCategoryTitle'];
     final constProviderData =
         Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
       onWillPop: () async {
-        constProviderData.clearData();
+        constProviderData.clearData(context);
         return true;
       },
       child: Scaffold(

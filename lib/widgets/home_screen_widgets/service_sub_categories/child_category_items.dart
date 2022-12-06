@@ -28,6 +28,7 @@ class ChildCategoriesItems extends StatelessWidget {
                 'subCategoryId'  : subCategoryId,
                 'childCategoryId' : childCategory.id,
                 'childCategoryTitle': childCategory.title,
+                'price': 0,
               });
               print("$check");
             }
@@ -39,6 +40,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -50,6 +52,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -61,6 +64,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -72,6 +76,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -83,6 +88,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -94,6 +100,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -105,6 +112,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -116,6 +124,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -127,6 +136,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -138,6 +148,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -149,6 +160,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -160,6 +172,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -171,6 +184,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -182,6 +196,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -193,6 +208,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -204,6 +220,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -215,6 +232,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -226,6 +244,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -237,6 +256,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -248,6 +268,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -259,6 +280,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -270,6 +292,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -281,6 +304,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -292,6 +316,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -303,6 +328,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -314,6 +340,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -325,6 +352,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -336,6 +364,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -347,6 +376,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }
@@ -358,6 +388,7 @@ class ChildCategoriesItems extends StatelessWidget {
               'subCategoryId'  : subCategoryId,
               'childCategoryId' : childCategory.id,
               'childCategoryTitle': childCategory.title,
+                'price': 0,
             });
             print("$check");
           }

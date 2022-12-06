@@ -30,7 +30,7 @@ class _EquipmentRentalStepScreenState extends State<EquipmentRentalStepScreen> {
     Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
         onWillPop: () async {
-          constProviderData.clearData();
+          constProviderData.clearData(context);
           return true;
         },
       child: Scaffold(

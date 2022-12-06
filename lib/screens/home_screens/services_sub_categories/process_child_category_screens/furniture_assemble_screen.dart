@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../providers/categories_provider/search_categories_provider.dart';
 import '../process_child_screen_steps/furniture_assemble_step.dart';
 import '../process_child_screen_steps/general_step_2.5.dart';
 import '../process_child_screen_steps/general_step_2.dart';
@@ -23,6 +24,7 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
   int mId = 0;
   int subId = 0;
   int childId = 0;
+  int? price = 0;
   String? title;
 
   @override
@@ -33,11 +35,13 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
     subId = routeArgs['subCategoryId'];
     childId = routeArgs['childCategoryId'];
     title = routeArgs['childCategoryTitle'];
+    price = routeArgs['price'];
+
     final constProviderData =
         Provider.of<ConstProvider>(context, listen: false);
     return WillPopScope(
       onWillPop: () async {
-        constProviderData.clearData();
+        constProviderData.clearData(context);
         return true;
       },
       child: Scaffold(
@@ -322,7 +326,9 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
           content: GeneralStep02(
               mainCategoryId: mId,
               subCategoryId: subId,
-              childCategoryId: childId),
+              childCategoryId: childId,
+            price: price,
+          ),
         ),
         Step(
           isActive: currentStep >= 3,

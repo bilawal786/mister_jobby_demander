@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mister_jobby/providers/categories_provider/main_categories_provider.dart';
+import 'package:mister_jobby/providers/categories_provider/search_categories_provider.dart';
 import 'package:provider/provider.dart';
 
 
@@ -15,7 +15,7 @@ class _SubSearchInputFieldState extends State<SubSearchInputField> {
 
   @override
   Widget build(BuildContext context) {
-    final filterData = Provider.of<MainCategoriesProvider>(context);
+    final filterData = Provider.of<SearchCategoriesProvider>(context);
     return Container(
       margin: const EdgeInsets.only(left: 15, right: 15),
       decoration: BoxDecoration(
@@ -23,7 +23,7 @@ class _SubSearchInputFieldState extends State<SubSearchInputField> {
       child: TextFormField(
         onChanged: (value){
           debugPrint(value);
-          filterData.findByCategories(value);
+          filterData.filterCategories(value);
         },
         style: Theme.of(context).textTheme.labelMedium,
         decoration: InputDecoration(

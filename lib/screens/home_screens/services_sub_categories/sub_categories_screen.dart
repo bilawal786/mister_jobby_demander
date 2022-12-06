@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../helpers/routes.dart';
 import '../../../providers/categories_provider/main_categories_provider.dart';
+import '../../../providers/preferences_provider/preferences_provider.dart';
 import '../../../widgets/const_widgets/search_button.dart';
 import '../../../widgets/home_screen_widgets/service_sub_categories/sub_categories_items.dart';
-import '../../../widgets/home_screen_widgets/service_sub_categories/sub_categories_search_input_field.dart';
+import '../home_tabs_screen.dart';
 
 class SubCategoriesScreen extends StatelessWidget {
   const SubCategoriesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final prefData = Provider.of<PreferencesProvider>(context, listen: false);
     final routeArgs =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final mainCategoryIndex = routeArgs['index'];
-    final mainCategoryId = routeArgs['mainId'];
     final mainCategoryData =
         Provider.of<MainCategoriesProvider>(context, listen: false);
     final extractedCategory = mainCategoryData.mainCategories;
@@ -36,7 +38,16 @@ class SubCategoriesScreen extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              const SubSearchInputField(),
+              GestureDetector(
+                  onTap: () => prefData.token == 'null'
+                      ? Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (ctx) => MyHomeBottomTabScreen(
+                        pageIndex: 3,
+                      )))
+                      : Navigator.of(context).pushNamed(
+                    MyRoutes.SEARCHROUTE,
+                  ),
+                  child: const SearchButton()),
               ListView.builder(
                 padding: const EdgeInsets.only(
                     left: 0.0, top: 10.0, right: 0.0, bottom: 10.0),

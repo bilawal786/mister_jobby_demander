@@ -3,6 +3,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:http/http.dart' as http;
+import 'package:mister_jobby/providers/categories_provider/search_categories_provider.dart';
 import 'package:mister_jobby/screens/home_screens/home_tabs_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -1610,7 +1611,7 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void clearData() {
+  void clearData(context) {
     completeAddress = "";
     educationLevelTitle = "";
     courseFormatTitle = "";
@@ -1696,6 +1697,8 @@ class ConstProvider with ChangeNotifier {
     adminCost = 0.0;
     totalCost = 0.0;
     status = 1;
+    final searchData = Provider.of<SearchCategoriesProvider>(context,listen: false);
+    searchData.isSearch = false;
     notifyListeners();
   }
 
@@ -1807,7 +1810,7 @@ class ConstProvider with ChangeNotifier {
         ),
         (route) => false,
       );
-      clearData();
+      clearData(context);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -1822,6 +1825,9 @@ class ConstProvider with ChangeNotifier {
           ),
         ),
       );
+      final searchData = Provider.of<SearchCategoriesProvider>(context,listen: false);
+      searchData.isSearch = false;
+      notifyListeners();
       debugPrint("job Posted successfully ");
       debugPrint(time);
     } else if(response.statusCode == 401){
