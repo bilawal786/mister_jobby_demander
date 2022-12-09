@@ -38,7 +38,7 @@ class _TrustAndSecurityState extends State<TrustAndSecurity> {
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: false,
-        title: Text("Trust and Security ", style: Theme.of(context).textTheme.bodyLarge,).tr(),
+        title: Text("Account_Screen_Trust_security", style: Theme.of(context).textTheme.bodyLarge,).tr(),
 
         iconTheme: const IconThemeData(
           color: Colors.black,
