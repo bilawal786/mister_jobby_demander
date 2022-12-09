@@ -378,26 +378,6 @@ class _AccountsScreenState extends State<AccountsScreen> {
                       leadingIcon: CupertinoIcons.info_circle,
                       title: "About",
                     ),
-                    // CustomListTile(
-                    //   onPress: () {
-                    //     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const TestScreen()));
-                    //   },
-                    //   leadingIcon: Icons.info_outline_rounded,
-                    //   title: "Test",
-                    // ),
-                    // CustomListTile(
-                    //   onPress: () {
-                    //     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                    //       const InternetDisconnectScreen(),));},
-                    //   leadingIcon: Icons.signal_wifi_bad,
-                    //   title: "Internet Error Test Screen",
-                    // ),
-                    // CustomListTile(
-                    //   onPress: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                    //     const ErrorScreen(),));},
-                    //   leadingIcon: Icons.error_outline_outlined,
-                    //   title: "Error Test Screen",
-                    // ),
                   ],
                 ),
               ),

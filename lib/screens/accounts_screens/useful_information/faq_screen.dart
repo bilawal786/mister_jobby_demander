@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../providers/accounts_providers/useful_information_providers/faq_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -12,8 +14,20 @@ class FAQScreen extends StatefulWidget {
 
 class _FAQScreenState extends State<FAQScreen> {
   List<int> expansion = [];
+  var isInit = true;
+
+  @override
+  void didChangeDependencies() {
+    if(isInit){
+      Provider.of<FAQProvider>(context).getFAQ();
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
   @override
   Widget build(BuildContext context) {
+    final faqData= Provider.of<FAQProvider>(context, listen: false);
+    final extractedFaq = faqData.myFAQ;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -23,12 +37,24 @@ class _FAQScreenState extends State<FAQScreen> {
         iconTheme: Theme.of(context).iconTheme,
       ),
       body: SingleChildScrollView(
-        child: Padding(
+        child: extractedFaq == null ? const Center(child: CircularProgressIndicator(),):Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
             children: [
               Card(
                 child: ListTile(
+                  onTap: () async {
+                    String email = Uri.encodeComponent("info@misterjobby.com");
+                    String subject = Uri.encodeComponent("Need Support ");
+                    String body = Uri.encodeComponent("Hi! ");
+                    print(subject); //output: Hello%20Flutter
+                    Uri mail = Uri.parse("mailto:$email?subject=$subject&body=$body");
+                    if (await launchUrl(mail)) {
+                      //email app opened
+                    }else{
+                      //email app is not opened
+                    }
+                  },
                   contentPadding: const EdgeInsets.all(10),
                   title: Text(
                     "Email Support",
@@ -117,11 +143,7 @@ class _FAQScreenState extends State<FAQScreen> {
                           faqData.expansion.contains(index)
                               ? Container(
                                   padding: const EdgeInsets.all(10),
-                                  child: Text(
-                                    faqData.myFAQ![index].answer,
-                                    style:
-                                        Theme.of(context).textTheme.labelMedium,
-                                  ),
+                                  child: HtmlWidget(extractedFaq[index].answer),
                                 )
                               : const SizedBox(),
                         ],

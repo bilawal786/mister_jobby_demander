@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
@@ -22,13 +23,26 @@ class ContinueJobber extends StatefulWidget {
 }
 
 class _ContinueJobberState extends State<ContinueJobber> {
+
+  var isInit = true;
   Map<String, dynamic>? paymentIntent;
   var check = false;
   var readTerms = false;
   bool? alert;
+
+
+  @override
+  void didChangeDependencies() {
+    if(isInit){
+      Provider.of<MyBalanceProvider>(context).getMyBalance(context);
+    }
+    isInit= false;
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final balanceData = Provider.of<MyBalanceProvider>(context);
+    final balanceData = Provider.of<MyBalanceProvider>(context, listen: false);
     final extractData = balanceData.myBalanceModel;
     return Scaffold(
       appBar: AppBar(
@@ -50,43 +64,119 @@ class _ContinueJobberState extends State<ContinueJobber> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                onTap: readTerms == true ? (){
-                  setState(() {
-                    alert = false;
-                  });
-                  (double.parse(extractData!.wallet) > (double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100))) ?
-                  showDialog(context: context, builder: (context) => AlertDialog(title: Text('Pay From Wallet',
-                    style: Theme.of(context).textTheme.bodyMedium,),
-                    content: Text('Please Confirm',
-                      style: Theme.of(context).textTheme.labelMedium,),
-                    actions: [
-                      TextButton(onPressed: (){Navigator.of(context).pop();}, child: const Text('Cancel',),),
-                      TextButton(onPressed: (){
-                        balanceData.payFromWallet(context,widget.proposel!.id.toString(),
-                          double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100),
-                          ((double.parse(widget.proposel!.price) * 10) / 100),).then((value) =>
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => PaymentSuccessScreen(jobber: widget.proposel!.jobber,),),),);
-
-                      }, child: Text('OK',),),
-                    ],),) :
-                  showDialog(context: context, builder: (context) => AlertDialog(title: Text('Insufficient Balance',
-                    style: Theme.of(context).textTheme.bodyMedium,),
-                    content: Text('Please recharge your account and try again',
-                      style: Theme.of(context).textTheme.labelMedium,),
-                    actions: [
-                      TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text('OK',),),
-                    ],
-                  ),);
-                } : (){
-                  setState(() {
-                    alert = true;
-                  });
-                },
+                onTap: readTerms == true
+                    ? () {
+                        setState(() {
+                          alert = false;
+                        });
+                        (extractData!.wallet != "") &&
+                            (double.parse(extractData.wallet) >
+                                (double.parse(widget.proposel!.price) +
+                                    ((double.parse(widget.proposel!.price) *
+                                            10) /
+                                        100)))
+                            ? showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text(
+                                    'Pay From Wallet',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  content: Text(
+                                    'Please Confirm',
+                                    style:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: const Text(
+                                        'Cancel',
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        balanceData
+                                            .payFromWallet(
+                                              context,
+                                              widget.proposel!.id.toString(),
+                                              double.parse(
+                                                      widget.proposel!.price) +
+                                                  ((double.parse(widget
+                                                              .proposel!
+                                                              .price) *
+                                                          10) /
+                                                      100),
+                                              ((double.parse(widget
+                                                          .proposel!.price) *
+                                                      10) /
+                                                  100),
+                                            )
+                                            .then(
+                                              (value) => Navigator.of(context)
+                                                  .pushReplacement(
+                                                MaterialPageRoute(
+                                                  builder: (ctx) =>
+                                                      PaymentSuccessScreen(
+                                                    jobber:
+                                                        widget.proposel!.jobber,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                      },
+                                      child: Text(
+                                        'OK',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text(
+                                    'Insufficient Balance',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  content: Text(
+                                    'Please recharge your account and try again',
+                                    style:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text(
+                                        'OK',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                      }
+                    : () {
+                        setState(() {
+                          alert = true;
+                        });
+                      },
                 horizontalTitleGap: 0,
                 minVerticalPadding: 0,
                 leading: const Icon(FontAwesomeIcons.wallet),
-                title: Text('Pay From Wallet', style: Theme.of(context).textTheme.bodyMedium,),
-                trailing: Text("${extractData!.wallet}€", style: Theme.of(context).textTheme.bodyMedium,),
+                title: Text(
+                  'Pay From Wallet',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                trailing: Text(
+                  extractData!.wallet == "" ? "0€" : "${extractData.wallet}€",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
               const Divider(),
               SizedBox(
@@ -94,27 +184,29 @@ class _ContinueJobberState extends State<ContinueJobber> {
               ),
               check == false
                   ? CustomButton(
-                  onPress: readTerms == true ? () async {
-                    setState(() {
-                      check = true;
-                      alert = false;
-                    });
-                    await makePayment();
-                  } : (){
-                    setState(() {
-                      alert = true;
-                    });
-                  },
-                  buttonName: "Pay From Card")
+                      onPress: readTerms == true
+                          ? () async {
+                              setState(() {
+                                check = true;
+                                alert = false;
+                              });
+                              await makePayment();
+                            }
+                          : () {
+                              setState(() {
+                                alert = true;
+                              });
+                            },
+                      buttonName: "Pay From Card")
                   : const Center(
-                child: CircularProgressIndicator(),
-              ),
+                      child: CircularProgressIndicator(),
+                    ),
             ],
           ),
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
+        child:  Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,7 +264,8 @@ class _ContinueJobberState extends State<ContinueJobber> {
                                   style: Theme.of(context).textTheme.bodySmall,
                                 ),
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width / 100,
+                                  width:
+                                      MediaQuery.of(context).size.width / 100,
                                 ),
                                 Text(
                                   "Views)",
@@ -212,16 +305,22 @@ class _ContinueJobberState extends State<ContinueJobber> {
                 child: Row(
                   children: <Widget>[
                     GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).pushNamed(MyRoutes.TERMSANDCONDITION);
-                      },
-                        child: Text("Are you Read Terms and Conditions", style: Theme.of(context).textTheme.bodySmall,)),
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(MyRoutes.TERMSANDCONDITION);
+                        },
+                        child: Text(
+                          "Are you Read Terms and Conditions",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        )),
                     const Spacer(),
-                    Switch(value: readTerms, onChanged: (value){
-                      setState(() {
-                        readTerms = value;
-                      });
-                    }),
+                    CupertinoSwitch(
+                        value: readTerms,
+                        onChanged: (value) {
+                          setState(() {
+                            readTerms = value;
+                          });
+                        }),
                   ],
                 ),
               ),
@@ -283,7 +382,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                   ),
                   const Spacer(),
                   Text(
-                    " ${double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100)} €" ,
+                    " ${double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100)} €",
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
@@ -292,13 +391,16 @@ class _ContinueJobberState extends State<ContinueJobber> {
                 height: MediaQuery.of(context).size.width / 40,
               ),
               const Divider(),
-              if(alert == true)
-              Text("Make Sure you read the terms and condition" , style: TextStyle(
-                fontSize: 16,
-                color: Theme.of(context).colorScheme.error,
-                fontWeight: FontWeight.normal,
-                fontFamily: 'Cerebri Sans Bold',
-              ),),
+              if (alert == true)
+                Text(
+                  "Make Sure you read the terms and condition",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'Cerebri Sans Bold',
+                  ),
+                ),
             ],
           ),
         ),
@@ -307,7 +409,8 @@ class _ContinueJobberState extends State<ContinueJobber> {
   }
 
   Future<void> makePayment() async {
-    var amount = double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100);
+    var amount = double.parse(widget.proposel!.price) +
+        ((double.parse(widget.proposel!.price) * 10) / 100);
     try {
       paymentIntent = await createPaymentIntent(amount, 'EUR');
       //Payment Sheet
@@ -337,12 +440,21 @@ class _ContinueJobberState extends State<ContinueJobber> {
   displayPaymentSheet() async {
     try {
       await Stripe.instance.presentPaymentSheet().then((value) {
-        final proposalData = Provider.of<JobProposalsProvider>(context, listen: false);
+        final proposalData =
+            Provider.of<JobProposalsProvider>(context, listen: false);
 
-        proposalData.postProposalContract(widget.proposel!.id.toString(),
-            double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100),
-        ((double.parse(widget.proposel!.price) * 10) / 100));
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => PaymentSuccessScreen(jobber: widget.proposel!.jobber,),),);
+        proposalData.postProposalContract(
+            widget.proposel!.id.toString(),
+            double.parse(widget.proposel!.price) +
+                ((double.parse(widget.proposel!.price) * 10) / 100),
+            ((double.parse(widget.proposel!.price) * 10) / 100));
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (ctx) => PaymentSuccessScreen(
+              jobber: widget.proposel!.jobber,
+            ),
+          ),
+        );
         showDialog(
           context: context,
           builder: (_) => AlertDialog(
@@ -356,9 +468,12 @@ class _ContinueJobberState extends State<ContinueJobber> {
                       Icons.check_circle,
                       color: Colors.green,
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width / 20,),
-                    Text("Payment Successfully",
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 20,
+                    ),
+                    Text(
+                      "Payment Successfully",
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -406,14 +521,13 @@ class _ContinueJobberState extends State<ContinueJobber> {
       var response = await http.post(
         Uri.parse('https://api.stripe.com/v1/payment_intents'),
         headers: {
-          'Authorization':
-              'Bearer sk_test_bNs6F2GH5AWstJEQg7KT852l00SdVU7GF0',
+          'Authorization': 'Bearer sk_test_bNs6F2GH5AWstJEQg7KT852l00SdVU7GF0',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: body,
       );
       // ignore: avoid_print
-      if(response.statusCode == 200) {
+      if (response.statusCode == 200) {
         debugPrint('Payment Intent Body->>> ${response.body.toString()}');
         return jsonDecode(response.body);
       }

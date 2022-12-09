@@ -41,9 +41,9 @@ class JobsInProgressProvider with ChangeNotifier {
           ),
         ),
       );
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
         builder: (context) => MyHomeBottomTabScreen(pageIndex: 1),
-      ),);
+      ), (route) => false);
       notifyListeners();
     } else if(response.statusCode == 401){
       debugPrint('error: 401');

@@ -36,16 +36,16 @@ class _SplashScreenState extends State<SplashScreen> {
               Navigator.of(context)
                 .pushReplacement(MaterialPageRoute(builder: (ctx) => MyHomeBottomTabScreen(),),);
             });
-      Provider.of<CountryProvider>(context, listen: false).getCountries();
-      Provider.of<ProfileProvider>(context, listen: false).getProfile(context);
-      Provider.of<BannerProvider>(context, listen: false).getBanner(context);
-      Provider.of<FAQProvider>(context, listen: false).getFAQ();
-      Provider.of<AboutProvider>(context, listen: false).getAbout();
-      Provider.of<TermsAndConditionProvider>(context, listen: false).getTermsAndConditions();
-      Provider.of<CseuTicketProvider>(context, listen: false).getCesuTicket(context);
-      Provider.of<MyBalanceProvider>(context, listen: false).getMyBalance(context);
-      Provider.of<TransactionProvider>(context, listen: false).getTransaction(context);
-      Provider.of<SearchCategoriesProvider>(context, listen: false).getSearchCategories();
+      Provider.of<CountryProvider>(context).getCountries();
+      Provider.of<ProfileProvider>(context).getProfile(context);
+      Provider.of<BannerProvider>(context).getBanner(context);
+      Provider.of<FAQProvider>(context).getFAQ();
+      Provider.of<AboutProvider>(context).getAbout();
+      Provider.of<TermsAndConditionProvider>(context).getTermsAndConditions();
+      Provider.of<CseuTicketProvider>(context).getCesuTicket(context);
+      Provider.of<MyBalanceProvider>(context).getMyBalance(context);
+      Provider.of<TransactionProvider>(context).getTransaction(context);
+      Provider.of<SearchCategoriesProvider>(context).getSearchCategories();
     }
     _isInit = false;
   }

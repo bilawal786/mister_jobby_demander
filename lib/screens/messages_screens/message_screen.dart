@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/message_screen_widgets/message_archived_tab.dart';
 import '../../widgets/message_screen_widgets/message_in_progress_tab.dart';
 

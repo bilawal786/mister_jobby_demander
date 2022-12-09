@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mister_jobby/screens/home_screens/home_tabs_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/jobs_provider/jobs_in_progress_provider.dart';
@@ -64,7 +65,9 @@ class _InProgressTabState extends State<InProgressTab> {
                       height: MediaQuery.of(context).size.height / 40,
                     ),
                     CustomButton(
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (ctx)=> MyHomeBottomTabScreen(pageIndex: 0,)), (route) => false);
+                      },
                       buttonName: "I_need_a_favor",
                       elevation: 8,
                     ),

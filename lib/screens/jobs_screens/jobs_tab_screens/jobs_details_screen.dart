@@ -36,6 +36,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
     if (isInit) {
       Provider.of<JobReservationProvider>(context)
           .getJobReservations(context, widget.jobsInProgressDetail!.id.toString());
+      Provider.of<JobProposalsProvider>(context).getJobProposals(context,widget.jobsInProgressDetail!.id.toString());
     }
     isInit = false;
     super.didChangeDependencies();

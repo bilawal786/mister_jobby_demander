@@ -60,7 +60,7 @@ class _BalanceScreenState extends State<BalanceScreen> {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          "${extractData?.wallet}€",
+                          extractData?.wallet != "" ?"${extractData?.wallet}€": "0€",
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         Text(

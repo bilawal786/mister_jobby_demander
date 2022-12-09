@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../screens/home_screens/home_tabs_screen.dart';
 import '../const_widgets/custom_button.dart';
 
 class MessageInProgressTab extends StatelessWidget {
@@ -38,7 +39,9 @@ class MessageInProgressTab extends StatelessWidget {
               height: MediaQuery.of(context).size.height / 40,
             ),
             CustomButton(
-              onPress: () {},
+              onPress: () {
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (ctx)=> MyHomeBottomTabScreen(pageIndex: 0,)), (route) => false);
+              },
               buttonName: "I_need_a_favor",
               elevation: 8,
             ),
