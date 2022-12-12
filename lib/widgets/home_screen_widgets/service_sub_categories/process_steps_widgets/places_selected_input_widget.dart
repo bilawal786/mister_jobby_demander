@@ -64,7 +64,9 @@ class _GooglePlacesApiState extends State<GooglePlacesApi> {
   CoordinatesModel? getCoordinates;
 
   Future<void> getLatLngGeoCodingApi(String address) async {
-    showDialog(context: context, builder: (BuildContext context){
+    showDialog(context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context){
       return const LoginProgressIndicator();
     });
     String geoCodingApiKey = "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";
