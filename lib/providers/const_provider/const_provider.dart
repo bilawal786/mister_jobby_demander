@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/routes.dart';
+import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/home_screen_widgets/login_progress_indicator.dart';
 
 class ConstProvider with ChangeNotifier {
@@ -1506,6 +1507,10 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  List<String> gender = [];
+
+  List<String> doB = [];
+
   String countryDropDownValue = "";
 
   countryDropDownFunction(value) {
@@ -1513,9 +1518,154 @@ class ConstProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void childCareIncrement() {
-    childCareValue += 1;
-    notifyListeners();
+  childCareIncrement(context) {
+    showModalBottomSheet(
+      context: context, builder: (ctx){
+        return
+        FractionallySizedBox(
+          heightFactor: .7,
+          child: Container(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: [
+                    Text(
+                      "Add_Child_Step_Text1",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ).tr(),
+                  ],
+                ),
+                Consumer<ConstProvider>(
+                  builder: (_,dropDownData,child)=>
+                  Container(
+                    height: 40.0,
+                    margin: const EdgeInsets.all(5.0),
+                    //   height: 40,
+                    padding: const EdgeInsets.fromLTRB(20, 7, 0, 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.black, width: 1),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        hintText: "Add_Child_Step_Gender".tr(),
+                        hintStyle: Theme.of(context).textTheme.bodyMedium,
+                        isCollapsed: true,
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                      isExpanded: true,
+                      iconSize: 30.0,
+                      items: [
+                        'Add_Child_Step_Boy'.tr(),
+                        'Add_Child_Step_Girl'.tr(),
+                      ].map(
+                            (val) {
+                          return DropdownMenuItem<String>(
+                            value: val,
+                            child: Text(
+                              val,
+                              style:
+                              Theme.of(context).textTheme.bodySmall,
+                            ),
+                          );
+                        },
+                      ).toList(),
+                      onChanged: (val) {
+                       dropDownData.genderDropDownFunction(val);
+                       debugPrint("drop down value ${dropDownData.genderDropDownValue}");
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Text(
+                  "Add_Child_Step_DOB",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ).tr(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                Consumer<ConstProvider>(
+                  builder: (_, selectDate, child) => GestureDetector(
+                    onTap: () {
+                      selectDate.selectDateDateOfBirthProvider(context);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(left: 30, right: 10),
+                      margin: const EdgeInsets.all(8),
+                      alignment: Alignment.centerLeft,
+                      width: MediaQuery.of(context).size.width,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 0.2,
+                            blurRadius: 1,
+                            offset: const Offset(
+                                0.5, 1), // changes position of shadow
+                          ),
+                        ],
+                        border: Border.all(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      child: Text(
+                        "${selectDate.selectedDateOfBirth.day < 10 ? "0${selectDate.selectedDateOfBirth.day}" : "${selectDate.selectedDateOfBirth.day}"}-${selectDate.selectedDateOfBirth.month < 10 ? "0${selectDate.selectedDateOfBirth.month}" : "${selectDate.selectedDateOfBirth.month}"}-${selectDate.selectedDateOfBirth.year}",
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 40,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.2,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      TextButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        },
+                        child: Text("Cancel", style: Theme.of(context).textTheme.bodyMedium,),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 40,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 3,
+                        child: CustomButton(
+                          onPress: (){
+                            String selectedDoB = DateFormat('dd-MM-yyyy').format(selectedDateOfBirth);
+                            gender.add(genderDropDownValue);
+                            doB.add(selectedDoB);
+                            print(gender[0]);
+                            print(doB[0]);
+                            Navigator.of(context).pop();
+                            notifyListeners();
+                          },
+                          buttonName: 'Save',
+                        ),
+                      )
+                    ]
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+    },
+        );
   }
 
   DateTime selectedDateOfBirth = DateTime.now();
@@ -1531,8 +1681,10 @@ class ConstProvider with ChangeNotifier {
     }
   }
 
-  void childCareDecrement() {
-    childCareValue -= 1;
+  void childCareDecrement(index) {
+    gender.remove(gender[index]);
+    doB.remove(doB[index]);
+
     notifyListeners();
   }
 
