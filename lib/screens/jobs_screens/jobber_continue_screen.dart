@@ -314,13 +314,17 @@ class _ContinueJobberState extends State<ContinueJobber> {
                           style: Theme.of(context).textTheme.bodySmall,
                         )),
                     const Spacer(),
-                    CupertinoSwitch(
-                        value: readTerms,
-                        onChanged: (value) {
-                          setState(() {
-                            readTerms = value;
-                          });
-                        }),
+                    Transform.scale(
+                      transformHitTests: false,
+                      scale: .7,
+                      child: CupertinoSwitch(
+                          value: readTerms,
+                          onChanged: (value) {
+                            setState(() {
+                              readTerms = value;
+                            });
+                          }),
+                    ),
                   ],
                 ),
               ),

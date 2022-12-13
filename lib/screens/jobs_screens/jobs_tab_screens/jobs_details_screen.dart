@@ -329,6 +329,32 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       Row(
                         children: <Widget>[
                           Icon(
+                            Icons.watch_later,
+                            size: 22,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 40,
+                          ),
+                          Text(
+                            "${widget.jobsInProgressDetail!.duration} / h",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 40,
+                          ),
+                          Text(
+                            "Duration",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ).tr(),
+                        ],
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width / 40,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Icon(
                             Icons.account_balance_wallet,
                             size: 22,
                             color: Theme.of(context).primaryColor,

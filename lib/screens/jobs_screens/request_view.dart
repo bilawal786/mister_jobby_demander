@@ -235,7 +235,7 @@ class ViewRequestScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    "${reservation!.job.duration} h",
+                    "${reservation!.duration} h",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],

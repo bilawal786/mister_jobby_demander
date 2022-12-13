@@ -19,6 +19,7 @@ class JobReservationsModel {
     required this.jobberProfile,
     required this.status,
     required this.date,
+    required this.duration,
   });
 
   int id;
@@ -30,6 +31,7 @@ class JobReservationsModel {
   JobberProfile jobberProfile;
   int status;
   String date;
+  String duration;
 
   factory JobReservationsModel.fromJson(Map<String, dynamic> json) => JobReservationsModel(
     id: json["id"],
@@ -41,6 +43,7 @@ class JobReservationsModel {
     jobberProfile: JobberProfile.fromJson(json["jobberProfile"]),
     status: json["status"],
     date: json["date"],
+    duration: json["duration"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -53,6 +56,7 @@ class JobReservationsModel {
     "jobberProfile": jobberProfile.toJson(),
     "status": status,
     "date": date,
+    "duration": duration,
   };
 }
 
