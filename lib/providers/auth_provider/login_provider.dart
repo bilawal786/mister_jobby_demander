@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -58,6 +59,44 @@ class LoginProvider with ChangeNotifier {
           ),
         );
         notifyListeners();
+      } else if (response.statusCode == 403) {
+        Navigator.of(context).pop();
+        print("Failed to login. User blocked");
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: const Color(0xFFebf9fe),
+            content: Row(
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.red.shade200,
+                  ),
+                  child: const Icon(
+                    CupertinoIcons.hand_raised_fill,
+                    size: 25,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 40,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.4,
+                  child: Text(
+                    'An Administrator has blocked you from running this app',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ).tr(),
+                ),
+              ],
+            ),
+            duration: const Duration(
+              seconds: 2,
+            ),
+          ),
+        );
       } else {
         Navigator.of(context).pop();
         print("Failed to login.");
