@@ -661,7 +661,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                     onPressed: () {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (ctx) => const ChatScreen(),
+                                          builder: (ctx) => ChatScreen(jobber: extractedReservation[index].jobberProfile),
                                         ),
                                       );
                                     },

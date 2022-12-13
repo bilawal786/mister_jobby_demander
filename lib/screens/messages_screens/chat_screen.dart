@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../helpers/routes.dart';
+import '../../models/jobs_models/job_reservations_model.dart';
 import '../../widgets/message_screen_widgets/message_bubble.dart';
 import '../../widgets/message_screen_widgets/send_message_widget.dart';
 
 class ChatScreen extends StatelessWidget {
-  const ChatScreen({Key? key}) : super(key: key);
+  final JobberProfile jobber;
+  const ChatScreen({Key? key, required this.jobber}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +30,14 @@ class ChatScreen extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network("https://cdn-res.keymedia.com/cms/images/us/026/0222_637049384911763251.JPG", fit: BoxFit.cover,),
+                child: Image.network("${MyRoutes.IMAGEURL}${jobber.image}", fit: BoxFit.cover,),
               ),
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width / 40,
             ),
             Text(
-              "Jobber Name",
+              "${jobber.firstName} ${jobber.lastName}",
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],

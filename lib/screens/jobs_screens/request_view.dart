@@ -143,7 +143,7 @@ class ViewRequestScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (ctx) => const ChatScreen(),
+                            builder: (ctx) => ChatScreen(jobber: reservation!.jobberProfile),
                           ),
                         );
                       },

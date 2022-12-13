@@ -454,7 +454,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (ctx) =>
-                                                  const ChatScreen()));
+                                                  ChatScreen(jobber: extractedReservation[index].jobberProfile)));
                                     },
                                     icon: Icon(
                                       Icons.chat_outlined,
