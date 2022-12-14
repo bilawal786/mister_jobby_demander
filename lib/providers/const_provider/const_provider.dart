@@ -1851,6 +1851,8 @@ class ConstProvider with ChangeNotifier {
     status = 1;
     final searchData = Provider.of<SearchCategoriesProvider>(context,listen: false);
     searchData.isSearch = false;
+    gender = [];
+    doB = [];
     notifyListeners();
   }
 
