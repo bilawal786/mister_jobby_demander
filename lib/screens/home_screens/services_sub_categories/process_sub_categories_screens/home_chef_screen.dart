@@ -134,12 +134,12 @@ class _HomeChefScreenState extends State<HomeChefScreen> {
                   children: <Widget>[
                     ((currentStep < 1) &&
                             (size.fixesAmount > 0) &&
-                            (size.jobberBringMaterialTitle == "Yes" ||
-                                size.jobberBringMaterialTitle == "No") &&
-                            (size.jobberHedgeTimerTitle == "Yes" ||
-                                size.jobberHedgeTimerTitle == "No") &&
-                            (size.jobberRemoveWasteTitle == "Yes" ||
-                                size.jobberRemoveWasteTitle == "No"))
+                            (size.jobberBringMaterialTitle == "Yes".tr() ||
+                                size.jobberBringMaterialTitle == "No".tr() ) &&
+                            (size.jobberHedgeTimerTitle == "Yes".tr() ||
+                                size.jobberHedgeTimerTitle == "No".tr() ) &&
+                            (size.jobberRemoveWasteTitle == "Yes".tr() ||
+                                size.jobberRemoveWasteTitle == "No".tr() ))
                         ? Expanded(
                             child: ElevatedButton(
                               onPressed: details.onStepContinue,

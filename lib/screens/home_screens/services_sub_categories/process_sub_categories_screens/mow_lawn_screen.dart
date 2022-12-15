@@ -138,10 +138,10 @@ class _MowLawnScreenState extends State<MowLawnScreen> {
                 builder: (_, lawnData, child) => Row(
                   children: <Widget>[
                     ((currentStep < 1) &&
-                            (lawnData.jobberOwnMoverTitle == 'Yes' ||
-                                lawnData.jobberOwnMoverTitle == 'No') &&
-                            (lawnData.jobberRemoveWasteTitle == 'Yes' ||
-                                lawnData.jobberRemoveWasteTitle == 'No') &&
+                            (lawnData.jobberOwnMoverTitle == 'Yes'.tr() ||
+                                lawnData.jobberOwnMoverTitle == 'No'.tr()) &&
+                            (lawnData.jobberRemoveWasteTitle == 'Yes'.tr() ||
+                                lawnData.jobberRemoveWasteTitle == 'No'.tr()) &&
                             (lawnData.frequencyTrueValue > 0))
                         ? Expanded(
                             child: ElevatedButton(

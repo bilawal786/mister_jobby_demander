@@ -135,8 +135,8 @@ class _RidClutterScreenState extends State<RidClutterScreen> {
                 builder: (_, need, child) => Row(
                   children: <Widget>[
                     ((currentStep < 1) &&
-                            (need.jobberBringMaterialTitle == "Yes" ||
-                                need.jobberBringMaterialTitle == "No"))
+                            (need.jobberBringMaterialTitle == "Yes".tr() ||
+                                need.jobberBringMaterialTitle == "No".tr() ))
                         ? Expanded(
                             child: ElevatedButton(
                             onPressed: details.onStepContinue,

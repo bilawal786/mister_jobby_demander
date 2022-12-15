@@ -136,8 +136,8 @@ class _WeedingScreenState extends State<WeedingScreen> {
                 builder: (_, size, child) => Row(
                   children: <Widget>[
                     ((currentStep < 1) &&
-                            (size.jobberRemoveWasteTitle == "Yes" ||
-                                size.jobberRemoveWasteTitle == "No") &&
+                            (size.jobberRemoveWasteTitle == "Yes".tr() ||
+                                size.jobberRemoveWasteTitle == "No".tr()) &&
                             (size.frequencyTrueValue > 0))
                         ? Expanded(
                             child: ElevatedButton(

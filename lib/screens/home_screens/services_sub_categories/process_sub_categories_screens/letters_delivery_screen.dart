@@ -134,8 +134,8 @@ class _LettersDeliveryScreenState extends State<LettersDeliveryScreen> {
                 builder: (_, size, child) => Row(
                   children: <Widget>[
                     ((currentStep < 1) &&
-                            (size.baseBoardInstallTitle == "Yes" ||
-                                size.baseBoardInstallTitle == "No") &&
+                            (size.baseBoardInstallTitle == "Yes".tr() ||
+                                size.baseBoardInstallTitle == "No".tr() ) &&
                             (size.fixesAmount > 0))
                         ? Expanded(
                             child: ElevatedButton(

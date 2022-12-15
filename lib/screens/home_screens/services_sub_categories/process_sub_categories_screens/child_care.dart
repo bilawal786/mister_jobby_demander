@@ -134,7 +134,7 @@ class _ChildCareScreenState extends State<ChildCareScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                    ((currentStep <1) && (size.gender != []) )?
+                    ((currentStep <1) && (size.gender.length != 0)) ?
                     Expanded(
                       child: ElevatedButton(
                         onPressed: details.onStepContinue,

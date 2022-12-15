@@ -1643,7 +1643,7 @@ class ConstProvider with ChangeNotifier {
                         width: MediaQuery.of(context).size.width / 40,
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width / 3,
+                        width: MediaQuery.of(context).size.width / 2.5,
                         child: CustomButton(
                           onPress: (){
                             String selectedDoB = DateFormat('dd-MM-yyyy').format(selectedDateOfBirth);

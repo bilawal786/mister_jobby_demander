@@ -146,10 +146,10 @@ class _CutTreeScreenState extends State<CutTreeScreen> {
                         (size.smallSizedFurnitureAmount > 0 ||
                             size.mediumSizedFurnitureAmount > 0 ||
                             size.largeSizedFurnitureAmount > 0) &&
-                        (size.jobberBringMaterialTitle == "Yes" ||
-                            size.jobberBringMaterialTitle == "No") &&
-                        (size.jobberRemoveWasteTitle == "Yes" ||
-                            size.jobberRemoveWasteTitle == "No"))
+                        (size.jobberBringMaterialTitle == "Yes".tr() ||
+                            size.jobberBringMaterialTitle == "No".tr() ) &&
+                        (size.jobberRemoveWasteTitle == "Yes".tr() ||
+                            size.jobberRemoveWasteTitle == "No".tr() ))
                       Expanded(
                         child: ElevatedButton(
                           onPressed: details.onStepContinue,

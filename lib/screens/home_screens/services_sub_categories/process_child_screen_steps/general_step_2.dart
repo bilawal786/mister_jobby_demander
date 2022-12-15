@@ -117,11 +117,14 @@ class GeneralStep2Screen extends StatelessWidget {
           ),
           Consumer<ConstProvider>(
             builder: (_, checkBoxData, child) => Row(
-              children: [
-                Text(
-                  "Service_do_you_need_urgent_job",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ).tr(),
+              children: <Widget>[
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  child: Text(
+                    "Service_do_you_need_urgent_job",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ).tr(),
+                ),
                 const Spacer(),
                 InkWell(
                   onTap: checkBoxData.checkUrgentJobFunction,

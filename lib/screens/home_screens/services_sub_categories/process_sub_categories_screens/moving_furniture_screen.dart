@@ -135,8 +135,8 @@ class _MovingFurnitureScreenState extends State<MovingFurnitureScreen> {
                   children: <Widget>[
                     ((currentStep < 1) &&
                             (size.tvHangNo > 0) &&
-                            (size.jobberBringMaterialTitle == "Yes" ||
-                                size.jobberBringMaterialTitle == "No"))
+                            (size.jobberBringMaterialTitle == "Yes".tr() ||
+                                size.jobberBringMaterialTitle == "No".tr() ))
                         ? Expanded(
                             child: ElevatedButton(
                             onPressed: details.onStepContinue,

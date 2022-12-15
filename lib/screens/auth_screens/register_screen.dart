@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mister_jobby/helpers/routes.dart';
+import 'package:mister_jobby/screens/auth_screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/auth_provider/register_provider.dart';
@@ -94,7 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 enabled: true,
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return "Please Enter First Name";
+                                    return "Please Enter First Name".tr();
                                   }
                                   return null;
                                 },
@@ -122,7 +124,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 enabled: true,
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return "Please Enter Last Name";
+                                    return "Please Enter Last Name".tr();
                                   }
                                   return null;
                                 },
@@ -150,9 +152,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 enabled: true,
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return "Please Enter Email Address";
+                                    return "Please Enter Email Address".tr();
                                   }else if (!regExp.hasMatch(value)) {
-                                    return 'Please Enter Valid Email Address';
+                                    return 'Please Enter Valid Email Address'.tr();
                                   }
                                   return null;
                                 },
@@ -184,9 +186,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   enabled: true,
                                   validator: (value){
                                     if(value!.isEmpty){
-                                      return 'Please Enter the password';
+                                      return 'Please Enter the password'.tr();
                                     }else if(value.length < 5) {
-                                      return 'Must be more than 5 characters';
+                                      return 'Must be more than 5 characters'.tr();
                                     }
                                     return null;
                                   },
@@ -214,7 +216,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 width: MediaQuery.of(context).size.width / 40,
                               ),
                               InkWell(
-                                onTap: () {},
+                                onTap: () {Navigator.of(context).pushReplacementNamed(MyRoutes.LOGINROUTE); },
                                 child: Text(
                                   "Login_Screen_Title".tr(),
                                   style: TextStyle(

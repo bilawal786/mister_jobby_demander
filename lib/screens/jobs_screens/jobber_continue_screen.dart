@@ -79,12 +79,12 @@ class _ContinueJobberState extends State<ContinueJobber> {
                                 context: context,
                                 builder: (context) => AlertDialog(
                                   title: Text(
-                                    'Pay From Wallet',
+                                    "Pay From Wallet".tr(),
                                     style:
                                         Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   content: Text(
-                                    'Please Confirm',
+                                    'Please Confirm'.tr(),
                                     style:
                                         Theme.of(context).textTheme.labelMedium,
                                   ),
@@ -93,8 +93,8 @@ class _ContinueJobberState extends State<ContinueJobber> {
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
-                                      child: const Text(
-                                        'Cancel',
+                                      child: Text(
+                                        'Cancel'.tr(),
                                       ),
                                     ),
                                     TextButton(
@@ -129,7 +129,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                                             );
                                       },
                                       child: Text(
-                                        'OK',
+                                        'OK'.tr(),
                                       ),
                                     ),
                                   ],
@@ -139,12 +139,12 @@ class _ContinueJobberState extends State<ContinueJobber> {
                                 context: context,
                                 builder: (context) => AlertDialog(
                                   title: Text(
-                                    'Insufficient Balance',
+                                    'Insufficient Balance'.tr(),
                                     style:
                                         Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   content: Text(
-                                    'Please recharge your account and try again',
+                                    'Please recharge your account and try again'.tr(),
                                     style:
                                         Theme.of(context).textTheme.labelMedium,
                                   ),
@@ -154,7 +154,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                                         Navigator.of(context).pop();
                                       },
                                       child: Text(
-                                        'OK',
+                                        'OK'.tr(),
                                       ),
                                     ),
                                   ],
@@ -170,7 +170,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                 minVerticalPadding: 0,
                 leading: const Icon(FontAwesomeIcons.wallet),
                 title: Text(
-                  'Pay From Wallet',
+                  'Pay From Wallet'.tr(),
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 trailing: Text(
@@ -310,9 +310,10 @@ class _ContinueJobberState extends State<ContinueJobber> {
                               .pushNamed(MyRoutes.TERMSANDCONDITION);
                         },
                         child: Text(
-                          "Are you Read Terms and Conditions",
+                          "Are you Read Terms and Conditions".tr(),
                           style: Theme.of(context).textTheme.bodySmall,
-                        )),
+                        ),
+                    ),
                     const Spacer(),
                     Transform.scale(
                       transformHitTests: false,
@@ -332,7 +333,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                 height: MediaQuery.of(context).size.width / 40,
               ),
               Text(
-                "Summary",
+                "Summary".tr(),
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               Padding(
@@ -381,7 +382,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
               Row(
                 children: [
                   Text(
-                    "Total",
+                    "Total".tr(),
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const Spacer(),

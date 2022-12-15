@@ -133,7 +133,7 @@ class _FurnitureDeliveryScreenState extends State<FurnitureDeliveryScreen> {
               child: Consumer<ConstProvider>(
                 builder: (_, size, child) => Row(
                   children: <Widget>[
-                     ((currentStep < 1) && (size.cleanBoxTitle == "Yes" || size.cleanBoxTitle == "No") && (size.fixesAmount > 0))?
+                     ((currentStep < 1) && (size.cleanBoxTitle == "Yes".tr() || size.cleanBoxTitle == "No".tr() ) && (size.fixesAmount > 0))?
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

@@ -132,10 +132,10 @@ class _PhotographyScreenState extends State<PhotographyScreen> {
                 builder: (_, photoData, child) => Row(
                   children: <Widget>[
                     ((currentStep < 1) &&
-                            (photoData.photoEditingTitle == "Yes" ||
-                                photoData.photoEditingTitle == "No") &&
-                            (photoData.discountTitle == "Yes" ||
-                                photoData.discountTitle == "No"))
+                            (photoData.photoEditingTitle == "Yes".tr() ||
+                                photoData.photoEditingTitle == "No".tr() ) &&
+                            (photoData.discountTitle == "Yes".tr() ||
+                                photoData.discountTitle == "No".tr() ))
                         ? Expanded(
                             child: ElevatedButton(
                             onPressed: details.onStepContinue,

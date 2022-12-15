@@ -79,9 +79,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       enabled: true,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Please Enter Email Address";
+                          return "Please Enter Email Address".tr();
                         } else if (!regExp.hasMatch(value)) {
-                          return 'Please Enter Valid Email Address';
+                          return 'Please Enter Valid Email Address'.tr();
                         }
                         return null;
                       },

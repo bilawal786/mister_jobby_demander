@@ -136,8 +136,8 @@ class _AutomationScreenState extends State<AutomationScreen> {
                 builder: (_, size, child) => Row(
                   children: <Widget>[
                     ((currentStep < 1) &&
-                            (size.cleanBoxTitle == "Yes" ||
-                                size.cleanBoxTitle == "No") &&
+                            (size.cleanBoxTitle == "Yes".tr() ||
+                                size.cleanBoxTitle == "No".tr()) &&
                             size.automationEquipmentsNo > 0 &&
                             size.automationCameraNo > 0)
                         ? Expanded(
@@ -160,7 +160,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
                                   letterSpacing: 1),
                             ).tr(),
                           ))
-                        : SizedBox(),
+                        : const SizedBox(),
                     ((currentStep == 1))
                         ? Expanded(
                       child: ElevatedButton(
@@ -265,8 +265,7 @@ class _AutomationScreenState extends State<AutomationScreen> {
                         child: ElevatedButton(
                       onPressed: details.onStepCancel,
                       style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
+                        minimumSize: const Size.fromHeight(50.0), backgroundColor: Colors.black12,
                         elevation: 0,
                       ),
                       child: const Text(

@@ -135,8 +135,8 @@ class _MovingAssistanceScreenState extends State<MovingAssistanceScreen> {
                 builder: (_, size, child) => Row(
                   children: <Widget>[
                     ((currentStep < 1) &&
-                            (size.jobberBringMaterialTitle == "Yes" ||
-                                size.jobberBringMaterialTitle == "No"))
+                            (size.jobberBringMaterialTitle == "Yes".tr() ||
+                                size.jobberBringMaterialTitle == "No".tr() ))
                         ? Expanded(
                             child: ElevatedButton(
                             onPressed: details.onStepContinue,

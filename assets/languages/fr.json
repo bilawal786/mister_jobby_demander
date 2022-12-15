@@ -582,6 +582,31 @@
   "00:00": "00:00",
   "Rate per Hour": "Tarif par heure",
   "No Search Result found": "Aucun résultat de recherche trouvé",
-  "View Comments": "Voir les commentaires"
+  "View Comments": "Voir les commentaires",
+  "Are you Read Terms and Conditions" : "Avez-vous lu les termes et conditions",
+  "Pay From Wallet": "Payer depuis le portefeuille",
+  "Summary": "Sommaire",
+  "Total": "Total",
+  "Insufficient Balance": "Solde insuffisant",
+  "Please recharge your account and try again": "Veuillez recharger votre compte et réessayer",
+  "OK": "OK",
+  "Incorrect Credentials":"Identifiants Incorrects",
+  "Login Successfully": "Connectez-vous avec succès",
+  "Updated Successfully": "Mis à jour avec succés",
+  "Please enter your email": "Veuillez saisir votre e-mail",
+  "Confirm Email": "Confirmez votre email",
+  "Please Enter Email Address": "Veuillez saisir l'adresse e-mail",
+  "Please Enter the password": "S'il vous plaît entrer le mot de passe",
+  "Must be more than 5 characters": "Doit contenir plus de 5 caractères",
+  "Please Enter First Name": "Veuillez entrer le prénom",
+  "Please Enter Last Name": "Veuillez entrer le nom de famille",
+  "Submit": "Soumettre",
+  "Verify OTP": "Vérifier OTP",
+  "We heve sent verification code to": "Nous avons envoyé le code de vérification à",
+
+  "Area to clear": "Area to clear",
+  "Does the jobber have to bring his own brush?": "Does the jobber have to bring his own brush ?",
+  "Does the jobber have to remove waste from your home?": "Does the jobber have to remove waste from your home ?",
+  "Demand frequencies?": "Demand frequencies ?"
 
 }

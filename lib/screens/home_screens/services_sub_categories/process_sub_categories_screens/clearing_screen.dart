@@ -138,10 +138,10 @@ class _ClearingScreenState extends State<ClearingScreen> {
                 builder: (_, size, child) => Row(
                   children: <Widget>[
                     ((currentStep < 1) &&
-                            (size.jobberBringMaterialTitle == "Yes" ||
-                                size.jobberBringMaterialTitle == "No") &&
-                            (size.jobberRemoveWasteTitle == "Yes" ||
-                                size.jobberRemoveWasteTitle == "No") &&
+                            (size.jobberBringMaterialTitle == "Yes".tr() ||
+                                size.jobberBringMaterialTitle == "No".tr() ) &&
+                            (size.jobberRemoveWasteTitle == "Yes".tr() ||
+                                size.jobberRemoveWasteTitle == "No".tr() ) &&
                             (size.frequencyTrueValue > 0))
                         ? Expanded(
                             child: ElevatedButton(

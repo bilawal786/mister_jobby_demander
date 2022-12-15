@@ -149,10 +149,10 @@ class _HedgeTrimmingScreenState extends State<HedgeTrimmingScreen> {
                             size.mediumSizedFurnitureAmount > 0 ||
                             size.largeSizedFurnitureAmount > 0 ||
                             size.veryLargeSizedFurnitureAmount > 0) &&
-                        (size.jobberHedgeTimerTitle == "Yes" ||
-                            size.jobberHedgeTimerTitle == "No") &&
-                        (size.jobberRemoveWasteTitle == "Yes" ||
-                            size.jobberRemoveWasteTitle == "No"))?
+                        (size.jobberHedgeTimerTitle == "Yes".tr() ||
+                            size.jobberHedgeTimerTitle == "No".tr() ) &&
+                        (size.jobberRemoveWasteTitle == "Yes".tr() ||
+                            size.jobberRemoveWasteTitle == "No".tr() ))?
                       Expanded(
                           child: ElevatedButton(
                         onPressed: details.onStepContinue,

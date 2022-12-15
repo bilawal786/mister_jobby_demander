@@ -140,19 +140,18 @@ class _ParquetInstallationScreenState extends State<ParquetInstallationScreen> {
                   children: <Widget>[
                     ((currentStep < 1) &&
                             (parquetInstallation.baseBoardInstallTitle ==
-                                    "Yes" ||
+                                    "Yes".tr() ||
                                 parquetInstallation.baseBoardInstallTitle ==
-                                    "No") &&
+                                    "No".tr()) &&
                             (parquetInstallation.cuttingMaterialTitle ==
-                                    "Yes" ||
+                                    "Yes".tr() ||
                                 parquetInstallation.cuttingMaterialTitle ==
-                                    "No"))
+                                    "No".tr()))
                         ? Expanded(
                             child: ElevatedButton(
                             onPressed: details.onStepContinue,
                             style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.fromHeight(50.0),
-                              primary: Theme.of(context).primaryColor,
+                              minimumSize: const Size.fromHeight(50.0), backgroundColor: Theme.of(context).primaryColor,
                               elevation: 5,
                             ),
                             child: Text(
@@ -271,8 +270,7 @@ class _ParquetInstallationScreenState extends State<ParquetInstallationScreen> {
                         child: ElevatedButton(
                       onPressed: details.onStepCancel,
                       style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50.0),
-                        primary: Colors.black12,
+                        minimumSize: const Size.fromHeight(50.0), backgroundColor: Colors.black12,
                         elevation: 0,
                       ),
                       child: const Text(

@@ -581,6 +581,29 @@
   "00:00": "00:00",
   "Rate per Hour": "Rate per Hour",
   "No Search Result found": "No Search Result found",
-  "View Comments": "View Comments"
+  "View Comments": "View Comments",
+  "Are you Read Terms and Conditions" : "Are you Read Terms and Conditions",
+  "Pay From Wallet": "Pay From Wallet",
+  "Summary": "Summary",
+  "Total": "Total",
+  "Incorrect Credentials":"Incorrect Credentials",
+  "Login Successfully": "Login Successfully",
+  "Updated Successfully": "Updated Successfully",
+  "Please enter your email": "Please enter your email",
+  "Confirm Email": "Confirm Email",
+  "Please Enter Email Address": "Please Enter Email Address",
+  "Please Enter the password": "Please Enter the password",
+  "Must be more than 5 characters": "Must be more than 5 characters",
+  "Please Enter First Name": "Please Enter First Name",
+  "Please Enter Last Name": "Please Enter Last Name",
+  "Submit": "Submit",
+  "Verify OTP": "Verify OTP",
+  "We heve sent verification code to": "We heve sent verification code to",
+  "Area to clear": "Area to clear",
+  "Does the jobber have to bring his own brush?": "Does the jobber have to bring his own brush ?",
+  "Does the jobber have to remove waste from your home?": "Does the jobber have to remove waste from your home ?",
+  "Demand frequencies?": "Demand frequencies ?"
+
+
 
 }

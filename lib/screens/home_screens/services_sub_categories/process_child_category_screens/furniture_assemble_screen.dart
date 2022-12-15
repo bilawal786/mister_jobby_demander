@@ -153,8 +153,8 @@ class _FurnitureAssembleScreenState extends State<FurnitureAssembleScreen> {
                                 furnitureAssemble
                                         .veryLargeSizedFurnitureAmount >
                                     0) &&
-                            (furnitureAssemble.cleanBoxTitle == "Yes" ||
-                                furnitureAssemble.cleanBoxTitle == "No"))
+                            (furnitureAssemble.cleanBoxTitle == "Yes".tr() ||
+                                furnitureAssemble.cleanBoxTitle == "No".tr()))
                         ? Expanded(
                             child: ElevatedButton(
                               onPressed: details.onStepContinue,
