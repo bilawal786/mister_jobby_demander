@@ -574,6 +574,13 @@
   "Tax credit": "Tax credit",
   "Duration": "Duration",
   "An Administrator has blocked you from running this app": "You are blocked by Admin",
-  "Save": "Save"
+  "Save": "Save",
+  "How many lamps should be installed?": "How many lamps should be installed ?",
+  "Jobber_Ask": "Jobber Ask",
+  "1": "1",
+  "00:00": "00:00",
+  "Rate per Hour": "Rate per Hour",
+  "No Search Result found": "No Search Result found",
+  "View Comments": "View Comments"
 
 }

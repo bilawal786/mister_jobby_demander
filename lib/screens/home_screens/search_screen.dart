@@ -45,7 +45,7 @@ class _SearchScreenState extends State<SearchScreen> {
         body: extractedSearchData == null
             ? Center(
                 child: Text(
-                  "No Search Result found",
+                  "No Search Result found".tr(),
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               )

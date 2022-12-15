@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -268,7 +269,7 @@ class ProfileProvider with ChangeNotifier {
                         width: 15,
                       ),
                       const Icon(
-                        Icons.camera_alt,
+                        CupertinoIcons.camera,
                         color: Colors.black,
                         size: 25,
                       ),
@@ -294,7 +295,7 @@ class ProfileProvider with ChangeNotifier {
                         width: 15,
                       ),
                       const Icon(
-                        Icons.file_copy,
+                        Icons.image_outlined,
                         color: Colors.black,
                         size: 25,
                       ),

@@ -121,7 +121,7 @@ class _MyTicketsState extends State<MyTickets> {
                           child: Container(
                             padding: const EdgeInsets.all(10.0),
                             height: MediaQuery.of(context).size.width / 9,
-                            width: MediaQuery.of(context).size.width / 2.2,
+                            width: MediaQuery.of(context).size.width / 1.8,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
@@ -130,16 +130,19 @@ class _MyTicketsState extends State<MyTickets> {
                               children: <Widget>[
                                 const Icon(
                                   Icons.indeterminate_check_box_outlined,
-                                  size: 16,
+                                  size: 18,
                                   color: Colors.black45,
                                 ),
                                 SizedBox(
                                   width: MediaQuery.of(context).size.width / 40,
                                 ),
-                                Text(
-                                  "My_Tickets_Button",
-                                  style: Theme.of(context).textTheme.labelMedium,
-                                ).tr(),
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width / 2.5,
+                                  child: Text(
+                                    "My_Tickets_Button",
+                                    style: Theme.of(context).textTheme.labelMedium,
+                                  ).tr(),
+                                ),
                               ],
                             ),
                           ),

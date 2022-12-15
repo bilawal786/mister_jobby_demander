@@ -211,7 +211,8 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   runApp(
     EasyLocalization(
       supportedLocales: const [
-        Locale('en'),
+        // Locale('en'),
+        Locale('fr'),
       ],
       path: 'assets/languages',
       child: const MyApp(),

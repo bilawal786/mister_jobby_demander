@@ -422,10 +422,19 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                     size: 20,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Text(
-                    "View Comments (${widget.jobsInProgressDetail!.totalComments})",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ).tr(),
+                  title: Row(
+                    children: <Widget>[
+                      Text(
+                        "View Comments",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ).tr(),
+                      SizedBox(width: MediaQuery.of(context).size.width / 40),
+                      Text(
+                        "(${widget.jobsInProgressDetail!.totalComments})",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
                   subtitle: Text(
                     "You haven't received any comments yet.",
                     style: Theme.of(context).textTheme.labelMedium,

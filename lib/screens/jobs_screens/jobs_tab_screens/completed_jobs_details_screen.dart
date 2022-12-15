@@ -238,14 +238,23 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                     size: 20,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Text(
-                    "View Comments (${widget.jobsCompletedModel!.totalComments})",
-                    style: Theme.of(context).textTheme.bodySmall,
+                  title: Row(
+                    children: <Widget>[
+                      Text(
+                        "View Comments".tr(),
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width / 40),
+                      Text(
+                        "(${widget.jobsCompletedModel!.totalComments})",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
                   ),
                   subtitle: Text(
                     "You haven't received any comments yet.",
                     style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                  ).tr(),
                   trailing: const Icon(
                     Icons.arrow_forward_ios,
                     size: 14,
