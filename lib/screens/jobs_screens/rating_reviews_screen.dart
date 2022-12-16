@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,7 @@ class RatingReviewsScreen extends StatelessWidget {
         title: Text(
           "Give Reviews",
           style: Theme.of(context).textTheme.titleSmall,
-        ),
+        ).tr(),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -55,7 +56,7 @@ class RatingReviewsScreen extends StatelessWidget {
                 Text(
                   "How was Client performance?",
                   style: Theme.of(context).textTheme.titleMedium,
-                ),
+                ).tr(),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 40,
                 ),
@@ -82,7 +83,7 @@ class RatingReviewsScreen extends StatelessWidget {
                 Text(
                   "Please select a rating",
                   style: Theme.of(context).textTheme.labelMedium,
-                ),
+                ).tr(),
                 SizedBox(
                   height: MediaQuery.of(context).size.width / 6,
                 ),
@@ -92,16 +93,16 @@ class RatingReviewsScreen extends StatelessWidget {
                     Text(
                       "Give Reviews",
                       style: Theme.of(context).textTheme.bodyMedium,
-                    ),
+                    ).tr(),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
                     Consumer<RatingProvider>(
                       builder: (_,rating,child) => TextField(
-                        decoration: const InputDecoration(
-                          hintText: 'Aa...',
+                        decoration: InputDecoration(
+                          hintText: 'Aa...'.tr(),
                           isDense: true,
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                         ),
                         onChanged: (value) {
                           rating.getMessage(value);

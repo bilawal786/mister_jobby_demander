@@ -100,8 +100,8 @@ class ForgetPasswordProvider with ChangeNotifier {
           content: Text(
             'User not exits',
             style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          duration: Duration(
+          ).tr(),
+          duration:const Duration(
             seconds: 2,
           ),
         ),
@@ -146,8 +146,8 @@ class ForgetPasswordProvider with ChangeNotifier {
           content: Text(
             'Password Changed Successfully',
             style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          duration: Duration(
+          ).tr(),
+          duration: const Duration(
             seconds: 2,
           ),
         ),

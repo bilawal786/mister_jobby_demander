@@ -273,7 +273,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                   Row(
                     children: <Widget>[
                       Text(
-                        "Reservations",
+                        "Reservations".tr(),
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
@@ -523,7 +523,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                           if (extractedReservation[index].status == 2)
                             OutlineSelectedButton(
                               onTap: (){},
-                              textTitle: "Completed",
+                              textTitle: "Completed".tr(),
                               border: true,
                               width: double.infinity,
                             ),
@@ -576,7 +576,7 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                     Text(
                       "Offers",
                       style: Theme.of(context).textTheme.titleMedium,
-                    ),
+                    ).tr(),
                     Text(
                       "(${extractedOffer?.length})",
                       style: Theme.of(context).textTheme.titleMedium,

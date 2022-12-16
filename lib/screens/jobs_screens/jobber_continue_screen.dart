@@ -398,7 +398,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
               const Divider(),
               if (alert == true)
                 Text(
-                  "Make Sure you read the terms and condition",
+                  "Make Sure you read the terms and condition".tr(),
                   style: TextStyle(
                     fontSize: 16,
                     color: Theme.of(context).colorScheme.error,

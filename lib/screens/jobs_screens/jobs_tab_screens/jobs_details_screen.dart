@@ -746,7 +746,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                 color: Colors.amber,
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
-                              child: const Text("Waiting for approval", style: TextStyle(
+                              child: Text("Waiting for approval".tr(), style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
                                 fontWeight: FontWeight.normal,
@@ -762,7 +762,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
-                              child: const Text("Cancelled", style:  TextStyle(
+                              child: Text("Cancelled".tr(), style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
                                 fontWeight: FontWeight.normal,
@@ -787,7 +787,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                     Text(
                       "Offers",
                       style: Theme.of(context).textTheme.titleMedium,
-                    ),
+                    ).tr(),
                     Consumer<JobProposalsProvider>(
                       builder: (_, extractOffer, child) => Text(
                         "(${extractOffer.jobProposal?.length})",

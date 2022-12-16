@@ -86,7 +86,7 @@ class LoginProvider with ChangeNotifier {
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 1.4,
                   child: Text(
-                    'An Administrator has blocked you from running this app',
+                    'Admin blocked this user',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ).tr(),
                 ),

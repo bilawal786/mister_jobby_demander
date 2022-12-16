@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../helpers/routes.dart';
@@ -65,7 +66,7 @@ class PaymentSuccessScreen extends StatelessWidget {
                   Text(
                     "Reservation made!",
                     style: Theme.of(context).textTheme.titleMedium,
-                  ),
+                  ).tr(),
                   SizedBox(
                     height: MediaQuery.of(context).size.width / 40,
                   ),
@@ -75,7 +76,7 @@ class PaymentSuccessScreen extends StatelessWidget {
                       "User has been notified of your reservation. You can now get in touch via private messaging or by phone.",
                       style: Theme.of(context).textTheme.bodySmall,
                       textAlign: TextAlign.center,
-                    ),
+                    ).tr(),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.width / 2,

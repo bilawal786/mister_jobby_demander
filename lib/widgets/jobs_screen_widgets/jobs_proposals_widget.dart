@@ -293,7 +293,7 @@ class _JobsProposalsWidgetState extends State<JobsProposalsWidget> {
                                       fontWeight: FontWeight.normal,
                                       color: Colors.white,
                                       letterSpacing: 0.8),
-                                ),
+                                ).tr(),
                               ),
                       ),
                       SizedBox(

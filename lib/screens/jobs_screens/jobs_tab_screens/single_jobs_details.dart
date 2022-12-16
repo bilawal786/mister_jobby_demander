@@ -44,7 +44,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
           Text(
             "Images",
             style: Theme.of(context).textTheme.titleSmall,
-          ),
+          ).tr(),
         SizedBox(
           height: MediaQuery.of(context).size.width / 40,
         ),
@@ -198,7 +198,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -227,7 +227,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                         Row(
                           children: <Widget>[
                             Text(
-                              "Medium Size ",
+                              "Medium Size",
                               style: Theme.of(context).textTheme.labelMedium,
                             ).tr(),
                             const Spacer(),
@@ -245,7 +245,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                         Row(
                           children: <Widget>[
                             Text(
-                              "Large Size ",
+                              "Large Size",
                               style: Theme.of(context).textTheme.labelMedium,
                             ).tr(),
                             const Spacer(),
@@ -263,7 +263,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                         Row(
                           children: <Widget>[
                             Text(
-                              "Very Large Size ",
+                              "Very Large Size",
                               style: Theme.of(context).textTheme.labelMedium,
                             ).tr(),
                             const Spacer(),
@@ -335,7 +335,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -375,7 +375,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -418,7 +418,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -461,7 +461,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -504,7 +504,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -547,7 +547,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -595,7 +595,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -657,7 +657,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -700,7 +700,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -743,7 +743,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -787,7 +787,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -902,7 +902,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -945,7 +945,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -983,7 +983,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1044,7 +1044,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1118,7 +1118,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1229,7 +1229,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1356,7 +1356,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1381,7 +1381,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                           Row(
                             children: <Widget>[
                               Text(
-                                "Small size",
+                                "Small Size",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                               const Spacer(),
@@ -1395,7 +1395,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                           Row(
                             children: <Widget>[
                               Text(
-                                "Medium size ",
+                                "Medium Size",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                               const Spacer(),
@@ -1409,7 +1409,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                           Row(
                             children: <Widget>[
                               Text(
-                                "Large size ",
+                                "Large size",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                               const Spacer(),
@@ -1483,7 +1483,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1557,14 +1557,14 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
                         "What do you need?",
                         style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1618,14 +1618,14 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
                         "Pick-up address?",
                         style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1640,9 +1640,9 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
-                        "destination address?",
+                        "Destination address?",
                         style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1661,7 +1661,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                           Text(
                             "Housing area to move",
                             style: Theme.of(context).textTheme.labelLarge,
-                          ),
+                          ).tr(),
                           const Spacer(),
                           Text(
                             widget.jobsDetail!.surface,
@@ -1710,14 +1710,14 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
                         "Pick-up address?",
                         style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1732,9 +1732,9 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
-                        "destination address?",
+                        "Destination address?",
                         style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1753,7 +1753,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                           Text(
                             "Number of pieces of furniture",
                             style: Theme.of(context).textTheme.labelLarge,
-                          ),
+                          ).tr(),
                           const Spacer(),
                           Text(
                             widget.jobsDetail!.question,
@@ -1812,14 +1812,14 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
                         "What do you need?",
                         style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1895,14 +1895,14 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
-                        "Pick-up address",
+                        "Pick-up address?",
                         style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1917,9 +1917,9 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       Text(
-                        "Destination address",
+                        "Destination address?",
                         style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -1993,7 +1993,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2094,7 +2094,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
-                              "Demand Frequencies",
+                              "Demand Frequencies?",
                               style: Theme.of(context).textTheme.labelMedium,
                             ).tr(),
                           ),
@@ -2131,7 +2131,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2180,7 +2180,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
-                              "Demand Frequencies",
+                              "Demand Frequencies?",
                               style: Theme.of(context).textTheme.labelMedium,
                             ).tr(),
                           ),
@@ -2215,7 +2215,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2285,7 +2285,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2297,7 +2297,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Text(
-                                "Type of gaurd",
+                                "Type of guard",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                             ),
@@ -2340,7 +2340,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2378,7 +2378,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                               color: Colors.black,
                               fontFamily: 'Cerebri Sans Bold',
                             ),
-                          ),
+                          ).tr(),
                         ],
                       ),
                       SizedBox(
@@ -2447,7 +2447,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2477,7 +2477,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                               color: Colors.black,
                               fontFamily: 'Cerebri Sans Bold',
                             ),
-                          ),
+                          ).tr(),
                         ],
                       ),
                     ],
@@ -2503,14 +2503,14 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2,
                         child: Text(
-                          "What you need",
+                          "What you need?",
                           style: Theme.of(context).textTheme.labelMedium,
                         ).tr(),
                       ),
@@ -2558,7 +2558,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2621,7 +2621,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
-                              "Request Frequency",
+                              "Request Frequency?",
                               style: Theme.of(context).textTheme.labelMedium,
                             ).tr(),
                           ),
@@ -2661,7 +2661,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2754,7 +2754,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -2799,7 +2799,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Text(
-                                "cocktail buffet",
+                                "Cocktail buffet",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                             ),
@@ -2927,7 +2927,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -3056,7 +3056,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -3101,7 +3101,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Text(
-                                "cocktail buffet",
+                                "Cocktail buffet",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                             ),
@@ -3175,7 +3175,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -3267,7 +3267,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -3374,7 +3374,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -3497,7 +3497,7 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                       Text(
                         "Information",
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: MediaQuery.of(context).size.width / 40,
                       ),
@@ -3601,6 +3601,8 @@ class _SingleJobsDetailsState extends State<SingleJobsDetails> {
                   thickness: 10,
                 ),
               ],
+
+
               SizedBox(
                 height: MediaQuery.of(context).size.width / 30,
               ),

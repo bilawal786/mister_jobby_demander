@@ -105,7 +105,7 @@ class _GeneralStep3ScreenState extends State<GeneralStep3Screen> {
                     ),
                     child: DropdownButtonFormField<String>(
                       decoration: InputDecoration(
-                        hintText: "Select Country",
+                        hintText: "Select Country".tr(),
                         hintStyle: Theme.of(context).textTheme.bodyMedium,
                         isCollapsed: true,
                         enabledBorder: InputBorder.none,

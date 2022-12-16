@@ -24,7 +24,7 @@ class ViewRequestScreen extends StatelessWidget {
         title: Text(
           "View Request",
           style: Theme.of(context).textTheme.titleSmall,
-        ),
+        ).tr(),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -83,14 +83,28 @@ class ViewRequestScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
               ),
-              Text(
-                "The job was paid on ${reservation!.date}",
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.green,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Cerebri Sans Bold',
-                ),
+              Row(
+                children: [
+                  const Text(
+                    "The job was paid on",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.green,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Cerebri Sans Bold',
+                    ),
+                  ).tr(),
+                  SizedBox(width: MediaQuery.of(context).size.width / 40),
+                  Text(
+                    reservation!.date,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: Colors.green,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Cerebri Sans Bold',
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.width / 40,
@@ -207,7 +221,7 @@ class ViewRequestScreen extends StatelessWidget {
                   Text(
                     "Date",
                     style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                  ).tr(),
                   const Spacer(),
                   Text(
                     "${reservation!.job.serviceDate} at ${reservation!.job.startTime}",
@@ -232,7 +246,7 @@ class ViewRequestScreen extends StatelessWidget {
                   Text(
                     "Initial duration",
                     style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                  ).tr(),
                   const Spacer(),
                   Text(
                     "${reservation!.duration} h",

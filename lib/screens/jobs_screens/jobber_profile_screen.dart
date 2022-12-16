@@ -81,7 +81,7 @@ class JobberProfileScreen extends StatelessWidget {
                   Text(
                     "Views)",
                     style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                  ).tr(),
                 ],
               ),
               SizedBox(
@@ -167,11 +167,18 @@ class JobberProfileScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width /
                               40,
                         ),
-                        Expanded(
-                          child: Text(
-                            "${jobber!.cancelJobs} Jobs Canceled",
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              "${jobber!.cancelJobs}",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                            SizedBox(width: MediaQuery.of(context).size.width / 40),
+                            Text(
+                              "Jobs Canceled",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ).tr(),
+                          ],
                         ),
                       ],
                     ),
@@ -200,11 +207,18 @@ class JobberProfileScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width /
                               40,
                         ),
-                        Expanded(
-                          child: Text(
-                            "${jobber!.totalJobs} Total Jobs",
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              "${jobber!.totalJobs}",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                            SizedBox(width: MediaQuery.of(context).size.width / 40,),
+                            Text(
+                              "Total Jobs",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ).tr(),
+                          ],
                         ),
                       ],
                     ),
@@ -239,7 +253,7 @@ class JobberProfileScreen extends StatelessWidget {
                             Text(
                               "Address",
                               style: Theme.of(context).textTheme.labelMedium,
-                            ),
+                            ).tr(),
                             SizedBox(height: MediaQuery.of(context).size.width / 80,),
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 1.3,
@@ -304,7 +318,7 @@ class JobberProfileScreen extends StatelessWidget {
                     Text(
                       "Skills",
                       style: Theme.of(context).textTheme.titleSmall,
-                    ),
+                    ).tr(),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
@@ -463,7 +477,7 @@ class JobberProfileScreen extends StatelessWidget {
                                                   .width /
                                               1.8,
                                           child: Text(
-                                            (jobber!.skills[index].diplomaName != "") ? jobber!.skills[index].diplomaName : "No diploma",
+                                            (jobber!.skills[index].diplomaName != "") ? jobber!.skills[index].diplomaName : "No diploma".tr(),
                                             style: const TextStyle(
                                               fontSize: 14,
                                               color: Colors.white,
@@ -666,7 +680,7 @@ class JobberProfileScreen extends StatelessWidget {
                 child: Text(
                   "Reviews:",
                   style: Theme.of(context).textTheme.bodyMedium,
-                ),
+                ).tr(),
               ),
               if(jobber!.reviews.isEmpty) ... [
                 Center(

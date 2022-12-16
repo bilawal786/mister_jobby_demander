@@ -19,7 +19,7 @@ class RegisterProvider with ChangeNotifier {
   Future<void> registration(BuildContext context, firstName, lastName, email,
       password) async {
     showDialog(context: context, builder: (BuildContext context){
-      return LoginProgressIndicator();
+      return const LoginProgressIndicator();
     });
     var response = await http.post(
       Uri.parse('${MyRoutes.BASEURL}/register'),
@@ -70,7 +70,7 @@ class RegisterProvider with ChangeNotifier {
             'Already Registered',
             style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
-          duration: Duration(
+          duration: const Duration(
             seconds: 2,
           ),
         ),

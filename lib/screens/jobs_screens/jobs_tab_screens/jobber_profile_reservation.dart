@@ -81,7 +81,7 @@ class JobberProfileReservationScreen extends StatelessWidget {
                   Text(
                     "Views)",
                     style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                  ).tr(),
                 ],
               ),
               SizedBox(
@@ -159,11 +159,18 @@ class JobberProfileReservationScreen extends StatelessWidget {
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 40,
                         ),
-                        Expanded(
-                          child: Text(
-                            "${jobber!.cancelJobs} Jobs Canceled",
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              "${jobber!.cancelJobs}",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                            SizedBox(width: MediaQuery.of(context).size.width / 40),
+                            Text(
+                              "Jobs Canceled",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ).tr(),
+                          ],
                         ),
                       ],
                     ),
@@ -188,11 +195,18 @@ class JobberProfileReservationScreen extends StatelessWidget {
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 40,
                         ),
-                        Expanded(
-                          child: Text(
-                            "${jobber!.totalJobs} Total Jobs",
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              "${jobber!.totalJobs}",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                            SizedBox(width: MediaQuery.of(context).size.width / 40,),
+                            Text(
+                              "Total Jobs",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ).tr(),
+                          ],
                         ),
                       ],
                     ),
@@ -221,7 +235,7 @@ class JobberProfileReservationScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "Address",
+                              "Address".tr(),
                               style: Theme.of(context).textTheme.labelMedium,
                             ),
                             SizedBox(
@@ -290,7 +304,7 @@ class JobberProfileReservationScreen extends StatelessWidget {
                     Text(
                       "Skills",
                       style: Theme.of(context).textTheme.titleSmall,
-                    ),
+                    ).tr(),
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
@@ -663,7 +677,7 @@ class JobberProfileReservationScreen extends StatelessWidget {
                 child: Text(
                   "Reviews:",
                   style: Theme.of(context).textTheme.bodyMedium,
-                ),
+                ).tr(),
               ),
               if (jobber!.reviews.isEmpty) ...[
                 Center(

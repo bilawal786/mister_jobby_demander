@@ -378,7 +378,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -407,7 +407,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                           Row(
                             children: <Widget>[
                               Text(
-                                "Medium Size ",
+                                "Medium Size",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                               const Spacer(),
@@ -425,7 +425,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                           Row(
                             children: <Widget>[
                               Text(
-                                "Large Size ",
+                                "Large Size",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                               const Spacer(),
@@ -443,7 +443,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                           Row(
                             children: <Widget>[
                               Text(
-                                "Very Large Size ",
+                                "Very Large Size",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                               const Spacer(),
@@ -466,8 +466,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.8,
                                   child: Text(
                                     "Do you want the service provider to clear the boxes ?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                                 const Spacer(),
@@ -484,8 +483,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.8,
                                   child: Text(
                                     "Pass two coats?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                                 const Spacer(),
@@ -517,7 +515,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -542,7 +540,6 @@ class _EditJobScreenState extends State<EditJobScreen> {
                       ],
                     ),
                   ),
-                  
                   const Divider(
                     height: 2,
                     thickness: 10,
@@ -558,7 +555,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -601,7 +598,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -644,7 +641,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -687,7 +684,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -730,7 +727,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -778,7 +775,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -830,7 +827,6 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     thickness: 10,
                   ),
                 ],
-
                 if (widget.jobsDetail!.childcategoryId != null &&
                     widget.jobsDetail!.childcategoryId == 14) ...[
                   Padding(
@@ -841,7 +837,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -884,7 +880,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -927,7 +923,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -971,7 +967,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -987,8 +983,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.4,
                                   child: Text(
                                     "Do you want the service provider to clear the boxes?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                                 const Spacer(),
@@ -1004,8 +999,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.4,
                                   child: Text(
                                     "Equipment(s)?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                                 const Spacer(),
@@ -1021,8 +1015,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.4,
                                   child: Text(
                                     "Camera?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                                 const Spacer(),
@@ -1040,8 +1033,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.4,
                                   child: Text(
                                     "Need to install baseboards?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                                 const Spacer(),
@@ -1057,8 +1049,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.4,
                                   child: Text(
                                     "Does the jobber have to bring his own cutting material?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                                 const Spacer(),
@@ -1091,7 +1082,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1134,7 +1125,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1172,7 +1163,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1233,7 +1224,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1297,7 +1288,6 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     thickness: 10,
                   ),
                 ],
-
                 if (widget.jobsDetail!.subcategoryId == 5 ||
                     widget.jobsDetail!.subcategoryId == 8) ...[
                   Padding(
@@ -1308,7 +1298,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1361,8 +1351,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.5,
                                   child: Text(
                                     "Does the jobber have to remove waste from your home?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                               if (widget.jobsDetail!.subcategoryId == 8)
@@ -1370,8 +1359,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                   width: MediaQuery.of(context).size.width / 1.5,
                                   child: Text(
                                     "Does the jobber have to remove waste from your home?",
-                                    style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                    style: Theme.of(context).textTheme.labelMedium,
                                   ).tr(),
                                 ),
                               const Spacer(),
@@ -1421,7 +1409,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1548,7 +1536,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1573,7 +1561,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                             Row(
                               children: <Widget>[
                                 Text(
-                                  "Small size",
+                                  "Small Size",
                                   style: Theme.of(context).textTheme.labelMedium,
                                 ).tr(),
                                 const Spacer(),
@@ -1587,7 +1575,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                             Row(
                               children: <Widget>[
                                 Text(
-                                  "Medium size ",
+                                  "Medium Size",
                                   style: Theme.of(context).textTheme.labelMedium,
                                 ).tr(),
                                 const Spacer(),
@@ -1601,7 +1589,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                             Row(
                               children: <Widget>[
                                 Text(
-                                  "Large size ",
+                                  "Large size",
                                   style: Theme.of(context).textTheme.labelMedium,
                                 ).tr(),
                                 const Spacer(),
@@ -1666,7 +1654,6 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     thickness: 10,
                   ),
                 ],
-
                 if (widget.jobsDetail!.subcategoryId == 9) ...[
                   Padding(
                     padding: const EdgeInsets.all(0.0),
@@ -1676,7 +1663,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1750,14 +1737,14 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         Text(
                           "What do you need?",
                           style: Theme.of(context).textTheme.labelLarge,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1802,7 +1789,6 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     thickness: 10,
                   ),
                 ],
-
                 if (widget.jobsDetail!.subcategoryId == 14) ...[
                   Padding(
                     padding: const EdgeInsets.all(0.0),
@@ -1812,14 +1798,14 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         Text(
                           "Pick-up address?",
                           style: Theme.of(context).textTheme.labelLarge,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1834,9 +1820,9 @@ class _EditJobScreenState extends State<EditJobScreen> {
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         Text(
-                          "destination address?",
+                          "Destination address?",
                           style: Theme.of(context).textTheme.labelLarge,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1855,7 +1841,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                             Text(
                               "Housing area to move",
                               style: Theme.of(context).textTheme.labelLarge,
-                            ),
+                            ).tr(),
                             const Spacer(),
                             Text(
                               widget.jobsDetail!.surface,
@@ -1904,14 +1890,14 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         Text(
                           "Pick-up address?",
                           style: Theme.of(context).textTheme.labelLarge,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1926,9 +1912,9 @@ class _EditJobScreenState extends State<EditJobScreen> {
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         Text(
-                          "destination address?",
+                          "Destination address?",
                           style: Theme.of(context).textTheme.labelLarge,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -1947,7 +1933,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                             Text(
                               "Number of pieces of furniture",
                               style: Theme.of(context).textTheme.labelLarge,
-                            ),
+                            ).tr(),
                             const Spacer(),
                             Text(
                               widget.jobsDetail!.question,
@@ -2006,14 +1992,14 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         Text(
                           "What do you need?",
                           style: Theme.of(context).textTheme.labelLarge,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2077,7 +2063,6 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     thickness: 10,
                   ),
                 ],
-
                 if (widget.jobsDetail!.subcategoryId == 19 ||
                     widget.jobsDetail!.subcategoryId == 20 ||
                     widget.jobsDetail!.subcategoryId == 21 ||
@@ -2090,14 +2075,14 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         Text(
-                          "Pick-up address",
+                          "Pick-up address?",
                           style: Theme.of(context).textTheme.labelLarge,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2112,9 +2097,9 @@ class _EditJobScreenState extends State<EditJobScreen> {
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         Text(
-                          "Destination address",
+                          "Destination address?",
                           style: Theme.of(context).textTheme.labelLarge,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2188,7 +2173,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2289,7 +2274,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Text(
-                                "Demand Frequencies",
+                                "Demand Frequencies?",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                             ),
@@ -2326,7 +2311,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2375,7 +2360,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Text(
-                                "Demand Frequencies",
+                                "Demand Frequencies?",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                             ),
@@ -2410,7 +2395,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2480,7 +2465,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2492,7 +2477,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                               SizedBox(
                                 width: MediaQuery.of(context).size.width / 2,
                                 child: Text(
-                                  "Type of gaurd",
+                                  "Type of guard",
                                   style: Theme.of(context).textTheme.labelMedium,
                                 ).tr(),
                               ),
@@ -2535,7 +2520,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2573,7 +2558,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                 color: Colors.black,
                                 fontFamily: 'Cerebri Sans Bold',
                               ),
-                            ),
+                            ).tr(),
                           ],
                         ),
                         SizedBox(
@@ -2642,7 +2627,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2672,7 +2657,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                                 color: Colors.black,
                                 fontFamily: 'Cerebri Sans Bold',
                               ),
-                            ),
+                            ).tr(),
                           ],
                         ),
                       ],
@@ -2689,8 +2674,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                 if (widget.jobsDetail!.subcategoryId == 36 ||
                     widget.jobsDetail!.subcategoryId == 66 ||
                     widget.jobsDetail!.subcategoryId == 68 ||
-                    widget.jobsDetail!.subcategoryId == 69
-                ) ...[
+                    widget.jobsDetail!.subcategoryId == 69) ...[
                   Padding(
                     padding: const EdgeInsets.all(0.0),
                     child: Column(
@@ -2699,14 +2683,14 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 2,
                           child: Text(
-                            "What you need",
+                            "What you need?",
                             style: Theme.of(context).textTheme.labelMedium,
                           ).tr(),
                         ),
@@ -2731,7 +2715,6 @@ class _EditJobScreenState extends State<EditJobScreen> {
                     thickness: 10,
                   ),
                 ],
-
                 if (widget.jobsDetail!.subcategoryId == 46 ||
                     widget.jobsDetail!.subcategoryId == 47 ||
                     widget.jobsDetail!.subcategoryId == 48 ||
@@ -2755,7 +2738,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2818,7 +2801,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Text(
-                                "Request Frequency",
+                                "Request Frequency?",
                                 style: Theme.of(context).textTheme.labelMedium,
                               ).tr(),
                             ),
@@ -2858,7 +2841,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2951,7 +2934,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -2996,7 +2979,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                               SizedBox(
                                 width: MediaQuery.of(context).size.width / 2,
                                 child: Text(
-                                  "cocktail buffet",
+                                  "Cocktail buffet",
                                   style: Theme.of(context).textTheme.labelMedium,
                                 ).tr(),
                               ),
@@ -3124,7 +3107,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -3253,7 +3236,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -3298,7 +3281,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                               SizedBox(
                                 width: MediaQuery.of(context).size.width / 2,
                                 child: Text(
-                                  "cocktail buffet",
+                                  "Cocktail buffet",
                                   style: Theme.of(context).textTheme.labelMedium,
                                 ).tr(),
                               ),
@@ -3372,7 +3355,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -3464,7 +3447,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -3571,7 +3554,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),
@@ -3694,7 +3677,7 @@ class _EditJobScreenState extends State<EditJobScreen> {
                         Text(
                           "Information",
                           style: Theme.of(context).textTheme.titleMedium,
-                        ),
+                        ).tr(),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 40,
                         ),

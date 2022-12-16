@@ -54,10 +54,10 @@ class GiftCardProvider with ChangeNotifier {
           padding :const EdgeInsets.all(20.0),
           backgroundColor: const Color(0xFFebf9fe),
           content: Text(
-            'Gift Card Number not exist',
+            'Gift Card Number not exist'.tr(),
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          duration: Duration(
+          duration: const Duration(
             seconds: 2,
           ),
         ),

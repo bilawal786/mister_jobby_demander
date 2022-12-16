@@ -129,7 +129,7 @@ class InProgressItemWidget extends StatelessWidget {
                           color: Colors.white,
                           letterSpacing: 0.8
                       ),
-                    ),
+                    ).tr(),
                   ),
             SizedBox(
               height: MediaQuery.of(context).size.width / 40,
