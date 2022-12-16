@@ -754,7 +754,11 @@
   "Vehicle": "Véhicule",
   "Material type of repair": "Type de matériel de réparation",
   "Mechanical": "Mécanique",
-  "Electric": "Électrique"
+  "Electric": "Électrique",
+  "Pending": "En attente",
+  "Accepted": "Accepté",
+  "Price:": "Prix:",
+  "Rejected": "Rejeté"
 
 
 }

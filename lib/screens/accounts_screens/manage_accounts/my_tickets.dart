@@ -196,20 +196,20 @@ class _MyTicketsState extends State<MyTickets> {
                             color: Colors.red.shade300,
                             fontWeight: FontWeight.normal,
                             fontFamily: 'Cerebri Sans Bold',
-                          ),) :
+                          ),).tr() :
                           (extractData[index].status == 0) ?
                           const Text('Pending', style: TextStyle(
                             fontSize: 16,
                             color: Color.fromARGB(247,203,115,5),
                             fontWeight: FontWeight.normal,
                             fontFamily: 'Cerebri Sans Bold',
-                          ),) :
+                          ),).tr() :
                           Text('Accepted', style: TextStyle(
                             fontSize: 16,
                             color: Colors.green.shade600,
                             fontWeight: FontWeight.normal,
                             fontFamily: 'Cerebri Sans Bold',
-                          ),),
+                          ),).tr(),
                         ],),
                       ),
                     ],),

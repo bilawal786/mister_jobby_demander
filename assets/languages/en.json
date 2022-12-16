@@ -750,8 +750,11 @@
   "Vehicle": "Vehicle",
   "Material type of repair": "Material type of repair",
   "Mechanical": "Mechanical",
-  "Electric": "Electric"
-
+  "Electric": "Electric",
+  "Pending": "Pending",
+  "Accepted": "Accepted",
+  "Price:": "Price:",
+  "Rejected": "Rejected"
 
 
 }
