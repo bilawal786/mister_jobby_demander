@@ -105,11 +105,14 @@ class _ContinueJobberState extends State<ContinueJobber> {
                                               widget.proposel!.id.toString(),
                                               double.parse(
                                                       widget.proposel!.price) +
-                                                  ((double.parse(widget
+                                                  (((double.parse(widget
+                                                      .proposel!.price) *
+                                                      10) /
+                                                      100) >= 5 ?((double.parse(widget
                                                               .proposel!
                                                               .price) *
                                                           10) /
-                                                      100),
+                                                      100) :0 ),
                                               ((double.parse(widget
                                                           .proposel!.price) *
                                                       10) /
@@ -387,7 +390,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                   ),
                   const Spacer(),
                   Text(
-                    " ${double.parse(widget.proposel!.price) + ((double.parse(widget.proposel!.price) * 10) / 100)} €",
+                    "${double.parse(widget.proposel!.price) + (((double.parse(widget.proposel!.price) * 10) / 100) >=5 ?((double.parse(widget.proposel!.price) * 10) / 100) : 0 )} €",
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
@@ -415,7 +418,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
 
   Future<void> makePayment() async {
     var amount = double.parse(widget.proposel!.price) +
-        ((double.parse(widget.proposel!.price) * 10) / 100);
+        (((double.parse(widget.proposel!.price) * 10) / 100) >= 5 ? ((double.parse(widget.proposel!.price) * 10) / 100): 0);
     try {
       paymentIntent = await createPaymentIntent(amount, 'EUR');
       //Payment Sheet
@@ -435,7 +438,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
       ///now finally display payment sheeet
       displayPaymentSheet();
     } catch (e, s) {
-      print('exception:$e$s');
+      debugPrint('exception:$e$s');
       setState(() {
         check = false;
       });
@@ -452,7 +455,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
             widget.proposel!.id.toString(),
             double.parse(widget.proposel!.price) +
                 ((double.parse(widget.proposel!.price) * 10) / 100),
-            ((double.parse(widget.proposel!.price) * 10) / 100));
+            (((double.parse(widget.proposel!.price) * 10) / 100) > 5 ? ((double.parse(widget.proposel!.price) * 10) / 100) : 0));
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (ctx) => PaymentSuccessScreen(
@@ -492,13 +495,13 @@ class _ContinueJobberState extends State<ContinueJobber> {
           check = false;
         });
       }).onError((error, stackTrace) {
-        print('Error is:--->$error $stackTrace');
+        debugPrint('Error is:--->$error $stackTrace');
         setState(() {
           check = false;
         });
       });
     } on StripeException catch (e) {
-      print('Error is:---> $e');
+      debugPrint('Error is:---> $e');
       showDialog(
           context: context,
           builder: (_) => const AlertDialog(
@@ -508,7 +511,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
         check = false;
       });
     } catch (e) {
-      print('$e');
+      debugPrint('$e');
       setState(() {
         check = false;
       });
