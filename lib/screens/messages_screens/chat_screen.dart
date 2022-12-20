@@ -132,7 +132,9 @@ class _ChatScreenState extends State<ChatScreen> {
                             hintStyle: Theme.of(context).textTheme.bodyMedium,
                             border: InputBorder.none,
                           ),
-                        )),
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                    ),
                   ),
                   // IconButton(
                   //   onPressed: () {},
