@@ -1,9 +1,7 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-// import '../../models/messages_model.dart';
 import '../../helpers/routes.dart';
 import '../../providers/chat_provider.dart';
 import 'chat_screen.dart';
