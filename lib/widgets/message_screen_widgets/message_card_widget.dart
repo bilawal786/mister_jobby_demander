@@ -21,10 +21,10 @@ class _MessageCardState extends State<MessageCard> {
   Widget build(BuildContext context) {
     final profileData = Provider.of<ProfileProvider>(context, listen: false);
     final extractedProfile = profileData.myProfile;
-    return extractedProfile!.demandeurId.toString() == widget.message.fromId ? greenMessage() : blueMessage();
+    return extractedProfile!.demandeurId.toString() == widget.message.fromId ? blueMessage() : whiteMessage();
   }
 
-  Widget blueMessage() {
+  Widget whiteMessage() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -35,13 +35,13 @@ class _MessageCardState extends State<MessageCard> {
                 vertical: MediaQuery.of(context).size.height * .01),
             padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
             decoration: BoxDecoration(
-              color: Colors.blue.shade200,
+              color: Colors.white,
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
                 bottomRight: Radius.circular(30),
               ),
-              border: Border.all(color: Colors.blue),
+              border: Border.all(color: Colors.black26),
             ),
             child: Text(
               widget.message.msg,
@@ -67,7 +67,7 @@ class _MessageCardState extends State<MessageCard> {
     );
   }
 
-  Widget greenMessage() {
+  Widget blueMessage() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -93,13 +93,13 @@ class _MessageCardState extends State<MessageCard> {
                 vertical: MediaQuery.of(context).size.height * .01),
             padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
             decoration: BoxDecoration(
-              color: Colors.green.shade200,
+              color: Colors.blue.shade100,
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
                 bottomLeft: Radius.circular(30),
               ),
-              border: Border.all(color: Colors.green),
+              border: Border.all(color: Colors.blue.shade700),
             ),
             child: Text(
               widget.message.msg,
