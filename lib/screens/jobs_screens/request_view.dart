@@ -155,11 +155,11 @@ class ViewRequestScreen extends StatelessWidget {
                   Expanded(
                     child: OutlineSelectedButton(
                       onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (ctx) => ChatScreen(jobber: reservation!.jobberProfile),
-                          ),
-                        );
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(
+                        //     builder: (ctx) => ChatScreen(jobber: reservation!.jobberProfile),
+                        //   ),
+                        // );
                       },
                       textTitle: "Message",
                       border: true,

@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../helpers/routes.dart';
+import '../../../providers/accounts_providers/profile_provider.dart';
 import '../../../providers/jobs_provider/cancel_reservation_provider.dart';
 import '../../../providers/jobs_provider/job_reservation_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
@@ -216,6 +217,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
     final reservationData =
         Provider.of<JobReservationProvider>(context, listen: false);
     final extractedReservation = reservationData.jobReservations;
+    final profileData = Provider.of<ProfileProvider>(context, listen: false);
     return Scaffold(
       body: NestedScrollView(
         floatHeaderSlivers: true,
@@ -670,7 +672,10 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                     onPressed: () {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (ctx) => ChatScreen(jobber: extractedReservation[index].jobberProfile),
+                                          builder: (ctx) => ChatScreen(jobberId: extractedReservation[index].jobberProfile.jobberId.toString(),
+                                          jobberName: "${extractedReservation[index].jobberProfile.firstName} ${extractedReservation[index].jobberProfile.lastName}",
+                                            jobberImgUrl: extractedReservation[index].jobberProfile.image,
+                                          ),
                                         ),
                                       );
                                     },

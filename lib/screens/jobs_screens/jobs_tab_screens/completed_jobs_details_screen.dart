@@ -460,10 +460,10 @@ class _CompletedJobsDetailsState extends State<CompletedJobsDetails> {
                                   ),
                                   IconButton(
                                     onPressed: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (ctx) =>
-                                                  ChatScreen(jobber: extractedReservation[index].jobberProfile)));
+                                      // Navigator.of(context).push(
+                                      //     MaterialPageRoute(
+                                      //         builder: (ctx) =>
+                                      //             ChatScreen(jobber: extractedReservation[index].jobberProfile)));
                                     },
                                     icon: Icon(
                                       Icons.chat_outlined,

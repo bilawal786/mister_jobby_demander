@@ -143,6 +143,7 @@ import 'providers/accounts_providers/gift_card_provider/gift_card_provider.dart'
 import 'providers/accounts_providers/my_balance_provider/my_balance_provider.dart';
 import 'providers/accounts_providers/terms_and_condition_provider/terms_and_condition_provider.dart';
 import 'providers/accounts_providers/transaction_provider/transaction_provider.dart';
+import 'providers/chat_provider.dart';
 import 'providers/jobs_provider/cancel_reservation_provider.dart';
 import 'providers/jobs_provider/edit_jobs_provider.dart';
 import 'providers/jobs_provider/job_reservation_provider.dart';
@@ -286,6 +287,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => CancelReservationProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ChatProvider(),
         ),
       ],
       child: MaterialApp(
