@@ -42,58 +42,63 @@ class _MessagesScreenState extends State<MessagesScreen> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : ListView.builder(
-              padding: const EdgeInsets.all(10.0),
-              itemCount: chatList.chatList?.length,
-              itemBuilder: (ctx, index) => GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (ctx) => ChatScreen(
-                              jobberId: chatList.chatList![index].demandeurId
-                                  .toString(),
-                          jobberImgUrl: chatList.chatList![index].image,
-                          jobberName: "${chatList.chatList![index].firstName} ${chatList.chatList![index].lastName}",
-                            )));
-                  },
-                  child: Card(
-                    elevation: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.15,
-                            height: MediaQuery.of(context).size.width * 0.15,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 1.2,
+          : RefreshIndicator(
+        onRefresh: ()async {
+          await Provider.of<ChatProvider>(context, listen: false).getChatList();
+        },
+            child: ListView.builder(
+                padding: const EdgeInsets.all(10.0),
+                itemCount: chatList.chatList?.length,
+                itemBuilder: (ctx, index) => GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (ctx) => ChatScreen(
+                                jobberId: chatList.chatList![index].demandeurId
+                                    .toString(),
+                            jobberImgUrl: chatList.chatList![index].image,
+                            jobberName: "${chatList.chatList![index].firstName} ${chatList.chatList![index].lastName}",
+                              )));
+                    },
+                    child: Card(
+                      elevation: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.15,
+                              height: MediaQuery.of(context).size.width * 0.15,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 1.2,
+                                ),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(100),
+                                child: Image.network("${MyRoutes.IMAGEURL}/${chatList.chatList![index].image}", fit: BoxFit.cover,),
                               ),
                             ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(100),
-                              child: Image.network("${MyRoutes.IMAGEURL}/${chatList.chatList![index].image}", fit: BoxFit.cover,),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 40,
                             ),
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 40,
-                          ),
-                          Text(
-                            "${chatList.chatList![index].firstName} ${chatList.chatList![index].lastName}",
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                          const Spacer(),
-                          const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 20,
-                            color: Colors.black,
-                          ),
-                        ],
+                            Text(
+                              "${chatList.chatList![index].firstName} ${chatList.chatList![index].lastName}",
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            const Spacer(),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  )),
-            ),
+                    )),
+              ),
+          ),
     );
   }
 }
