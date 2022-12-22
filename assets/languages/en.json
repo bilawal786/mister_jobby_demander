@@ -754,7 +754,8 @@
   "Pending": "Pending",
   "Accepted": "Accepted",
   "Price:": "Price:",
-  "Rejected": "Rejected"
+  "Rejected": "Rejected",
+  "Are you sure?": "Are you sure?"
 
 
 }

@@ -512,7 +512,6 @@
   "See_Profile": "Voir le profil",
   "Views)": "Vues)",
   "Jobs_Performed": "Travaux effectués",
-  "Information": "Informations",
   "About_Us": "À propos de nous",
   "Scan_Code_Title": "Scannez un code",
   "Scan_a_Code": "Scannez un code",
@@ -758,7 +757,9 @@
   "Pending": "En attente",
   "Accepted": "Accepté",
   "Price:": "Prix:",
-  "Rejected": "Rejeté"
+  "Rejected": "Rejeté",
+  "Information": "Renseignements",
+  "Are you sure?": "Es-tu sûr?"
 
 
 }
