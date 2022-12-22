@@ -1973,7 +1973,7 @@ class ConstProvider with ChangeNotifier {
           content: Text(
             'Job Posted successfully',
             style: Theme.of(context).textTheme.bodyMedium,
-          ),
+          ).tr(),
           duration: const Duration(
             seconds: 2,
           ),

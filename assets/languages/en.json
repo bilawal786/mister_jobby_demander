@@ -755,7 +755,9 @@
   "Accepted": "Accepted",
   "Price:": "Price:",
   "Rejected": "Rejected",
-  "Are you sure?": "Are you sure?"
+  "Are you sure?": "Are you sure?",
+  "Please Wait...": "Please Wait...",
+  "Job Posted successfully": "Job Posted successfully"
 
 
 }

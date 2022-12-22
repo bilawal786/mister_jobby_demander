@@ -759,7 +759,9 @@
   "Price:": "Prix:",
   "Rejected": "Rejeté",
   "Information": "Renseignements",
-  "Are you sure?": "Es-tu sûr?"
+  "Are you sure?": "Es-tu sûr?",
+  "Please Wait...": "S'il vous plaît, attendez...",
+  "Job Posted successfully": "Offre publiée avec succès"
 
 
 }
