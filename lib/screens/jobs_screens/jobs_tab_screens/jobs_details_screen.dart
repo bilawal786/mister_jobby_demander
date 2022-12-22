@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../helpers/routes.dart';
-import '../../../providers/accounts_providers/profile_provider.dart';
 import '../../../providers/jobs_provider/cancel_reservation_provider.dart';
 import '../../../providers/jobs_provider/job_reservation_provider.dart';
 import '../../../widgets/const_widgets/custom_button.dart';
@@ -35,9 +34,10 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
   @override
   void didChangeDependencies() {
     if (isInit) {
-      Provider.of<JobReservationProvider>(context)
-          .getJobReservations(context, widget.jobsInProgressDetail!.id.toString());
-      Provider.of<JobProposalsProvider>(context).getJobProposals(context,widget.jobsInProgressDetail!.id.toString());
+      Provider.of<JobReservationProvider>(context).getJobReservations(
+          context, widget.jobsInProgressDetail!.id.toString());
+      Provider.of<JobProposalsProvider>(context)
+          .getJobProposals(context, widget.jobsInProgressDetail!.id.toString());
     }
     isInit = false;
     super.didChangeDependencies();
@@ -217,7 +217,6 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
     final reservationData =
         Provider.of<JobReservationProvider>(context, listen: false);
     final extractedReservation = reservationData.jobReservations;
-    final profileData = Provider.of<ProfileProvider>(context, listen: false);
     return Scaffold(
       body: NestedScrollView(
         floatHeaderSlivers: true,
@@ -471,21 +470,21 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                         builder: (_, reservation, child) => InkWell(
                           onTap: () {
                             reservation.setCheckApi();
-                            reservation
-                                .getJobReservations(context, widget.jobsInProgressDetail!.id);
+                            reservation.getJobReservations(
+                                context, widget.jobsInProgressDetail!.id);
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: reservation.checkApi == false
                                 ? const SizedBox(
-                                width: 25,
-                                height: 25,
-                                child: CircularProgressIndicator())
+                                    width: 25,
+                                    height: 25,
+                                    child: CircularProgressIndicator())
                                 : const Icon(
-                              Icons.refresh,
-                              size: 25,
-                              color: Colors.black,
-                            ),
+                                    Icons.refresh,
+                                    size: 25,
+                                    color: Colors.black,
+                                  ),
                           ),
                         ),
                       ),
@@ -546,7 +545,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                       right: -2,
                                       child: Container(
                                         decoration: const BoxDecoration(
-                                          color:Colors.white,
+                                          color: Colors.white,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Icon(
@@ -672,9 +671,18 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                     onPressed: () {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (ctx) => ChatScreen(jobberId: extractedReservation[index].jobberProfile.jobberId.toString(),
-                                          jobberName: "${extractedReservation[index].jobberProfile.firstName} ${extractedReservation[index].jobberProfile.lastName}",
-                                            jobberImgUrl: extractedReservation[index].jobberProfile.image,
+                                          builder: (ctx) => ChatScreen(
+                                            jobberId:
+                                                extractedReservation[index]
+                                                    .jobberProfile
+                                                    .jobberId
+                                                    .toString(),
+                                            jobberName:
+                                                "${extractedReservation[index].jobberProfile.firstName} ${extractedReservation[index].jobberProfile.lastName}",
+                                            jobberImgUrl:
+                                                extractedReservation[index]
+                                                    .jobberProfile
+                                                    .image,
                                           ),
                                         ),
                                       );
@@ -737,7 +745,10 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                           if (extractedReservation[index].status == 1)
                             OutlineSelectedButton(
                               onTap: () {
-                                confirmCancellation(extractedReservation[index].id.toString(), widget.jobsInProgressDetail!.id.toString(),);
+                                confirmCancellation(
+                                  extractedReservation[index].id.toString(),
+                                  widget.jobsInProgressDetail!.id.toString(),
+                                );
                               },
                               textTitle: "Request For Cancellation",
                               border: true,
@@ -745,35 +756,43 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                             ),
                           if (extractedReservation[index].status == 4)
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 15),
                               width: MediaQuery.of(context).size.width / 1.15,
                               decoration: BoxDecoration(
                                 color: Colors.amber,
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
-                              child: Text("Waiting for approval".tr(), style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontFamily: 'Cerebri Sans Bold',
-                              ),
-                              textAlign: TextAlign.center,).tr(),
+                              child: Text(
+                                "Waiting for approval".tr(),
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                  fontFamily: 'Cerebri Sans Bold',
+                                ),
+                                textAlign: TextAlign.center,
+                              ).tr(),
                             ),
                           if (extractedReservation[index].status == 3)
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 15),
                               width: MediaQuery.of(context).size.width / 1.15,
                               decoration: BoxDecoration(
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
-                              child: Text("Cancelled".tr(), style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontFamily: 'Cerebri Sans Bold',
-                              ),
-                                textAlign: TextAlign.center,).tr(),
+                              child: Text(
+                                "Cancelled".tr(),
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                  fontFamily: 'Cerebri Sans Bold',
+                                ),
+                                textAlign: TextAlign.center,
+                              ).tr(),
                             ),
                           SizedBox(
                             height: MediaQuery.of(context).size.width / 40,
@@ -804,8 +823,8 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                       builder: (_, offers, child) => InkWell(
                         onTap: () {
                           offers.setCheckApi();
-                          offers
-                              .getJobProposals(context, widget.jobsInProgressDetail!.id);
+                          offers.getJobProposals(
+                              context, widget.jobsInProgressDetail!.id);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -852,33 +871,47 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
   }
 
   confirmCancellation(reservationId, jobInProgressId) {
-    showDialog(context: context, builder: (ctx) => AlertDialog(
-      title: Text("Are you sure?", style: Theme.of(context).textTheme.bodyLarge).tr(),
-      actions: [
-        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text(
-          "Cancel",
-          style: TextStyle(fontSize: 16,
-            color: Colors.black,
-            fontWeight: FontWeight.normal,
-            fontFamily: 'Cerebri Sans Bold',),),),
-        ElevatedButton(
-          onPressed: (){
-
-          Provider.of<CancelReservationProvider>(context,
-                  listen: false)
-              .cancelJobReservations(
-            context,
-            reservationId,
-            jobInProgressId,
-          ).then((value) => Navigator.of(context).pop());
-        }, child: const Text(
-          "Confirm",
-          style: TextStyle(fontSize: 16,
-          color: Colors.white,
-          fontWeight: FontWeight.normal,
-          fontFamily: 'Cerebri Sans Bold',),),),
-      ],
-    ) );
-
+    showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+              title: Text("Are you sure?",
+                      style: Theme.of(context).textTheme.bodyLarge)
+                  .tr(),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text(
+                    "Cancel",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'Cerebri Sans Bold',
+                    ),
+                  ).tr(),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Provider.of<CancelReservationProvider>(context,
+                            listen: false)
+                        .cancelJobReservations(
+                          context,
+                          reservationId,
+                          jobInProgressId,
+                        )
+                        .then((value) => Navigator.of(context).pop());
+                  },
+                  child: const Text(
+                    "Confirm",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'Cerebri Sans Bold',
+                    ),
+                  ).tr(),
+                ),
+              ],
+            ));
   }
 }

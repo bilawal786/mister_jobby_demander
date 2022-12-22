@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../helpers/routes.dart';
 import '../../providers/chat_provider.dart';
+import '../../widgets/message_screen_widgets/message_in_progress_tab.dart';
 import 'chat_screen.dart';
 
 class MessagesScreen extends StatefulWidget {
@@ -46,7 +47,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
         onRefresh: ()async {
           await Provider.of<ChatProvider>(context, listen: false).getChatList();
         },
-            child: ListView.builder(
+            child: chatList.chatList!.isNotEmpty ? ListView.builder(
                 padding: const EdgeInsets.all(10.0),
                 itemCount: chatList.chatList?.length,
                 itemBuilder: (ctx, index) => GestureDetector(
@@ -96,8 +97,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                           ],
                         ),
                       ),
-                    )),
-              ),
+                    ),),
+              ) : const MessageInProgressTab(),
           ),
     );
   }

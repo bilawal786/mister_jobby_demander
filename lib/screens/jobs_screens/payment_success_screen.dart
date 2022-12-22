@@ -6,6 +6,7 @@ import '../../models/jobs_models/job_proposals_model.dart';
 import '../../widgets/const_widgets/custom_button.dart';
 import '../../widgets/home_screen_widgets/service_sub_categories/process_const_widgets/outline_selected_button.dart';
 import '../home_screens/home_tabs_screen.dart';
+import '../messages_screens/chat_screen.dart';
 
 class PaymentSuccessScreen extends StatelessWidget {
   final Jobber? jobber;
@@ -82,7 +83,14 @@ class PaymentSuccessScreen extends StatelessWidget {
                     height: MediaQuery.of(context).size.width / 2,
                   ),
                   CustomButton(
-                    onPress: () {},
+                    onPress: () {
+                      Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (ctx) => ChatScreen(jobberId: jobber!.jobberId.toString(),
+                            jobberName: "${jobber!.firstName} ${jobber!.lastName}",
+                            jobberImgUrl: jobber!.image,
+                          ),),);
+                    },
                     buttonName: 'Discuss in private',
                   ),
                   SizedBox(
