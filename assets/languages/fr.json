@@ -761,7 +761,9 @@
   "Information": "Renseignements",
   "Are you sure?": "Es-tu sûr?",
   "Please Wait...": "S'il vous plaît, attendez...",
-  "Job Posted successfully": "Offre publiée avec succès"
+  "Job Posted successfully": "Offre publiée avec succès",
+  "Please Login First": "S'il vous plait Connectez-vous d'abord",
+  "Select Time": "Sélectionnez l'heure"
 
 
 }

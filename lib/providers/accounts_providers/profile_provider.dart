@@ -78,7 +78,7 @@ class ProfileProvider with ChangeNotifier {
   }
 
   Future<void>updateProfileImage(context, imageUrl)async{
-    showDialog(context: context, builder: (BuildContext context){
+    showDialog(context: context, barrierDismissible: false, builder: (BuildContext context){
       return const LoginProgressIndicator();
     });
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();

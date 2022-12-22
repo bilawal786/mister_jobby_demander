@@ -757,7 +757,10 @@
   "Rejected": "Rejected",
   "Are you sure?": "Are you sure?",
   "Please Wait...": "Please Wait...",
-  "Job Posted successfully": "Job Posted successfully"
+  "Job Posted successfully": "Job Posted successfully",
+  "Please Login First": "Please Login First",
+  "Registration Successfully": "Registration Successfully",
+  "Select Time": "Select Time"
 
 
 }

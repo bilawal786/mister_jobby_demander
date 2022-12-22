@@ -1894,6 +1894,7 @@ class ConstProvider with ChangeNotifier {
   ) async {
     showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (BuildContext context) {
           return const LoginProgressIndicator();
         });

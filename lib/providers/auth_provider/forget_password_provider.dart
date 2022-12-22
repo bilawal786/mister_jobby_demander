@@ -21,6 +21,7 @@ class ForgetPasswordProvider with ChangeNotifier {
   Future<void> verifyOtp(BuildContext context, email, otp) async {
     showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (BuildContext context) {
           return const LoginProgressIndicator();
         });

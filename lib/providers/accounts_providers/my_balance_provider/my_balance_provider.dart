@@ -63,6 +63,7 @@ class MyBalanceProvider with ChangeNotifier {
   Future<void> payFromWallet(BuildContext context,proposalId, price, percentage) async{
     showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (BuildContext context) {
           return const LoginProgressIndicator();
         });

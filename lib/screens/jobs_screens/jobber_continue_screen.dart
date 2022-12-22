@@ -359,6 +359,7 @@ class _ContinueJobberState extends State<ContinueJobber> {
                     SizedBox(
                       height: MediaQuery.of(context).size.width / 40,
                     ),
+                    if(((double.parse(widget.proposel!.price) * 10) / 100) >= 5 )
                     Row(
                       children: <Widget>[
                         Text(

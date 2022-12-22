@@ -973,7 +973,7 @@ class EditJobsProvider with ChangeNotifier {
 
   Future<void> postEditJob(
       BuildContext context, jobId, serviceDate, startTime,imageUrl,imageUrl1,imageUrl2) async {
-    showDialog(context: context, builder: (BuildContext context){
+    showDialog(context: context, barrierDismissible: false, builder: (BuildContext context){
       return const LoginProgressIndicator();
     });
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();

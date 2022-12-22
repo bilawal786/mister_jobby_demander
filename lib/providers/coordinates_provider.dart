@@ -10,7 +10,7 @@ class CoordinateProvider with ChangeNotifier {
   CoordinatesModel? getCoordinates;
 
   Future<void> getLatLngGeoCodingApi(context, String address) async {
-    showDialog(context: context, builder: (BuildContext context){
+    showDialog(context: context, barrierDismissible: false, builder: (BuildContext context){
       return const LoginProgressIndicator();
     });
     String geoCodingApiKey = "AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries";

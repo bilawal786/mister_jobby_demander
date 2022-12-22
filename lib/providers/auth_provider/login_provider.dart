@@ -18,7 +18,7 @@ class LoginProvider with ChangeNotifier {
   }
 
   Future<void> login(BuildContext context, email, password) async {
-    showDialog(context: context, builder: (BuildContext context){
+    showDialog(context: context,barrierDismissible: false, builder: (BuildContext context){
       return const LoginProgressIndicator();
     });
     try {

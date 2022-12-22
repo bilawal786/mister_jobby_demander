@@ -29,7 +29,7 @@ class RatingProvider with ChangeNotifier {
 
 
   Future<void> postRating(context,rating, message, jobId) async {
-    showDialog(context: context, builder: (BuildContext context){
+    showDialog(context: context, barrierDismissible: false, builder: (BuildContext context){
       return const LoginProgressIndicator();
     });
     SharedPreferences sharedPrefs = await SharedPreferences.getInstance();

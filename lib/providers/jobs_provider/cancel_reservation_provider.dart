@@ -11,7 +11,7 @@ import 'job_reservation_provider.dart';
 class CancelReservationProvider with ChangeNotifier {
 
   Future<void> cancelJobReservations(context, reservationId, jobId) async {
-    showDialog(context: context, builder: (BuildContext context){
+    showDialog(context: context, barrierDismissible: false, builder: (BuildContext context){
       return const LoginProgressIndicator();
     });
     final SharedPreferences sharePref = await SharedPreferences.getInstance();

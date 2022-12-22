@@ -12,6 +12,7 @@ class GiftCardProvider with ChangeNotifier {
   Future<void> postGiftCard(BuildContext context, number) async {
     showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (BuildContext context) {
           return const LoginProgressIndicator();
         });
