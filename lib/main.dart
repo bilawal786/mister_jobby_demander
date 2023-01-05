@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -173,42 +174,45 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
  void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await Firebase.initializeApp();
-  // 2. Instantiate Firebase Messaging
-  _messaging = FirebaseMessaging.instance;
+  if(!kIsWeb){
+    await Firebase.initializeApp();
+    // 2. Instantiate Firebase Messaging
+    _messaging = FirebaseMessaging.instance;
 
-  // 3. On iOS, this helps to take the user permissions
-  NotificationSettings settings = await _messaging.requestPermission(
-    alert: true,
-    badge: true,
-    provisional: false,
-    sound: true,
-  );
+    // 3. On iOS, this helps to take the user permissions
+    NotificationSettings settings = await _messaging.requestPermission(
+      alert: true,
+      badge: true,
+      provisional: false,
+      sound: true,
+    );
 
-  if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-    // print('User granted permission');
-    // TODO: handle the received notifications
-  } else {
-    // print('User declined or has not accepted permission');
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      // print('User granted permission');
+      // TODO: handle the received notifications
+    } else {
+      // print('User declined or has not accepted permission');
+    }
+
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+    await flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(channel);
+    await FirebaseMessaging.instance
+        .setForegroundNotificationPresentationOptions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
+    final token = await FirebaseMessaging.instance.getToken();
+    debugPrint("firebase token: $token");
+
+    Stripe.publishableKey =
+    'pk_test_mhfC6RVLoiK6pNLoINPHyjGO00LXtQiByW';
+    await Stripe.instance.applySettings();
   }
-
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
-      ?.createNotificationChannel(channel);
-  await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
-    alert: true,
-    badge: true,
-    sound: true,
-  );
-
-  final token = await FirebaseMessaging.instance.getToken();
-  debugPrint("firebase token: $token");
-
-  Stripe.publishableKey =
-      'pk_test_mhfC6RVLoiK6pNLoINPHyjGO00LXtQiByW';
-  await Stripe.instance.applySettings();
   runApp(
     EasyLocalization(
       supportedLocales: const [
