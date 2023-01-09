@@ -16,11 +16,14 @@ class RegisterProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> registration(BuildContext context, firstName, lastName, email,
-      password) async {
-    showDialog(context: context, barrierDismissible: false, builder: (BuildContext context){
-      return const LoginProgressIndicator();
-    });
+  Future<void> registration(
+      BuildContext context, firstName, lastName, email, password) async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return const LoginProgressIndicator();
+        });
     var response = await http.post(
       Uri.parse('${MyRoutes.BASEURL}/register'),
       headers: <String, String>{
@@ -42,11 +45,13 @@ class RegisterProvider with ChangeNotifier {
       await prefs.setString('token', register.success.token);
       await prefs.setInt('demandeurId', register.success.id);
       Navigator.of(context)
-          .pushNamedAndRemoveUntil(MyRoutes.SPLASHROUTE, (route) => false);
+            .pushNamedAndRemoveUntil(MyRoutes.SPLASHROUTE,
+              (route) => false
+      );
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          padding :const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Registration Successfully',
@@ -64,7 +69,7 @@ class RegisterProvider with ChangeNotifier {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          padding :const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           backgroundColor: const Color(0xFFebf9fe),
           content: Text(
             'Already Registered',

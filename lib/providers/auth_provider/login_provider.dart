@@ -42,7 +42,7 @@ class LoginProvider with ChangeNotifier {
         Navigator.pop(context);
         Navigator.of(context).pushNamedAndRemoveUntil(
           MyRoutes.SPLASHROUTE,
-          (route) => false,
+              (route) => false,
         );
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
