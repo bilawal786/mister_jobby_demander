@@ -84,9 +84,11 @@ class _MessagesScreenState extends State<MessagesScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width / 40,
                             ),
-                            Text(
-                              "${chatList.chatList![index].firstName} ${chatList.chatList![index].lastName}",
-                              style: Theme.of(context).textTheme.bodyLarge,
+                            Flexible(
+                              child: Text(
+                                "${chatList.chatList![index].firstName} ${chatList.chatList![index].lastName}",
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
                             ),
                             const Spacer(),
                             const Icon(

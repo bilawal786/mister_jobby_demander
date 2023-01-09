@@ -72,9 +72,9 @@ class SingleJobCommentsProvider with ChangeNotifier {
     if (response.statusCode == 200) {
       final newComment = SingleJobCommentsModel(
           id: 0,
-          userId: profileData!.demandeurId,
+          userId: profileData!.demandeurId!,
           name: "${profileData.firstName} ${profileData.lastName}",
-          image: profileData.image,
+          image: profileData.image!,
           message: sComments.message,
           date: sComments.date,
       );

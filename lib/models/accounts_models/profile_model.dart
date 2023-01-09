@@ -2,11 +2,12 @@
 //
 //     final profileModel = profileModelFromJson(jsonString);
 
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
-ProfileModel profileModelFromJson(String str) => ProfileModel.fromJson(json.decode(str));
+ProfileModel? profileModelFromJson(String str) => ProfileModel.fromJson(json.decode(str));
 
-String profileModelToJson(ProfileModel data) => json.encode(data.toJson());
+String profileModelToJson(ProfileModel? data) => json.encode(data!.toJson());
 
 class ProfileModel {
   ProfileModel({
@@ -21,6 +22,7 @@ class ProfileModel {
     required this.image,
     required this.gender,
     required this.description,
+    required this.deviceToken,
     required this.memberSince,
     required this.totalHireJobber,
     required this.activeJobs,
@@ -28,22 +30,23 @@ class ProfileModel {
     required this.rating,
   });
 
-  int demandeurId;
-  String firstName;
-  String lastName;
-  String phone;
-  String email;
-  String address;
-  String country;
-  int countryId;
-  String image;
-  int gender;
-  String description;
-  String memberSince;
-  int totalHireJobber;
-  int activeJobs;
-  int totalReview;
-  int rating;
+  int? demandeurId;
+  String? firstName;
+  String? lastName;
+  String? phone;
+  String? email;
+  String? address;
+  String? country;
+  int? countryId;
+  String? image;
+  int? gender;
+  String? description;
+  String? deviceToken;
+  String? memberSince;
+  int? totalHireJobber;
+  int? activeJobs;
+  int? totalReview;
+  int? rating;
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
     demandeurId: json["demandeur_id"],
@@ -57,6 +60,7 @@ class ProfileModel {
     image: json["image"],
     gender: json["gender"],
     description: json["description"],
+    deviceToken: json["device_token"],
     memberSince: json["member_since"],
     totalHireJobber: json["total_hire_jobber"],
     activeJobs: json["active_jobs"],
@@ -76,6 +80,7 @@ class ProfileModel {
     "image": image,
     "gender": gender,
     "description": description,
+    "device_token": deviceToken,
     "member_since": memberSince,
     "total_hire_jobber": totalHireJobber,
     "active_jobs": activeJobs,

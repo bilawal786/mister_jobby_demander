@@ -26,6 +26,8 @@ class ChatListModel {
     required this.activeJobs,
     required this.totalReview,
     required this.rating,
+    required this.deviceToken,
+
   });
 
   int demandeurId;
@@ -44,6 +46,7 @@ class ChatListModel {
   int activeJobs;
   int totalReview;
   int rating;
+  String? deviceToken;
 
   factory ChatListModel.fromJson(Map<String, dynamic> json) => ChatListModel(
     demandeurId: json["demandeur_id"],
@@ -62,6 +65,7 @@ class ChatListModel {
     activeJobs: json["active_jobs"],
     totalReview: json["total_review"],
     rating: json["rating"],
+    deviceToken: json["device_token"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -81,5 +85,6 @@ class ChatListModel {
     "active_jobs": activeJobs,
     "total_review": totalReview,
     "rating": rating,
+    "device_token": deviceToken,
   };
 }

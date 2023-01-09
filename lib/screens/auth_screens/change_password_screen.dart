@@ -47,7 +47,7 @@ class _ChangePasswordState extends State<ChangePassword> {
   Widget build(BuildContext context) {
     final profileData = Provider.of<ProfileProvider>(context, listen: false);
     final extractProfile = profileData.myProfile;
-    getEmail = extractProfile!.email;
+    getEmail = extractProfile!.email!;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
