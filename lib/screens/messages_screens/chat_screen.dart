@@ -1,13 +1,15 @@
 
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mister_jobby/providers/accounts_providers/profile_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart';
 
 import '../../helpers/routes.dart';
 import '../../models/accounts_models/profile_model.dart';
-// import '../../models/jobs_models/job_reservations_model.dart';
 import '../../models/messages_model.dart';
 import '../../providers/chat_provider.dart';
 import '../../widgets/message_screen_widgets/message_card_widget.dart';
@@ -16,7 +18,8 @@ class ChatScreen extends StatefulWidget {
   final String jobberId;
   final String jobberName;
   final String jobberImgUrl;
-  const ChatScreen({Key? key, required this.jobberId, required this.jobberName, required this.jobberImgUrl,}) : super(key: key);
+  final String jobberToken;
+  const ChatScreen({Key? key, required this.jobberId, required this.jobberName, required this.jobberImgUrl, required this.jobberToken,}) : super(key: key);
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -158,7 +161,7 @@ class _ChatScreenState extends State<ChatScreen> {
             onPressed: () {
               final postChatData = Provider.of<ChatProvider>(context,listen: false);
               if(textController.text.isNotEmpty) {
-                sendMessage(widget.jobberId, id , textController.text);
+                sendMessage(widget.jobberId, id , textController.text).then((value) => sendPushNotification(widget.jobberName, widget.jobberToken, textController.text));
                 textController.text = '';
                 if(_list.isEmpty) {
                   postChatData.postChatList(context, widget.jobberId);
@@ -211,6 +214,31 @@ class _ChatScreenState extends State<ChatScreen> {
     final ref = FirebaseFirestore.instance
         .collection('chats/${getConversationID(profileId)}/messages/');
     await ref.doc(time).set(message.toJson());
+  }
+
+  Future<void> sendPushNotification(
+      String name, String pToken,String msg) async {
+    try {
+      final body = {
+        "to": pToken,
+        "notification": {
+          "title": name, //our name should be send
+          "body": msg,
+        },
+      };
+
+      var res = await post(Uri.parse('https://fcm.googleapis.com/fcm/send'),
+          headers: {
+            HttpHeaders.contentTypeHeader: 'application/json',
+            HttpHeaders.authorizationHeader:
+            'key=AAAAWznrMC0:APA91bGmwFHEF2awtLaUTbVbTlDDI4SxOLy5lVTr_HwF1BkWKjJ83Rp9OYO02VJh47LGRDzUolzAsE2jUoHWcShhjRJsq42VyH1N2ZTiKusu-Z63_8O8JRbgF0_9hAbfRcY6Rbz3Psin'
+          },
+          body: jsonEncode(body));
+      debugPrint('Response status: ${res.statusCode}');
+      debugPrint('Response body: ${res.body}');
+    } catch (e) {
+      debugPrint('\nsendPushNotificationE: $e');
+    }
   }
 
 }

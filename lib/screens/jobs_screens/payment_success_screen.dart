@@ -89,6 +89,7 @@ class PaymentSuccessScreen extends StatelessWidget {
                           builder: (ctx) => ChatScreen(jobberId: jobber!.jobberId.toString(),
                             jobberName: "${jobber!.firstName} ${jobber!.lastName}",
                             jobberImgUrl: jobber!.image,
+                            jobberToken: "${jobber!.deviceToken}",
                           ),),);
                     },
                     buttonName: 'Discuss in private',

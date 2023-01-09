@@ -160,6 +160,7 @@ class ViewRequestScreen extends StatelessWidget {
                             builder: (ctx) => ChatScreen(jobberId: reservation!.jobberProfile.jobberId.toString(),
                               jobberName: "${reservation!.jobberProfile.firstName} ${reservation!.jobberProfile.lastName}",
                               jobberImgUrl: reservation!.jobberProfile.image,
+                              jobberToken: "${reservation!.jobberProfile.deviceToken}",
                             ),),);
                       },
                       textTitle: "Message",

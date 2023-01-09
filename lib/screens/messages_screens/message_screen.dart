@@ -58,6 +58,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                     .toString(),
                             jobberImgUrl: chatList.chatList![index].image,
                             jobberName: "${chatList.chatList![index].firstName} ${chatList.chatList![index].lastName}",
+                            jobberToken: "${chatList.chatList![index].deviceToken}",
                               )));
                     },
                     child: Card(

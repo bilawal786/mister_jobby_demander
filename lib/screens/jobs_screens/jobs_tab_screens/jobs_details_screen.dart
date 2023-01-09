@@ -683,6 +683,7 @@ class _JobsDetailsScreenState extends State<JobsDetailsScreen> {
                                                 extractedReservation[index]
                                                     .jobberProfile
                                                     .image,
+                                            jobberToken: "${extractedReservation[index].jobberProfile.deviceToken}",
                                           ),
                                         ),
                                       );
