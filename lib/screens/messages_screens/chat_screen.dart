@@ -161,8 +161,11 @@ class _ChatScreenState extends State<ChatScreen> {
             onPressed: () {
               final postChatData = Provider.of<ChatProvider>(context,listen: false);
               if(textController.text.isNotEmpty) {
-                sendMessage(widget.jobberId, id , textController.text).then((value) => sendPushNotification(widget.jobberName, widget.jobberToken, textController.text));
-                textController.text = '';
+                sendMessage(widget.jobberId, id , textController.text).then((value){
+                  sendPushNotification(widget.jobberName, widget.jobberToken, textController.text);
+                  textController.text = '';
+                },
+                );
                 if(_list.isEmpty) {
                   postChatData.postChatList(context, widget.jobberId);
                 }
